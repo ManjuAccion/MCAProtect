@@ -35,7 +35,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="d5K-mH-20o"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6Rq-Ca-WtK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6Rq-Ca-WtK">
                                 <rect key="frame" x="127" y="30" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="0FB-1G-4Iv"/>
@@ -236,6 +236,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appLogo" width="68" height="60"/>
+        <image name="loginLogo" width="92" height="106"/>
     </resources>
 </document>
