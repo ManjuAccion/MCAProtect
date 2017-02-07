@@ -29,6 +29,9 @@
 		782C69EF1E49AEC100268356 /* MCAConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69EC1E49AEC100268356 /* MCAConstants.swift */; };
 		782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69F91E49B20000268356 /* MCAUtilities.swift */; };
 		782C69FD1E49B26000268356 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 782C69FC1E49B26000268356 /* Localizable.strings */; };
+		782C69FF1E49B85000268356 /* MCADashboardTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69FE1E49B85000268356 /* MCADashboardTabbarVC.swift */; };
+		782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A001E49B8D200268356 /* MCADealsFundedVC.swift */; };
+		782C6A031E49B8F500268356 /* MCADealsPipelineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A021E49B8F500268356 /* MCADealsPipelineVC.swift */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +77,9 @@
 		782C69EC1E49AEC100268356 /* MCAConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAConstants.swift; sourceTree = "<group>"; };
 		782C69F91E49B20000268356 /* MCAUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUtilities.swift; sourceTree = "<group>"; };
 		782C69FC1E49B26000268356 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		782C69FE1E49B85000268356 /* MCADashboardTabbarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADashboardTabbarVC.swift; sourceTree = "<group>"; };
+		782C6A001E49B8D200268356 /* MCADealsFundedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsFundedVC.swift; sourceTree = "<group>"; };
+		782C6A021E49B8F500268356 /* MCADealsPipelineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsPipelineVC.swift; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 		782C69F11E49AFDB00268356 /* DashboardTabbarController */ = {
 			isa = PBXGroup;
 			children = (
+				782C69FE1E49B85000268356 /* MCADashboardTabbarVC.swift */,
 			);
 			path = DashboardTabbarController;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 		782C69F21E49AFDB00268356 /* DealsFunded */ = {
 			isa = PBXGroup;
 			children = (
+				782C6A001E49B8D200268356 /* MCADealsFundedVC.swift */,
 			);
 			path = DealsFunded;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 		782C69F31E49AFDB00268356 /* DealsPipeline */ = {
 			isa = PBXGroup;
 			children = (
+				782C6A021E49B8F500268356 /* MCADealsPipelineVC.swift */,
 			);
 			path = DealsPipeline;
 			sourceTree = "<group>";
@@ -619,9 +628,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */,
+				782C6A031E49B8F500268356 /* MCADealsPipelineVC.swift in Sources */,
 				782C69ED1E49AEC100268356 /* MCAConstants.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,
+				782C69FF1E49B85000268356 /* MCADashboardTabbarVC.swift in Sources */,
 				782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
