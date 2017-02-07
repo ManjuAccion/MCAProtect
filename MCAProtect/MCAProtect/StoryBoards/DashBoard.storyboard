@@ -1,7 +1,89 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U3o-kQ-zpv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Performance Comparison-->
+        <scene sceneID="qEa-Ic-SQM">
+            <objects>
+                <viewController id="Nue-t1-TFj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vc6-Tt-jut"/>
+                        <viewControllerLayoutGuide type="bottom" id="a1V-25-EmH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XYc-rI-d91">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Performance Comparison" id="qgc-FM-cC6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIt-K4-pwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="123"/>
+        </scene>
+        <!--Deals Funded-->
+        <scene sceneID="3OP-k5-QBR">
+            <objects>
+                <viewController id="OFl-vf-1ke" customClass="MCADealsFundedVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qyP-qr-xK4"/>
+                        <viewControllerLayoutGuide type="bottom" id="rc6-aZ-gjk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3n5-EG-7hy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Deals Funded" id="VuQ-9Q-gMB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vuv-Gz-HvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="702" y="-12"/>
+        </scene>
+        <!--Deal Pipeline-->
+        <scene sceneID="36B-ec-ZvW">
+            <objects>
+                <viewController id="pFz-0p-LOb" customClass="MCADealsPipelineVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="96t-WF-kAR"/>
+                        <viewControllerLayoutGuide type="bottom" id="sZb-bB-KxP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kJ1-2O-lCs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Deal Pipeline" id="XIg-z0-NMV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="crI-T5-I2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="-532"/>
+        </scene>
+        <!--Dashboard TabbarVC-->
+        <scene sceneID="Y5F-oa-oAh">
+            <objects>
+                <tabBarController id="U3o-kQ-zpv" customClass="MCADashboardTabbarVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fQi-Fo-mbx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pFz-0p-LOb" kind="relationship" relationship="viewControllers" id="dNm-hU-Msm"/>
+                        <segue destination="Nue-t1-TFj" kind="relationship" relationship="viewControllers" id="JXe-pI-fbZ"/>
+                        <segue destination="OFl-vf-1ke" kind="relationship" relationship="viewControllers" id="vVV-re-cKy"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u0G-Ip-23l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-932" y="-205"/>
+        </scene>
+    </scenes>
 </document>

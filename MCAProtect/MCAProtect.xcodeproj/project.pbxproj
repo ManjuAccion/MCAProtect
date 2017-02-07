@@ -168,6 +168,7 @@
 		782C69A11E49ACC500268356 /* MCAProtect */ = {
 			isa = PBXGroup;
 			children = (
+				782C6A101E49DEB900268356 /* WebServicesManager */,
 				782C69D71E49ADE300268356 /* Application Delegate */,
 				782C69D21E49ADD700268356 /* BaseViewController */,
 				782C69D31E49ADD700268356 /* Constants */,
@@ -349,6 +350,13 @@
 				782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		782C6A101E49DEB900268356 /* WebServicesManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebServicesManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
