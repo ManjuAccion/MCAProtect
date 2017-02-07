@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B313E081E49BA07004CE58A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B313E071E49BA07004CE58A /* Login.storyboard */; };
+		5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */; };
+		5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48D1E49F20A00309CAB /* Registration.storyboard */; };
 		6A9F9B00E60E6F389BC9AD86 /* Pods_MCAProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */; };
 		782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782C69A91E49ACC500268356 /* Assets.xcassets */; };
 		782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */; };
@@ -60,6 +62,8 @@
 		2CD461690C404A50EA48979D /* Pods-MCAProtectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.release.xcconfig"; sourceTree = "<group>"; };
 		49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B313E071E49BA07004CE58A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		5B8FC48D1E49F20A00309CAB /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E47A37941517267D683EADE /* Pods-MCAProtect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.debug.xcconfig"; sourceTree = "<group>"; };
 		5E94C53AFF06DF89429C38BA /* Pods-MCAProtectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */,
 				782C69E01E49AE5700268356 /* DashBoard.storyboard */,
 				5B313E071E49BA07004CE58A /* Login.storyboard */,
+				5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */,
+				5B8FC48D1E49F20A00309CAB /* Registration.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -478,7 +484,9 @@
 				782C69FD1E49B26000268356 /* Localizable.strings in Resources */,
 				782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */,
 				782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */,
+				5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */,
 				5B313E081E49BA07004CE58A /* Login.storyboard in Resources */,
+				5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */,
 				782C69E11E49AE5700268356 /* DashBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
