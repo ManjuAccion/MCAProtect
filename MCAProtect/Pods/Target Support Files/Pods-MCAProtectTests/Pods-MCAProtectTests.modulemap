@@ -1,0 +1,6 @@
+framework module Pods_MCAProtectTests {
+  umbrella header "Pods-MCAProtectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
