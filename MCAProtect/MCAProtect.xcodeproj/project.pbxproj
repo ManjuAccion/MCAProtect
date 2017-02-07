@@ -232,10 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				782C69F01E49AFDB00268356 /* DashBoard */,
-				782C69F51E49AFDB00268356 /* ForgotPassword */,
-				782C69F61E49AFDB00268356 /* Login */,
-				782C69F71E49AFDB00268356 /* MPin */,
-				782C69F81E49AFDB00268356 /* Registration */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -302,34 +298,6 @@
 			children = (
 			);
 			path = PerfromanceComparison;
-			sourceTree = "<group>";
-		};
-		782C69F51E49AFDB00268356 /* ForgotPassword */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ForgotPassword;
-			sourceTree = "<group>";
-		};
-		782C69F61E49AFDB00268356 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		782C69F71E49AFDB00268356 /* MPin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MPin;
-			sourceTree = "<group>";
-		};
-		782C69F81E49AFDB00268356 /* Registration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Registration;
 			sourceTree = "<group>";
 		};
 		782C69FB1E49B22E00268356 /* LocalizableStrings */ = {
