@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B313E081E49BA07004CE58A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B313E071E49BA07004CE58A /* Login.storyboard */; };
 		6A9F9B00E60E6F389BC9AD86 /* Pods_MCAProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */; };
 		782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782C69A91E49ACC500268356 /* Assets.xcassets */; };
 		782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */; };
@@ -18,9 +19,6 @@
 		782C69E11E49AE5700268356 /* DashBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69E01E49AE5700268356 /* DashBoard.storyboard */; };
 		782C69E21E49AE5700268356 /* DashBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69E01E49AE5700268356 /* DashBoard.storyboard */; };
 		782C69E31E49AE5700268356 /* DashBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69E01E49AE5700268356 /* DashBoard.storyboard */; };
-		782C69E51E49AE6800268356 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69E41E49AE6800268356 /* Login.storyboard */; };
-		782C69E61E49AE6800268356 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69E41E49AE6800268356 /* Login.storyboard */; };
-		782C69E71E49AE6800268356 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69E41E49AE6800268356 /* Login.storyboard */; };
 		782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69E81E49AE9200268356 /* MCABaseViewController.swift */; };
 		782C69EA1E49AE9200268356 /* MCABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69E81E49AE9200268356 /* MCABaseViewController.swift */; };
 		782C69EB1E49AE9200268356 /* MCABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69E81E49AE9200268356 /* MCABaseViewController.swift */; };
@@ -61,6 +59,7 @@
 		15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD461690C404A50EA48979D /* Pods-MCAProtectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.release.xcconfig"; sourceTree = "<group>"; };
 		49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B313E071E49BA07004CE58A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E47A37941517267D683EADE /* Pods-MCAProtect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.debug.xcconfig"; sourceTree = "<group>"; };
 		5E94C53AFF06DF89429C38BA /* Pods-MCAProtectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +75,6 @@
 		782C69C41E49ACC500268356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		782C69D81E49ADE300268356 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		782C69E01E49AE5700268356 /* DashBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DashBoard.storyboard; sourceTree = "<group>"; };
-		782C69E41E49AE6800268356 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		782C69E81E49AE9200268356 /* MCABaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABaseViewController.swift; sourceTree = "<group>"; };
 		782C69EC1E49AEC100268356 /* MCAConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAConstants.swift; sourceTree = "<group>"; };
 		782C69F91E49B20000268356 /* MCAUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUtilities.swift; sourceTree = "<group>"; };
@@ -207,7 +205,7 @@
 			children = (
 				782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */,
 				782C69E01E49AE5700268356 /* DashBoard.storyboard */,
-				782C69E41E49AE6800268356 /* Login.storyboard */,
+				5B313E071E49BA07004CE58A /* Login.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -470,9 +468,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				782C69FD1E49B26000268356 /* Localizable.strings in Resources */,
-				782C69E51E49AE6800268356 /* Login.storyboard in Resources */,
 				782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */,
 				782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */,
+				5B313E081E49BA07004CE58A /* Login.storyboard in Resources */,
 				782C69E11E49AE5700268356 /* DashBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,7 +479,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				782C69E61E49AE6800268356 /* Login.storyboard in Resources */,
 				782C69E21E49AE5700268356 /* DashBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +487,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				782C69E71E49AE6800268356 /* Login.storyboard in Resources */,
 				782C69E31E49AE5700268356 /* DashBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
