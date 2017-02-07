@@ -7,7 +7,7 @@ target 'MCAProtect' do
 
   # Pods for MCAProtect
 
-  pod 'AFNetworking'
+  pod 'Alamofire', '~> 4.0'
   pod 'SDWebImage'
   pod 'JVFloatLabeledTextField'
 
