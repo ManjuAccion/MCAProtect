@@ -65,6 +65,32 @@ class MCALoginViewController: MCABaseViewController {
         
         
     }
+    
+    @IBAction func aboutUSButtonPressed (sender : AnyObject){
+        let WebViewStoryBoard = UIStoryboard(name : "WebView", bundle : nil)
+        let aboutUS  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
+        aboutUS.nameTitle = "About US";
+        
+        self.navigationController?.pushViewController(aboutUS, animated: true)
+        
+        
+    }
+    @IBAction func termsAndConditionButtonPressed (sender : AnyObject){
+        let WebViewStoryBoard = UIStoryboard(name : "WebView", bundle : nil)
+        let termsAndCondition  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
+        termsAndCondition.nameTitle = "Terms And Condition";
+        self.navigationController?.pushViewController(termsAndCondition, animated: true)
+        
+        
+    }
+    @IBAction func privacyButtonPressed (sender : AnyObject){
+        let WebViewStoryBoard = UIStoryboard(name : "WebView", bundle : nil)
+        let privacy  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
+        privacy.nameTitle = "Privacy"
+        self.navigationController?.pushViewController(privacy, animated: true)
+        
+        
+    }
     /*
     // MARK: - Navigation
 

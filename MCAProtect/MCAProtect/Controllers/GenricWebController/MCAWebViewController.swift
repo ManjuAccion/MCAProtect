@@ -1,22 +1,20 @@
 //
-//  MCARegistrationVC.swift
+//  MCAWebViewController.swift
 //  MCAProtect
 //
-//  Created by Manjunath on 07/02/17.
+//  Created by Accion Labs on 08/02/17.
 //  Copyright © 2017 Accionlabs. All rights reserved.
 //
 
 import UIKit
 
-class MCARegistrationVC: MCABaseViewController {
-
+class MCAWebViewController: MCABaseViewController {
+    var nameTitle : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.navigationController?.navigationBar.isHidden = false
-       
-
+        self.title = nameTitle
 
         // Do any additional setup after loading the view.
     }
