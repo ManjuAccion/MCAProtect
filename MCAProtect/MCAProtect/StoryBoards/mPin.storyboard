@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X7v-MM-a7B">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,15 +10,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--EnterM PinVC-->
         <scene sceneID="jFD-u9-kjF">
             <objects>
-                <viewController id="BTP-qB-WFt" sceneMemberID="viewController">
+                <viewController id="BTP-qB-WFt" customClass="MCAEnterMPinVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bAZ-Il-fVB"/>
                         <viewControllerLayoutGuide type="bottom" id="21h-YF-3dn"/>
@@ -34,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="120" id="rOq-ml-QCb"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your mPIN to login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T92-N6-32O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your mPIN to login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="T92-N6-32O">
                                 <rect key="frame" x="57" y="220" width="260" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EbS-01-4gK"/>
@@ -46,69 +49,39 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xI4-ZV-edT">
                                 <rect key="frame" x="57" y="270" width="260" height="60"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kD7-cE-liK">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kD7-cE-liK" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                         <rect key="frame" x="4" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="4f2-77-idi"/>
-                                            <constraint firstAttribute="height" constant="60" id="VfN-4I-bsF"/>
-                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aP-wb-cp7">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aP-wb-cp7" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                         <rect key="frame" x="68" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Jtp-Tp-DIF"/>
-                                            <constraint firstAttribute="width" constant="60" id="Ka7-5K-Sue"/>
-                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUf-0Y-kNv">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUf-0Y-kNv" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                         <rect key="frame" x="132" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="F1G-dy-EWu"/>
-                                            <constraint firstAttribute="width" constant="60" id="wMV-XX-C1c"/>
-                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dN5-8u-1Yf">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dN5-8u-1Yf" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                         <rect key="frame" x="196" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="GAF-3u-ZhV"/>
-                                            <constraint firstAttribute="height" constant="60" id="zvM-GM-QOb"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="IUf-0Y-kNv" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="top" id="4qO-dP-3Sk"/>
-                                    <constraint firstItem="IUf-0Y-kNv" firstAttribute="leading" secondItem="9aP-wb-cp7" secondAttribute="trailing" constant="4" id="8HD-MF-GWe"/>
-                                    <constraint firstItem="dN5-8u-1Yf" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="top" id="9QT-FA-Bb6"/>
-                                    <constraint firstItem="dN5-8u-1Yf" firstAttribute="leading" secondItem="IUf-0Y-kNv" secondAttribute="trailing" constant="4" id="ABo-gc-KHG"/>
-                                    <constraint firstItem="9aP-wb-cp7" firstAttribute="leading" secondItem="kD7-cE-liK" secondAttribute="trailing" constant="4" id="IDv-1H-nkK"/>
-                                    <constraint firstItem="9aP-wb-cp7" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="top" id="QSy-nl-UdD"/>
-                                    <constraint firstItem="kD7-cE-liK" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="top" id="Si9-aG-CRb"/>
-                                    <constraint firstItem="kD7-cE-liK" firstAttribute="leading" secondItem="xI4-ZV-edT" secondAttribute="leading" constant="4" id="kwS-8d-Ybw"/>
+                                    <constraint firstItem="dN5-8u-1Yf" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="0Rb-Fx-UfA"/>
+                                    <constraint firstItem="IUf-0Y-kNv" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="top" id="9fP-aJ-ZYU"/>
+                                    <constraint firstItem="kD7-cE-liK" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="GzK-Ip-e7x"/>
+                                    <constraint firstItem="dN5-8u-1Yf" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.23" id="P7M-FG-fbE"/>
+                                    <constraint firstItem="dN5-8u-1Yf" firstAttribute="leading" secondItem="IUf-0Y-kNv" secondAttribute="trailing" constant="4" id="QIB-BA-t24"/>
+                                    <constraint firstItem="dN5-8u-1Yf" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="top" id="ROy-ua-iE8"/>
+                                    <constraint firstItem="IUf-0Y-kNv" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.23" id="ThX-aR-RMa"/>
+                                    <constraint firstItem="IUf-0Y-kNv" firstAttribute="leading" secondItem="9aP-wb-cp7" secondAttribute="trailing" constant="4" id="Um5-7a-3ch"/>
+                                    <constraint firstItem="kD7-cE-liK" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="top" id="aMz-9r-iZv"/>
+                                    <constraint firstItem="9aP-wb-cp7" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.23" id="fwT-oC-mEt"/>
+                                    <constraint firstItem="9aP-wb-cp7" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="top" id="g8b-Rt-Cor"/>
+                                    <constraint firstItem="IUf-0Y-kNv" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="la6-D6-qj6"/>
+                                    <constraint firstItem="kD7-cE-liK" firstAttribute="leading" secondItem="xI4-ZV-edT" secondAttribute="leading" constant="4" id="szW-0D-d7V"/>
+                                    <constraint firstItem="9aP-wb-cp7" firstAttribute="leading" secondItem="kD7-cE-liK" secondAttribute="trailing" constant="4" id="wcz-cH-Dv2"/>
+                                    <constraint firstItem="kD7-cE-liK" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.23" id="yRO-Fp-yC2"/>
+                                    <constraint firstItem="9aP-wb-cp7" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="yuk-tj-JkY"/>
                                     <constraint firstAttribute="height" constant="60" id="zSJ-4Z-zrk"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hj-qV-vY5">
-                                <rect key="frame" x="57" y="370" width="111" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="CcP-hj-dim"/>
-                                    <constraint firstAttribute="width" constant="111" id="m3a-k4-xgm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                <state key="normal" title="Change mPIN">
-                                    <color key="titleColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-he-v15">
-                                <rect key="frame" x="206" y="370" width="111" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="Dqv-48-Q29"/>
-                                    <constraint firstAttribute="width" constant="111" id="SwE-F0-qFy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                <state key="normal" title="Forgot mPIN?">
-                                    <color key="titleColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5p-rJ-Umj">
                                 <rect key="frame" x="145" y="434" width="85" height="30"/>
                                 <color key="backgroundColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
@@ -119,28 +92,84 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginTapped:" destination="BTP-qB-WFt" eventType="touchUpInside" id="Riz-DC-5OX"/>
+                                </connections>
                             </button>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pzx-04-Mi4">
+                                <rect key="frame" x="67" y="169" width="228" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BTP-qB-WFt" id="dOf-jR-1qg"/>
+                                </connections>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcj-f0-DDu">
+                                <rect key="frame" x="57" y="352" width="260" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hj-qV-vY5">
+                                        <rect key="frame" x="0.0" y="10.5" width="86" height="29"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                                        <state key="normal" title="Change mPIN">
+                                            <color key="titleColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeMPinTapped:" destination="BTP-qB-WFt" eventType="touchUpInside" id="P4J-2p-D3x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-he-v15">
+                                        <rect key="frame" x="175" y="10.5" width="85" height="29"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                                        <state key="normal" title="Forgot mPIN?">
+                                            <color key="titleColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgotMPinTapped:" destination="BTP-qB-WFt" eventType="touchUpInside" id="ba2-hh-6cG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3hj-qV-vY5" firstAttribute="centerY" secondItem="mcj-f0-DDu" secondAttribute="centerY" id="LOW-hb-RfU"/>
+                                    <constraint firstItem="3hj-qV-vY5" firstAttribute="leading" secondItem="mcj-f0-DDu" secondAttribute="leading" id="ajd-PZ-tgq"/>
+                                    <constraint firstItem="tq2-he-v15" firstAttribute="centerY" secondItem="mcj-f0-DDu" secondAttribute="centerY" id="czt-VO-WO7"/>
+                                    <constraint firstAttribute="height" constant="50" id="ecd-OM-3I6"/>
+                                    <constraint firstAttribute="trailing" secondItem="tq2-he-v15" secondAttribute="trailing" id="v85-D7-wlE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xI4-ZV-edT" firstAttribute="top" secondItem="T92-N6-32O" secondAttribute="bottom" constant="20" id="3J3-Mu-Zpy"/>
                             <constraint firstItem="GMj-Vi-nz2" firstAttribute="top" secondItem="bAZ-Il-fVB" secondAttribute="bottom" constant="50" id="AZe-uX-Azo"/>
+                            <constraint firstItem="xI4-ZV-edT" firstAttribute="trailing" secondItem="T92-N6-32O" secondAttribute="trailing" id="Eb4-fm-abe"/>
                             <constraint firstItem="xI4-ZV-edT" firstAttribute="width" secondItem="V5q-ch-Nv4" secondAttribute="width" multiplier="0.695" id="FYi-tq-4oi"/>
-                            <constraint firstItem="tq2-he-v15" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" constant="74" id="HmN-zx-NBw"/>
                             <constraint firstItem="GMj-Vi-nz2" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" id="JBD-mY-l4W"/>
-                            <constraint firstItem="3hj-qV-vY5" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="bottom" constant="40" id="UGZ-FV-mkv"/>
-                            <constraint firstItem="tq2-he-v15" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="bottom" constant="40" id="UOz-hv-nOz"/>
-                            <constraint firstItem="D5p-rJ-Umj" firstAttribute="top" secondItem="tq2-he-v15" secondAttribute="bottom" constant="30" id="Wpv-C5-cch"/>
+                            <constraint firstItem="mcj-f0-DDu" firstAttribute="leading" secondItem="xI4-ZV-edT" secondAttribute="leading" id="XdD-cd-Qp7"/>
                             <constraint firstItem="D5p-rJ-Umj" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" id="aO2-D2-k42"/>
                             <constraint firstItem="D5p-rJ-Umj" firstAttribute="width" secondItem="V5q-ch-Nv4" secondAttribute="width" multiplier="0.225" id="bO6-zi-zT4"/>
                             <constraint firstItem="T92-N6-32O" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" id="ehb-Tf-Onx"/>
-                            <constraint firstItem="3hj-qV-vY5" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" constant="-75" id="fYb-2E-dO9"/>
+                            <constraint firstItem="mcj-f0-DDu" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="bottom" constant="22" id="f28-Kk-fjL"/>
+                            <constraint firstItem="D5p-rJ-Umj" firstAttribute="top" secondItem="mcj-f0-DDu" secondAttribute="bottom" constant="32" id="ffC-bk-1ay"/>
+                            <constraint firstItem="mcj-f0-DDu" firstAttribute="trailing" secondItem="xI4-ZV-edT" secondAttribute="trailing" id="ndH-9c-tT2"/>
                             <constraint firstItem="T92-N6-32O" firstAttribute="width" secondItem="V5q-ch-Nv4" secondAttribute="width" multiplier="0.695" id="pe4-sQ-xVs"/>
                             <constraint firstItem="T92-N6-32O" firstAttribute="top" secondItem="GMj-Vi-nz2" secondAttribute="bottom" constant="30" id="slp-MK-dnt"/>
+                            <constraint firstItem="xI4-ZV-edT" firstAttribute="leading" secondItem="T92-N6-32O" secondAttribute="leading" id="y0g-MJ-sLU"/>
                             <constraint firstItem="xI4-ZV-edT" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" id="y8W-WH-yMn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yeQ-ez-bWK"/>
+                    <connections>
+                        <outlet property="changeMPinButton" destination="3hj-qV-vY5" id="yjr-hx-duh"/>
+                        <outlet property="forgotMPinButton" destination="tq2-he-v15" id="WG6-Dg-zHS"/>
+                        <outlet property="loginButton" destination="D5p-rJ-Umj" id="IQ7-XU-R4h"/>
+                        <outlet property="secureInputTF" destination="Pzx-04-Mi4" id="BfP-aj-OGz"/>
+                        <outlet property="secureInputView1" destination="kD7-cE-liK" id="fzn-KC-6m2"/>
+                        <outlet property="secureInputView2" destination="9aP-wb-cp7" id="XTC-tN-P6y"/>
+                        <outlet property="secureInputView3" destination="IUf-0Y-kNv" id="xhv-9q-sgf"/>
+                        <outlet property="secureInputView4" destination="dN5-8u-1Yf" id="hNv-cu-yHV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bm-xp-M3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,7 +180,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="X7v-MM-a7B" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HCV-jq-BZy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HCV-jq-BZy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
