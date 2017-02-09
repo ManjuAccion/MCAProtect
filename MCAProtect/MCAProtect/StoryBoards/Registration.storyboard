@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTv-wy-qtX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqL-UH-8y8">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
+                                        <rect key="frame" x="0.0" y="-64" width="375" height="193"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1wm-8K-flW">
                                                 <rect key="frame" x="127" y="10" width="120" height="120"/>
@@ -56,7 +56,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypR-oa-nM4">
-                                        <rect key="frame" x="0.0" y="193" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="129" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Business Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-3C-6x3" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="38" y="15" width="300" height="29"/>
@@ -66,6 +66,20 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                        <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderYPadding">
+                                                        <real key="value" value="9"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
+                                                        <real key="value" value="-3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cnE-zg-xQA" id="ElN-zx-513"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="893-bf-vmb">
                                                 <rect key="frame" x="38" y="45" width="300" height="1"/>
@@ -87,13 +101,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6n-S9-LZv">
-                                        <rect key="frame" x="0.0" y="253" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="189" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVJ-zj-WCq" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="37" y="15" width="300" height="29"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cnE-zg-xQA" id="DSY-if-KqE"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7N3-8t-n80">
                                                 <rect key="frame" x="37" y="45" width="300" height="1"/>
@@ -117,13 +134,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oql-1v-Kuo">
-                                        <rect key="frame" x="0.0" y="313" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="249" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2r-wx-bHL" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="37" y="15" width="300" height="29"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cnE-zg-xQA" id="SZz-Zs-wGm"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibj-mL-Qm5">
                                                 <rect key="frame" x="37" y="45" width="300" height="1"/>
@@ -146,13 +166,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="or6-aG-gfP">
-                                        <rect key="frame" x="0.0" y="373" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="309" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18N-vw-FPe" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="37" y="15" width="300" height="29"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cnE-zg-xQA" id="vd5-RD-yqZ"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwV-x3-zvL">
                                                 <rect key="frame" x="37" y="45" width="300" height="1"/>
@@ -175,13 +198,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIg-2b-uDQ">
-                                        <rect key="frame" x="0.0" y="433" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="369" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnj-kg-R28" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="37" y="15" width="300" height="29"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cnE-zg-xQA" id="DVl-i7-oYD"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLG-pS-SDD">
                                                 <rect key="frame" x="37" y="45" width="300" height="1"/>
@@ -204,7 +230,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zF6-al-PYg">
-                                        <rect key="frame" x="0.0" y="493" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="429" width="375" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iJ-0x-GSO">
                                                 <rect key="frame" x="89" y="15" width="196" height="30"/>
@@ -215,6 +241,12 @@
                                                 <state key="normal" title="Register">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -238,6 +270,7 @@
                                     <constraint firstItem="or6-aG-gfP" firstAttribute="leading" secondItem="tTv-wy-qtX" secondAttribute="leading" id="PO6-My-H89"/>
                                     <constraint firstItem="tIg-2b-uDQ" firstAttribute="top" secondItem="or6-aG-gfP" secondAttribute="bottom" id="RU9-33-8Sm"/>
                                     <constraint firstItem="zF6-al-PYg" firstAttribute="top" secondItem="tIg-2b-uDQ" secondAttribute="bottom" id="SVn-gx-LMW"/>
+                                    <constraint firstItem="wqL-UH-8y8" firstAttribute="top" secondItem="tTv-wy-qtX" secondAttribute="top" constant="-64" id="YtM-tg-zGk"/>
                                     <constraint firstItem="wqL-UH-8y8" firstAttribute="centerX" secondItem="tTv-wy-qtX" secondAttribute="centerX" id="Zsw-1p-WI7"/>
                                     <constraint firstItem="l6n-S9-LZv" firstAttribute="leading" secondItem="tTv-wy-qtX" secondAttribute="leading" id="ad9-Gr-DOg"/>
                                     <constraint firstItem="ypR-oa-nM4" firstAttribute="leading" secondItem="tTv-wy-qtX" secondAttribute="leading" id="chq-gq-af5"/>
@@ -251,9 +284,8 @@
                                     <constraint firstItem="ypR-oa-nM4" firstAttribute="top" secondItem="wqL-UH-8y8" secondAttribute="bottom" id="hKb-NB-Of4"/>
                                     <constraint firstItem="Oql-1v-Kuo" firstAttribute="top" secondItem="l6n-S9-LZv" secondAttribute="bottom" id="k7R-mD-d1A"/>
                                     <constraint firstAttribute="trailing" secondItem="tIg-2b-uDQ" secondAttribute="trailing" id="ki5-ei-oOX"/>
-                                    <constraint firstItem="wqL-UH-8y8" firstAttribute="top" secondItem="tTv-wy-qtX" secondAttribute="top" id="pFM-Yv-6MX"/>
                                     <constraint firstAttribute="trailing" secondItem="or6-aG-gfP" secondAttribute="trailing" id="tZ6-ua-QtR"/>
-                                    <constraint firstAttribute="bottom" secondItem="zF6-al-PYg" secondAttribute="bottom" constant="37" id="uAt-Kw-4IM"/>
+                                    <constraint firstAttribute="bottom" secondItem="zF6-al-PYg" secondAttribute="bottom" constant="3" id="uAt-Kw-4IM"/>
                                     <constraint firstAttribute="trailing" secondItem="ypR-oa-nM4" secondAttribute="trailing" id="vsM-Ft-dru"/>
                                     <constraint firstItem="Oql-1v-Kuo" firstAttribute="leading" secondItem="tTv-wy-qtX" secondAttribute="leading" id="xHa-w2-5yS"/>
                                 </constraints>
@@ -268,8 +300,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tTv-wy-qtX" secondAttribute="trailing" id="3Wg-Mf-gOR"/>
-                            <constraint firstItem="tTv-wy-qtX" firstAttribute="top" secondItem="I0H-6o-Kpj" secondAttribute="top" id="8Gg-ZM-k2l"/>
-                            <constraint firstItem="8NM-xQ-qw1" firstAttribute="top" secondItem="tTv-wy-qtX" secondAttribute="bottom" constant="77" id="FVe-vK-zXP"/>
+                            <constraint firstItem="tTv-wy-qtX" firstAttribute="top" secondItem="I0H-6o-Kpj" secondAttribute="top" constant="60" id="8Gg-ZM-k2l"/>
+                            <constraint firstItem="8NM-xQ-qw1" firstAttribute="top" secondItem="tTv-wy-qtX" secondAttribute="bottom" constant="47" id="FVe-vK-zXP"/>
                             <constraint firstItem="tTv-wy-qtX" firstAttribute="leading" secondItem="I0H-6o-Kpj" secondAttribute="leading" id="GW4-qR-ctH"/>
                             <constraint firstItem="c2Z-xl-3ba" firstAttribute="centerX" secondItem="I0H-6o-Kpj" secondAttribute="centerX" id="Tqt-jd-XV0"/>
                             <constraint firstItem="c2Z-xl-3ba" firstAttribute="width" secondItem="I0H-6o-Kpj" secondAttribute="width" multiplier="0.8" id="aQe-HY-VgA"/>
@@ -277,6 +309,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lfv-bz-Hp3"/>
+                    <connections>
+                        <outlet property="scrollView" destination="tTv-wy-qtX" id="BQI-4P-Ffq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6y-Kh-Qee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

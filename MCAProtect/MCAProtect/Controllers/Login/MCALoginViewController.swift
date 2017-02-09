@@ -9,16 +9,15 @@
 import UIKit
 import JVFloatLabeledTextField
 
-class MCALoginViewController: MCABaseViewController {
+class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var emailIDTextField : JVFloatLabeledTextField!
     @IBOutlet weak var passwordTextField : JVFloatLabeledTextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-
-        // Do any additional setup after loading the view.
-    }
+            }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -66,10 +65,14 @@ class MCALoginViewController: MCABaseViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true);
+    }
+
     @IBAction func aboutUSButtonPressed (sender : AnyObject){
         let WebViewStoryBoard = UIStoryboard(name : "WebView", bundle : nil)
         let aboutUS  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
-        aboutUS.nameTitle = "About US";
+        aboutUS.nameTitle = "About Us";
         
         self.navigationController?.pushViewController(aboutUS, animated: true)
         
@@ -78,7 +81,7 @@ class MCALoginViewController: MCABaseViewController {
     @IBAction func termsAndConditionButtonPressed (sender : AnyObject){
         let WebViewStoryBoard = UIStoryboard(name : "WebView", bundle : nil)
         let termsAndCondition  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
-        termsAndCondition.nameTitle = "Terms And Condition";
+        termsAndCondition.nameTitle = NSLocalizedString("Terms & Conditions", comment: "")
         self.navigationController?.pushViewController(termsAndCondition, animated: true)
         
         
@@ -86,7 +89,7 @@ class MCALoginViewController: MCABaseViewController {
     @IBAction func privacyButtonPressed (sender : AnyObject){
         let WebViewStoryBoard = UIStoryboard(name : "WebView", bundle : nil)
         let privacy  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
-        privacy.nameTitle = "Privacy"
+        privacy.nameTitle = NSLocalizedString("Privacy Policy", comment: "")
         self.navigationController?.pushViewController(privacy, animated: true)
         
         
@@ -100,5 +103,12 @@ class MCALoginViewController: MCABaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        self.view.endEditing(true);
+        return true;
+    }
 
 }
