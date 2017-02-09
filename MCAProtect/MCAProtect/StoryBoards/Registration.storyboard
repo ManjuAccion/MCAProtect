@@ -278,6 +278,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="registerButtonPressedWithSender:" destination="cnE-zg-xQA" eventType="touchUpInside" id="b1h-Yk-zOg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -341,6 +344,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Lfv-bz-Hp3"/>
                     <connections>
+                        <outlet property="businessNameTF" destination="9Uh-3C-6x3" id="Og7-AC-EFp"/>
+                        <outlet property="confirmPasswordTF" destination="vnj-kg-R28" id="R9B-DR-v3s"/>
+                        <outlet property="emailTF" destination="SVJ-zj-WCq" id="QTV-kB-vpQ"/>
+                        <outlet property="passwordTF" destination="18N-vw-FPe" id="Vt5-Nc-QQi"/>
+                        <outlet property="phoneNumberTF" destination="g2r-wx-bHL" id="p4M-3P-vpf"/>
                         <outlet property="scrollView" destination="tTv-wy-qtX" id="BQI-4P-Ffq"/>
                     </connections>
                 </viewController>
@@ -353,7 +361,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iZl-l2-lqY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorTransitionMaskImage="        " id="ybE-Fo-JHv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" backIndicatorTransitionMaskImage="        " id="ybE-Fo-JHv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

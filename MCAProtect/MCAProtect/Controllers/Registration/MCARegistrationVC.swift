@@ -55,7 +55,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         self.view.endEditing(true)
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
-        scrollView.contentOffset = CGPoint(x: 0, y: -60)
+        scrollView.contentOffset = CGPoint(x: 0, y: 0)
         return true
     }
     
@@ -64,11 +64,44 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     if ((businessNameTF.text?.isEmpty)!)
     {
         
-    let alertViewController = UIAlertController(title : "Alert", message : "please fill the fields", preferredStyle : .alert)
+    let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Business Name", preferredStyle : .alert)
     alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
     present(alertViewController, animated: true , completion: nil)
         
     }
+        if ((emailTF.text?.isEmpty)!)
+        {
+            
+            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Email", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            present(alertViewController, animated: true , completion: nil)
+            
+        }
+        if ((phoneNumberTF.text?.isEmpty)!)
+        {
+            
+            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Phone Number", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            present(alertViewController, animated: true , completion: nil)
+            
+        }
+        if ((passwordTF.text?.isEmpty)!)
+        {
+            
+            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Password", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            present(alertViewController, animated: true , completion: nil)
+            
+        }
+        if ((confirmPasswordTF.text?.isEmpty)!)
+        {
+            
+            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Confirm Password", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            present(alertViewController, animated: true , completion: nil)
+            
+        }
+
     }
 
     /*
