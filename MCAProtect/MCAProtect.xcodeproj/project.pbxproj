@@ -52,6 +52,7 @@
 		782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */; };
 		782C6A0F1E49BE5A00268356 /* MCANewMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0E1E49BE5A00268356 /* MCANewMPinVC.swift */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
+		BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34CD381E4C7E3A001AF75F /* mPin.storyboard */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,7 @@
 		782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARegistrationVC.swift; sourceTree = "<group>"; };
 		782C6A0E1E49BE5A00268356 /* MCANewMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANewMPinVC.swift; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BA34CD381E4C7E3A001AF75F /* mPin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mPin.storyboard; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,6 +284,7 @@
 				5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */,
 				5B8FC48D1E49F20A00309CAB /* Registration.storyboard */,
 				5B8FC4921E4B017500309CAB /* WebView.storyboard */,
+				BA34CD381E4C7E3A001AF75F /* mPin.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */,
 				5B8FC4A71E4C7E9600309CAB /* Roboto-BoldItalic.ttf in Resources */,
 				5B8FC4AE1E4C7E9600309CAB /* Roboto-Thin.ttf in Resources */,
+				BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */,
 				5B8FC4931E4B017500309CAB /* WebView.storyboard in Resources */,
 				782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */,
 				5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */,
