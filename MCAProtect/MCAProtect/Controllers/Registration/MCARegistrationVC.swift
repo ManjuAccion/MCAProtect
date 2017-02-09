@@ -63,11 +63,11 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         
     if ((businessNameTF.text?.isEmpty)!)
     {
-    
+        
     let alertViewController = UIAlertController(title : "Alert", message : "please fill the fields", preferredStyle : .alert)
     alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-    
     present(alertViewController, animated: true , completion: nil)
+        
     }
     }
 

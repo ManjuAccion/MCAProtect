@@ -12,11 +12,14 @@ import JVFloatLabeledTextField
 class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var emailIDTextField : JVFloatLabeledTextField!
     @IBOutlet weak var passwordTextField : JVFloatLabeledTextField!
+    @IBOutlet weak var rememberPasswordBtn : UIButton!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        rememberPasswordBtn.isSelected = false
             }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,11 +36,15 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
     @IBAction func loginButtonPressed(sender:AnyObject){
         
         
-        if ((emailIDTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)!) {
-            
-            let alertViewController = UIAlertController(title : "Alert", message : "please fill the fields", preferredStyle : .alert)
+        if ((emailIDTextField.text?.isEmpty)!) {
+            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Email Id", preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-            
+            present(alertViewController, animated: true , completion: nil)
+        
+        }
+        if (passwordTextField.text?.isEmpty)! {
+            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Password", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
         }
         else{
@@ -71,10 +78,10 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
 
     @IBAction func aboutUSButtonPressed (sender : AnyObject){
         let WebViewStoryBoard = UIStoryboard(name : "WebView", bundle : nil)
-        let aboutUS  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
-        aboutUS.nameTitle = "About Us";
+        let aboutUs  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
+        aboutUs.nameTitle = "About Us";
         
-        self.navigationController?.pushViewController(aboutUS, animated: true)
+        self.navigationController?.pushViewController(aboutUs, animated: true)
         
         
     }
@@ -109,6 +116,21 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
     {
         self.view.endEditing(true);
         return true;
+    }
+    
+    @IBAction func rememberBtn_box(sender: UIButton) {
+        if (rememberPasswordBtn.isSelected == true)
+        {
+            rememberPasswordBtn.setBackgroundImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+            
+            rememberPasswordBtn.isSelected = false;
+        }
+        else
+        {
+            rememberPasswordBtn.setBackgroundImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+            
+            rememberPasswordBtn.isSelected = true;
+        }
     }
 
 }
