@@ -81,6 +81,7 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
                                                         <real key="value" value="-3"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="cnE-zg-xQA" id="ElN-zx-513"/>
@@ -117,6 +118,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
                                                         <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="cnE-zg-xQA" id="DSY-if-KqE"/>
@@ -155,6 +157,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
                                                         <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="cnE-zg-xQA" id="SZz-Zs-wGm"/>
@@ -192,6 +195,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
                                                         <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="cnE-zg-xQA" id="vd5-RD-yqZ"/>
@@ -229,6 +233,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
                                                         <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="cnE-zg-xQA" id="DVl-i7-oYD"/>
@@ -348,7 +353,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iZl-l2-lqY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" backIndicatorTransitionMaskImage="        " id="ybE-Fo-JHv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorTransitionMaskImage="        " id="ybE-Fo-JHv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

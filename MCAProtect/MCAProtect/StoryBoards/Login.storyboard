@@ -29,9 +29,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0RP-A9-14L" customClass="JVFloatLabeledTextField">
-                                <rect key="frame" x="38" y="231" width="300" height="29"/>
+                                <rect key="frame" x="38" y="223" width="300" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="Dd3-By-UMB"/>
+                                    <constraint firstAttribute="height" constant="37" id="Dd3-By-UMB"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -40,6 +40,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
                                         <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="d5K-mH-20o"/>
@@ -66,9 +67,9 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Qf-Nx-ydV" customClass="JVFloatLabeledTextField">
-                                <rect key="frame" x="37" y="289" width="300" height="29"/>
+                                <rect key="frame" x="37" y="276" width="300" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="NZv-Yc-cF3"/>
+                                    <constraint firstAttribute="height" constant="36" id="NZv-Yc-cF3"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
@@ -77,13 +78,14 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
                                         <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6WJ-rE-KcR"/>
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CG9-7T-xPn">
-                                <rect key="frame" x="37" y="319" width="300" height="1"/>
+                                <rect key="frame" x="37" y="314" width="300" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Y4Q-uY-2ZV"/>
@@ -215,13 +217,13 @@
                             <constraint firstItem="yeg-sF-yJK" firstAttribute="top" secondItem="GTy-MR-F3v" secondAttribute="bottom" constant="6" id="MoD-OD-IeZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oe8-Xb-0qW" secondAttribute="trailing" constant="21" id="OSD-QY-uUG"/>
                             <constraint firstItem="vGH-9i-UAY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OuJ-IJ-xka"/>
-                            <constraint firstItem="xct-bN-1OW" firstAttribute="top" secondItem="CG9-7T-xPn" secondAttribute="bottom" constant="20" id="Qzl-Zg-TKQ"/>
+                            <constraint firstItem="xct-bN-1OW" firstAttribute="top" secondItem="CG9-7T-xPn" secondAttribute="bottom" constant="25" id="Qzl-Zg-TKQ"/>
                             <constraint firstItem="xct-bN-1OW" firstAttribute="leading" secondItem="L7P-sL-Xuq" secondAttribute="trailing" constant="8" symbolic="YES" id="SPb-n8-JV1"/>
                             <constraint firstItem="ukU-fR-X30" firstAttribute="top" secondItem="6Rq-Ca-WtK" secondAttribute="bottom" constant="20" id="YEv-Im-dES"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yeg-sF-yJK" secondAttribute="bottom" constant="10" id="a1k-Tv-eiX"/>
                             <constraint firstItem="ukU-fR-X30" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bvh-Ju-5ub"/>
                             <constraint firstItem="5Qf-Nx-ydV" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="cHQ-Lq-l32"/>
-                            <constraint firstItem="0RP-A9-14L" firstAttribute="top" secondItem="ukU-fR-X30" secondAttribute="bottom" constant="28" id="cdr-C6-q1d"/>
+                            <constraint firstItem="0RP-A9-14L" firstAttribute="top" secondItem="ukU-fR-X30" secondAttribute="bottom" constant="20" id="cdr-C6-q1d"/>
                             <constraint firstItem="6Rq-Ca-WtK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="fBb-Mf-7cu"/>
                             <constraint firstItem="CG9-7T-xPn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="fjI-iu-W6C"/>
                             <constraint firstItem="yeg-sF-yJK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gdp-M0-bxi"/>
@@ -234,10 +236,10 @@
                             <constraint firstItem="5Qf-Nx-ydV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q2m-s7-0kP"/>
                             <constraint firstItem="Oe8-Xb-0qW" firstAttribute="leading" secondItem="GTy-MR-F3v" secondAttribute="trailing" id="tQX-cO-VaW"/>
                             <constraint firstItem="bN2-IG-9LF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="22" id="yFN-2Z-2Fu"/>
-                            <constraint firstItem="5Qf-Nx-ydV" firstAttribute="top" secondItem="vGH-9i-UAY" secondAttribute="bottom" constant="27" id="yb9-Ab-IhQ"/>
+                            <constraint firstItem="5Qf-Nx-ydV" firstAttribute="top" secondItem="vGH-9i-UAY" secondAttribute="bottom" constant="14" id="yb9-Ab-IhQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q9M-Pu-6nc" secondAttribute="trailing" constant="21" id="z3L-eR-8Bw"/>
                             <constraint firstItem="0RP-A9-14L" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="zd6-jM-PPK"/>
-                            <constraint firstItem="CG9-7T-xPn" firstAttribute="top" secondItem="5Qf-Nx-ydV" secondAttribute="bottom" constant="1" id="zez-dh-foC"/>
+                            <constraint firstItem="CG9-7T-xPn" firstAttribute="top" secondItem="5Qf-Nx-ydV" secondAttribute="bottom" constant="2" id="zez-dh-foC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="is0-97-Kfw"/>
