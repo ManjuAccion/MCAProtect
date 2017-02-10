@@ -47,19 +47,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xI4-ZV-edT">
-                                <rect key="frame" x="57" y="270" width="260" height="60"/>
+                                <rect key="frame" x="57" y="260" width="260" height="44"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kD7-cE-liK" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="4" y="0.0" width="60" height="44"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aP-wb-cp7" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
-                                        <rect key="frame" x="68" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="68" y="0.0" width="60" height="44"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUf-0Y-kNv" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
-                                        <rect key="frame" x="132" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="132" y="0.0" width="60" height="44"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dN5-8u-1Yf" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
-                                        <rect key="frame" x="196" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="196" y="0.0" width="60" height="44"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -79,23 +79,9 @@
                                     <constraint firstItem="9aP-wb-cp7" firstAttribute="leading" secondItem="kD7-cE-liK" secondAttribute="trailing" constant="4" id="wcz-cH-Dv2"/>
                                     <constraint firstItem="kD7-cE-liK" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.23" id="yRO-Fp-yC2"/>
                                     <constraint firstItem="9aP-wb-cp7" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="yuk-tj-JkY"/>
-                                    <constraint firstAttribute="height" constant="60" id="zSJ-4Z-zrk"/>
+                                    <constraint firstAttribute="height" constant="44" id="zSJ-4Z-zrk"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5p-rJ-Umj">
-                                <rect key="frame" x="145" y="434" width="85" height="30"/>
-                                <color key="backgroundColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="eae-Lb-Pln"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginTapped:" destination="BTP-qB-WFt" eventType="touchUpInside" id="Riz-DC-5OX"/>
-                                </connections>
-                            </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pzx-04-Mi4">
                                 <rect key="frame" x="67" y="169" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -107,10 +93,10 @@
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcj-f0-DDu">
-                                <rect key="frame" x="57" y="352" width="260" height="50"/>
+                                <rect key="frame" x="57" y="320" width="260" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hj-qV-vY5">
-                                        <rect key="frame" x="0.0" y="10.5" width="86" height="29"/>
+                                        <rect key="frame" x="0.0" y="11" width="86" height="29"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                         <state key="normal" title="Change mPIN">
                                             <color key="titleColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
@@ -120,7 +106,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-he-v15">
-                                        <rect key="frame" x="175" y="10.5" width="85" height="29"/>
+                                        <rect key="frame" x="175" y="11" width="85" height="29"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                         <state key="normal" title="Forgot mPIN?">
                                             <color key="titleColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,20 +124,34 @@
                                     <constraint firstAttribute="trailing" secondItem="tq2-he-v15" secondAttribute="trailing" id="v85-D7-wlE"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5p-rJ-Umj">
+                                <rect key="frame" x="137" y="390" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eae-Lb-Pln"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginTapped:" destination="BTP-qB-WFt" eventType="touchUpInside" id="Riz-DC-5OX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xI4-ZV-edT" firstAttribute="top" secondItem="T92-N6-32O" secondAttribute="bottom" constant="20" id="3J3-Mu-Zpy"/>
+                            <constraint firstItem="xI4-ZV-edT" firstAttribute="top" secondItem="T92-N6-32O" secondAttribute="bottom" constant="10" id="3J3-Mu-Zpy"/>
                             <constraint firstItem="GMj-Vi-nz2" firstAttribute="top" secondItem="bAZ-Il-fVB" secondAttribute="bottom" constant="50" id="AZe-uX-Azo"/>
                             <constraint firstItem="xI4-ZV-edT" firstAttribute="trailing" secondItem="T92-N6-32O" secondAttribute="trailing" id="Eb4-fm-abe"/>
                             <constraint firstItem="xI4-ZV-edT" firstAttribute="width" secondItem="V5q-ch-Nv4" secondAttribute="width" multiplier="0.695" id="FYi-tq-4oi"/>
                             <constraint firstItem="GMj-Vi-nz2" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" id="JBD-mY-l4W"/>
                             <constraint firstItem="mcj-f0-DDu" firstAttribute="leading" secondItem="xI4-ZV-edT" secondAttribute="leading" id="XdD-cd-Qp7"/>
                             <constraint firstItem="D5p-rJ-Umj" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" id="aO2-D2-k42"/>
-                            <constraint firstItem="D5p-rJ-Umj" firstAttribute="width" secondItem="V5q-ch-Nv4" secondAttribute="width" multiplier="0.225" id="bO6-zi-zT4"/>
+                            <constraint firstItem="D5p-rJ-Umj" firstAttribute="width" secondItem="V5q-ch-Nv4" secondAttribute="width" multiplier="0.225" constant="15.625" id="bO6-zi-zT4"/>
                             <constraint firstItem="T92-N6-32O" firstAttribute="centerX" secondItem="V5q-ch-Nv4" secondAttribute="centerX" id="ehb-Tf-Onx"/>
-                            <constraint firstItem="mcj-f0-DDu" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="bottom" constant="22" id="f28-Kk-fjL"/>
-                            <constraint firstItem="D5p-rJ-Umj" firstAttribute="top" secondItem="mcj-f0-DDu" secondAttribute="bottom" constant="32" id="ffC-bk-1ay"/>
+                            <constraint firstItem="mcj-f0-DDu" firstAttribute="top" secondItem="xI4-ZV-edT" secondAttribute="bottom" constant="16" id="f28-Kk-fjL"/>
+                            <constraint firstItem="D5p-rJ-Umj" firstAttribute="top" secondItem="mcj-f0-DDu" secondAttribute="bottom" constant="20" id="ffC-bk-1ay"/>
                             <constraint firstItem="mcj-f0-DDu" firstAttribute="trailing" secondItem="xI4-ZV-edT" secondAttribute="trailing" id="ndH-9c-tT2"/>
                             <constraint firstItem="T92-N6-32O" firstAttribute="width" secondItem="V5q-ch-Nv4" secondAttribute="width" multiplier="0.695" id="pe4-sQ-xVs"/>
                             <constraint firstItem="T92-N6-32O" firstAttribute="top" secondItem="GMj-Vi-nz2" secondAttribute="bottom" constant="30" id="slp-MK-dnt"/>
