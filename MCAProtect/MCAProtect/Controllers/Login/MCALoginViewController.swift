@@ -41,6 +41,10 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
 
     
     @IBAction func loginButtonPressed(sender:AnyObject){
+        
+        if ((emailIDTextField.text?.isEmpty)!) || ((passwordTextField.text?.isEmpty)!) {
+            
+        
         if ((emailIDTextField.text?.isEmpty)!) {
             let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Email Id", preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
@@ -55,13 +59,18 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
             }
                     
         }
-        if (passwordTextField.text?.isEmpty)! {
+        if ((passwordTextField.text?.isEmpty)!) {
             let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Password", preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
         }
-        else{
             
+        }
+        else
+        {
+            let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
+            let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVCID") as! MCAForgotPasswordVC
+            self.navigationController?.pushViewController(mPin, animated: true)
             
         }
         
