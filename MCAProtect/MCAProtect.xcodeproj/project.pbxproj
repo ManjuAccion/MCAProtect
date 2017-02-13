@@ -26,6 +26,7 @@
 		5B8FC4AE1E4C7E9600309CAB /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC4A11E4C7E9600309CAB /* Roboto-Thin.ttf */; };
 		5B8FC4AF1E4C7E9600309CAB /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC4A21E4C7E9600309CAB /* Roboto-ThinItalic.ttf */; };
 		6A9F9B00E60E6F389BC9AD86 /* Pods_MCAProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */; };
+		782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782BF0D51E5187EF00B79009 /* MCAPerformanceComparisonVS.swift */; };
 		782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782C69A91E49ACC500268356 /* Assets.xcassets */; };
 		782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */; };
 		782C69B81E49ACC500268356 /* MCAProtectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69B71E49ACC500268356 /* MCAProtectTests.swift */; };
@@ -101,6 +102,7 @@
 		5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E47A37941517267D683EADE /* Pods-MCAProtect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.debug.xcconfig"; sourceTree = "<group>"; };
 		5E94C53AFF06DF89429C38BA /* Pods-MCAProtectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		782BF0D51E5187EF00B79009 /* MCAPerformanceComparisonVS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonVS.swift; sourceTree = "<group>"; };
 		782C699F1E49ACC500268356 /* MCAProtect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCAProtect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		782C69A91E49ACC500268356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		782C69AC1E49ACC500268356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 		782C69F41E49AFDB00268356 /* PerfromanceComparison */ = {
 			isa = PBXGroup;
 			children = (
+				782BF0D51E5187EF00B79009 /* MCAPerformanceComparisonVS.swift */,
 			);
 			path = PerfromanceComparison;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */,
 				782C6A031E49B8F500268356 /* MCADealsPipelineVC.swift in Sources */,
 				782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */,
+				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
 				782C6A0B1E49BE2F00268356 /* MCALoginViewController.swift in Sources */,
 				782C69ED1E49AEC100268356 /* MCAConstants.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
