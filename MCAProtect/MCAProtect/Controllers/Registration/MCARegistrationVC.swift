@@ -46,12 +46,15 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
         scrollView.contentOffset = CGPoint(x: 0, y: -60)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
         return true
     }
     
@@ -59,6 +62,8 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
     @IBAction func registerButtonPressed (sender : AnyObject){
         
+        
+        self.view.endEditing(true)
     if ((businessNameTF.text?.isEmpty)!)
     {
         
@@ -98,6 +103,20 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
             
+        }
+        
+        if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
+        {
+            if (confirmPasswordTF.text == passwordTF.text) {
+                
+            }
+            else{
+                
+                let alertViewController = UIAlertController(title : "Alert", message : "Passwords Do Not Match", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                present(alertViewController, animated: true , completion: nil)
+
+            }
         }
 
     }
