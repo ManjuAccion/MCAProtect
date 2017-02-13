@@ -129,7 +129,7 @@
                                     <constraint firstItem="37R-Bc-ZCI" firstAttribute="width" secondItem="Jv9-Yq-fDN" secondAttribute="width" multiplier="0.333" id="v2Y-xg-xTE"/>
                                 </constraints>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKo-AW-Fud">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKo-AW-Fud">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>

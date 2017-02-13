@@ -84,6 +84,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
                 dealsFundedVC = self.storyboard!.instantiateViewController(withIdentifier: "DealsFunded") as! MCADealsFundedVC
             }
             self.tabbarContentView.addSubview(dealsFundedVC.view);
+            self.autoresizeViewForController(dealsFundedVC);
             print("Fisrt Tab selected");
                 break
         case 1:
@@ -93,6 +94,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
             }
 
             self.tabbarContentView.addSubview(dealsPipelineVC.view);
+            self.autoresizeViewForController(dealsPipelineVC);
             print("Second Tab selected");
                 break
         case 2:
@@ -101,6 +103,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
                 performanceCompVC = self.storyboard!.instantiateViewController(withIdentifier: "PerformanceComparison") as! MCAPerformanceComparisonVS
             }
             self.tabbarContentView.addSubview(performanceCompVC.view);
+            self.autoresizeViewForController(performanceCompVC);
             print("Third Tab selected");
                 break
         default:
@@ -108,6 +111,11 @@ class MCADashboardTabbarVC: MCABaseViewController{
             break
         }
         
+    }
+    
+    func autoresizeViewForController(_ aViewController : MCABaseViewController)
+    {
+            aViewController.view.frame = self.tabbarContentView.bounds;
     }
     
 }
