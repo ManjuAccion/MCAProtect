@@ -18,12 +18,15 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rememberPasswordBtn.isSelected = false
             }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true;
+        
+        rememberPasswordBtn.setBackgroundImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+        rememberPasswordBtn.isSelected = false
+
 
     }
 
@@ -44,6 +47,14 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
             present(alertViewController, animated: true , completion: nil)
         
         }
+        else{
+            if !(MCAUtilities.isValidEmail(testStr: emailIDTextField.text!)) {
+                let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Valid  Email Id", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                present(alertViewController, animated: true , completion: nil)
+            }
+                    
+        }
         if (passwordTextField.text?.isEmpty)! {
             let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Password", preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
@@ -59,7 +70,6 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
     @IBAction func forgotPasswordButtonPressed (sender : AnyObject){
         let forgotPasswordStoryBoard = UIStoryboard(name : "ForgotPassword", bundle : nil)
         let forgotPassword = forgotPasswordStoryBoard.instantiateViewController(withIdentifier: "ForgotPassword") as! MCAForgotPasswordVC
-
         self.navigationController?.pushViewController(forgotPassword, animated: true)
 
         

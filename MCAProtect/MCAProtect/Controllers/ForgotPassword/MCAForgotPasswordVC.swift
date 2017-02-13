@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
     
     @IBOutlet weak var scrollView : UIScrollView!
@@ -60,35 +61,26 @@ class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
     
     @IBAction func resetPasswordPressed (sender : AnyObject){
         if (emailTextField.text?.isEmpty)! {
-            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Business Name", preferredStyle : .alert)
+            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Email ID", preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
 
         }
         else
         {
-            if (self .isValidEmail(testStr: emailTextField.text!)) {
-                
-            }
-            else
-            {
+            
+            if !(MCAUtilities.isValidEmail(testStr: emailTextField.text!)) {
                 let alertViewController = UIAlertController(title : "Alert", message : "Please Enter valid Email", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 present(alertViewController, animated: true , completion: nil)
-                
             }
-            
+                      
         }
         
     }
     
     
-    func isValidEmail(testStr:String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: testStr)
-    }
-    /*
+       /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

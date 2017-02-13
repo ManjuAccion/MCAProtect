@@ -41,7 +41,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func keyboardWillHide(notification:NSNotification){
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero;
         scrollView.contentInset = contentInset
     }
     
@@ -67,7 +67,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     if ((businessNameTF.text?.isEmpty)!)
     {
         
-    let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Business Name", preferredStyle : .alert)
+    let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Business Name", comment: ""), preferredStyle : .alert)
     alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
     present(alertViewController, animated: true , completion: nil)
         
@@ -75,15 +75,24 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         if ((emailTF.text?.isEmpty)!)
         {
             
-            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Email", preferredStyle : .alert)
+            let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Email", comment: "") , preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
             
         }
+        else{
+            if !(MCAUtilities.isValidEmail(testStr: emailTF.text!)) {
+                let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Valid  Email Id", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                present(alertViewController, animated: true , completion: nil)
+
+            }
+                    }
+
         if ((phoneNumberTF.text?.isEmpty)!)
         {
             
-            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Phone Number", preferredStyle : .alert)
+            let alertViewController = UIAlertController(title : "Alert", message :NSLocalizedString("Please Enter Phone Number", comment: ""), preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
             
@@ -91,7 +100,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         if ((passwordTF.text?.isEmpty)!)
         {
             
-            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Password", preferredStyle : .alert)
+            let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment: "") , preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
             
@@ -99,7 +108,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         if ((confirmPasswordTF.text?.isEmpty)!)
         {
             
-            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Confirm Password", preferredStyle : .alert)
+            let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment:"") , preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
             
@@ -112,7 +121,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
             }
             else{
                 
-                let alertViewController = UIAlertController(title : "Alert", message : "Passwords Do Not Match", preferredStyle : .alert)
+                let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Passwords Do Not Match", comment : "")  , preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 present(alertViewController, animated: true , completion: nil)
 
