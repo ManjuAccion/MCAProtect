@@ -27,7 +27,7 @@
         <!--EnterM PinVC-->
         <scene sceneID="jFD-u9-kjF">
             <objects>
-                <viewController storyboardIdentifier="MCAEnterMPinVCID" id="BTP-qB-WFt" customClass="MCAEnterMPinVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCAEnterMPinVC" id="BTP-qB-WFt" customClass="MCAEnterMPinVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bAZ-Il-fVB"/>
                         <viewControllerLayoutGuide type="bottom" id="21h-YF-3dn"/>
@@ -238,7 +238,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Mobile Personal Identification Number)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Y-vt-daQ">
-                                                        <rect key="frame" x="43" y="44" width="273" height="30"/>
+                                                        <rect key="frame" x="38.5" y="44" width="282" height="30"/>
                                                         <fontDescription key="fontDescription" name="Roboto-LightItalic" family="Roboto" pointSize="16"/>
                                                         <color key="textColor" red="0.50588235294117645" green="0.53333333333333333" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -343,7 +343,7 @@ other people from using this app.</string>
                                                         </subviews>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm PIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlZ-VK-9ku">
-                                                        <rect key="frame" x="40" y="104" width="97" height="36"/>
+                                                        <rect key="frame" x="40" y="104" width="98.5" height="36"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                                         <color key="textColor" red="0.50588235294117645" green="0.53333333333333333" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>

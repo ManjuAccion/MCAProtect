@@ -54,6 +54,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleSecureInputContainerViewTapGesture))
         secureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
+        registerForKeyboardNotifications()
     }
     
     func handleSecureInputContainerViewTapGesture() {
@@ -63,11 +64,17 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     //MARK :- IBAction Actions
     
     @IBAction func changeMPinTapped(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MCAChangeMPinVCID") as! MCAChangeMPinVC
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
     }
     
     @IBAction func forgotMPinTapped(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MCAResetMPINVCID") as! MCAResetMPINVC
+        navigationController?.pushViewController(vc,
+                                                 animated: true)
     }
     
     @IBAction func loginTapped(_ sender: Any) {
@@ -137,7 +144,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         //        activeTextField = nil
-        scrollView.isScrollEnabled = false
+//        scrollView.isScrollEnabled = false
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

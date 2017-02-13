@@ -69,7 +69,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
         else
         {
             let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
-            let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVCID") as! MCAForgotPasswordVC
+            let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
             self.navigationController?.pushViewController(mPin, animated: true)
             
         }
