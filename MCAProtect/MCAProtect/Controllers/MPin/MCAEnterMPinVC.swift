@@ -114,9 +114,8 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         
         var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
         var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        var fixedSpaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
  
-        toolbar.setItems([fixedSpaceButton,flexibleSpaceButton, doneButton], animated: false)
+        toolbar.setItems([flexibleSpaceButton, doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         
         return toolbar

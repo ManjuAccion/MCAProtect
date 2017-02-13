@@ -67,6 +67,25 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
     
     @IBAction func setPinButtonTapped(_ sender: Any) {
         
+        if (oldPinSecureInputTF.text?.isEmpty)! || (oldPinSecureInputTF.text?.characters.count)! < 4 {
+            presentAlertWithTitle(title: "Error", message: "Please enter old pin")
+        }
+        if (newPinSecureInputTF.text?.isEmpty)! || (newPinSecureInputTF.text?.characters.count)! < 4 {
+            presentAlertWithTitle(title: "Error", message: "Please enter new pin")
+        }
+        if (confirmPinSecureInputTF.text?.isEmpty)! || (confirmPinSecureInputTF.text?.characters.count)! < 4 {
+            presentAlertWithTitle(title: "Error", message: "Please enter confirm pin")
+        }
+        if (newPinSecureInputTF.text?.characters.count == 4 && confirmPinSecureInputTF.text?.characters.count == 4 && oldPinSecureInputTF.text?.characters.count == 4) && newPinSecureInputTF.text == confirmPinSecureInputTF.text {
+            let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MCAResetMPINVCID") as! MCAResetMPINVC
+            navigationController?.pushViewController(vc,
+                                                     animated: true)
+        }
+        else
+        {
+            presentAlertWithTitle(title: "Error", message: "mPin doesn't match")
+        }
     }
     
     func loadUI() {
@@ -269,8 +288,9 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
 //        activeTextField = nil
-        scrollView.isScrollEnabled = false
-    }
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == oldPinSecureInputTF {
@@ -295,13 +315,8 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
         
         var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
         var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        var fixedSpaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        
-        var nextButton  = UIBarButtonItem(image: UIImage(named: "keyboardPreviousButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.keyboardNextButton))
-        nextButton.width = 50.0
-        var previousButton  = UIBarButtonItem(image: UIImage(named: "keyboardNextButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.keyboardPreviousButton))
-        
-        toolbar.setItems([fixedSpaceButton, nextButton, fixedSpaceButton, previousButton, flexibleSpaceButton, doneButton], animated: false)
+
+        toolbar.setItems([flexibleSpaceButton, doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         
         return toolbar
@@ -320,12 +335,5 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
             confirmPinSecureInputTF.resignFirstResponder()
         }
     }
-    
-    func keyboardNextButton() {
-        
-    }
-    
-    func keyboardPreviousButton() {
-        
-    }
+
 }
