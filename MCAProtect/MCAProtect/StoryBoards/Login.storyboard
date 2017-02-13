@@ -131,7 +131,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lde-IV-2bs">
-                                <rect key="frame" x="41" y="462" width="150" height="31"/>
+                                <rect key="frame" x="41" y="462" width="160" height="31"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -141,7 +141,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9M-Pu-6nc">
-                                <rect key="frame" x="185" y="462" width="150" height="31"/>
+                                <rect key="frame" x="185" y="462" width="160" height="31"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <state key="normal" title="New User?">
                                     <color key="titleColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,7 +213,7 @@
                             <constraint firstItem="lde-IV-2bs" firstAttribute="top" secondItem="rN4-Lt-ZGe" secondAttribute="bottom" constant="16" id="Hq7-PQ-C1Q"/>
                             <constraint firstItem="yeg-sF-yJK" firstAttribute="top" secondItem="Oe8-Xb-0qW" secondAttribute="bottom" constant="16" id="Kql-PT-JTv"/>
                             <constraint firstItem="L7P-sL-Xuq" firstAttribute="leading" secondItem="vGH-9i-UAY" secondAttribute="leading" id="L1C-Go-wMe"/>
-                            <constraint firstItem="q9M-Pu-6nc" firstAttribute="leading" secondItem="lde-IV-2bs" secondAttribute="trailing" constant="-6" id="L5m-kv-9wH"/>
+                            <constraint firstItem="q9M-Pu-6nc" firstAttribute="leading" secondItem="lde-IV-2bs" secondAttribute="trailing" constant="-16" id="L5m-kv-9wH"/>
                             <constraint firstItem="yeg-sF-yJK" firstAttribute="top" secondItem="GTy-MR-F3v" secondAttribute="bottom" constant="16" id="MoD-OD-IeZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oe8-Xb-0qW" secondAttribute="trailing" constant="21" id="OSD-QY-uUG"/>
                             <constraint firstItem="vGH-9i-UAY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OuJ-IJ-xka"/>
@@ -237,7 +237,7 @@
                             <constraint firstItem="Oe8-Xb-0qW" firstAttribute="leading" secondItem="GTy-MR-F3v" secondAttribute="trailing" id="tQX-cO-VaW"/>
                             <constraint firstItem="bN2-IG-9LF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="22" id="yFN-2Z-2Fu"/>
                             <constraint firstItem="5Qf-Nx-ydV" firstAttribute="top" secondItem="vGH-9i-UAY" secondAttribute="bottom" constant="20" id="yb9-Ab-IhQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q9M-Pu-6nc" secondAttribute="trailing" constant="24" id="z3L-eR-8Bw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q9M-Pu-6nc" secondAttribute="trailing" constant="14" id="z3L-eR-8Bw"/>
                             <constraint firstItem="0RP-A9-14L" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.784" id="zd6-jM-PPK"/>
                             <constraint firstItem="CG9-7T-xPn" firstAttribute="top" secondItem="5Qf-Nx-ydV" secondAttribute="bottom" constant="1" id="zez-dh-foC"/>
                         </constraints>
@@ -259,7 +259,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M7C-W8-b3L" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ezS-gl-CT6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ezS-gl-CT6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
