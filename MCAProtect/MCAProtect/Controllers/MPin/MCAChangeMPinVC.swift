@@ -1,31 +1,44 @@
 //
-//  MCASetMPinVC.swift
+//  MCAChangeMPinVC.swift
 //  MCAProtect
 //
-//  Created by Sarath NS on 2/10/17.
+//  Created by Sarath NS on 2/11/17.
 //  Copyright © 2017 Accionlabs. All rights reserved.
 //
 
 import UIKit
 
-class MCASetMPinVC: UIViewController,UITextFieldDelegate {
-    
+class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
+
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var oldPinSecureInputView1: SecureInputView!
+    @IBOutlet weak var oldPinSecureInputView2: SecureInputView!
+    @IBOutlet weak var oldPinSecureInputView3: SecureInputView!
+    @IBOutlet weak var oldPinSecureInputView4: SecureInputView!
+    @IBOutlet weak var oldPinSecureInputTF: UITextField!
+    
     @IBOutlet weak var newPinSecureInputView1: SecureInputView!
     @IBOutlet weak var newPinSecureInputView2: SecureInputView!
     @IBOutlet weak var newPinSecureInputView3: SecureInputView!
     @IBOutlet weak var newPinSecureInputView4: SecureInputView!
     @IBOutlet weak var newPinSecureInputTF: UITextField!
+    
     @IBOutlet weak var confirmPinSecureInputView1: SecureInputView!
     @IBOutlet weak var confirmPinSecureInputView2: SecureInputView!
     @IBOutlet weak var confirmPinSecureInputView3: SecureInputView!
     @IBOutlet weak var confirmPinSecureInputView4: SecureInputView!
     @IBOutlet weak var confirmPinSecureInputTF: UITextField!
+    
     @IBOutlet weak var setPinButton: UIButton!
-    @IBOutlet weak var newPinSecureInputContainerView: UIView!
+    
+    @IBOutlet weak var oldPinSecureInputContainerView: UIView!
     @IBOutlet weak var confirmPinSecureInputContainerView: UIView!
+    @IBOutlet weak var newPinSecureInputContainerView: UIView!
+    
     
     var activeTextField : UITextField?
+
     
     //MARK: - View Life Cycle
     
@@ -33,38 +46,31 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         
         loadUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        
-        // Hide the Navigation Bar Back Button
-        
-        let backButton = UIBarButtonItem(title: "",
-                                         style: UIBarButtonItemStyle.plain,
-                                         target: navigationController,
-                                         action: nil)
-        navigationItem.leftBarButtonItem = backButton
-
         super.viewWillAppear(animated)
+        
         registerForKeyboardNotifications()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+        
         self.view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
     
-    //MARK: - Custom Functions
+    
+    @IBAction func setPinButtonTapped(_ sender: Any) {
+        
+    }
     
     func loadUI() {
+        setPinButton.layer.cornerRadius = 5.0
         
         newPinSecureInputView1.inputImageView.isHidden = true
         newPinSecureInputView2.inputImageView.isHidden = true
@@ -76,17 +82,25 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         confirmPinSecureInputView3.inputImageView.isHidden = true
         confirmPinSecureInputView4.inputImageView.isHidden = true
         
-        setPinButton.layer.cornerRadius = 5.0
+        oldPinSecureInputView1.inputImageView.isHidden = true
+        oldPinSecureInputView2.inputImageView.isHidden = true
+        oldPinSecureInputView3.inputImageView.isHidden = true
+        oldPinSecureInputView4.inputImageView.isHidden = true
         
-        newPinSecureInputTF.becomeFirstResponder()
+        oldPinSecureInputTF.becomeFirstResponder()
         
+        let oldPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleOldPinContainerViewTapGesture))
+            oldPinSecureInputContainerView.addGestureRecognizer(oldPinContainerViewTapGesture)
         
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleNewPinContainerViewTapGesture))
-        newPinSecureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
+            newPinSecureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
         
         let confirmContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleConfirmPinContainerViewTapGesture))
         confirmPinSecureInputContainerView.addGestureRecognizer(confirmContainerViewTapGesture)
-        
+    }
+    
+    func handleOldPinContainerViewTapGesture() {
+        oldPinSecureInputTF.becomeFirstResponder()
     }
     
     func handleNewPinContainerViewTapGesture() {
@@ -96,7 +110,6 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     func handleConfirmPinContainerViewTapGesture() {
         confirmPinSecureInputTF.becomeFirstResponder()
     }
-
     
     func registerForKeyboardNotifications() {
         
@@ -125,18 +138,11 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     }
     
     func keyboardWillBeHidden(sender: NSNotification) {
+        
         let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
-    
-    //MARK: - IBActions Functions
-    
-    @IBAction func setPinButtonTapped(_ sender: Any) {
-        self.view.endEditing(true)
-
-    }
-
     
     //MARK: - UITextFiled Delegates
     
@@ -147,89 +153,102 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
                 
             case 0:
                 if string.isEmpty {
-                    if textField.tag == 1
-                    {
-                        newPinSecureInputView1.inputImageView.isHidden = true
-                    }
-                    else
-                    {
-                        confirmPinSecureInputView1.inputImageView.isHidden = true
+                    switch textField.tag {
+                        case 1:
+                            oldPinSecureInputView1.inputImageView.isHidden = true
+                        case 2:
+                            newPinSecureInputView1.inputImageView.isHidden = true
+                        case 3:
+                            confirmPinSecureInputView1.inputImageView.isHidden = true
+                        default:
+                            print("Default Value")
                     }
                 }
                 else {
-                    if(textField.tag == 1)
-                    {
+                    switch textField.tag {
+                    case 1:
+                        oldPinSecureInputView1.inputImageView.isHidden = false
+                    case 2:
                         newPinSecureInputView1.inputImageView.isHidden = false
-                    }
-                    else
-                    {
+                    case 3:
                         confirmPinSecureInputView1.inputImageView.isHidden = false
+                    default:
+                        print("Default Value")
                     }
                 }
-                
             case 1:
                 if string.isEmpty {
-                    if textField.tag == 1
-                    {
+                    switch textField.tag {
+                    case 1:
+                        oldPinSecureInputView2.inputImageView.isHidden = true
+                    case 2:
                         newPinSecureInputView2.inputImageView.isHidden = true
-                    }
-                    else
-                    {
+                    case 3:
                         confirmPinSecureInputView2.inputImageView.isHidden = true
+                    default:
+                        print("Default Value")
                     }
                 }
                 else {
-                    if(textField.tag == 1)
-                    {
+                    switch textField.tag {
+                    case 1:
+                        oldPinSecureInputView2.inputImageView.isHidden = false
+                    case 2:
                         newPinSecureInputView2.inputImageView.isHidden = false
-                    }
-                    else
-                    {
+                    case 3:
                         confirmPinSecureInputView2.inputImageView.isHidden = false
+                    default:
+                        print("Default Value")
                     }
                 }
-
             case 2:
                 if string.isEmpty {
-                    if textField.tag == 1
-                    {
+                    switch textField.tag {
+                    case 1:
+                        oldPinSecureInputView3.inputImageView.isHidden = true
+                    case 2:
                         newPinSecureInputView3.inputImageView.isHidden = true
-                    }
-                    else
-                    {
+                    case 3:
                         confirmPinSecureInputView3.inputImageView.isHidden = true
+                    default:
+                        print("Default Value")
                     }
                 }
                 else {
-                    if(textField.tag == 1)
-                    {
+                    switch textField.tag {
+                    case 1:
+                        oldPinSecureInputView3.inputImageView.isHidden = false
+                    case 2:
                         newPinSecureInputView3.inputImageView.isHidden = false
-                    }
-                    else
-                    {
+                    case 3:
                         confirmPinSecureInputView3.inputImageView.isHidden = false
+                    default:
+                        print("Default Value")
                     }
                 }
-
             case 3:
                 if string.isEmpty {
-                    if textField.tag == 1
-                    {
+                    switch textField.tag {
+                    case 1:
+                        oldPinSecureInputView4.inputImageView.isHidden = true
+                    case 2:
                         newPinSecureInputView4.inputImageView.isHidden = true
-                    }
-                    else
-                    {
+                    case 3:
                         confirmPinSecureInputView4.inputImageView.isHidden = true
+                    default:
+                        print("Default Value")
                     }
                 }
                 else {
-                    if(textField.tag == 1)
-                    {
+                    switch textField.tag {
+                    case 1:
+                        oldPinSecureInputView4.inputImageView.isHidden = false
+                    case 2:
                         newPinSecureInputView4.inputImageView.isHidden = false
-                    }
-                    else
-                    {
+                    case 3:
                         confirmPinSecureInputView4.inputImageView.isHidden = false
+                    default:
+                        print("Default Value")
                     }
                 }
             default:
@@ -250,16 +269,20 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
 //        activeTextField = nil
-//        scrollView.isScrollEnabled = false
+        scrollView.isScrollEnabled = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.newPinSecureInputTF {
+        if textField == oldPinSecureInputTF {
+            textField.resignFirstResponder()
+            newPinSecureInputTF.becomeFirstResponder()
+        }
+        else if textField == newPinSecureInputTF {
             textField.resignFirstResponder()
             confirmPinSecureInputTF.becomeFirstResponder()
         }
-        else if textField == self.confirmPinSecureInputTF {
-            textField.resignFirstResponder()
+        else {
+            confirmPinSecureInputTF.resignFirstResponder()
         }
         return true
     }
@@ -285,11 +308,15 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     }()
     
     func inputToolbarDonePressed() {
-        if activeTextField == self.newPinSecureInputTF {
-            self.newPinSecureInputTF.resignFirstResponder()
+        if activeTextField == oldPinSecureInputTF {
+            oldPinSecureInputTF.resignFirstResponder()
+            newPinSecureInputTF.becomeFirstResponder()
+        }
+        else if activeTextField == newPinSecureInputTF {
+            newPinSecureInputTF.resignFirstResponder()
             confirmPinSecureInputTF.becomeFirstResponder()
         }
-        else if activeTextField == self.confirmPinSecureInputTF {
+        else {
             confirmPinSecureInputTF.resignFirstResponder()
         }
     }
@@ -301,6 +328,4 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     func keyboardPreviousButton() {
         
     }
-    
-    
 }
