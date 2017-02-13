@@ -19,12 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.white
         UINavigationBar.appearance().tintColor = UIColor(red: 168.0/255.0, green: 42.0/255.0, blue: 42.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name:"Roboto-Medium", size:18.0)!, NSForegroundColorAttributeName:UIColor.black]
-
-
-//        UIBarButtonItem.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Light", size: 18.0)!];
         
-
-        let barAppearance = UIBarButtonItem.appearance()
+       let barAppearance = UIBarButtonItem.appearance()
         barAppearance.setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
 
         return true

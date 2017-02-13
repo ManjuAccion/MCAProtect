@@ -18,7 +18,6 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         rememberPasswordBtn.isSelected = false
             }
     
@@ -33,9 +32,12 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true);
+    }
+
+    
     @IBAction func loginButtonPressed(sender:AnyObject){
-        
-        
         if ((emailIDTextField.text?.isEmpty)!) {
             let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Email Id", preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
@@ -69,17 +71,12 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
         
         self.navigationController?.pushViewController(registration, animated: true)
         
-        
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true);
-    }
-
     @IBAction func aboutUSButtonPressed (sender : AnyObject){
         let WebViewStoryBoard = UIStoryboard(name : "WebView", bundle : nil)
         let aboutUs  = WebViewStoryBoard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
-        aboutUs.nameTitle = "About Us";
+        aboutUs.nameTitle = NSLocalizedString("About Us", comment: "");
         
         self.navigationController?.pushViewController(aboutUs, animated: true)
         
