@@ -69,7 +69,7 @@ class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
         else
         {
             
-            if !(MCAUtilities.isValidEmail(testStr: emailTextField.text!)) {
+            if !(MCAUtilities.isValidEmail(inEmailId: emailTextField.text!)) {
                 let alertViewController = UIAlertController(title : "Alert", message : "Please Enter valid Email", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 present(alertViewController, animated: true , completion: nil)

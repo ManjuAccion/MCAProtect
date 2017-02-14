@@ -41,7 +41,7 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
         if ((emailIDTF.text?.isEmpty)!) {
             presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter email id", comment: ""))
         }
-        else if !(MCAUtilities.isValidEmail(testStr: emailIDTF.text!)) {
+        else if !(MCAUtilities.isValidEmail(inEmailId: emailIDTF.text!)) {
             presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter valid email id", comment: ""))
         }
         else

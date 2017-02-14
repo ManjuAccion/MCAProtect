@@ -81,7 +81,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
             
         }
         else{
-            if !(MCAUtilities.isValidEmail(testStr: emailTF.text!)) {
+            if !(MCAUtilities.isValidEmail(inEmailId: emailTF.text!)) {
                 let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Valid  Email Id", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 present(alertViewController, animated: true , completion: nil)
