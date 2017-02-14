@@ -10,6 +10,8 @@ target 'MCAProtect' do
   pod 'Alamofire', '~> 4.0'
   pod 'SDWebImage'
   pod 'JVFloatLabeledTextField'
+  pod 'iOS-Slide-Menu', '~> 1.5'
+
 
   target 'MCAProtectTests' do
     inherit! :search_paths
