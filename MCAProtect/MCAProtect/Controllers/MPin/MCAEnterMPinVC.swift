@@ -78,7 +78,16 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     @IBAction func loginTapped(_ sender: Any) {
-        
+        if ((secureInputTF.text?.isEmpty)!) || (secureInputTF.text?.characters.count)! < 4{
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter mPin", comment: ""))
+        }
+        else {
+            let storyboard = UIStoryboard(name: "DashBoard", bundle: nil)
+            let dashboardVC = storyboard.instantiateViewController(withIdentifier: "MCADashboardTabbarVC") as! MCADashboardTabbarVC
+            self.navigationController?.pushViewController(dashboardVC,
+                                                          animated: true)
+
+        }
     }
     
     func registerForKeyboardNotifications() {
