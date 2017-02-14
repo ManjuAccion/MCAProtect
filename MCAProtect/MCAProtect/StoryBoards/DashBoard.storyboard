@@ -224,7 +224,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="WuF-Vj-vhX"/>
                     <connections>
+                        <outlet property="dealsFundedLAbel" destination="rSL-ic-6xe" id="5Yo-QN-oVJ"/>
+                        <outlet property="dealsPipelineLabel" destination="ug1-S5-IdO" id="2eV-en-Kwm"/>
                         <outlet property="firstTabBtn" destination="fJA-H2-b6p" id="Ac1-ie-48T"/>
+                        <outlet property="performanceComparisonLabel" destination="mIu-2c-9kG" id="fwj-5M-Bdz"/>
                         <outlet property="secondTabBtn" destination="37R-Bc-ZCI" id="yPZ-zi-TOe"/>
                         <outlet property="tabbarContentView" destination="tKo-AW-Fud" id="LGk-ly-vx9"/>
                         <outlet property="thirdTabBtn" destination="zUf-m4-lkJ" id="7FT-fG-bPf"/>

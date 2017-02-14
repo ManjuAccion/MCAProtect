@@ -32,6 +32,11 @@ class MCADashboardTabbarVC: MCABaseViewController{
     
     let selectedTab = TabSelected.firstTab
 
+    @IBOutlet weak var dealsPipelineLabel: UILabel!
+    @IBOutlet weak var dealsFundedLAbel: UILabel!
+    @IBOutlet weak var performanceComparisonLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
