@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import JVFloatLabeledTextField
 
 class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var emailIDTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
     
+    @IBOutlet weak var emailIDTF: JVFloatLabeledTextField!
     var activeTextField : UITextField?
 
     //MARK: - View Life Cycle
@@ -38,10 +38,16 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
-    }
-    
-    @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
-        
+        if ((emailIDTF.text?.isEmpty)!) {
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter email id", comment: ""))
+        }
+        else if !(MCAUtilities.isValidEmail(testStr: emailIDTF.text!)) {
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter valid email id", comment: ""))
+        }
+        else
+        {
+            //On click of verification email app will naviagate to SetmPin
+        }
     }
     
     func loadUI() {
@@ -94,13 +100,7 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailIDTF {
-            textField.resignFirstResponder()
-            passwordTF.becomeFirstResponder()
-        }
-        else {
-            passwordTF.resignFirstResponder()
-        }
+        textField.resignFirstResponder()
         return true
     }
     
@@ -113,12 +113,7 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
         var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
         var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         var fixedSpaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        
-        var nextButton  = UIBarButtonItem(image: UIImage(named: "keyboardPreviousButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.keyboardNextButton))
-        nextButton.width = 50.0
-        var previousButton  = UIBarButtonItem(image: UIImage(named: "keyboardNextButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.keyboardPreviousButton))
-        
-        toolbar.setItems([fixedSpaceButton, nextButton, fixedSpaceButton, previousButton, flexibleSpaceButton, doneButton], animated: false)
+        toolbar.setItems([flexibleSpaceButton, doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
         
         return toolbar
@@ -127,21 +122,7 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     func inputToolbarDonePressed() {
         if activeTextField == emailIDTF {
             emailIDTF.resignFirstResponder()
-            passwordTF.becomeFirstResponder()
-        }
-        else {
-            passwordTF.resignFirstResponder()
         }
     }
-    
-    func keyboardNextButton() {
-        
-    }
-    
-    func keyboardPreviousButton() {
-        
-    }
-
-
 
 }

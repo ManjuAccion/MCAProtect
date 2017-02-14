@@ -116,8 +116,9 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         // If active text field is hidden by keyboard, scroll it so it's visible
         // Your app might not need or want this behavior.
         var aRect: CGRect = self.view.frame
-        aRect.size.height -= keyboardSize.height
+        aRect.size.height -= keyboardSize.height + 44
         let activeTextFieldRect: CGRect? = activeTextField?.frame
+
         let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
         if (!aRect.contains(activeTextFieldOrigin!)) {
             scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
@@ -136,16 +137,23 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         self.view.endEditing(true)
 
         if (newPinSecureInputTF.text?.isEmpty)! || (newPinSecureInputTF.text?.characters.count)! < 4 {
-            presentAlertWithTitle(title: "Error", message: "Please enter new pin")
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter new pin", comment: ""))
         }
         if (confirmPinSecureInputTF.text?.isEmpty)! || (confirmPinSecureInputTF.text?.characters.count)! < 4 {
-            presentAlertWithTitle(title: "Error", message: "Please enter confirm pin")
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter confirm pin", comment: ""))
         }
         if (newPinSecureInputTF.text?.characters.count == 4 && confirmPinSecureInputTF.text?.characters.count == 4) && newPinSecureInputTF.text == confirmPinSecureInputTF.text {
-            let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MCAChangeMPinVCID") as! MCAChangeMPinVC
-            navigationController?.pushViewController(vc,
-                                                     animated: true)
+
+            let alert = UIAlertController(title: "Alert", message: NSLocalizedString("Your mPin is set successfully.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: UIAlertActionStyle.default, handler: {(action:UIAlertAction) in
+                
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "MCALoginViewController") as! MCALoginViewController
+                self.navigationController?.pushViewController(loginVC,
+                                                              animated: true)
+                
+            }));
+            present(alert, animated: true, completion: nil);
         }
         else
         {
