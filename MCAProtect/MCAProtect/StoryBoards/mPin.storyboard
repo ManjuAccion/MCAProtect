@@ -281,7 +281,7 @@ other people from using this app.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX1-W6-E0Q">
-                                                <rect key="frame" x="9" y="284" width="358" height="180"/>
+                                                <rect key="frame" x="0.0" y="284" width="375" height="180"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4t-5K-7Ad">
                                                         <rect key="frame" x="40" y="44" width="259" height="43"/>
@@ -354,16 +354,13 @@ other people from using this app.</string>
                                                         </subviews>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm PIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlZ-VK-9ku">
-                                                        <rect key="frame" x="40" y="95" width="96.5" height="36"/>
+                                                        <rect key="frame" x="40" y="95" width="294" height="36"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                                         <color key="textColor" red="0.50588235294117645" green="0.53333333333333333" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New PIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDs-ji-T05">
-                                                        <rect key="frame" x="40" y="2" width="69" height="36"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="69" id="hZ8-O7-dV2"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="40" y="2" width="294" height="36"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                                         <color key="textColor" red="0.50588235294117645" green="0.53333333333333333" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -371,19 +368,21 @@ other people from using this app.</string>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="lHD-F7-Uz6" firstAttribute="top" secondItem="PlZ-VK-9ku" secondAttribute="bottom" constant="6" id="3uu-Uc-2rj"/>
-                                                    <constraint firstItem="lHD-F7-Uz6" firstAttribute="width" secondItem="uX1-W6-E0Q" secondAttribute="width" multiplier="0.723" id="4zV-ac-L2P"/>
+                                                    <constraint firstItem="lHD-F7-Uz6" firstAttribute="width" secondItem="uX1-W6-E0Q" secondAttribute="width" multiplier="0.723" constant="-12.125" id="4zV-ac-L2P"/>
                                                     <constraint firstItem="UDs-ji-T05" firstAttribute="height" secondItem="uX1-W6-E0Q" secondAttribute="height" multiplier="0.18" constant="3.9600000000000009" id="6Nn-jU-fac"/>
-                                                    <constraint firstItem="PlZ-VK-9ku" firstAttribute="leading" secondItem="uX1-W6-E0Q" secondAttribute="leading" constant="40" id="HuG-t3-YGk"/>
-                                                    <constraint firstItem="g4t-5K-7Ad" firstAttribute="centerX" secondItem="uX1-W6-E0Q" secondAttribute="centerX" constant="-9.5" id="IDk-xp-2Rm"/>
+                                                    <constraint firstItem="PlZ-VK-9ku" firstAttribute="centerX" secondItem="uX1-W6-E0Q" secondAttribute="centerX" id="8VY-Dh-Psd"/>
+                                                    <constraint firstItem="g4t-5K-7Ad" firstAttribute="centerX" secondItem="uX1-W6-E0Q" secondAttribute="centerX" constant="-18" id="IDk-xp-2Rm"/>
+                                                    <constraint firstItem="UDs-ji-T05" firstAttribute="width" secondItem="uX1-W6-E0Q" secondAttribute="width" multiplier="0.784" id="Lwd-9g-dSL"/>
                                                     <constraint firstItem="PlZ-VK-9ku" firstAttribute="height" secondItem="uX1-W6-E0Q" secondAttribute="height" multiplier="0.18" constant="3.9600000000000009" id="OR8-lR-jFH"/>
+                                                    <constraint firstItem="UDs-ji-T05" firstAttribute="centerX" secondItem="uX1-W6-E0Q" secondAttribute="centerX" id="R3H-eH-lpd"/>
                                                     <constraint firstItem="g4t-5K-7Ad" firstAttribute="height" secondItem="uX1-W6-E0Q" secondAttribute="height" multiplier="0.22" constant="3.8999999999999986" id="RDu-wJ-iiI"/>
                                                     <constraint firstItem="UDs-ji-T05" firstAttribute="top" secondItem="uX1-W6-E0Q" secondAttribute="top" constant="2" id="ea1-dd-LLe"/>
-                                                    <constraint firstItem="lHD-F7-Uz6" firstAttribute="centerX" secondItem="uX1-W6-E0Q" secondAttribute="centerX" constant="-9.5" id="oRD-bT-T63"/>
+                                                    <constraint firstItem="lHD-F7-Uz6" firstAttribute="centerX" secondItem="uX1-W6-E0Q" secondAttribute="centerX" constant="-18" id="oRD-bT-T63"/>
                                                     <constraint firstItem="g4t-5K-7Ad" firstAttribute="top" secondItem="UDs-ji-T05" secondAttribute="bottom" constant="6" id="sIC-ZX-Njp"/>
-                                                    <constraint firstItem="g4t-5K-7Ad" firstAttribute="width" secondItem="uX1-W6-E0Q" secondAttribute="width" multiplier="0.723" id="sWi-gz-cSI"/>
+                                                    <constraint firstItem="g4t-5K-7Ad" firstAttribute="width" secondItem="uX1-W6-E0Q" secondAttribute="width" multiplier="0.723" constant="-12.125" id="sWi-gz-cSI"/>
                                                     <constraint firstItem="PlZ-VK-9ku" firstAttribute="top" secondItem="g4t-5K-7Ad" secondAttribute="bottom" constant="8" id="v03-2O-A66"/>
-                                                    <constraint firstItem="UDs-ji-T05" firstAttribute="leading" secondItem="uX1-W6-E0Q" secondAttribute="leading" constant="40" id="vRL-bF-F1q"/>
                                                     <constraint firstItem="lHD-F7-Uz6" firstAttribute="height" secondItem="uX1-W6-E0Q" secondAttribute="height" multiplier="0.22" constant="3.3999999999999986" id="wbC-Ya-hmD"/>
+                                                    <constraint firstItem="PlZ-VK-9ku" firstAttribute="width" secondItem="uX1-W6-E0Q" secondAttribute="width" multiplier="0.784" id="xfU-2t-Mvl"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AU-u5-Y0h">
@@ -407,7 +406,7 @@ other people from using this app.</string>
                                             <constraint firstItem="1v4-ch-BGE" firstAttribute="height" secondItem="lLr-WP-8nS" secondAttribute="height" multiplier="0.222" constant="8.1339999999999861" id="2tC-Ak-9c1"/>
                                             <constraint firstItem="1v4-ch-BGE" firstAttribute="width" secondItem="lLr-WP-8nS" secondAttribute="width" multiplier="0.955" constant="16.875" id="4Jd-C3-9M6"/>
                                             <constraint firstItem="P8j-k1-6W0" firstAttribute="centerX" secondItem="lLr-WP-8nS" secondAttribute="centerX" id="HBZ-ja-5TH"/>
-                                            <constraint firstItem="uX1-W6-E0Q" firstAttribute="width" secondItem="lLr-WP-8nS" secondAttribute="width" multiplier="0.955" id="MUZ-ej-lCe"/>
+                                            <constraint firstItem="uX1-W6-E0Q" firstAttribute="width" secondItem="lLr-WP-8nS" secondAttribute="width" multiplier="0.955" constant="16.875" id="MUZ-ej-lCe"/>
                                             <constraint firstAttribute="height" constant="603" id="bDN-cy-K90"/>
                                             <constraint firstItem="7AU-u5-Y0h" firstAttribute="top" secondItem="uX1-W6-E0Q" secondAttribute="bottom" constant="14" id="bLh-65-6IX"/>
                                             <constraint firstItem="uX1-W6-E0Q" firstAttribute="height" secondItem="lLr-WP-8nS" secondAttribute="height" multiplier="0.333" constant="-20.799000000000007" id="gQM-bK-ZB3"/>

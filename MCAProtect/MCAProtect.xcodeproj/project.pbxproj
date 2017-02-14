@@ -62,6 +62,13 @@
 		BA88AC9E1E4D791C003E3B2F /* MCASetMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88AC9D1E4D791C003E3B2F /* MCASetMPinVC.swift */; };
 		BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88AC9F1E4EE7D6003E3B2F /* MCAChangeMPinVC.swift */; };
 		BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88ACA11E50285B003E3B2F /* MCAResetMPINVC.swift */; };
+		BA8B686D1E5315C6004CEB69 /* MCADataDetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8B686C1E5315C6004CEB69 /* MCADataDetailsTVCell.xib */; };
+		BA8B686F1E531B66004CEB69 /* MCADataDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B686E1E531B66004CEB69 /* MCADataDetailsTVCell.swift */; };
+		BA8B68711E532111004CEB69 /* MCAUnderwritingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8B68701E532111004CEB69 /* MCAUnderwritingTVCell.xib */; };
+		BA8B68731E532390004CEB69 /* MCAUnderwritingTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68721E532390004CEB69 /* MCAUnderwritingTVCell.swift */; };
+		BA8B68761E532791004CEB69 /* MCAUnderwritingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68751E532791004CEB69 /* MCAUnderwritingVC.swift */; };
+		BA8B68781E53282C004CEB69 /* Underwriting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8B68771E53282C004CEB69 /* Underwriting.storyboard */; };
+		BA8B687A1E533C15004CEB69 /* MCAUnderwritingMerchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68791E533C15004CEB69 /* MCAUnderwritingMerchant.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +149,13 @@
 		BA88AC9D1E4D791C003E3B2F /* MCASetMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASetMPinVC.swift; sourceTree = "<group>"; };
 		BA88AC9F1E4EE7D6003E3B2F /* MCAChangeMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAChangeMPinVC.swift; sourceTree = "<group>"; };
 		BA88ACA11E50285B003E3B2F /* MCAResetMPINVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAResetMPINVC.swift; sourceTree = "<group>"; };
+		BA8B686C1E5315C6004CEB69 /* MCADataDetailsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCADataDetailsTVCell.xib; sourceTree = "<group>"; };
+		BA8B686E1E531B66004CEB69 /* MCADataDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADataDetailsTVCell.swift; sourceTree = "<group>"; };
+		BA8B68701E532111004CEB69 /* MCAUnderwritingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAUnderwritingTVCell.xib; sourceTree = "<group>"; };
+		BA8B68721E532390004CEB69 /* MCAUnderwritingTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUnderwritingTVCell.swift; sourceTree = "<group>"; };
+		BA8B68751E532791004CEB69 /* MCAUnderwritingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUnderwritingVC.swift; sourceTree = "<group>"; };
+		BA8B68771E53282C004CEB69 /* Underwriting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Underwriting.storyboard; sourceTree = "<group>"; };
+		BA8B68791E533C15004CEB69 /* MCAUnderwritingMerchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUnderwritingMerchant.swift; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -315,6 +329,7 @@
 				5B8FC48D1E49F20A00309CAB /* Registration.storyboard */,
 				5B8FC4921E4B017500309CAB /* WebView.storyboard */,
 				BA34CD381E4C7E3A001AF75F /* mPin.storyboard */,
+				BA8B68771E53282C004CEB69 /* Underwriting.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -347,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				5B4741B51E533397001D9435 /* SlideMenu */,
+				BA8B68741E532773004CEB69 /* Underwriting */,
 				5B8FC48F1E4B00C500309CAB /* GenricWebController */,
 				782C6A061E49BE0200268356 /* MPin */,
 				782C6A041E49BE0200268356 /* ForgotPassword */,
@@ -480,8 +496,21 @@
 			isa = PBXGroup;
 			children = (
 				BA34CD3D1E4C9E72001AF75F /* SecureInputView.swift */,
+				BA8B686C1E5315C6004CEB69 /* MCADataDetailsTVCell.xib */,
+				BA8B686E1E531B66004CEB69 /* MCADataDetailsTVCell.swift */,
+				BA8B68701E532111004CEB69 /* MCAUnderwritingTVCell.xib */,
+				BA8B68721E532390004CEB69 /* MCAUnderwritingTVCell.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		BA8B68741E532773004CEB69 /* Underwriting */ = {
+			isa = PBXGroup;
+			children = (
+				BA8B68751E532791004CEB69 /* MCAUnderwritingVC.swift */,
+				BA8B68791E533C15004CEB69 /* MCAUnderwritingMerchant.swift */,
+			);
+			path = Underwriting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -621,8 +650,11 @@
 				5B8FC4A81E4C7E9600309CAB /* Roboto-Italic.ttf in Resources */,
 				5B8FC4AD1E4C7E9600309CAB /* Roboto-Regular.ttf in Resources */,
 				5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */,
+				BA8B686D1E5315C6004CEB69 /* MCADataDetailsTVCell.xib in Resources */,
+				BA8B68781E53282C004CEB69 /* Underwriting.storyboard in Resources */,
 				5B8FC4AC1E4C7E9600309CAB /* Roboto-MediumItalic.ttf in Resources */,
 				782C69E11E49AE5700268356 /* DashBoard.storyboard in Resources */,
+				BA8B68711E532111004CEB69 /* MCAUnderwritingTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,9 +827,12 @@
 				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
 				BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */,
 				782C6A0B1E49BE2F00268356 /* MCALoginViewController.swift in Sources */,
+				BA8B68761E532791004CEB69 /* MCAUnderwritingVC.swift in Sources */,
 				782C69ED1E49AEC100268356 /* MCAConstants.swift in Sources */,
+				BA8B686F1E531B66004CEB69 /* MCADataDetailsTVCell.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,
+				BA8B68731E532390004CEB69 /* MCAUnderwritingTVCell.swift in Sources */,
 				5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */,
 				5B4741B81E533397001D9435 /* MCALeftMenuVC.swift in Sources */,
 				5B4741B91E533397001D9435 /* MCARightMenuVC.swift in Sources */,
@@ -808,6 +843,7 @@
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,
 				BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */,
 				BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */,
+				BA8B687A1E533C15004CEB69 /* MCAUnderwritingMerchant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
