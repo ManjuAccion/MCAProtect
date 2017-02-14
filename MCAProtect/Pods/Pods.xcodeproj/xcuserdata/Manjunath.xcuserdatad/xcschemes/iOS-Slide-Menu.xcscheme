@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8BF24946DF08E9EF821A824E69D6BF5"
-               BuildableName = "Pods_MCAProtect.framework"
-               BlueprintName = "Pods-MCAProtect"
+               BlueprintIdentifier = "4C6D96069231DE352E38353B9CCB369C"
+               BuildableName = "iOS_Slide_Menu.framework"
+               BlueprintName = "iOS-Slide-Menu"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B8BF24946DF08E9EF821A824E69D6BF5"
-            BuildableName = "Pods_MCAProtect.framework"
-            BlueprintName = "Pods-MCAProtect"
+            BlueprintIdentifier = "4C6D96069231DE352E38353B9CCB369C"
+            BuildableName = "iOS_Slide_Menu.framework"
+            BlueprintName = "iOS-Slide-Menu"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
