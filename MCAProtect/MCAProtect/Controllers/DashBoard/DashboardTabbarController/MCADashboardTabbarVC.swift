@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iOS_Slide_Menu
 
 enum TabSelected : NSInteger {
     case firstTab = 0
@@ -29,6 +30,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
     @IBOutlet weak var thirdTabBtn: UIButton!
     @IBOutlet weak var secondTabBtn: UIButton!
     
+    var leftMenu : MCALeftMenuVC!
     
     let selectedTab = TabSelected.firstTab
 
@@ -42,7 +44,24 @@ class MCADashboardTabbarVC: MCABaseViewController{
 
         // Do any additional setup after loading the view.
         // Tabbar navigation should be hidden by default!
-        self.navigationController?.setNavigationBarHidden(true, animated: false);
+        self.navigationController?.setNavigationBarHidden(false, animated: false);
+        
+        
+    }
+    
+    func setupNavigationBarButtons()
+    {
+        let leftBarButton = UIButton.init(frame : CGRect(x:0,y:0,width:30,height:30))
+        leftBarButton .setImage(UIImage(named:"burgerNav"), for: UIControlState.normal)
+                leftBarButton .addTarget(self, action:Selector(("leftBarButtonclicked:")), for:UIControlEvents.touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: leftBarButton)
+
+    }
+    
+    func leftBarButtonclicked(shouldShow : Bool)
+    {
+         leftMenu  = SlideNavigationController().leftMenu as! MCALeftMenuVC!
+        
         
     }
     

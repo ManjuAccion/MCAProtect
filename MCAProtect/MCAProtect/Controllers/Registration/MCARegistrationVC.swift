@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import JVFloatLabeledTextField
 
 class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var scrollView : UIScrollView!
-    @IBOutlet weak var businessNameTF : UITextField!
-    @IBOutlet weak var emailTF : UITextField!
-    @IBOutlet weak var phoneNumberTF : UITextField!
-    @IBOutlet weak var passwordTF : UITextField!
-    @IBOutlet weak var confirmPasswordTF : UITextField!
+    @IBOutlet weak var businessNameTF : JVFloatLabeledTextField!
+    @IBOutlet weak var emailTF : JVFloatLabeledTextField!
+    @IBOutlet weak var phoneNumberTF : JVFloatLabeledTextField!
+    @IBOutlet weak var passwordTF : JVFloatLabeledTextField!
+    @IBOutlet weak var confirmPasswordTF : JVFloatLabeledTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
