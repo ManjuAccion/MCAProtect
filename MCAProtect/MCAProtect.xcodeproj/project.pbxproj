@@ -10,6 +10,8 @@
 		5B313E081E49BA07004CE58A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B313E071E49BA07004CE58A /* Login.storyboard */; };
 		5B4741B81E533397001D9435 /* MCALeftMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B61E533397001D9435 /* MCALeftMenuVC.swift */; };
 		5B4741B91E533397001D9435 /* MCARightMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B71E533397001D9435 /* MCARightMenuVC.swift */; };
+		5B4741C11E53411A001D9435 /* MCALeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C01E53411A001D9435 /* MCALeftMenuVC.xib */; };
+		5B4741C31E534412001D9435 /* MCARightMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C21E534412001D9435 /* MCARightMenuVC.xib */; };
 		5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */; };
 		5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48D1E49F20A00309CAB /* Registration.storyboard */; };
 		5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */; };
@@ -97,6 +99,8 @@
 		5B4741B61E533397001D9435 /* MCALeftMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALeftMenuVC.swift; sourceTree = "<group>"; };
 		5B4741B71E533397001D9435 /* MCARightMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARightMenuVC.swift; sourceTree = "<group>"; };
 		5B4741BC1E533511001D9435 /* MCAProtect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAProtect-Bridging-Header.h"; sourceTree = "<group>"; };
+		5B4741C01E53411A001D9435 /* MCALeftMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCALeftMenuVC.xib; sourceTree = "<group>"; };
+		5B4741C21E534412001D9435 /* MCARightMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCARightMenuVC.xib; sourceTree = "<group>"; };
 		5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		5B8FC48D1E49F20A00309CAB /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebViewController.swift; sourceTree = "<group>"; };
@@ -205,7 +209,9 @@
 			isa = PBXGroup;
 			children = (
 				5B4741B61E533397001D9435 /* MCALeftMenuVC.swift */,
+				5B4741C01E53411A001D9435 /* MCALeftMenuVC.xib */,
 				5B4741B71E533397001D9435 /* MCARightMenuVC.swift */,
+				5B4741C21E534412001D9435 /* MCARightMenuVC.xib */,
 			);
 			name = SlideMenu;
 			path = DashBoard/SlideMenu;
@@ -638,6 +644,7 @@
 				5B8FC4A91E4C7E9600309CAB /* Roboto-Light.ttf in Resources */,
 				5B8FC4A61E4C7E9600309CAB /* Roboto-Bold.ttf in Resources */,
 				782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */,
+				5B4741C31E534412001D9435 /* MCARightMenuVC.xib in Resources */,
 				5B8FC4A71E4C7E9600309CAB /* Roboto-BoldItalic.ttf in Resources */,
 				5B8FC4AE1E4C7E9600309CAB /* Roboto-Thin.ttf in Resources */,
 				BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */,
@@ -645,6 +652,7 @@
 				782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */,
 				5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */,
 				5B8FC4A51E4C7E9600309CAB /* Roboto-BlackItalic.ttf in Resources */,
+				5B4741C11E53411A001D9435 /* MCALeftMenuVC.xib in Resources */,
 				5B313E081E49BA07004CE58A /* Login.storyboard in Resources */,
 				5B8FC4A41E4C7E9600309CAB /* Roboto-Black.ttf in Resources */,
 				5B8FC4A81E4C7E9600309CAB /* Roboto-Italic.ttf in Resources */,

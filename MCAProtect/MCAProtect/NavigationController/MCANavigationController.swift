@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import iOS_Slide_Menu
 
-class MCANavigationController: UINavigationController {
+class MCANavigationController: SlideNavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

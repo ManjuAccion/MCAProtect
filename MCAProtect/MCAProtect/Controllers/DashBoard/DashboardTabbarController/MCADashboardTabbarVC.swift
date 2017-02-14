@@ -46,24 +46,35 @@ class MCADashboardTabbarVC: MCABaseViewController{
         // Tabbar navigation should be hidden by default!
         self.navigationController?.setNavigationBarHidden(false, animated: false);
         
-        
+        self .setupNavigationBarButtons();
     }
+    
     
     func setupNavigationBarButtons()
     {
-        let leftBarButton = UIButton.init(frame : CGRect(x:0,y:0,width:30,height:30))
-        leftBarButton .setImage(UIImage(named:"burgerNav"), for: UIControlState.normal)
-                leftBarButton .addTarget(self, action:Selector(("leftBarButtonclicked:")), for:UIControlEvents.touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: leftBarButton)
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"burgerNav"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.leftBarButtonclicked))
+        
+        SlideNavigationController.sharedInstance().leftMenu =  MCALeftMenuVC(nibName: "MCALeftMenuVC", bundle: nil)
+  
+         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"optionNav"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
+        
+        SlideNavigationController.sharedInstance().rightMenu =  MCARightMenuVC(nibName: "MCARightMenuVC", bundle: nil)
 
     }
     
-    func leftBarButtonclicked(shouldShow : Bool)
+    func leftBarButtonclicked()
     {
-         leftMenu  = SlideNavigationController().leftMenu as! MCALeftMenuVC!
-        
-        
+        SlideNavigationController.sharedInstance().toggleLeftMenu();
     }
+    
+    func rightBarButtonclicked()
+    {
+        SlideNavigationController.sharedInstance().toggleRightMenu();
+    }
+
+    
+   
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
