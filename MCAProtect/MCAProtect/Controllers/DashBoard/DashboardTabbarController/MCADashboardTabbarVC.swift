@@ -35,10 +35,16 @@ class MCADashboardTabbarVC: MCABaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.tabBar.tintColor = UIColor.red
-//        self.tabBar.barTintColor = UIColor.green
-
         // Do any additional setup after loading the view.
+        // Tabbar navigation should be hidden by default!
+        self.navigationController?.setNavigationBarHidden(true, animated: false);
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.selectTab(firstTabBtn)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +64,12 @@ class MCADashboardTabbarVC: MCABaseViewController{
     */
 
     
+    // MARK: - Tab Selection method
+
+    // Custom Tab bar selection method
+    // Responsible for exchanging the View controllers of respective tabs
+    // Responsible for changing the Tab UI (Selection and Deselection)
+    
     @IBAction func selectTab(_ sender: Any) {
         
         if(nil != dealsFundedVC)
@@ -75,19 +87,10 @@ class MCADashboardTabbarVC: MCABaseViewController{
             dealsPipelineVC.view.removeFromSuperview();
         }
 
-        
+        // TODO: need to identify how to use enumerations properly instead of using the constants in Case statement
         switch (sender as AnyObject).tag
         {
         case 0:
-            if(nil == dealsFundedVC)
-            {
-                dealsFundedVC = self.storyboard!.instantiateViewController(withIdentifier: "DealsFunded") as! MCADealsFundedVC
-            }
-            self.tabbarContentView.addSubview(dealsFundedVC.view);
-            self.autoresizeViewForController(dealsFundedVC);
-            print("Fisrt Tab selected");
-                break
-        case 1:
             if(nil == dealsPipelineVC)
             {
                 dealsPipelineVC = self.storyboard!.instantiateViewController(withIdentifier: "DealsPipeline") as! MCADealsPipelineVC
@@ -97,7 +100,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
             self.autoresizeViewForController(dealsPipelineVC);
             print("Second Tab selected");
                 break
-        case 2:
+        case 1:
             if(nil == performanceCompVC)
             {
                 performanceCompVC = self.storyboard!.instantiateViewController(withIdentifier: "PerformanceComparison") as! MCAPerformanceComparisonVS
@@ -106,6 +109,15 @@ class MCADashboardTabbarVC: MCABaseViewController{
             self.autoresizeViewForController(performanceCompVC);
             print("Third Tab selected");
                 break
+        case 2:
+            if(nil == dealsFundedVC)
+            {
+                dealsFundedVC = self.storyboard!.instantiateViewController(withIdentifier: "DealsFunded") as! MCADealsFundedVC
+            }
+            self.tabbarContentView.addSubview(dealsFundedVC.view);
+            self.autoresizeViewForController(dealsFundedVC);
+            print("Fisrt Tab selected");
+            break
         default:
             
             break
