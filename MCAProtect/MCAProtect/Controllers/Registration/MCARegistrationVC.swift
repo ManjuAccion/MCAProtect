@@ -135,6 +135,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         
         let storyboard = UIStoryboard(name: "mPin", bundle: nil)
         let setPinVC = storyboard.instantiateViewController(withIdentifier: "MCASetMPinVC") as! MCASetMPinVC
+        setPinVC.isFromRegistrationFlow = true
         navigationController?.pushViewController(setPinVC,
                                                       animated: true)
     }

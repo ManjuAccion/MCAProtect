@@ -26,6 +26,7 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var confirmPinSecureInputContainerView: UIView!
     
     var activeTextField : UITextField?
+    var isFromRegistrationFlow : Bool?
     
     //MARK: - View Life Cycle
     
@@ -147,10 +148,23 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
             let alert = UIAlertController(title: "Alert", message: NSLocalizedString("Your mPin is set successfully.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: UIAlertActionStyle.default, handler: {(action:UIAlertAction) in
 
-            let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-            let enterMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
-            self.navigationController?.pushViewController(enterMPinVC,
-                                                          animated: true)
+                if self.isFromRegistrationFlow == true {
+                    let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                    let enterMPinVC = storyboard.instantiateViewController(withIdentifier: "MCALoginViewController") as! MCALoginViewController
+                    self.navigationController?.pushViewController(enterMPinVC,
+                                                                  animated: true)
+                }
+                else
+                {
+                    let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+                    let enterMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
+                    self.navigationController?.pushViewController(enterMPinVC,
+                                                                  animated: true)
+                }
+//            let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+//            let enterMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
+//            self.navigationController?.pushViewController(enterMPinVC,
+//                                                          animated: true)
             }));
             present(alert, animated: true, completion: nil);
             

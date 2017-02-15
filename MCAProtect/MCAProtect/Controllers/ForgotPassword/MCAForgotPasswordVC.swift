@@ -15,13 +15,15 @@ class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var forgotPasswordLabel : UILabel!
     @IBOutlet weak var emailTextField : UITextField!
 
+    var isAllDetailsPresent : Bool? = true
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.navigationController?.navigationBar.isHidden = false;
-        // Do any additional setup after loading the view.
+        isAllDetailsPresent = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,18 +66,30 @@ class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
             let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Email ID", preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
-
+            isAllDetailsPresent = false
         }
         else
         {
-            
             if !(MCAUtilities.isValidEmail(inEmailId: emailTextField.text!)) {
                 let alertViewController = UIAlertController(title : "Alert", message : "Please Enter valid Email", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 present(alertViewController, animated: true , completion: nil)
+                isAllDetailsPresent = false
             }
-                      
+            else
+            {
+                isAllDetailsPresent = true
+            }
         }
+        
+        if isAllDetailsPresent != nil && isAllDetailsPresent == true {
+            
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let enterMPinVC = storyboard.instantiateViewController(withIdentifier: "MCALoginViewController") as! MCALoginViewController
+            self.navigationController?.pushViewController(enterMPinVC,
+                                                          animated: true)
+        }
+
         
     }
     

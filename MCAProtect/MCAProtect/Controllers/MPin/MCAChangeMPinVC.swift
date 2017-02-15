@@ -81,11 +81,9 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
             let alert = UIAlertController(title: "Alert", message: NSLocalizedString("Your new mPin is set successfully.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: UIAlertActionStyle.default, handler: {(action:UIAlertAction) in
                 
-                let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                let loginVC = storyboard.instantiateViewController(withIdentifier: "MCALoginViewController") as! MCALoginViewController
-                self.navigationController?.pushViewController(loginVC,
-                                                         animated: true)
-                
+                let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
+                let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
+                self.navigationController?.pushViewController(mPin, animated: true)
             }));
             present(alert, animated: true, completion: nil);
 
