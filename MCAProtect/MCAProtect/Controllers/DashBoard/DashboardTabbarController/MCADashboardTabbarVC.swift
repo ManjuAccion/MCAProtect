@@ -44,6 +44,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
 
         // Do any additional setup after loading the view.
         // Tabbar navigation should be hidden by default!
+        self.title = "DashBoard"
         self.navigationController?.setNavigationBarHidden(false, animated: false);
         
         self .setupNavigationBarButtons();

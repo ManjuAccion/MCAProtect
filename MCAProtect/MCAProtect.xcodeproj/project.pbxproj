@@ -12,6 +12,8 @@
 		5B4741B91E533397001D9435 /* MCARightMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B71E533397001D9435 /* MCARightMenuVC.swift */; };
 		5B4741C11E53411A001D9435 /* MCALeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C01E53411A001D9435 /* MCALeftMenuVC.xib */; };
 		5B4741C31E534412001D9435 /* MCARightMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C21E534412001D9435 /* MCARightMenuVC.xib */; };
+		5B4741C61E5488B5001D9435 /* MCATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741C41E5488B5001D9435 /* MCATableViewCell.swift */; };
+		5B4741C71E5488B5001D9435 /* MCATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C51E5488B5001D9435 /* MCATableViewCell.xib */; };
 		5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */; };
 		5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48D1E49F20A00309CAB /* Registration.storyboard */; };
 		5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */; };
@@ -108,6 +110,8 @@
 		5B4741BC1E533511001D9435 /* MCAProtect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAProtect-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B4741C01E53411A001D9435 /* MCALeftMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCALeftMenuVC.xib; sourceTree = "<group>"; };
 		5B4741C21E534412001D9435 /* MCARightMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCARightMenuVC.xib; sourceTree = "<group>"; };
+		5B4741C41E5488B5001D9435 /* MCATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCATableViewCell.swift; sourceTree = "<group>"; };
+		5B4741C51E5488B5001D9435 /* MCATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCATableViewCell.xib; sourceTree = "<group>"; };
 		5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		5B8FC48D1E49F20A00309CAB /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				5B4741C01E53411A001D9435 /* MCALeftMenuVC.xib */,
 				5B4741B71E533397001D9435 /* MCARightMenuVC.swift */,
 				5B4741C21E534412001D9435 /* MCARightMenuVC.xib */,
+				5B4741C41E5488B5001D9435 /* MCATableViewCell.swift */,
+				5B4741C51E5488B5001D9435 /* MCATableViewCell.xib */,
 			);
 			name = SlideMenu;
 			path = DashBoard/SlideMenu;
@@ -710,6 +716,7 @@
 				BA8B68821E5436F8004CEB69 /* MCAStatusTVCell.xib in Resources */,
 				5B8FC4AC1E4C7E9600309CAB /* Roboto-MediumItalic.ttf in Resources */,
 				782C69E11E49AE5700268356 /* DashBoard.storyboard in Resources */,
+				5B4741C71E5488B5001D9435 /* MCATableViewCell.xib in Resources */,
 				BA8B68711E532111004CEB69 /* MCAUnderwritingTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -900,6 +907,7 @@
 				BA34CD3E1E4C9E72001AF75F /* SecureInputView.swift in Sources */,
 				782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */,
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,
+				5B4741C61E5488B5001D9435 /* MCATableViewCell.swift in Sources */,
 				BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */,
 				BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */,
 				BA8B68841E543A7D004CEB69 /* MCAStatusTVCell.swift in Sources */,

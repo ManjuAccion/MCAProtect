@@ -18,6 +18,7 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
 
+         sideRightMenuTableView.register(UINib(nibName: "MCATableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCATableViewCell")
         // Do any additional setup after loading the view.
     }
     
@@ -46,21 +47,12 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "MCARightTableViewCell") as UITableViewCell?
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCATableViewCell", for: indexPath) as! MCATableViewCell
         
-        if nil == cell {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "MCARightTableViewCell")
-        }
-        
-        cell?.selectionStyle = .none
-        cell?.textLabel?.text  = self.arrayDataSource[indexPath.row]
-        cell?.imageView?.image = UIImage(named : self.arrayImageIcons[indexPath.row])
-        cell?.backgroundColor = UIColor.clear
-        cell?.textLabel?.textColor = UIColor.white
-        cell?.textLabel?.font = UIFont.init(name: "Roboto-Medium", size: 18)
-        
-        
-        return cell!
+        cell.cellLabel.text  = self.arrayDataSource[indexPath.row]
+        cell.cellImageView.image = UIImage(named : self.arrayImageIcons[indexPath.row])
+        cell.backgroundColor = UIColor.clear
+        return cell
     }
 
 

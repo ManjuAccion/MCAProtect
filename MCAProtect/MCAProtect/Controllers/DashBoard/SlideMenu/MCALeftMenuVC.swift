@@ -28,6 +28,10 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         self.profileImageButton.layer.cornerRadius = profileImageButton.frame.height/2
         self.profileImageButton.layer.borderColor = UIColor.white.cgColor
         profileImageButton.clipsToBounds = true
+        
+        
+        sideMenuTableView.register(UINib(nibName: "MCATableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCATableViewCell")
+        
 
         // Do any additional setup after loading the view.
     }
@@ -72,26 +76,19 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "MCATableViewCell") as UITableViewCell?
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCATableViewCell", for: indexPath) as! MCATableViewCell
         
-        if nil == cell {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "MCATableViewCell")
-        }
-        
-        cell?.selectionStyle = .none
-        cell?.textLabel?.text  = self.arrayDataSource[indexPath.row]
-        cell?.imageView?.image = UIImage(named : self.arrayImageIcons[indexPath.row])
-        cell?.backgroundColor = UIColor.clear
-        cell?.textLabel?.textColor = UIColor.white
-        cell?.textLabel?.font = UIFont.init(name: "Roboto-Regular", size: 18)
+        cell.cellLabel.text  = self.arrayDataSource[indexPath.row]
+        cell.cellImageView.image = UIImage(named : self.arrayImageIcons[indexPath.row])
+        cell.backgroundColor = UIColor.clear
         
 
-        return cell!
+        return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
-        return 215.0
+        return profileHeaderView.frame.size.height
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
