@@ -1,18 +1,18 @@
 //
-//  MCAUnderwritingMerchant.swift
+//  MCABusinessInformationVC.swift
 //  MCAProtect
 //
-//  Created by Sarath NS on 2/14/17.
+//  Created by Sarath NS on 2/15/17.
 //  Copyright © 2017 Accionlabs. All rights reserved.
 //
 
 import UIKit
 
-class MCAUnderwritingMerchant: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MCABusinessInformationVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource = ["Business Name":"Stacy's Botique", "Contact Name":"Helen", "Loan Amount":"$75000", "Email":"helen.parker@gmail.com", "Telephone":"(123) 123-1239","Offered on":"2017-01-12"]
+    var dataSource = ["Legal Business Name":"Stacy's Botique", "Contact Name":"Helen", "Loan Amount":"$75000", "Email":"helen.parker@gmail.com", "Telephone":"(123) 123-1239","Federal Tax ID":"2017896","Gross Annual Sales":"$3,00,000","Business Entity Type":"Partnership"]
     
     var dataSourceArray : [String] = []
     
@@ -22,15 +22,6 @@ class MCAUnderwritingMerchant: UIViewController,UITableViewDelegate,UITableViewD
         super.viewDidLoad()
         loadUI()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let backButton = UIBarButtonItem(title: "",
-                                         style: UIBarButtonItemStyle.plain,
-                                         target: navigationController,
-                                         action: nil)
-        navigationItem.leftBarButtonItem = backButton
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,13 +29,13 @@ class MCAUnderwritingMerchant: UIViewController,UITableViewDelegate,UITableViewD
     
     func loadUI() {
         
-        self.title = "Stacy's Boutique"
+        self.title = "Business Information"
         tableView.register(UINib(nibName: "MCADataDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCADataDetailsTVCell")
-//        self.automaticallyAdjustsScrollViewInsets = false
+        //        self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
         
         dataSourceArray = Array(dataSource.keys)
-
+        
     }
     
     //MARK: - Table View Datasource
@@ -69,6 +60,6 @@ class MCAUnderwritingMerchant: UIViewController,UITableViewDelegate,UITableViewD
     {
         return 60.0
     }
-
+    
 
 }

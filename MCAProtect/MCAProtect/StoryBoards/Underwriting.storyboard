@@ -39,13 +39,7 @@
                             <constraint firstItem="pcB-1n-hWg" firstAttribute="top" secondItem="zII-0D-qfb" secondAttribute="bottom" id="rSw-ef-uS2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oTq-Ly-5Uh">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="4AK-nA-kOK">
-                            <connections>
-                                <segue destination="sRv-iF-w2d" kind="show" id="YbI-0m-tZf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="oTq-Ly-5Uh"/>
                     <connections>
                         <outlet property="tableView" destination="pcB-1n-hWg" id="iLC-kx-V7C"/>
                     </connections>
@@ -57,7 +51,7 @@
         <!--Underwriting Merchant-->
         <scene sceneID="sNl-7i-OTY">
             <objects>
-                <viewController id="sRv-iF-w2d" customClass="MCAUnderwritingMerchant" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCAUnderwritingMerchant" id="sRv-iF-w2d" customClass="MCAUnderwritingMerchant" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8a9-44-Gxi"/>
                         <viewControllerLayoutGuide type="bottom" id="jyR-KG-hA4"/>
@@ -97,7 +91,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c4W-hi-gcI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="SLD-4J-HbX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SLD-4J-HbX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

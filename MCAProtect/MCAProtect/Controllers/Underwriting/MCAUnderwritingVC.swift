@@ -54,6 +54,12 @@ class MCAUnderwritingVC: UIViewController,UITableViewDataSource,UITableViewDeleg
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "Underwriting", bundle: Bundle.main)
+        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAUnderwritingMerchant") as! MCAUnderwritingMerchant
+        navigationController?.pushViewController(underwritingMerchantVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 68.0
