@@ -46,7 +46,10 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            //On click of verification email app will naviagate to SetmPin
+            let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+            let setMPinVC = storyboard.instantiateViewController(withIdentifier: "MCASetMPinVC") as! MCASetMPinVC
+            navigationController?.pushViewController(setMPinVC,
+                                                     animated: true)
         }
     }
     

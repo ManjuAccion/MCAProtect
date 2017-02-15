@@ -65,15 +65,16 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     @IBAction func changeMPinTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MCAChangeMPinVCID") as! MCAChangeMPinVC
-        navigationController?.pushViewController(vc,
+        let changeMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAChangeMPinVC") as! MCAChangeMPinVC
+        navigationController?.pushViewController(changeMPinVC,
                                                  animated: true)
     }
     
     @IBAction func forgotMPinTapped(_ sender: Any) {
+        
         let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MCAResetMPINVCID") as! MCAResetMPINVC
-        navigationController?.pushViewController(vc,
+        let resetMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAResetMPINVC") as! MCAResetMPINVC
+        navigationController?.pushViewController(resetMPinVC,
                                                  animated: true)
     }
     
