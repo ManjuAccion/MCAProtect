@@ -59,6 +59,8 @@
 		782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */; };
 		782C6A0F1E49BE5A00268356 /* MCANewMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0E1E49BE5A00268356 /* MCANewMPinVC.swift */; };
 		7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3331E5312310019B707 /* MCANavigationController.swift */; };
+		7871E3431E548FC60019B707 /* MCADelasPipelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3411E548FC60019B707 /* MCADelasPipelineCell.swift */; };
+		7871E3441E548FC60019B707 /* MCADelasPipelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7871E3421E548FC60019B707 /* MCADelasPipelineCell.xib */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
 		BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34CD381E4C7E3A001AF75F /* mPin.storyboard */; };
 		BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34CD3A1E4C9321001AF75F /* MCAEnterMPinVC.swift */; };
@@ -157,6 +159,8 @@
 		782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARegistrationVC.swift; sourceTree = "<group>"; };
 		782C6A0E1E49BE5A00268356 /* MCANewMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANewMPinVC.swift; sourceTree = "<group>"; };
 		7871E3331E5312310019B707 /* MCANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANavigationController.swift; sourceTree = "<group>"; };
+		7871E3411E548FC60019B707 /* MCADelasPipelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADelasPipelineCell.swift; sourceTree = "<group>"; };
+		7871E3421E548FC60019B707 /* MCADelasPipelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCADelasPipelineCell.xib; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BA34CD381E4C7E3A001AF75F /* mPin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mPin.storyboard; sourceTree = "<group>"; };
 		BA34CD3A1E4C9321001AF75F /* MCAEnterMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAEnterMPinVC.swift; sourceTree = "<group>"; };
@@ -450,6 +454,8 @@
 		782C69F31E49AFDB00268356 /* DealsPipeline */ = {
 			isa = PBXGroup;
 			children = (
+				7871E3411E548FC60019B707 /* MCADelasPipelineCell.swift */,
+				7871E3421E548FC60019B707 /* MCADelasPipelineCell.xib */,
 				782C6A021E49B8F500268356 /* MCADealsPipelineVC.swift */,
 			);
 			path = DealsPipeline;
@@ -701,6 +707,7 @@
 				5B8FC4AE1E4C7E9600309CAB /* Roboto-Thin.ttf in Resources */,
 				BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */,
 				5B8FC4931E4B017500309CAB /* WebView.storyboard in Resources */,
+				7871E3441E548FC60019B707 /* MCADelasPipelineCell.xib in Resources */,
 				782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */,
 				5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */,
 				5B8FC4A51E4C7E9600309CAB /* Roboto-BlackItalic.ttf in Resources */,
@@ -883,6 +890,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA88AC9E1E4D791C003E3B2F /* MCASetMPinVC.swift in Sources */,
+				7871E3431E548FC60019B707 /* MCADelasPipelineCell.swift in Sources */,
 				782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */,
 				7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */,
 				BA8B688C1E546C9C004CEB69 /* MCABusinessInformationVC.swift in Sources */,

@@ -8,11 +8,13 @@
 
 import UIKit
 
-class MCADealsPipelineVC: MCABaseViewController {
+class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var pipeLineTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        pipeLineTableView.register(UINib(nibName: "MCADelasPipelineCell", bundle: nil), forCellReuseIdentifier: "MCADelasPipelineCell")
         // Do any additional setup after loading the view.
     }
 
@@ -20,6 +22,30 @@ class MCADealsPipelineVC: MCABaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    //MARK: - Table View Datasource
+    
+    
+    public func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
+    {
+        return 1;
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 15;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCADelasPipelineCell") as! MCADelasPipelineCell!
+        cell?.selectionStyle = .none
+        
+        
+        return cell!
+    }
+
     
 
     /*

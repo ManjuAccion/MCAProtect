@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gef-dA-2Tb">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gef-dA-2Tb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -66,14 +66,67 @@
                     <view key="view" contentMode="scaleToFill" id="kJ1-2O-lCs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.2914146185" green="0.40219020840000003" blue="0.52336221930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oGn-Eh-vEn">
+                                <rect key="frame" x="0.0" y="102" width="375" height="565"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pFz-0p-LOb" id="3Cp-19-QU4"/>
+                                    <outlet property="delegate" destination="pFz-0p-LOb" id="dJk-f0-UxO"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUj-Zi-88Z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delas Pipeline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymN-zw-Lvf">
+                                        <rect key="frame" x="8" y="16" width="149" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="n2X-FR-wb0"/>
+                                            <constraint firstAttribute="width" constant="149" id="tiG-1E-Hu7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take control of your pipeline and fund more deals. View every application and their status below" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UA1-8E-Hqg">
+                                        <rect key="frame" x="8" y="49" width="349" height="41"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="UA1-8E-Hqg" firstAttribute="top" secondItem="ymN-zw-Lvf" secondAttribute="bottom" constant="8" id="613-Vm-KaQ"/>
+                                    <constraint firstItem="ymN-zw-Lvf" firstAttribute="leading" secondItem="OUj-Zi-88Z" secondAttribute="leading" constant="8" id="EE9-hb-fpS"/>
+                                    <constraint firstAttribute="trailing" secondItem="UA1-8E-Hqg" secondAttribute="trailing" constant="18" id="Ekk-Ah-YsR"/>
+                                    <constraint firstItem="ymN-zw-Lvf" firstAttribute="top" secondItem="OUj-Zi-88Z" secondAttribute="top" constant="16" id="Jq3-8f-h2B"/>
+                                    <constraint firstAttribute="bottom" secondItem="UA1-8E-Hqg" secondAttribute="bottom" constant="10" id="KI7-aA-R0B"/>
+                                    <constraint firstAttribute="height" constant="100" id="iD4-WL-eff"/>
+                                    <constraint firstItem="UA1-8E-Hqg" firstAttribute="leading" secondItem="OUj-Zi-88Z" secondAttribute="leading" constant="8" id="nIz-MB-zFI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OUj-Zi-88Z" firstAttribute="top" secondItem="kJ1-2O-lCs" secondAttribute="top" id="IPf-E3-GLI"/>
+                            <constraint firstItem="oGn-Eh-vEn" firstAttribute="leading" secondItem="kJ1-2O-lCs" secondAttribute="leading" id="WDq-Cy-ket"/>
+                            <constraint firstAttribute="trailing" secondItem="OUj-Zi-88Z" secondAttribute="trailing" id="ZyA-6l-E9r"/>
+                            <constraint firstItem="oGn-Eh-vEn" firstAttribute="top" secondItem="OUj-Zi-88Z" secondAttribute="bottom" constant="2" id="lEZ-XU-gWH"/>
+                            <constraint firstItem="OUj-Zi-88Z" firstAttribute="leading" secondItem="kJ1-2O-lCs" secondAttribute="leading" id="mJo-bg-kgy"/>
+                            <constraint firstAttribute="trailing" secondItem="oGn-Eh-vEn" secondAttribute="trailing" id="rch-5Z-ytf"/>
+                            <constraint firstItem="sZb-bB-KxP" firstAttribute="top" secondItem="oGn-Eh-vEn" secondAttribute="bottom" id="zaQ-Wu-Blk"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="pipeLineTableView" destination="oGn-Eh-vEn" id="uvP-CX-hDY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crI-T5-I2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-532"/>
+            <point key="canvasLocation" x="20" y="-532.98350824587715"/>
         </scene>
         <!--Dashboard TabbarVC-->
         <scene sceneID="quf-cR-MJL">
@@ -206,7 +259,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKo-AW-Fud">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -219,10 +272,11 @@
                             <constraint firstAttribute="trailing" secondItem="Jv9-Yq-fDN" secondAttribute="trailing" id="ZPc-hV-dLL"/>
                             <constraint firstAttribute="trailing" secondItem="tKo-AW-Fud" secondAttribute="trailing" id="chT-dZ-KbI"/>
                             <constraint firstItem="tKo-AW-Fud" firstAttribute="leading" secondItem="gq0-vp-Bds" secondAttribute="leading" id="e89-Id-TYy"/>
-                            <constraint firstItem="tKo-AW-Fud" firstAttribute="top" secondItem="gq0-vp-Bds" secondAttribute="top" id="mct-S0-SWW"/>
+                            <constraint firstItem="tKo-AW-Fud" firstAttribute="top" secondItem="gq0-vp-Bds" secondAttribute="top" constant="64" id="mct-S0-SWW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WuF-Vj-vhX"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dealsFundedLAbel" destination="rSL-ic-6xe" id="5Yo-QN-oVJ"/>
                         <outlet property="dealsPipelineLabel" destination="ug1-S5-IdO" id="2eV-en-Kwm"/>
@@ -235,14 +289,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njD-Jm-gMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-625" y="123"/>
+            <point key="canvasLocation" x="-626.39999999999998" y="122.78860569715144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YOe-xk-xOk">
             <objects>
                 <navigationController navigationBarHidden="YES" id="gef-dA-2Tb" customClass="MCANavigationController" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="peu-Us-CTd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="peu-Us-CTd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
