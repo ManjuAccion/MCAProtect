@@ -16,12 +16,16 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var phoneNumberTF : JVFloatLabeledTextField!
     @IBOutlet weak var passwordTF : JVFloatLabeledTextField!
     @IBOutlet weak var confirmPasswordTF : JVFloatLabeledTextField!
+    
+    var isAllDetailsPresent : Bool? = true
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.navigationController?.navigationBar.isHidden = false
+        isAllDetailsPresent = true
            }
 
     override func didReceiveMemoryWarning() {
@@ -63,82 +67,79 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
     @IBAction func registerButtonPressed (sender : AnyObject){
         
+    self.view.endEditing(true)
         
-        self.view.endEditing(true)
-    if ((businessNameTF.text?.isEmpty)!)
-    {
+    if ((businessNameTF.text?.isEmpty)!) {
         
-    let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Business Name", comment: ""), preferredStyle : .alert)
-    alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-    present(alertViewController, animated: true , completion: nil)
+        let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Business Name", comment: ""), preferredStyle : .alert)
+        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+        present(alertViewController, animated: true , completion: nil)
+        isAllDetailsPresent = false
         
     }
-        if ((emailTF.text?.isEmpty)!)
-        {
+    if ((emailTF.text?.isEmpty)!) {
             
-            let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Email", comment: "") , preferredStyle : .alert)
+        let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Email", comment: "") , preferredStyle : .alert)
+        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+        present(alertViewController, animated: true , completion: nil)
+        isAllDetailsPresent = false
+    }
+    else {
+        if !(MCAUtilities.isValidEmail(inEmailId: emailTF.text!)) {
+            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Valid  Email Id", preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
+            isAllDetailsPresent = false
+        }
+    }
+
+    if ((phoneNumberTF.text?.isEmpty)!)
+    {
+        
+        let alertViewController = UIAlertController(title : "Alert", message :NSLocalizedString("Please Enter Phone Number", comment: ""), preferredStyle : .alert)
+        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+        present(alertViewController, animated: true , completion: nil)
+        isAllDetailsPresent = false
+    }
+    if ((passwordTF.text?.isEmpty)!)
+    {
+        
+        let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment: "") , preferredStyle : .alert)
+        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+        present(alertViewController, animated: true , completion: nil)
+        isAllDetailsPresent = false
+    }
+    if ((confirmPasswordTF.text?.isEmpty)!)
+    {
+        let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment:"") , preferredStyle : .alert)
+        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+        present(alertViewController, animated: true , completion: nil)
+        isAllDetailsPresent = false
+    }
+        
+    if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
+    {
+        if (confirmPasswordTF.text == passwordTF.text) {
             
         }
         else{
-            if !(MCAUtilities.isValidEmail(inEmailId: emailTF.text!)) {
-                let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Valid  Email Id", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                present(alertViewController, animated: true , completion: nil)
-
-            }
-                    }
-
-        if ((phoneNumberTF.text?.isEmpty)!)
-        {
             
-            let alertViewController = UIAlertController(title : "Alert", message :NSLocalizedString("Please Enter Phone Number", comment: ""), preferredStyle : .alert)
+            let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Passwords Do Not Match", comment : "")  , preferredStyle : .alert)
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
-            
+            isAllDetailsPresent = false
         }
-        if ((passwordTF.text?.isEmpty)!)
-        {
-            
-            let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment: "") , preferredStyle : .alert)
-            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-            present(alertViewController, animated: true , completion: nil)
-            
-        }
-        if ((confirmPasswordTF.text?.isEmpty)!)
-        {
-            
-            let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment:"") , preferredStyle : .alert)
-            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-            present(alertViewController, animated: true , completion: nil)
-            
-        }
+    }
         
-        if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
-        {
-            if (confirmPasswordTF.text == passwordTF.text) {
-                
-            }
-            else{
-                
-                let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Passwords Do Not Match", comment : "")  , preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                present(alertViewController, animated: true , completion: nil)
-
-            }
-        }
+    if isAllDetailsPresent != nil && isAllDetailsPresent == true {
+        
+        let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+        let setPinVC = storyboard.instantiateViewController(withIdentifier: "MCASetMPinVC") as! MCASetMPinVC
+        navigationController?.pushViewController(setPinVC,
+                                                      animated: true)
+    }
 
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
