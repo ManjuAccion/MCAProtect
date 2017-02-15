@@ -130,6 +130,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
             if(nil == dealsPipelineVC)
             {
                 dealsPipelineVC = self.storyboard!.instantiateViewController(withIdentifier: "DealsPipeline") as! MCADealsPipelineVC
+                dealsPipelineVC.parentController = self
             }
 
             self.tabbarContentView.addSubview(dealsPipelineVC.view);

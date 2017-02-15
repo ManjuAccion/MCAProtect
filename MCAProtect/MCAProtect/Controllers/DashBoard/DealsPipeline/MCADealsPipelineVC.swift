@@ -11,6 +11,10 @@ import UIKit
 class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var pipeLineTableView: UITableView!
+
+    
+    weak var parentController: MCADashboardTabbarVC!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +31,16 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     
     //MARK: - Table View Datasource
     
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        
+        var unerWritingVC  = UIStoryboard(name: "Underwriting", bundle: nil).instantiateViewController(withIdentifier: "MCAUnderwritingVC") as! MCAUnderwritingVC
+        
+        
+        parentController.navigationController?.pushViewController(unerWritingVC, animated: true);
+        
+    }
     
     public func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
     {
