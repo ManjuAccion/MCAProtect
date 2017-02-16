@@ -8,6 +8,14 @@
 
 import UIKit
 
+enum leftMenuItems : NSInteger {
+    case Dashboard = 0
+    case MerchantApplications = 1
+    case SavedApplications = 2
+    case FundingPrograms = 3
+    case Communication = 4
+}
+
 class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet var versionFooterView : UIView!
@@ -77,12 +85,9 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCATableViewCell", for: indexPath) as! MCATableViewCell
-        
         cell.cellLabel.text  = self.arrayDataSource[indexPath.row]
         cell.cellImageView.image = UIImage(named : self.arrayImageIcons[indexPath.row])
         cell.backgroundColor = UIColor.clear
-        
-
         return cell
     }
     
@@ -94,6 +99,25 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         return profileHeaderView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if (indexPath.row ==  leftMenuItems.Dashboard.rawValue) {
+            
+        }
+        if (indexPath.row == leftMenuItems.MerchantApplications.rawValue) {
+            
+        }
+        if indexPath.row == leftMenuItems.SavedApplications.rawValue {
+            
+        }
+        if (indexPath.row == leftMenuItems.FundingPrograms.rawValue) {
+            
+        }
+        if (indexPath.row == leftMenuItems.Communication.rawValue) {
+            
+        }
     }
     
        /*
