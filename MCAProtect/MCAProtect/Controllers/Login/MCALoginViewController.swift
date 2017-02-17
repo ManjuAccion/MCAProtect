@@ -10,27 +10,26 @@ import UIKit
 import JVFloatLabeledTextField
 
 class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIActionSheetDelegate {
+    
     @IBOutlet weak var emailIDTextField : JVFloatLabeledTextField!
     @IBOutlet weak var passwordTextField : JVFloatLabeledTextField!
     @IBOutlet weak var rememberPasswordBtn : UIButton!
     @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var userSelectedLabel : UILabel!
     @IBOutlet weak var dropDownButton : UIButton!
-
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-    let userSelectionTapGesture  = UITapGestureRecognizer(target: self, action:#selector(handleuserSelectionTapGesture))
-    userSelectedLabel.addGestureRecognizer(userSelectionTapGesture)
-    }
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+            
+            let userSelectionTapGesture  = UITapGestureRecognizer(target: self, action:#selector(handleuserSelectionTapGesture))
+            userSelectedLabel.addGestureRecognizer(userSelectionTapGesture)
     
-    
+            emailIDTextField.autocorrectionType = UITextAutocorrectionType.no
+            passwordTextField.autocorrectionType = UITextAutocorrectionType.no
+        }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true;
