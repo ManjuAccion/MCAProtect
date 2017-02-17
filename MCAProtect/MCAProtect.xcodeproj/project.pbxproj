@@ -61,6 +61,8 @@
 		7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3331E5312310019B707 /* MCANavigationController.swift */; };
 		7871E3431E548FC60019B707 /* MCADelasPipelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3411E548FC60019B707 /* MCADelasPipelineCell.swift */; };
 		7871E3441E548FC60019B707 /* MCADelasPipelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7871E3421E548FC60019B707 /* MCADelasPipelineCell.xib */; };
+		7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3451E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift */; };
+		7871E3481E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7871E3461E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
 		BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34CD381E4C7E3A001AF75F /* mPin.storyboard */; };
 		BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34CD3A1E4C9321001AF75F /* MCAEnterMPinVC.swift */; };
@@ -161,6 +163,8 @@
 		7871E3331E5312310019B707 /* MCANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANavigationController.swift; sourceTree = "<group>"; };
 		7871E3411E548FC60019B707 /* MCADelasPipelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADelasPipelineCell.swift; sourceTree = "<group>"; };
 		7871E3421E548FC60019B707 /* MCADelasPipelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCADelasPipelineCell.xib; sourceTree = "<group>"; };
+		7871E3451E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonCell.swift; sourceTree = "<group>"; };
+		7871E3461E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPerformanceComparisonCell.xib; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BA34CD381E4C7E3A001AF75F /* mPin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mPin.storyboard; sourceTree = "<group>"; };
 		BA34CD3A1E4C9321001AF75F /* MCAEnterMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAEnterMPinVC.swift; sourceTree = "<group>"; };
@@ -465,6 +469,8 @@
 			isa = PBXGroup;
 			children = (
 				782BF0D51E5187EF00B79009 /* MCAPerformanceComparisonVS.swift */,
+				7871E3451E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift */,
+				7871E3461E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib */,
 			);
 			path = PerfromanceComparison;
 			sourceTree = "<group>";
@@ -653,8 +659,9 @@
 				TargetAttributes = {
 					782C699E1E49ACC500268356 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 78RNVBBGXR;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					782C69B21E49ACC500268356 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -702,6 +709,7 @@
 				5B8FC4A91E4C7E9600309CAB /* Roboto-Light.ttf in Resources */,
 				5B8FC4A61E4C7E9600309CAB /* Roboto-Bold.ttf in Resources */,
 				782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */,
+				7871E3481E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib in Resources */,
 				5B4741C31E534412001D9435 /* MCARightMenuVC.xib in Resources */,
 				5B8FC4A71E4C7E9600309CAB /* Roboto-BoldItalic.ttf in Resources */,
 				5B8FC4AE1E4C7E9600309CAB /* Roboto-Thin.ttf in Resources */,
@@ -896,6 +904,7 @@
 				BA8B688C1E546C9C004CEB69 /* MCABusinessInformationVC.swift in Sources */,
 				782C6A031E49B8F500268356 /* MCADealsPipelineVC.swift in Sources */,
 				782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */,
+				7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */,
 				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
 				BA8B687E1E5430A5004CEB69 /* MCAMerchantDetailsVC.swift in Sources */,
 				BA8B68871E545871004CEB69 /* MCALoanDetailsVC.swift in Sources */,
@@ -1072,10 +1081,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 78RNVBBGXR;
 				INFOPLIST_FILE = MCAProtect/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.MCAProtect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.AmericanWater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d255dcff-62e0-4cd1-a656-d133297cd026";
+				PROVISIONING_PROFILE_SPECIFIER = AmericanWater_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1088,10 +1101,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 78RNVBBGXR;
 				INFOPLIST_FILE = MCAProtect/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.MCAProtect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.AmericanWater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d255dcff-62e0-4cd1-a656-d133297cd026";
+				PROVISIONING_PROFILE_SPECIFIER = AmericanWater_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
