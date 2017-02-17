@@ -27,6 +27,8 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     
     var activeTextField : UITextField?
     var isFromRegistrationFlow : Bool?
+    var toolbar : UIToolbar?
+    var doneButton : UIBarButtonItem?
     
     //MARK: - View Life Cycle
     
@@ -38,7 +40,7 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         
         let confirmContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleConfirmPinContainerViewTapGesture))
         confirmPinSecureInputContainerView.addGestureRecognizer(confirmContainerViewTapGesture)
-        
+        initilazeToolBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,6 +91,21 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         setPinButton.layer.cornerRadius = 5.0
         
         newPinSecureInputTF.becomeFirstResponder()
+    }
+    
+    func initilazeToolBar() {
+        toolbar = UIToolbar()
+        toolbar?.barStyle = .blackTranslucent
+        toolbar?.isTranslucent = true
+        toolbar?.sizeToFit()
+        
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton?.tintColor = .white
+        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar?.setItems([flexibleSpaceButton, doneButton!], animated: false)
+        toolbar?.isUserInteractionEnabled = true
+
     }
     
     func handleNewPinContainerViewTapGesture() {
@@ -162,13 +179,8 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
                     self.navigationController?.pushViewController(enterMPinVC,
                                                                   animated: true)
                 }
-//            let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-//            let enterMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
-//            self.navigationController?.pushViewController(enterMPinVC,
-//                                                          animated: true)
             }));
             present(alert, animated: true, completion: nil);
-            
         }
         else
         {
@@ -281,9 +293,15 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
-        activeTextField?.inputAccessoryView = inputToolbar
+        activeTextField?.inputAccessoryView = toolbar
         activeTextField?.autocorrectionType = UITextAutocorrectionType.no
         scrollView.isScrollEnabled = true
+        if textField == self.newPinSecureInputTF {
+            doneButton?.title = "Next"
+        }
+        else{
+            doneButton?.title = "Done"
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -304,21 +322,6 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         }
         return true
     }
-    
-    lazy var inputToolbar: UIToolbar = {
-        var toolbar = UIToolbar()
-        toolbar.barStyle = .blackTranslucent
-        toolbar.isTranslucent = true
-        toolbar.sizeToFit()
-        
-        var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
-        var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
-        toolbar.setItems([flexibleSpaceButton, doneButton], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        
-        return toolbar
-    }()
     
     func inputToolbarDonePressed() {
         if activeTextField == self.newPinSecureInputTF {

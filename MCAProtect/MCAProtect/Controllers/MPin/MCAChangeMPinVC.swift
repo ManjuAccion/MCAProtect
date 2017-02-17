@@ -38,6 +38,8 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
     
     
     var activeTextField : UITextField?
+    var toolbar : UIToolbar?
+    var doneButton : UIBarButtonItem?
 
     
     //MARK: - View Life Cycle
@@ -53,7 +55,7 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
         
         let confirmContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleConfirmPinContainerViewTapGesture))
         confirmPinSecureInputContainerView.addGestureRecognizer(confirmContainerViewTapGesture)
-        
+        initilazeToolBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +99,21 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
         oldPinSecureInputView4.inputImageView.isHidden = true
         
         oldPinSecureInputTF.becomeFirstResponder()
+    }
+    
+    func initilazeToolBar() {
+        toolbar = UIToolbar()
+        toolbar?.barStyle = .blackTranslucent
+        toolbar?.isTranslucent = true
+        toolbar?.sizeToFit()
+        
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton?.tintColor = .white
+        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar?.setItems([flexibleSpaceButton, doneButton!], animated: false)
+        toolbar?.isUserInteractionEnabled = true
+        
     }
     
     
@@ -294,9 +311,15 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
-        activeTextField?.inputAccessoryView = inputToolbar
+        activeTextField?.inputAccessoryView = toolbar
         activeTextField?.autocorrectionType = UITextAutocorrectionType.no
         scrollView.isScrollEnabled = true
+        if textField == oldPinSecureInputTF || textField == newPinSecureInputTF {
+            doneButton?.title = "Next"
+        }
+        else {
+            doneButton?.title = "Done"
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -319,21 +342,6 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
         }
         return true
     }
-    
-    lazy var inputToolbar: UIToolbar = {
-        var toolbar = UIToolbar()
-        toolbar.barStyle = .blackTranslucent
-        toolbar.isTranslucent = true
-        toolbar.sizeToFit()
-        
-        var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
-        var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-
-        toolbar.setItems([flexibleSpaceButton, doneButton], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        
-        return toolbar
-    }()
     
     func inputToolbarDonePressed() {
         if activeTextField == oldPinSecureInputTF {

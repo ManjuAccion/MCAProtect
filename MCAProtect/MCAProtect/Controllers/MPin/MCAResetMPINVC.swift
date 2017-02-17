@@ -16,11 +16,14 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var emailIDTF: JVFloatLabeledTextField!
     var activeTextField : UITextField?
-
+    var toolbar : UIToolbar?
+    var doneButton : UIBarButtonItem?
+    
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initilazeToolBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +69,21 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
         loginButton.layer.cornerRadius = 5.0
     }
     
+    func initilazeToolBar() {
+        toolbar = UIToolbar()
+        toolbar?.barStyle = .blackTranslucent
+        toolbar?.isTranslucent = true
+        toolbar?.sizeToFit()
+        
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton?.tintColor = .white
+        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar?.setItems([flexibleSpaceButton, doneButton!], animated: false)
+        toolbar?.isUserInteractionEnabled = true
+        
+    }
+    
     func registerForKeyboardNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -100,7 +118,7 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
-        activeTextField?.inputAccessoryView = inputToolbar
+        activeTextField?.inputAccessoryView = toolbar
         activeTextField?.autocorrectionType = UITextAutocorrectionType.no
         scrollView.isScrollEnabled = true
     }
@@ -114,21 +132,6 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    lazy var inputToolbar: UIToolbar = {
-        var toolbar = UIToolbar()
-        toolbar.barStyle = .blackTranslucent
-        toolbar.isTranslucent = true
-        toolbar.sizeToFit()
-        
-        var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
-        var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        var fixedSpaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        toolbar.setItems([flexibleSpaceButton, doneButton], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        
-        return toolbar
-    }()
     
     func inputToolbarDonePressed() {
         if activeTextField == emailIDTF {

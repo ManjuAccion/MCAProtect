@@ -23,6 +23,8 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var secureInputView4: SecureInputView!
     
     var activeTextField : UITextField?
+    var toolbar : UIToolbar?
+    var doneButton : UIBarButtonItem?
     
     //MARK: - View Life Cycle
     
@@ -31,6 +33,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleSecureInputContainerViewTapGesture))
         secureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
+        initilazeToolBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +68,21 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         
         secureInputTF.autocorrectionType = UITextAutocorrectionType.no
         loginButton.layer.cornerRadius = 5.0
+    }
+    
+    func initilazeToolBar() {
+        toolbar = UIToolbar()
+        toolbar?.barStyle = .blackTranslucent
+        toolbar?.isTranslucent = true
+        toolbar?.sizeToFit()
+        
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton?.tintColor = .white
+        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar?.setItems([flexibleSpaceButton, doneButton!], animated: false)
+        toolbar?.isUserInteractionEnabled = true
+        
     }
     
     func handleSecureInputContainerViewTapGesture() {
@@ -132,22 +150,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
-    
-    lazy var inputToolbar: UIToolbar = {
-        var toolbar = UIToolbar()
-        toolbar.barStyle = .blackTranslucent
-        toolbar.isTranslucent = true
-        toolbar.sizeToFit()
-        
-        var doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
-        var flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
- 
-        toolbar.setItems([flexibleSpaceButton, doneButton], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        
-        return toolbar
-    }()
-    
+  
     func inputToolbarDonePressed() {
         secureInputTF.resignFirstResponder()
     }
@@ -157,7 +160,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
-        activeTextField?.inputAccessoryView = inputToolbar
+        activeTextField?.inputAccessoryView = toolbar
         activeTextField?.autocorrectionType = UITextAutocorrectionType.no
         scrollView.isScrollEnabled = true
     }
