@@ -21,8 +21,6 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +29,16 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
         registerForKeyboardNotifications()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadUI()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        self.view.endEditing(true)
+        super.viewWillDisappear(animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

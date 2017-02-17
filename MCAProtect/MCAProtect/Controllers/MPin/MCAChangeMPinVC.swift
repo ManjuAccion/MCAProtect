@@ -45,7 +45,15 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadUI()
+        let oldPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleOldPinContainerViewTapGesture))
+        oldPinSecureInputContainerView.addGestureRecognizer(oldPinContainerViewTapGesture)
+        
+        let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleNewPinContainerViewTapGesture))
+        newPinSecureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
+        
+        let confirmContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleConfirmPinContainerViewTapGesture))
+        confirmPinSecureInputContainerView.addGestureRecognizer(confirmContainerViewTapGesture)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,14 +62,41 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
         registerForKeyboardNotifications()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        loadUI()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
         self.view.endEditing(true)
+        super.viewWillDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func loadUI() {
+        setPinButton.layer.cornerRadius = 5.0
+        
+        newPinSecureInputView1.inputImageView.isHidden = true
+        newPinSecureInputView2.inputImageView.isHidden = true
+        newPinSecureInputView3.inputImageView.isHidden = true
+        newPinSecureInputView4.inputImageView.isHidden = true
+        
+        confirmPinSecureInputView1.inputImageView.isHidden = true
+        confirmPinSecureInputView2.inputImageView.isHidden = true
+        confirmPinSecureInputView3.inputImageView.isHidden = true
+        confirmPinSecureInputView4.inputImageView.isHidden = true
+        
+        oldPinSecureInputView1.inputImageView.isHidden = true
+        oldPinSecureInputView2.inputImageView.isHidden = true
+        oldPinSecureInputView3.inputImageView.isHidden = true
+        oldPinSecureInputView4.inputImageView.isHidden = true
+        
+        oldPinSecureInputTF.becomeFirstResponder()
     }
     
     
@@ -94,35 +129,7 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
         }
     }
     
-    func loadUI() {
-        setPinButton.layer.cornerRadius = 5.0
-        
-        newPinSecureInputView1.inputImageView.isHidden = true
-        newPinSecureInputView2.inputImageView.isHidden = true
-        newPinSecureInputView3.inputImageView.isHidden = true
-        newPinSecureInputView4.inputImageView.isHidden = true
-        
-        confirmPinSecureInputView1.inputImageView.isHidden = true
-        confirmPinSecureInputView2.inputImageView.isHidden = true
-        confirmPinSecureInputView3.inputImageView.isHidden = true
-        confirmPinSecureInputView4.inputImageView.isHidden = true
-        
-        oldPinSecureInputView1.inputImageView.isHidden = true
-        oldPinSecureInputView2.inputImageView.isHidden = true
-        oldPinSecureInputView3.inputImageView.isHidden = true
-        oldPinSecureInputView4.inputImageView.isHidden = true
-        
-        oldPinSecureInputTF.becomeFirstResponder()
-        
-        let oldPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleOldPinContainerViewTapGesture))
-            oldPinSecureInputContainerView.addGestureRecognizer(oldPinContainerViewTapGesture)
-        
-        let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleNewPinContainerViewTapGesture))
-            newPinSecureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
-        
-        let confirmContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleConfirmPinContainerViewTapGesture))
-        confirmPinSecureInputContainerView.addGestureRecognizer(confirmContainerViewTapGesture)
-    }
+
     
     func handleOldPinContainerViewTapGesture() {
         oldPinSecureInputTF.becomeFirstResponder()

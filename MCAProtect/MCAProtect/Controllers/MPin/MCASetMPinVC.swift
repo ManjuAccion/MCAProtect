@@ -33,29 +33,38 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadUI()
+        let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleNewPinContainerViewTapGesture))
+        newPinSecureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
+        
+        let confirmContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleConfirmPinContainerViewTapGesture))
+        confirmPinSecureInputContainerView.addGestureRecognizer(confirmContainerViewTapGesture)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        
+        super.viewWillAppear(animated)
         // Hide the Navigation Bar Back Button
-        
+
         let backButton = UIBarButtonItem(title: "",
                                          style: UIBarButtonItemStyle.plain,
                                          target: navigationController,
                                          action: nil)
         navigationItem.leftBarButtonItem = backButton
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
 
-        super.viewWillAppear(animated)
         registerForKeyboardNotifications()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadUI()
+
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
         self.view.endEditing(true)
+        super.viewWillDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,14 +89,6 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         setPinButton.layer.cornerRadius = 5.0
         
         newPinSecureInputTF.becomeFirstResponder()
-        
-        
-        let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleNewPinContainerViewTapGesture))
-        newPinSecureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
-        
-        let confirmContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleConfirmPinContainerViewTapGesture))
-        confirmPinSecureInputContainerView.addGestureRecognizer(confirmContainerViewTapGesture)
-        
     }
     
     func handleNewPinContainerViewTapGesture() {

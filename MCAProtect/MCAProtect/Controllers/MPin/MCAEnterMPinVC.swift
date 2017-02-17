@@ -28,12 +28,26 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUI()
+        
+        let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleSecureInputContainerViewTapGesture))
+        secureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        registerForKeyboardNotifications()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadUI()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        self.view.endEditing(true)
+        super.viewWillDisappear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,10 +65,6 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         
         secureInputTF.autocorrectionType = UITextAutocorrectionType.no
         loginButton.layer.cornerRadius = 5.0
-        
-        let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleSecureInputContainerViewTapGesture))
-        secureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
-        registerForKeyboardNotifications()
     }
     
     func handleSecureInputContainerViewTapGesture() {
