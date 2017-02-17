@@ -14,6 +14,8 @@
 		5B4741C31E534412001D9435 /* MCARightMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C21E534412001D9435 /* MCARightMenuVC.xib */; };
 		5B4741C61E5488B5001D9435 /* MCATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741C41E5488B5001D9435 /* MCATableViewCell.swift */; };
 		5B4741C71E5488B5001D9435 /* MCATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C51E5488B5001D9435 /* MCATableViewCell.xib */; };
+		5B4741C91E56D58B001D9435 /* ProfileDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C81E56D58B001D9435 /* ProfileDetail.storyboard */; };
+		5B4741CC1E570D2A001D9435 /* MCAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741CB1E570D2A001D9435 /* MCAProfileViewController.swift */; };
 		5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */; };
 		5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48D1E49F20A00309CAB /* Registration.storyboard */; };
 		5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */; };
@@ -116,6 +118,8 @@
 		5B4741C21E534412001D9435 /* MCARightMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCARightMenuVC.xib; sourceTree = "<group>"; };
 		5B4741C41E5488B5001D9435 /* MCATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCATableViewCell.swift; sourceTree = "<group>"; };
 		5B4741C51E5488B5001D9435 /* MCATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCATableViewCell.xib; sourceTree = "<group>"; };
+		5B4741C81E56D58B001D9435 /* ProfileDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileDetail.storyboard; sourceTree = "<group>"; };
+		5B4741CB1E570D2A001D9435 /* MCAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileViewController.swift; sourceTree = "<group>"; };
 		5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		5B8FC48D1E49F20A00309CAB /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +249,15 @@
 			path = DashBoard/SlideMenu;
 			sourceTree = "<group>";
 		};
+		5B4741CA1E570C6C001D9435 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5B4741CB1E570D2A001D9435 /* MCAProfileViewController.swift */,
+			);
+			name = Profile;
+			path = DashBoard/Profile;
+			sourceTree = "<group>";
+		};
 		5B8FC48F1E4B00C500309CAB /* GenricWebController */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +379,7 @@
 				BA8B68771E53282C004CEB69 /* Underwriting.storyboard */,
 				BA8B687F1E543689004CEB69 /* Merchant.storyboard */,
 				BA8B68881E5458B2004CEB69 /* Common.storyboard */,
+				5B4741C81E56D58B001D9435 /* ProfileDetail.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -397,6 +411,7 @@
 		782C69D41E49ADD700268356 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B4741CA1E570C6C001D9435 /* Profile */,
 				BA8B688A1E546C71004CEB69 /* BusinessInformation */,
 				BA8B68851E545846004CEB69 /* Loans */,
 				BA8B687C1E542F68004CEB69 /* Merchant */,
@@ -732,6 +747,7 @@
 				5B8FC4AC1E4C7E9600309CAB /* Roboto-MediumItalic.ttf in Resources */,
 				782C69E11E49AE5700268356 /* DashBoard.storyboard in Resources */,
 				5B4741C71E5488B5001D9435 /* MCATableViewCell.xib in Resources */,
+				5B4741C91E56D58B001D9435 /* ProfileDetail.storyboard in Resources */,
 				BA8B68711E532111004CEB69 /* MCAUnderwritingTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -924,6 +940,7 @@
 				BA34CD3E1E4C9E72001AF75F /* SecureInputView.swift in Sources */,
 				782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */,
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,
+				5B4741CC1E570D2A001D9435 /* MCAProfileViewController.swift in Sources */,
 				5B4741C61E5488B5001D9435 /* MCATableViewCell.swift in Sources */,
 				BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */,
 				BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */,

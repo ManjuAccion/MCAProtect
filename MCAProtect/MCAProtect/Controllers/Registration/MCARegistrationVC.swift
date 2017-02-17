@@ -16,6 +16,8 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var phoneNumberTF : JVFloatLabeledTextField!
     @IBOutlet weak var passwordTF : JVFloatLabeledTextField!
     @IBOutlet weak var confirmPasswordTF : JVFloatLabeledTextField!
+    @IBOutlet weak var userSelectedLabel : UILabel!
+
     
     var isAllDetailsPresent : Bool? = true
 
@@ -24,6 +26,9 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        let userSelectionTapGesture  = UITapGestureRecognizer(target: self, action:#selector(handleuserSelectionTapGesture))
+        userSelectedLabel.addGestureRecognizer(userSelectionTapGesture)
+
         self.navigationController?.navigationBar.isHidden = false
         isAllDetailsPresent = true
            }
@@ -32,6 +37,45 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func handleuserSelectionTapGesture() {
+        let actionSheet = UIAlertController.init(title:nil, message:nil, preferredStyle: .actionSheet)
+        
+        let brokerButton = UIAlertAction.init(title: "Broker", style: .default, handler: { (UIAlertAction) in
+            self.userSelectedLabel.text = "Broker"
+        })
+        brokerButton.setValue(ColorConstants.red, forKey: "titleTextColor")
+        brokerButton.setValue(ColorConstants.red, forKey:"imageTintColor")
+        
+        let brokerageButton = UIAlertAction.init(title: "Brokerage Firm", style: .default, handler: { (UIAlertAction) in
+            self.userSelectedLabel.text = "Brokerage Firm"
+        })
+        brokerageButton.setValue( ColorConstants.red
+            , forKey: "titleTextColor")
+        brokerageButton.setValue(ColorConstants.red, forKey:"imageTintColor")
+        
+        
+        let cancelButton = UIAlertAction.init(title: "Cancel", style: .default, handler: { (UIAlertAction) in
+            actionSheet.dismiss(animated: true, completion: nil)
+        })
+        cancelButton.setValue( ColorConstants.red, forKey: "titleTextColor")
+        
+        
+        if (userSelectedLabel.text == "Broker") {
+            brokerButton.setValue(true, forKey: "checked")
+        }
+        else{
+            brokerageButton.setValue(true, forKey: "checked")
+            
+        }
+        
+        actionSheet.addAction(brokerButton)
+        actionSheet.addAction(brokerageButton)
+        actionSheet.addAction(cancelButton)
+        
+        
+    }
+
     
  //Mark:- Keyboard hide and show
     

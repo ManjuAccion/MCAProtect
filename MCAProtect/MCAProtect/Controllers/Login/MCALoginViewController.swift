@@ -9,16 +9,27 @@
 import UIKit
 import JVFloatLabeledTextField
 
-class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
+class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIActionSheetDelegate {
     @IBOutlet weak var emailIDTextField : JVFloatLabeledTextField!
     @IBOutlet weak var passwordTextField : JVFloatLabeledTextField!
     @IBOutlet weak var rememberPasswordBtn : UIButton!
+    @IBOutlet weak var scrollView : UIScrollView!
+    @IBOutlet weak var userSelectedLabel : UILabel!
+    @IBOutlet weak var dropDownButton : UIButton!
+
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+    let userSelectionTapGesture  = UITapGestureRecognizer(target: self, action:#selector(handleuserSelectionTapGesture))
+    userSelectedLabel.addGestureRecognizer(userSelectionTapGesture)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -35,8 +46,66 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func handleuserSelectionTapGesture() {
+        let actionSheet = UIAlertController.init(title:nil, message:nil, preferredStyle: .actionSheet)
+        
+        let brokerButton = UIAlertAction.init(title: "Broker", style: .default, handler: { (UIAlertAction) in
+            self.userSelectedLabel.text = "Broker"
+            })
+        brokerButton.setValue(ColorConstants.red, forKey: "titleTextColor")
+        brokerButton.setValue(ColorConstants.red, forKey:"imageTintColor")
+        
+       let brokerageButton = UIAlertAction.init(title: "Brokerage Firm", style: .default, handler: { (UIAlertAction) in
+            self.userSelectedLabel.text = "Brokerage Firm"
+        })
+        brokerageButton.setValue( ColorConstants.red
+            , forKey: "titleTextColor")
+        brokerageButton.setValue(ColorConstants.red, forKey:"imageTintColor")
+
+        
+        let cancelButton = UIAlertAction.init(title: "Cancel", style: .default, handler: { (UIAlertAction) in
+            actionSheet.dismiss(animated: true, completion: nil)
+        })
+        cancelButton.setValue( ColorConstants.red, forKey: "titleTextColor")
+        
+        
+        if (userSelectedLabel.text == "Broker") {
+            brokerButton.setValue(true, forKey: "checked")
+        }
+        else{
+            brokerageButton.setValue(true, forKey: "checked")
+
+        }
+        
+        actionSheet.addAction(brokerButton)
+        actionSheet.addAction(brokerageButton)
+        actionSheet.addAction(cancelButton)
+
+
+        present(actionSheet, animated: true, completion: nil)
+        
+        
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
+    }
+
+    //Mark:- Keyboard hide and show
+    
+    func keyboardWillShow(notification:NSNotification){
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+    }
+    
+    func keyboardWillHide(notification:NSNotification){
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero;
+        scrollView.contentInset = contentInset
     }
 
     

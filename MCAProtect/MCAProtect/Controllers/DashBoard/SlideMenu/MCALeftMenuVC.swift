@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iOS_Slide_Menu
 
 enum leftMenuItems : NSInteger {
     case Dashboard = 0
@@ -88,6 +89,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         cell.cellLabel.text  = self.arrayDataSource[indexPath.row]
         cell.cellImageView.image = UIImage(named : self.arrayImageIcons[indexPath.row])
         cell.backgroundColor = UIColor.clear
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -104,7 +106,9 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (indexPath.row ==  leftMenuItems.Dashboard.rawValue) {
-            
+           
+            SlideNavigationController.sharedInstance().toggleLeftMenu();
+
         }
         if (indexPath.row == leftMenuItems.MerchantApplications.rawValue) {
             
@@ -118,6 +122,15 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         if (indexPath.row == leftMenuItems.Communication.rawValue) {
             
         }
+    }
+    
+    
+    @IBAction  func profileButtonClicked()
+    {
+        let profileStoryBoard = UIStoryboard.init(name:"Profile", bundle: nil)
+        let ProfileVC = profileStoryBoard.instantiateViewController(withIdentifier: "MCAProfileViewController")
+        self.navigationController?.pushViewController(ProfileVC, animated: true)
+        
     }
     
        /*
