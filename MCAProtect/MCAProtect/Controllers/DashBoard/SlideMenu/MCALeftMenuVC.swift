@@ -127,9 +127,9 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction  func profileButtonClicked()
     {
-        let profileStoryBoard = UIStoryboard.init(name:"Profile", bundle: nil)
-        let ProfileVC = profileStoryBoard.instantiateViewController(withIdentifier: "MCAProfileViewController")
-        self.navigationController?.pushViewController(ProfileVC, animated: true)
+//        let profileStoryBoard = UIStoryboard.init(name:"ProfileDetail", bundle: nil)
+//        let ProfileVC = profileStoryBoard.instantiateViewController(withIdentifier: "MCAProfileViewController")
+//        self.navigationController?.present(ProfileVC, animated: true)
         
     }
     
