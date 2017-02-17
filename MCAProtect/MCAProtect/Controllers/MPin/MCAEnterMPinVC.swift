@@ -31,6 +31,13 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        secureInputTF.becomeFirstResponder()
+        secureInputView1.inputImageView.isHidden = true
+        secureInputView2.inputImageView.isHidden = true
+        
+        secureInputView3.inputImageView.isHidden = true
+        secureInputView4.inputImageView.isHidden = true
+        
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleSecureInputContainerViewTapGesture))
         secureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
         initilazeToolBar()
@@ -58,14 +65,6 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func loadUI() {
-        
-        secureInputTF.becomeFirstResponder()
-        secureInputView1.inputImageView.isHidden = true
-        secureInputView2.inputImageView.isHidden = true
-        
-        secureInputView3.inputImageView.isHidden = true
-        secureInputView4.inputImageView.isHidden = true
-        
         secureInputTF.autocorrectionType = UITextAutocorrectionType.no
         loginButton.layer.cornerRadius = 5.0
     }
