@@ -12,7 +12,8 @@ class MCAProfileViewController: MCABaseViewController {
     
     @IBOutlet weak var profileImageButton : UIImageView!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.profileImageButton.layer.borderWidth = 1.0;
         self.profileImageButton.layer.cornerRadius = profileImageButton.frame.height/2

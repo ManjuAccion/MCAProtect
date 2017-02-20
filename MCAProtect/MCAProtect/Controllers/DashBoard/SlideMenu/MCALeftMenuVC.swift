@@ -126,12 +126,13 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         }
         if (indexPath.row == leftMenuItems.FundingPrograms.rawValue) {
             
-            self.navigationController?.viewControllers.remove(at: 0)
-            
 
             let fundingProgramStoryBoard = UIStoryboard.init(name:"FundingProgram", bundle: nil)
             let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
-            SlideNavigationController.sharedInstance().pushViewController(FundingProgramListVC, animated: false)
+            
+            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,FundingProgramListVC], animated: false);
+            SlideNavigationController.sharedInstance().toggleLeftMenu();
+          
         }
         if (indexPath.row == leftMenuItems.Communication.rawValue) {
             

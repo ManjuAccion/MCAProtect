@@ -7,7 +7,18 @@
 //
 
 import UIKit
+import iOS_Slide_Menu
 
+enum rightMenuItems : NSInteger {
+    case Notification = 0
+    case PersonalisedSettings = 1
+    case AboutUs = 2
+    case TermsOfUse = 3
+    case PrivacyPolicy = 4
+    case ShareFeedback = 5
+    case ShareApp = 6
+    case RateUs = 7
+}
 class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var sideRightMenuTableView : UITableView!
@@ -52,9 +63,63 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
         cell.cellLabel.text  = self.arrayDataSource[indexPath.row]
         cell.cellImageView.image = UIImage(named : self.arrayImageIcons[indexPath.row])
         cell.backgroundColor = UIColor.clear
+        cell.selectionStyle = .none
+
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        if (rightMenuItems.Notification.rawValue == indexPath.row) {
+            
+        }
+        
+        if (rightMenuItems.PersonalisedSettings.rawValue == indexPath.row) {
+            
+        }
+        if (rightMenuItems.AboutUs.rawValue == indexPath.row) {
+            let storyboard = UIStoryboard(name: "WebView", bundle: nil)
+            let applicationVC = storyboard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
+            applicationVC.nameTitle = NSLocalizedString("About Us", comment: "")
+            // Use these below lines to push the views from side menu.
+            // Make sure you call the toggleLeftMenu() or toggleRightMenu()
+            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
+            SlideNavigationController.sharedInstance().toggleLeftMenu();
+
+        }
+        if (rightMenuItems.TermsOfUse.rawValue == indexPath.row) {
+            
+            let storyboard = UIStoryboard(name: "WebView", bundle: nil)
+            let applicationVC = storyboard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
+            applicationVC.nameTitle = NSLocalizedString("Terms Of Use", comment: "")
+            // Use these below lines to push the views from side menu.
+            // Make sure you call the toggleLeftMenu() or toggleRightMenu()
+            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
+            SlideNavigationController.sharedInstance().toggleLeftMenu();
+            
+        }
+        if (rightMenuItems.PrivacyPolicy.rawValue == indexPath.row) {
+            
+            let storyboard = UIStoryboard(name: "WebView", bundle: nil)
+            let applicationVC = storyboard.instantiateViewController(withIdentifier: "WebView") as! MCAWebViewController
+            applicationVC.nameTitle = NSLocalizedString("Privacy Policy", comment: "")
+            // Use these below lines to push the views from side menu.
+            // Make sure you call the toggleLeftMenu() or toggleRightMenu()
+            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
+            SlideNavigationController.sharedInstance().toggleLeftMenu();
+            
+        }
+        if (rightMenuItems.ShareFeedback.rawValue == indexPath.row) {
+            
+        }
+        if (rightMenuItems.ShareApp.rawValue == indexPath.row) {
+            
+        }
+        if (rightMenuItems.RateUs.rawValue == indexPath.row) {
+            
+        }
+    }
 
     /*
     // MARK: - Navigation
