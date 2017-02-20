@@ -1,37 +1,35 @@
 //
-//  MCAApplicationFormVC
+//  MCAFPApplicationFormVC.swift
 //  MCAProtect
 //
-//  Created by Sarath NS on 2/15/17.
+//  Created by Accion Labs on 20/02/17.
 //  Copyright © 2017 Accionlabs. All rights reserved.
 //
 
 import UIKit
 
-class MCAApplicationFormVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
+
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataDataSource = ["Business Information", "Business Address", "Liens/Payments/Bankruptcy", "Merchant Documentation", "Bank Records","MCA Loans","Owner/Officer Information","Business Location"]
-    
-    //MARK: - View Life Cycle
+    var dataDataSource = ["Program Information", "Mearchant Requirements", "Liens/Payments/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUI()
+
+        // Do any additional setup after loading the view.
+        
+        tableView.register(UINib(nibName: "MCAApplicationStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationStatusTVCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func loadUI() {
-        
-        self.title = "Stacty's Boutique Details"
-        tableView.register(UINib(nibName: "MCAApplicationStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationStatusTVCell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.automaticallyAdjustsScrollViewInsets = false
-        tableView.tableFooterView = UIView()
+        // Dispose of any resources that can be recreated.
     }
     
     //MARK: - Table View Datasource
@@ -43,16 +41,9 @@ class MCAApplicationFormVC: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell :UITableViewCell!
         
-        if indexPath.row == 0 {
-            let statusTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationStatusTVCell", for: indexPath) as! MCAApplicationStatusTVCell
-            statusTVCell.statusLabel.text = "Progress"
-            cell = statusTVCell
-        }
-        else {
             let defaultCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
             defaultCell.textLabel?.text = dataDataSource[indexPath.row]
             cell = defaultCell
-        }
         cell.selectionStyle = .none
         
         return cell
@@ -62,7 +53,19 @@ class MCAApplicationFormVC: UIViewController,UITableViewDataSource,UITableViewDe
     {
         return 46.0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
-    
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

@@ -61,7 +61,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypR-oa-nM4">
-                                        <rect key="frame" x="0.0" y="233" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="231" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Business Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-3C-6x3" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="38" y="5" width="300" height="44"/>
@@ -107,7 +107,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6n-S9-LZv">
-                                        <rect key="frame" x="0.0" y="293" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="291" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVJ-zj-WCq" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="37" y="5" width="300" height="44"/>
@@ -146,7 +146,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oql-1v-Kuo">
-                                        <rect key="frame" x="0.0" y="353" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="351" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2r-wx-bHL" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="37" y="5" width="300" height="44"/>
@@ -185,7 +185,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="or6-aG-gfP">
-                                        <rect key="frame" x="0.0" y="413" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="411" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18N-vw-FPe" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="37" y="5" width="300" height="44"/>
@@ -224,7 +224,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIg-2b-uDQ">
-                                        <rect key="frame" x="0.0" y="473" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="471" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnj-kg-R28" customClass="JVFloatLabeledTextField">
                                                 <rect key="frame" x="37" y="5" width="300" height="44"/>
@@ -263,7 +263,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zF6-al-PYg">
-                                        <rect key="frame" x="0.0" y="533" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="531" width="375" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iJ-0x-GSO">
                                                 <rect key="frame" x="116.5" y="8" width="141" height="44"/>
@@ -331,7 +331,7 @@
                                     <constraint firstItem="or6-aG-gfP" firstAttribute="leading" secondItem="tTv-wy-qtX" secondAttribute="leading" id="PO6-My-H89"/>
                                     <constraint firstItem="tIg-2b-uDQ" firstAttribute="top" secondItem="or6-aG-gfP" secondAttribute="bottom" id="RU9-33-8Sm"/>
                                     <constraint firstItem="zF6-al-PYg" firstAttribute="top" secondItem="tIg-2b-uDQ" secondAttribute="bottom" id="SVn-gx-LMW"/>
-                                    <constraint firstItem="ypR-oa-nM4" firstAttribute="top" secondItem="fXm-N0-fF4" secondAttribute="bottom" constant="11" id="Vma-gw-NNB"/>
+                                    <constraint firstItem="ypR-oa-nM4" firstAttribute="top" secondItem="fXm-N0-fF4" secondAttribute="bottom" constant="9" id="Vma-gw-NNB"/>
                                     <constraint firstItem="MkU-eQ-PR4" firstAttribute="centerY" secondItem="9U2-ng-2mQ" secondAttribute="centerY" id="YfA-tE-Jwm"/>
                                     <constraint firstItem="wqL-UH-8y8" firstAttribute="top" secondItem="tTv-wy-qtX" secondAttribute="top" id="YtM-tg-zGk"/>
                                     <constraint firstItem="wqL-UH-8y8" firstAttribute="centerX" secondItem="tTv-wy-qtX" secondAttribute="centerX" id="Zsw-1p-WI7"/>
@@ -400,7 +400,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iZl-l2-lqY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorTransitionMaskImage="        " id="ybE-Fo-JHv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" backIndicatorTransitionMaskImage="        " id="ybE-Fo-JHv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

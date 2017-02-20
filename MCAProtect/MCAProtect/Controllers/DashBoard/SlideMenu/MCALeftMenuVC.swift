@@ -120,6 +120,12 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         }
         if (indexPath.row == leftMenuItems.FundingPrograms.rawValue) {
             
+            self.navigationController?.viewControllers.remove(at: 0)
+            
+
+            let fundingProgramStoryBoard = UIStoryboard.init(name:"FundingProgram", bundle: nil)
+            let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
+            SlideNavigationController.sharedInstance().pushViewController(FundingProgramListVC, animated: false)
         }
         if (indexPath.row == leftMenuItems.Communication.rawValue) {
             
@@ -129,9 +135,10 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction  func profileButtonClicked()
     {
-//        let profileStoryBoard = UIStoryboard.init(name:"ProfileDetail", bundle: nil)
-//        let ProfileVC = profileStoryBoard.instantiateViewController(withIdentifier: "MCAProfileViewController")
-//        self.navigationController?.present(ProfileVC, animated: true)
+
+        let profileStoryBoard = UIStoryboard.init(name:"ProfileDetail", bundle: nil)
+        let ProfileVC = profileStoryBoard.instantiateViewController(withIdentifier: "MCAProfileViewController")
+           SlideNavigationController.sharedInstance().pushViewController(ProfileVC, animated: false)
         
     }
     
