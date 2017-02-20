@@ -110,10 +110,16 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
             SlideNavigationController.sharedInstance().toggleLeftMenu();
 
         }
-        if (indexPath.row == leftMenuItems.MerchantApplications.rawValue) {
+        if (indexPath.row == leftMenuItems.MerchantApplications.rawValue)
+        {
             let storyboard = UIStoryboard(name: "Application", bundle: nil)
             let applicationVC = storyboard.instantiateViewController(withIdentifier: "MCAApplicationListVC") as! MCAApplicationListVC
-            SlideNavigationController.sharedInstance().pushViewController(applicationVC, animated: true)
+            
+            // Use these below lines to push the views from side menu.
+            // Make sure you call the toggleLeftMenu() or toggleRightMenu() 
+            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
+            SlideNavigationController.sharedInstance().toggleLeftMenu();
+            
         }
         if indexPath.row == leftMenuItems.SavedApplications.rawValue {
             
