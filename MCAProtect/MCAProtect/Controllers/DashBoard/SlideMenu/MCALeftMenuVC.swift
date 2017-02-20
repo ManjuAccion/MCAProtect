@@ -111,7 +111,9 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
 
         }
         if (indexPath.row == leftMenuItems.MerchantApplications.rawValue) {
-            
+            let storyboard = UIStoryboard(name: "Application", bundle: nil)
+            let applicationVC = storyboard.instantiateViewController(withIdentifier: "MCAApplicationListVC") as! MCAApplicationListVC
+            SlideNavigationController.sharedInstance().pushViewController(applicationVC, animated: true)
         }
         if indexPath.row == leftMenuItems.SavedApplications.rawValue {
             
