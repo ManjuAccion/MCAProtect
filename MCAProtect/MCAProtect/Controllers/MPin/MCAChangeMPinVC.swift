@@ -56,21 +56,6 @@ class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
         let confirmContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleConfirmPinContainerViewTapGesture))
         confirmPinSecureInputContainerView.addGestureRecognizer(confirmContainerViewTapGesture)
         
-        newPinSecureInputView1.inputImageView.isHidden = true
-        newPinSecureInputView2.inputImageView.isHidden = true
-        newPinSecureInputView3.inputImageView.isHidden = true
-        newPinSecureInputView4.inputImageView.isHidden = true
-        
-        confirmPinSecureInputView1.inputImageView.isHidden = true
-        confirmPinSecureInputView2.inputImageView.isHidden = true
-        confirmPinSecureInputView3.inputImageView.isHidden = true
-        confirmPinSecureInputView4.inputImageView.isHidden = true
-        
-        oldPinSecureInputView1.inputImageView.isHidden = true
-        oldPinSecureInputView2.inputImageView.isHidden = true
-        oldPinSecureInputView3.inputImageView.isHidden = true
-        oldPinSecureInputView4.inputImageView.isHidden = true
-        
         initilazeToolBar()
     }
     

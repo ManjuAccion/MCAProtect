@@ -34,17 +34,7 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        newPinSecureInputView1.inputImageView.isHidden = true
-        newPinSecureInputView2.inputImageView.isHidden = true
-        newPinSecureInputView3.inputImageView.isHidden = true
-        newPinSecureInputView4.inputImageView.isHidden = true
-        
-        confirmPinSecureInputView1.inputImageView.isHidden = true
-        confirmPinSecureInputView2.inputImageView.isHidden = true
-        confirmPinSecureInputView3.inputImageView.isHidden = true
-        confirmPinSecureInputView4.inputImageView.isHidden = true
-        
+
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleNewPinContainerViewTapGesture))
         newPinSecureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
         

@@ -32,11 +32,6 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         super.viewDidLoad()
         
         secureInputTF.becomeFirstResponder()
-        secureInputView1.inputImageView.isHidden = true
-        secureInputView2.inputImageView.isHidden = true
-        
-        secureInputView3.inputImageView.isHidden = true
-        secureInputView4.inputImageView.isHidden = true
         
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleSecureInputContainerViewTapGesture))
         secureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
