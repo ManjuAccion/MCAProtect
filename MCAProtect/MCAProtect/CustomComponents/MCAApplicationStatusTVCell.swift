@@ -1,5 +1,5 @@
 //
-//  MCAStatusTVCell.swift
+//  MCAApplicationStatusTVCell.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/15/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAStatusTVCell: UITableViewCell {
+class MCAApplicationStatusTVCell: UITableViewCell {
     
     @IBOutlet weak var statusLabel: UILabel!
 

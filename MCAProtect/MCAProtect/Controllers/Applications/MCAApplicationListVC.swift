@@ -1,5 +1,5 @@
 //
-//  MCAUnderwritingVC.swift
+//  MCAApplicationListVC.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/14/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAUnderwritingVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAApplicationListVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,7 +31,7 @@ class MCAUnderwritingVC: UIViewController,UITableViewDataSource,UITableViewDeleg
     func loadUI() {
         
         self.title = "Underwriting"
-        tableView.register(UINib(nibName: "MCAUnderwritingTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAUnderwritingTVCell")
+        tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
         self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
     }
@@ -44,7 +44,7 @@ class MCAUnderwritingVC: UIViewController,UITableViewDataSource,UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAUnderwritingTVCell", for: indexPath) as! MCAUnderwritingTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
         
         cell.selectionStyle = .none
         
@@ -55,8 +55,8 @@ class MCAUnderwritingVC: UIViewController,UITableViewDataSource,UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard(name: "Underwriting", bundle: Bundle.main)
-        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAUnderwritingMerchant") as! MCAUnderwritingMerchant
+        let storyBoard = UIStoryboard(name: "Application", bundle: Bundle.main)
+        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
         navigationController?.pushViewController(underwritingMerchantVC, animated: true)
     }
     

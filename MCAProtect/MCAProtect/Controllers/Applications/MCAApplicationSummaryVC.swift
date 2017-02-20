@@ -1,5 +1,5 @@
 //
-//  MCAUnderwritingMerchant.swift
+//  MCAApplicationSummaryVC.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/14/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAUnderwritingMerchant: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MCAApplicationSummaryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,7 +39,7 @@ class MCAUnderwritingMerchant: UIViewController,UITableViewDelegate,UITableViewD
     func loadUI() {
         
         self.title = "Stacy's Boutique"
-        tableView.register(UINib(nibName: "MCADataDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCADataDetailsTVCell")
+        tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")
 //        self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
         
@@ -55,7 +55,7 @@ class MCAUnderwritingMerchant: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCADataDetailsTVCell", for: indexPath) as! MCADataDetailsTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationSummaryTVCell", for: indexPath) as! MCAApplicationSummaryTVCell
         
         cell.selectionStyle = .none
         let title = dataSourceArray[indexPath.row]

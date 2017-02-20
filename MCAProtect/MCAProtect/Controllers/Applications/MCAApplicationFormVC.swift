@@ -1,5 +1,5 @@
 //
-//  MCAMerchantDetailsVC
+//  MCAApplicationFormVC
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/15/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAMerchantDetailsVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAApplicationFormVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,7 +28,7 @@ class MCAMerchantDetailsVC: UIViewController,UITableViewDataSource,UITableViewDe
     func loadUI() {
         
         self.title = "Stacty's Boutique Details"
-        tableView.register(UINib(nibName: "MCAStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAStatusTVCell")
+        tableView.register(UINib(nibName: "MCAApplicationStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationStatusTVCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
         self.automaticallyAdjustsScrollViewInsets = false
@@ -45,7 +45,7 @@ class MCAMerchantDetailsVC: UIViewController,UITableViewDataSource,UITableViewDe
         var cell :UITableViewCell!
         
         if indexPath.row == 0 {
-            let statusTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAStatusTVCell", for: indexPath) as! MCAStatusTVCell
+            let statusTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationStatusTVCell", for: indexPath) as! MCAApplicationStatusTVCell
             statusTVCell.statusLabel.text = "Progress"
             cell = statusTVCell
         }

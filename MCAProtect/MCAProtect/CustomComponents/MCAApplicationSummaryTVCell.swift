@@ -1,5 +1,5 @@
 //
-//  MCADataDetailsTVCell.swift
+//  MCAApplicationSummaryTVCell.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/14/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCADataDetailsTVCell: UITableViewCell {
+class MCAApplicationSummaryTVCell: UITableViewCell {
     
     
     @IBOutlet weak var dataTF: UITextField!

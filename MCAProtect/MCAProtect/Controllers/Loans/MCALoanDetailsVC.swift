@@ -29,7 +29,7 @@ class MCALoanDetailsVC: UIViewController,UITableViewDataSource,UITableViewDelega
     func loadUI() {
         
         self.title = "Loan Details"
-        tableView.register(UINib(nibName: "MCADataDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCADataDetailsTVCell")
+        tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")
         tableView.tableFooterView = UIView()
         
         dataSourceArray = Array(dataSource.keys)
@@ -44,7 +44,7 @@ class MCALoanDetailsVC: UIViewController,UITableViewDataSource,UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCADataDetailsTVCell", for: indexPath) as! MCADataDetailsTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationSummaryTVCell", for: indexPath) as! MCAApplicationSummaryTVCell
         
         cell.selectionStyle = .none
         let title = dataSourceArray[indexPath.row]

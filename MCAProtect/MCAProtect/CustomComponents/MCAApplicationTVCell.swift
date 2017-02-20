@@ -1,5 +1,5 @@
 //
-//  MCAUnderwritingTVCell.swift
+//  MCAApplicationTVCell.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/14/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAUnderwritingTVCell: UITableViewCell {
+class MCAApplicationTVCell: UITableViewCell {
     
     @IBOutlet weak var merchantName: UILabel!
     @IBOutlet weak var amountLabel: UILabel!

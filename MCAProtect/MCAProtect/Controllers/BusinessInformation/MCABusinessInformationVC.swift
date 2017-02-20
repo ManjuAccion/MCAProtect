@@ -30,8 +30,7 @@ class MCABusinessInformationVC: UIViewController,UITableViewDelegate,UITableView
     func loadUI() {
         
         self.title = "Business Information"
-        tableView.register(UINib(nibName: "MCADataDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCADataDetailsTVCell")
-        //        self.automaticallyAdjustsScrollViewInsets = false
+        tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")
         tableView.tableFooterView = UIView()
         
         dataSourceArray = Array(dataSource.keys)
@@ -46,7 +45,7 @@ class MCABusinessInformationVC: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCADataDetailsTVCell", for: indexPath) as! MCADataDetailsTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationSummaryTVCell", for: indexPath) as! MCAApplicationSummaryTVCell
         
         cell.selectionStyle = .none
         let title = dataSourceArray[indexPath.row]

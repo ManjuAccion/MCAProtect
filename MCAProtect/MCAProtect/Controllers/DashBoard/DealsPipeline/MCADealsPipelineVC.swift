@@ -35,10 +35,10 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         
-        var unerWritingVC  = UIStoryboard(name: "Underwriting", bundle: nil).instantiateViewController(withIdentifier: "MCAUnderwritingVC") as! MCAUnderwritingVC
+        let applicationVC  = UIStoryboard(name: "Application", bundle: nil).instantiateViewController(withIdentifier: "MCAApplicationListVC") as! MCAApplicationListVC
         
         
-        parentController.navigationController?.pushViewController(unerWritingVC, animated: true);
+        parentController.navigationController?.pushViewController(applicationVC, animated: true);
         
     }
     
