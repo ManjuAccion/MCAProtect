@@ -30,6 +30,12 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         userSelectedLabel.addGestureRecognizer(userSelectionTapGesture)
 
         self.navigationController?.navigationBar.isHidden = false
+        businessNameTF.autocorrectionType = UITextAutocorrectionType.no
+        emailTF.autocorrectionType = UITextAutocorrectionType.no
+        phoneNumberTF.autocorrectionType = UITextAutocorrectionType.no
+        passwordTF.autocorrectionType = UITextAutocorrectionType.no
+        confirmPasswordTF.autocorrectionType = UITextAutocorrectionType.no
+
         isAllDetailsPresent = true
            }
 
