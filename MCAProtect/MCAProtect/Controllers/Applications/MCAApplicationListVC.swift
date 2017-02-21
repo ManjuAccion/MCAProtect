@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAApplicationListVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,7 +20,8 @@ class MCAApplicationListVC: UIViewController,UITableViewDataSource,UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+
         loadUI()
     }
 
@@ -30,10 +31,26 @@ class MCAApplicationListVC: UIViewController,UITableViewDataSource,UITableViewDe
     
     func loadUI() {
         
-        self.title = "Underwriting"
+        self.title = "Merchant Applications"
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
         self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
+        
+//        let myBackButton:UIButton = UIButton.init(type: .custom)
+//        myBackButton.addTarget(self, action: #selector(self.popToRoot(sender:)), for: .touchUpInside)
+//        let image = UIImage(named: "backButton")
+//        myBackButton.setBackgroundImage(image, for: .normal)
+//        myBackButton.setTitle("", for: .normal)
+//        //        myBackButton.setTitleColor(.blue, for: .normal)
+//        myBackButton.sizeToFit()
+//        
+//        
+//        let myCustomBackButtonItem:UIBarButtonItem = UIBarButtonItem(customView: myBackButton)
+//        self.navigationItem.leftBarButtonItem  = myCustomBackButtonItem
+    }
+    
+    func popToRoot(sender:UIBarButtonItem){
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
     //MARK: - Table View Datasource

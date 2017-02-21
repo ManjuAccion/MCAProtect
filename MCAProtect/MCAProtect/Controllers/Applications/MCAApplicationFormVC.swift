@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAApplicationFormVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAApplicationSummaryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,11 +25,6 @@ class MCAApplicationSummaryVC: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let backButton = UIBarButtonItem(title: "",
-                                         style: UIBarButtonItemStyle.plain,
-                                         target: navigationController,
-                                         action: nil)
-        navigationItem.leftBarButtonItem = backButton
     }
 
     override func didReceiveMemoryWarning() {
