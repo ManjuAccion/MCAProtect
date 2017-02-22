@@ -105,50 +105,41 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if (indexPath.row ==  leftMenuItems.Dashboard.rawValue) {
-           
+        
+        switch indexPath.row {
+        case leftMenuItems.Dashboard.rawValue:
+            
             SlideNavigationController.sharedInstance().toggleLeftMenu();
-
-        }
-        if (indexPath.row == leftMenuItems.MerchantApplications.rawValue)
-        {
+            break
+        case leftMenuItems.MerchantApplications.rawValue:
             let storyboard = UIStoryboard(name: "Application", bundle: nil)
             let applicationVC = storyboard.instantiateViewController(withIdentifier: "MCAApplicationListVC") as! MCAApplicationListVC
-            
             // Use these below lines to push the views from side menu.
-            // Make sure you call the toggleLeftMenu() or toggleRightMenu() 
+            // Make sure you call the toggleLeftMenu() or toggleRightMenu()
             SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
             SlideNavigationController.sharedInstance().toggleLeftMenu();
+            break
+        case leftMenuItems.SavedApplications.rawValue:
             
-        }
-        if indexPath.row == leftMenuItems.SavedApplications.rawValue {
-            
-        }
-        if (indexPath.row == leftMenuItems.FundingPrograms.rawValue) {
-            
-
             let fundingProgramStoryBoard = UIStoryboard.init(name:"FundingProgram", bundle: nil)
             let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
-            
             SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,FundingProgramListVC], animated: false);
             SlideNavigationController.sharedInstance().toggleLeftMenu();
-          
-        }
-        if (indexPath.row == leftMenuItems.Communication.rawValue) {
+            break
+        case leftMenuItems.FundingPrograms.rawValue:
+            
+            let fundingProgramStoryBoard = UIStoryboard.init(name:"FundingProgram", bundle: nil)
+            let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
+            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,FundingProgramListVC], animated: false);
+            SlideNavigationController.sharedInstance().toggleLeftMenu();
+            break
+        case leftMenuItems.Communication.rawValue: break
+            
+        default: break
             
         }
-    }
-    
-    
-    @IBAction  func profileButtonClicked()
-    {
-
-        let profileStoryBoard = UIStoryboard.init(name:"ProfileDetail", bundle: nil)
-        let ProfileVC = profileStoryBoard.instantiateViewController(withIdentifier: "MCAProfileViewController")
-           SlideNavigationController.sharedInstance().pushViewController(ProfileVC, animated: false)
         
     }
-    
        /*
     // MARK: - Navigation
 
