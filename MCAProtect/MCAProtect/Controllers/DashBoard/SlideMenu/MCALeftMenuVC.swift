@@ -121,10 +121,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
             break
         case leftMenuItems.SavedApplications.rawValue:
             
-            let fundingProgramStoryBoard = UIStoryboard.init(name:"FundingProgram", bundle: nil)
-            let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
-            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,FundingProgramListVC], animated: false);
-            SlideNavigationController.sharedInstance().toggleLeftMenu();
+           
             break
         case leftMenuItems.FundingPrograms.rawValue:
             
