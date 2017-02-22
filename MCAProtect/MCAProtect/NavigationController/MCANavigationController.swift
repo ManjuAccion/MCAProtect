@@ -15,9 +15,9 @@ class MCANavigationController: SlideNavigationController {
         super.viewDidLoad()
 
         
-        UINavigationBar.appearance().barTintColor = UIColor.white
-        UINavigationBar.appearance().tintColor = UIColor(red: 163.0/255.0, green: 42.0/255.0, blue: 42.0/255.0, alpha: 1.0)
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 18.0), NSForegroundColorAttributeName:UIColor.black]
+        UINavigationBar.appearance().barTintColor = ColorConstants.red
+        UINavigationBar.appearance().tintColor =  UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 18.0), NSForegroundColorAttributeName:UIColor.white]
         
         let barAppearance = UIBarButtonItem.appearance()
         barAppearance.setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
