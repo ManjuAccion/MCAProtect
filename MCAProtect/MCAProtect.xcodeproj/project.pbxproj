@@ -71,6 +71,8 @@
 		7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3451E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift */; };
 		7871E3481E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7871E3461E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
+		BA30E3011E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA30E3001E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib */; };
+		BA30E3031E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA30E3021E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift */; };
 		BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34CD381E4C7E3A001AF75F /* mPin.storyboard */; };
 		BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34CD3A1E4C9321001AF75F /* MCAEnterMPinVC.swift */; };
 		BA34CD3E1E4C9E72001AF75F /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34CD3D1E4C9E72001AF75F /* SecureInputView.swift */; };
@@ -182,6 +184,8 @@
 		7871E3451E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonCell.swift; sourceTree = "<group>"; };
 		7871E3461E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPerformanceComparisonCell.xib; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BA30E3001E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASavedApplicationsListTVCell.xib; sourceTree = "<group>"; };
+		BA30E3021E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationsListTVCell.swift; sourceTree = "<group>"; };
 		BA34CD381E4C7E3A001AF75F /* mPin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mPin.storyboard; sourceTree = "<group>"; };
 		BA34CD3A1E4C9321001AF75F /* MCAEnterMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAEnterMPinVC.swift; sourceTree = "<group>"; };
 		BA34CD3D1E4C9E72001AF75F /* SecureInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
@@ -447,6 +451,7 @@
 				5B643D091E5B057E00AE89B1 /* Funding Program */,
 				782C6A051E49BE0200268356 /* Login */,
 				782C6A071E49BE0200268356 /* Registration */,
+				BA30E2FF1E5DB4C3005829F4 /* Saved Applications */,
 				782C69F01E49AFDB00268356 /* DashBoard */,
 			);
 			path = Controllers;
@@ -576,6 +581,15 @@
 				7871E3331E5312310019B707 /* MCANavigationController.swift */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		BA30E2FF1E5DB4C3005829F4 /* Saved Applications */ = {
+			isa = PBXGroup;
+			children = (
+				BA30E3001E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib */,
+				BA30E3021E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift */,
+			);
+			path = "Saved Applications";
 			sourceTree = "<group>";
 		};
 		BA34CD3C1E4C9E72001AF75F /* CustomComponents */ = {
@@ -760,6 +774,7 @@
 				5B313E081E49BA07004CE58A /* Login.storyboard in Resources */,
 				5B8FC4A41E4C7E9600309CAB /* Roboto-Black.ttf in Resources */,
 				5B8FC4A81E4C7E9600309CAB /* Roboto-Italic.ttf in Resources */,
+				BA30E3011E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib in Resources */,
 				5B8FC4AD1E4C7E9600309CAB /* Roboto-Regular.ttf in Resources */,
 				5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */,
 				BA8B686D1E5315C6004CEB69 /* MCAApplicationSummaryTVCell.xib in Resources */,
@@ -947,6 +962,7 @@
 				7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */,
 				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
 				BA8B68B11E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift in Sources */,
+				BA30E3031E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift in Sources */,
 				BA8B68871E545871004CEB69 /* MCALoanDetailsVC.swift in Sources */,
 				BA8B68B31E5B0597004CEB69 /* MCAApplicationFormVC.swift in Sources */,
 				BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */,

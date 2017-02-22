@@ -20,7 +20,6 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
 
         loadUI()
     }
@@ -31,26 +30,10 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func loadUI() {
         
-        self.title = "Merchant Applications"
+        self.navigationItem.title = "Saved Applications"
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
-        self.automaticallyAdjustsScrollViewInsets = false
+        tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCASavedApplicationsListTVCell")
         tableView.tableFooterView = UIView()
-        
-//        let myBackButton:UIButton = UIButton.init(type: .custom)
-//        myBackButton.addTarget(self, action: #selector(self.popToRoot(sender:)), for: .touchUpInside)
-//        let image = UIImage(named: "backButton")
-//        myBackButton.setBackgroundImage(image, for: .normal)
-//        myBackButton.setTitle("", for: .normal)
-//        //        myBackButton.setTitleColor(.blue, for: .normal)
-//        myBackButton.sizeToFit()
-//        
-//        
-//        let myCustomBackButtonItem:UIBarButtonItem = UIBarButtonItem(customView: myBackButton)
-//        self.navigationItem.leftBarButtonItem  = myCustomBackButtonItem
-    }
-    
-    func popToRoot(sender:UIBarButtonItem){
-        _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
     //MARK: - Table View Datasource
@@ -61,11 +44,14 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCASavedApplicationsListTVCell", for: indexPath) as! MCASavedApplicationsListTVCell
         
         cell.selectionStyle = .none
         
-        cell.merchantName.text = dataDataSource[indexPath.row]
+//        cell.merchantName.text = dataDataSource[indexPath.row]
+//        cell.amountLabel.text = amountDataSource[indexPath.row]
+        cell.nameLabel.text = dataDataSource[indexPath.row]
         cell.amountLabel.text = amountDataSource[indexPath.row]
         
         return cell
@@ -79,7 +65,7 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 68.0
+        return 60.0
     }
 
 
