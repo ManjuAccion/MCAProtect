@@ -90,6 +90,9 @@
 		BA8B68B01E5B00E5004CEB69 /* MCAApplicationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68AE1E5B00E5004CEB69 /* MCAApplicationListVC.swift */; };
 		BA8B68B11E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68AF1E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift */; };
 		BA8B68B31E5B0597004CEB69 /* MCAApplicationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68B21E5B0597004CEB69 /* MCAApplicationFormVC.swift */; };
+		BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */; };
+		BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */; };
+		BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -198,6 +201,9 @@
 		BA8B68AE1E5B00E5004CEB69 /* MCAApplicationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationListVC.swift; sourceTree = "<group>"; };
 		BA8B68AF1E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationSummaryVC.swift; sourceTree = "<group>"; };
 		BA8B68B21E5B0597004CEB69 /* MCAApplicationFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormVC.swift; sourceTree = "<group>"; };
+		BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -449,6 +455,9 @@
 		782C69D61E49ADD700268356 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */,
+				BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */,
+				BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -926,11 +935,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA88AC9E1E4D791C003E3B2F /* MCASetMPinVC.swift in Sources */,
+				BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */,
 				5B643D131E5B2B4200AE89B1 /* MCAFPApplicationDetailViewController.swift in Sources */,
 				7871E3431E548FC60019B707 /* MCADelasPipelineCell.swift in Sources */,
 				782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */,
 				7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */,
 				BA8B688C1E546C9C004CEB69 /* MCABusinessInformationVC.swift in Sources */,
+				BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */,
 				782C6A031E49B8F500268356 /* MCADealsPipelineVC.swift in Sources */,
 				782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */,
 				7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */,
@@ -953,6 +964,7 @@
 				782C6A0F1E49BE5A00268356 /* MCANewMPinVC.swift in Sources */,
 				BA34CD3E1E4C9E72001AF75F /* SecureInputView.swift in Sources */,
 				782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */,
+				BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */,
 				5B643D111E5B25AF00AE89B1 /* MCAFPApplicationFormVC.swift in Sources */,
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,
 				5B4741CC1E570D2A001D9435 /* MCAProfileViewController.swift in Sources */,
