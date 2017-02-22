@@ -17,6 +17,8 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Funding Programs ajvjnvjvn njnsajnvj"
+        
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
 
 
