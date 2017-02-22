@@ -140,6 +140,16 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         }
         
     }
+    
+    @IBAction  func profileButtonClicked()
+    {
+        
+        let profileStoryBoard = UIStoryboard.init(name:"ProfileDetail", bundle: nil)
+        let ProfileVC = profileStoryBoard.instantiateViewController(withIdentifier: "MCAProfileViewController")
+        SlideNavigationController.sharedInstance().pushViewController(ProfileVC, animated: false)
+        
+    }
+
        /*
     // MARK: - Navigation
 
