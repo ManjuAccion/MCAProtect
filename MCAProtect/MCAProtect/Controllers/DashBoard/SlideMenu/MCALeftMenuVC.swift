@@ -11,23 +11,20 @@ import iOS_Slide_Menu
 
 enum leftMenuItems : NSInteger {
     case Dashboard = 0
-    case MerchantApplications = 1
-    case SavedApplications = 2
-    case FundingPrograms = 3
-    case Communication = 4
+    case SavedApplications = 1
+    case FundingPrograms = 2
+    case Communication = 3
 }
 
 class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet var versionFooterView : UIView!
-
     @IBOutlet var profileHeaderView : UIView!
     @IBOutlet weak var profileImageButton : UIButton!
-
     @IBOutlet weak var sideMenuTableView : UITableView!
 
-    var arrayDataSource : [String] = ["Dashboard","Merchant Applications", "Saved Applications", "Funding programs", "Communication"]
-    var arrayImageIcons : [String] = ["iconDashboard","iconMerchantApplications", "iconSavedApplications", "iconFundingPrograms", "iconCommunication"]
+    var arrayDataSource : [String] = ["Dashboard", "Saved Applications", "Funding programs", "Communication"]
+    var arrayImageIcons : [String] = ["iconDashboard","iconSavedApplications", "iconFundingPrograms", "iconCommunication"]
     
     
     override func viewDidLoad() {
@@ -40,21 +37,16 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         
         
         sideMenuTableView.register(UINib(nibName: "MCATableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCATableViewCell")
-        
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         sideMenuTableView.reloadData()
-
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,14 +57,10 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
             let frame = CGRect(x: 0, y: screenSize.height-120, width: 401, height: 120)
             versionFooterView.frame = frame
             self.sideMenuTableView.tableFooterView?.addSubview(versionFooterView)
-        
-
-
         }
     }
     
     //MARK: - Table View Datasource
-    
     
     public func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
     {
@@ -105,37 +93,33 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
         switch indexPath.row {
-        case leftMenuItems.Dashboard.rawValue:
             
-            SlideNavigationController.sharedInstance().toggleLeftMenu();
-            break
-        case leftMenuItems.MerchantApplications.rawValue:
-            let storyboard = UIStoryboard(name: "Application", bundle: nil)
-            let applicationVC = storyboard.instantiateViewController(withIdentifier: "MCAApplicationListVC") as! MCAApplicationListVC
-            // Use these below lines to push the views from side menu.
-            // Make sure you call the toggleLeftMenu() or toggleRightMenu()
-            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
-            SlideNavigationController.sharedInstance().toggleLeftMenu();
-            break
-        case leftMenuItems.SavedApplications.rawValue:
+            case leftMenuItems.Dashboard.rawValue:
+                
+                SlideNavigationController.sharedInstance().toggleLeftMenu();
             
-           
-            break
-        case leftMenuItems.FundingPrograms.rawValue:
+            case leftMenuItems.SavedApplications.rawValue:
+                
+                let storyboard = UIStoryboard(name: "Application", bundle: nil)
+                let applicationVC = storyboard.instantiateViewController(withIdentifier: "MCAApplicationListVC") as! MCAApplicationListVC
+                SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
+                SlideNavigationController.sharedInstance().toggleLeftMenu()
             
-            let fundingProgramStoryBoard = UIStoryboard.init(name:"FundingProgram", bundle: nil)
-            let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
-            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,FundingProgramListVC], animated: false);
-            SlideNavigationController.sharedInstance().toggleLeftMenu();
-            break
-        case leftMenuItems.Communication.rawValue: break
+            case leftMenuItems.FundingPrograms.rawValue:
+                
+                let fundingProgramStoryBoard = UIStoryboard.init(name:"FundingProgram", bundle: nil)
+                let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
+                // Use these below lines to push the views from side menu.
+                // Make sure you call the toggleLeftMenu() or toggleRightMenu()
+                SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,FundingProgramListVC], animated: false);
+                SlideNavigationController.sharedInstance().toggleLeftMenu()
             
-        default: break
-            
-        }
-        
+            case leftMenuItems.Communication.rawValue: break
+                
+            default:
+                print("Default value")
+            }
     }
     
     @IBAction  func profileButtonClicked()
@@ -146,15 +130,4 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         SlideNavigationController.sharedInstance().pushViewController(ProfileVC, animated: false)
         
     }
-
-       /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

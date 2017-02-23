@@ -50,15 +50,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$60,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ree-9B-xLT">
-                    <rect key="frame" x="15" y="28" width="247" height="24"/>
+                    <rect key="frame" x="15" y="32" width="239" height="20"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                     <color key="textColor" red="0.1764705882352941" green="0.22352941176470587" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="15000 Days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3To-Dn-9aM">
-                    <rect key="frame" x="270" y="28" width="90" height="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Need in 130 Days" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3To-Dn-9aM">
+                    <rect key="frame" x="262" y="36" width="98" height="15"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="90" id="NY8-dy-eCo"/>
+                        <constraint firstAttribute="width" constant="98" id="NY8-dy-eCo"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-LightItalic" family="Roboto" pointSize="12"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,11 +72,11 @@
                 <constraint firstItem="saN-Ti-p7H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EQd-qp-YFJ"/>
                 <constraint firstAttribute="bottom" secondItem="w1j-OK-CLw" secondAttribute="bottom" id="F2v-Ze-iIs"/>
                 <constraint firstItem="w1j-OK-CLw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QT7-He-9Zf"/>
-                <constraint firstItem="saN-Ti-p7H" firstAttribute="top" secondItem="3To-Dn-9aM" secondAttribute="bottom" constant="7" id="XfA-M3-wES"/>
-                <constraint firstItem="3To-Dn-9aM" firstAttribute="top" secondItem="LNC-Xj-hRB" secondAttribute="bottom" id="g8v-3P-lyO"/>
+                <constraint firstItem="saN-Ti-p7H" firstAttribute="top" secondItem="3To-Dn-9aM" secondAttribute="bottom" constant="8" id="XfA-M3-wES"/>
+                <constraint firstItem="3To-Dn-9aM" firstAttribute="top" secondItem="LNC-Xj-hRB" secondAttribute="bottom" constant="8" id="g8v-3P-lyO"/>
                 <constraint firstAttribute="bottom" secondItem="saN-Ti-p7H" secondAttribute="bottom" id="hqe-Hw-pM7"/>
                 <constraint firstItem="w1j-OK-CLw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iMN-eK-Wky"/>
-                <constraint firstItem="ree-9B-xLT" firstAttribute="top" secondItem="LNC-Xj-hRB" secondAttribute="bottom" id="nR8-R0-BTi"/>
+                <constraint firstItem="ree-9B-xLT" firstAttribute="top" secondItem="LNC-Xj-hRB" secondAttribute="bottom" constant="4" id="nR8-R0-BTi"/>
                 <constraint firstItem="LNC-Xj-hRB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="o6x-n4-yre"/>
                 <constraint firstItem="3To-Dn-9aM" firstAttribute="leading" secondItem="ree-9B-xLT" secondAttribute="trailing" constant="8" id="psr-c7-8ka"/>
                 <constraint firstItem="ree-9B-xLT" firstAttribute="leading" secondItem="w1j-OK-CLw" secondAttribute="trailing" constant="13" id="rCa-A1-zSd"/>

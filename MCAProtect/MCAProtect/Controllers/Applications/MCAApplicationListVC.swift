@@ -44,13 +44,9 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCASavedApplicationsListTVCell", for: indexPath) as! MCASavedApplicationsListTVCell
         
         cell.selectionStyle = .none
-        
-//        cell.merchantName.text = dataDataSource[indexPath.row]
-//        cell.amountLabel.text = amountDataSource[indexPath.row]
         cell.nameLabel.text = dataDataSource[indexPath.row]
         cell.amountLabel.text = amountDataSource[indexPath.row]
         
@@ -61,12 +57,22 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
         let storyBoard = UIStoryboard(name: "Application", bundle: Bundle.main)
         let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
         navigationController?.pushViewController(underwritingMerchantVC, animated: true)
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
+        selectedCell.selectedView.isHidden = false
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
+        deselectedCell.selectedView.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 60.0
     }
+    
+
 
 
 }
