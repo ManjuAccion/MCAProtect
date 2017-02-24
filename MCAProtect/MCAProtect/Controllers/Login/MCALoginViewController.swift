@@ -18,11 +18,13 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     @IBOutlet weak var userSelectedLabel : UILabel!
     @IBOutlet weak var dropDownButton : UIButton!
     
+    @IBOutlet weak var overlayViewConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-            
+//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
             let userSelectionTapGesture  = UITapGestureRecognizer(target: self, action:#selector(handleuserSelectionTapGesture))
             userSelectedLabel.addGestureRecognizer(userSelectionTapGesture)
     
@@ -92,21 +94,21 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
 
     //Mark:- Keyboard hide and show
     
-    func keyboardWillShow(notification:NSNotification){
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
-        var contentInset:UIEdgeInsets = scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
-        scrollView.contentInset = contentInset
-    }
-    
-    func keyboardWillHide(notification:NSNotification){
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero;
-        scrollView.contentInset = contentInset
-    }
-
+//    func keyboardWillShow(notification:NSNotification){
+//        var userInfo = notification.userInfo!
+//        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+//        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+//        
+//        var contentInset:UIEdgeInsets = scrollView.contentInset
+//        contentInset.bottom = keyboardFrame.size.height
+//        scrollView.contentInset = contentInset
+//    }
+//    
+//    func keyboardWillHide(notification:NSNotification){
+//        let contentInset:UIEdgeInsets = UIEdgeInsets.zero;
+//        scrollView.contentInset = contentInset
+//    }
+//
     
     @IBAction func loginButtonPressed(sender:AnyObject){
         
@@ -201,6 +203,29 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         self.view.endEditing(true);
         return true;
     }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+     if(textField.tag == 1){
+        
+        self.overlayViewConstraint.constant = -25;
+        UIView.animate(withDuration: 0.5, animations:
+            {
+                self.view.layoutIfNeeded()
+        })
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        self.overlayViewConstraint.constant = 18;
+        UIView.animate(withDuration: 0.5, animations:
+            {
+                self.view.layoutIfNeeded()
+        })
+    }
+    
     
     @IBAction func rememberBtn_box(sender: UIButton) {
         if (rememberPasswordBtn.isSelected == true)

@@ -13,6 +13,8 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var pipeLineTableView: UITableView!
 
     
+    var dataSource : [String] = ["New","Underwriting", "Need More Stips", "Funded", "DNQ", "Lost", "Renewal"]
+
     weak var parentController: MCADashboardTabbarVC!
 
     override func viewDidLoad() {
@@ -56,6 +58,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCADelasPipelineCell") as! MCADelasPipelineCell!
         cell?.selectionStyle = .none
         
+        cell?.pipelineTitleLabel.text = dataSource[indexPath.row]
         
         return cell!
     }

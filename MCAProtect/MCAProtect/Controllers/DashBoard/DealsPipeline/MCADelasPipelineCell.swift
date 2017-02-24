@@ -10,6 +10,7 @@ import UIKit
 
 class MCADelasPipelineCell: UITableViewCell {
 
+    @IBOutlet weak var pipelineTitleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

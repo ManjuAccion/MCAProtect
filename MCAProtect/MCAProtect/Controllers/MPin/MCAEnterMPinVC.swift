@@ -41,7 +41,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        registerForKeyboardNotifications()
+//        registerForKeyboardNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,6 +88,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     @IBAction func changeMPinTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "mPin", bundle: nil)
         let changeMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAChangeMPinVC") as! MCAChangeMPinVC
+        
         navigationController?.pushViewController(changeMPinVC,
                                                  animated: true)
     }
@@ -115,36 +116,36 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func registerForKeyboardNotifications() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func keyboardWillBeShown(sender: NSNotification) {
-        
-        let info: NSDictionary = sender.userInfo! as NSDictionary
-        let value: NSValue = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
-        let keyboardSize: CGSize = value.cgRectValue.size
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        
-        // If active text field is hidden by keyboard, scroll it so it's visible
-        // Your app might not need or want this behavior.
-        var aRect: CGRect = self.view.frame
-        aRect.size.height -= keyboardSize.height
-        let activeTextFieldRect: CGRect? = activeTextField?.frame
-        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
-        if (!aRect.contains(activeTextFieldOrigin!)) {
-            scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
-        }
-    }
-    
-    func keyboardWillBeHidden(sender: NSNotification) {
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-    }
-  
+//    func keyboardWillBeShown(sender: NSNotification) {
+//        
+//        let info: NSDictionary = sender.userInfo! as NSDictionary
+//        let value: NSValue = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
+//        let keyboardSize: CGSize = value.cgRectValue.size
+//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//        
+//        // If active text field is hidden by keyboard, scroll it so it's visible
+//        // Your app might not need or want this behavior.
+//        var aRect: CGRect = self.view.frame
+//        aRect.size.height -= keyboardSize.height
+//        let activeTextFieldRect: CGRect? = activeTextField?.frame
+//        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
+//        if (!aRect.contains(activeTextFieldOrigin!)) {
+//            scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
+//        }
+//    }
+//    
+//    func keyboardWillBeHidden(sender: NSNotification) {
+//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
+//        scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+//    }
+//  
     func inputToolbarDonePressed() {
         secureInputTF.resignFirstResponder()
     }
@@ -156,7 +157,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         activeTextField = textField
         activeTextField?.inputAccessoryView = toolbar
         activeTextField?.autocorrectionType = UITextAutocorrectionType.no
-        scrollView.isScrollEnabled = true
+//        scrollView.isScrollEnabled = true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

@@ -123,6 +123,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="pipelineTitleLabel" destination="V8z-SG-zNy" id="OZ0-m2-NxL"/>
+            </connections>
             <point key="canvasLocation" x="-84" y="-83"/>
         </tableViewCell>
     </objects>

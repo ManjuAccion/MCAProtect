@@ -11,17 +11,15 @@ import UIKit
 
 class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
     
-    @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var forgotPasswordLabel : UILabel!
     @IBOutlet weak var emailTextField : UITextField!
+    @IBOutlet weak var overlayViewConstraint: NSLayoutConstraint!
 
     var isAllDetailsPresent : Bool? = true
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.navigationController?.navigationBar.isHidden = false;
         isAllDetailsPresent = true
     }
@@ -32,28 +30,32 @@ class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
     }
     
 
-    func keyboardWillShow(notification:NSNotification){
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
-        var contentInset:UIEdgeInsets = scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
-        scrollView.contentInset = contentInset
-    }
-    
-    func keyboardWillHide(notification:NSNotification){
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
-    }
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
-        scrollView.contentOffset = CGPoint(x: 0, y: -60)
         return true
     }
+
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        if(textField.tag == 1){
+            
+            self.overlayViewConstraint.constant = 0;
+            UIView.animate(withDuration: 0.5, animations:
+                {
+                    self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        self.overlayViewConstraint.constant = 64;
+        UIView.animate(withDuration: 0.5, animations:
+            {
+                self.view.layoutIfNeeded()
+        })
+    }
+    
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
