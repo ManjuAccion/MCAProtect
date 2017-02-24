@@ -1,28 +1,28 @@
 //
-//  MCAApplicationSummaryTVCell.swift
+//  MCAApplicationFormTVCell.swift
 //  MCAProtect
 //
-//  Created by Sarath NS on 2/14/17.
+//  Created by Accion Labs on 23/02/17.
 //  Copyright © 2017 Accionlabs. All rights reserved.
 //
 
 import UIKit
 
-class MCAApplicationSummaryTVCell: UITableViewCell {
-    
-    
-    @IBOutlet weak var dataTF: UITextField!
-    @IBOutlet weak var titleLabel : UILabel!
-    @IBOutlet weak var viewDetailsButton: UIButton!
-    
+class MCAApplicationFormTVCell: UITableViewCell {
 
+    
+    @IBOutlet weak var titleLabel : UILabel!
+    @IBOutlet weak var selectedView : UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+        // Configure the view for the selected state
     }
-
+    
 }

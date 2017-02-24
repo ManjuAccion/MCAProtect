@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Light.ttf">
-            <string>Roboto-Light</string>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -21,13 +21,13 @@
             <rect key="frame" x="0.0" y="0.0" width="376" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJu-7T-LTR" customClass="JVFloatLabeledTextField">
-                    <rect key="frame" x="16" y="8" width="292" height="44"/>
+                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJu-7T-LTR">
+                    <rect key="frame" x="16" y="32" width="344" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="t0U-HF-eYl"/>
+                        <constraint firstAttribute="height" constant="20" id="t0U-HF-eYl"/>
                     </constraints>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="NO"/>
@@ -46,21 +46,31 @@
                         <constraint firstAttribute="height" constant="44" id="wFS-QD-gk8"/>
                     </constraints>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BW3-r2-Sbk">
+                    <rect key="frame" x="16" y="8" width="344" height="20"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                    <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
-                <constraint firstItem="UJu-7T-LTR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="U6e-kO-IGl"/>
+                <constraint firstAttribute="bottom" secondItem="UJu-7T-LTR" secondAttribute="bottom" constant="8" id="1ka-ry-BuN"/>
+                <constraint firstItem="BW3-r2-Sbk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="E0r-Qv-B5i"/>
+                <constraint firstAttribute="trailing" secondItem="BW3-r2-Sbk" secondAttribute="trailing" constant="16" id="VDK-X3-DBk"/>
                 <constraint firstItem="UJu-7T-LTR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Zrz-cD-XXK"/>
                 <constraint firstItem="BGS-g7-Doq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="qbd-i5-AAx"/>
-                <constraint firstItem="UJu-7T-LTR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.775" id="rBH-dI-HBt"/>
+                <constraint firstItem="UJu-7T-LTR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.775" constant="52.599999999999966" id="rBH-dI-HBt"/>
+                <constraint firstItem="BW3-r2-Sbk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="rxh-YO-UoJ"/>
                 <constraint firstAttribute="trailing" secondItem="BGS-g7-Doq" secondAttribute="trailing" constant="16" id="sB5-fV-7pq"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="dataTF" destination="UJu-7T-LTR" id="9wH-gs-n8u"/>
+                <outlet property="titleLabel" destination="BW3-r2-Sbk" id="Sg7-oP-d5G"/>
                 <outlet property="viewDetailsButton" destination="BGS-g7-Doq" id="fZj-3T-yDa"/>
             </connections>
-            <point key="canvasLocation" x="-6.5" y="-120"/>
+            <point key="canvasLocation" x="-7" y="-120"/>
         </view>
     </objects>
 </document>

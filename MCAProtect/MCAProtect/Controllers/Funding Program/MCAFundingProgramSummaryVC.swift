@@ -47,7 +47,7 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
         
         cell.selectionStyle = .none
         let title = dataSourceArray[indexPath.row]
-        cell.dataTF.placeholder = title
+        cell.titleLabel.text = title
         cell.dataTF.text = dataValueArray[indexPath.row] as String
         
         return cell

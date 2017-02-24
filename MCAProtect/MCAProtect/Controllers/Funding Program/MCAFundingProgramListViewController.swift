@@ -14,14 +14,12 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
     var amountDataSource = ["$2000","$3000","$4000","$5000","$6000"]
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
-        self.title = "Funding Programs ajvjnvjvn njnsajnvj"
+        self.title = "Funding Programs"
         
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
-
-
         // Do any additional setup after loading the view.
     }
 

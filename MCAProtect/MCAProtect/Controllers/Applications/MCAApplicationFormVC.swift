@@ -18,6 +18,8 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Stacty's Boutique Detailscavvcchvghv hvhavchvch"
+
         loadUI()
     }
 
@@ -27,7 +29,6 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func loadUI() {
         
-        self.title = "Stacty's Boutique Details"
         tableView.register(UINib(nibName: "MCAApplicationStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationStatusTVCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.automaticallyAdjustsScrollViewInsets = false

@@ -20,12 +20,8 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
 
         // Do any additional setup after loading the view.
         
-        tableView.register(UINib(nibName: "MCAApplicationStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationStatusTVCell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        self.automaticallyAdjustsScrollViewInsets = false
-        tableView.tableFooterView = UIView()
-    }
+        tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationFormTVCell")
+            }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,11 +35,9 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell :UITableViewCell!
         
-            let defaultCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-            defaultCell.textLabel?.text = dataDataSource[indexPath.row]
-            cell = defaultCell
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
+        cell.titleLabel.text = dataDataSource[indexPath.row]
         cell.selectionStyle = .none
         
         return cell
@@ -51,11 +45,16 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 46.0
+        return 60.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+        let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
+        applicationDetailVC.categorySelected = indexPath.row
+        navigationController?.pushViewController(applicationDetailVC, animated: true)
+
     }
 
     /*

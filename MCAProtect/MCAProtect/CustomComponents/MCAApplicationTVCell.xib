@@ -25,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ua0-v5-RnH">
-                    <rect key="frame" x="16" y="8" width="292" height="24.5"/>
+                    <rect key="frame" x="16" y="8" width="292" height="25"/>
                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
                     <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc9-Zc-w23">
-                    <rect key="frame" x="16" y="40.5" width="292" height="20"/>
+                    <rect key="frame" x="16" y="41" width="292" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Ibh-ay-cbK"/>
                     </constraints>

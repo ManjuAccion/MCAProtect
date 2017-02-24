@@ -20,7 +20,9 @@
 		5B643D0D1E5B065500AE89B1 /* FundingProgram.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B643D0C1E5B065500AE89B1 /* FundingProgram.storyboard */; };
 		5B643D0F1E5B1E2C00AE89B1 /* MCAFundingProgramSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B643D0E1E5B1E2C00AE89B1 /* MCAFundingProgramSummaryVC.swift */; };
 		5B643D111E5B25AF00AE89B1 /* MCAFPApplicationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B643D101E5B25AF00AE89B1 /* MCAFPApplicationFormVC.swift */; };
-		5B643D131E5B2B4200AE89B1 /* MCAFPApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailViewController.swift */; };
+		5B643D131E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift */; };
+		5B643D161E5F282300AE89B1 /* MCAApplicationFormTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B643D141E5F282300AE89B1 /* MCAApplicationFormTVCell.swift */; };
+		5B643D171E5F282300AE89B1 /* MCAApplicationFormTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B643D151E5F282300AE89B1 /* MCAApplicationFormTVCell.xib */; };
 		5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */; };
 		5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48D1E49F20A00309CAB /* Registration.storyboard */; };
 		5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */; };
@@ -133,7 +135,9 @@
 		5B643D0C1E5B065500AE89B1 /* FundingProgram.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FundingProgram.storyboard; sourceTree = "<group>"; };
 		5B643D0E1E5B1E2C00AE89B1 /* MCAFundingProgramSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFundingProgramSummaryVC.swift; sourceTree = "<group>"; };
 		5B643D101E5B25AF00AE89B1 /* MCAFPApplicationFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPApplicationFormVC.swift; sourceTree = "<group>"; };
-		5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPApplicationDetailViewController.swift; sourceTree = "<group>"; };
+		5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPApplicationDetailVC.swift; sourceTree = "<group>"; };
+		5B643D141E5F282300AE89B1 /* MCAApplicationFormTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormTVCell.swift; sourceTree = "<group>"; };
+		5B643D151E5F282300AE89B1 /* MCAApplicationFormTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAApplicationFormTVCell.xib; sourceTree = "<group>"; };
 		5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		5B8FC48D1E49F20A00309CAB /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebViewController.swift; sourceTree = "<group>"; };
@@ -282,7 +286,7 @@
 				5B643D0A1E5B05D800AE89B1 /* MCAFundingProgramListViewController.swift */,
 				5B643D0E1E5B1E2C00AE89B1 /* MCAFundingProgramSummaryVC.swift */,
 				5B643D101E5B25AF00AE89B1 /* MCAFPApplicationFormVC.swift */,
-				5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailViewController.swift */,
+				5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift */,
 			);
 			path = "Funding Program";
 			sourceTree = "<group>";
@@ -602,6 +606,8 @@
 				BA8B68721E532390004CEB69 /* MCAApplicationTVCell.swift */,
 				BA8B68811E5436F8004CEB69 /* MCAApplicationStatusTVCell.xib */,
 				BA8B68831E543A7D004CEB69 /* MCAApplicationStatusTVCell.swift */,
+				5B643D141E5F282300AE89B1 /* MCAApplicationFormTVCell.swift */,
+				5B643D151E5F282300AE89B1 /* MCAApplicationFormTVCell.xib */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -777,6 +783,7 @@
 				5B8FC4AD1E4C7E9600309CAB /* Roboto-Regular.ttf in Resources */,
 				5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */,
 				BA8B686D1E5315C6004CEB69 /* MCAApplicationSummaryTVCell.xib in Resources */,
+				5B643D171E5F282300AE89B1 /* MCAApplicationFormTVCell.xib in Resources */,
 				BA8B68781E53282C004CEB69 /* Application.storyboard in Resources */,
 				BA8B68821E5436F8004CEB69 /* MCAApplicationStatusTVCell.xib in Resources */,
 				5B8FC4AC1E4C7E9600309CAB /* Roboto-MediumItalic.ttf in Resources */,
@@ -950,11 +957,12 @@
 			files = (
 				BA88AC9E1E4D791C003E3B2F /* MCASetMPinVC.swift in Sources */,
 				BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */,
-				5B643D131E5B2B4200AE89B1 /* MCAFPApplicationDetailViewController.swift in Sources */,
+				5B643D131E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift in Sources */,
 				7871E3431E548FC60019B707 /* MCADelasPipelineCell.swift in Sources */,
 				782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */,
 				7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */,
 				BA8B688C1E546C9C004CEB69 /* MCABusinessInformationVC.swift in Sources */,
+				5B643D161E5F282300AE89B1 /* MCAApplicationFormTVCell.swift in Sources */,
 				BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */,
 				782C6A031E49B8F500268356 /* MCADealsPipelineVC.swift in Sources */,
 				782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */,
