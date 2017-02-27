@@ -38,6 +38,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
          cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
         cell.merchantName.text = dataDataSource[indexPath.row]
         cell.amountLabel.text = amountDataSource[indexPath.row]
         cell.viewDetailsButton.setImage(UIImage(named:"iconCheckMark"), for: UIControlState.normal)

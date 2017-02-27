@@ -46,6 +46,8 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationSummaryTVCell", for: indexPath) as! MCAApplicationSummaryTVCell
         
         cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
+
         let title = dataSourceArray[indexPath.row]
         cell.titleLabel.text = title
         cell.dataTF.text = dataValueArray[indexPath.row] as String

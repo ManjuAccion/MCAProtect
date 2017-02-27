@@ -23,6 +23,7 @@
 		5B643D131E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift */; };
 		5B643D161E5F282300AE89B1 /* MCAApplicationFormTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B643D141E5F282300AE89B1 /* MCAApplicationFormTVCell.swift */; };
 		5B643D171E5F282300AE89B1 /* MCAApplicationFormTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B643D151E5F282300AE89B1 /* MCAApplicationFormTVCell.xib */; };
+		5B643D191E64027B00AE89B1 /* MCAFPBusinessTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B643D181E64027B00AE89B1 /* MCAFPBusinessTypeVC.swift */; };
 		5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */; };
 		5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC48D1E49F20A00309CAB /* Registration.storyboard */; };
 		5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */; };
@@ -138,6 +139,7 @@
 		5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPApplicationDetailVC.swift; sourceTree = "<group>"; };
 		5B643D141E5F282300AE89B1 /* MCAApplicationFormTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormTVCell.swift; sourceTree = "<group>"; };
 		5B643D151E5F282300AE89B1 /* MCAApplicationFormTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAApplicationFormTVCell.xib; sourceTree = "<group>"; };
+		5B643D181E64027B00AE89B1 /* MCAFPBusinessTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPBusinessTypeVC.swift; sourceTree = "<group>"; };
 		5B8FC48B1E49CDCF00309CAB /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		5B8FC48D1E49F20A00309CAB /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				5B643D0E1E5B1E2C00AE89B1 /* MCAFundingProgramSummaryVC.swift */,
 				5B643D101E5B25AF00AE89B1 /* MCAFPApplicationFormVC.swift */,
 				5B643D121E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift */,
+				5B643D181E64027B00AE89B1 /* MCAFPBusinessTypeVC.swift */,
 			);
 			path = "Funding Program";
 			sourceTree = "<group>";
@@ -716,7 +719,7 @@
 					782C699E1E49ACC500268356 = {
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					782C69B21E49ACC500268356 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -991,6 +994,7 @@
 				5B643D111E5B25AF00AE89B1 /* MCAFPApplicationFormVC.swift in Sources */,
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,
 				5B4741CC1E570D2A001D9435 /* MCAProfileViewController.swift in Sources */,
+				5B643D191E64027B00AE89B1 /* MCAFPBusinessTypeVC.swift in Sources */,
 				5B4741C61E5488B5001D9435 /* MCATableViewCell.swift in Sources */,
 				5B643D0F1E5B1E2C00AE89B1 /* MCAFundingProgramSummaryVC.swift in Sources */,
 				BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */,

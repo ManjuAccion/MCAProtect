@@ -13,7 +13,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataDataSource = ["Program Information", "Mearchant Requirements", "Liens/Payments/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
+    var dataDataSource = ["Program Information", "Merchant Requirements", "Liens/Payments/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,8 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         let cell  = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
         cell.titleLabel.text = dataDataSource[indexPath.row]
         cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
+
         
         return cell
     }
@@ -50,11 +52,21 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+        if (indexPath.row == 4)
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPBusinessTypeVC") as! MCAFPBusinessTypeVC
+            navigationController?.pushViewController(applicationDetailVC, animated: true)
+            
+        }
+        else
+        {
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
         let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
         applicationDetailVC.categorySelected = indexPath.row
         navigationController?.pushViewController(applicationDetailVC, animated: true)
-
+        }
     }
 
     /*
