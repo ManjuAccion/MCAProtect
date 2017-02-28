@@ -41,7 +41,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         cell.backgroundColor = UIColor.clear
         cell.merchantName.text = dataDataSource[indexPath.row]
         cell.amountLabel.text = amountDataSource[indexPath.row]
-        cell.viewDetailsButton.setImage(UIImage(named:"iconCheckMark"), for: UIControlState.normal)
+        cell.viewDetailsButton.setImage(UIImage(named:"iconCheckRound"), for: UIControlState.normal)
         
         
         return cell

@@ -38,6 +38,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         
         let cell  = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
         cell.titleLabel.text = dataDataSource[indexPath.row]
+        cell.selectedView.isHidden = false
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
 
