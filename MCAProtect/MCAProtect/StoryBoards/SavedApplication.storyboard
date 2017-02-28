@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Application ListVC-->
         <scene sceneID="i8o-1h-Twg">
@@ -54,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsl-LQ-Pkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1696.8" y="131.78410794602701"/>
+            <point key="canvasLocation" x="1522" y="132"/>
         </scene>
         <!--Application SummaryVC-->
         <scene sceneID="sNl-7i-OTY">
@@ -69,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KWx-zs-xeL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -77,27 +82,63 @@
                                     <outlet property="delegate" destination="sRv-iF-w2d" id="15i-s6-p9O"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8S-Wn-YI2">
+                                <rect key="frame" x="16" y="607" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.1764705882352941" green="0.22352941176470587" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OQJ-4h-fRM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Copy Application">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="copyApplicationTapped:" destination="sRv-iF-w2d" eventType="touchUpInside" id="VbY-dx-kPK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByG-Kc-MvW">
+                                <rect key="frame" x="16" y="547" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="pSb-vk-3YH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Resume Application">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumeApplicationTapped:" destination="sRv-iF-w2d" eventType="touchUpInside" id="1br-3v-qEU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jyR-KG-hA4" firstAttribute="top" secondItem="KWx-zs-xeL" secondAttribute="bottom" id="Cic-Au-7AP"/>
+                            <constraint firstAttribute="trailing" secondItem="L8S-Wn-YI2" secondAttribute="trailing" constant="16" id="0lW-2V-FGf"/>
+                            <constraint firstItem="jyR-KG-hA4" firstAttribute="top" secondItem="L8S-Wn-YI2" secondAttribute="bottom" constant="16" id="3ZH-jN-rWb"/>
+                            <constraint firstItem="ByG-Kc-MvW" firstAttribute="top" secondItem="KWx-zs-xeL" secondAttribute="bottom" constant="10" id="DcF-qf-lTv"/>
                             <constraint firstItem="KWx-zs-xeL" firstAttribute="leading" secondItem="eeq-Qu-Fhg" secondAttribute="leading" id="IsS-g0-EEC"/>
+                            <constraint firstItem="ByG-Kc-MvW" firstAttribute="leading" secondItem="eeq-Qu-Fhg" secondAttribute="leading" constant="16" id="KkG-Pa-gDq"/>
+                            <constraint firstItem="L8S-Wn-YI2" firstAttribute="leading" secondItem="eeq-Qu-Fhg" secondAttribute="leading" constant="16" id="Zwp-zr-uxr"/>
                             <constraint firstAttribute="trailing" secondItem="KWx-zs-xeL" secondAttribute="trailing" id="cFn-NR-o4a"/>
+                            <constraint firstItem="L8S-Wn-YI2" firstAttribute="top" secondItem="ByG-Kc-MvW" secondAttribute="bottom" constant="16" id="mMS-Of-sSf"/>
                             <constraint firstItem="KWx-zs-xeL" firstAttribute="top" secondItem="eeq-Qu-Fhg" secondAttribute="top" id="qtg-ly-vNU"/>
+                            <constraint firstAttribute="trailing" secondItem="ByG-Kc-MvW" secondAttribute="trailing" constant="16" id="tym-uB-3pU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="copyApplicationButton" destination="L8S-Wn-YI2" id="aAa-Vl-FVl"/>
+                        <outlet property="resumeApplicationButton" destination="ByG-Kc-MvW" id="X0f-GS-FRM"/>
                         <outlet property="tableView" destination="KWx-zs-xeL" id="aJ4-6L-de4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f02-Lb-1pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2392.8000000000002" y="131.78410794602701"/>
+            <point key="canvasLocation" x="2232.8000000000002" y="131.78410794602701"/>
         </scene>
         <!--Application FormVC-->
         <scene sceneID="sAc-y7-7c3">
             <objects>
-                <viewController id="cKn-HA-f8c" customClass="MCAApplicationFormVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCAApplicationFormVC" id="cKn-HA-f8c" customClass="MCAApplicationFormVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K5w-ii-1go"/>
                         <viewControllerLayoutGuide type="bottom" id="JlA-WS-IUW"/>
@@ -130,14 +171,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycZ-yO-hfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3136.8000000000002" y="131.78410794602701"/>
+            <point key="canvasLocation" x="2998" y="132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMf-9e-y0d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPK-WA-b9z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMr-5p-nlD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sMr-5p-nlD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

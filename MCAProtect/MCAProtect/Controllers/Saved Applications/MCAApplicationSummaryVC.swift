@@ -11,9 +11,12 @@ import UIKit
 class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var resumeApplicationButton: UIButton!
+    @IBOutlet weak var copyApplicationButton: UIButton!
     
-    var dataSource = ["Business Name":"Stacy's Botique", "Contact Name":"Helen", "Loan Amount":"$75000", "Email":"helen.parker@gmail.com", "Telephone":"(123) 123-1239","Offered on":"2017-01-12"]
-    
+    var dataSourceKeys = ["Submitted on","Business Name","Needed in","Loan Value"]
+    var dataSourceValues = ["10 Days ago","Miami Florists","3 Days","$60000"]
+
     var dataSourceArray : [String] = []
     
     //MARK: - View Life Cycle
@@ -35,17 +38,15 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         
         self.title = "Stacy's Boutique"
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")
-//        self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
-        
-        dataSourceArray = Array(dataSource.keys)
-
+        resumeApplicationButton.layer.cornerRadius = 5.0
+        copyApplicationButton.layer.cornerRadius = 5.0
     }
     
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceArray.count
+        return dataSourceKeys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,17 +54,33 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationSummaryTVCell", for: indexPath) as! MCAApplicationSummaryTVCell
         
         cell.selectionStyle = .none
-        let title = dataSourceArray[indexPath.row]
-        cell.dataTF.placeholder = title
-        cell.dataTF.text = dataSource[title]
+        cell.titleLabel.text = dataSourceKeys[indexPath.row]
+        cell.dataTF.text = dataSourceValues[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if  (indexPath.row == 1) {
+            let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
+            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+            navigationController?.pushViewController(applicationFormVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 60.0
     }
-
+    
+    //MARK: - Action Methods
+    
+    @IBAction func resumeApplicationTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func copyApplicationTapped(_ sender: Any) {
+        
+    }
 
 }

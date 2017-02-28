@@ -79,6 +79,10 @@
 		BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34CD381E4C7E3A001AF75F /* mPin.storyboard */; };
 		BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34CD3A1E4C9321001AF75F /* MCAEnterMPinVC.swift */; };
 		BA34CD3E1E4C9E72001AF75F /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34CD3D1E4C9E72001AF75F /* SecureInputView.swift */; };
+		BA5B6DB71E6562E8003ED6BF /* MCAApplicationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B6DB41E6562E8003ED6BF /* MCAApplicationFormVC.swift */; };
+		BA5B6DB81E6562E8003ED6BF /* MCAApplicationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B6DB51E6562E8003ED6BF /* MCAApplicationListVC.swift */; };
+		BA5B6DB91E6562E8003ED6BF /* MCAApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B6DB61E6562E8003ED6BF /* MCAApplicationSummaryVC.swift */; };
+		BA5B6DBB1E656380003ED6BF /* SavedApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5B6DBA1E656380003ED6BF /* SavedApplication.storyboard */; };
 		BA88AC9E1E4D791C003E3B2F /* MCASetMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88AC9D1E4D791C003E3B2F /* MCASetMPinVC.swift */; };
 		BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88AC9F1E4EE7D6003E3B2F /* MCAChangeMPinVC.swift */; };
 		BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88ACA11E50285B003E3B2F /* MCAResetMPINVC.swift */; };
@@ -86,15 +90,11 @@
 		BA8B686F1E531B66004CEB69 /* MCAApplicationSummaryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B686E1E531B66004CEB69 /* MCAApplicationSummaryTVCell.swift */; };
 		BA8B68711E532111004CEB69 /* MCAApplicationTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8B68701E532111004CEB69 /* MCAApplicationTVCell.xib */; };
 		BA8B68731E532390004CEB69 /* MCAApplicationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68721E532390004CEB69 /* MCAApplicationTVCell.swift */; };
-		BA8B68781E53282C004CEB69 /* Application.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8B68771E53282C004CEB69 /* Application.storyboard */; };
 		BA8B68821E5436F8004CEB69 /* MCAApplicationStatusTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8B68811E5436F8004CEB69 /* MCAApplicationStatusTVCell.xib */; };
 		BA8B68841E543A7D004CEB69 /* MCAApplicationStatusTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68831E543A7D004CEB69 /* MCAApplicationStatusTVCell.swift */; };
 		BA8B68871E545871004CEB69 /* MCALoanDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68861E545871004CEB69 /* MCALoanDetailsVC.swift */; };
 		BA8B68891E5458B2004CEB69 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8B68881E5458B2004CEB69 /* Common.storyboard */; };
 		BA8B688C1E546C9C004CEB69 /* MCABusinessInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B688B1E546C9C004CEB69 /* MCABusinessInformationVC.swift */; };
-		BA8B68B01E5B00E5004CEB69 /* MCAApplicationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68AE1E5B00E5004CEB69 /* MCAApplicationListVC.swift */; };
-		BA8B68B11E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68AF1E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift */; };
-		BA8B68B31E5B0597004CEB69 /* MCAApplicationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68B21E5B0597004CEB69 /* MCAApplicationFormVC.swift */; };
 		BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */; };
 		BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */; };
 		BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */; };
@@ -195,6 +195,10 @@
 		BA34CD381E4C7E3A001AF75F /* mPin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mPin.storyboard; sourceTree = "<group>"; };
 		BA34CD3A1E4C9321001AF75F /* MCAEnterMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAEnterMPinVC.swift; sourceTree = "<group>"; };
 		BA34CD3D1E4C9E72001AF75F /* SecureInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
+		BA5B6DB41E6562E8003ED6BF /* MCAApplicationFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormVC.swift; sourceTree = "<group>"; };
+		BA5B6DB51E6562E8003ED6BF /* MCAApplicationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationListVC.swift; sourceTree = "<group>"; };
+		BA5B6DB61E6562E8003ED6BF /* MCAApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationSummaryVC.swift; sourceTree = "<group>"; };
+		BA5B6DBA1E656380003ED6BF /* SavedApplication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedApplication.storyboard; sourceTree = "<group>"; };
 		BA88AC9D1E4D791C003E3B2F /* MCASetMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASetMPinVC.swift; sourceTree = "<group>"; };
 		BA88AC9F1E4EE7D6003E3B2F /* MCAChangeMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAChangeMPinVC.swift; sourceTree = "<group>"; };
 		BA88ACA11E50285B003E3B2F /* MCAResetMPINVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAResetMPINVC.swift; sourceTree = "<group>"; };
@@ -202,15 +206,11 @@
 		BA8B686E1E531B66004CEB69 /* MCAApplicationSummaryTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationSummaryTVCell.swift; sourceTree = "<group>"; };
 		BA8B68701E532111004CEB69 /* MCAApplicationTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAApplicationTVCell.xib; sourceTree = "<group>"; };
 		BA8B68721E532390004CEB69 /* MCAApplicationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationTVCell.swift; sourceTree = "<group>"; };
-		BA8B68771E53282C004CEB69 /* Application.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Application.storyboard; sourceTree = "<group>"; };
 		BA8B68811E5436F8004CEB69 /* MCAApplicationStatusTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAApplicationStatusTVCell.xib; sourceTree = "<group>"; };
 		BA8B68831E543A7D004CEB69 /* MCAApplicationStatusTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationStatusTVCell.swift; sourceTree = "<group>"; };
 		BA8B68861E545871004CEB69 /* MCALoanDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoanDetailsVC.swift; sourceTree = "<group>"; };
 		BA8B68881E5458B2004CEB69 /* Common.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		BA8B688B1E546C9C004CEB69 /* MCABusinessInformationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessInformationVC.swift; sourceTree = "<group>"; };
-		BA8B68AE1E5B00E5004CEB69 /* MCAApplicationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationListVC.swift; sourceTree = "<group>"; };
-		BA8B68AF1E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationSummaryVC.swift; sourceTree = "<group>"; };
-		BA8B68B21E5B0597004CEB69 /* MCAApplicationFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormVC.swift; sourceTree = "<group>"; };
 		BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -405,6 +405,7 @@
 		782C69D01E49ADC900268356 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
+				BA5B6DBA1E656380003ED6BF /* SavedApplication.storyboard */,
 				782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */,
 				782C69E01E49AE5700268356 /* DashBoard.storyboard */,
 				5B313E071E49BA07004CE58A /* Login.storyboard */,
@@ -413,7 +414,6 @@
 				5B8FC4921E4B017500309CAB /* WebView.storyboard */,
 				BA34CD381E4C7E3A001AF75F /* mPin.storyboard */,
 				BA8B68881E5458B2004CEB69 /* Common.storyboard */,
-				BA8B68771E53282C004CEB69 /* Application.storyboard */,
 				5B4741C81E56D58B001D9435 /* ProfileDetail.storyboard */,
 				5B643D0C1E5B065500AE89B1 /* FundingProgram.storyboard */,
 			);
@@ -447,7 +447,6 @@
 		782C69D41E49ADD700268356 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA8B68AD1E5B00E5004CEB69 /* Applications */,
 				5B4741CA1E570C6C001D9435 /* Profile */,
 				BA8B688A1E546C71004CEB69 /* BusinessInformation */,
 				BA8B68851E545846004CEB69 /* Loans */,
@@ -593,6 +592,9 @@
 		BA30E2FF1E5DB4C3005829F4 /* Saved Applications */ = {
 			isa = PBXGroup;
 			children = (
+				BA5B6DB41E6562E8003ED6BF /* MCAApplicationFormVC.swift */,
+				BA5B6DB51E6562E8003ED6BF /* MCAApplicationListVC.swift */,
+				BA5B6DB61E6562E8003ED6BF /* MCAApplicationSummaryVC.swift */,
 				BA30E3001E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib */,
 				BA30E3021E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift */,
 			);
@@ -629,16 +631,6 @@
 				BA8B688B1E546C9C004CEB69 /* MCABusinessInformationVC.swift */,
 			);
 			path = BusinessInformation;
-			sourceTree = "<group>";
-		};
-		BA8B68AD1E5B00E5004CEB69 /* Applications */ = {
-			isa = PBXGroup;
-			children = (
-				BA8B68B21E5B0597004CEB69 /* MCAApplicationFormVC.swift */,
-				BA8B68AE1E5B00E5004CEB69 /* MCAApplicationListVC.swift */,
-				BA8B68AF1E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift */,
-			);
-			path = Applications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -779,6 +771,7 @@
 				5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */,
 				5B8FC4A51E4C7E9600309CAB /* Roboto-BlackItalic.ttf in Resources */,
 				5B4741C11E53411A001D9435 /* MCALeftMenuVC.xib in Resources */,
+				BA5B6DBB1E656380003ED6BF /* SavedApplication.storyboard in Resources */,
 				5B313E081E49BA07004CE58A /* Login.storyboard in Resources */,
 				5B8FC4A41E4C7E9600309CAB /* Roboto-Black.ttf in Resources */,
 				5B8FC4A81E4C7E9600309CAB /* Roboto-Italic.ttf in Resources */,
@@ -787,7 +780,6 @@
 				5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */,
 				BA8B686D1E5315C6004CEB69 /* MCAApplicationSummaryTVCell.xib in Resources */,
 				5B643D171E5F282300AE89B1 /* MCAApplicationFormTVCell.xib in Resources */,
-				BA8B68781E53282C004CEB69 /* Application.storyboard in Resources */,
 				BA8B68821E5436F8004CEB69 /* MCAApplicationStatusTVCell.xib in Resources */,
 				5B8FC4AC1E4C7E9600309CAB /* Roboto-MediumItalic.ttf in Resources */,
 				782C69E11E49AE5700268356 /* DashBoard.storyboard in Resources */,
@@ -967,19 +959,17 @@
 				BA8B688C1E546C9C004CEB69 /* MCABusinessInformationVC.swift in Sources */,
 				5B643D161E5F282300AE89B1 /* MCAApplicationFormTVCell.swift in Sources */,
 				BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */,
+				BA5B6DB81E6562E8003ED6BF /* MCAApplicationListVC.swift in Sources */,
 				782C6A031E49B8F500268356 /* MCADealsPipelineVC.swift in Sources */,
 				782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */,
 				7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */,
 				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
-				BA8B68B11E5B00E5004CEB69 /* MCAApplicationSummaryVC.swift in Sources */,
 				BA30E3031E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift in Sources */,
 				BA8B68871E545871004CEB69 /* MCALoanDetailsVC.swift in Sources */,
-				BA8B68B31E5B0597004CEB69 /* MCAApplicationFormVC.swift in Sources */,
 				BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */,
 				782C6A0B1E49BE2F00268356 /* MCALoginViewController.swift in Sources */,
 				782C69ED1E49AEC100268356 /* MCAConstants.swift in Sources */,
 				BA8B686F1E531B66004CEB69 /* MCAApplicationSummaryTVCell.swift in Sources */,
-				BA8B68B01E5B00E5004CEB69 /* MCAApplicationListVC.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,
 				BA8B68731E532390004CEB69 /* MCAApplicationTVCell.swift in Sources */,
@@ -997,7 +987,9 @@
 				5B643D191E64027B00AE89B1 /* MCAFPBusinessTypeVC.swift in Sources */,
 				5B4741C61E5488B5001D9435 /* MCATableViewCell.swift in Sources */,
 				5B643D0F1E5B1E2C00AE89B1 /* MCAFundingProgramSummaryVC.swift in Sources */,
+				BA5B6DB91E6562E8003ED6BF /* MCAApplicationSummaryVC.swift in Sources */,
 				BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */,
+				BA5B6DB71E6562E8003ED6BF /* MCAApplicationFormVC.swift in Sources */,
 				BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */,
 				BA8B68841E543A7D004CEB69 /* MCAApplicationStatusTVCell.swift in Sources */,
 				5B643D0B1E5B05D800AE89B1 /* MCAFundingProgramListViewController.swift in Sources */,

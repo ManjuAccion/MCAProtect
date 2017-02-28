@@ -101,7 +101,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
             
             case leftMenuItems.SavedApplications.rawValue:
                 
-                let storyboard = UIStoryboard(name: "Application", bundle: nil)
+                let storyboard = UIStoryboard(name: "SavedApplication", bundle: nil)
                 let applicationVC = storyboard.instantiateViewController(withIdentifier: "MCAApplicationListVC") as! MCAApplicationListVC
                 SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
                 SlideNavigationController.sharedInstance().toggleLeftMenu()

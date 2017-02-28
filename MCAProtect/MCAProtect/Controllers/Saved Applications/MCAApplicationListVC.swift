@@ -54,7 +54,7 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard(name: "Application", bundle: Bundle.main)
+        let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
         let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
         navigationController?.pushViewController(underwritingMerchantVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
@@ -71,8 +71,4 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
     {
         return 60.0
     }
-    
-
-
-
 }

@@ -18,8 +18,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Stacty's Boutique Detailscavvcchvghv hvhavchvch"
-
+        self.title = "Stacty's Boutique"
         loadUI()
     }
 
@@ -30,7 +29,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     func loadUI() {
         
         tableView.register(UINib(nibName: "MCAApplicationStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationStatusTVCell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationFormTVCell")
         self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
     }
@@ -38,7 +37,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDataSource.count
+        return dataDataSource.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,18 +49,30 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             cell = statusTVCell
         }
         else {
-            let defaultCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-            defaultCell.textLabel?.text = dataDataSource[indexPath.row]
-            cell = defaultCell
+            let applicationFormCell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
+            applicationFormCell.titleLabel.text = dataDataSource[indexPath.row - 1]
+            cell = applicationFormCell
         }
         cell.selectionStyle = .none
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
+        selectedCell.selectedView.isHidden = false
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
+        deselectedCell.selectedView.isHidden = true
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 46.0
+        return 60.0
     }
 
     
