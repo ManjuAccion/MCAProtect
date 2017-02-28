@@ -32,7 +32,7 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
         
         self.navigationItem.title = "Saved Applications"
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
-        tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCASavedApplicationsListTVCell")
+        tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell)
         tableView.tableFooterView = UIView()
     }
     
@@ -44,7 +44,7 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCASavedApplicationsListTVCell", for: indexPath) as! MCASavedApplicationsListTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell, for: indexPath) as! MCASavedApplicationsListTVCell
         
         cell.selectionStyle = .none
         cell.nameLabel.text = dataDataSource[indexPath.row]
@@ -55,8 +55,8 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
-        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
-        navigationController?.pushViewController(underwritingMerchantVC, animated: true)
+        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
+        navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
         selectedCell.selectedView.isHidden = false
         

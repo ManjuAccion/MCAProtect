@@ -12,13 +12,13 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataDataSource = ["Business Information", "Business Address", "Liens/Payments/Bankruptcy", "Merchant Documentation", "Bank Records","MCA Loans","Owner/Officer Information","Business Location"]
+    var dataDataSource = ["Loan Details","Business Information", "Business Address", "Liens/Payments/Bankruptcy", "Merchant Documentation", "Bank Records","MCA Loans","Owner/Officer Information","Business Location"]
     
     //MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Stacty's Boutique"
+        self.title = "Stacty's Boutique                       "
         loadUI()
     }
 
@@ -28,8 +28,8 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func loadUI() {
         
-        tableView.register(UINib(nibName: "MCAApplicationStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationStatusTVCell")
-        tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationFormTVCell")
+        tableView.register(UINib(nibName: "MCAApplicationStatusTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationStatusTVCell)
+        tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationFormTVCell)
         self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
     }
@@ -44,12 +44,12 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         var cell :UITableViewCell!
         
         if indexPath.row == 0 {
-            let statusTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationStatusTVCell", for: indexPath) as! MCAApplicationStatusTVCell
+            let statusTVCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationStatusTVCell, for: indexPath) as! MCAApplicationStatusTVCell
             statusTVCell.statusLabel.text = "Progress"
             cell = statusTVCell
         }
         else {
-            let applicationFormCell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
+            let applicationFormCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationFormTVCell, for: indexPath) as! MCAApplicationFormTVCell
             applicationFormCell.titleLabel.text = dataDataSource[indexPath.row - 1]
             cell = applicationFormCell
         }
@@ -59,15 +59,55 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
+            selectedCell.selectedView.isHidden = false
+            
+            switch indexPath.row {
+            case SavedApplicationForm.LoanDetails.rawValue:
+                let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCASavedApplicationDetailVC") as! MCASavedApplicationDetailVC
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+                savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.LoanDetails.rawValue
+            case SavedApplicationForm.BusinessInformation.rawValue:
+                let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCASavedApplicationDetailVC") as! MCASavedApplicationDetailVC
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+                savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessInformation.rawValue
+            case SavedApplicationForm.BusinessAddress.rawValue:
+                let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCASavedApplicationDetailVC") as! MCASavedApplicationDetailVC
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+                savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessAddress.rawValue
+            case SavedApplicationForm.LiensOrPaymentsOrBankruptcy.rawValue:
+                print("Inside LiensOrPaymentsOrBankruptcy")
+            case SavedApplicationForm.MerchantDocumentation.rawValue:
+                print("Inside MerchantDocumentation")
+            case SavedApplicationForm.BankRecords.rawValue:
+                print("Inside BankRecords")
+            case SavedApplicationForm.MCALoans.rawValue:
+                print("Inside MCALoans")
+            case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
+                print("Inside OwnerOrOfficerInformation")
+            case SavedApplicationForm.BusinessLocation.rawValue:
+                print("Inside BusinessLocation")
 
-        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
-        selectedCell.selectedView.isHidden = false
-        
+            default:
+                print("Inside Default")
+
+            }
+        }
+    }
+    
+    func loadSavedApplicationDetailVC() {
+
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
-        deselectedCell.selectedView.isHidden = true
+        if indexPath.row != 0 {
+            let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
+            deselectedCell.selectedView.isHidden = true
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

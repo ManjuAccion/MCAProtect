@@ -173,12 +173,49 @@
             </objects>
             <point key="canvasLocation" x="2998" y="132"/>
         </scene>
+        <!--Saved Application DetailVC-->
+        <scene sceneID="dLv-3S-Myj">
+            <objects>
+                <viewController storyboardIdentifier="MCASavedApplicationDetailVC" id="dBd-l6-v9V" customClass="MCASavedApplicationDetailVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x4N-gP-Xu5"/>
+                        <viewControllerLayoutGuide type="bottom" id="e9B-E2-LSU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TzO-iX-jTN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X56-0L-jLk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dBd-l6-v9V" id="Uhw-5O-av7"/>
+                                    <outlet property="delegate" destination="dBd-l6-v9V" id="1Yn-EE-tpg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e9B-E2-LSU" firstAttribute="top" secondItem="X56-0L-jLk" secondAttribute="bottom" id="IlE-21-ojf"/>
+                            <constraint firstItem="X56-0L-jLk" firstAttribute="leading" secondItem="TzO-iX-jTN" secondAttribute="leading" id="f5A-oU-M0R"/>
+                            <constraint firstItem="X56-0L-jLk" firstAttribute="top" secondItem="TzO-iX-jTN" secondAttribute="top" id="jNO-bK-NcE"/>
+                            <constraint firstAttribute="trailing" secondItem="X56-0L-jLk" secondAttribute="trailing" id="oKP-hB-Tkk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="X56-0L-jLk" id="0Cq-nL-5Wc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qpo-5b-Tki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3669.5999999999999" y="131.78410794602701"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMf-9e-y0d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPK-WA-b9z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sMr-5p-nlD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMr-5p-nlD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

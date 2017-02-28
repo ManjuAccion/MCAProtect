@@ -28,6 +28,31 @@ struct ColorConstants {
     
 }
 
+struct CellIdentifiers {
+    
+    static let MCAApplicationStatusTVCell           = "MCAApplicationStatusTVCell"
+    static let MCAApplicationFormTVCell             = "MCAApplicationFormTVCell"
+    static let MCAApplicationTVCell                 = "MCAApplicationTVCell"
+    static let MCASavedApplicationsListTVCell       = "MCASavedApplicationsListTVCell"
+    static let MCAApplicationSummaryTVCell          = "MCAApplicationSummaryTVCell"
+
+}
+
+
+enum SavedApplicationForm : Int {
+    
+    case LoanDetails                    = 1
+    case BusinessInformation            = 2
+    case BusinessAddress                = 3
+    case LiensOrPaymentsOrBankruptcy    = 4
+    case MerchantDocumentation          = 5
+    case BankRecords                    = 6
+    case MCALoans                       = 7
+    case OwnerOrOfficerInformation      = 8
+    case BusinessLocation               = 9
+}
+
+
 
 
 

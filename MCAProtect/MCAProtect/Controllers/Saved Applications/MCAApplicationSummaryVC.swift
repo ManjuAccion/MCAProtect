@@ -36,8 +36,8 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     
     func loadUI() {
         
-        self.title = "Stacy's Boutique"
-        tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")
+        self.title = "Stacy's Boutique          "
+        tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         resumeApplicationButton.layer.cornerRadius = 5.0
         copyApplicationButton.layer.cornerRadius = 5.0
@@ -51,7 +51,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationSummaryTVCell", for: indexPath) as! MCAApplicationSummaryTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
         
         cell.selectionStyle = .none
         cell.titleLabel.text = dataSourceKeys[indexPath.row]
@@ -61,7 +61,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if  (indexPath.row == 1) {
+        if indexPath.row == 1 {
             let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
             let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
             navigationController?.pushViewController(applicationFormVC, animated: true)
