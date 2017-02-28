@@ -13,7 +13,6 @@ class MCAWebViewController: MCABaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
         self.title = nameTitle
 
         // Do any additional setup after loading the view.

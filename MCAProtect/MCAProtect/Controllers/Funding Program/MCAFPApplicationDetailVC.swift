@@ -73,6 +73,7 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
 
         let title = dataSourceArray[indexPath.row]
         cell.titleLabel.text = title
+        cell.dataTF.placeholder = title
    
         
         
@@ -84,7 +85,7 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 68.0
+        return 60.0
     }
 
     

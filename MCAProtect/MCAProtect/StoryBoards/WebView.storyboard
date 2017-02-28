@@ -37,6 +37,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pB-LJ-DBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2316" y="343.17841079460271"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZLa-7F-fZK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VyP-fB-Q4F" customClass="MCANavigationController" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OLr-jK-1Ou">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kbI-oz-gto" kind="relationship" relationship="rootViewController" id="Bl2-C4-xf4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6x-UP-kEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1376.8" y="343.17841079460271"/>
         </scene>
     </scenes>

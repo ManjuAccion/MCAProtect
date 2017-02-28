@@ -19,7 +19,7 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "cBVJVJvnj bbVBJNJVjknjn"
+        self.title = "Stacy's Botique"
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")
         tableView.tableFooterView = UIView()
         

@@ -22,12 +22,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJu-7T-LTR">
-                    <rect key="frame" x="16" y="32" width="344" height="20"/>
+                    <rect key="frame" x="16" y="28" width="344" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="t0U-HF-eYl"/>
+                        <constraint firstAttribute="height" constant="30" id="t0U-HF-eYl"/>
                     </constraints>
                     <color key="textColor" red="0.1764705882352941" green="0.22352941176470587" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="NO"/>
@@ -54,7 +54,7 @@
                 </label>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="UJu-7T-LTR" secondAttribute="bottom" constant="8" id="1ka-ry-BuN"/>
+                <constraint firstAttribute="bottom" secondItem="UJu-7T-LTR" secondAttribute="bottom" constant="2" id="1ka-ry-BuN"/>
                 <constraint firstItem="BW3-r2-Sbk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="E0r-Qv-B5i"/>
                 <constraint firstAttribute="trailing" secondItem="BW3-r2-Sbk" secondAttribute="trailing" constant="16" id="VDK-X3-DBk"/>
                 <constraint firstItem="UJu-7T-LTR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Zrz-cD-XXK"/>

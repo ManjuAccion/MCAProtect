@@ -15,9 +15,7 @@ enum businessType : NSInteger {
 }
 class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     
-    @IBOutlet weak var allowedButton : UIButton!
-    @IBOutlet weak var restrictedButton : UIButton!
-    @IBOutlet weak var prohibitedButton : UIButton!
+    @IBOutlet weak var segmentControl : UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
 
     
@@ -37,6 +35,7 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationFormTVCell")
         dataSourceArray = allowedDataArray;
+        self.title = "Business Types"
         // Do any additional setup after loading the view.
     }
 
@@ -45,38 +44,21 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func businessTypeSelected(_ sender:UIButton )
+    @IBAction func businessTypeSelected(_ sender:UISegmentedControl )
     {
-        switch sender.tag {
+        switch sender.selectedSegmentIndex {
         case businessType.allowed.rawValue:
-            allowedButton.backgroundColor = ColorConstants.red
-            allowedButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-             prohibitedButton.backgroundColor = UIColor.white
-            prohibitedButton.setTitleColor(ColorConstants.red, for: UIControlState.normal)
-            restrictedButton.backgroundColor = UIColor.white
-            restrictedButton.setTitleColor(ColorConstants.red, for: UIControlState.normal)
+     
             dataSourceArray = allowedDataArray
             tableView .reloadData()
             
         case businessType.restricted.rawValue:
-            allowedButton.backgroundColor = UIColor.white
-            allowedButton.setTitleColor(ColorConstants.red, for: UIControlState.normal)
-            prohibitedButton.backgroundColor = UIColor.white
-            prohibitedButton.setTitleColor(ColorConstants.red, for: UIControlState.normal)
-            restrictedButton.backgroundColor = ColorConstants.red
-            restrictedButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-            dataSourceArray = restrictedDataArray
+                       dataSourceArray = restrictedDataArray
             tableView.reloadData()
 
 
         case businessType.prohibited.rawValue:
             
-            allowedButton.backgroundColor = UIColor.white
-            allowedButton.setTitleColor(ColorConstants.red, for: UIControlState.normal)
-            prohibitedButton.backgroundColor = ColorConstants.red
-            prohibitedButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-            restrictedButton.backgroundColor = UIColor.white
-            restrictedButton.setTitleColor(ColorConstants.red, for: UIControlState.normal)
             dataSourceArray = prohibitedDataArray
             tableView.reloadData()
 
@@ -90,19 +72,16 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         return dataSourceArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
-        
         let title = dataSourceArray[indexPath.row]
         cell.titleLabel.text = title
         cell.titleLabel.font = MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 14.0)
         cell.selectedView.isHidden = true
-        
-        
-        
         return cell
     }
     

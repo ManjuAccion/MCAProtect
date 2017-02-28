@@ -710,6 +710,7 @@
 				TargetAttributes = {
 					782C699E1E49ACC500268356 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 78RNVBBGXR;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 					};
@@ -1146,14 +1147,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 78RNVBBGXR;
 				INFOPLIST_FILE = MCAProtect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.MCAProtect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.AmericanWater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d255dcff-62e0-4cd1-a656-d133297cd026";
+				PROVISIONING_PROFILE_SPECIFIER = AmericanWater_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1167,14 +1168,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 78RNVBBGXR;
 				INFOPLIST_FILE = MCAProtect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.MCAProtect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.AmericanWater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d255dcff-62e0-4cd1-a656-d133297cd026";
+				PROVISIONING_PROFILE_SPECIFIER = AmericanWater_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
