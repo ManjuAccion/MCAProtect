@@ -22,12 +22,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJu-7T-LTR">
-                    <rect key="frame" x="16" y="28" width="344" height="30"/>
+                    <rect key="frame" x="16" y="30" width="344" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="t0U-HF-eYl"/>
+                        <constraint firstAttribute="height" constant="22" id="t0U-HF-eYl"/>
                     </constraints>
                     <color key="textColor" red="0.1764705882352941" green="0.22352941176470587" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="NO"/>
@@ -39,7 +39,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGS-g7-Doq">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGS-g7-Doq">
                     <rect key="frame" x="316" y="8" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="abn-kw-m4k"/>
@@ -48,14 +48,15 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BW3-r2-Sbk">
                     <rect key="frame" x="16" y="8" width="344" height="20"/>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                     <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="UJu-7T-LTR" secondAttribute="bottom" constant="2" id="1ka-ry-BuN"/>
+                <constraint firstAttribute="bottom" secondItem="UJu-7T-LTR" secondAttribute="bottom" constant="8" id="1ka-ry-BuN"/>
                 <constraint firstItem="BW3-r2-Sbk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="E0r-Qv-B5i"/>
+                <constraint firstItem="UJu-7T-LTR" firstAttribute="top" secondItem="BW3-r2-Sbk" secondAttribute="bottom" constant="2" id="QZY-an-OYZ"/>
                 <constraint firstAttribute="trailing" secondItem="BW3-r2-Sbk" secondAttribute="trailing" constant="16" id="VDK-X3-DBk"/>
                 <constraint firstItem="UJu-7T-LTR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Zrz-cD-XXK"/>
                 <constraint firstItem="BGS-g7-Doq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="qbd-i5-AAx"/>

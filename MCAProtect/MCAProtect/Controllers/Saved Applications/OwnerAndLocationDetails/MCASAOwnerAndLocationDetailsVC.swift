@@ -85,6 +85,6 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 67.0
+        return 60.0
     }
 }

@@ -55,7 +55,7 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 68.0
+        return 60.0
     }
     
     func editButtonTapped() {
