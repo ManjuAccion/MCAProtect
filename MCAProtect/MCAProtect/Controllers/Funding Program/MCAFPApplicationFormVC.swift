@@ -38,9 +38,9 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         
         let cell  = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
         cell.titleLabel.text = dataDataSource[indexPath.row]
-        cell.selectedView.isHidden = false
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
+        
 
         
         return cell
@@ -68,7 +68,16 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         applicationDetailVC.categorySelected = indexPath.row
         navigationController?.pushViewController(applicationDetailVC, animated: true)
         }
+        
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
+        selectedCell.selectedView.isHidden = false
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
+        deselectedCell.selectedView.isHidden = true
+    }
+
 
     /*
     // MARK: - Navigation

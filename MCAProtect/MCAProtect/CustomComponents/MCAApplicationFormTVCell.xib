@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -25,9 +26,6 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ag-fN-MsL">
                         <rect key="frame" x="17" y="10" width="297" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="mv3-3O-jSB"/>
-                        </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                         <color key="textColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -44,11 +42,11 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="5qU-YP-tHA" secondAttribute="bottom" constant="-1" id="H9A-EL-Fgy"/>
                     <constraint firstItem="5qU-YP-tHA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KTI-QK-EFI"/>
-                    <constraint firstAttribute="bottom" secondItem="6Ag-fN-MsL" secondAttribute="bottom" constant="10" id="Sbr-g3-Ptq"/>
-                    <constraint firstItem="6Ag-fN-MsL" firstAttribute="leading" secondItem="5qU-YP-tHA" secondAttribute="trailing" constant="13" id="XCP-Ge-eoZ"/>
-                    <constraint firstAttribute="trailing" secondItem="6Ag-fN-MsL" secondAttribute="trailing" constant="6" id="biM-bJ-Rb8"/>
-                    <constraint firstItem="6Ag-fN-MsL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ge5-Bo-zQG"/>
+                    <constraint firstItem="6Ag-fN-MsL" firstAttribute="centerY" secondItem="5qU-YP-tHA" secondAttribute="centerY" id="QNp-ZX-IPs"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="6Ag-fN-MsL" secondAttribute="trailing" constant="-2" id="cvV-iN-Ryu"/>
+                    <constraint firstItem="6Ag-fN-MsL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="feT-hh-nr4"/>
                     <constraint firstItem="5qU-YP-tHA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rys-dS-Hh3"/>
+                    <constraint firstItem="6Ag-fN-MsL" firstAttribute="leading" secondItem="5qU-YP-tHA" secondAttribute="trailing" constant="13" id="slV-6R-7fH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
