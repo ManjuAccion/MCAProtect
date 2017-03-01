@@ -76,6 +76,15 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
        
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASAOwnerAndLocationDetailsTVCell
         selectedCell.selectedView.isHidden = false
+        
+        if applicaionDetailType == SavedApplicationForm.BusinessLocation.rawValue {
+            
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let businessLocationDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASABusinessLocationDetails) as! MCASABusinessLocationDetails
+            businessLocationDetailsVC.businessLocationName = businessDSArray[indexPath.row]
+            navigationController?.pushViewController(businessLocationDetailsVC, animated: true)
+        }
+ 
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

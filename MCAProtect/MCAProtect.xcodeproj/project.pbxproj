@@ -114,6 +114,7 @@
 		BABF75191E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF75161E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.swift */; };
 		BABF751A1E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BABF75171E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.xib */; };
 		BABF751B1E671F080062FB81 /* MCASAOwnerAndLocationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF75181E671F080062FB81 /* MCASAOwnerAndLocationDetailsVC.swift */; };
+		BABF751D1E671FA90062FB81 /* MCASABusinessLocationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF751C1E671FA90062FB81 /* MCASABusinessLocationDetails.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -246,6 +247,7 @@
 		BABF75161E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASAOwnerAndLocationDetailsTVCell.swift; sourceTree = "<group>"; };
 		BABF75171E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASAOwnerAndLocationDetailsTVCell.xib; sourceTree = "<group>"; };
 		BABF75181E671F080062FB81 /* MCASAOwnerAndLocationDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASAOwnerAndLocationDetailsVC.swift; sourceTree = "<group>"; };
+		BABF751C1E671FA90062FB81 /* MCASABusinessLocationDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASABusinessLocationDetails.swift; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -741,6 +743,7 @@
 				BABF75161E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.swift */,
 				BABF75171E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.xib */,
 				BABF75181E671F080062FB81 /* MCASAOwnerAndLocationDetailsVC.swift */,
+				BABF751C1E671FA90062FB81 /* MCASABusinessLocationDetails.swift */,
 			);
 			path = OwnerAndBusinessLocation;
 			sourceTree = "<group>";
@@ -1093,6 +1096,7 @@
 				BA8B68871E545871004CEB69 /* MCALoanDetailsVC.swift in Sources */,
 				BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */,
 				BA2EA84B1E66BC7F00145D33 /* MCAApplicationFormVC.swift in Sources */,
+				BABF751D1E671FA90062FB81 /* MCASABusinessLocationDetails.swift in Sources */,
 				782C6A0B1E49BE2F00268356 /* MCALoginViewController.swift in Sources */,
 				782C69ED1E49AEC100268356 /* MCAConstants.swift in Sources */,
 				BA8B686F1E531B66004CEB69 /* MCAApplicationSummaryTVCell.swift in Sources */,

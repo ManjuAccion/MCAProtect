@@ -402,6 +402,44 @@
             </objects>
             <point key="canvasLocation" x="7013.6000000000004" y="131.78410794602701"/>
         </scene>
+        <!--Business Location Details-->
+        <scene sceneID="Ymt-wF-aMy">
+            <objects>
+                <viewController storyboardIdentifier="MCASABusinessLocationDetails" id="eXa-xe-fJA" customClass="MCASABusinessLocationDetails" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h2e-ek-mSx"/>
+                        <viewControllerLayoutGuide type="bottom" id="htG-bn-0iw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uPT-J3-wvG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6TG-UU-HGP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="eXa-xe-fJA" id="Oue-5t-aW1"/>
+                                    <outlet property="delegate" destination="eXa-xe-fJA" id="pk7-be-o4d"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6TG-UU-HGP" firstAttribute="top" secondItem="uPT-J3-wvG" secondAttribute="top" id="1Yr-G7-NU4"/>
+                            <constraint firstAttribute="trailing" secondItem="6TG-UU-HGP" secondAttribute="trailing" id="A9c-Qk-W7b"/>
+                            <constraint firstItem="6TG-UU-HGP" firstAttribute="leading" secondItem="uPT-J3-wvG" secondAttribute="leading" id="Unw-WV-5B7"/>
+                            <constraint firstItem="htG-bn-0iw" firstAttribute="top" secondItem="6TG-UU-HGP" secondAttribute="bottom" id="pO4-gv-Kel"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="6TG-UU-HGP" id="jDy-a2-fQV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OgU-kj-qWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7676" y="131.78410794602701"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMf-9e-y0d">
             <objects>
