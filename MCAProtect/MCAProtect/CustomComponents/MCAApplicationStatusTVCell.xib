@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,38 +22,39 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F96-i2-UUP">
                     <rect key="frame" x="16" y="8" width="52" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="RoP-jS-p8Y"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Pending" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o44-w6-Jf1">
-                    <rect key="frame" x="289" y="8" width="70" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="70" id="nas-ji-Cme"/>
-                    </constraints>
+                    <rect key="frame" x="305" y="8" width="55" height="30"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ir1-gE-OVX">
-                    <rect key="frame" x="259" y="8" width="30" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPending" translatesAutoresizingMaskIntoConstraints="NO" id="Ir1-gE-OVX">
+                    <rect key="frame" x="275" y="8" width="30" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="0WI-Su-6ab"/>
-                        <constraint firstAttribute="height" constant="30" id="rJO-NS-IB5"/>
+                        <constraint firstAttribute="height" constant="30" id="ovR-Q1-ee6"/>
+                        <constraint firstAttribute="width" constant="30" id="pAE-m1-b0y"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Ir1-gE-OVX" firstAttribute="centerY" secondItem="F96-i2-UUP" secondAttribute="centerY" id="20H-e9-5Wf"/>
+                <constraint firstAttribute="bottom" secondItem="o44-w6-Jf1" secondAttribute="bottom" constant="8" id="5fA-0x-ksm"/>
                 <constraint firstItem="F96-i2-UUP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="5tk-l5-SvL"/>
-                <constraint firstAttribute="bottom" secondItem="Ir1-gE-OVX" secondAttribute="bottom" constant="8" id="6FP-9z-A8j"/>
-                <constraint firstItem="Ir1-gE-OVX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="9wI-fx-ijY"/>
-                <constraint firstItem="o44-w6-Jf1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="A09-6c-ivt"/>
-                <constraint firstAttribute="trailing" secondItem="o44-w6-Jf1" secondAttribute="trailing" constant="16" id="V4m-v2-IK5"/>
-                <constraint firstItem="o44-w6-Jf1" firstAttribute="leading" secondItem="Ir1-gE-OVX" secondAttribute="trailing" id="XFW-NB-AUs"/>
+                <constraint firstItem="Ir1-gE-OVX" firstAttribute="bottom" secondItem="o44-w6-Jf1" secondAttribute="bottom" id="CFn-yu-UBj"/>
+                <constraint firstItem="Ir1-gE-OVX" firstAttribute="top" secondItem="o44-w6-Jf1" secondAttribute="top" id="NHB-aM-8Oj"/>
                 <constraint firstAttribute="bottom" secondItem="F96-i2-UUP" secondAttribute="bottom" constant="8" id="ahN-dj-lwu"/>
                 <constraint firstItem="F96-i2-UUP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="eI6-mh-0so"/>
-                <constraint firstAttribute="bottom" secondItem="o44-w6-Jf1" secondAttribute="bottom" constant="8" id="irW-x0-hon"/>
+                <constraint firstAttribute="trailing" secondItem="o44-w6-Jf1" secondAttribute="trailing" constant="15" id="mWY-DC-gih"/>
+                <constraint firstItem="o44-w6-Jf1" firstAttribute="leading" secondItem="Ir1-gE-OVX" secondAttribute="trailing" id="nro-Ao-uii"/>
+                <constraint firstItem="o44-w6-Jf1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="tgO-7X-Zw3"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -63,4 +64,7 @@
             <point key="canvasLocation" x="-356.5" y="-191"/>
         </view>
     </objects>
+    <resources>
+        <image name="iconPending" width="20" height="20"/>
+    </resources>
 </document>

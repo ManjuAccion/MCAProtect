@@ -25,17 +25,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ua0-v5-RnH">
-                    <rect key="frame" x="16" y="8" width="292" height="25"/>
-                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
+                    <rect key="frame" x="16" y="10" width="292" height="16"/>
+                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                     <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc9-Zc-w23">
-                    <rect key="frame" x="16" y="41" width="292" height="20"/>
+                    <rect key="frame" x="16" y="34" width="292" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="Ibh-ay-cbK"/>
+                        <constraint firstAttribute="height" constant="22" id="Ibh-ay-cbK"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -59,9 +59,10 @@
                 <constraint firstItem="ua0-v5-RnH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="SOE-WJ-TWq"/>
                 <constraint firstItem="yc9-Zc-w23" firstAttribute="trailing" secondItem="ua0-v5-RnH" secondAttribute="trailing" id="SXe-kp-tI5"/>
                 <constraint firstItem="ua0-v5-RnH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.778" id="eBh-qO-Xak"/>
-                <constraint firstItem="ua0-v5-RnH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.36" id="gAc-DR-5rf"/>
-                <constraint firstItem="ua0-v5-RnH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="kkD-aM-CRL"/>
+                <constraint firstItem="ua0-v5-RnH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.36" constant="-8.4800000000000004" id="gAc-DR-5rf"/>
+                <constraint firstItem="ua0-v5-RnH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="kkD-aM-CRL"/>
                 <constraint firstItem="yc9-Zc-w23" firstAttribute="top" secondItem="ua0-v5-RnH" secondAttribute="bottom" constant="8" id="sSQ-le-VLP"/>
+                <constraint firstAttribute="bottom" secondItem="yc9-Zc-w23" secondAttribute="bottom" constant="12" id="wvI-JB-woG"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
