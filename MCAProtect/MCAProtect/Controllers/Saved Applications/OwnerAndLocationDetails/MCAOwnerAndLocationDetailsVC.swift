@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAOwnerAndLocationDetailsVC: MCABaseViewController {
+class MCAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     let ownerDSArray = ["Randell D'souza","Angela Merkel","William Jebor"]
     let ownerDSValueArray  = ["666346173","666552699","666023487"]
