@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="MGP-P0-ITr" customClass="MCASavedApplicationsBankDetailsTVCell" customModule="MCAProtect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24w-yD-QJ0">
+                    <rect key="frame" x="16" y="28" width="276" height="30"/>
+                    <color key="textColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="NO"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                            <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
+                            <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6I-IZ-LOe">
+                    <rect key="frame" x="16" y="8" width="348" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="2cl-UB-2bh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                    <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-Qj-4Xq">
+                    <rect key="frame" x="334" y="28" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="7Zx-rp-f1q"/>
+                        <constraint firstAttribute="height" constant="30" id="uGo-8x-UKv"/>
+                    </constraints>
+                    <state key="normal" image="iconUpload"/>
+                    <connections>
+                        <action selector="uploadButtonTapped:" destination="MGP-P0-ITr" eventType="touchUpInside" id="1QZ-2V-EvW"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGm-4L-6yG">
+                    <rect key="frame" x="300" y="28" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="CxA-gi-kAA"/>
+                        <constraint firstAttribute="width" constant="30" id="L04-9P-EXl"/>
+                    </constraints>
+                    <state key="normal" image="iconDelete"/>
+                    <connections>
+                        <action selector="deleteButtonTapped:" destination="MGP-P0-ITr" eventType="touchUpInside" id="HxN-hc-SFD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="JGm-4L-6yG" firstAttribute="leading" secondItem="24w-yD-QJ0" secondAttribute="trailing" constant="8" id="2tB-UF-EAX"/>
+                <constraint firstItem="24w-yD-QJ0" firstAttribute="leading" secondItem="MGP-P0-ITr" secondAttribute="leading" constant="16" id="8Ur-dU-n3d"/>
+                <constraint firstAttribute="trailing" secondItem="M6I-IZ-LOe" secondAttribute="trailing" constant="16" id="Acd-fS-RRL"/>
+                <constraint firstItem="9Uh-Qj-4Xq" firstAttribute="top" secondItem="M6I-IZ-LOe" secondAttribute="bottom" id="B0S-ZU-rr5"/>
+                <constraint firstAttribute="bottom" secondItem="24w-yD-QJ0" secondAttribute="bottom" constant="8" id="Gyv-qi-o03"/>
+                <constraint firstItem="M6I-IZ-LOe" firstAttribute="leading" secondItem="MGP-P0-ITr" secondAttribute="leading" constant="16" id="LyE-G2-NUy"/>
+                <constraint firstItem="24w-yD-QJ0" firstAttribute="top" secondItem="M6I-IZ-LOe" secondAttribute="bottom" id="Tzr-bU-uQf"/>
+                <constraint firstItem="JGm-4L-6yG" firstAttribute="top" secondItem="M6I-IZ-LOe" secondAttribute="bottom" id="b25-gc-qpN"/>
+                <constraint firstItem="M6I-IZ-LOe" firstAttribute="top" secondItem="MGP-P0-ITr" secondAttribute="top" constant="8" id="g9M-pT-itC"/>
+                <constraint firstAttribute="trailing" secondItem="9Uh-Qj-4Xq" secondAttribute="trailing" constant="16" id="hTN-qd-RK3"/>
+                <constraint firstItem="9Uh-Qj-4Xq" firstAttribute="leading" secondItem="JGm-4L-6yG" secondAttribute="trailing" constant="4" id="r6F-Fc-bDL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dataTF" destination="24w-yD-QJ0" id="2WH-uV-ZwB"/>
+                <outlet property="deleteButton" destination="JGm-4L-6yG" id="dKg-90-DNb"/>
+                <outlet property="headingLabel" destination="M6I-IZ-LOe" id="7oZ-pi-hN1"/>
+                <outlet property="titleLabel" destination="M6I-IZ-LOe" id="fKy-ir-FpS"/>
+                <outlet property="uploadButton" destination="9Uh-Qj-4Xq" id="O7F-Cx-90H"/>
+            </connections>
+            <point key="canvasLocation" x="-5" y="-118"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconDelete" width="30" height="30"/>
+        <image name="iconUpload" width="36" height="39"/>
+    </resources>
+</document>
