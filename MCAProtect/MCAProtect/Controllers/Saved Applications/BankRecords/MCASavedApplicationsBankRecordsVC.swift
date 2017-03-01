@@ -10,6 +10,7 @@ import UIKit
 
 class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     
     //MARK: - View Life Cycle
     
@@ -20,8 +21,8 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Bank Records"
-//        tableView.register(UINib(nibName: "MCASavedApplicationsBankRecordsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankRecordsTVCell)
-//        tableView.tableFooterView = UIView()
+        tableView.register(UINib(nibName: "MCASavedApplicationsBankRecordsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankRecordsTVCell)
+        tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,11 +51,18 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsBankRecordsTVCell
         selectedCell.selectedView.isHidden = false
+        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+        let savedApplicationBankDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationBankDetailsVC) as! MCASavedApplicationBankDetailsVC
+        savedApplicationBankDetailsVC.bankName = bankNameArray[indexPath.row]
+        navigationController?.pushViewController(savedApplicationBankDetailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsBankRecordsTVCell
         deselectedCell.selectedView.isHidden = true
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

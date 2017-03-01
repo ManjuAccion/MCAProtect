@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAOwnerAndLocationDetailsTVCell: UITableViewCell {
+class MCASAOwnerAndLocationDetailsTVCell: UITableViewCell {
 
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!

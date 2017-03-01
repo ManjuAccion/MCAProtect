@@ -35,7 +35,7 @@ struct CellIdentifiers {
     static let MCAApplicationTVCell                 = "MCAApplicationTVCell"
     static let MCASavedApplicationsListTVCell       = "MCASavedApplicationsListTVCell"
     static let MCAApplicationSummaryTVCell          = "MCAApplicationSummaryTVCell"
-    static let MCAOwnerAndLocationDetailsTVCell     = "MCAOwnerAndLocationDetailsTVCell"
+    static let MCAOwnerAndLocationDetailsTVCell     = "MCASAOwnerAndLocationDetailsTVCell"
     static let MCASavedApplicationsBankRecordsTVCell = "MCASavedApplicationsBankRecordsTVCell"
     static let MCASavedApplicationsBankDetailsTVCell = "MCASavedApplicationsBankDetailsTVCell"
 
@@ -61,6 +61,10 @@ struct VCIdentifiers {
     static let MCAApplicationSummaryVC                              = "MCAApplicationSummaryVC"
     static let MCAApplicationFormVC                                 = "MCAApplicationFormVC"
     static let MCAApplicationListVC                                 = "MCAApplicationListVC"
+    static let MCASALiensPaymentsVC                                 = "MCASALiensPaymentsVC"
+    static let MCASAOwnerAndLocationDetailsVC                       = "MCASAOwnerAndLocationDetailsVC"
+    static let MCASavedApplicationsBankRecordsVC                    = "MCASavedApplicationsBankRecordsVC"
+    static let MCASavedApplicationBankDetailsVC                     = "MCASavedApplicationBankDetailsVC"
 }
 
 

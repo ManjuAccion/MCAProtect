@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MCASavedApplicationBankDetailsVC: MCABaseViewController {
+class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var bankName: String?
     
     let bankDetailsArray = ["Account Number","Range","Statement Period","Number of Deposits","Deposit Amount","Days with Negative Balance","Average Daily Balance"]
     let bankDetailsValueArray  = ["BOA546897236","1st Nov 2016 31st Dec 2016","1st-Nov-2016_31st-Dec-2016.pdf","20","$75,000","0","$3,300"]
@@ -18,9 +21,10 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.register(UINib(nibName: "MCASavedApplicationsBankDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankDetailsTVCell)
-//        tableView.tableFooterView = UIView()
+        tableView.register(UINib(nibName: "MCASavedApplicationsBankDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankDetailsTVCell)
+        tableView.tableFooterView = UIView()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+        self.title = bankName
 
     }
 
@@ -50,7 +54,7 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 66.0
+        return 60.0
     }
     
     func editButtonTapped() {

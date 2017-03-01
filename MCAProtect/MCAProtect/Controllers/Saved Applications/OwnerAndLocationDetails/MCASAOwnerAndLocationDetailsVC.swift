@@ -8,8 +8,10 @@
 
 import UIKit
 
-class MCAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     let ownerDSArray = ["Randell D'souza","Angela Merkel","William Jebor"]
     let ownerDSValueArray  = ["666346173","666552699","666023487"]
     
@@ -26,8 +28,8 @@ class MCAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.register(UINib(nibName: "MCAOwnerAndLocationDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell)
-//        tableView.tableFooterView = UIView()
+        tableView.register(UINib(nibName: "MCASAOwnerAndLocationDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell)
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +63,7 @@ class MCAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell, for: indexPath) as! MCAOwnerAndLocationDetailsTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell, for: indexPath) as! MCASAOwnerAndLocationDetailsTVCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         
@@ -72,12 +74,12 @@ class MCAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAOwnerAndLocationDetailsTVCell
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASAOwnerAndLocationDetailsTVCell
         selectedCell.selectedView.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAOwnerAndLocationDetailsTVCell
+        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASAOwnerAndLocationDetailsTVCell
         deselectedCell.selectedView.isHidden = true
     }
     

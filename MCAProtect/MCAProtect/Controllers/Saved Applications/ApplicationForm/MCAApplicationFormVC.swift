@@ -81,23 +81,31 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessAddress.rawValue
             case SavedApplicationForm.LiensOrPaymentsOrBankruptcy.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:"MCASALiensPaymentsVC") as! MCASALiensPaymentsVC
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCASALiensPaymentsVC) as! MCASALiensPaymentsVC
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
-                print("Inside LiensOrPaymentsOrBankruptcy")
             case SavedApplicationForm.MerchantDocumentation.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationMerchantDocumentationVC) as! MCASavedApplicationMerchantDocumentationVC
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
                 
             case SavedApplicationForm.BankRecords.rawValue:
-                print("Inside BankRecords")
+                let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationsBankRecordsVC) as! MCASavedApplicationsBankRecordsVC
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
             case SavedApplicationForm.MCALoans.rawValue:
                 print("Inside MCALoans")
             case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
-                print("Inside OwnerOrOfficerInformation")
+                let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerAndLocationDetailsVC) as! MCASAOwnerAndLocationDetailsVC
+                savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.OwnerOrOfficerInformation.rawValue
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+
             case SavedApplicationForm.BusinessLocation.rawValue:
-                print("Inside BusinessLocation")
+                let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerAndLocationDetailsVC) as! MCASAOwnerAndLocationDetailsVC
+                savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessLocation.rawValue
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
             default:
                 print("Inside Default")
