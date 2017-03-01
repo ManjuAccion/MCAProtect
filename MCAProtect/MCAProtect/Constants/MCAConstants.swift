@@ -35,7 +35,28 @@ struct CellIdentifiers {
     static let MCAApplicationTVCell                 = "MCAApplicationTVCell"
     static let MCASavedApplicationsListTVCell       = "MCASavedApplicationsListTVCell"
     static let MCAApplicationSummaryTVCell          = "MCAApplicationSummaryTVCell"
+}
 
+struct StoryboardName {
+    
+    static let MCASavedApplication                  = "SavedApplication"
+    static let MCADashBoard                         = "DashBoard"
+    static let MCALogin                             = "Login"
+    static let MCAForgotPassword                    = "ForgotPassword"
+    static let MCARegistration                      = "Registration"
+    static let MCAWebView                           = "WebView"
+    static let MCAmPin                              = "mPin"
+    static let MCACommon                            = "Common"
+    static let MCAProfileDetail                     = "ProfileDetail"
+    static let MCAFundingProgram                    = "FundingProgram"
+}
+
+struct VCIdentifiers {
+    static let MCASavedApplicationDetailVC                          = "MCASavedApplicationDetailVC"
+    static let MCASavedApplicationMerchantDocumentationVC           = "MCASavedApplicationMerchantDocumentationVC"
+    static let MCAApplicationSummaryVC                              = "MCAApplicationSummaryVC"
+    static let MCAApplicationFormVC                                 = "MCAApplicationFormVC"
+    static let MCAApplicationListVC                                 = "MCAApplicationListVC"
 }
 
 

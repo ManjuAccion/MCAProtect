@@ -35,6 +35,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iqn-hm-gv1">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ajQ-mr-KB4" id="o7M-2K-EXz"/>
                                     <outlet property="delegate" destination="ajQ-mr-KB4" id="ppc-Kw-RhJ"/>
@@ -73,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KWx-zs-xeL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KWx-zs-xeL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -150,6 +151,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVB-Mi-vyM">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cKn-HA-f8c" id="jNQ-5X-LPR"/>
                                     <outlet property="delegate" destination="cKn-HA-f8c" id="j5T-2Z-Tqj"/>
@@ -188,6 +190,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X56-0L-jLk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dBd-l6-v9V" id="Uhw-5O-av7"/>
                                     <outlet property="delegate" destination="dBd-l6-v9V" id="1Yn-EE-tpg"/>
@@ -210,12 +213,50 @@
             </objects>
             <point key="canvasLocation" x="3669.5999999999999" y="131.78410794602701"/>
         </scene>
+        <!--Saved Application Merchant DocumentationVC-->
+        <scene sceneID="BSx-J0-aS3">
+            <objects>
+                <viewController storyboardIdentifier="MCASavedApplicationMerchantDocumentationVC" id="KLK-Hd-zqA" customClass="MCASavedApplicationMerchantDocumentationVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yiE-BD-ieD"/>
+                        <viewControllerLayoutGuide type="bottom" id="eMU-z3-ViN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1RG-rp-Ftt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eG7-MG-OEd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="KLK-Hd-zqA" id="JQk-dP-lID"/>
+                                    <outlet property="delegate" destination="KLK-Hd-zqA" id="IDG-gR-Btj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eG7-MG-OEd" firstAttribute="top" secondItem="1RG-rp-Ftt" secondAttribute="top" id="6I3-H3-eAP"/>
+                            <constraint firstAttribute="trailing" secondItem="eG7-MG-OEd" secondAttribute="trailing" id="Bgz-eA-2jy"/>
+                            <constraint firstItem="eG7-MG-OEd" firstAttribute="leading" secondItem="1RG-rp-Ftt" secondAttribute="leading" id="FDX-I5-eYJ"/>
+                            <constraint firstItem="eMU-z3-ViN" firstAttribute="top" secondItem="eG7-MG-OEd" secondAttribute="bottom" id="QNY-ap-4a1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="eG7-MG-OEd" id="aPr-Ds-ctI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kah-WI-u9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4316" y="131.78410794602701"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMf-9e-y0d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPK-WA-b9z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMr-5p-nlD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sMr-5p-nlD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

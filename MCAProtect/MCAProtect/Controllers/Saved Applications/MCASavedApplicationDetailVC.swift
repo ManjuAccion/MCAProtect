@@ -27,6 +27,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         super.viewDidLoad()
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +77,10 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 68.0
+    }
+    
+    func editButtonTapped() {
+        
     }
     
 }

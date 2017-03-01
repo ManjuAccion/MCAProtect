@@ -74,6 +74,9 @@
 		7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3451E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift */; };
 		7871E3481E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7871E3461E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
+		BA2EA8301E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EA82E1E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.swift */; };
+		BA2EA8311E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA2EA82F1E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.xib */; };
+		BA2EA8331E66A12200145D33 /* MCASavedApplicationMerchantDocumentationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EA8321E66A12200145D33 /* MCASavedApplicationMerchantDocumentationVC.swift */; };
 		BA30E3011E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA30E3001E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib */; };
 		BA30E3031E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA30E3021E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift */; };
 		BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34CD381E4C7E3A001AF75F /* mPin.storyboard */; };
@@ -191,6 +194,9 @@
 		7871E3451E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonCell.swift; sourceTree = "<group>"; };
 		7871E3461E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPerformanceComparisonCell.xib; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BA2EA82E1E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationsBankRecordsTVCell.swift; sourceTree = "<group>"; };
+		BA2EA82F1E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASavedApplicationsBankRecordsTVCell.xib; sourceTree = "<group>"; };
+		BA2EA8321E66A12200145D33 /* MCASavedApplicationMerchantDocumentationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationMerchantDocumentationVC.swift; sourceTree = "<group>"; };
 		BA30E3001E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASavedApplicationsListTVCell.xib; sourceTree = "<group>"; };
 		BA30E3021E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationsListTVCell.swift; sourceTree = "<group>"; };
 		BA34CD381E4C7E3A001AF75F /* mPin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mPin.storyboard; sourceTree = "<group>"; };
@@ -600,6 +606,9 @@
 				BA30E3001E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib */,
 				BA30E3021E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift */,
 				BA5B6DBC1E65956C003ED6BF /* MCASavedApplicationDetailVC.swift */,
+				BA2EA82E1E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.swift */,
+				BA2EA82F1E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.xib */,
+				BA2EA8321E66A12200145D33 /* MCASavedApplicationMerchantDocumentationVC.swift */,
 			);
 			path = "Saved Applications";
 			sourceTree = "<group>";
@@ -777,6 +786,7 @@
 				5B4741C11E53411A001D9435 /* MCALeftMenuVC.xib in Resources */,
 				BA5B6DBB1E656380003ED6BF /* SavedApplication.storyboard in Resources */,
 				5B313E081E49BA07004CE58A /* Login.storyboard in Resources */,
+				BA2EA8311E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.xib in Resources */,
 				5B8FC4A41E4C7E9600309CAB /* Roboto-Black.ttf in Resources */,
 				5B8FC4A81E4C7E9600309CAB /* Roboto-Italic.ttf in Resources */,
 				BA30E3011E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib in Resources */,
@@ -969,12 +979,14 @@
 				782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */,
 				7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */,
 				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
+				BA2EA8301E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.swift in Sources */,
 				BA30E3031E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift in Sources */,
 				BA8B68871E545871004CEB69 /* MCALoanDetailsVC.swift in Sources */,
 				BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */,
 				782C6A0B1E49BE2F00268356 /* MCALoginViewController.swift in Sources */,
 				782C69ED1E49AEC100268356 /* MCAConstants.swift in Sources */,
 				BA8B686F1E531B66004CEB69 /* MCAApplicationSummaryTVCell.swift in Sources */,
+				BA2EA8331E66A12200145D33 /* MCASavedApplicationMerchantDocumentationVC.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,
 				BA8B68731E532390004CEB69 /* MCAApplicationTVCell.swift in Sources */,
