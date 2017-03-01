@@ -63,16 +63,10 @@ class MCASALiensPaymentsVC: MCABaseViewController,UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if (indexPath.row == 0) {
-            let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCALiensPaymentsTVCell
-
-            selected.liensViewBottomConstraints.constant = 175.0
-
-        return 60.0
+        return 250.0
         }
         else{
-            
-            return 60.0
-
+            return 215.0
         }
     }
 

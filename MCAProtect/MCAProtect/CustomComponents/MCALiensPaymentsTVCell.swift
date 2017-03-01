@@ -25,6 +25,7 @@ class MCALiensPaymentsTVCell: UITableViewCell {
     }
     
     func  cellDatasource ()  {
+        liensViewBottomConstraints.constant = 0.0
     }
     
 }
