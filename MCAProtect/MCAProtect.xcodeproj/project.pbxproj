@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5B313E081E49BA07004CE58A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B313E071E49BA07004CE58A /* Login.storyboard */; };
+		5B3626A61E66A97400FC19E9 /* MCALiensPaymentsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3626A41E66A97400FC19E9 /* MCALiensPaymentsTVCell.swift */; };
+		5B3626A71E66A97400FC19E9 /* MCALiensPaymentsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3626A51E66A97400FC19E9 /* MCALiensPaymentsTVCell.xib */; };
+		5B3626A91E66BA1700FC19E9 /* MCASALiensPaymentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3626A81E66BA1700FC19E9 /* MCASALiensPaymentsVC.swift */; };
+		5B3626AC1E66CED700FC19E9 /* MCABankruptcyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3626AA1E66CED700FC19E9 /* MCABankruptcyTVCell.swift */; };
+		5B3626AD1E66CED700FC19E9 /* MCABankruptcyTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3626AB1E66CED700FC19E9 /* MCABankruptcyTVCell.xib */; };
 		5B4741B81E533397001D9435 /* MCALeftMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B61E533397001D9435 /* MCALeftMenuVC.swift */; };
 		5B4741B91E533397001D9435 /* MCARightMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B71E533397001D9435 /* MCARightMenuVC.swift */; };
 		5B4741C11E53411A001D9435 /* MCALeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4741C01E53411A001D9435 /* MCALeftMenuVC.xib */; };
@@ -130,6 +135,11 @@
 		2CD461690C404A50EA48979D /* Pods-MCAProtectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.release.xcconfig"; sourceTree = "<group>"; };
 		49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B313E071E49BA07004CE58A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		5B3626A41E66A97400FC19E9 /* MCALiensPaymentsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALiensPaymentsTVCell.swift; sourceTree = "<group>"; };
+		5B3626A51E66A97400FC19E9 /* MCALiensPaymentsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCALiensPaymentsTVCell.xib; sourceTree = "<group>"; };
+		5B3626A81E66BA1700FC19E9 /* MCASALiensPaymentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASALiensPaymentsVC.swift; sourceTree = "<group>"; };
+		5B3626AA1E66CED700FC19E9 /* MCABankruptcyTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABankruptcyTVCell.swift; sourceTree = "<group>"; };
+		5B3626AB1E66CED700FC19E9 /* MCABankruptcyTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCABankruptcyTVCell.xib; sourceTree = "<group>"; };
 		5B4741B61E533397001D9435 /* MCALeftMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALeftMenuVC.swift; sourceTree = "<group>"; };
 		5B4741B71E533397001D9435 /* MCARightMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARightMenuVC.swift; sourceTree = "<group>"; };
 		5B4741BC1E533511001D9435 /* MCAProtect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAProtect-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -674,6 +684,16 @@
 				BA2EA8421E66BC7F00145D33 /* OwnerAndLocationDetails */,
 				BA2EA8451E66BC7F00145D33 /* SavedApplicationDetail */,
 				BA2EA8471E66BC7F00145D33 /* SavedApplicationList */,
+				BA5B6DB41E6562E8003ED6BF /* MCAApplicationFormVC.swift */,
+				BA5B6DB51E6562E8003ED6BF /* MCAApplicationListVC.swift */,
+				BA5B6DB61E6562E8003ED6BF /* MCAApplicationSummaryVC.swift */,
+				BA30E3001E5DB508005829F4 /* MCASavedApplicationsListTVCell.xib */,
+				BA30E3021E5DB541005829F4 /* MCASavedApplicationsListTVCell.swift */,
+				BA5B6DBC1E65956C003ED6BF /* MCASavedApplicationDetailVC.swift */,
+				BA2EA82E1E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.swift */,
+				BA2EA82F1E65B0B100145D33 /* MCASavedApplicationsBankRecordsTVCell.xib */,
+				BA2EA8321E66A12200145D33 /* MCASavedApplicationMerchantDocumentationVC.swift */,
+				5B3626A81E66BA1700FC19E9 /* MCASALiensPaymentsVC.swift */,
 			);
 			path = "Saved Applications";
 			sourceTree = "<group>";
@@ -690,6 +710,10 @@
 				BA8B68831E543A7D004CEB69 /* MCAApplicationStatusTVCell.swift */,
 				5B643D141E5F282300AE89B1 /* MCAApplicationFormTVCell.swift */,
 				5B643D151E5F282300AE89B1 /* MCAApplicationFormTVCell.xib */,
+				5B3626A41E66A97400FC19E9 /* MCALiensPaymentsTVCell.swift */,
+				5B3626A51E66A97400FC19E9 /* MCALiensPaymentsTVCell.xib */,
+				5B3626AA1E66CED700FC19E9 /* MCABankruptcyTVCell.swift */,
+				5B3626AB1E66CED700FC19E9 /* MCABankruptcyTVCell.xib */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -841,6 +865,7 @@
 				7871E3481E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib in Resources */,
 				5B4741C31E534412001D9435 /* MCARightMenuVC.xib in Resources */,
 				BA2EA8511E66BC7F00145D33 /* MCAOwnerAndLocationDetailsTVCell.xib in Resources */,
+				5B3626A71E66A97400FC19E9 /* MCALiensPaymentsTVCell.xib in Resources */,
 				5B8FC4A71E4C7E9600309CAB /* Roboto-BoldItalic.ttf in Resources */,
 				5B8FC4AE1E4C7E9600309CAB /* Roboto-Thin.ttf in Resources */,
 				BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */,
@@ -851,6 +876,7 @@
 				5B8FC48E1E49F20A00309CAB /* Registration.storyboard in Resources */,
 				5B8FC4A51E4C7E9600309CAB /* Roboto-BlackItalic.ttf in Resources */,
 				5B4741C11E53411A001D9435 /* MCALeftMenuVC.xib in Resources */,
+				5B3626AD1E66CED700FC19E9 /* MCABankruptcyTVCell.xib in Resources */,
 				BA5B6DBB1E656380003ED6BF /* SavedApplication.storyboard in Resources */,
 				5B313E081E49BA07004CE58A /* Login.storyboard in Resources */,
 				5B8FC4A41E4C7E9600309CAB /* Roboto-Black.ttf in Resources */,
@@ -1031,6 +1057,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA88AC9E1E4D791C003E3B2F /* MCASetMPinVC.swift in Sources */,
+				5B3626AC1E66CED700FC19E9 /* MCABankruptcyTVCell.swift in Sources */,
 				BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */,
 				5B643D131E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift in Sources */,
 				BA2EA8531E66BC7F00145D33 /* MCAApplicationListVC.swift in Sources */,
@@ -1051,6 +1078,7 @@
 				BA2EA84B1E66BC7F00145D33 /* MCAApplicationFormVC.swift in Sources */,
 				782C6A0B1E49BE2F00268356 /* MCALoginViewController.swift in Sources */,
 				BA2EA8571E66BCB800145D33 /* MCAOwnerAndLocationDetailsVC.swift in Sources */,
+				5B3626A91E66BA1700FC19E9 /* MCASALiensPaymentsVC.swift in Sources */,
 				782C69ED1E49AEC100268356 /* MCAConstants.swift in Sources */,
 				BA8B686F1E531B66004CEB69 /* MCAApplicationSummaryTVCell.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
@@ -1064,6 +1092,7 @@
 				782C69FF1E49B85000268356 /* MCADashboardTabbarVC.swift in Sources */,
 				782C6A0F1E49BE5A00268356 /* MCANewMPinVC.swift in Sources */,
 				BA2EA84F1E66BC7F00145D33 /* MCASavedApplicationMerchantDocumentationVC.swift in Sources */,
+				5B3626A61E66A97400FC19E9 /* MCALiensPaymentsTVCell.swift in Sources */,
 				BA34CD3E1E4C9E72001AF75F /* SecureInputView.swift in Sources */,
 				782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */,
 				BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */,

@@ -80,6 +80,10 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessAddress.rawValue
             case SavedApplicationForm.LiensOrPaymentsOrBankruptcy.rawValue:
+                let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:"MCASALiensPaymentsVC") as! MCASALiensPaymentsVC
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+
                 print("Inside LiensOrPaymentsOrBankruptcy")
             case SavedApplicationForm.MerchantDocumentation.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
