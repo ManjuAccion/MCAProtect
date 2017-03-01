@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="KGk-i7-Jjw" customClass="MCAOwnerAndLocationDetailsTVCell" customModule="MCAProtect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="341" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="341" height="66"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business Location 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4R-CF-PvJ">
+                        <rect key="frame" x="15" y="8" width="310" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="L7I-DX-YFa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alexander City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2f-oh-Yob">
+                        <rect key="frame" x="15" y="36" width="310" height="22"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                        <color key="textColor" red="0.1764705882352941" green="0.22352941176470587" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAX-I9-TmA">
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="66"/>
+                        <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="hwI-s8-JEf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="A2f-oh-Yob" firstAttribute="leading" secondItem="aAX-I9-TmA" secondAttribute="trailing" constant="11" id="9OO-JG-8ZC"/>
+                    <constraint firstItem="B4R-CF-PvJ" firstAttribute="leading" secondItem="aAX-I9-TmA" secondAttribute="trailing" constant="11" id="G9a-8p-WKB"/>
+                    <constraint firstItem="aAX-I9-TmA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Jah-X9-gkB"/>
+                    <constraint firstItem="B4R-CF-PvJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="MqL-4V-wqD"/>
+                    <constraint firstAttribute="bottom" secondItem="A2f-oh-Yob" secondAttribute="bottom" constant="8.5" id="VG8-Ai-GpK"/>
+                    <constraint firstItem="A2f-oh-Yob" firstAttribute="top" secondItem="B4R-CF-PvJ" secondAttribute="bottom" constant="10" id="VeN-dh-Pnl"/>
+                    <constraint firstAttribute="trailing" secondItem="A2f-oh-Yob" secondAttribute="trailing" constant="16" id="Wma-rR-Zf8"/>
+                    <constraint firstItem="aAX-I9-TmA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="m8G-PH-cZz"/>
+                    <constraint firstAttribute="trailing" secondItem="B4R-CF-PvJ" secondAttribute="trailing" constant="16" id="z42-4E-H8U"/>
+                    <constraint firstAttribute="bottom" secondItem="aAX-I9-TmA" secondAttribute="bottom" id="zNT-XJ-7Ig"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailLabel" destination="A2f-oh-Yob" id="Haj-1L-iQP"/>
+                <outlet property="headingLabel" destination="B4R-CF-PvJ" id="7aN-jK-Av8"/>
+                <outlet property="selectedView" destination="aAX-I9-TmA" id="LEk-1t-eQe"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="63.5"/>
+        </tableViewCell>
+    </objects>
+</document>

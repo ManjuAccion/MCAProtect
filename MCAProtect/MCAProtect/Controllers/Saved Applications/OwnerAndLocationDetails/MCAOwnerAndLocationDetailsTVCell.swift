@@ -1,24 +1,26 @@
 //
-//  MCASavedApplicationsBankRecordsTVCell.swift
+//  MCAOwnerAndLocationDetailsTVCell.swift
 //  MCAProtect
 //
-//  Created by Sarath NS on 2/28/17.
+//  Created by Sarath NS on 3/1/17.
 //  Copyright © 2017 Accionlabs. All rights reserved.
 //
 
 import UIKit
 
-class MCASavedApplicationsBankRecordsTVCell: UITableViewCell {
+class MCAOwnerAndLocationDetailsTVCell: UITableViewCell {
 
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var selectedView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
 }
