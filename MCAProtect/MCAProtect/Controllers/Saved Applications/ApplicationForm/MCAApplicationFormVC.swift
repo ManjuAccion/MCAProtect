@@ -18,7 +18,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Stacty's Boutique                       "
+        self.title = "Stacty's Boutique"
         loadUI()
     }
 

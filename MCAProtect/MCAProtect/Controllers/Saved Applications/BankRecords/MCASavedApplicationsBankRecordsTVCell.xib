@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,9 +27,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank of America" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsv-Ez-cEc">
-                        <rect key="frame" x="15" y="8" width="344" height="14"/>
+                        <rect key="frame" x="15" y="8" width="344" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="P16-ED-6Km"/>
+                            <constraint firstAttribute="height" constant="18" id="P16-ED-6Km"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,7 +82,7 @@
                     <constraint firstAttribute="bottom" secondItem="fQA-7Y-AnQ" secondAttribute="bottom" id="6Xh-Qy-toj"/>
                     <constraint firstItem="u2q-ra-oLE" firstAttribute="leading" secondItem="fQA-7Y-AnQ" secondAttribute="trailing" constant="11" id="8sk-rV-uSF"/>
                     <constraint firstItem="fQA-7Y-AnQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Afs-Gz-077"/>
-                    <constraint firstItem="BrR-jA-O8l" firstAttribute="top" secondItem="tsv-Ez-cEc" secondAttribute="bottom" constant="8" id="C2V-rH-8TG"/>
+                    <constraint firstItem="BrR-jA-O8l" firstAttribute="top" secondItem="tsv-Ez-cEc" secondAttribute="bottom" constant="4" id="C2V-rH-8TG"/>
                     <constraint firstItem="u2q-ra-oLE" firstAttribute="top" secondItem="BrR-jA-O8l" secondAttribute="bottom" constant="4" id="FDH-st-hhM"/>
                     <constraint firstItem="KRG-tR-WTY" firstAttribute="leading" secondItem="BrR-jA-O8l" secondAttribute="trailing" constant="16" id="Ie7-R7-ZAy"/>
                     <constraint firstItem="tsv-Ez-cEc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Nug-yb-cKg"/>
@@ -96,7 +96,7 @@
                     <constraint firstAttribute="trailing" secondItem="GRJ-8Z-0OM" secondAttribute="trailing" constant="16" id="lMm-s0-KoW"/>
                     <constraint firstAttribute="bottom" secondItem="GRJ-8Z-0OM" secondAttribute="bottom" constant="8" id="mbn-hY-m5B"/>
                     <constraint firstItem="GRJ-8Z-0OM" firstAttribute="leading" secondItem="u2q-ra-oLE" secondAttribute="trailing" constant="16" id="n9X-2g-3eT"/>
-                    <constraint firstItem="KRG-tR-WTY" firstAttribute="top" secondItem="tsv-Ez-cEc" secondAttribute="bottom" constant="8" id="sQW-IV-t0R"/>
+                    <constraint firstItem="KRG-tR-WTY" firstAttribute="top" secondItem="tsv-Ez-cEc" secondAttribute="bottom" constant="4" id="sQW-IV-t0R"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
