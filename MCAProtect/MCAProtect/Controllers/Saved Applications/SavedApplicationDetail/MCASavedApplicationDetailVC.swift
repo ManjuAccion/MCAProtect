@@ -15,6 +15,11 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     var applicaionDetailType: NSInteger!
     var isViewingMode : Bool?
     var summaryTVCell : MCAApplicationSummaryTVCell?
+    var activeField: UITextField?
+    var toolBar : UIToolbar?
+    var doneButton : UIBarButtonItem?
+    var selectedCellIndexPath : IndexPath?
+
     
     var loanDataSource = ["Business Name","Credit Score","Loan Amount","Loan Term","Need it By"]
     var loanDataSourceValue = ["Stacy's Boutique","552","$75,000","6 Months","5 Days"]
@@ -36,11 +41,13 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         tableView.tableFooterView = UIView()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         isViewingMode = true
+        initializeToolBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(
             animated)
+        registerForKeyboardNotifications()
         switch applicaionDetailType {
             
         case SavedApplicationForm.LoanDetails.rawValue:
@@ -87,14 +94,58 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         return cell
     }
     
+    //MARK: - Table View Delegate
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        selectedCellIndexPath = indexPath
     }
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 60.0
     }
+    
+    //MARK: - TextField Delegate Functions
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return !isViewingMode!
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
+        activeField?.inputAccessoryView = toolBar
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
+    }
+
+    //MARK: - Keyboard Functions
+    
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    func keyboardWasShown(aNotification: NSNotification) {
+        var userInfo = aNotification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = tableView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        tableView.contentInset = contentInset
+        }
+    
+    func keyboardWillBeHidden(aNotification: NSNotification) {
+        let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
+        tableView.contentInset = contentInset
+    }
+    
+    
+    //MARK: - Custom Functions
     
     func editButtonTapped() {
         
@@ -103,28 +154,47 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
             isViewingMode = true
             tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             self.view.endEditing(true)
-
+            
             var image = UIImage(named: "iconEdit")
             image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image:image, style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
-
+            
         }
         else {
             
             isViewingMode = false
             tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-
+            
             var image = UIImage(named: "iconCheck")
             image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image:image, style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         }
-
     }
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return !isViewingMode!
+    func initializeToolBar() {
+        toolBar = UIToolbar()
+        toolBar?.barStyle = .blackTranslucent
+        toolBar?.isTranslucent = true
+        toolBar?.sizeToFit()
+        
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton?.tintColor = .white
+        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolBar?.setItems([flexibleSpaceButton, doneButton!], animated: false)
+        toolBar?.isUserInteractionEnabled = true
+        
     }
     
-
-    
+    func inputToolbarDonePressed() {
+        
+//        if currentSelection {
+//            currentSelection = [NSIndexPath indexPathForRow:currentSelection.row+1 inSection:currentSelection.section];
+//        }else{
+//            currentSelection = [NSIndexPath indexPathForRow:0 inSection:0];
+//        }
+//        
+//        [self.tableView selectRowAtIndexPath:currentSelection animated:YES scrollPosition: UITableViewScrollPositionTop];
+        
+    }
 }
