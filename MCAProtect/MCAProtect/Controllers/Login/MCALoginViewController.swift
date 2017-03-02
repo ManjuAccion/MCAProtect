@@ -35,7 +35,6 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true;
-        
         rememberPasswordBtn.setBackgroundImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
         rememberPasswordBtn.isSelected = false
 
@@ -231,8 +230,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         if (rememberPasswordBtn.isSelected == true)
         {
             rememberPasswordBtn.setBackgroundImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
-            
-            rememberPasswordBtn.isSelected = false;
+                      rememberPasswordBtn.isSelected = false;
         }
         else
         {

@@ -15,17 +15,11 @@ class MCANavigationController: SlideNavigationController {
         super.viewDidLoad()
         
         self.navigationController?.delegate = self
+      
         UINavigationBar.appearance().barTintColor = ColorConstants.red
         UINavigationBar.appearance().tintColor =  UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 18.0), NSForegroundColorAttributeName:UIColor.white]
-        
-      
-        
-      
-      
-        
-
-        // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,8 +33,6 @@ class MCANavigationController: SlideNavigationController {
     {
         let item = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         viewController.navigationItem.backBarButtonItem = item
-
-        
     }
 
    
