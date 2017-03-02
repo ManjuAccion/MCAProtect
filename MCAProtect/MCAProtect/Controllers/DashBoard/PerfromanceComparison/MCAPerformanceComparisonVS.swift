@@ -10,11 +10,17 @@ import UIKit
 
 class MCAPerformanceComparisonVS: MCABaseViewController {
     
+    @IBOutlet weak var appSubmitted: UILabel!
     
+    @IBOutlet weak var sizeOfDealsFunded: UILabel!
+    @IBOutlet weak var dealsFunded: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
+        appSubmitted.layer.cornerRadius = sizeOfDealsFunded.frame.size.height / 2.0;
+        dealsFunded.layer.cornerRadius = sizeOfDealsFunded.frame.size.height / 2.0;
+        sizeOfDealsFunded.layer.cornerRadius = sizeOfDealsFunded.frame.size.height / 2.0;
         // Do any additional setup after loading the view.
     }
 
