@@ -49,16 +49,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidLayoutSubviews() {
-        if (versionFooterView != nil) {
-            
-            self.sideMenuTableView.tableFooterView = nil;
-            let screenSize: CGRect = UIScreen.main.bounds
-            let frame = CGRect(x: 0, y: screenSize.height-120, width: 401, height: 120)
-            versionFooterView.frame = frame
-            self.sideMenuTableView.tableFooterView?.addSubview(versionFooterView)
-        }
-    }
+   
     
     //MARK: - Table View Datasource
     

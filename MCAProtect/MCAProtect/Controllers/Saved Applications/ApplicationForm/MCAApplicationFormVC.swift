@@ -94,6 +94,10 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationsBankRecordsVC) as! MCASavedApplicationsBankRecordsVC
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
             case SavedApplicationForm.MCALoans.rawValue:
+                let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:"MCASALoansViewController") as! MCASALoansViewController
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+
                 print("Inside MCALoans")
             case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)

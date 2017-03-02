@@ -441,6 +441,55 @@
             </objects>
             <point key="canvasLocation" x="7676" y="131.78410794602701"/>
         </scene>
+        <!--Loans View Controller-->
+        <scene sceneID="Cgs-hU-pG1">
+            <objects>
+                <viewController storyboardIdentifier="MCASALoansViewController" id="Qb2-2s-ajB" customClass="MCASALoansViewController" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2vw-xF-r7B"/>
+                        <viewControllerLayoutGuide type="bottom" id="aHG-da-cGr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FTu-rM-jes">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jF2-RY-LMg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yFS-ck-yyV">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="607" id="tJ6-6x-eJI"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qb2-2s-ajB" id="EK1-87-H34"/>
+                                    <outlet property="delegate" destination="Qb2-2s-ajB" id="ogs-lX-zwu"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yFS-ck-yyV" firstAttribute="leading" secondItem="FTu-rM-jes" secondAttribute="leading" id="R7W-sY-M06"/>
+                            <constraint firstItem="jF2-RY-LMg" firstAttribute="centerX" secondItem="FTu-rM-jes" secondAttribute="centerX" id="Y59-yJ-eAu"/>
+                            <constraint firstItem="jF2-RY-LMg" firstAttribute="top" secondItem="FTu-rM-jes" secondAttribute="top" id="Zdf-8C-uyO"/>
+                            <constraint firstItem="jF2-RY-LMg" firstAttribute="leading" secondItem="FTu-rM-jes" secondAttribute="leading" id="fXc-EC-q42"/>
+                            <constraint firstItem="yFS-ck-yyV" firstAttribute="top" secondItem="jF2-RY-LMg" secondAttribute="bottom" id="qY4-gh-e5h"/>
+                            <constraint firstAttribute="trailing" secondItem="jF2-RY-LMg" secondAttribute="trailing" id="sG8-Ue-0lK"/>
+                            <constraint firstItem="yFS-ck-yyV" firstAttribute="top" secondItem="jF2-RY-LMg" secondAttribute="bottom" id="tvS-P3-c3U"/>
+                            <constraint firstAttribute="trailing" secondItem="yFS-ck-yyV" secondAttribute="trailing" id="wwu-Rp-TwO"/>
+                            <constraint firstItem="aHG-da-cGr" firstAttribute="top" secondItem="yFS-ck-yyV" secondAttribute="bottom" id="zOU-AR-XLy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="yFS-ck-yyV" id="gLV-fD-dBp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n7v-ne-uJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8776.7999999999993" y="84.107946026986511"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMf-9e-y0d">
             <objects>
