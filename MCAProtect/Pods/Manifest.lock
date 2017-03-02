@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (4.3.0)
   - iOS-Slide-Menu (1.5)
   - JVFloatLabeledTextField (1.1.1)
   - SDWebImage (4.0.0):
@@ -7,17 +6,15 @@ PODS:
   - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0)
   - iOS-Slide-Menu (~> 1.5)
   - JVFloatLabeledTextField
   - SDWebImage
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   iOS-Slide-Menu: 40b0cbd8916c42afc755f0869793cd09e7a32102
   JVFloatLabeledTextField: 0e5524b097f102036214dd8279edc8ecf08b5e18
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 5a6e9ccd61e201a3612c564425568f88febd405b
+PODFILE CHECKSUM: 070bf9e7b905af1db42261a07aefa1ece0fcf3f6
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.0.1
