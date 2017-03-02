@@ -57,8 +57,5 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
     {
         return 60.0
     }
-    
-    func editButtonTapped() {
-        
-    }
+
 }

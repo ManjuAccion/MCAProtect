@@ -88,7 +88,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         cell.dataTF.text = dataSourceValueArray[indexPath.row]
         cell.dataTF.delegate = self
         cell.dataTF.isUserInteractionEnabled = true
-        cell.dataTF.tag = indexPath.row
+//        cell.dataTF.tag = indexPath.row
         
         return cell
     }
