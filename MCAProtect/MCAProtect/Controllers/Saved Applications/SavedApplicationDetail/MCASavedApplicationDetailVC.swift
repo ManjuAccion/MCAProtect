@@ -113,18 +113,23 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeField = textField
-        activeField?.inputAccessoryView = toolBar
-        
-        if textField.tag == dataSourceArray.count - 1 {
-            doneButton?.title = "Done"
-        }
-        else{
-            doneButton?.title = "Next"
-        }
+//        activeField?.inputAccessoryView = toolBar
+//        
+//        if textField.tag == dataSourceArray.count - 1 {
+//            doneButton?.title = "Done"
+//        }
+//        else{
+//            doneButton?.title = "Next"
+//        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeField = nil
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        activeField?.resignFirstResponder()
+        return true
     }
 
     //MARK: - Keyboard Functions

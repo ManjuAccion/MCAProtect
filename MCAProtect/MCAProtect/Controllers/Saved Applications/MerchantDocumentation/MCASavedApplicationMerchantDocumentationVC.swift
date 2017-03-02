@@ -23,7 +23,7 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
         self.title = "Merchant Documentation"
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
-         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+
     }
 
     override func didReceiveMemoryWarning() {
