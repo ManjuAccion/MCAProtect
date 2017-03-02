@@ -18,8 +18,6 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     var activeField: UITextField?
     var toolBar : UIToolbar?
     var doneButton : UIBarButtonItem?
-    var selectedCellIndexPath : IndexPath?
-
     
     var loanDataSource = ["Business Name","Credit Score","Loan Amount","Loan Term","Need it By"]
     var loanDataSourceValue = ["Stacy's Boutique","552","$75,000","6 Months","5 Days"]
@@ -90,6 +88,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         cell.dataTF.text = dataSourceValueArray[indexPath.row]
         cell.dataTF.delegate = self
         cell.dataTF.isUserInteractionEnabled = true
+        cell.dataTF.tag = indexPath.row
         
         return cell
     }
@@ -97,7 +96,6 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     //MARK: - Table View Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCellIndexPath = indexPath
     }
     
     
@@ -116,6 +114,13 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeField = textField
         activeField?.inputAccessoryView = toolBar
+        
+        if textField.tag == dataSourceArray.count - 1 {
+            doneButton?.title = "Done"
+        }
+        else{
+            doneButton?.title = "Next"
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -165,7 +170,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
             isViewingMode = false
             tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
             
-            var image = UIImage(named: "iconCheck")
+            var image = UIImage(named: "editIconCheck")
             image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image:image, style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         }
@@ -177,7 +182,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         toolBar?.isTranslucent = true
         toolBar?.sizeToFit()
         
-        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
         doneButton?.tintColor = .white
         let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
@@ -187,14 +192,12 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     }
     
     func inputToolbarDonePressed() {
-        
-//        if currentSelection {
-//            currentSelection = [NSIndexPath indexPathForRow:currentSelection.row+1 inSection:currentSelection.section];
-//        }else{
-//            currentSelection = [NSIndexPath indexPathForRow:0 inSection:0];
-//        }
-//        
-//        [self.tableView selectRowAtIndexPath:currentSelection animated:YES scrollPosition: UITableViewScrollPositionTop];
-        
+        let nextResponder = activeField?.superview?.superview?.superview?.viewWithTag((activeField?.tag)! + 1) as UIResponder!
+        if (nextResponder != nil) {
+            nextResponder?.becomeFirstResponder()
+        }
+        else {
+            activeField?.resignFirstResponder()
+        }
     }
 }
