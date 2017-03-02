@@ -1303,10 +1303,10 @@
 				INFOPLIST_FILE = MCAProtect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.AmericanWater;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcap.MCAProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d255dcff-62e0-4cd1-a656-d133297cd026";
-				PROVISIONING_PROFILE_SPECIFIER = AmericanWater_Dev;
+				PROVISIONING_PROFILE = "c2c308d5-f762-4218-8a59-8566de698c6f";
+				PROVISIONING_PROFILE_SPECIFIER = MCAProtect_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1324,7 +1324,7 @@
 				INFOPLIST_FILE = MCAProtect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Accionlabs.AmericanWater;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcap.MCAProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d255dcff-62e0-4cd1-a656-d133297cd026";
 				PROVISIONING_PROFILE_SPECIFIER = AmericanWater_Dev;
