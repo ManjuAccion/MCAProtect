@@ -14,8 +14,9 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "MCA Loans"
         tableView.register(UINib(nibName: "MCASALoansTVCell", bundle: Bundle.main), forCellReuseIdentifier:"MCASALoansTVCell")
-
+        tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
 
@@ -45,21 +46,7 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-    {
-        return 30.0
-    }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
-        
-        let headerView: UIView = UIView.init(frame: CGRect(x:0, y:0, width:320, height:30));
-        let label: UILabel = UILabel.init(frame: CGRect(x:15, y:0, width:320, height:30))
-        label.text = "Existing loan account details"
-        headerView.addSubview(label);
-        return headerView
-    }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         
