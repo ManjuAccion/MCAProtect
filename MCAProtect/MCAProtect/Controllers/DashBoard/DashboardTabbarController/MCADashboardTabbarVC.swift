@@ -48,6 +48,9 @@ class MCADashboardTabbarVC: MCABaseViewController{
         self.navigationController?.setNavigationBarHidden(false, animated: false);
         
         self .setupNavigationBarButtons();
+        
+        firstTabBtn.backgroundColor = ColorConstants.red
+
     }
     
     
@@ -123,6 +126,16 @@ class MCADashboardTabbarVC: MCABaseViewController{
             dealsPipelineVC.view.removeFromSuperview();
         }
 
+        firstTabBtn.backgroundColor = ColorConstants.grey
+        secondTabBtn.backgroundColor = ColorConstants.grey
+        thirdTabBtn.backgroundColor = ColorConstants.grey
+        
+        dealsPipelineLabel.textColor = UIColor(colorLiteralRed: 256.0, green: 256.0, blue: 256.0, alpha: 0.85)
+        dealsFundedLAbel.textColor =  UIColor(colorLiteralRed: 256.0, green: 256.0, blue: 256.0, alpha: 0.85)
+        performanceComparisonLabel.textColor =  UIColor(colorLiteralRed: 256.0, green: 256.0, blue: 256.0, alpha: 0.85)
+
+        
+        
         // TODO: need to identify how to use enumerations properly instead of using the constants in Case statement
         switch (sender as AnyObject).tag
         {
@@ -131,8 +144,13 @@ class MCADashboardTabbarVC: MCABaseViewController{
             {
                 dealsPipelineVC = self.storyboard!.instantiateViewController(withIdentifier: "DealsPipeline") as! MCADealsPipelineVC
                 dealsPipelineVC.parentController = self
-            }
+                
 
+                
+            }
+            dealsPipelineLabel.textColor = UIColor.white
+
+            firstTabBtn.backgroundColor = ColorConstants.red
             self.tabbarContentView.addSubview(dealsPipelineVC.view);
             self.autoresizeViewForController(dealsPipelineVC);
             print("Second Tab selected");
@@ -144,6 +162,9 @@ class MCADashboardTabbarVC: MCABaseViewController{
             }
             self.tabbarContentView.addSubview(performanceCompVC.view);
             self.autoresizeViewForController(performanceCompVC);
+            secondTabBtn.backgroundColor = ColorConstants.red
+            performanceComparisonLabel.textColor = UIColor.white
+
             print("Third Tab selected");
                 break
         case 2:
@@ -153,6 +174,8 @@ class MCADashboardTabbarVC: MCABaseViewController{
             }
             self.tabbarContentView.addSubview(dealsFundedVC.view);
             self.autoresizeViewForController(dealsFundedVC);
+            thirdTabBtn.backgroundColor = ColorConstants.red
+            dealsFundedLAbel.textColor = UIColor.white
             print("Fisrt Tab selected");
             break
         default:
