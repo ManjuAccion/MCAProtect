@@ -23,8 +23,8 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var profileImageButton : UIButton!
     @IBOutlet weak var sideMenuTableView : UITableView!
 
-    var arrayDataSource : [String] = ["Dashboard", "Saved Applications", "Funding programs", "Communication"]
-    var arrayImageIcons : [String] = ["iconDashboard","iconSavedApplications", "iconFundingPrograms", "iconCommunication"]
+    var arrayDataSource : [String] = ["Dashboard", "Saved Applications", "Funding Programs","Ask Funder"]
+    var arrayImageIcons : [String] = ["iconDashboard","iconSavedApplications", "iconFundingPrograms", "iconAskFunder"]
     
     
     override func viewDidLoad() {
