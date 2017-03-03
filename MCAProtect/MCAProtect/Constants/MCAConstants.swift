@@ -43,7 +43,7 @@ struct CellIdentifiers {
     static let MCAOwnerAndLocationDetailsTVCell     = "MCASAOwnerAndLocationDetailsTVCell"
     static let MCASavedApplicationsBankRecordsTVCell = "MCASavedApplicationsBankRecordsTVCell"
     static let MCASavedApplicationsBankDetailsTVCell = "MCASavedApplicationsBankDetailsTVCell"
-    static let MCAMerchantApplicationListTVCell     = "MCAMerchantApplicationListTVCell"
+    static let MCAApplicationListTVCell              = "MCAApplicationTVCell"
 
 
 }

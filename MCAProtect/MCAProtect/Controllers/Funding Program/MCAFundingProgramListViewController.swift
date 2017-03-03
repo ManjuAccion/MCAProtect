@@ -39,19 +39,30 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
          cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
-        cell.merchantName.text = dataDataSource[indexPath.row]
-        cell.amountLabel.text = amountDataSource[indexPath.row]
-        cell.viewDetailsButton.setImage(UIImage(named:"iconCheckRound"), for: UIControlState.normal)
+        cell.headingLabel.text = dataDataSource[indexPath.row]
+        cell.detailLabel.text = amountDataSource[indexPath.row]
+        cell.rightButton.isHidden = false
+        cell.rightButton .setImage(UIImage(named : "iconCheckRound"), for: UIControlState.normal)
         
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationTVCell
+        selectedCell.selectedView.isHidden = false
+        selectedCell.backgroundColor = ColorConstants.selectedBackground
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
-        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "FundingProgramSummaryVC") as! MCAFundingProgramSummaryVC
-        navigationController?.pushViewController(underwritingMerchantVC, animated: true)
+        let fundingSummaryVC = storyBoard.instantiateViewController(withIdentifier: "FundingProgramSummaryVC") as! MCAFundingProgramSummaryVC
+        navigationController?.pushViewController(fundingSummaryVC, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationTVCell
+        deselectedCell.selectedView.isHidden = true
+        deselectedCell.backgroundColor = ColorConstants.background
+    }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {

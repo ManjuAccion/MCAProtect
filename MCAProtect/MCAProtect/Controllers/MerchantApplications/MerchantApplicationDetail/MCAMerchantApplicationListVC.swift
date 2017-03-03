@@ -24,7 +24,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         
         self.navigationItem.title = titleText
 
-        tableView.register(UINib(nibName: "MCAMerchantApplicationListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAMerchantApplicationListTVCell)
+        tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationListTVCell)
         tableView.tableFooterView = UIView()
 
     }
@@ -41,12 +41,12 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAMerchantApplicationListTVCell, for: indexPath) as! MCAMerchantApplicationListTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationListTVCell, for: indexPath) as! MCAApplicationTVCell
         
         cell.selectionStyle = .none
         cell.headingLabel.text = dataDataSource[indexPath.row]
         cell.detailLabel.text = amountDataSource[indexPath.row]
-        cell.uploadButon.isHidden = false
+        cell.rightButton.isHidden = false
         cell.backgroundColor = UIColor.clear
         
         return cell
@@ -56,14 +56,14 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
 //        let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
 //        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
 //        navigationController?.pushViewController(applicationSummaryVC, animated: true)
-        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAMerchantApplicationListTVCell
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationTVCell
         selectedCell.selectedView.isHidden = false
         selectedCell.backgroundColor = ColorConstants.selectedBackground
         
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAMerchantApplicationListTVCell
+        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationTVCell
         deselectedCell.selectedView.isHidden = true
         deselectedCell.backgroundColor = ColorConstants.background
     }

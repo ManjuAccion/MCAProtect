@@ -10,9 +10,10 @@ import UIKit
 
 class MCAApplicationTVCell: UITableViewCell {
     
-    @IBOutlet weak var merchantName: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var viewDetailsButton: UIButton!
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var selectedView: UIView!
+    @IBOutlet weak var rightButton: UIButton!
     
 
     override func awakeFromNib() {
