@@ -24,6 +24,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XWa-Ur-WgY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="zkr-IE-rbo" id="aQ6-3i-hhh"/>
                                     <outlet property="delegate" destination="zkr-IE-rbo" id="mPR-u5-EDZ"/>
@@ -45,6 +46,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7T-cf-vAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-218.40000000000001" y="121.88905547226388"/>
+        </scene>
+        <!--Merchant Application SummaryVC-->
+        <scene sceneID="Cke-Oo-qTG">
+            <objects>
+                <viewController storyboardIdentifier="MCAMerchantApplicationSummaryVC" id="McY-LS-Yap" customClass="MCAMerchantApplicationSummaryVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nhp-Is-IWc"/>
+                        <viewControllerLayoutGuide type="bottom" id="QIW-bz-3JP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WWm-Kv-P29">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TG9-OT-CvC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="McY-LS-Yap" id="zuY-jB-W2U"/>
+                                    <outlet property="delegate" destination="McY-LS-Yap" id="WZL-nh-G65"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QIW-bz-3JP" firstAttribute="top" secondItem="TG9-OT-CvC" secondAttribute="bottom" id="5D4-1Z-5ob"/>
+                            <constraint firstItem="TG9-OT-CvC" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leading" id="E14-Wa-kjF"/>
+                            <constraint firstAttribute="trailing" secondItem="TG9-OT-CvC" secondAttribute="trailing" id="XPC-Sw-lb7"/>
+                            <constraint firstItem="TG9-OT-CvC" firstAttribute="top" secondItem="WWm-Kv-P29" secondAttribute="top" id="lMc-hm-tQR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="TG9-OT-CvC" id="ohe-Ty-eJm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Qn-Iw-DMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440.80000000000001" y="121.88905547226388"/>
         </scene>
     </scenes>
 </document>

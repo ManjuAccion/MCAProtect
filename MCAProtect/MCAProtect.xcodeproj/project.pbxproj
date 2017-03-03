@@ -121,6 +121,7 @@
 		BABF751F1E68616E0062FB81 /* MCASALoanDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF751E1E68616E0062FB81 /* MCASALoanDetailVC.swift */; };
 		BABF752A1E698CEA0062FB81 /* MCAMerchantApplicationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF75291E698CEA0062FB81 /* MCAMerchantApplicationListVC.swift */; };
 		BABF752C1E6991300062FB81 /* MerchantApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BABF752B1E6991300062FB81 /* MerchantApplication.storyboard */; };
+		BABF752F1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF752E1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -260,6 +261,7 @@
 		BABF751E1E68616E0062FB81 /* MCASALoanDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MCASALoanDetailVC.swift; path = Loans/MCASALoanDetailVC.swift; sourceTree = "<group>"; };
 		BABF75291E698CEA0062FB81 /* MCAMerchantApplicationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationListVC.swift; sourceTree = "<group>"; };
 		BABF752B1E6991300062FB81 /* MerchantApplication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MerchantApplication.storyboard; sourceTree = "<group>"; };
+		BABF752E1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationSummaryVC.swift; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -777,6 +779,7 @@
 		BABF75201E6986820062FB81 /* MerchantApplications */ = {
 			isa = PBXGroup;
 			children = (
+				BABF752D1E69A51C0062FB81 /* MerchantApplicationSummary */,
 				BABF75221E6986F70062FB81 /* MerchantApplicationDetail */,
 			);
 			path = MerchantApplications;
@@ -788,6 +791,14 @@
 				BABF75291E698CEA0062FB81 /* MCAMerchantApplicationListVC.swift */,
 			);
 			path = MerchantApplicationDetail;
+			sourceTree = "<group>";
+		};
+		BABF752D1E69A51C0062FB81 /* MerchantApplicationSummary */ = {
+			isa = PBXGroup;
+			children = (
+				BABF752E1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift */,
+			);
+			path = MerchantApplicationSummary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1138,6 +1149,7 @@
 				782C6A031E49B8F500268356 /* MCADealsPipelineVC.swift in Sources */,
 				782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */,
 				7871E3471E55AF0A0019B707 /* MCAPerformanceComparisonCell.swift in Sources */,
+				BABF752F1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift in Sources */,
 				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
 				BABF750D1E66DB2C0062FB81 /* MCASavedApplicationsBankDetailsTVCell.swift in Sources */,
 				BA8B68871E545871004CEB69 /* MCALoanDetailsVC.swift in Sources */,

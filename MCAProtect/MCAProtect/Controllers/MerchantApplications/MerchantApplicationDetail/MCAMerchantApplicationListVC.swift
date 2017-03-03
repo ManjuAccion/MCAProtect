@@ -53,9 +53,10 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
-//        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
-//        navigationController?.pushViewController(applicationSummaryVC, animated: true)
+
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
+        navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationTVCell
         selectedCell.selectedView.isHidden = false
         selectedCell.backgroundColor = ColorConstants.selectedBackground
