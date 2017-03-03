@@ -844,7 +844,7 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 78RNVBBGXR;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					782C69B21E49ACC500268356 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1298,6 +1298,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Relton Alexander (KK3SRAHRSL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 78RNVBBGXR;
 				INFOPLIST_FILE = MCAProtect/Info.plist;
@@ -1305,8 +1306,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcap.MCAProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c2c308d5-f762-4218-8a59-8566de698c6f";
-				PROVISIONING_PROFILE_SPECIFIER = MCAProtect_Dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1319,6 +1320,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Relton Alexander (KK3SRAHRSL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 78RNVBBGXR;
 				INFOPLIST_FILE = MCAProtect/Info.plist;
@@ -1326,8 +1328,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcap.MCAProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d255dcff-62e0-4cd1-a656-d133297cd026";
-				PROVISIONING_PROFILE_SPECIFIER = AmericanWater_Dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

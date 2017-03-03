@@ -24,7 +24,7 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var sideRightMenuTableView : UITableView!
     
     var arrayDataSource : [String] = ["Notification","Personalised Settings", "About Us", "Terms of Use", "Privacy Policy","Share Feedback","Share App","Rate Us"]
-    var arrayImageIcons : [String] = ["iconNotifications","iconMerchantApplications", "iconAboutUs","iconTermsOfUse", "iconFundingPrograms", "iconCommunication","iconNotifications","iconTermsOfUse"]
+    var arrayImageIcons : [String] = ["iconNotifications","iconSettings", "iconAboutUs","iconTermsOfUse", "iconPrivacy", "iconShareFeedback","iconShareApp","iconRateUs"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +61,8 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCATableViewCell", for: indexPath) as! MCATableViewCell
         
         cell.cellLabel.text  = self.arrayDataSource[indexPath.row]
+        cell.cellLabel.textColor = ColorConstants.red
+
         cell.cellImageView.image = UIImage(named : self.arrayImageIcons[indexPath.row])
         cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
