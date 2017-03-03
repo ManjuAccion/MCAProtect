@@ -20,6 +20,7 @@ class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Forgot Password"
         self.navigationController?.navigationBar.isHidden = false;
         isAllDetailsPresent = true
     }
