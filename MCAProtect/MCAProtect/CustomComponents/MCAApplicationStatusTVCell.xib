@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,10 +36,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPending" translatesAutoresizingMaskIntoConstraints="NO" id="Ir1-gE-OVX">
-                    <rect key="frame" x="275" y="8" width="30" height="30"/>
+                    <rect key="frame" x="283" y="13" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ovR-Q1-ee6"/>
-                        <constraint firstAttribute="width" constant="30" id="pAE-m1-b0y"/>
+                        <constraint firstAttribute="height" constant="20" id="ovR-Q1-ee6"/>
+                        <constraint firstAttribute="width" constant="20" id="pAE-m1-b0y"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -48,12 +48,12 @@
                 <constraint firstItem="Ir1-gE-OVX" firstAttribute="centerY" secondItem="F96-i2-UUP" secondAttribute="centerY" id="20H-e9-5Wf"/>
                 <constraint firstAttribute="bottom" secondItem="o44-w6-Jf1" secondAttribute="bottom" constant="8" id="5fA-0x-ksm"/>
                 <constraint firstItem="F96-i2-UUP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="5tk-l5-SvL"/>
-                <constraint firstItem="Ir1-gE-OVX" firstAttribute="bottom" secondItem="o44-w6-Jf1" secondAttribute="bottom" id="CFn-yu-UBj"/>
-                <constraint firstItem="Ir1-gE-OVX" firstAttribute="top" secondItem="o44-w6-Jf1" secondAttribute="top" id="NHB-aM-8Oj"/>
+                <constraint firstItem="Ir1-gE-OVX" firstAttribute="bottom" secondItem="o44-w6-Jf1" secondAttribute="bottom" constant="-5" id="CFn-yu-UBj"/>
+                <constraint firstItem="Ir1-gE-OVX" firstAttribute="top" secondItem="o44-w6-Jf1" secondAttribute="top" constant="5" id="NHB-aM-8Oj"/>
                 <constraint firstAttribute="bottom" secondItem="F96-i2-UUP" secondAttribute="bottom" constant="8" id="ahN-dj-lwu"/>
                 <constraint firstItem="F96-i2-UUP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="eI6-mh-0so"/>
                 <constraint firstAttribute="trailing" secondItem="o44-w6-Jf1" secondAttribute="trailing" constant="15" id="mWY-DC-gih"/>
-                <constraint firstItem="o44-w6-Jf1" firstAttribute="leading" secondItem="Ir1-gE-OVX" secondAttribute="trailing" id="nro-Ao-uii"/>
+                <constraint firstItem="o44-w6-Jf1" firstAttribute="leading" secondItem="Ir1-gE-OVX" secondAttribute="trailing" constant="2" id="nro-Ao-uii"/>
                 <constraint firstItem="o44-w6-Jf1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="tgO-7X-Zw3"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
