@@ -17,14 +17,11 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
         self.title = "MCA Loans"
         tableView.register(UINib(nibName: "MCASALoansTVCell", bundle: Bundle.main), forCellReuseIdentifier:"MCASALoansTVCell")
         tableView.tableFooterView = UIView()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
     
     //MARK: - Table View Datasource
     
@@ -46,20 +43,17 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        
         return 60.0
     }
-    /*
-    // MARK: - Navigation
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+        let loanDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASALoanDetailVC) as! MCASALoanDetailVC
+        navigationController?.pushViewController(loanDetailsVC, animated: true)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

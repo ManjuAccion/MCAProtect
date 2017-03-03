@@ -65,7 +65,9 @@ struct VCIdentifiers {
     static let MCASAOwnerAndLocationDetailsVC                       = "MCASAOwnerAndLocationDetailsVC"
     static let MCASavedApplicationsBankRecordsVC                    = "MCASavedApplicationsBankRecordsVC"
     static let MCASavedApplicationBankDetailsVC                     = "MCASavedApplicationBankDetailsVC"
-    static let MCASABusinessLocationDetails                     = "MCASABusinessLocationDetails"
+    static let MCASABusinessLocationDetails                         = "MCASABusinessLocationDetails"
+    static let MCASALoanDetailVC                                    = "MCASALoanDetailVC"
+
 }
 
 
