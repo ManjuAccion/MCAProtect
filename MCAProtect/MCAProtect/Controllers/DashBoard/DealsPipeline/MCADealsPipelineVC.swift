@@ -37,7 +37,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         
-        let applicationVC  = UIStoryboard(name: "SavedApplication", bundle: nil).instantiateViewController(withIdentifier: "MCAApplicationListVC") as! MCAApplicationListVC
+        let applicationVC  = UIStoryboard(name: "SavedApplication", bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCASavedApplicationListVC) as! MCASavedApplicationListVC
         
         
         parentController.navigationController?.pushViewController(applicationVC, animated: true);

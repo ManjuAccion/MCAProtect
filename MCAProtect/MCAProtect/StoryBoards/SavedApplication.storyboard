@@ -22,10 +22,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Application ListVC-->
+        <!--Saved Application ListVC-->
         <scene sceneID="i8o-1h-Twg">
             <objects>
-                <viewController storyboardIdentifier="MCAApplicationListVC" id="ajQ-mr-KB4" customClass="MCAApplicationListVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCASavedApplicationListVC" id="ajQ-mr-KB4" customClass="MCASavedApplicationListVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zII-0D-qfb"/>
                         <viewControllerLayoutGuide type="bottom" id="6pg-7i-aar"/>

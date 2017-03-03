@@ -1,5 +1,5 @@
 //
-//  MCAApplicationListVC.swift
+//  MCASavedApplicationListVC.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/14/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     

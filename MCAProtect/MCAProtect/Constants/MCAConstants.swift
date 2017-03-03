@@ -65,7 +65,7 @@ struct VCIdentifiers {
     static let MCASavedApplicationMerchantDocumentationVC           = "MCASavedApplicationMerchantDocumentationVC"
     static let MCAApplicationSummaryVC                              = "MCAApplicationSummaryVC"
     static let MCAApplicationFormVC                                 = "MCAApplicationFormVC"
-    static let MCAApplicationListVC                                 = "MCAApplicationListVC"
+    static let MCASavedApplicationListVC                                 = "MCASavedApplicationListVC"
     static let MCASALiensPaymentsVC                                 = "MCASALiensPaymentsVC"
     static let MCASAOwnerAndLocationDetailsVC                       = "MCASAOwnerAndLocationDetailsVC"
     static let MCASavedApplicationsBankRecordsVC                    = "MCASavedApplicationsBankRecordsVC"

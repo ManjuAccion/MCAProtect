@@ -87,7 +87,7 @@
 		BA2EA84E1E66BC7F00145D33 /* MCASavedApplicationsBankRecordsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA2EA83F1E66BC7F00145D33 /* MCASavedApplicationsBankRecordsTVCell.xib */; };
 		BA2EA84F1E66BC7F00145D33 /* MCASavedApplicationMerchantDocumentationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EA8411E66BC7F00145D33 /* MCASavedApplicationMerchantDocumentationVC.swift */; };
 		BA2EA8521E66BC7F00145D33 /* MCASavedApplicationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EA8461E66BC7F00145D33 /* MCASavedApplicationDetailVC.swift */; };
-		BA2EA8531E66BC7F00145D33 /* MCAApplicationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EA8481E66BC7F00145D33 /* MCAApplicationListVC.swift */; };
+		BA2EA8531E66BC7F00145D33 /* MCASavedApplicationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EA8481E66BC7F00145D33 /* MCASavedApplicationListVC.swift */; };
 		BA2EA8541E66BC7F00145D33 /* MCASavedApplicationsListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EA8491E66BC7F00145D33 /* MCASavedApplicationsListTVCell.swift */; };
 		BA2EA8551E66BC7F00145D33 /* MCASavedApplicationsListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA2EA84A1E66BC7F00145D33 /* MCASavedApplicationsListTVCell.xib */; };
 		BA34CD391E4C7E3A001AF75F /* mPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34CD381E4C7E3A001AF75F /* mPin.storyboard */; };
@@ -224,7 +224,7 @@
 		BA2EA83F1E66BC7F00145D33 /* MCASavedApplicationsBankRecordsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASavedApplicationsBankRecordsTVCell.xib; sourceTree = "<group>"; };
 		BA2EA8411E66BC7F00145D33 /* MCASavedApplicationMerchantDocumentationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationMerchantDocumentationVC.swift; sourceTree = "<group>"; };
 		BA2EA8461E66BC7F00145D33 /* MCASavedApplicationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationDetailVC.swift; sourceTree = "<group>"; };
-		BA2EA8481E66BC7F00145D33 /* MCAApplicationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationListVC.swift; sourceTree = "<group>"; };
+		BA2EA8481E66BC7F00145D33 /* MCASavedApplicationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationListVC.swift; sourceTree = "<group>"; };
 		BA2EA8491E66BC7F00145D33 /* MCASavedApplicationsListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationsListTVCell.swift; sourceTree = "<group>"; };
 		BA2EA84A1E66BC7F00145D33 /* MCASavedApplicationsListTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASavedApplicationsListTVCell.xib; sourceTree = "<group>"; };
 		BA34CD381E4C7E3A001AF75F /* mPin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = mPin.storyboard; sourceTree = "<group>"; };
@@ -690,7 +690,7 @@
 		BA2EA8471E66BC7F00145D33 /* SavedApplicationList */ = {
 			isa = PBXGroup;
 			children = (
-				BA2EA8481E66BC7F00145D33 /* MCAApplicationListVC.swift */,
+				BA2EA8481E66BC7F00145D33 /* MCASavedApplicationListVC.swift */,
 				BA2EA8491E66BC7F00145D33 /* MCASavedApplicationsListTVCell.swift */,
 				BA2EA84A1E66BC7F00145D33 /* MCASavedApplicationsListTVCell.xib */,
 			);
@@ -1099,7 +1099,7 @@
 				BABF750A1E66D8DB0062FB81 /* MCASavedApplicationBankDetailsVC.swift in Sources */,
 				BABF75191E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.swift in Sources */,
 				5B643D131E5B2B4200AE89B1 /* MCAFPApplicationDetailVC.swift in Sources */,
-				BA2EA8531E66BC7F00145D33 /* MCAApplicationListVC.swift in Sources */,
+				BA2EA8531E66BC7F00145D33 /* MCASavedApplicationListVC.swift in Sources */,
 				BABF75081E66CC930062FB81 /* MCASavedApplicationsBankRecordsVC.swift in Sources */,
 				7871E3431E548FC60019B707 /* MCADelasPipelineCell.swift in Sources */,
 				782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */,
