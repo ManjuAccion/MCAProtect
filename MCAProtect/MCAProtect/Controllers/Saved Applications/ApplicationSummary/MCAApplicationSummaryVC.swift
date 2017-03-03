@@ -56,6 +56,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         cell.selectionStyle = .none
         cell.titleLabel.text = dataSourceKeys[indexPath.row]
         cell.dataTF.text = dataSourceValues[indexPath.row]
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }

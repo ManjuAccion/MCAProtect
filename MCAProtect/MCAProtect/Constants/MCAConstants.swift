@@ -26,6 +26,11 @@ struct ColorConstants {
 
     static let green                = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#339966")
     
+    static let selectedBackground   = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#F8F8F8")
+    static let background           = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#F2F2F2")
+
+
+    
 }
 
 struct CellIdentifiers {

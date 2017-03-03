@@ -11,6 +11,8 @@ import UIKit
 class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var billingAddressCheckButton: UIButton!
+    @IBOutlet weak var tableViewBottomConstraint:NSLayoutConstraint!
     
     var applicaionDetailType: NSInteger!
     var isViewingMode : Bool?
@@ -40,6 +42,8 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         isViewingMode = true
         initializeToolBar()
+        let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
+        tableView.contentInset = contentInset
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,11 +56,13 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
             self.title = "Loan Details"
             dataSourceArray = loanDataSource
             dataSourceValueArray = loanDataSourceValue
+            self.tableViewBottomConstraint.constant = 0.0
             
         case SavedApplicationForm.BusinessInformation.rawValue:
             self.title = "Business Information"
             dataSourceArray = businessInformationDataSource
             dataSourceValueArray = businessInformationDataSourceValue
+            self.tableViewBottomConstraint.constant = 0.0
 
         case SavedApplicationForm.BusinessAddress.rawValue:
             self.title = "Business Address"
@@ -71,6 +77,21 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func billingAddressButtonTapped(_ sender: Any) {
+        
+        if billingAddressCheckButton.isSelected == true {
+            
+            billingAddressCheckButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+            billingAddressCheckButton.isSelected = false;
+        }
+        else {
+            
+            billingAddressCheckButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+            billingAddressCheckButton.isSelected = true;
+        }
+    }
+    
     
     //MARK: - Table View Datasource
     

@@ -47,6 +47,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             let statusTVCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationStatusTVCell, for: indexPath) as! MCAApplicationStatusTVCell
             statusTVCell.statusLabel.text = "Progress"
             cell = statusTVCell
+
         }
         else {
             let applicationFormCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationFormTVCell, for: indexPath) as! MCAApplicationFormTVCell
@@ -54,6 +55,8 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             cell = applicationFormCell
         }
         cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
+
         
         return cell
     }

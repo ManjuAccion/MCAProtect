@@ -49,6 +49,7 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
         cell.selectionStyle = .none
         cell.nameLabel.text = dataDataSource[indexPath.row]
         cell.amountLabel.text = amountDataSource[indexPath.row]
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }
@@ -59,12 +60,14 @@ class MCAApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableV
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
         selectedCell.selectedView.isHidden = false
+        selectedCell.backgroundColor = ColorConstants.selectedBackground
         
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
         deselectedCell.selectedView.isHidden = true
+        deselectedCell.backgroundColor = ColorConstants.background
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

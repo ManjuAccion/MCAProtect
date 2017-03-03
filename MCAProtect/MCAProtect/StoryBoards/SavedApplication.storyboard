@@ -14,6 +14,9 @@
         <array key="Roboto-Italic.ttf">
             <string>Roboto-Italic</string>
         </array>
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -39,7 +42,7 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iqn-hm-gv1">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ajQ-mr-KB4" id="o7M-2K-EXz"/>
@@ -47,7 +50,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6pg-7i-aar" firstAttribute="top" secondItem="Iqn-hm-gv1" secondAttribute="bottom" id="53h-rN-kA6"/>
                             <constraint firstAttribute="trailing" secondItem="Iqn-hm-gv1" secondAttribute="trailing" id="Lbl-XQ-dKD"/>
@@ -81,7 +84,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KWx-zs-xeL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="sRv-iF-w2d" id="6zb-gN-oVx"/>
@@ -117,7 +120,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="L8S-Wn-YI2" secondAttribute="trailing" constant="16" id="0lW-2V-FGf"/>
                             <constraint firstItem="jyR-KG-hA4" firstAttribute="top" secondItem="L8S-Wn-YI2" secondAttribute="bottom" constant="16" id="3ZH-jN-rWb"/>
@@ -155,7 +158,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVB-Mi-vyM">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cKn-HA-f8c" id="jNQ-5X-LPR"/>
@@ -163,7 +166,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="eVB-Mi-vyM" firstAttribute="top" secondItem="K5w-ii-1go" secondAttribute="bottom" id="B9r-y2-smh"/>
                             <constraint firstItem="JlA-WS-IUW" firstAttribute="top" secondItem="eVB-Mi-vyM" secondAttribute="bottom" id="enh-BX-alx"/>
@@ -189,35 +192,73 @@
                         <viewControllerLayoutGuide type="bottom" id="e9B-E2-LSU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TzO-iX-jTN">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X56-0L-jLk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMU-ph-Zby">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billing address is same as business address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="vNd-7z-9S8">
+                                        <rect key="frame" x="41" y="6" width="318" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="VW4-81-dMb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBn-eb-1Sd">
+                                        <rect key="frame" x="15" y="7" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="OF9-Nj-7ZB"/>
+                                            <constraint firstAttribute="width" constant="18" id="nvE-tO-y4c"/>
+                                        </constraints>
+                                        <state key="normal" image="iconCheck"/>
+                                        <connections>
+                                            <action selector="billingAddressButtonTapped:" destination="dBd-l6-v9V" eventType="touchUpInside" id="iAj-La-elW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vNd-7z-9S8" secondAttribute="trailing" constant="16" id="BwN-dt-9EG"/>
+                                    <constraint firstItem="vNd-7z-9S8" firstAttribute="leading" secondItem="TBn-eb-1Sd" secondAttribute="trailing" constant="8" id="g5s-DH-5Ct"/>
+                                    <constraint firstItem="TBn-eb-1Sd" firstAttribute="leading" secondItem="zMU-ph-Zby" secondAttribute="leading" constant="15" id="gc2-Rl-mnY"/>
+                                    <constraint firstAttribute="height" constant="40" id="mrw-jT-P5J"/>
+                                    <constraint firstAttribute="bottom" secondItem="TBn-eb-1Sd" secondAttribute="bottom" constant="15" id="mu1-m1-P3W"/>
+                                    <constraint firstAttribute="bottom" secondItem="vNd-7z-9S8" secondAttribute="bottom" constant="15" id="sGl-5D-4Rm"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZ5-ys-6EB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="dBd-l6-v9V" id="Uhw-5O-av7"/>
-                                    <outlet property="delegate" destination="dBd-l6-v9V" id="1Yn-EE-tpg"/>
+                                    <outlet property="dataSource" destination="dBd-l6-v9V" id="Lvt-wm-z0c"/>
+                                    <outlet property="delegate" destination="dBd-l6-v9V" id="B7Y-Q6-qLC"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="e9B-E2-LSU" firstAttribute="top" secondItem="X56-0L-jLk" secondAttribute="bottom" id="IlE-21-ojf"/>
-                            <constraint firstItem="X56-0L-jLk" firstAttribute="leading" secondItem="TzO-iX-jTN" secondAttribute="leading" id="f5A-oU-M0R"/>
-                            <constraint firstItem="X56-0L-jLk" firstAttribute="top" secondItem="TzO-iX-jTN" secondAttribute="top" id="jNO-bK-NcE"/>
-                            <constraint firstAttribute="trailing" secondItem="X56-0L-jLk" secondAttribute="trailing" id="oKP-hB-Tkk"/>
+                            <constraint firstItem="zMU-ph-Zby" firstAttribute="leading" secondItem="TzO-iX-jTN" secondAttribute="leading" id="1x4-wq-0ss"/>
+                            <constraint firstAttribute="trailing" secondItem="mZ5-ys-6EB" secondAttribute="trailing" id="9yu-YT-Keg"/>
+                            <constraint firstItem="mZ5-ys-6EB" firstAttribute="leading" secondItem="TzO-iX-jTN" secondAttribute="leading" id="aHI-3d-WgY"/>
+                            <constraint firstItem="mZ5-ys-6EB" firstAttribute="top" secondItem="TzO-iX-jTN" secondAttribute="top" id="g9h-xe-rWc"/>
+                            <constraint firstAttribute="bottom" secondItem="mZ5-ys-6EB" secondAttribute="bottom" constant="40" id="tJP-Yg-wzs"/>
+                            <constraint firstItem="e9B-E2-LSU" firstAttribute="top" secondItem="zMU-ph-Zby" secondAttribute="bottom" id="wgZ-Gc-tNv"/>
+                            <constraint firstAttribute="trailing" secondItem="zMU-ph-Zby" secondAttribute="trailing" id="zpu-vR-VZY"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="tableView" destination="X56-0L-jLk" id="0Cq-nL-5Wc"/>
+                        <outlet property="billingAddressCheckButton" destination="TBn-eb-1Sd" id="QQu-wP-4y6"/>
+                        <outlet property="tableView" destination="mZ5-ys-6EB" id="Wr2-KA-CW3"/>
+                        <outlet property="tableViewBottomConstraint" destination="tJP-Yg-wzs" id="0f9-1u-Y5b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qpo-5b-Tki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3655" y="134"/>
+            <point key="canvasLocation" x="3653.5999999999999" y="133.5832083958021"/>
         </scene>
         <!--Saved Application Merchant DocumentationVC-->
         <scene sceneID="BSx-J0-aS3">
@@ -233,7 +274,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eG7-MG-OEd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="KLK-Hd-zqA" id="JQk-dP-lID"/>
@@ -241,7 +282,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="eG7-MG-OEd" firstAttribute="top" secondItem="1RG-rp-Ftt" secondAttribute="top" id="6I3-H3-eAP"/>
                             <constraint firstAttribute="trailing" secondItem="eG7-MG-OEd" secondAttribute="trailing" id="Bgz-eA-2jy"/>
@@ -308,7 +349,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="igg-qQ-lyk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Ggc-bH-Vzw" id="EFZ-b0-vq8"/>
@@ -316,7 +357,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="igg-qQ-lyk" secondAttribute="trailing" id="3tW-1x-CGM"/>
                             <constraint firstItem="igg-qQ-lyk" firstAttribute="top" secondItem="Sgt-u0-V6G" secondAttribute="top" id="7ck-oF-P8Y"/>
@@ -346,7 +387,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xEl-Jy-awl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8PV-41-Z5c" id="9Ja-fb-bNT"/>
@@ -354,7 +395,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="tuW-Vi-93h" firstAttribute="top" secondItem="xEl-Jy-awl" secondAttribute="bottom" id="G6C-Uv-hlQ"/>
                             <constraint firstItem="xEl-Jy-awl" firstAttribute="top" secondItem="Qur-uS-Dgo" secondAttribute="top" id="UCY-Sn-cPU"/>
@@ -384,7 +425,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pWx-X0-Ni3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6hg-H7-rL7" id="edE-CJ-xws"/>
@@ -392,7 +433,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pWx-X0-Ni3" firstAttribute="top" secondItem="Gce-l0-zIQ" secondAttribute="top" id="Kr1-eq-WoY"/>
                             <constraint firstAttribute="trailing" secondItem="pWx-X0-Ni3" secondAttribute="trailing" id="Pc6-Bz-f7g"/>
@@ -422,7 +463,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6TG-UU-HGP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="eXa-xe-fJA" id="Oue-5t-aW1"/>
@@ -430,7 +471,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6TG-UU-HGP" firstAttribute="top" secondItem="uPT-J3-wvG" secondAttribute="top" id="1Yr-G7-NU4"/>
                             <constraint firstAttribute="trailing" secondItem="6TG-UU-HGP" secondAttribute="trailing" id="A9c-Qk-W7b"/>
@@ -565,7 +606,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sqB-TG-r1b">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="kBL-qh-r0A" id="KW0-cc-DBH"/>
@@ -573,7 +614,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Cb7-vv-LOP" firstAttribute="top" secondItem="sqB-TG-r1b" secondAttribute="bottom" id="8sr-t2-s2L"/>
                             <constraint firstItem="sqB-TG-r1b" firstAttribute="leading" secondItem="slY-cb-frf" secondAttribute="leading" id="MBc-TL-0Pr"/>
@@ -594,7 +635,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPK-WA-b9z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMr-5p-nlD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sMr-5p-nlD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -606,6 +647,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="iconCheck" width="14" height="14"/>
         <image name="iconYesGreen" width="20" height="20"/>
     </resources>
 </document>
