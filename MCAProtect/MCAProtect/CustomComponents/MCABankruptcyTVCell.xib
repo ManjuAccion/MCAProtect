@@ -104,7 +104,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YES" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D70-B0-beE">
-                                        <rect key="frame" x="160" y="57" width="140" height="32"/>
+                                        <rect key="frame" x="160" y="57" width="140" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="140" id="bVr-wW-BZq"/>
                                         </constraints>
@@ -120,7 +120,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="$1000" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myf-MC-PrI">
-                                        <rect key="frame" x="160" y="100" width="140" height="20"/>
+                                        <rect key="frame" x="160" y="101" width="140" height="20"/>
                                         <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -171,6 +171,9 @@
                     <constraint firstItem="a25-0G-Ocn" firstAttribute="centerY" secondItem="cNg-6z-acU" secondAttribute="centerY" id="uw4-bD-cYG"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="liensView" destination="dMM-7Y-X9Z" id="lFe-xi-lQW"/>
+            </connections>
             <point key="canvasLocation" x="-26" y="95.5"/>
         </tableViewCell>
     </objects>

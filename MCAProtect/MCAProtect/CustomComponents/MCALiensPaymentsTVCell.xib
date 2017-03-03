@@ -75,19 +75,19 @@
                         <rect key="frame" x="0.0" y="61" width="320" height="182"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Number of Judgements/Liens" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoL-OZ-HCS">
-                                <rect key="frame" x="20" y="26" width="140" height="38"/>
+                                <rect key="frame" x="20" y="26" width="140" height="37.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judgements/Liens Amount" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqL-b4-HZk">
-                                <rect key="frame" x="160" y="26" width="140" height="38"/>
+                                <rect key="frame" x="160" y="26" width="140" height="37.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rI-Gi-fjk">
-                                <rect key="frame" x="20" y="68" width="140" height="20"/>
+                                <rect key="frame" x="20" y="67.5" width="140" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="xR4-nT-Ynf"/>
                                 </constraints>
@@ -96,7 +96,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-e4-zaf">
-                                <rect key="frame" x="160" y="68" width="140" height="19"/>
+                                <rect key="frame" x="160" y="67.5" width="140" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="qUE-T4-LzF"/>
                                 </constraints>
@@ -106,19 +106,19 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Are You Corrently In Payment Plan" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BL-DW-xzX">
-                                <rect key="frame" x="20" y="108" width="140" height="41"/>
+                                <rect key="frame" x="20" y="107.5" width="140" height="41"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Monthly Payment Amount" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S11-qj-G6H">
-                                <rect key="frame" x="160" y="107" width="140" height="41"/>
+                                <rect key="frame" x="160" y="106.5" width="140" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vl-cz-1ud">
-                                <rect key="frame" x="20" y="154" width="140" height="20"/>
+                                <rect key="frame" x="20" y="153.5" width="140" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="c96-F3-XV4"/>
                                 </constraints>
@@ -127,7 +127,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyV-VW-fNZ">
-                                <rect key="frame" x="160" y="154" width="140" height="20"/>
+                                <rect key="frame" x="160" y="153.5" width="140" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="CES-ve-hrl"/>
                                 </constraints>
@@ -184,6 +184,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="liensView" destination="Zwv-fq-gRz" id="m4I-YD-qAe"/>
                 <outlet property="liensViewBottomConstraints" destination="btv-Fn-GDG" id="2L4-4k-TXL"/>
                 <outlet property="liensViewHeightConstaint" destination="RCB-A4-fOn" id="VYP-aT-weY"/>
             </connections>

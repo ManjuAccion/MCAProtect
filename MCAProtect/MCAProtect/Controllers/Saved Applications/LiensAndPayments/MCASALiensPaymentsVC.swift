@@ -11,6 +11,7 @@ import UIKit
 class MCASALiensPaymentsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,6 @@ class MCASALiensPaymentsVC: MCABaseViewController,UITableViewDataSource,UITableV
         
         tableView.register(UINib(nibName: "MCALiensPaymentsTVCell", bundle: Bundle.main), forCellReuseIdentifier:"MCALiensPaymentsTVCell")
         tableView.register(UINib(nibName: "MCABankruptcyTVCell", bundle: Bundle.main), forCellReuseIdentifier:"MCABankruptcyTVCell")
-
 
         // Do any additional setup after loading the view.
     }

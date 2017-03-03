@@ -12,6 +12,8 @@ class MCALiensPaymentsTVCell: UITableViewCell {
 
     @IBOutlet weak var liensViewBottomConstraints: NSLayoutConstraint!
     @IBOutlet weak var liensViewHeightConstaint: NSLayoutConstraint!
+    @IBOutlet weak var liensView : UIView!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +28,8 @@ class MCALiensPaymentsTVCell: UITableViewCell {
     
     func  cellDatasource ()  {
         liensViewBottomConstraints.constant = 0.0
+        liensView.backgroundColor = UIColor.init(patternImage: UIImage(named : "liensBg")!)
+
     }
     
 }

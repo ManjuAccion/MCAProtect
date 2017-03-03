@@ -11,6 +11,9 @@ import UIKit
 class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var matchFundingProgramButton : UIButton!
+    @IBOutlet weak var copyApplicationButton : UIButton!
+    
     
     var dataSourceKeys = ["Business Name","Contact Name","Loan Amount","Email","Telephone","Offered on"]
     var dataSourceValues = ["Miami Florists","Christian A","$75,000","chirstian.a@gmail.com","(123) 876 -876","2017-01-21"]
@@ -23,6 +26,13 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         self.title = "Miami Florists"
+        matchFundingProgramButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
+        matchFundingProgramButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
+        copyApplicationButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
+        copyApplicationButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
+
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,9 +59,9 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-//            let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
-//            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
-//            navigationController?.pushViewController(applicationFormVC, animated: true)
+           let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
+            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+            navigationController?.pushViewController(applicationFormVC, animated: true)
         }
     }
     

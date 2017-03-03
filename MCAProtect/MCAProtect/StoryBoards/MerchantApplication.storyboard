@@ -1,13 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Merchant Application ListVC-->
         <scene sceneID="1Xp-bK-aDk">
@@ -60,23 +66,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TG9-OT-CvC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="McY-LS-Yap" id="zuY-jB-W2U"/>
                                     <outlet property="delegate" destination="McY-LS-Yap" id="WZL-nh-G65"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iS7-lX-1KT">
+                                <rect key="frame" x="16" y="567" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rC9-CR-nV3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="View Matched Funding Program" image="iconCopyApplication"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ey-wK-SXo">
+                                <rect key="frame" x="16" y="615" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2Ky-vv-QyE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="Copy Application" image="iconCopyApplication"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="QIW-bz-3JP" firstAttribute="top" secondItem="TG9-OT-CvC" secondAttribute="bottom" id="5D4-1Z-5ob"/>
+                            <constraint firstItem="iS7-lX-1KT" firstAttribute="trailing" secondItem="WWm-Kv-P29" secondAttribute="trailingMargin" id="8pO-1D-xZv"/>
+                            <constraint firstItem="QIW-bz-3JP" firstAttribute="top" secondItem="0ey-wK-SXo" secondAttribute="bottom" constant="12" id="97D-MF-Rkk"/>
+                            <constraint firstItem="iS7-lX-1KT" firstAttribute="top" secondItem="TG9-OT-CvC" secondAttribute="bottom" constant="8" id="B3B-Ld-ftJ"/>
                             <constraint firstItem="TG9-OT-CvC" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leading" id="E14-Wa-kjF"/>
+                            <constraint firstItem="0ey-wK-SXo" firstAttribute="top" secondItem="iS7-lX-1KT" secondAttribute="bottom" constant="8" id="O6B-Ce-uU5"/>
+                            <constraint firstItem="iS7-lX-1KT" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leadingMargin" id="Pl0-54-6jg"/>
                             <constraint firstAttribute="trailing" secondItem="TG9-OT-CvC" secondAttribute="trailing" id="XPC-Sw-lb7"/>
+                            <constraint firstItem="0ey-wK-SXo" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leadingMargin" id="aM4-d3-lyM"/>
                             <constraint firstItem="TG9-OT-CvC" firstAttribute="top" secondItem="WWm-Kv-P29" secondAttribute="top" id="lMc-hm-tQR"/>
+                            <constraint firstItem="0ey-wK-SXo" firstAttribute="trailing" secondItem="WWm-Kv-P29" secondAttribute="trailingMargin" id="mVa-Ja-r9r"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="copyApplicationButton" destination="0ey-wK-SXo" id="yfc-7B-ClD"/>
+                        <outlet property="matchFundingProgramButton" destination="iS7-lX-1KT" id="oQs-xX-uBU"/>
                         <outlet property="tableView" destination="TG9-OT-CvC" id="ohe-Ty-eJm"/>
                     </connections>
                 </viewController>
@@ -85,4 +129,7 @@
             <point key="canvasLocation" x="440.80000000000001" y="121.88905547226388"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconCopyApplication" width="20" height="20"/>
+    </resources>
 </document>

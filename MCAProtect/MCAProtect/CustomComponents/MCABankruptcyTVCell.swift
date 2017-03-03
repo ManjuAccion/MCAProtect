@@ -9,6 +9,7 @@
 import UIKit
 
 class MCABankruptcyTVCell: UITableViewCell {
+    @IBOutlet weak var liensView : UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,7 +18,7 @@ class MCABankruptcyTVCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        liensView.backgroundColor = UIColor.init(patternImage: UIImage(named : "liensBg")!)
         // Configure the view for the selected state
     }
     
