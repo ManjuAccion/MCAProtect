@@ -76,6 +76,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
        
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASAOwnerAndLocationDetailsTVCell
         selectedCell.selectedView.isHidden = false
+        selectedCell.backgroundColor = ColorConstants.selectedBackground
         
         if applicaionDetailType == SavedApplicationForm.BusinessLocation.rawValue {
             
@@ -90,6 +91,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASAOwnerAndLocationDetailsTVCell
         deselectedCell.selectedView.isHidden = true
+        deselectedCell.backgroundColor = ColorConstants.background
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

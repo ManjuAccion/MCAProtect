@@ -65,7 +65,8 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         if indexPath.row != 0 {
             let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
             selectedCell.selectedView.isHidden = false
-            
+            selectedCell.backgroundColor = ColorConstants.selectedBackground
+
             switch indexPath.row {
             case SavedApplicationForm.LoanDetails.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
@@ -101,7 +102,6 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:"MCASALoansViewController") as! MCASALoansViewController
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
-                print("Inside MCALoans")
             case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerAndLocationDetailsVC) as! MCASAOwnerAndLocationDetailsVC
@@ -129,6 +129,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         if indexPath.row != 0 {
             let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
             deselectedCell.selectedView.isHidden = true
+            deselectedCell.backgroundColor = ColorConstants.background
         }
     }
     

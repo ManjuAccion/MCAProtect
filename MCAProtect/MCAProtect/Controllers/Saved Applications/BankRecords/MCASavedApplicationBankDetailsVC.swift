@@ -55,6 +55,7 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
         cell.dataTF.text = bankDetailsValueArray[indexPath.row]
         cell.dataTF.delegate = self
         cell.dataTF.isUserInteractionEnabled = true
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }

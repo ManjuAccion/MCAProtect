@@ -43,6 +43,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         cell.bankNameLabel.text = bankNameArray[indexPath.row]
         cell.accountNumberLabel.text = accountNumberArray[indexPath.row]
         cell.amountLabel.text = accountBalanceArray[indexPath.row]
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }
@@ -51,25 +52,23 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsBankRecordsTVCell
         selectedCell.selectedView.isHidden = false
+        selectedCell.backgroundColor = ColorConstants.selectedBackground
         
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
         let savedApplicationBankDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationBankDetailsVC) as! MCASavedApplicationBankDetailsVC
         savedApplicationBankDetailsVC.bankName = bankNameArray[indexPath.row]
         navigationController?.pushViewController(savedApplicationBankDetailsVC, animated: true)
+
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsBankRecordsTVCell
         deselectedCell.selectedView.isHidden = true
-        
-        
+        deselectedCell.backgroundColor = ColorConstants.background
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 75.0
     }
-    
-
- 
 }

@@ -49,6 +49,7 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
         cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
         
         cell.titleLabel.text = businessLocationArray[indexPath.row]
         cell.dataTF.text = businessLocationValueArray[indexPath.row]
