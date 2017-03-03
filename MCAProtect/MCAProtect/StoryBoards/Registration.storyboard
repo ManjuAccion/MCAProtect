@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -64,12 +67,12 @@
                                         <rect key="frame" x="0.0" y="231" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Business Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-3C-6x3" customClass="JVFloatLabeledTextField">
-                                                <rect key="frame" x="38" y="5" width="300" height="44"/>
+                                                <rect key="frame" x="38" y="10" width="300" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Ypa-PZ-ZN7"/>
+                                                    <constraint firstAttribute="height" constant="35" id="Ypa-PZ-ZN7"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
@@ -79,7 +82,7 @@
                                                         <real key="value" value="9"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
-                                                        <real key="value" value="-3"/>
+                                                        <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -88,7 +91,7 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="893-bf-vmb">
-                                                <rect key="frame" x="38" y="50" width="300" height="1"/>
+                                                <rect key="frame" x="38" y="46" width="300" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Gcq-Xx-JvE"/>
@@ -99,7 +102,7 @@
                                         <constraints>
                                             <constraint firstItem="9Uh-3C-6x3" firstAttribute="centerX" secondItem="ypR-oa-nM4" secondAttribute="centerX" id="8cT-Bp-yZn"/>
                                             <constraint firstAttribute="height" constant="60" id="PWd-9l-np0"/>
-                                            <constraint firstItem="9Uh-3C-6x3" firstAttribute="top" secondItem="ypR-oa-nM4" secondAttribute="top" constant="5" id="T2K-p7-6b5"/>
+                                            <constraint firstItem="9Uh-3C-6x3" firstAttribute="top" secondItem="ypR-oa-nM4" secondAttribute="top" constant="10" id="T2K-p7-6b5"/>
                                             <constraint firstItem="893-bf-vmb" firstAttribute="width" secondItem="ypR-oa-nM4" secondAttribute="width" multiplier="0.8" id="ZTZ-Gb-in0"/>
                                             <constraint firstItem="893-bf-vmb" firstAttribute="centerX" secondItem="ypR-oa-nM4" secondAttribute="centerX" id="dPD-TS-9ug"/>
                                             <constraint firstItem="9Uh-3C-6x3" firstAttribute="width" secondItem="ypR-oa-nM4" secondAttribute="width" multiplier="0.8" id="fec-os-4ac"/>
@@ -110,12 +113,12 @@
                                         <rect key="frame" x="0.0" y="291" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVJ-zj-WCq" customClass="JVFloatLabeledTextField">
-                                                <rect key="frame" x="37" y="5" width="300" height="44"/>
+                                                <rect key="frame" x="37" y="10" width="300" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="ywF-lt-eiL"/>
+                                                    <constraint firstAttribute="height" constant="35" id="ywF-lt-eiL"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
@@ -128,7 +131,7 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7N3-8t-n80">
-                                                <rect key="frame" x="37" y="50" width="300" height="1"/>
+                                                <rect key="frame" x="37" y="46" width="300" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="t6d-c4-CLi"/>
@@ -140,7 +143,7 @@
                                             <constraint firstAttribute="height" constant="60" id="8cE-sY-9lE"/>
                                             <constraint firstItem="7N3-8t-n80" firstAttribute="top" secondItem="SVJ-zj-WCq" secondAttribute="bottom" constant="1" id="Mbv-yK-NXh"/>
                                             <constraint firstItem="SVJ-zj-WCq" firstAttribute="width" secondItem="l6n-S9-LZv" secondAttribute="width" multiplier="0.8" id="Tsa-Fi-eEw"/>
-                                            <constraint firstItem="SVJ-zj-WCq" firstAttribute="top" secondItem="l6n-S9-LZv" secondAttribute="top" constant="5" id="fN3-rc-BfO"/>
+                                            <constraint firstItem="SVJ-zj-WCq" firstAttribute="top" secondItem="l6n-S9-LZv" secondAttribute="top" constant="10" id="fN3-rc-BfO"/>
                                             <constraint firstItem="7N3-8t-n80" firstAttribute="centerX" secondItem="l6n-S9-LZv" secondAttribute="centerX" id="lEF-2p-kM6"/>
                                             <constraint firstItem="SVJ-zj-WCq" firstAttribute="centerX" secondItem="l6n-S9-LZv" secondAttribute="centerX" id="tbr-Yb-818"/>
                                         </constraints>
@@ -149,12 +152,12 @@
                                         <rect key="frame" x="0.0" y="351" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2r-wx-bHL" customClass="JVFloatLabeledTextField">
-                                                <rect key="frame" x="37" y="5" width="300" height="44"/>
+                                                <rect key="frame" x="37" y="10" width="300" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="qJX-Xd-IwX"/>
+                                                    <constraint firstAttribute="height" constant="35" id="qJX-Xd-IwX"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
@@ -167,7 +170,7 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibj-mL-Qm5">
-                                                <rect key="frame" x="37" y="50" width="300" height="1"/>
+                                                <rect key="frame" x="37" y="46" width="300" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="J9Y-O3-6Ao"/>
@@ -176,7 +179,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="g2r-wx-bHL" firstAttribute="top" secondItem="Oql-1v-Kuo" secondAttribute="top" constant="5" id="7rk-Qe-tdu"/>
+                                            <constraint firstItem="g2r-wx-bHL" firstAttribute="top" secondItem="Oql-1v-Kuo" secondAttribute="top" constant="10" id="7rk-Qe-tdu"/>
                                             <constraint firstItem="g2r-wx-bHL" firstAttribute="centerX" secondItem="Oql-1v-Kuo" secondAttribute="centerX" id="JOD-dG-z8J"/>
                                             <constraint firstItem="ibj-mL-Qm5" firstAttribute="top" secondItem="g2r-wx-bHL" secondAttribute="bottom" constant="1" id="TCo-b9-VC6"/>
                                             <constraint firstItem="ibj-mL-Qm5" firstAttribute="centerX" secondItem="Oql-1v-Kuo" secondAttribute="centerX" id="hVB-CH-hDb"/>
@@ -188,12 +191,12 @@
                                         <rect key="frame" x="0.0" y="411" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18N-vw-FPe" customClass="JVFloatLabeledTextField">
-                                                <rect key="frame" x="37" y="5" width="300" height="44"/>
+                                                <rect key="frame" x="37" y="10" width="300" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="ZXA-cp-dUe"/>
+                                                    <constraint firstAttribute="height" constant="35" id="ZXA-cp-dUe"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
@@ -206,7 +209,7 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwV-x3-zvL">
-                                                <rect key="frame" x="37" y="50" width="300" height="1"/>
+                                                <rect key="frame" x="37" y="46" width="300" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="DuM-J5-zJR"/>
@@ -218,7 +221,7 @@
                                             <constraint firstItem="18N-vw-FPe" firstAttribute="width" secondItem="or6-aG-gfP" secondAttribute="width" multiplier="0.8" id="2xG-i3-Myn"/>
                                             <constraint firstItem="ZwV-x3-zvL" firstAttribute="centerX" secondItem="or6-aG-gfP" secondAttribute="centerX" id="5Ml-5P-NYl"/>
                                             <constraint firstAttribute="height" constant="60" id="7BP-yu-gnY"/>
-                                            <constraint firstItem="18N-vw-FPe" firstAttribute="top" secondItem="or6-aG-gfP" secondAttribute="top" constant="5" id="JCi-2I-4eb"/>
+                                            <constraint firstItem="18N-vw-FPe" firstAttribute="top" secondItem="or6-aG-gfP" secondAttribute="top" constant="10" id="JCi-2I-4eb"/>
                                             <constraint firstItem="18N-vw-FPe" firstAttribute="centerX" secondItem="or6-aG-gfP" secondAttribute="centerX" id="KYq-Ws-aLm"/>
                                             <constraint firstItem="ZwV-x3-zvL" firstAttribute="top" secondItem="18N-vw-FPe" secondAttribute="bottom" constant="1" id="wpv-sB-bfi"/>
                                         </constraints>
@@ -227,12 +230,12 @@
                                         <rect key="frame" x="0.0" y="471" width="375" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnj-kg-R28" customClass="JVFloatLabeledTextField">
-                                                <rect key="frame" x="37" y="5" width="300" height="44"/>
+                                                <rect key="frame" x="37" y="10" width="300" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="hFe-EZ-MwJ"/>
+                                                    <constraint firstAttribute="height" constant="35" id="hFe-EZ-MwJ"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
@@ -245,7 +248,7 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLG-pS-SDD">
-                                                <rect key="frame" x="37" y="51" width="300" height="1"/>
+                                                <rect key="frame" x="37" y="46" width="300" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="PP2-CZ-5fR"/>
@@ -256,9 +259,9 @@
                                         <constraints>
                                             <constraint firstItem="vnj-kg-R28" firstAttribute="centerX" secondItem="tIg-2b-uDQ" secondAttribute="centerX" id="Kxh-kw-m2N"/>
                                             <constraint firstItem="WLG-pS-SDD" firstAttribute="centerX" secondItem="tIg-2b-uDQ" secondAttribute="centerX" id="PVo-SJ-KsS"/>
-                                            <constraint firstItem="WLG-pS-SDD" firstAttribute="top" secondItem="vnj-kg-R28" secondAttribute="bottom" constant="2" id="TkO-Cn-yUO"/>
+                                            <constraint firstItem="WLG-pS-SDD" firstAttribute="top" secondItem="vnj-kg-R28" secondAttribute="bottom" constant="1" id="TkO-Cn-yUO"/>
                                             <constraint firstItem="vnj-kg-R28" firstAttribute="width" secondItem="tIg-2b-uDQ" secondAttribute="width" multiplier="0.8" id="nYG-Kw-gFy"/>
-                                            <constraint firstItem="vnj-kg-R28" firstAttribute="top" secondItem="tIg-2b-uDQ" secondAttribute="top" constant="5" id="qty-FC-A3F"/>
+                                            <constraint firstItem="vnj-kg-R28" firstAttribute="top" secondItem="tIg-2b-uDQ" secondAttribute="top" constant="10" id="qty-FC-A3F"/>
                                             <constraint firstAttribute="height" constant="60" id="uYG-vR-y3r"/>
                                         </constraints>
                                     </view>

@@ -103,12 +103,15 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField)
     {
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
-        scrollView.contentOffset = CGPoint(x: 0, y: -60)
+//        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+//        scrollView.contentInset = contentInset
+//        scrollView.contentOffset = CGPoint(x: 0, y: -60)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+        scrollView.contentOffset = CGPoint(x: 0, y: -60)
         self.view.endEditing(true)
         return true
     }
