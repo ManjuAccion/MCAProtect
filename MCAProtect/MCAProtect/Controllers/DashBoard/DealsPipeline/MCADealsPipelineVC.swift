@@ -37,8 +37,8 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         
-        let applicationVC  = UIStoryboard(name: "SavedApplication", bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCASavedApplicationListVC) as! MCASavedApplicationListVC
-        
+        let applicationVC  = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCAMerchantApplicationListVC) as! MCAMerchantApplicationListVC
+        applicationVC.titleText = dataSource[indexPath.row]
         
         parentController.navigationController?.pushViewController(applicationVC, animated: true);
         
