@@ -40,6 +40,9 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationFormTVCell)
         self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
+        if applicationStatus == ApplicationStatus.CopyApplication.rawValue {
+            tableViewBottomConstraint.constant = 60
+        }
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
