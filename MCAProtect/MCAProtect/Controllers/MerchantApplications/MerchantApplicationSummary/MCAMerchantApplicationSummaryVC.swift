@@ -15,6 +15,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     @IBOutlet weak var copyApplicationButton : UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
+    var titleText: String?
     var applicationState: Int!
     
     
@@ -26,7 +27,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Miami Florists"
+        self.title = titleText
 
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()

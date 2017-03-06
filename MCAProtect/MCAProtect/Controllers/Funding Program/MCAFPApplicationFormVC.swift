@@ -22,6 +22,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         // Do any additional setup after loading the view.
         
         tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationFormTVCell")
+        tableView.tableFooterView = UIView()
             }
 
     override func didReceiveMemoryWarning() {

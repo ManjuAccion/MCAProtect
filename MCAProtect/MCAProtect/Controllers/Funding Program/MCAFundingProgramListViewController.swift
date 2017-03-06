@@ -54,6 +54,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         selectedCell.backgroundColor = ColorConstants.selectedBackground
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
         let fundingSummaryVC = storyBoard.instantiateViewController(withIdentifier: "FundingProgramSummaryVC") as! MCAFundingProgramSummaryVC
+        fundingSummaryVC.titleText = dataDataSource[indexPath.row]
         navigationController?.pushViewController(fundingSummaryVC, animated: true)
     }
     

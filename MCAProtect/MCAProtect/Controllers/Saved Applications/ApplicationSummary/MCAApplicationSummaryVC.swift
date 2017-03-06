@@ -18,6 +18,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     var dataSourceValues = ["10 Days ago","Miami Florists","3 Days","$60000"]
 
     var dataSourceArray : [String] = []
+    var titleText: String?
     
     //MARK: - View Life Cycle
     
@@ -36,7 +37,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     
     func loadUI() {
         
-        self.title = "Stacy's Boutique          "
+        self.title = titleText
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         resumeApplicationButton.layer.cornerRadius = 5.0

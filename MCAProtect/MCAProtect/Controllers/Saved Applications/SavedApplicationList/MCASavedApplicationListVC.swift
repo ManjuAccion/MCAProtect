@@ -57,6 +57,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
         let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
+        applicationSummaryVC.titleText = dataDataSource[indexPath.row]
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
         selectedCell.selectedView.isHidden = false
