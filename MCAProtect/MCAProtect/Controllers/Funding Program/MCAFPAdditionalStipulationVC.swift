@@ -48,7 +48,7 @@ class MCAFPAdditionalStipulationVC: MCABaseViewController,UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 40.0
+        return 60.0
     }
 
     /*
