@@ -107,6 +107,11 @@ enum ApplicationState :Int {
     case Renewal            = 6
 }
 
+enum ApplicationStatus : Int {
+    case ResumeApplication  = 1
+    case CopyApplication    = 2
+}
+
 
 
 

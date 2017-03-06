@@ -20,6 +20,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     var activeField: UITextField?
     var toolBar : UIToolbar?
     var doneButton : UIBarButtonItem?
+    var applicationStatus : Int?
     
     var loanDataSource = ["Business Name","Credit Score","Loan Amount","Loan Term","Need it By"]
     var loanDataSourceValue = ["Stacy's Boutique","552","$75,000","6 Months","5 Days"]
@@ -38,12 +39,17 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     override func viewDidLoad() {
         super.viewDidLoad()
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
-        tableView.tableFooterView = UIView()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         isViewingMode = true
         initializeToolBar()
         let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
         tableView.contentInset = contentInset
+        tableView.tableFooterView = UIView()
+        
+        if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

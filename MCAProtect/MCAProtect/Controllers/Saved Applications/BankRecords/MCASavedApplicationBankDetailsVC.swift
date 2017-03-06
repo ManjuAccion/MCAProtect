@@ -14,8 +14,8 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
     
     var isViewingMode : Bool?
     var activeField: UITextField?
-
     var bankName: String?
+    var applicationStatus : Int?
     
     let bankDetailsArray = ["Account Number","Range","Statement Period","Number of Deposits","Deposit Amount","Days with Negative Balance","Average Daily Balance"]
     let bankDetailsValueArray  = ["BOA546897236","1st Nov 2016 31st Dec 2016","1st-Nov-2016_31st-Dec-2016.pdf","20","$75,000","0","$3,300"]
@@ -26,7 +26,11 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MCASavedApplicationsBankDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankDetailsTVCell)
         tableView.tableFooterView = UIView()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+        if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+        }
+
         self.title = bankName
         isViewingMode = true
     }

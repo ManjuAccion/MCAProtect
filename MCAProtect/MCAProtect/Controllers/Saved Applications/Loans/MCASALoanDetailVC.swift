@@ -14,9 +14,9 @@ class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableView
     @IBOutlet weak var tableView: UITableView!
     var isViewingMode : Bool?
     var activeField: UITextField?
-    
     var bankName: String?
-    
+    var applicationStatus : Int?
+
     let bankDetailsArray = ["Company","Funded Amount","Current Balance","Loan Terms","Frequency","Amount"]
     let bankDetailsValueArray  = ["Glink Lender","$20,000","$5,000","4","Monthly","$1,300"]
     override func viewDidLoad() {
@@ -24,7 +24,12 @@ class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableView
         self.title = "Glink Lender"
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+        
+        if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

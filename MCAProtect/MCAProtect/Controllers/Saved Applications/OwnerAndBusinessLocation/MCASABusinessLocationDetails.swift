@@ -15,6 +15,7 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
     var isViewingMode : Bool?
     var activeField: UITextField?
     var businessLocationName: String?
+    var applicationStatus : Int?
 
     //MARK: - View Life Cycle
     
@@ -25,7 +26,11 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+        
+        if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
+        }
         self.title = businessLocationName
         isViewingMode = true
     }
