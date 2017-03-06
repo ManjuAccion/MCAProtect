@@ -39,6 +39,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         
         let applicationVC  = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCAMerchantApplicationListVC) as! MCAMerchantApplicationListVC
         applicationVC.titleText = dataSource[indexPath.row]
+        applicationVC.applicationState = indexPath.row
         
         parentController.navigationController?.pushViewController(applicationVC, animated: true);
         

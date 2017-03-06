@@ -11,7 +11,7 @@ import UIKit
 class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var applicationState: Int!
     var titleText: String?
     
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
@@ -48,6 +48,14 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         cell.detailLabel.text = amountDataSource[indexPath.row]
         cell.rightButton.isHidden = false
         cell.backgroundColor = UIColor.clear
+        
+        switch applicationState {
+        case ApplicationState.New.rawValue:
+            cell.rightButton.isHidden = true
+
+        default:
+            break
+        }
         
         return cell
     }

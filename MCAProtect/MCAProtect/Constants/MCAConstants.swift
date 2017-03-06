@@ -98,13 +98,13 @@ enum SavedApplicationForm : Int {
 
 enum ApplicationState :Int {
     
-    case New                = 1
-    case UnderWriting       = 2
-    case NeedMoreStips      = 3
-    case Funded             = 4
-    case DNQ                = 5
-    case Lost               = 6
-    case Renewal            = 7
+    case New                = 0
+    case UnderWriting       = 1
+    case NeedMoreStips      = 2
+    case Funded             = 3
+    case DNQ                = 4
+    case Lost               = 5
+    case Renewal            = 6
 }
 
 

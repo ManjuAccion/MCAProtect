@@ -1,3 +1,4 @@
+
 //
 //  MCAApplicationFormVC
 //  MCAProtect
@@ -11,6 +12,11 @@ import UIKit
 class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
+    var selectedIndexpath : IndexPath?
     
     var dataDataSource = ["Loan Details","Business Information", "Business Address", "Liens/Payments/Bankruptcy", "Merchant Documentation", "Bank Records","MCA Loans","Owner/Officer Information","Business Location"]
     
@@ -19,6 +25,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Stacty's Boutique"
+        tableViewBottomConstraint.constant = 0
         loadUI()
     }
 
@@ -32,6 +39,14 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationFormTVCell)
         self.automaticallyAdjustsScrollViewInsets = false
         tableView.tableFooterView = UIView()
+    }
+    
+    @IBAction func submitButtonTapped(_ sender: Any) {
+        presentAlertWithTitle(title: "", message: NSLocalizedString("Merchant application has been created successfully", comment: ""))
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        navigationController!.popViewController(animated: true)
     }
     
     //MARK: - Table View Datasource
@@ -52,6 +67,12 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         else {
             let applicationFormCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationFormTVCell, for: indexPath) as! MCAApplicationFormTVCell
             applicationFormCell.titleLabel.text = dataDataSource[indexPath.row - 1]
+            if let selectedIndexpath = selectedIndexpath, selectedIndexpath == indexPath{
+                applicationFormCell.selectedView.isHidden = false
+                applicationFormCell.backgroundColor = ColorConstants.selectedBackground
+            }else{
+                applicationFormCell.selectedView.isHidden = true
+            }
             cell = applicationFormCell
         }
         cell.selectionStyle = .none
@@ -63,9 +84,17 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 {
+
+            if selectedIndexpath != nil {
+                let deselectedCell = tableView.cellForRow(at: selectedIndexpath! as IndexPath) as? MCAApplicationFormTVCell
+                deselectedCell?.selectedView.isHidden = true
+                deselectedCell?.backgroundColor = ColorConstants.background
+                
+            }
             let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
             selectedCell.selectedView.isHidden = false
             selectedCell.backgroundColor = ColorConstants.selectedBackground
+            selectedIndexpath = indexPath
 
             switch indexPath.row {
             case SavedApplicationForm.LoanDetails.rawValue:
@@ -125,13 +154,6 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if indexPath.row != 0 {
-            let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
-            deselectedCell.selectedView.isHidden = true
-            deselectedCell.backgroundColor = ColorConstants.background
-        }
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {

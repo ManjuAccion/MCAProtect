@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -157,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVB-Mi-vyM">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -165,23 +166,66 @@
                                     <outlet property="delegate" destination="cKn-HA-f8c" id="j5T-2Z-Tqj"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cU5-ug-4Mz">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j81-qM-jC9">
+                                        <rect key="frame" x="16" y="15" width="164" height="30"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="cKn-HA-f8c" eventType="touchUpInside" id="XYF-XT-QT8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgK-oI-9cU">
+                                        <rect key="frame" x="195" y="15" width="164" height="30"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitButtonTapped:" destination="cKn-HA-f8c" eventType="touchUpInside" id="Uk5-W1-RWt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="XgK-oI-9cU" firstAttribute="top" secondItem="cU5-ug-4Mz" secondAttribute="top" constant="15" id="5VW-Lg-a9A"/>
+                                    <constraint firstItem="XgK-oI-9cU" firstAttribute="width" secondItem="cU5-ug-4Mz" secondAttribute="width" multiplier="0.439" id="6hD-gQ-Mqe"/>
+                                    <constraint firstItem="j81-qM-jC9" firstAttribute="top" secondItem="cU5-ug-4Mz" secondAttribute="top" constant="15" id="Jvu-Vo-eHU"/>
+                                    <constraint firstItem="j81-qM-jC9" firstAttribute="leading" secondItem="cU5-ug-4Mz" secondAttribute="leading" constant="16" id="Wj0-QT-gc7"/>
+                                    <constraint firstAttribute="bottom" secondItem="XgK-oI-9cU" secondAttribute="bottom" constant="15" id="aOM-0C-8GF"/>
+                                    <constraint firstAttribute="trailing" secondItem="XgK-oI-9cU" secondAttribute="trailing" constant="16" id="esr-kE-Wh2"/>
+                                    <constraint firstItem="j81-qM-jC9" firstAttribute="width" secondItem="cU5-ug-4Mz" secondAttribute="width" multiplier="0.439" id="mkg-6L-lHh"/>
+                                    <constraint firstAttribute="bottom" secondItem="j81-qM-jC9" secondAttribute="bottom" constant="15" id="qHQ-jK-1QM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="cU5-ug-4Mz" firstAttribute="leading" secondItem="pvR-Ip-6Dy" secondAttribute="leading" id="ARy-So-31j"/>
                             <constraint firstItem="eVB-Mi-vyM" firstAttribute="top" secondItem="K5w-ii-1go" secondAttribute="bottom" id="B9r-y2-smh"/>
-                            <constraint firstItem="JlA-WS-IUW" firstAttribute="top" secondItem="eVB-Mi-vyM" secondAttribute="bottom" id="enh-BX-alx"/>
+                            <constraint firstItem="JlA-WS-IUW" firstAttribute="top" secondItem="eVB-Mi-vyM" secondAttribute="bottom" constant="60" id="enh-BX-alx"/>
+                            <constraint firstItem="cU5-ug-4Mz" firstAttribute="top" secondItem="eVB-Mi-vyM" secondAttribute="bottom" id="hEt-0q-F1W"/>
                             <constraint firstAttribute="trailing" secondItem="eVB-Mi-vyM" secondAttribute="trailing" id="hHw-bY-LZA"/>
+                            <constraint firstAttribute="trailing" secondItem="cU5-ug-4Mz" secondAttribute="trailing" id="mTf-Jw-bTp"/>
+                            <constraint firstItem="JlA-WS-IUW" firstAttribute="top" secondItem="cU5-ug-4Mz" secondAttribute="bottom" id="n4U-Ll-Sga"/>
                             <constraint firstItem="eVB-Mi-vyM" firstAttribute="leading" secondItem="pvR-Ip-6Dy" secondAttribute="leading" id="pYq-xV-Tkm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iIk-4D-Y0T"/>
                     <connections>
+                        <outlet property="cancelButton" destination="j81-qM-jC9" id="bDg-fC-KBd"/>
+                        <outlet property="submitButton" destination="XgK-oI-9cU" id="uZR-DI-N3G"/>
                         <outlet property="tableView" destination="eVB-Mi-vyM" id="gKS-98-Yuf"/>
+                        <outlet property="tableViewBottomConstraint" destination="enh-BX-alx" id="mOA-Ik-7NI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycZ-yO-hfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2998" y="132"/>
+            <point key="canvasLocation" x="2997.5999999999999" y="131.78410794602701"/>
         </scene>
         <!--Saved Application DetailVC-->
         <scene sceneID="dLv-3S-Myj">
@@ -635,7 +679,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPK-WA-b9z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMr-5p-nlD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sMr-5p-nlD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

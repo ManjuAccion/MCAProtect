@@ -23,16 +23,14 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Miami Florists"
+
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
-        self.title = "Miami Florists"
         matchFundingProgramButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         matchFundingProgramButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
         copyApplicationButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         copyApplicationButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
-
-
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,17 +48,18 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
         
         cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
+
         cell.titleLabel.text = dataSourceKeys[indexPath.row]
         cell.dataTF.text = dataSourceValues[indexPath.row]
-        cell.backgroundColor = UIColor.clear
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-           let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
-            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+           let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }
     }
@@ -69,7 +68,4 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     {
         return 60.0
     }
-
-    
-   
 }
