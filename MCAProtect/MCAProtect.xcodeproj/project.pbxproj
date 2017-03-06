@@ -880,7 +880,7 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 78RNVBBGXR;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					782C69B21E49ACC500268356 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1346,8 +1346,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcap.MCAProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "c2c308d5-f762-4218-8a59-8566de698c6f";
+				PROVISIONING_PROFILE_SPECIFIER = MCAProtect_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1368,8 +1368,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcap.MCAProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "c2c308d5-f762-4218-8a59-8566de698c6f";
+				PROVISIONING_PROFILE_SPECIFIER = MCAProtect_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
