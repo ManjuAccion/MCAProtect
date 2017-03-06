@@ -62,7 +62,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             navigationController?.pushViewController(applicationDetailVC, animated: true)
             
         }
-            if(indexPath.row == 3)
+         else if(indexPath.row == 3)
             {
                 let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
                 let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPAdditionalStipulationVC") as! MCAFPAdditionalStipulationVC
