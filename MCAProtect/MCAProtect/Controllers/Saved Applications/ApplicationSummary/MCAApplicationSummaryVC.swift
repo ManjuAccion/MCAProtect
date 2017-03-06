@@ -81,7 +81,10 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     }
     
     @IBAction func copyApplicationTapped(_ sender: Any) {
-        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+        applicationFormVC.applicationStatus = ApplicationStatus.CopyApplication.rawValue
+        navigationController?.pushViewController(applicationFormVC, animated: true)
     }
 
 }

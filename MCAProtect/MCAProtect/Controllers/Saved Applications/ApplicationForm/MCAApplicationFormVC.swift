@@ -17,6 +17,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     var selectedIndexpath : IndexPath?
+    var applicationStatus : Int?
     
     var dataDataSource = ["Loan Details","Business Information", "Business Address", "Liens/Payments/Bankruptcy", "Merchant Documentation", "Bank Records","MCA Loans","Owner/Officer Information","Business Location"]
     
@@ -100,18 +101,22 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             case SavedApplicationForm.LoanDetails.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationDetailVC) as! MCASavedApplicationDetailVC
-                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+                savedApplicationDetailVC.applicationStatus = applicationStatus
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.LoanDetails.rawValue
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
             case SavedApplicationForm.BusinessInformation.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationDetailVC) as! MCASavedApplicationDetailVC
-                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+                savedApplicationDetailVC.applicationStatus = applicationStatus
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessInformation.rawValue
+
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
             case SavedApplicationForm.BusinessAddress.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationDetailVC) as! MCASavedApplicationDetailVC
-                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
+                savedApplicationDetailVC.applicationStatus = applicationStatus
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessAddress.rawValue
+                navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
             case SavedApplicationForm.LiensOrPaymentsOrBankruptcy.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCASALiensPaymentsVC) as! MCASALiensPaymentsVC
@@ -125,10 +130,12 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             case SavedApplicationForm.BankRecords.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationsBankRecordsVC) as! MCASavedApplicationsBankRecordsVC
+                savedApplicationDetailVC.applicationStatus = applicationStatus
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
             case SavedApplicationForm.MCALoans.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:"MCASALoansViewController") as! MCASALoansViewController
+                savedApplicationDetailVC.applicationStatus = applicationStatus
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
             case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
@@ -141,6 +148,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerAndLocationDetailsVC) as! MCASAOwnerAndLocationDetailsVC
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessLocation.rawValue
+                savedApplicationDetailVC.applicationStatus = applicationStatus
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
             default:

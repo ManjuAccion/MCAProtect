@@ -22,7 +22,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
     var dataSourceValueArray : [String] = []
     
     var applicaionDetailType: NSInteger!
-
+    var applicationStatus : Int?
     
     //MARK: - View Life Cycle
     
@@ -83,6 +83,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let businessLocationDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASABusinessLocationDetails) as! MCASABusinessLocationDetails
             businessLocationDetailsVC.businessLocationName = businessDSArray[indexPath.row]
+            businessLocationDetailsVC.applicationStatus = applicationStatus
             navigationController?.pushViewController(businessLocationDetailsVC, animated: true)
         }
  
