@@ -46,7 +46,8 @@ class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
         cell.selectionStyle = .none
-        
+        cell.backgroundColor = UIColor.clear
+
         cell.titleLabel.text = bankDetailsArray[indexPath.row]
         cell.dataTF.text = bankDetailsValueArray[indexPath.row]
         cell.dataTF.delegate = self

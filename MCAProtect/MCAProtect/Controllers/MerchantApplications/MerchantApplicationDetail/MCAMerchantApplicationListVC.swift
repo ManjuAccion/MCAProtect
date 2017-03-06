@@ -64,6 +64,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
 
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
         let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
+        applicationSummaryVC.applicationState = applicationState
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationTVCell
         selectedCell.selectedView.isHidden = false

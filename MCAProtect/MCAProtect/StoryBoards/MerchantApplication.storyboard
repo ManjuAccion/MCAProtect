@@ -65,14 +65,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TG9-OT-CvC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="McY-LS-Yap" id="zuY-jB-W2U"/>
-                                    <outlet property="delegate" destination="McY-LS-Yap" id="WZL-nh-G65"/>
-                                </connections>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iS7-lX-1KT">
                                 <rect key="frame" x="16" y="567" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,13 +95,21 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TG9-OT-CvC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="McY-LS-Yap" id="zuY-jB-W2U"/>
+                                    <outlet property="delegate" destination="McY-LS-Yap" id="WZL-nh-G65"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="iS7-lX-1KT" firstAttribute="trailing" secondItem="WWm-Kv-P29" secondAttribute="trailingMargin" id="8pO-1D-xZv"/>
                             <constraint firstItem="QIW-bz-3JP" firstAttribute="top" secondItem="0ey-wK-SXo" secondAttribute="bottom" constant="12" id="97D-MF-Rkk"/>
-                            <constraint firstItem="iS7-lX-1KT" firstAttribute="top" secondItem="TG9-OT-CvC" secondAttribute="bottom" constant="8" id="B3B-Ld-ftJ"/>
                             <constraint firstItem="TG9-OT-CvC" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leading" id="E14-Wa-kjF"/>
+                            <constraint firstAttribute="bottom" secondItem="TG9-OT-CvC" secondAttribute="bottom" constant="108" id="Ejo-1d-B9w"/>
                             <constraint firstItem="0ey-wK-SXo" firstAttribute="top" secondItem="iS7-lX-1KT" secondAttribute="bottom" constant="8" id="O6B-Ce-uU5"/>
                             <constraint firstItem="iS7-lX-1KT" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leadingMargin" id="Pl0-54-6jg"/>
                             <constraint firstAttribute="trailing" secondItem="TG9-OT-CvC" secondAttribute="trailing" id="XPC-Sw-lb7"/>
@@ -122,6 +122,7 @@
                         <outlet property="copyApplicationButton" destination="0ey-wK-SXo" id="yfc-7B-ClD"/>
                         <outlet property="matchFundingProgramButton" destination="iS7-lX-1KT" id="oQs-xX-uBU"/>
                         <outlet property="tableView" destination="TG9-OT-CvC" id="ohe-Ty-eJm"/>
+                        <outlet property="tableViewBottomConstraint" destination="Ejo-1d-B9w" id="Wpp-wB-AUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Qn-Iw-DMH" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,9 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var matchFundingProgramButton : UIButton!
     @IBOutlet weak var copyApplicationButton : UIButton!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
+    var applicationState: Int!
     
     
     var dataSourceKeys = ["Business Name","Contact Name","Loan Amount","Email","Telephone","Offered on"]
@@ -27,10 +30,19 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
 
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
+        let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
+        tableView.contentInset = contentInset
         matchFundingProgramButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         matchFundingProgramButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
         copyApplicationButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         copyApplicationButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
+        switch applicationState {
+        case ApplicationState.NeedMoreStips.rawValue:
+            tableViewBottomConstraint.constant = 0
+        default:
+            break
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
