@@ -208,6 +208,43 @@
             </objects>
             <point key="canvasLocation" x="2284" y="756.97151424287858"/>
         </scene>
+        <!--Additional StipulationVC-->
+        <scene sceneID="4Yy-TY-lUK">
+            <objects>
+                <viewController storyboardIdentifier="MCAFPAdditionalStipulationVC" id="cOh-OW-LGL" customClass="MCAFPAdditionalStipulationVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="idq-FQ-FEV"/>
+                        <viewControllerLayoutGuide type="bottom" id="3lN-A7-u34"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XiI-yP-FRS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3zk-qk-Dn2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cOh-OW-LGL" id="Y8L-89-e96"/>
+                                    <outlet property="delegate" destination="cOh-OW-LGL" id="wLL-eg-5Fk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3lN-A7-u34" firstAttribute="top" secondItem="3zk-qk-Dn2" secondAttribute="bottom" id="Lq8-Os-Nfp"/>
+                            <constraint firstItem="3zk-qk-Dn2" firstAttribute="top" secondItem="XiI-yP-FRS" secondAttribute="top" id="P7v-cl-pJL"/>
+                            <constraint firstItem="3zk-qk-Dn2" firstAttribute="leading" secondItem="XiI-yP-FRS" secondAttribute="leading" id="aTo-Xx-ZQf"/>
+                            <constraint firstAttribute="trailing" secondItem="3zk-qk-Dn2" secondAttribute="trailing" id="goP-Nk-Abb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3zk-qk-Dn2" id="4C3-HL-vCS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NlY-3i-dl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4137" y="-75"/>
+        </scene>
         <!--Business TypeVC-->
         <scene sceneID="vEb-MS-lZB">
             <objects>

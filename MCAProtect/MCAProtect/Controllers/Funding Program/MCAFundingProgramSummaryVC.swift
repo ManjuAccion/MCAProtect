@@ -12,7 +12,7 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
 
     @IBOutlet weak var tableView: UITableView!
 
-    var dataSource = ["Funding Programs":"Stacy's Botique", "Contact":"Helen", "Term":"18 Months", "Time in Buisness":"6 months", "Buy rate":"1.28%","Credit Score":"650","Minimum Loan": "$2000","Maximum Loan" : "$10,000"]
+    var dataSource = ["Funding Programs":"Stacy's Botique", "Contact":"Syndicate Premium", "Term":"18 Months", "Time in Buisness":"6 months", "Buy rate":"1.28%","Credit Score":"650","Minimum Loan": "$2000","Maximum Loan" : "$10,000"]
     var dataSourceArray : [String] = ["Funding Programs","Contact","Term","Time in Buisness","Buy rate","Credit Score","Minimum Loan","Maximum Loan"]
     var dataValueArray : [NSString] = ["Stacy's Botique","Helen","18 Months","6 months","1.28%","650","$2000","$10,000"]
     
@@ -61,7 +61,7 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if  (indexPath.row == 0) {
+        if  (indexPath.row == 1) {
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
             navigationController?.pushViewController(underwritingMerchantVC, animated: true)
