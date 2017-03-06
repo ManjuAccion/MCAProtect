@@ -9,8 +9,9 @@
 import UIKit
 
 class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
-
+    var applicationStatus : Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
         
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
         let loanDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASALoanDetailVC) as! MCASALoanDetailVC
+        loanDetailsVC.applicationStatus = applicationStatus
         navigationController?.pushViewController(loanDetailsVC, animated: true)
 
     }

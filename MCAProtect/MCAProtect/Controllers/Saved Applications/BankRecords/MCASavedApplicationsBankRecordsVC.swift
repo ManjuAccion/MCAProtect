@@ -11,6 +11,7 @@ import UIKit
 class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    var applicationStatus : Int?
     
     //MARK: - View Life Cycle
     
@@ -57,6 +58,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
         let savedApplicationBankDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationBankDetailsVC) as! MCASavedApplicationBankDetailsVC
         savedApplicationBankDetailsVC.bankName = bankNameArray[indexPath.row]
+        savedApplicationBankDetailsVC.applicationStatus = applicationStatus
         navigationController?.pushViewController(savedApplicationBankDetailsVC, animated: true)
 
     }
