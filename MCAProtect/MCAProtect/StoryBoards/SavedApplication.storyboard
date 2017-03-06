@@ -296,6 +296,7 @@
                     </view>
                     <connections>
                         <outlet property="billingAddressCheckButton" destination="TBn-eb-1Sd" id="QQu-wP-4y6"/>
+                        <outlet property="billingAddressContainerView" destination="zMU-ph-Zby" id="C0C-v1-ZpU"/>
                         <outlet property="tableView" destination="mZ5-ys-6EB" id="Wr2-KA-CW3"/>
                         <outlet property="tableViewBottomConstraint" destination="tJP-Yg-wzs" id="0f9-1u-Y5b"/>
                     </connections>
@@ -679,7 +680,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPK-WA-b9z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMr-5p-nlD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sMr-5p-nlD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

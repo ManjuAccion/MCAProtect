@@ -13,6 +13,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var billingAddressCheckButton: UIButton!
     @IBOutlet weak var tableViewBottomConstraint:NSLayoutConstraint!
+    @IBOutlet weak var billingAddressContainerView: UIView!
     
     var applicaionDetailType: NSInteger!
     var isViewingMode : Bool?
@@ -49,7 +50,11 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         }
-
+        if  applicaionDetailType == SavedApplicationForm.BusinessAddress.rawValue {
+            let billingAddressContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handlebillingAddressContainerViewTapGesture))
+            billingAddressContainerView.addGestureRecognizer(billingAddressContainerViewTapGesture)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -230,6 +235,19 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         }
         else {
             activeField?.resignFirstResponder()
+        }
+    }
+    
+    func handlebillingAddressContainerViewTapGesture() {
+        if billingAddressCheckButton.isSelected == true {
+            
+            billingAddressCheckButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+            billingAddressCheckButton.isSelected = false;
+        }
+        else {
+            
+            billingAddressCheckButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+            billingAddressCheckButton.isSelected = true;
         }
     }
 }
