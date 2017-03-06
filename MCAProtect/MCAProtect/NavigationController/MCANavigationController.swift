@@ -28,6 +28,7 @@ class MCANavigationController: SlideNavigationController {
     }
     
   
+    // Before Navigating to other screen this delegate is called to remove the title name next to back navigation item
     
     override func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
     {

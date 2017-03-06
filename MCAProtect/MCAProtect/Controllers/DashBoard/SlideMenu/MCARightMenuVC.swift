@@ -89,7 +89,8 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
             // Use these below lines to push the views from side menu.
             // Make sure you call the toggleLeftMenu() or toggleRightMenu()
             SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
-            SlideNavigationController.sharedInstance().toggleLeftMenu();
+            SlideNavigationController.sharedInstance().toggleRightMenu()
+           
             break
         case rightMenuItems.TermsOfUse.rawValue:
             
@@ -99,7 +100,7 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
             // Use these below lines to push the views from side menu.
             // Make sure you call the toggleLeftMenu() or toggleRightMenu()
             SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
-            SlideNavigationController.sharedInstance().toggleLeftMenu();
+            SlideNavigationController.sharedInstance().toggleRightMenu()
             break
             
         case rightMenuItems.PrivacyPolicy.rawValue:
@@ -110,7 +111,7 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
             // Use these below lines to push the views from side menu.
             // Make sure you call the toggleLeftMenu() or toggleRightMenu()
             SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
-            SlideNavigationController.sharedInstance().toggleLeftMenu();
+            SlideNavigationController.sharedInstance().toggleRightMenu()
 
             break
         case rightMenuItems.ShareFeedback.rawValue:
