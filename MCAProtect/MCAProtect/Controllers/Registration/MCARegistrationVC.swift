@@ -19,14 +19,16 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var userSelectedLabel : UILabel!
 
     
+    @IBOutlet weak var topSpaceConstraints: NSLayoutConstraint!
     var isAllDetailsPresent : Bool? = true
+    var keyBoardHeight : CGFloat!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Brokerage Firm Registration"
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+//       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         self.navigationController?.navigationBar.isHidden = false
         businessNameTF.autocorrectionType = UITextAutocorrectionType.no
@@ -47,28 +49,58 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
  //Mark:- Keyboard hide and show
     
-    func keyboardWillShow(notification:NSNotification){
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
-        var contentInset:UIEdgeInsets = scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
-        scrollView.contentInset = contentInset
-    }
+//    func keyboardWillShow(notification:NSNotification){
+//        var userInfo = notification.userInfo!
+//        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+//        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+//        topSpaceConstraints.constant = topSpaceConstraints.constant - keyboardFrame.size.height
+//       keyBoardHeight = keyboardFrame.size.height
+//    }
+//
+//    func keyboardWillHide(notification:NSNotification){
+////        scrollView.contentOffset = CGPoint(x: 0, y: -60)
+//
+//    }
+//
     
-    func keyboardWillHide(notification:NSNotification){
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero;
-        scrollView.contentInset = contentInset
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        if textField.tag <= 2 {
+            UIView.animate(withDuration: 0.5, animations:
+                {
+                    self.view.layoutIfNeeded()
+            })
+ 
+        }
+       
+        if(textField.tag == 3 || textField.tag == 2){
+            
+            self.topSpaceConstraints.constant = -5;
+            UIView.animate(withDuration: 0.5, animations:
+                {
+                    self.view.layoutIfNeeded()
+            })
+        }
+
+        if(textField.tag == 4)
+        {
+            self.topSpaceConstraints.constant = -25;
+            UIView.animate(withDuration: 0.5, animations:
+                {
+                    self.view.layoutIfNeeded()
+            })
+        }
     }
-    
     
     func textFieldDidEndEditing(_ textField: UITextField)
     {
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
-        scrollView.contentOffset = CGPoint(x: 0, y: -60)
+        self.topSpaceConstraints.constant = 64;
+        UIView.animate(withDuration: 0.5, animations:
+            {
+                self.view.layoutIfNeeded()
+        })
     }
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 //        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
