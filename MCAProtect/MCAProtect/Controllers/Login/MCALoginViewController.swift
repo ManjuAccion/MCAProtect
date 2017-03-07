@@ -111,8 +111,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     
     @IBAction func loginButtonPressed(sender:AnyObject){
         
-        if ((emailIDTextField.text?.isEmpty)!) || ((passwordTextField.text?.isEmpty)!) {
-            
+        
         
         if ((emailIDTextField.text?.isEmpty)!) {
             let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Email Id", preferredStyle : .alert)
@@ -134,7 +133,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
             present(alertViewController, animated: true , completion: nil)
         }
             
-        }
+        
         else
         {
             let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
