@@ -58,6 +58,9 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         cell.titleLabel.text = dataSourceKeys[indexPath.row]
         cell.dataTF.text = dataSourceValues[indexPath.row]
         cell.backgroundColor = UIColor.clear
+        if indexPath.row == 1 {
+            cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton;
+        }
         
         if indexPath.row == 1 {
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator

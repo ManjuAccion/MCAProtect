@@ -17,11 +17,17 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var passwordTF : JVFloatLabeledTextField!
     @IBOutlet weak var confirmPasswordTF : JVFloatLabeledTextField!
     @IBOutlet weak var userSelectedLabel : UILabel!
+    var toolbar : UIToolbar?
+    let textfieldHeight : CGFloat = 35
+    let toolBarHeight : CGFloat = 44
 
     
     @IBOutlet weak var topSpaceConstraints: NSLayoutConstraint!
     var isAllDetailsPresent : Bool? = true
     var keyBoardHeight : CGFloat!
+    var doneButton : UIBarButtonItem?
+    var inputTextField : UITextField!
+
 
 
     override func viewDidLoad() {
@@ -30,6 +36,8 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         self.title = "Brokerage Firm Registration"
        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
 //       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        initilazeToolBar()
+
 
         self.navigationController?.navigationBar.isHidden = false
         businessNameTF.autocorrectionType = UITextAutocorrectionType.no
@@ -46,7 +54,26 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-   
+    func initilazeToolBar() {
+        toolbar = UIToolbar()
+        toolbar?.barStyle = .blackTranslucent
+        toolbar?.isTranslucent = true
+        toolbar?.sizeToFit()
+        
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton?.tintColor = .white
+        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar?.setItems([flexibleSpaceButton, doneButton!], animated: false)
+        toolbar?.isUserInteractionEnabled = true
+        
+    }
+    
+    func inputToolbarDonePressed() {
+        inputTextField.resignFirstResponder()
+    }
+
+
     
  //Mark:- Keyboard hide and show
     
@@ -65,33 +92,38 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
-        if textField.tag <= 2 {
+        
+        inputTextField = textField
+        inputTextField?.inputAccessoryView = toolbar
+
+        if textField.tag < 2 {
             UIView.animate(withDuration: 0.5, animations:
                 {
                     self.view.layoutIfNeeded()
             })
  
         }
+        
+        
        
-        if(textField.tag == 3 || textField.tag == 2){
-            if  !( ceil((textField.superview?.frame.origin.y)!) <= (self.view.frame.size.height - keyBoardHeight) )
+        if(textField.tag == 3 || textField.tag == 2 )
+{
+            if !( (ceil((textField.superview?.frame.origin.y)!) + textfieldHeight)  <= (self.view.frame.size.height - (keyBoardHeight + toolBarHeight)))
             {
-                self.topSpaceConstraints.constant = -5;
+                self.topSpaceConstraints.constant = -15;
                 UIView.animate(withDuration: 0.5, animations:
                     {
                         self.view.layoutIfNeeded()
                 })
-
             }
         }
         
 
         if(textField.tag == 4)
         {
-            
-            if !( ceil((textField.superview?.frame.origin.y)!) <= (self.view.frame.size.height - keyBoardHeight))
+         if !((ceil((textField.superview?.frame.origin.y)!) + textfieldHeight) <= (self.view.frame.size.height - (keyBoardHeight + toolBarHeight)))
             {
-                self.topSpaceConstraints.constant = -25;
+                self.topSpaceConstraints.constant = -64;
                 UIView.animate(withDuration: 0.5, animations:
                     {
                         self.view.layoutIfNeeded()
@@ -111,9 +143,6 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
 
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-//        scrollView.contentInset = contentInset
-//        scrollView.contentOffset = CGPoint(x: 0, y: -60)
         self.view.endEditing(true)
         return true
     }
@@ -132,6 +161,11 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         isAllDetailsPresent = false
         
     }
+        else
+    {
+        isAllDetailsPresent = true
+
+        }
     if ((emailTF.text?.isEmpty)!) {
             
         let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Email", comment: "") , preferredStyle : .alert)
@@ -146,6 +180,11 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
             present(alertViewController, animated: true , completion: nil)
             isAllDetailsPresent = false
         }
+        else{
+            
+            isAllDetailsPresent = true
+
+        }
     }
 
     if ((phoneNumberTF.text?.isEmpty)!)
@@ -156,6 +195,12 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         present(alertViewController, animated: true , completion: nil)
         isAllDetailsPresent = false
     }
+        else
+    {
+        
+        isAllDetailsPresent = true
+
+        }
     if ((passwordTF.text?.isEmpty)!)
     {
         
@@ -164,6 +209,11 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         present(alertViewController, animated: true , completion: nil)
         isAllDetailsPresent = false
     }
+    else{
+        
+        isAllDetailsPresent = true
+
+        }
     if ((confirmPasswordTF.text?.isEmpty)!)
     {
         let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment:"") , preferredStyle : .alert)
@@ -175,7 +225,8 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
     {
         if (confirmPasswordTF.text == passwordTF.text) {
-            
+            isAllDetailsPresent = true
+ 
         }
         else{
             
