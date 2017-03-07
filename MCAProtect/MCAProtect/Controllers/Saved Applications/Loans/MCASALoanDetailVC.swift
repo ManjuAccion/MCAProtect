@@ -24,6 +24,7 @@ class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableView
         self.title = "Glink Lender"
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
+        isViewingMode = true
         
         if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
             
