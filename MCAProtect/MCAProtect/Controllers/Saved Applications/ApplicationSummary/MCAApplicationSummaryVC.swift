@@ -59,6 +59,15 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         cell.dataTF.text = dataSourceValues[indexPath.row]
         cell.backgroundColor = UIColor.clear
         
+        if indexPath.row == 1 {
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+        }
+
+        
         return cell
     }
     

@@ -51,6 +51,14 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
         cell.titleLabel.text = title
         cell.dataTF.text = dataValueArray[indexPath.row] as String
         
+        if  (indexPath.row == 0) {
+
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+        }
         return cell
     }
     

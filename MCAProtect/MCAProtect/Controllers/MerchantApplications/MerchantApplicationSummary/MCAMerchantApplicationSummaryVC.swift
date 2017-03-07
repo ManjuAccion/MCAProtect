@@ -66,6 +66,14 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         cell.titleLabel.text = dataSourceKeys[indexPath.row]
         cell.dataTF.text = dataSourceValues[indexPath.row]
         
+        if  (indexPath.row == 0) {
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+        }
+
         return cell
     }
     
