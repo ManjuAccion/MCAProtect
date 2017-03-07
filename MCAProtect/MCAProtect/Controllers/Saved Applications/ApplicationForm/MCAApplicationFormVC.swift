@@ -27,6 +27,8 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         super.viewDidLoad()
         self.title = "Stacty's Boutique"
         tableViewBottomConstraint.constant = 0
+        submitButton.layer.cornerRadius = 3.0
+        cancelButton.layer.cornerRadius = 3.0
         loadUI()
     }
 

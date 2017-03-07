@@ -170,36 +170,38 @@
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j81-qM-jC9">
-                                        <rect key="frame" x="16" y="15" width="164" height="30"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                        <rect key="frame" x="16" y="12" width="164" height="36"/>
+                                        <color key="backgroundColor" red="0.1764705882352941" green="0.22352941176470587" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                         <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="cancelButtonTapped:" destination="cKn-HA-f8c" eventType="touchUpInside" id="XYF-XT-QT8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgK-oI-9cU">
-                                        <rect key="frame" x="195" y="15" width="164" height="30"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                        <rect key="frame" x="195" y="12" width="164" height="36"/>
+                                        <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                         <state key="normal" title="Submit">
-                                            <color key="titleColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="submitButtonTapped:" destination="cKn-HA-f8c" eventType="touchUpInside" id="Uk5-W1-RWt"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="XgK-oI-9cU" firstAttribute="top" secondItem="cU5-ug-4Mz" secondAttribute="top" constant="15" id="5VW-Lg-a9A"/>
+                                    <constraint firstItem="XgK-oI-9cU" firstAttribute="top" secondItem="cU5-ug-4Mz" secondAttribute="top" constant="12" id="5VW-Lg-a9A"/>
                                     <constraint firstItem="XgK-oI-9cU" firstAttribute="width" secondItem="cU5-ug-4Mz" secondAttribute="width" multiplier="0.439" id="6hD-gQ-Mqe"/>
-                                    <constraint firstItem="j81-qM-jC9" firstAttribute="top" secondItem="cU5-ug-4Mz" secondAttribute="top" constant="15" id="Jvu-Vo-eHU"/>
+                                    <constraint firstItem="j81-qM-jC9" firstAttribute="top" secondItem="cU5-ug-4Mz" secondAttribute="top" constant="12" id="Jvu-Vo-eHU"/>
                                     <constraint firstItem="j81-qM-jC9" firstAttribute="leading" secondItem="cU5-ug-4Mz" secondAttribute="leading" constant="16" id="Wj0-QT-gc7"/>
-                                    <constraint firstAttribute="bottom" secondItem="XgK-oI-9cU" secondAttribute="bottom" constant="15" id="aOM-0C-8GF"/>
+                                    <constraint firstAttribute="bottom" secondItem="XgK-oI-9cU" secondAttribute="bottom" constant="12" id="aOM-0C-8GF"/>
                                     <constraint firstAttribute="trailing" secondItem="XgK-oI-9cU" secondAttribute="trailing" constant="16" id="esr-kE-Wh2"/>
                                     <constraint firstItem="j81-qM-jC9" firstAttribute="width" secondItem="cU5-ug-4Mz" secondAttribute="width" multiplier="0.439" id="mkg-6L-lHh"/>
-                                    <constraint firstAttribute="bottom" secondItem="j81-qM-jC9" secondAttribute="bottom" constant="15" id="qHQ-jK-1QM"/>
+                                    <constraint firstAttribute="bottom" secondItem="j81-qM-jC9" secondAttribute="bottom" constant="12" id="qHQ-jK-1QM"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -680,7 +682,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sPK-WA-b9z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMr-5p-nlD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sMr-5p-nlD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
