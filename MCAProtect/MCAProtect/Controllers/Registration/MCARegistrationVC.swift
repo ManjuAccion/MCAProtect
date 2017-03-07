@@ -26,8 +26,9 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        keyBoardHeight = 216
         self.title = "Brokerage Firm Registration"
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
 //       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         self.navigationController?.navigationBar.isHidden = false
@@ -49,13 +50,12 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
  //Mark:- Keyboard hide and show
     
-//    func keyboardWillShow(notification:NSNotification){
-//        var userInfo = notification.userInfo!
-//        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-//        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-//        topSpaceConstraints.constant = topSpaceConstraints.constant - keyboardFrame.size.height
-//       keyBoardHeight = keyboardFrame.size.height
-//    }
+    func keyboardWillShow(notification:NSNotification){
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+       keyBoardHeight = keyboardFrame.size.height
+    }
 //
 //    func keyboardWillHide(notification:NSNotification){
 ////        scrollView.contentOffset = CGPoint(x: 0, y: -60)
@@ -74,24 +74,32 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         }
        
         if(textField.tag == 3 || textField.tag == 2){
-            
-            self.topSpaceConstraints.constant = -5;
-            UIView.animate(withDuration: 0.5, animations:
-                {
-                    self.view.layoutIfNeeded()
-            })
+            if  !( ceil((textField.superview?.frame.origin.y)!) <= (self.view.frame.size.height - keyBoardHeight) )
+            {
+                self.topSpaceConstraints.constant = -5;
+                UIView.animate(withDuration: 0.5, animations:
+                    {
+                        self.view.layoutIfNeeded()
+                })
+
+            }
         }
+        
 
         if(textField.tag == 4)
         {
-            self.topSpaceConstraints.constant = -25;
-            UIView.animate(withDuration: 0.5, animations:
-                {
-                    self.view.layoutIfNeeded()
-            })
-        }
+            
+            if !( ceil((textField.superview?.frame.origin.y)!) <= (self.view.frame.size.height - keyBoardHeight))
+            {
+                self.topSpaceConstraints.constant = -25;
+                UIView.animate(withDuration: 0.5, animations:
+                    {
+                        self.view.layoutIfNeeded()
+                })
+
+            }
+              }
     }
-    
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         self.topSpaceConstraints.constant = 64;
