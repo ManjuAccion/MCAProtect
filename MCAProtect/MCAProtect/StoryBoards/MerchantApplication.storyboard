@@ -72,7 +72,7 @@
                                     <constraint firstAttribute="height" constant="40" id="rC9-CR-nV3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                <state key="normal" title="View Matched Funding Program" image="iconCopyApplication"/>
+                                <state key="normal" title="View Matched Funding Program" image="iconViewApplication"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
@@ -135,5 +135,6 @@
     </scenes>
     <resources>
         <image name="iconCopyApplication" width="20" height="20"/>
+        <image name="iconViewApplication" width="22" height="22"/>
     </resources>
 </document>
