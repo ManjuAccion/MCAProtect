@@ -839,7 +839,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="gef-dA-2Tb" customClass="MCANavigationController" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="peu-Us-CTd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="peu-Us-CTd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

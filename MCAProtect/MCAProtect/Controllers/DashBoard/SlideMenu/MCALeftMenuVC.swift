@@ -18,6 +18,11 @@ enum leftMenuItems : NSInteger {
 
 class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBAction func SingoutClicked(_ sender: Any)
+    {
+        SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
+    }
+    
     @IBOutlet var versionFooterView : UIView!
     @IBOutlet var profileHeaderView : UIView!
     @IBOutlet weak var profileImageButton : UIButton!
