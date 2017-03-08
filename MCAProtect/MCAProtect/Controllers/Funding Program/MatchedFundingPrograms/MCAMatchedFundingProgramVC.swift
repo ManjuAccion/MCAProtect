@@ -15,6 +15,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
+        tableView.tableFooterView = UIView()
 
         // Do any additional setup after loading the view.
     }
