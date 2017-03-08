@@ -32,6 +32,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         super.viewDidLoad()
         
         secureInputTF.becomeFirstResponder()
+        self.hideKeyboardWhenTappedAround()
         
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleSecureInputContainerViewTapGesture))
         secureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)

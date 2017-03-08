@@ -34,6 +34,8 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
 
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleNewPinContainerViewTapGesture))
         newPinSecureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
