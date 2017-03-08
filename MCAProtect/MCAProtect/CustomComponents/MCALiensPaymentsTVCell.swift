@@ -26,10 +26,9 @@ class MCALiensPaymentsTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func  cellDatasource ()  {
+    func  cellDatasource ()
+    {
         liensViewBottomConstraints.constant = 0.0
-        liensView.backgroundColor = UIColor.init(patternImage: UIImage(named : "liensBg")!)
-
     }
     
 }
