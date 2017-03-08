@@ -90,7 +90,10 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     //MARK: - Action Methods
     
     @IBAction func resumeApplicationTapped(_ sender: Any) {
-        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+        applicationFormVC.applicationStatus = ApplicationStatus.ResumeApplication.rawValue
+        navigationController?.pushViewController(applicationFormVC, animated: true)
     }
     
     @IBAction func copyApplicationTapped(_ sender: Any) {
