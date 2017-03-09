@@ -25,4 +25,11 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
 
     }
 
+    @IBAction func viewDetailsButtonTapped(_ sender: Any) {
+        
+//        let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+//        let submitStipuationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
+//        self.navigationController?.pushViewController(submitStipuationsVC, animated: true)
+        
+    }
 }

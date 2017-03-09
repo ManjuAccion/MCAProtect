@@ -33,10 +33,12 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         tableView.tableFooterView = UIView()
         let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
         tableView.contentInset = contentInset
+        
         matchFundingProgramButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         matchFundingProgramButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
         copyApplicationButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         copyApplicationButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
+        
         switch applicationState {
         case ApplicationState.NeedMoreStips.rawValue:
             tableViewBottomConstraint.constant = 0
@@ -65,7 +67,17 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
 
         cell.titleLabel.text = dataSourceKeys[indexPath.row]
         cell.dataTF.text = dataSourceValues[indexPath.row]
-       
+        
+        switch applicationState {
+        case ApplicationState.UnderWriting.rawValue:
+            fallthrough
+        case ApplicationState.NeedMoreStips.rawValue:
+            if indexPath.row == 0 {
+                cell.viewDetailsButton.isHidden = false
+            }
+        default:
+            break
+        }
         
         if  (indexPath.row == 0) {
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
