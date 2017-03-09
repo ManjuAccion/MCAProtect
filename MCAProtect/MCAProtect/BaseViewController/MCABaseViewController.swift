@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class MCABaseViewController: UIViewController {
+class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,51 @@ class MCABaseViewController: UIViewController {
     }
     */
 
+    public func emailButtonTapped()
+    {
+            if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients(["halen@MCAProtect.com"])
+                mail.setMessageBody("", isHTML: true)
+                
+                present(mail, animated: true)
+            } else {
+                // show failure alert
+            }
+        }
+        
+        func mailComposeController(_ controller:MFMailComposeViewController , didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true)
+        
+        
+    }
+    
+    public func callButtonTapped()
+    {
+        let alertViewController = UIAlertController(title : "", message : "447415554422", preferredStyle : .alert)
+        alertViewController.view.tintColor = ColorConstants.red
+        alertViewController.addAction(UIAlertAction(title : "Cancel" , style : .default , handler : nil))
+        
+        alertViewController.addAction(UIAlertAction(title : "Call" , style : .default , handler : { action in
+            
+            if let url = NSURL(string: "tel://\(447415554422)"), UIApplication.shared.canOpenURL(url as URL) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open((url as URL),  options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url as URL)
+                }
+            }
+            
+        }))
+
+       
+        present(alertViewController, animated: true , completion: nil)
+
+        
+        
+    }
+
 }
 
 extension UIViewController {
@@ -53,3 +99,5 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
+
+

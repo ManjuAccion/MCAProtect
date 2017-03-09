@@ -8,13 +8,15 @@
 
 import UIKit
 
+
+
 class MCAApplicationTVCell: UITableViewCell {
     
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var rightButton: UIButton!
-    
+    var delegate : MCABaseViewController!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +27,13 @@ class MCAApplicationTVCell: UITableViewCell {
 
     }
 
-    @IBAction func viewDetailsButtonTapped(_ sender: Any) {
-        
+    @IBAction func emailButtonTapped(_ sender: Any) {
+      delegate.emailButtonTapped()
     }
+    
+    @IBAction func phoneNumberButtonTapped(_ sender: Any) {
+        
+        delegate.callButtonTapped();
+        
+            }
 }

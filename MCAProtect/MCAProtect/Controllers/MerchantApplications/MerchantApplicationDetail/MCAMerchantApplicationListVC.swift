@@ -43,6 +43,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationListTVCell, for: indexPath) as! MCAApplicationTVCell
         
+        cell.delegate = self;
         cell.selectionStyle = .none
         cell.headingLabel.text = dataDataSource[indexPath.row]
         cell.detailLabel.text = amountDataSource[indexPath.row]
@@ -83,4 +84,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     {
         return 80.0
     }
-}
+    
+   }
+
+
