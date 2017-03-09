@@ -44,6 +44,8 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         cell.rightButton.isHidden = false
         cell.rightButton .setImage(UIImage(named : "iconCheckRound"), for: UIControlState.normal)
         
+        cell.delegate = self;
+        
         
         return cell
     }

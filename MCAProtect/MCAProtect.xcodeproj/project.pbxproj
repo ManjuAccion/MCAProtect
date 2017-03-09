@@ -1446,7 +1446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcap.MCAProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c2c308d5-f762-4218-8a59-8566de698c6f";
+				PROVISIONING_PROFILE = "6fcd8d9c-3c9a-4187-a3c2-b36149c5cd85";
 				PROVISIONING_PROFILE_SPECIFIER = MCAProtect_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1468,7 +1468,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mcap.MCAProtect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c2c308d5-f762-4218-8a59-8566de698c6f";
+				PROVISIONING_PROFILE = "6fcd8d9c-3c9a-4187-a3c2-b36149c5cd85";
 				PROVISIONING_PROFILE_SPECIFIER = MCAProtect_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MCAProtect/Application Delegate/MCAProtect-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

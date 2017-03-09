@@ -68,7 +68,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         
         alertViewController.addAction(UIAlertAction(title : "Call" , style : .default , handler : { action in
             
-            if let url = NSURL(string: "tel://\(447415554422)"), UIApplication.shared.canOpenURL(url as URL) {
+            if let url = NSURL(string: "tel://447415554422"), UIApplication.shared.canOpenURL(url as URL) {
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open((url as URL),  options: [:], completionHandler: nil)
                 } else {

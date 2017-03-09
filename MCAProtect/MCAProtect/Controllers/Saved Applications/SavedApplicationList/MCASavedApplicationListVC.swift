@@ -31,7 +31,6 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     func loadUI() {
         
         self.navigationItem.title = "Saved Applications"
-        tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
         tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell)
         tableView.tableFooterView = UIView()
     }

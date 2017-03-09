@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -63,7 +63,7 @@
                         <state key="normal" image="iconUpload"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTF-Ld-tTH">
-                        <rect key="frame" x="15" y="56" width="193" height="19"/>
+                        <rect key="frame" x="15" y="48" width="193" height="30"/>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <state key="normal" title="halen@gmail.com">
                             <color key="titleColor" red="0.20000000000000001" green="0.47843137254901957" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,7 +73,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OoS-jG-8ew">
-                        <rect key="frame" x="222" y="56" width="105" height="19"/>
+                        <rect key="frame" x="222" y="48" width="105" height="30"/>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <state key="normal" title="+44 7415554422">
                             <color key="titleColor" red="0.20000000000000001" green="0.47843137250000001" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -85,7 +85,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="OoS-jG-8ew" firstAttribute="leading" secondItem="BTF-Ld-tTH" secondAttribute="trailing" constant="14" id="336-5B-Odg"/>
-                    <constraint firstItem="BTF-Ld-tTH" firstAttribute="top" secondItem="j9d-GZ-cAj" secondAttribute="bottom" constant="3" id="3wR-OR-2Eb"/>
+                    <constraint firstItem="BTF-Ld-tTH" firstAttribute="top" secondItem="j9d-GZ-cAj" secondAttribute="bottom" constant="-5" id="3wR-OR-2Eb"/>
                     <constraint firstItem="OoS-jG-8ew" firstAttribute="trailing" secondItem="16k-Av-Jg6" secondAttribute="trailing" id="44O-dX-cDV"/>
                     <constraint firstItem="ouI-6m-fEr" firstAttribute="leading" secondItem="ciV-9Q-FeS" secondAttribute="leading" id="4ab-tg-gRh"/>
                     <constraint firstItem="1eL-3U-XqE" firstAttribute="top" secondItem="ciV-9Q-FeS" secondAttribute="top" constant="8" id="6jA-xK-QtQ"/>
@@ -96,7 +96,7 @@
                     <constraint firstItem="j9d-GZ-cAj" firstAttribute="leading" secondItem="ouI-6m-fEr" secondAttribute="trailing" constant="11" id="OjD-TK-j1B"/>
                     <constraint firstAttribute="trailing" secondItem="16k-Av-Jg6" secondAttribute="trailing" constant="15" id="Rp0-I4-oag"/>
                     <constraint firstItem="ouI-6m-fEr" firstAttribute="top" secondItem="ciV-9Q-FeS" secondAttribute="top" id="Zzy-Pc-vHd"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="BTF-Ld-tTH" secondAttribute="bottom" constant="-4" id="egc-4T-XUh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BTF-Ld-tTH" secondAttribute="bottom" constant="-7" id="egc-4T-XUh"/>
                     <constraint firstItem="1eL-3U-XqE" firstAttribute="leading" secondItem="ouI-6m-fEr" secondAttribute="trailing" constant="11" id="ki7-Sn-nku"/>
                     <constraint firstItem="16k-Av-Jg6" firstAttribute="leading" secondItem="1eL-3U-XqE" secondAttribute="trailing" constant="8" id="qlo-6y-MVd"/>
                     <constraint firstItem="16k-Av-Jg6" firstAttribute="leading" secondItem="j9d-GZ-cAj" secondAttribute="trailing" constant="8" id="rgW-um-QTb"/>
