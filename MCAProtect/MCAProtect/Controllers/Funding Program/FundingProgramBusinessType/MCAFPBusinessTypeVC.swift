@@ -13,10 +13,11 @@ enum businessType : NSInteger {
     case prohibited = 2
 
 }
-class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
+class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
     @IBOutlet weak var segmentControl : UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchTextField : UITextField!
 
     
     var allowedDataArray : [String] = ["Program Information","Max Term","Minimum Loan Amount","Maximum Loan Amount","Buy rate","Max Up Sell Rate","Max % of Gross Revenue","Origination Fee","Loan Type","Installment Type","Accept Loan Position","Loan Agreement False"]
@@ -92,6 +93,13 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     {
         return 40.0
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
+
 
     /*
     // MARK: - Navigation

@@ -8,9 +8,11 @@
 
 import UIKit
 
-class MCAFundingProgramListViewController: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAFundingProgramListViewController: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchTextField : UITextField!
+    
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
     var amountDataSource = ["$2000","$3000","$4000","$5000","$6000"]
 
@@ -71,9 +73,19 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     {
         return 80.0
     }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
 
     /*
     // MARK: - Navigation
+     
+     
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

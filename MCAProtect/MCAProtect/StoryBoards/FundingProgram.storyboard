@@ -36,6 +36,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ett-2N-RZd" id="anB-gK-Uai"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,6 +92,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchTextField" destination="CUG-MU-vSw" id="xP6-Qn-RhM"/>
                         <outlet property="tableView" destination="his-U7-TDd" id="4cC-2g-RND"/>
                     </connections>
                 </viewController>
@@ -274,6 +278,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4NR-li-gKv" id="fzp-j8-MWq"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -333,6 +340,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="searchTextField" destination="mQA-Aa-0MN" id="hdQ-7l-9v1"/>
                         <outlet property="tableView" destination="QjF-JG-yLC" id="kP9-eT-bSz"/>
                     </connections>
                 </viewController>
