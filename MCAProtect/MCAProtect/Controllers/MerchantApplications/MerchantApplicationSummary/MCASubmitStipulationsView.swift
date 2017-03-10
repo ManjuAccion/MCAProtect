@@ -14,12 +14,14 @@ class MCASubmitStipulationsView: UIView {
 
     init() {
         super.init(frame: UIScreen.main.bounds)
-        
-        addMoreDocumentsButton.layer.cornerRadius = 3.0
+
     }
+
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
+    
+
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
+class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MCAApplicationSummaryTVCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var matchFundingProgramButton : UIButton!
@@ -64,6 +64,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
+        cell.delegate = self
 
         cell.titleLabel.text = dataSourceKeys[indexPath.row]
         cell.dataTF.text = dataSourceValues[indexPath.row]
@@ -117,4 +118,20 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         navigationController?.pushViewController(applicationFormVC, animated: true)
         
     }
+    
+    
+    func downloadButtonTapped() {
+        switch applicationState {
+        case ApplicationState.UnderWriting.rawValue:
+            fallthrough
+        case ApplicationState.NeedMoreStips.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+            let submitStipulationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
+            navigationController?.pushViewController(submitStipulationsVC, animated: true)
+        default:
+            break
+        }
+
+    }
+
 }

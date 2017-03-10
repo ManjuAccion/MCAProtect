@@ -8,12 +8,20 @@
 
 import UIKit
 
+protocol MCAApplicationSummaryTVCellDelegate {
+    
+    func downloadButtonTapped()
+}
+
+
 class MCAApplicationSummaryTVCell: UITableViewCell {
     
     
     @IBOutlet weak var dataTF: UITextField!
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var viewDetailsButton: UIButton!
+    
+    var delegate:MCAApplicationSummaryTVCellDelegate?
     
 
     override func awakeFromNib() {
@@ -26,6 +34,7 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
     }
 
     @IBAction func viewDetailsButtonTapped(_ sender: Any) {
+        delegate?.downloadButtonTapped()
         
 //        let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
 //        let submitStipuationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
