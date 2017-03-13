@@ -49,11 +49,11 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
         super.viewWillAppear(animated)
         // Hide the Navigation Bar Back Button
 
-        let backButton = UIBarButtonItem(title: "",
-                                         style: UIBarButtonItemStyle.plain,
-                                         target: navigationController,
-                                         action: nil)
-        navigationItem.leftBarButtonItem = backButton
+//        let backButton = UIBarButtonItem(title: "",
+//                                         style: UIBarButtonItemStyle.plain,
+//                                         target: navigationController,
+//                                         action: nil)
+//        navigationItem.leftBarButtonItem = backButton
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
 
         registerForKeyboardNotifications()
