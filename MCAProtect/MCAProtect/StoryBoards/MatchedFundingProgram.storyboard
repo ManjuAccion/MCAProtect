@@ -244,6 +244,9 @@
                                                 <state key="normal" title="03">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setCommonRateTapped" destination="DX8-oi-VWE" eventType="touchUpInside" id="2kE-ep-uMw"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="CWT-qI-GyX">
                                                 <rect key="frame" x="135" y="23" width="32" height="25"/>
@@ -371,6 +374,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="selectedCountLabel" destination="9yV-4Q-T8k" id="yNn-zx-UTQ"/>
                         <outlet property="tableView" destination="CUs-dK-ho3" id="gTX-HJ-H2P"/>
                     </connections>
                 </viewController>

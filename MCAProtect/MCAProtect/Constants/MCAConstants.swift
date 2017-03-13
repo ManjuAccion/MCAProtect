@@ -61,6 +61,8 @@ struct StoryboardName {
     static let MCAFundingProgram                    = "FundingProgram"
     static let MCAMerchantApplication               = "MerchantApplication"
     static let MCAMatchedFundingProgram             = "MatchedFundingProgram"
+    static let MCAGenericPopUp             = "GenericPopUp"
+
     
  
 }

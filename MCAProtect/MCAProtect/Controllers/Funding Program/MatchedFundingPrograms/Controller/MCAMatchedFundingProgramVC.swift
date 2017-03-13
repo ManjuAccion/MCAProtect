@@ -8,17 +8,35 @@
 
 import UIKit
 
-class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
+class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var selectedCountLabel : UILabel!
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
+    var arrayOfModelObject : NSMutableArray!
+    
+    var matchedFundingProgram : MCAMatchedFundingProgram!
+    var selectedItemsCount = 0;
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Funding Programs"
         tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
         tableView.tableFooterView = UIView()
+        arrayOfModelObject  = NSMutableArray.init()
+        selectedCountLabel.text = "\(selectedItemsCount)"
+        
+        
 
-        // Do any additional setup after loading the view.
+        
+        for _   in dataDataSource
+        {
+            matchedFundingProgram = MCAMatchedFundingProgram(data:nil)
+            arrayOfModelObject .add(matchedFundingProgram)
+        }
+        
+
+        // Do any additional setup after loading the view
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +53,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
        
             let listTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAMatchedFPListTVCell", for: indexPath) as! MCAMatchedFPListTVCell
             listTVCell.titleLabel.text = dataDataSource[indexPath.row]
+        listTVCell.delegate = self
+        listTVCell.checkButton.tag = indexPath.row
         listTVCell.selectionStyle = .none
         listTVCell.backgroundColor = UIColor.clear
         return listTVCell
@@ -69,7 +89,35 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         present(alertViewController, animated: true , completion: nil)
 
     }
+    
+    func programSelected(buttonTag : Int)
+    {
+        let selectedProgram : MCAMatchedFundingProgram = arrayOfModelObject .object(at: buttonTag) as! MCAMatchedFundingProgram
+        selectedProgram.isSelected = true
+        selectedItemsCount = selectedItemsCount + 1
+        selectedCountLabel.text = "\(selectedItemsCount)"
 
+        
+    }
+    
+    func programDeSelected(buttonTag : Int)
+    {
+        let deselectedProgram : MCAMatchedFundingProgram = arrayOfModelObject .object(at: buttonTag) as! MCAMatchedFundingProgram
+        deselectedProgram.isSelected = false
+        selectedItemsCount = selectedItemsCount - 1
+        selectedCountLabel.text = "\(selectedItemsCount)"
+
+        
+    }
+    
+    @IBAction func setCommonRateTapped()
+    {
+        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
+        let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
+        navigationController?.present(popUpVC, animated: true, completion: nil)
+        
+    }
     /*
     // MARK: - Navigation
 

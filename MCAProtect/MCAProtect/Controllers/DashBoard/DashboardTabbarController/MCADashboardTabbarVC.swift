@@ -48,7 +48,8 @@ class MCADashboardTabbarVC: MCABaseViewController{
         self.navigationController?.setNavigationBarHidden(false, animated: false);
         
         self .setupNavigationBarButtons();
-        
+        self.selectTab(firstTabBtn)
+
         firstTabBtn.backgroundColor = ColorConstants.red
 
     }
@@ -83,7 +84,6 @@ class MCADashboardTabbarVC: MCABaseViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.selectTab(firstTabBtn)
     }
 
     override func didReceiveMemoryWarning() {
