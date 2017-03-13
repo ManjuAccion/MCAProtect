@@ -677,6 +677,43 @@
             </objects>
             <point key="canvasLocation" x="9004" y="131.78410794602701"/>
         </scene>
+        <!--Owner Information DetailVC-->
+        <scene sceneID="d01-9T-2OG">
+            <objects>
+                <viewController storyboardIdentifier="MCASAOwnerInformationDetailVC" id="BRG-Lm-vyH" customClass="MCASAOwnerInformationDetailVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dyN-PB-9MN"/>
+                        <viewControllerLayoutGuide type="bottom" id="W6P-Uo-PKG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lks-qn-Rdr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2vO-ro-apY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BRG-Lm-vyH" id="j8y-fU-dnw"/>
+                                    <outlet property="delegate" destination="BRG-Lm-vyH" id="o4q-2o-kFo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W6P-Uo-PKG" firstAttribute="top" secondItem="2vO-ro-apY" secondAttribute="bottom" id="aF3-sj-8LJ"/>
+                            <constraint firstAttribute="trailing" secondItem="2vO-ro-apY" secondAttribute="trailing" id="crP-4b-OiT"/>
+                            <constraint firstItem="2vO-ro-apY" firstAttribute="top" secondItem="Lks-qn-Rdr" secondAttribute="top" id="g7A-Ee-6HV"/>
+                            <constraint firstItem="2vO-ro-apY" firstAttribute="leading" secondItem="Lks-qn-Rdr" secondAttribute="leading" id="pc3-IJ-oB0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="2vO-ro-apY" id="ihC-wG-dqp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="diR-kR-pF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9645.6000000000004" y="130.88455772113943"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="RMf-9e-y0d">
             <objects>

@@ -86,6 +86,13 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
             businessLocationDetailsVC.applicationStatus = applicationStatus
             navigationController?.pushViewController(businessLocationDetailsVC, animated: true)
         }
+        else if applicaionDetailType == SavedApplicationForm.OwnerOrOfficerInformation.rawValue {
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let ownerInformationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerInformationDetailVC) as! MCASAOwnerInformationDetailVC
+            ownerInformationDetailVC.ownerName = ownerDSArray[indexPath.row]
+            ownerInformationDetailVC.applicationStatus = applicationStatus
+            navigationController?.pushViewController(ownerInformationDetailVC, animated: true)
+        }
  
     }
     

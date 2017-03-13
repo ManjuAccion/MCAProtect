@@ -147,6 +147,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerAndLocationDetailsVC) as! MCASAOwnerAndLocationDetailsVC
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.OwnerOrOfficerInformation.rawValue
+                savedApplicationDetailVC.applicationStatus = applicationStatus
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
             case SavedApplicationForm.BusinessLocation.rawValue:
