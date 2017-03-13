@@ -52,16 +52,22 @@
                                         <rect key="frame" x="41" y="248" width="294" height="44"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kD7-cE-liK" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="0.0" width="73" height="44"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aP-wb-cp7" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
-                                                <rect key="frame" x="80" y="0.0" width="73" height="44"/>
+                                                <rect key="frame" x="12" y="0.0" width="59" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59.5" id="hR2-Lr-MFN"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUf-0Y-kNv" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
-                                                <rect key="frame" x="140" y="0.0" width="73" height="44"/>
+                                                <rect key="frame" x="152" y="0.0" width="59" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59.5" id="NVX-Jj-u6p"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dN5-8u-1Yf" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
-                                                <rect key="frame" x="200" y="0.0" width="73" height="44"/>
+                                                <rect key="frame" x="223" y="0.0" width="59" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59.5" id="Thv-MA-8Sr"/>
+                                                </constraints>
                                             </view>
                                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pzx-04-Mi4">
                                                 <rect key="frame" x="16" y="24" width="228" height="30"/>
@@ -73,24 +79,26 @@
                                                     <outlet property="delegate" destination="BTP-qB-WFt" id="dOf-jR-1qg"/>
                                                 </connections>
                                             </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aP-wb-cp7" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
+                                                <rect key="frame" x="84" y="0.0" width="60" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59.5" id="thu-Gz-fch"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="IUf-0Y-kNv" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="2vI-I0-N34"/>
-                                            <constraint firstItem="kD7-cE-liK" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.25" id="6VZ-v9-q7V"/>
-                                            <constraint firstItem="dN5-8u-1Yf" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.25" id="6Xh-Xu-efb"/>
                                             <constraint firstItem="9aP-wb-cp7" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="99e-DW-9c2"/>
                                             <constraint firstItem="9aP-wb-cp7" firstAttribute="centerY" secondItem="xI4-ZV-edT" secondAttribute="centerY" id="Biu-OM-d2B"/>
-                                            <constraint firstItem="9aP-wb-cp7" firstAttribute="centerX" secondItem="xI4-ZV-edT" secondAttribute="centerX" constant="-30" id="GVi-dx-CwG"/>
+                                            <constraint firstItem="9aP-wb-cp7" firstAttribute="centerX" secondItem="xI4-ZV-edT" secondAttribute="centerX" constant="-33.25" id="GVi-dx-CwG"/>
                                             <constraint firstItem="dN5-8u-1Yf" firstAttribute="centerY" secondItem="xI4-ZV-edT" secondAttribute="centerY" id="Hos-DL-miH"/>
                                             <constraint firstItem="IUf-0Y-kNv" firstAttribute="centerY" secondItem="xI4-ZV-edT" secondAttribute="centerY" id="NFV-CK-brT"/>
                                             <constraint firstItem="kD7-cE-liK" firstAttribute="centerY" secondItem="xI4-ZV-edT" secondAttribute="centerY" id="S4v-oJ-ftk"/>
-                                            <constraint firstItem="IUf-0Y-kNv" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.25" id="Sdj-mv-32J"/>
                                             <constraint firstItem="dN5-8u-1Yf" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="UXe-8b-QWY"/>
-                                            <constraint firstItem="kD7-cE-liK" firstAttribute="centerX" secondItem="xI4-ZV-edT" secondAttribute="centerX" constant="-90" id="UuJ-yO-YSO"/>
+                                            <constraint firstItem="kD7-cE-liK" firstAttribute="centerX" secondItem="xI4-ZV-edT" secondAttribute="centerX" constant="-106" id="UuJ-yO-YSO"/>
                                             <constraint firstAttribute="height" constant="44" id="bMu-fl-YXn"/>
-                                            <constraint firstItem="dN5-8u-1Yf" firstAttribute="centerX" secondItem="xI4-ZV-edT" secondAttribute="centerX" constant="90" id="fUo-WH-BUx"/>
-                                            <constraint firstItem="9aP-wb-cp7" firstAttribute="width" secondItem="xI4-ZV-edT" secondAttribute="width" multiplier="0.25" id="gcs-GX-hZn"/>
-                                            <constraint firstItem="IUf-0Y-kNv" firstAttribute="centerX" secondItem="xI4-ZV-edT" secondAttribute="centerX" constant="30" id="qTw-A2-QIv"/>
+                                            <constraint firstItem="dN5-8u-1Yf" firstAttribute="centerX" secondItem="xI4-ZV-edT" secondAttribute="centerX" constant="105" id="fUo-WH-BUx"/>
+                                            <constraint firstItem="IUf-0Y-kNv" firstAttribute="centerX" secondItem="xI4-ZV-edT" secondAttribute="centerX" constant="34" id="qTw-A2-QIv"/>
                                             <constraint firstItem="kD7-cE-liK" firstAttribute="height" secondItem="xI4-ZV-edT" secondAttribute="height" id="raR-7J-TWv"/>
                                         </constraints>
                                     </view>
@@ -235,19 +243,17 @@
                                                         <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Mobile Personal Identification Number)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Y-vt-daQ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Mobile Personal Identification Number)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Y-vt-daQ">
                                                         <rect key="frame" x="41" y="45" width="294" height="31"/>
                                                         <fontDescription key="fontDescription" name="Roboto-LightItalic" family="Roboto" pointSize="16"/>
                                                         <color key="textColor" red="0.50588235294117645" green="0.53333333333333333" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="NuY-vQ-JaZ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a 4-digit PIN to help prevent other people from using this app." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="NuY-vQ-JaZ">
                                                         <rect key="frame" x="40" y="92" width="294" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="vRy-jy-wGe"/>
                                                         </constraints>
-                                                        <string key="text">Enter a 4-digit PIN to help prevent
-other people from using this app.</string>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                         <color key="textColor" red="0.50588235294117645" green="0.53333333333333333" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -286,36 +292,44 @@ other people from using this app.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmp-5e-6Zz" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="11" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="6SS-e1-LBK"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg4-uX-4PN" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="82" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="dVT-d2-Dic"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7T-sM-u7r" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="151" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="yAq-I7-GNb"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hu-ha-0zM" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="222" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="oMl-k5-9z2"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="4hu-ha-0zM" firstAttribute="height" secondItem="g4t-5K-7Ad" secondAttribute="height" id="1Qa-FM-sq7"/>
                                                             <constraint firstItem="fg4-uX-4PN" firstAttribute="centerY" secondItem="g4t-5K-7Ad" secondAttribute="centerY" id="4PA-LS-46R"/>
-                                                            <constraint firstItem="4hu-ha-0zM" firstAttribute="width" secondItem="g4t-5K-7Ad" secondAttribute="width" multiplier="0.204" id="4qQ-PW-xLl"/>
                                                             <constraint firstItem="4hu-ha-0zM" firstAttribute="centerY" secondItem="g4t-5K-7Ad" secondAttribute="centerY" id="EMo-KA-Rby"/>
                                                             <constraint firstItem="fg4-uX-4PN" firstAttribute="height" secondItem="g4t-5K-7Ad" secondAttribute="height" id="GAb-GE-5vY"/>
                                                             <constraint firstItem="V7T-sM-u7r" firstAttribute="centerY" secondItem="g4t-5K-7Ad" secondAttribute="centerY" id="Jbz-ih-gDt"/>
                                                             <constraint firstItem="fg4-uX-4PN" firstAttribute="centerX" secondItem="g4t-5K-7Ad" secondAttribute="centerX" constant="-35" id="RL7-6M-T9q"/>
-                                                            <constraint firstItem="fg4-uX-4PN" firstAttribute="width" secondItem="g4t-5K-7Ad" secondAttribute="width" multiplier="0.204" id="S1a-f8-zOp"/>
                                                             <constraint firstItem="V7T-sM-u7r" firstAttribute="centerX" secondItem="g4t-5K-7Ad" secondAttribute="centerX" constant="34" id="Zms-CU-z8I"/>
-                                                            <constraint firstItem="V7T-sM-u7r" firstAttribute="width" secondItem="g4t-5K-7Ad" secondAttribute="width" multiplier="0.204" id="h6d-tE-N8t"/>
                                                             <constraint firstItem="Dmp-5e-6Zz" firstAttribute="centerX" secondItem="g4t-5K-7Ad" secondAttribute="centerX" constant="-106" id="jlu-0p-QVv"/>
                                                             <constraint firstItem="4hu-ha-0zM" firstAttribute="centerX" secondItem="g4t-5K-7Ad" secondAttribute="centerX" constant="105" id="raA-aE-SSP"/>
                                                             <constraint firstItem="Dmp-5e-6Zz" firstAttribute="height" secondItem="g4t-5K-7Ad" secondAttribute="height" id="tdb-Xl-AT7"/>
                                                             <constraint firstItem="V7T-sM-u7r" firstAttribute="height" secondItem="g4t-5K-7Ad" secondAttribute="height" id="tpu-tD-WJH"/>
-                                                            <constraint firstItem="Dmp-5e-6Zz" firstAttribute="width" secondItem="g4t-5K-7Ad" secondAttribute="width" multiplier="0.204" id="vjH-1M-4hm"/>
                                                             <constraint firstItem="Dmp-5e-6Zz" firstAttribute="centerY" secondItem="g4t-5K-7Ad" secondAttribute="centerY" id="wW5-1w-qKl"/>
                                                         </constraints>
                                                     </view>
@@ -335,31 +349,39 @@ other people from using this app.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nha-F0-Cym" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="11" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="cjM-ly-pvj"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcS-se-LWb" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="82" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="pgp-Qy-Fqc"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLY-Rj-7Q1" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="151" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="ZTt-ac-DzM"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YJ-6f-TK8" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="222" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="x9b-R3-mIg"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="HcS-se-LWb" firstAttribute="width" secondItem="lHD-F7-Uz6" secondAttribute="width" multiplier="0.204" id="4re-9I-EoQ"/>
                                                             <constraint firstItem="4YJ-6f-TK8" firstAttribute="centerY" secondItem="lHD-F7-Uz6" secondAttribute="centerY" id="5Eq-Ut-fJ6"/>
-                                                            <constraint firstItem="4YJ-6f-TK8" firstAttribute="width" secondItem="lHD-F7-Uz6" secondAttribute="width" multiplier="0.204" id="8Gc-jB-R2Q"/>
                                                             <constraint firstItem="4YJ-6f-TK8" firstAttribute="height" secondItem="lHD-F7-Uz6" secondAttribute="height" id="9dr-Yz-EWi"/>
                                                             <constraint firstItem="sLY-Rj-7Q1" firstAttribute="height" secondItem="lHD-F7-Uz6" secondAttribute="height" id="GG5-G6-0UW"/>
                                                             <constraint firstItem="HcS-se-LWb" firstAttribute="centerX" secondItem="lHD-F7-Uz6" secondAttribute="centerX" constant="-35" id="GjL-K0-1n2"/>
                                                             <constraint firstItem="sLY-Rj-7Q1" firstAttribute="centerX" secondItem="lHD-F7-Uz6" secondAttribute="centerX" constant="34" id="HCt-PF-jyG"/>
-                                                            <constraint firstItem="sLY-Rj-7Q1" firstAttribute="width" secondItem="lHD-F7-Uz6" secondAttribute="width" multiplier="0.204" id="NCN-0c-MOz"/>
                                                             <constraint firstItem="4YJ-6f-TK8" firstAttribute="centerX" secondItem="lHD-F7-Uz6" secondAttribute="centerX" constant="105" id="PwZ-0q-A8e"/>
-                                                            <constraint firstItem="Nha-F0-Cym" firstAttribute="width" secondItem="lHD-F7-Uz6" secondAttribute="width" multiplier="0.204" id="U1h-ls-i2q"/>
                                                             <constraint firstItem="HcS-se-LWb" firstAttribute="height" secondItem="lHD-F7-Uz6" secondAttribute="height" id="fzr-lR-gud"/>
                                                             <constraint firstItem="Nha-F0-Cym" firstAttribute="height" secondItem="lHD-F7-Uz6" secondAttribute="height" id="iEF-Al-u6f"/>
                                                             <constraint firstItem="Nha-F0-Cym" firstAttribute="centerX" secondItem="lHD-F7-Uz6" secondAttribute="centerX" constant="-106" id="ihA-f5-lOA"/>
@@ -558,33 +580,41 @@ other people from using this app.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pg4-bn-wkd" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="11" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="dlI-wS-TIE"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OrS-An-20Z" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="82" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="8wr-Em-eus"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QU-Ba-EQu" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="151" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="5ZB-QT-eod"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esn-A3-FSl" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="222" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="DbQ-AJ-aBC"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="Pg4-bn-wkd" firstAttribute="centerX" secondItem="gUy-WW-Tq5" secondAttribute="centerX" constant="-106" id="59a-Ce-Kuk"/>
-                                                            <constraint firstItem="4QU-Ba-EQu" firstAttribute="width" secondItem="gUy-WW-Tq5" secondAttribute="width" multiplier="0.204" id="5so-b1-GEB"/>
                                                             <constraint firstItem="OrS-An-20Z" firstAttribute="centerX" secondItem="gUy-WW-Tq5" secondAttribute="centerX" constant="-35" id="OkW-wX-kdk"/>
                                                             <constraint firstItem="4QU-Ba-EQu" firstAttribute="centerY" secondItem="gUy-WW-Tq5" secondAttribute="centerY" id="S7q-kg-T9b"/>
                                                             <constraint firstItem="Esn-A3-FSl" firstAttribute="centerX" secondItem="gUy-WW-Tq5" secondAttribute="centerX" constant="105" id="SLm-1z-P5s"/>
-                                                            <constraint firstItem="Esn-A3-FSl" firstAttribute="width" secondItem="gUy-WW-Tq5" secondAttribute="width" multiplier="0.204" id="Spf-ns-TDE"/>
                                                             <constraint firstAttribute="height" constant="44" id="VD8-G2-wJK"/>
                                                             <constraint firstItem="4QU-Ba-EQu" firstAttribute="height" secondItem="gUy-WW-Tq5" secondAttribute="height" id="VI2-TT-F8h"/>
                                                             <constraint firstItem="Esn-A3-FSl" firstAttribute="centerY" secondItem="gUy-WW-Tq5" secondAttribute="centerY" id="ZgQ-Ps-Ak4"/>
-                                                            <constraint firstItem="OrS-An-20Z" firstAttribute="width" secondItem="gUy-WW-Tq5" secondAttribute="width" multiplier="0.204" id="aaB-YW-rFX"/>
                                                             <constraint firstItem="OrS-An-20Z" firstAttribute="centerY" secondItem="gUy-WW-Tq5" secondAttribute="centerY" id="oMx-ug-Adj"/>
-                                                            <constraint firstItem="Pg4-bn-wkd" firstAttribute="width" secondItem="gUy-WW-Tq5" secondAttribute="width" multiplier="0.204" id="qqI-Eu-hwM"/>
                                                             <constraint firstItem="Pg4-bn-wkd" firstAttribute="centerY" secondItem="gUy-WW-Tq5" secondAttribute="centerY" id="sfO-ln-aZH"/>
                                                             <constraint firstItem="OrS-An-20Z" firstAttribute="height" secondItem="gUy-WW-Tq5" secondAttribute="height" id="wQE-Ph-PAP"/>
                                                             <constraint firstItem="Pg4-bn-wkd" firstAttribute="height" secondItem="gUy-WW-Tq5" secondAttribute="height" id="wrW-9K-aMY"/>
@@ -608,32 +638,40 @@ other people from using this app.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpQ-2y-Vwi" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="11" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="QWe-al-mNp"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMh-Kh-Two" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="82" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="g4l-PV-YMP"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJN-G0-9AF" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="151" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="u3l-ZO-ubA"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OlG-qH-SfO" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="222" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="WgI-df-dUg"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="wJN-G0-9AF" firstAttribute="height" secondItem="fB2-nH-Nv8" secondAttribute="height" id="4S0-8E-ey7"/>
                                                             <constraint firstItem="OlG-qH-SfO" firstAttribute="height" secondItem="fB2-nH-Nv8" secondAttribute="height" id="8eV-zp-rPR"/>
                                                             <constraint firstItem="wJN-G0-9AF" firstAttribute="centerX" secondItem="fB2-nH-Nv8" secondAttribute="centerX" constant="34" id="DBo-vd-KwI"/>
-                                                            <constraint firstItem="jMh-Kh-Two" firstAttribute="width" secondItem="fB2-nH-Nv8" secondAttribute="width" multiplier="0.204" id="Fgr-ne-uu2"/>
                                                             <constraint firstItem="jMh-Kh-Two" firstAttribute="centerX" secondItem="fB2-nH-Nv8" secondAttribute="centerX" constant="-35" id="G0U-hs-rrO"/>
                                                             <constraint firstItem="OlG-qH-SfO" firstAttribute="centerX" secondItem="fB2-nH-Nv8" secondAttribute="centerX" constant="105" id="H8G-5a-iPh"/>
                                                             <constraint firstItem="jpQ-2y-Vwi" firstAttribute="height" secondItem="fB2-nH-Nv8" secondAttribute="height" id="SyK-H0-ciQ"/>
-                                                            <constraint firstItem="jpQ-2y-Vwi" firstAttribute="width" secondItem="fB2-nH-Nv8" secondAttribute="width" multiplier="0.204" id="Ze3-Fx-HvN"/>
-                                                            <constraint firstItem="wJN-G0-9AF" firstAttribute="width" secondItem="fB2-nH-Nv8" secondAttribute="width" multiplier="0.204" id="duP-4k-Ta4"/>
                                                             <constraint firstItem="jMh-Kh-Two" firstAttribute="centerY" secondItem="fB2-nH-Nv8" secondAttribute="centerY" id="dy2-Lj-qTX"/>
-                                                            <constraint firstItem="OlG-qH-SfO" firstAttribute="width" secondItem="fB2-nH-Nv8" secondAttribute="width" multiplier="0.204" id="hg1-1z-8cT"/>
                                                             <constraint firstItem="OlG-qH-SfO" firstAttribute="centerY" secondItem="fB2-nH-Nv8" secondAttribute="centerY" id="mtM-DR-e7t"/>
                                                             <constraint firstItem="jpQ-2y-Vwi" firstAttribute="centerY" secondItem="fB2-nH-Nv8" secondAttribute="centerY" id="qC6-UW-jLB"/>
                                                             <constraint firstItem="jpQ-2y-Vwi" firstAttribute="centerX" secondItem="fB2-nH-Nv8" secondAttribute="centerX" constant="-106" id="tt3-iu-0zn"/>
@@ -667,34 +705,42 @@ other people from using this app.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cz-88-Ea6" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="11" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="3oo-Lf-BT3"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MgH-bw-fPB" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="82" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="CHx-4t-phX"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrE-k1-reZ" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="151" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="pTI-hD-xSf"/>
+                                                                </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zze-Xf-i3G" customClass="SecureInputView" customModule="MCAProtect" customModuleProvider="target">
                                                                 <rect key="frame" x="222" y="0.0" width="60" height="44"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="pge-uc-DMY"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="zze-Xf-i3G" firstAttribute="centerX" secondItem="GLI-ab-Vyn" secondAttribute="centerX" constant="105" id="0Py-Oa-X6k"/>
                                                             <constraint firstItem="6Cz-88-Ea6" firstAttribute="height" secondItem="GLI-ab-Vyn" secondAttribute="height" id="31q-St-CZl"/>
-                                                            <constraint firstItem="TrE-k1-reZ" firstAttribute="width" secondItem="GLI-ab-Vyn" secondAttribute="width" multiplier="0.204" id="3CV-h1-csk"/>
                                                             <constraint firstItem="zze-Xf-i3G" firstAttribute="height" secondItem="GLI-ab-Vyn" secondAttribute="height" id="64n-fb-FRX"/>
                                                             <constraint firstItem="6Cz-88-Ea6" firstAttribute="centerY" secondItem="GLI-ab-Vyn" secondAttribute="centerY" id="A8U-es-Nib"/>
                                                             <constraint firstItem="6Cz-88-Ea6" firstAttribute="centerX" secondItem="GLI-ab-Vyn" secondAttribute="centerX" constant="-106" id="FyV-4I-4Wp"/>
                                                             <constraint firstAttribute="height" constant="44" id="GqS-F8-0G9"/>
-                                                            <constraint firstItem="zze-Xf-i3G" firstAttribute="width" secondItem="GLI-ab-Vyn" secondAttribute="width" multiplier="0.204" id="Myg-eq-y1s"/>
                                                             <constraint firstItem="TrE-k1-reZ" firstAttribute="centerY" secondItem="GLI-ab-Vyn" secondAttribute="centerY" id="R5r-Be-JzC"/>
                                                             <constraint firstItem="TrE-k1-reZ" firstAttribute="centerX" secondItem="GLI-ab-Vyn" secondAttribute="centerX" constant="34" id="U8e-rY-RkL"/>
                                                             <constraint firstItem="TrE-k1-reZ" firstAttribute="height" secondItem="GLI-ab-Vyn" secondAttribute="height" id="W5R-b7-MQx"/>
-                                                            <constraint firstItem="6Cz-88-Ea6" firstAttribute="width" secondItem="GLI-ab-Vyn" secondAttribute="width" multiplier="0.205" id="X22-0x-NQ2"/>
-                                                            <constraint firstItem="MgH-bw-fPB" firstAttribute="width" secondItem="GLI-ab-Vyn" secondAttribute="width" multiplier="0.205" id="YOb-jx-Vv8"/>
                                                             <constraint firstItem="MgH-bw-fPB" firstAttribute="centerX" secondItem="GLI-ab-Vyn" secondAttribute="centerX" constant="-35" id="rPg-GO-F5j"/>
                                                             <constraint firstItem="MgH-bw-fPB" firstAttribute="height" secondItem="GLI-ab-Vyn" secondAttribute="height" id="tZc-CG-CLV"/>
                                                             <constraint firstItem="zze-Xf-i3G" firstAttribute="centerY" secondItem="GLI-ab-Vyn" secondAttribute="centerY" id="x59-C5-R9y"/>
@@ -839,13 +885,11 @@ other people from using this app.</string>
                                                         <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-gP-a4h">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a 4-digit PIN to help prevent other people from using this app." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-gP-a4h">
                                                         <rect key="frame" x="40.5" y="51" width="294" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="u7z-8h-0p9"/>
                                                         </constraints>
-                                                        <string key="text">Enter a 4-digit PIN to help prevent
-other people from using this app.</string>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                         <color key="textColor" red="0.50588235290000005" green="0.53333333329999999" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -862,7 +906,7 @@ other people from using this app.</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGN-hE-R5f">
-                                                <rect key="frame" x="117.5" y="328" width="141" height="45"/>
+                                                <rect key="frame" x="118" y="328" width="140" height="45"/>
                                                 <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="mt3-cO-ns3"/>
