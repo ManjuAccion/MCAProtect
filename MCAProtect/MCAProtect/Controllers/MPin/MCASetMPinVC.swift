@@ -119,41 +119,30 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     
     func keyboardWillBeShown(sender: NSNotification) {
         
-//        let info: NSDictionary = sender.userInfo! as NSDictionary
-//        let value: NSValue = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
-//        let keyboardSize: CGSize = value.cgRectValue.size
-//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-//        
-//        // If active text field is hidden by keyboard, scroll it so it's visible
-//        // Your app might not need or want this behavior.
-//        var aRect: CGRect = self.view.frame
-//        aRect.size.height -= keyboardSize.height + 44
-//        let activeTextFieldRect: CGRect? = activeTextField?.frame
-//
-//        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
-//        if (!aRect.contains(activeTextFieldOrigin!)) {
-//            scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
-//        }
+        scrollView.isScrollEnabled = true
         
-        var userInfo = sender.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        let info: NSDictionary = sender.userInfo! as NSDictionary
+        let value: NSValue = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
+        let keyboardSize: CGSize = value.cgRectValue.size
         
-        var contentInset:UIEdgeInsets = scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
-        scrollView.contentInset = contentInset
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
         
         
+        var aRect: CGRect = self.view.frame
+        aRect.size.height -= keyboardSize.height
         
+        let activeTextFieldRect = activeTextField?.convert((activeTextField?.frame)!, to: scrollView)
+        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
         
+        if (!aRect.contains(activeTextFieldOrigin!)) {
+            scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
+        }
     }
     
     func keyboardWillBeHidden(sender: NSNotification) {
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+//        scrollView.isScrollEnabled = false
     }
     
     //MARK: - IBActions Functions
@@ -311,11 +300,7 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        activeTextField = nil
-//        scrollView.isScrollEnabled = false
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+        scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -29,7 +29,7 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         registerForKeyboardNotifications()
     }
     

@@ -19,8 +19,8 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
 
     //MARK: - View Life Cycle
     
-    let businessLocationArray = ["Location Type","Monthly Payement","Street Address","City","State","Zip Code","Home Phone","% Owned"]
-    let businessLocationValueArray  = ["Mortgaged","$1,200","E 12 Deming PL","Star City","Alabama","12345","(801) 459-2206","50%"]
+    let businessLocationArray = ["Location Type","Monthly Payement","Street Address","City","State","Zip Code"]
+    let businessLocationValueArray  = ["Mortgaged","$1,200","E 12 Deming PL","Star City","Alabama","12345"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
