@@ -8,9 +8,11 @@
 
 import UIKit
 
-class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate {
+class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,GenericPopUpDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
+    @IBOutlet weak var setCommonRateButton : UIButton!
+    
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
     var arrayOfModelObject : NSMutableArray?
     
@@ -116,6 +118,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
         let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
+        popUpVC.popUpDelegate = self
         navigationController?.present(popUpVC, animated: true, completion: nil)
         
     }
@@ -149,6 +152,14 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         selectedItemsCount = 0
         selectedCountLabel.text = "0"
         tableView.reloadData()
+        
+    }
+    
+    
+    func didItemSelected(object:AnyObject)
+    {
+        
+        setCommonRateButton .setTitle(object as? String, for: UIControlState.normal)
         
     }
     /*

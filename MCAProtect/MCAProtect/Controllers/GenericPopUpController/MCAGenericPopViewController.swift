@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol GenericPopUpDelegate {
+    func didItemSelected(object:AnyObject)
+}
+
 class MCAGenericPopViewController: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView : UITableView!
     var commonRateDataSource : [String] = ["01", "02", "03","04","05","06","07","08","09","10"]
-
+    var popUpDelegate : GenericPopUpDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,11 +55,16 @@ class MCAGenericPopViewController: MCABaseViewController,UITableViewDelegate,UIT
         return 60
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        popUpDelegate.didItemSelected(object: self.commonRateDataSource[indexPath.row] as AnyObject)
+        self .dismiss(animated: true, completion: nil)
+
+    }
 
     @IBAction func closeButtonTapped()
     {
-      self .dismiss(animated: true, completion: nil)
-        
+        self .dismiss(animated: true, completion: nil)
+ 
     }
     /*
     // MARK: - Navigation

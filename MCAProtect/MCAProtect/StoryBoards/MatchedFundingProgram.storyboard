@@ -378,6 +378,7 @@
                     </view>
                     <connections>
                         <outlet property="selectedCountLabel" destination="9yV-4Q-T8k" id="yNn-zx-UTQ"/>
+                        <outlet property="setCommonRateButton" destination="itq-YG-TAO" id="Jhi-jV-jUw"/>
                         <outlet property="tableView" destination="CUs-dK-ho3" id="gTX-HJ-H2P"/>
                     </connections>
                 </viewController>

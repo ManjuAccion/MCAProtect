@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h3v-n5-bqh">
-                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 <connections>
@@ -35,37 +35,47 @@
                                     <outlet property="delegate" destination="jRk-oi-4dY" id="KTX-zr-h0g"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Common Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgt-pQ-rFi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhP-RI-2tE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jd-gK-Gz9">
+                                        <rect key="frame" x="323" y="20" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="ERk-iV-kC6"/>
+                                            <constraint firstAttribute="height" constant="40" id="m3c-oe-29R"/>
+                                        </constraints>
+                                        <state key="normal" image="iconNoRed"/>
+                                        <connections>
+                                            <action selector="closeButtonTapped" destination="jRk-oi-4dY" eventType="touchUpInside" id="YS3-kH-aTh"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Common Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgt-pQ-rFi">
+                                        <rect key="frame" x="107" y="30" width="160" height="20"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jd-gK-Gz9">
-                                <rect key="frame" x="320" y="10" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="ERk-iV-kC6"/>
-                                    <constraint firstAttribute="height" constant="40" id="m3c-oe-29R"/>
+                                    <constraint firstItem="Tgt-pQ-rFi" firstAttribute="centerX" secondItem="UhP-RI-2tE" secondAttribute="centerX" id="EW6-OS-dx8"/>
+                                    <constraint firstItem="7jd-gK-Gz9" firstAttribute="top" secondItem="UhP-RI-2tE" secondAttribute="top" constant="20" id="O9l-0c-Zdi"/>
+                                    <constraint firstAttribute="trailing" secondItem="7jd-gK-Gz9" secondAttribute="trailing" constant="12" id="gk5-RE-ogS"/>
+                                    <constraint firstItem="Tgt-pQ-rFi" firstAttribute="centerY" secondItem="7jd-gK-Gz9" secondAttribute="centerY" id="u8K-dr-z12"/>
                                 </constraints>
-                                <state key="normal" image="iconNoRed"/>
-                                <connections>
-                                    <action selector="closeButtonTapped" destination="jRk-oi-4dY" eventType="touchUpInside" id="YS3-kH-aTh"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Tgt-pQ-rFi" firstAttribute="top" secondItem="vTf-vg-Srh" secondAttribute="top" id="0f6-es-IGy"/>
-                            <constraint firstItem="Tgt-pQ-rFi" firstAttribute="leading" secondItem="vTf-vg-Srh" secondAttribute="leading" id="7KL-Vd-GcE"/>
-                            <constraint firstAttribute="trailing" secondItem="7jd-gK-Gz9" secondAttribute="trailing" constant="15" id="KW4-ER-LY4"/>
-                            <constraint firstItem="h3v-n5-bqh" firstAttribute="top" secondItem="Tgt-pQ-rFi" secondAttribute="bottom" id="QZN-va-lm6"/>
-                            <constraint firstItem="h3v-n5-bqh" firstAttribute="top" secondItem="vTf-vg-Srh" secondAttribute="top" constant="60" id="S6r-HK-Gao"/>
+                            <constraint firstAttribute="trailing" secondItem="UhP-RI-2tE" secondAttribute="trailing" id="8bi-RM-pgL"/>
+                            <constraint firstItem="UhP-RI-2tE" firstAttribute="top" secondItem="vTf-vg-Srh" secondAttribute="top" id="Qst-6w-uEn"/>
+                            <constraint firstItem="h3v-n5-bqh" firstAttribute="top" secondItem="vTf-vg-Srh" secondAttribute="top" constant="64" id="S6r-HK-Gao"/>
                             <constraint firstAttribute="trailing" secondItem="h3v-n5-bqh" secondAttribute="trailing" id="cCK-7v-SIk"/>
-                            <constraint firstItem="7jd-gK-Gz9" firstAttribute="top" secondItem="vTf-vg-Srh" secondAttribute="top" constant="10" id="eeq-kU-Tty"/>
-                            <constraint firstItem="6QZ-0N-rua" firstAttribute="top" secondItem="h3v-n5-bqh" secondAttribute="bottom" id="rc0-td-R8K"/>
+                            <constraint firstItem="UhP-RI-2tE" firstAttribute="leading" secondItem="vTf-vg-Srh" secondAttribute="leading" id="l7T-ka-VCE"/>
+                            <constraint firstItem="h3v-n5-bqh" firstAttribute="top" secondItem="UhP-RI-2tE" secondAttribute="bottom" id="pXO-B3-UO3"/>
+                            <constraint firstItem="6QZ-0N-rua" firstAttribute="top" secondItem="h3v-n5-bqh" secondAttribute="bottom" constant="-4" id="rc0-td-R8K"/>
                             <constraint firstItem="h3v-n5-bqh" firstAttribute="leading" secondItem="vTf-vg-Srh" secondAttribute="leading" id="ser-q5-ke2"/>
-                            <constraint firstAttribute="trailing" secondItem="Tgt-pQ-rFi" secondAttribute="trailing" id="ueu-8T-G4G"/>
                         </constraints>
                     </view>
                     <connections>
