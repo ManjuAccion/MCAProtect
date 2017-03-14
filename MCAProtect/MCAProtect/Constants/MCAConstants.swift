@@ -84,6 +84,7 @@ struct VCIdentifiers {
     static let MCAMerchantApplicationSummaryVC                      = "MCAMerchantApplicationSummaryVC"
     static let MCAMASubmitStipulationsVC                            = "MCAMASubmitStipulationsVC"
     static let MCAAskFunderApplicationList                          = "MCAAskFunderApplicationList"
+    static let MCAAskFunderApplicationSummaryVC                     = "MCAAskFunderApplicationSummaryVC"
 
 
 }

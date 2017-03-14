@@ -114,6 +114,7 @@
 		BA601F5F1E77E61200EB303C /* AskFunder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA601F5E1E77E61200EB303C /* AskFunder.storyboard */; };
 		BA601F641E78038100EB303C /* MCAAskFunderApplicationListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA601F621E78038100EB303C /* MCAAskFunderApplicationListTVCell.swift */; };
 		BA601F651E78038100EB303C /* MCAAskFunderApplicationListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA601F631E78038100EB303C /* MCAAskFunderApplicationListTVCell.xib */; };
+		BA601F671E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA601F661E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift */; };
 		BA88AC9E1E4D791C003E3B2F /* MCASetMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88AC9D1E4D791C003E3B2F /* MCASetMPinVC.swift */; };
 		BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88AC9F1E4EE7D6003E3B2F /* MCAChangeMPinVC.swift */; };
 		BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88ACA11E50285B003E3B2F /* MCAResetMPINVC.swift */; };
@@ -272,6 +273,7 @@
 		BA601F5E1E77E61200EB303C /* AskFunder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AskFunder.storyboard; sourceTree = "<group>"; };
 		BA601F621E78038100EB303C /* MCAAskFunderApplicationListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderApplicationListTVCell.swift; sourceTree = "<group>"; };
 		BA601F631E78038100EB303C /* MCAAskFunderApplicationListTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAAskFunderApplicationListTVCell.xib; sourceTree = "<group>"; };
+		BA601F661E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderApplicationSummaryVC.swift; sourceTree = "<group>"; };
 		BA88AC9D1E4D791C003E3B2F /* MCASetMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASetMPinVC.swift; sourceTree = "<group>"; };
 		BA88AC9F1E4EE7D6003E3B2F /* MCAChangeMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAChangeMPinVC.swift; sourceTree = "<group>"; };
 		BA88ACA11E50285B003E3B2F /* MCAResetMPINVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAResetMPINVC.swift; sourceTree = "<group>"; };
@@ -905,6 +907,7 @@
 		BA601F5B1E77E24400EB303C /* Application Summary */ = {
 			isa = PBXGroup;
 			children = (
+				BA601F661E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift */,
 			);
 			path = "Application Summary";
 			sourceTree = "<group>";
@@ -1356,6 +1359,7 @@
 				5B90494F1E72881A00A49A50 /* MCAMatchedFundingProgramVC.swift in Sources */,
 				5B4741C61E5488B5001D9435 /* MCATableViewCell.swift in Sources */,
 				5B9049501E72881A00A49A50 /* MCAMatchedFPListTVCell.swift in Sources */,
+				BA601F671E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift in Sources */,
 				BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */,
 				BA34CD3B1E4C9321001AF75F /* MCAEnterMPinVC.swift in Sources */,
 				BA8B68841E543A7D004CEB69 /* MCAApplicationStatusTVCell.swift in Sources */,

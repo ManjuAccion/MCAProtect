@@ -72,6 +72,11 @@ class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,U
         selectedCell.selectedView.isHidden = false
         selectedCell.backgroundColor = ColorConstants.selectedBackground
         selectedIndexpath = indexPath
+        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAAskFunder, bundle: Bundle.main)
+        let askFunderApplicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAAskFunderApplicationSummaryVC) as! MCAAskFunderApplicationSummaryVC
+        askFunderApplicationSummaryVC.titleText = dataDataSource[indexPath.row]
+        navigationController?.pushViewController(askFunderApplicationSummaryVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
