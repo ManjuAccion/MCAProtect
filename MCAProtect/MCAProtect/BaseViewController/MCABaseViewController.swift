@@ -15,6 +15,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("---Controller====>//",self.description)
     }
     
     override func viewDidAppear(_ animated: Bool)

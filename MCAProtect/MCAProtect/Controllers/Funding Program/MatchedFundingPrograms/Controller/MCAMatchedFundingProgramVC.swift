@@ -24,7 +24,6 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
         tableView.tableFooterView = UIView()
         arrayOfModelObject  = NSMutableArray.init()
-        selectedCountLabel.text = "\(selectedItemsCount)"
         
         for _   in dataDataSource
         {
@@ -37,7 +36,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        self.calculateFundingProgramSelectionCount()
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,6 +119,25 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         navigationController?.present(popUpVC, animated: true, completion: nil)
         
     }
+    
+    
+    func calculateFundingProgramSelectionCount()
+    {
+        
+        selectedItemsCount = 0
+
+        for matchedFundingProgram  in arrayOfModelObject!
+        {
+            if ((matchedFundingProgram as! MCAMatchedFundingProgram).isSelected == true)
+            {
+                
+                selectedItemsCount = selectedItemsCount + 1
+            }
+        }
+        selectedCountLabel.text = "\(selectedItemsCount)"
+        tableView.reloadData()
+    }
+    
     
     
     @IBAction func clearButtonTapped()
