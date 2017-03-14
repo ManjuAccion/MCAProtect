@@ -48,7 +48,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
         cell.selectionStyle = .none
         cell.nameLabel.text = dataDataSource[indexPath.row]
         cell.amountLabel.text = amountDataSource[indexPath.row]
-        cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = ColorConstants.background
         
         return cell
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,10 +27,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w1j-OK-CLw">
-                    <rect key="frame" x="0.0" y="0.0" width="2" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="4" height="60"/>
                     <color key="backgroundColor" red="0.63921568627450975" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="2" id="SIY-jG-OrT"/>
+                        <constraint firstAttribute="width" constant="4" id="SIY-jG-OrT"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saN-Ti-p7H">
@@ -79,10 +79,10 @@
                 <constraint firstItem="ree-9B-xLT" firstAttribute="top" secondItem="LNC-Xj-hRB" secondAttribute="bottom" constant="4" id="nR8-R0-BTi"/>
                 <constraint firstItem="LNC-Xj-hRB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="o6x-n4-yre"/>
                 <constraint firstItem="3To-Dn-9aM" firstAttribute="leading" secondItem="ree-9B-xLT" secondAttribute="trailing" constant="8" id="psr-c7-8ka"/>
-                <constraint firstItem="ree-9B-xLT" firstAttribute="leading" secondItem="w1j-OK-CLw" secondAttribute="trailing" constant="13" id="rCa-A1-zSd"/>
+                <constraint firstItem="ree-9B-xLT" firstAttribute="leading" secondItem="w1j-OK-CLw" secondAttribute="trailing" constant="11" id="rCa-A1-zSd"/>
                 <constraint firstAttribute="trailing" secondItem="LNC-Xj-hRB" secondAttribute="trailing" constant="15" id="rMA-pi-nce"/>
                 <constraint firstItem="saN-Ti-p7H" firstAttribute="top" secondItem="ree-9B-xLT" secondAttribute="bottom" constant="7" id="uSC-Sm-SZJ"/>
-                <constraint firstItem="LNC-Xj-hRB" firstAttribute="leading" secondItem="w1j-OK-CLw" secondAttribute="trailing" constant="13" id="yQN-xB-IdH"/>
+                <constraint firstItem="LNC-Xj-hRB" firstAttribute="leading" secondItem="w1j-OK-CLw" secondAttribute="trailing" constant="11" id="yQN-xB-IdH"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

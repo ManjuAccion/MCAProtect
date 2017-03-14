@@ -13,7 +13,7 @@ enum leftMenuItems : NSInteger {
     case Dashboard = 0
     case SavedApplications = 1
     case FundingPrograms = 2
-    case Communication = 3
+    case AskFunder = 3
 }
 
 class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
@@ -97,24 +97,28 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
             
             case leftMenuItems.SavedApplications.rawValue:
                 
-                let storyboard = UIStoryboard(name: "SavedApplication", bundle: nil)
+                let storyboard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: nil)
                 let applicationVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationListVC) as! MCASavedApplicationListVC
                 SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
                 SlideNavigationController.sharedInstance().toggleLeftMenu()
             
             case leftMenuItems.FundingPrograms.rawValue:
                 
-                let fundingProgramStoryBoard = UIStoryboard.init(name:"FundingProgram", bundle: nil)
+                let fundingProgramStoryBoard = UIStoryboard.init(name:StoryboardName.MCAFundingProgram, bundle: nil)
                 let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
                 // Use these below lines to push the views from side menu.
                 // Make sure you call the toggleLeftMenu() or toggleRightMenu()
                 SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,FundingProgramListVC], animated: false);
                 SlideNavigationController.sharedInstance().toggleLeftMenu()
             
-            case leftMenuItems.Communication.rawValue: break
-                
+            case leftMenuItems.AskFunder.rawValue:
+                let askFunderStoryboard = UIStoryboard.init(name:StoryboardName.MCAAskFunder, bundle: nil)
+                let askFunderListVC = askFunderStoryboard.instantiateViewController(withIdentifier: VCIdentifiers.MCAAskFunderApplicationList)
+                SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,askFunderListVC], animated: false);
+                SlideNavigationController.sharedInstance().toggleLeftMenu()
+            
             default:
-                print("Default value")
+                break
             }
     }
     

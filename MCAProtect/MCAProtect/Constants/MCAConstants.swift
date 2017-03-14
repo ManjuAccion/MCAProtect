@@ -39,6 +39,8 @@ struct CellIdentifiers {
     static let MCAApplicationFormTVCell             = "MCAApplicationFormTVCell"
     static let MCAApplicationTVCell                 = "MCAApplicationTVCell"
     static let MCASavedApplicationsListTVCell       = "MCASavedApplicationsListTVCell"
+    static let MCAAskFunderApplicationListTVCell    = "MCAAskFunderApplicationListTVCell"
+
     static let MCAApplicationSummaryTVCell          = "MCAApplicationSummaryTVCell"
     static let MCAOwnerAndLocationDetailsTVCell     = "MCASAOwnerAndLocationDetailsTVCell"
     static let MCASavedApplicationsBankRecordsTVCell = "MCASavedApplicationsBankRecordsTVCell"
@@ -61,10 +63,8 @@ struct StoryboardName {
     static let MCAFundingProgram                    = "FundingProgram"
     static let MCAMerchantApplication               = "MerchantApplication"
     static let MCAMatchedFundingProgram             = "MatchedFundingProgram"
-    static let MCAGenericPopUp             = "GenericPopUp"
-
-    
- 
+    static let MCAGenericPopUp                      = "GenericPopUp"
+    static let MCAAskFunder                         = "AskFunder"
 }
 
 struct VCIdentifiers {
@@ -72,7 +72,7 @@ struct VCIdentifiers {
     static let MCASavedApplicationMerchantDocumentationVC           = "MCASavedApplicationMerchantDocumentationVC"
     static let MCAApplicationSummaryVC                              = "MCAApplicationSummaryVC"
     static let MCAApplicationFormVC                                 = "MCAApplicationFormVC"
-    static let MCASavedApplicationListVC                                 = "MCASavedApplicationListVC"
+    static let MCASavedApplicationListVC                            = "MCASavedApplicationListVC"
     static let MCASALiensPaymentsVC                                 = "MCASALiensPaymentsVC"
     static let MCASAOwnerAndLocationDetailsVC                       = "MCASAOwnerAndLocationDetailsVC"
     static let MCASavedApplicationsBankRecordsVC                    = "MCASavedApplicationsBankRecordsVC"
@@ -83,6 +83,9 @@ struct VCIdentifiers {
     static let MCAMerchantApplicationListVC                         = "MCAMerchantApplicationListVC"
     static let MCAMerchantApplicationSummaryVC                      = "MCAMerchantApplicationSummaryVC"
     static let MCAMASubmitStipulationsVC                            = "MCAMASubmitStipulationsVC"
+    static let MCAAskFunderApplicationList                          = "MCAAskFunderApplicationList"
+
+
 }
 
 
