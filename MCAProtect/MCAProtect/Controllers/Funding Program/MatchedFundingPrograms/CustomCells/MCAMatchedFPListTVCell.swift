@@ -17,6 +17,7 @@ protocol MatchedFundingProgramCellDelegate
 class MCAMatchedFPListTVCell: UITableViewCell {
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var checkButton : UIButton!
+    @IBOutlet weak var loanRangeLabel : UILabel!
     
     var delegate : MatchedFundingProgramCellDelegate?
     
@@ -32,6 +33,21 @@ class MCAMatchedFPListTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
        
         // Configure the view for the selected state
+    }
+    
+    func updateDataSource(matchedFundingProgramObject : MCAMatchedFundingProgram)  {
+        titleLabel.text = matchedFundingProgramObject.funderName! as String
+        loanRangeLabel.text = matchedFundingProgramObject.loanRange! as String
+        if matchedFundingProgramObject.isSelected! {
+            checkButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+            checkButton.isSelected = true;
+
+        }
+        else
+        {
+            checkButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+            checkButton.isSelected = false;
+        }
     }
     
     @IBAction func checkButtonTapped ( _ sender: UIButton)

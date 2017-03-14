@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5000 - $6000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-kf-Tz0">
-                        <rect key="frame" x="15" y="28" width="115" height="22"/>
+                        <rect key="frame" x="15" y="28" width="115" height="21"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -64,6 +64,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="checkButton" destination="sPb-wT-ZaO" id="ECv-6Z-0xV"/>
+                <outlet property="loanRangeLabel" destination="1Q4-kf-Tz0" id="QYO-kR-FsK"/>
                 <outlet property="titleLabel" destination="cRS-hb-u0i" id="vdi-WA-gAS"/>
             </connections>
             <point key="canvasLocation" x="45" y="103"/>

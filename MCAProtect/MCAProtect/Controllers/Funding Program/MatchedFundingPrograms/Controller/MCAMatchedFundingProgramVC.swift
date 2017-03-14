@@ -12,7 +12,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    var arrayOfModelObject : NSMutableArray!
+    var arrayOfModelObject : NSMutableArray?
     
     var matchedFundingProgram : MCAMatchedFundingProgram!
     var selectedItemsCount = 0;
@@ -26,17 +26,18 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         arrayOfModelObject  = NSMutableArray.init()
         selectedCountLabel.text = "\(selectedItemsCount)"
         
-        
-
-        
         for _   in dataDataSource
         {
             matchedFundingProgram = MCAMatchedFundingProgram(data:nil)
-            arrayOfModelObject .add(matchedFundingProgram)
+            arrayOfModelObject? .add(matchedFundingProgram)
         }
         
-
-        // Do any additional setup after loading the view
+        tableView.reloadData()
+}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,14 +46,14 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDataSource.count
+      return dataDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
        
             let listTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAMatchedFPListTVCell", for: indexPath) as! MCAMatchedFPListTVCell
-            listTVCell.titleLabel.text = dataDataSource[indexPath.row]
+        listTVCell .updateDataSource(matchedFundingProgramObject: arrayOfModelObject?.object(at: indexPath.row) as! MCAMatchedFundingProgram)
         listTVCell.delegate = self
         listTVCell.checkButton.tag = indexPath.row
         listTVCell.selectionStyle = .none
@@ -63,8 +64,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMatchedFundingProgram, bundle: Bundle.main)
-        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAFundingProgramDetailsVC") as! MCAFundingProgramDetailsVC
-        navigationController?.pushViewController(applicationFormVC, animated: true)
+        let matchedFundingProgramDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFundingProgramDetailsVC") as! MCAFundingProgramDetailsVC
+        matchedFundingProgramDetailVC.matchedFundingProgram = arrayOfModelObject?.object(at: indexPath.row) as! MCAMatchedFundingProgram
+        navigationController?.pushViewController(matchedFundingProgramDetailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -92,7 +94,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func programSelected(buttonTag : Int)
     {
-        let selectedProgram : MCAMatchedFundingProgram = arrayOfModelObject .object(at: buttonTag) as! MCAMatchedFundingProgram
+        let selectedProgram : MCAMatchedFundingProgram = arrayOfModelObject! .object(at: buttonTag) as! MCAMatchedFundingProgram
         selectedProgram.isSelected = true
         selectedItemsCount = selectedItemsCount + 1
         selectedCountLabel.text = "\(selectedItemsCount)"
@@ -102,7 +104,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func programDeSelected(buttonTag : Int)
     {
-        let deselectedProgram : MCAMatchedFundingProgram = arrayOfModelObject .object(at: buttonTag) as! MCAMatchedFundingProgram
+        let deselectedProgram : MCAMatchedFundingProgram = arrayOfModelObject! .object(at: buttonTag) as! MCAMatchedFundingProgram
         deselectedProgram.isSelected = false
         selectedItemsCount = selectedItemsCount - 1
         selectedCountLabel.text = "\(selectedItemsCount)"
@@ -116,6 +118,19 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
         let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
         navigationController?.present(popUpVC, animated: true, completion: nil)
+        
+    }
+    
+    
+    @IBAction func clearButtonTapped()
+    {
+        for matchedFundingProgram  in arrayOfModelObject!
+        {
+           (matchedFundingProgram as! MCAMatchedFundingProgram).isSelected = false
+        }
+        selectedItemsCount = 0
+        selectedCountLabel.text = "0"
+        tableView.reloadData()
         
     }
     /*

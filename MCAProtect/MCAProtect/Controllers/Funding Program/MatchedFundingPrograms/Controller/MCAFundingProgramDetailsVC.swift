@@ -10,13 +10,23 @@ import UIKit
 
 class MCAFundingProgramDetailsVC: MCABaseViewController {
     @IBOutlet weak var checkButton : UIButton!
-
+    var matchedFundingProgram : MCAMatchedFundingProgram!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Green Box Capital"
-        checkButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
-        checkButton.isSelected = false;
+        if (self.matchedFundingProgram.isSelected == true)
+        {
+            
+            checkButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+
+        }
+        else
+        {
+            checkButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -27,16 +37,16 @@ class MCAFundingProgramDetailsVC: MCABaseViewController {
     
     @IBAction func checkButtonTapped (_ : Any)
     {
-        if (checkButton.isSelected == true)
+        if (matchedFundingProgram.isSelected == true)
         {
             checkButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
-            checkButton.isSelected = false;
+            matchedFundingProgram.isSelected = false;
         }
         else
         {
             checkButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
             
-            checkButton.isSelected = true;
+            matchedFundingProgram.isSelected = true;
         }
         
     }

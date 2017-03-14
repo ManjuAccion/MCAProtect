@@ -11,11 +11,16 @@ import UIKit
 class MCAMatchedFundingProgram: NSObject
 {
     var  isSelected : Bool?
-    var  businessName : NSString?
-    var  loanTerm :  NSString?
-    var  loanAmount : NSString?
-    var  setCommonRate : NSString?
-     
+    var  funderName : NSString?
+    var  term :  NSString?
+    var  loanRange : NSString?
+    var  buyRate : NSString?
+    var  maxUpsellRate : NSString?
+    var  upsellRate : NSString?
+    var  totalRate : NSString?
+
+
+    
     init(data : NSDictionary?) {
         
         if data != nil {
@@ -23,9 +28,13 @@ class MCAMatchedFundingProgram: NSObject
         }
         else
         {
-            businessName = "Stacy Botique"
-            loanTerm = "10 Months"
-            loanAmount = "$1000"
+            funderName = "Stacy Botique"
+            term = "10 Months"
+            loanRange = "$10000 to $100000"
+            buyRate = "1.5"
+            maxUpsellRate = "1.55"
+            upsellRate = ""
+            totalRate = "10.0"
             isSelected = false
         }
         
