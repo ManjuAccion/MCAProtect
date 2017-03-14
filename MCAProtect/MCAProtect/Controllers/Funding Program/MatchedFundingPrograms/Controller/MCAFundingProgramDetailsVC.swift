@@ -8,15 +8,34 @@
 
 import UIKit
 
-class MCAFundingProgramDetailsVC: MCABaseViewController {
+class MCAFundingProgramDetailsVC: MCABaseViewController,GenericPopUpDelegate {
     @IBOutlet weak var checkButton : UIButton!
-    var matchedFundingProgram : MCAMatchedFundingProgram!
-    
+    weak var matchedFundingProgram : MCAMatchedFundingProgram!
+    @IBOutlet weak var  funderNameLbl : UILabel!
+    @IBOutlet weak var  funderDescriptionLbl : UILabel!
+    @IBOutlet weak var  termLbl :  UILabel!
+    @IBOutlet weak var  loanRangeLbl : UILabel!
+    @IBOutlet weak  var  buyRateLbl : UILabel!
+    @IBOutlet weak var  maxUpsellRateLbl : UILabel!
+    @IBOutlet weak var  upsellRate : UIButton!
+    @IBOutlet weak var  totalRateLbl : UILabel!
+    @IBOutlet weak var  headerLbl : UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Green Box Capital"
+        self.title = "\(matchedFundingProgram.funderName!)"
+        self.headerLbl.text = "\(matchedFundingProgram.funderName!)"
+        funderNameLbl.text = "\(matchedFundingProgram.funderName!) >"
+        funderDescriptionLbl.text = "\(matchedFundingProgram.funderName!) Investments"
+        termLbl.text = matchedFundingProgram.term! as String
+        loanRangeLbl.text = matchedFundingProgram.loanRange! as String
+        buyRateLbl.text = matchedFundingProgram.buyRate! as String
+        maxUpsellRateLbl.text = matchedFundingProgram.maxUpsellRate! as String
+        totalRateLbl.text = matchedFundingProgram.totalRate! as String
+        
+        
         if (self.matchedFundingProgram.isSelected == true)
         {
             
@@ -48,6 +67,24 @@ class MCAFundingProgramDetailsVC: MCABaseViewController {
             
             matchedFundingProgram.isSelected = true;
         }
+        
+    }
+    
+    @IBAction func setUpSellRateTapped()
+    {
+        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
+        let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
+        popUpVC.popUpDelegate = self
+        navigationController?.present(popUpVC, animated: true, completion: nil)
+        
+    }
+    
+    
+    func didItemSelected(object:AnyObject)
+    {
+        
+        upsellRate .setTitle(object as? String, for: UIControlState.normal)
         
     }
     /*

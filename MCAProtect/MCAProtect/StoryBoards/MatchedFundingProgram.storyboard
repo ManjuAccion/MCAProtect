@@ -402,13 +402,13 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green Box Capital" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahD-va-HfC">
-                                        <rect key="frame" x="122.5" y="21.5" width="189.5" height="28"/>
+                                        <rect key="frame" x="93" y="21.5" width="189.5" height="28"/>
                                         <fontDescription key="fontDescription" name="Roboto-BoldItalic" family="Roboto" pointSize="24"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBox" translatesAutoresizingMaskIntoConstraints="NO" id="B6j-D3-PJY">
-                                        <rect key="frame" x="74.5" y="15" width="40" height="40"/>
+                                        <rect key="frame" x="45" y="15" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="I3A-Ho-7Ry"/>
                                             <constraint firstAttribute="height" constant="40" id="W9s-vk-ODp"/>
@@ -417,7 +417,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ahD-va-HfC" secondAttribute="trailing" constant="63" id="13k-Od-iAo"/>
+                                    <constraint firstItem="ahD-va-HfC" firstAttribute="centerX" secondItem="TRc-b2-AAL" secondAttribute="centerX" id="QND-mX-9Ec"/>
                                     <constraint firstItem="ahD-va-HfC" firstAttribute="centerY" secondItem="B6j-D3-PJY" secondAttribute="centerY" id="Qme-Fp-pmD"/>
                                     <constraint firstItem="B6j-D3-PJY" firstAttribute="top" secondItem="TRc-b2-AAL" secondAttribute="top" constant="15" id="Veb-SJ-tPu"/>
                                     <constraint firstAttribute="height" constant="70" id="poS-Ad-VdO"/>
@@ -621,6 +621,9 @@
                                                 <state key="normal" title="Rate">
                                                     <color key="titleColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setUpSellRateTapped" destination="ss2-8B-l3I" eventType="touchUpInside" id="WAs-LT-EvD"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="3tD-qy-Ehc">
                                                 <rect key="frame" x="61" y="25" width="32" height="25"/>
@@ -753,7 +756,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buyRateLbl" destination="bgp-wE-Muj" id="3o2-Nv-3oX"/>
                         <outlet property="checkButton" destination="yON-yR-IQG" id="O6s-WD-Apw"/>
+                        <outlet property="funderDescriptionLbl" destination="KFk-rv-T0k" id="3ej-2U-eyW"/>
+                        <outlet property="funderNameLbl" destination="Mf8-LE-hEK" id="CAA-ST-2wT"/>
+                        <outlet property="headerLbl" destination="ahD-va-HfC" id="I7Q-c1-NvN"/>
+                        <outlet property="loanRangeLbl" destination="uF2-Cw-G18" id="5i1-C7-bdc"/>
+                        <outlet property="maxUpsellRateLbl" destination="nff-jy-awe" id="uME-ea-3cl"/>
+                        <outlet property="termLbl" destination="kMC-8R-YnM" id="ewy-Lb-4ZB"/>
+                        <outlet property="totalRateLbl" destination="n8Y-z9-Hgx" id="ajK-DI-Aqx"/>
+                        <outlet property="upsellRate" destination="4FW-EF-alv" id="V3q-2Z-mKt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pj8-cH-CYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
