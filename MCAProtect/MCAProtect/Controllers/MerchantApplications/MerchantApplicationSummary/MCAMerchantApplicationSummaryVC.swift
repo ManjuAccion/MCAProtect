@@ -114,8 +114,9 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     @IBAction func viewMatchedFundingProgramTapped(_ sender: Any)
     {
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMatchedFundingProgram, bundle: Bundle.main)
-        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAMatchedFundingProgramVC") as! MCAMatchedFundingProgramVC
-        navigationController?.pushViewController(applicationFormVC, animated: true)
+        let matchedFundingProgramVC = storyBoard.instantiateViewController(withIdentifier: "MCAMatchedFundingProgramVC") as! MCAMatchedFundingProgramVC
+        matchedFundingProgramVC.applicationState = self.applicationState
+        navigationController?.pushViewController(matchedFundingProgramVC, animated: true)
         
     }
     

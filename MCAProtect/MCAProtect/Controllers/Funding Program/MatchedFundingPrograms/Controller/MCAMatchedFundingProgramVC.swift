@@ -12,6 +12,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
     @IBOutlet weak var setCommonRateButton : UIButton!
+    var applicationState: Int!
+
     
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
     var arrayOfModelObject : NSMutableArray?
@@ -162,6 +164,54 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         setCommonRateButton .setTitle(object as? String, for: UIControlState.normal)
         
     }
+    
+    @IBAction func referButtonTapped()
+    
+    {
+        if selectedItemsCount == 0 {
+            let TitleString = NSAttributedString(string:"", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
+            let MessageString = NSAttributedString(string: "Please choose any one or more Funding Program to refer", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.black])
+            
+            let alertViewController = UIAlertController(title : "", message : "", preferredStyle : .alert)
+            alertViewController.setValue(TitleString, forKey: "attributedTitle")
+            alertViewController.setValue(MessageString, forKey: "attributedMessage")
+            alertViewController.view.tintColor = ColorConstants.red
+            
+            
+            
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            present(alertViewController, animated: true , completion: nil)
+
+        }
+        
+        else
+        {
+            let TitleString = NSAttributedString(string:"Success!", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
+            let MessageString = NSAttributedString(string: "The selected Funding Programs are referred to funder Successfully", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.black])
+            
+            let alertViewController = UIAlertController(title : "", message : "", preferredStyle : .alert)
+            alertViewController.setValue(TitleString, forKey: "attributedTitle")
+            alertViewController.setValue(MessageString, forKey: "attributedMessage")
+            alertViewController.view.tintColor = ColorConstants.red
+            
+            
+            
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : { action in
+                
+                let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+                let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
+                applicationSummaryVC.applicationState = self.applicationState
+                _ = self.navigationController?.popViewController(animated: true)
+
+            }))
+
+            present(alertViewController, animated: true , completion: nil)
+
+            
+        }
+        
+    }
+
     /*
     // MARK: - Navigation
 
