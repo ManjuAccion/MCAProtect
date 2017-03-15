@@ -32,6 +32,12 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    func setApplicationSummaryDetails(_ : AnyObject)
+    {
+        
+        
+    }
 
     @IBAction func viewDetailsButtonTapped(_ sender: Any) {
         delegate?.rightActionButtonTapped()

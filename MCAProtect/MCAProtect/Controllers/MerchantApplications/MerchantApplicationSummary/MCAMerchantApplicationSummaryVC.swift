@@ -30,6 +30,9 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         self.title = titleText
 
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
+        tableView.register(UINib(nibName: "MCAEmailTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:"MCAEmailTableViewCell")
+        tableView.register(UINib(nibName: "MCAPhoneNumberTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:"MCAPhoneNumberTableViewCell")
+
         tableView.tableFooterView = UIView()
         let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
         tableView.contentInset = contentInset
@@ -39,6 +42,9 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         copyApplicationButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         copyApplicationButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
         
+        
+       
+
         switch applicationState {
         case ApplicationState.NeedMoreStips.rawValue:
             tableViewBottomConstraint.constant = 0
@@ -60,34 +66,63 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
+        var cell : UITableViewCell!
         
-        cell.selectionStyle = .none
-        cell.backgroundColor = UIColor.clear
-        cell.delegate = self
-
-        cell.titleLabel.text = dataSourceKeys[indexPath.row]
-        cell.dataTF.text = dataSourceValues[indexPath.row]
         
-        switch applicationState {
-        case ApplicationState.UnderWriting.rawValue:
-            fallthrough
-        case ApplicationState.NeedMoreStips.rawValue:
-            if indexPath.row == 0 {
-                cell.viewDetailsButton.isHidden = false
-            }
-        default:
-            break
+        if dataSourceKeys[indexPath.row] == "Email" {
+             let   emailCell =   tableView.dequeueReusableCell(withIdentifier:"MCAEmailTableViewCell", for: indexPath) as! MCAEmailTableViewCell
+            emailCell.titleLabel.text = dataSourceKeys[indexPath.row]
+            emailCell.emailButton .setTitle(dataSourceValues[indexPath.row], for: UIControlState.normal)
+            
+            emailCell.delegate = self
+            cell = emailCell
         }
-        
-        if  (indexPath.row == 0) {
-            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        else if dataSourceKeys[indexPath.row] == "Telephone"
+        {
+            let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: "MCAPhoneNumberTableViewCell", for: indexPath) as! MCAPhoneNumberTableViewCell
+            phoneNumberCell.titleLabel.text = dataSourceKeys[indexPath.row]
+            phoneNumberCell.phoneNumberButton .setTitle(dataSourceValues[indexPath.row], for: UIControlState.normal)
+            phoneNumberCell.delegate = self
+            cell = phoneNumberCell
+ 
         }
         else
         {
-            cell.accessoryType = UITableViewCellAccessoryType.none
-        }
+      
+ let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
+        summaryCell.titleLabel.text = dataSourceKeys[indexPath.row]
+        summaryCell.dataTF.text = dataSourceValues[indexPath.row]
+        summaryCell.delegate = self
+            
+            
+            switch applicationState {
+            case ApplicationState.UnderWriting.rawValue:
+                fallthrough
+            case ApplicationState.NeedMoreStips.rawValue:
+                if indexPath.row == 0 {
+                    summaryCell.viewDetailsButton.isHidden = false
+                }
+            default:
+                break
+            }
+            
+            if  (indexPath.row == 0) {
+                summaryCell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            }
+            else
+            {
+                summaryCell.accessoryType = UITableViewCellAccessoryType.none
+            }
+            
 
+            cell = summaryCell
+        }
+        
+       
+        cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
+        
+        
         return cell
     }
     

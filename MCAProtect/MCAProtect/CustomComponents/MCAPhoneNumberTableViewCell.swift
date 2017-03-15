@@ -1,21 +1,16 @@
 //
-//  MCASavedApplicationsListTVCell.swift
+//  MCAPhoneNumberTableViewCell.swift
 //  MCAProtect
 //
-//  Created by Sarath NS on 2/22/17.
+//  Created by Accion Labs on 15/03/17.
 //  Copyright © 2017 Accionlabs. All rights reserved.
 //
 
 import UIKit
-import JVFloatLabeledTextField
 
-class MCASavedApplicationsListTVCell: UITableViewCell {
-
-   
-    @IBOutlet weak var daysLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var selectedView: UIView!
+class MCAPhoneNumberTableViewCell: UITableViewCell {
+    @IBOutlet weak var phoneNumberButton: UIButton!
+    @IBOutlet weak var titleLabel : UILabel!
     
     var delegate : MCABaseViewController!
 
@@ -23,21 +18,20 @@ class MCASavedApplicationsListTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
-    @IBAction func emailButtonTapped(_ sender: Any) {
-        delegate.emailButtonTapped()
-    }
     
     @IBAction func phoneNumberButtonTapped(_ sender: Any) {
         
         delegate.callButtonTapped();
         
     }
-
 
 }

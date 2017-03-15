@@ -59,6 +59,10 @@
 		5B9049581E76D64800A49A50 /* GenericPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9049571E76D64800A49A50 /* GenericPopUp.storyboard */; };
 		5B90495B1E76E2C400A49A50 /* MCAPopUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9049591E76E2C400A49A50 /* MCAPopUpTableViewCell.swift */; };
 		5B90495C1E76E2C400A49A50 /* MCAPopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B90495A1E76E2C400A49A50 /* MCAPopUpTableViewCell.xib */; };
+		5BA7B80D1E796DCA00D9AF15 /* MCAEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7B80B1E796DCA00D9AF15 /* MCAEmailTableViewCell.swift */; };
+		5BA7B80E1E796DCA00D9AF15 /* MCAEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA7B80C1E796DCA00D9AF15 /* MCAEmailTableViewCell.xib */; };
+		5BA7B8131E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7B8111E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift */; };
+		5BA7B8141E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA7B8121E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib */; };
 		6A9F9B00E60E6F389BC9AD86 /* Pods_MCAProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */; };
 		782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782BF0D51E5187EF00B79009 /* MCAPerformanceComparisonVS.swift */; };
 		782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782C69A91E49ACC500268356 /* Assets.xcassets */; };
@@ -222,6 +226,10 @@
 		5B9049571E76D64800A49A50 /* GenericPopUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenericPopUp.storyboard; sourceTree = "<group>"; };
 		5B9049591E76E2C400A49A50 /* MCAPopUpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPopUpTableViewCell.swift; sourceTree = "<group>"; };
 		5B90495A1E76E2C400A49A50 /* MCAPopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPopUpTableViewCell.xib; sourceTree = "<group>"; };
+		5BA7B80B1E796DCA00D9AF15 /* MCAEmailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAEmailTableViewCell.swift; sourceTree = "<group>"; };
+		5BA7B80C1E796DCA00D9AF15 /* MCAEmailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAEmailTableViewCell.xib; sourceTree = "<group>"; };
+		5BA7B8111E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPhoneNumberTableViewCell.swift; sourceTree = "<group>"; };
+		5BA7B8121E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPhoneNumberTableViewCell.xib; sourceTree = "<group>"; };
 		5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E47A37941517267D683EADE /* Pods-MCAProtect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.debug.xcconfig"; sourceTree = "<group>"; };
 		5E94C53AFF06DF89429C38BA /* Pods-MCAProtectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -881,6 +889,10 @@
 				5B3626A51E66A97400FC19E9 /* MCALiensPaymentsTVCell.xib */,
 				5B3626AA1E66CED700FC19E9 /* MCABankruptcyTVCell.swift */,
 				5B3626AB1E66CED700FC19E9 /* MCABankruptcyTVCell.xib */,
+				5BA7B80B1E796DCA00D9AF15 /* MCAEmailTableViewCell.swift */,
+				5BA7B80C1E796DCA00D9AF15 /* MCAEmailTableViewCell.xib */,
+				5BA7B8111E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift */,
+				5BA7B8121E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -1103,6 +1115,7 @@
 				5B8FC4A91E4C7E9600309CAB /* Roboto-Light.ttf in Resources */,
 				5B8FC4A61E4C7E9600309CAB /* Roboto-Bold.ttf in Resources */,
 				BA2FF56B1E7148D000A77970 /* MCASubmitStipulationsView.xib in Resources */,
+				5BA7B80E1E796DCA00D9AF15 /* MCAEmailTableViewCell.xib in Resources */,
 				BA2EA8551E66BC7F00145D33 /* MCASavedApplicationsListTVCell.xib in Resources */,
 				782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */,
 				7871E3481E55AF0A0019B707 /* MCAPerformanceComparisonCell.xib in Resources */,
@@ -1131,6 +1144,7 @@
 				5B8FC4AD1E4C7E9600309CAB /* Roboto-Regular.ttf in Resources */,
 				5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */,
 				BA8B686D1E5315C6004CEB69 /* MCAApplicationSummaryTVCell.xib in Resources */,
+				5BA7B8141E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib in Resources */,
 				5B643D171E5F282300AE89B1 /* MCAApplicationFormTVCell.xib in Resources */,
 				BABF751A1E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.xib in Resources */,
 				BA2EA84E1E66BC7F00145D33 /* MCASavedApplicationsBankRecordsTVCell.xib in Resources */,
@@ -1335,6 +1349,7 @@
 				BABF752F1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift in Sources */,
 				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
 				BA601F6A1E7917C300EB303C /* MCAAskFunderChatDashboardVC.swift in Sources */,
+				5BA7B80D1E796DCA00D9AF15 /* MCAEmailTableViewCell.swift in Sources */,
 				BABF750D1E66DB2C0062FB81 /* MCASavedApplicationsBankDetailsTVCell.swift in Sources */,
 				BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */,
 				BA2EA84B1E66BC7F00145D33 /* MCAApplicationFormVC.swift in Sources */,
@@ -1373,6 +1388,7 @@
 				5B4741CC1E570D2A001D9435 /* MCAProfileViewController.swift in Sources */,
 				5B7F7D401E6FF6710067F1DD /* MCAFPBusinessTypeVC.swift in Sources */,
 				5B90494F1E72881A00A49A50 /* MCAMatchedFundingProgramVC.swift in Sources */,
+				5BA7B8131E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift in Sources */,
 				5B4741C61E5488B5001D9435 /* MCATableViewCell.swift in Sources */,
 				5B9049501E72881A00A49A50 /* MCAMatchedFPListTVCell.swift in Sources */,
 				BA601F671E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift in Sources */,

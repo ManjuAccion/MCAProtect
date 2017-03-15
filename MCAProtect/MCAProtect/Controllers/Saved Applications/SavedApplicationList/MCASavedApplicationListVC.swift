@@ -44,7 +44,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell, for: indexPath) as! MCASavedApplicationsListTVCell
-        
+        cell.delegate = self
         cell.selectionStyle = .none
         cell.nameLabel.text = dataDataSource[indexPath.row]
         cell.amountLabel.text = amountDataSource[indexPath.row]
@@ -72,6 +72,6 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 60.0
+        return 113.0
     }
 }
