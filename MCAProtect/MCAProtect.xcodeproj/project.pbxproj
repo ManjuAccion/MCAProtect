@@ -115,6 +115,10 @@
 		BA601F641E78038100EB303C /* MCAAskFunderApplicationListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA601F621E78038100EB303C /* MCAAskFunderApplicationListTVCell.swift */; };
 		BA601F651E78038100EB303C /* MCAAskFunderApplicationListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA601F631E78038100EB303C /* MCAAskFunderApplicationListTVCell.xib */; };
 		BA601F671E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA601F661E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift */; };
+		BA601F6A1E7917C300EB303C /* MCAAskFunderChatDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA601F691E7917C300EB303C /* MCAAskFunderChatDashboardVC.swift */; };
+		BA601F6C1E79180900EB303C /* MCAAskFunderChatDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA601F6B1E79180900EB303C /* MCAAskFunderChatDetailVC.swift */; };
+		BA601F711E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA601F6F1E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.swift */; };
+		BA601F721E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA601F701E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.xib */; };
 		BA88AC9E1E4D791C003E3B2F /* MCASetMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88AC9D1E4D791C003E3B2F /* MCASetMPinVC.swift */; };
 		BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88AC9F1E4EE7D6003E3B2F /* MCAChangeMPinVC.swift */; };
 		BA88ACA21E50285B003E3B2F /* MCAResetMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88ACA11E50285B003E3B2F /* MCAResetMPINVC.swift */; };
@@ -274,6 +278,10 @@
 		BA601F621E78038100EB303C /* MCAAskFunderApplicationListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderApplicationListTVCell.swift; sourceTree = "<group>"; };
 		BA601F631E78038100EB303C /* MCAAskFunderApplicationListTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAAskFunderApplicationListTVCell.xib; sourceTree = "<group>"; };
 		BA601F661E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderApplicationSummaryVC.swift; sourceTree = "<group>"; };
+		BA601F691E7917C300EB303C /* MCAAskFunderChatDashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderChatDashboardVC.swift; sourceTree = "<group>"; };
+		BA601F6B1E79180900EB303C /* MCAAskFunderChatDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderChatDetailVC.swift; sourceTree = "<group>"; };
+		BA601F6F1E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderCommunicationTVCell.swift; sourceTree = "<group>"; };
+		BA601F701E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAAskFunderCommunicationTVCell.xib; sourceTree = "<group>"; };
 		BA88AC9D1E4D791C003E3B2F /* MCASetMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASetMPinVC.swift; sourceTree = "<group>"; };
 		BA88AC9F1E4EE7D6003E3B2F /* MCAChangeMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAChangeMPinVC.swift; sourceTree = "<group>"; };
 		BA88ACA11E50285B003E3B2F /* MCAResetMPINVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAResetMPINVC.swift; sourceTree = "<group>"; };
@@ -880,18 +888,11 @@
 		BA601F581E77E24400EB303C /* Ask Funder */ = {
 			isa = PBXGroup;
 			children = (
-				BA601F591E77E24400EB303C /* Application Form */,
+				BA601F681E79178F00EB303C /* Chat  */,
 				BA601F5A1E77E24400EB303C /* Application List */,
 				BA601F5B1E77E24400EB303C /* Application Summary */,
 			);
 			path = "Ask Funder";
-			sourceTree = "<group>";
-		};
-		BA601F591E77E24400EB303C /* Application Form */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Application Form";
 			sourceTree = "<group>";
 		};
 		BA601F5A1E77E24400EB303C /* Application List */ = {
@@ -910,6 +911,17 @@
 				BA601F661E781B7000EB303C /* MCAAskFunderApplicationSummaryVC.swift */,
 			);
 			path = "Application Summary";
+			sourceTree = "<group>";
+		};
+		BA601F681E79178F00EB303C /* Chat  */ = {
+			isa = PBXGroup;
+			children = (
+				BA601F691E7917C300EB303C /* MCAAskFunderChatDashboardVC.swift */,
+				BA601F6F1E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.swift */,
+				BA601F701E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.xib */,
+				BA601F6B1E79180900EB303C /* MCAAskFunderChatDetailVC.swift */,
+			);
+			path = "Chat ";
 			sourceTree = "<group>";
 		};
 		BABF75121E671ECE0062FB81 /* LiensAndPayments */ = {
@@ -1080,6 +1092,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA601F721E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.xib in Resources */,
 				782C69FD1E49B26000268356 /* Localizable.strings in Resources */,
 				5B8FC4A31E4C7E9600309CAB /* Apache License.txt in Resources */,
 				BA601F651E78038100EB303C /* MCAAskFunderApplicationListTVCell.xib in Resources */,
@@ -1321,6 +1334,7 @@
 				5B9049531E72A77900A49A50 /* MCAMatchedFundingProgram.swift in Sources */,
 				BABF752F1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift in Sources */,
 				782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */,
+				BA601F6A1E7917C300EB303C /* MCAAskFunderChatDashboardVC.swift in Sources */,
 				BABF750D1E66DB2C0062FB81 /* MCASavedApplicationsBankDetailsTVCell.swift in Sources */,
 				BA88ACA01E4EE7D6003E3B2F /* MCAChangeMPinVC.swift in Sources */,
 				BA2EA84B1E66BC7F00145D33 /* MCAApplicationFormVC.swift in Sources */,
@@ -1334,6 +1348,7 @@
 				BA2EA84D1E66BC7F00145D33 /* MCASavedApplicationsBankRecordsTVCell.swift in Sources */,
 				BABF751F1E68616E0062FB81 /* MCASALoanDetailVC.swift in Sources */,
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,
+				BA601F711E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.swift in Sources */,
 				BA2FF5671E713FCB00A77970 /* MCAMASubmitStipulationsVC.swift in Sources */,
 				BA8B68731E532390004CEB69 /* MCAApplicationTVCell.swift in Sources */,
 				5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */,
@@ -1350,6 +1365,7 @@
 				5B3626A61E66A97400FC19E9 /* MCALiensPaymentsTVCell.swift in Sources */,
 				BA34CD3E1E4C9E72001AF75F /* SecureInputView.swift in Sources */,
 				782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */,
+				BA601F6C1E79180900EB303C /* MCAAskFunderChatDetailVC.swift in Sources */,
 				BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */,
 				BA2EA8521E66BC7F00145D33 /* MCASavedApplicationDetailVC.swift in Sources */,
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,

@@ -76,8 +76,8 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
-            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }
     }
@@ -91,14 +91,14 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     
     @IBAction func resumeApplicationTapped(_ sender: Any) {
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
         applicationFormVC.applicationStatus = ApplicationStatus.ResumeApplication.rawValue
         navigationController?.pushViewController(applicationFormVC, animated: true)
     }
     
     @IBAction func copyApplicationTapped(_ sender: Any) {
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
         applicationFormVC.applicationStatus = ApplicationStatus.CopyApplication.rawValue
         navigationController?.pushViewController(applicationFormVC, animated: true)
     }

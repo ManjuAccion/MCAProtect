@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MCAAskFunderApplicationSummaryVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAAskFunderApplicationSummaryVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCAApplicationSummaryTVCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSourceKeys = ["Merchant","Loan Value","Term","Referred on","Status"]
+    var dataSourceKeys = ["Merchant","Loan Value","Term","Referred to","Referred on","Status"]
     var dataSourceValues = ["OySprays","$60,000.00","1 Month","Snap Advices","7 Days ago","Accepted"]
     var titleText: String?
     
@@ -42,6 +42,7 @@ class MCAAskFunderApplicationSummaryVC: MCABaseViewController,UITableViewDataSou
         cell.titleLabel.text = dataSourceKeys[indexPath.row]
         cell.dataTF.text = dataSourceValues[indexPath.row]
         cell.backgroundColor = UIColor.clear
+        cell.delegate = self
         
         if indexPath.row == 0 {
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
@@ -58,8 +59,8 @@ class MCAAskFunderApplicationSummaryVC: MCABaseViewController,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
-            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }
     }
@@ -67,6 +68,13 @@ class MCAAskFunderApplicationSummaryVC: MCABaseViewController,UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 60.0
+    }
+
+    
+    func rightActionButtonTapped() {
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAAskFunder, bundle: Bundle.main)
+        let askFunderChatDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAAskFunderChatDetailVC) as! MCAAskFunderChatDetailVC
+        navigationController?.pushViewController(askFunderChatDetailVC, animated: true)
     }
 
     

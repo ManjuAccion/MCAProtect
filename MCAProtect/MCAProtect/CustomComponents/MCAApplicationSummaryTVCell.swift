@@ -10,7 +10,7 @@ import UIKit
 
 protocol MCAApplicationSummaryTVCellDelegate {
     
-    func downloadButtonTapped()
+    func rightActionButtonTapped()
 }
 
 
@@ -34,11 +34,7 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
     }
 
     @IBAction func viewDetailsButtonTapped(_ sender: Any) {
-        delegate?.downloadButtonTapped()
-        
-//        let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
-//        let submitStipuationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
-//        self.navigationController?.pushViewController(submitStipuationsVC, animated: true)
+        delegate?.rightActionButtonTapped()
         
     }
 }

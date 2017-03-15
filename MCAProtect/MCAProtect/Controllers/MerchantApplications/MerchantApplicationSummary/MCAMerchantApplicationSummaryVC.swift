@@ -121,7 +121,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     }
     
     
-    func downloadButtonTapped() {
+    func rightActionButtonTapped() {
         switch applicationState {
         case ApplicationState.UnderWriting.rawValue:
             fallthrough

@@ -109,5 +109,57 @@
             </objects>
             <point key="canvasLocation" x="-1724" y="88.605697151424295"/>
         </scene>
+        <!--Ask Funder Chat DetailVC-->
+        <scene sceneID="xwS-PW-Fmk">
+            <objects>
+                <viewController storyboardIdentifier="MCAAskFunderChatDetailVC" id="Lsi-lb-v9b" customClass="MCAAskFunderChatDetailVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fkZ-Zt-CTb"/>
+                        <viewControllerLayoutGuide type="bottom" id="dTh-jh-Gjq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TVj-ow-brr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0a2-Ln-F8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1050" y="90"/>
+        </scene>
+        <!--Ask Funder Chat DashboardVC-->
+        <scene sceneID="oQA-yd-e5L">
+            <objects>
+                <viewController storyboardIdentifier="MCAAskFunderChatDashboardVC" id="2r2-0z-36n" customClass="MCAAskFunderChatDashboardVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z78-OL-034"/>
+                        <viewControllerLayoutGuide type="bottom" id="EAN-fF-1Lv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Ma-Iw-EIU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i8W-wl-l1V">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i8W-wl-l1V" firstAttribute="leading" secondItem="9Ma-Iw-EIU" secondAttribute="leading" id="IPi-Vh-GWw"/>
+                            <constraint firstAttribute="trailing" secondItem="i8W-wl-l1V" secondAttribute="trailing" id="Yj6-J3-9bg"/>
+                            <constraint firstItem="i8W-wl-l1V" firstAttribute="top" secondItem="9Ma-Iw-EIU" secondAttribute="top" id="aS9-nM-XWw"/>
+                            <constraint firstItem="EAN-fF-1Lv" firstAttribute="top" secondItem="i8W-wl-l1V" secondAttribute="bottom" id="sF8-nw-UlA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="i8W-wl-l1V" id="cMJ-m8-A3L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FDD-RN-Pqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-606" y="91"/>
+        </scene>
     </scenes>
 </document>
