@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -125,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a2-Ln-F8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1050" y="90"/>
+            <point key="canvasLocation" x="433" y="36"/>
         </scene>
         <!--Ask Funder Chat DashboardVC-->
         <scene sceneID="oQA-yd-e5L">
@@ -139,27 +140,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i8W-wl-l1V">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-GJ-RRe">
+                                <rect key="frame" x="0.0" y="117" width="375" height="550"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2r2-0z-36n" id="ufk-XI-nRn"/>
+                                    <outlet property="delegate" destination="2r2-0z-36n" id="E2Z-5L-kuB"/>
+                                </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgJ-le-2SA">
+                                <rect key="frame" x="299" y="587" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Af3-l8-ZKM"/>
+                                    <constraint firstAttribute="width" constant="60" id="K56-V1-M2s"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="8" height="0.0"/>
+                                <state key="normal" image="iconNewChat"/>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dB4-jm-AA4">
+                                <rect key="frame" x="16" y="74" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Recent"/>
+                                    <segment title="Merchant"/>
+                                    <segment title="Funder"/>
+                                </segments>
+                                <color key="tintColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="businessTypeSelected:" destination="2r2-0z-36n" eventType="valueChanged" id="7w2-dW-42S"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="i8W-wl-l1V" firstAttribute="leading" secondItem="9Ma-Iw-EIU" secondAttribute="leading" id="IPi-Vh-GWw"/>
-                            <constraint firstAttribute="trailing" secondItem="i8W-wl-l1V" secondAttribute="trailing" id="Yj6-J3-9bg"/>
-                            <constraint firstItem="i8W-wl-l1V" firstAttribute="top" secondItem="9Ma-Iw-EIU" secondAttribute="top" id="aS9-nM-XWw"/>
-                            <constraint firstItem="EAN-fF-1Lv" firstAttribute="top" secondItem="i8W-wl-l1V" secondAttribute="bottom" id="sF8-nw-UlA"/>
+                            <constraint firstItem="7GQ-GJ-RRe" firstAttribute="leading" secondItem="9Ma-Iw-EIU" secondAttribute="leading" id="Gyv-Zm-KPT"/>
+                            <constraint firstItem="dB4-jm-AA4" firstAttribute="top" secondItem="9Ma-Iw-EIU" secondAttribute="topMargin" constant="74" id="H0x-Qs-0A8"/>
+                            <constraint firstItem="EAN-fF-1Lv" firstAttribute="top" secondItem="7GQ-GJ-RRe" secondAttribute="bottom" id="JyI-tf-tjq"/>
+                            <constraint firstItem="EAN-fF-1Lv" firstAttribute="top" secondItem="zgJ-le-2SA" secondAttribute="bottom" constant="20" id="Zh5-fT-4km"/>
+                            <constraint firstItem="dB4-jm-AA4" firstAttribute="leading" secondItem="9Ma-Iw-EIU" secondAttribute="leadingMargin" id="dvt-lj-JZt"/>
+                            <constraint firstAttribute="trailing" secondItem="7GQ-GJ-RRe" secondAttribute="trailing" id="jEV-ef-Evs"/>
+                            <constraint firstItem="7GQ-GJ-RRe" firstAttribute="top" secondItem="dB4-jm-AA4" secondAttribute="bottom" constant="15" id="juy-Cy-wpr"/>
+                            <constraint firstItem="zgJ-le-2SA" firstAttribute="trailing" secondItem="9Ma-Iw-EIU" secondAttribute="trailingMargin" id="ur3-Ho-sUI"/>
+                            <constraint firstItem="dB4-jm-AA4" firstAttribute="trailing" secondItem="9Ma-Iw-EIU" secondAttribute="trailingMargin" id="v6x-QC-Fs7"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="i8W-wl-l1V" id="cMJ-m8-A3L"/>
+                        <outlet property="composeButton" destination="zgJ-le-2SA" id="uzo-Lz-9w8"/>
+                        <outlet property="tableView" destination="7GQ-GJ-RRe" id="NZf-TV-EU9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FDD-RN-Pqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-606" y="91"/>
+            <point key="canvasLocation" x="-607.20000000000005" y="90.404797601199405"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconNewChat" width="24" height="24"/>
+    </resources>
 </document>
