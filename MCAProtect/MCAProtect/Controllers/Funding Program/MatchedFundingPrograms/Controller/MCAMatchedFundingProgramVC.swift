@@ -12,6 +12,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
     @IBOutlet weak var setCommonRateButton : UIButton!
+    @IBOutlet weak var headerView : UIView!
+    
     var applicationState: Int!
 
     
@@ -27,6 +29,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         self.title = "Funding Programs"
         tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
         tableView.tableFooterView = UIView()
+
+        headerView.frame = CGRect(x:0,y:0,width:self.view.frame.size.width,height:170)
+        
         arrayOfModelObject  = NSMutableArray.init()
         
         for _   in dataDataSource
@@ -77,6 +82,18 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
 
         return 60
     }
+    
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return headerView.frame.size.height
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        return headerView
+    }
+    
+
     
     @IBAction func infoButtonTapped(_ sender: Any){
         
