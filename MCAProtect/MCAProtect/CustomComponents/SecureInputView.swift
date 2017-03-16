@@ -72,7 +72,7 @@ class SecureInputView : UIView {
                                             relatedBy: .equal,
                                                toItem: self,
                                             attribute: .width,
-                                           multiplier: 0.2,
+                                           multiplier: 0.25,
                                              constant: 0)
         
         let inputImageViewHeight = NSLayoutConstraint(item: inputImageView,
@@ -80,7 +80,7 @@ class SecureInputView : UIView {
                                              relatedBy: .equal,
                                                 toItem: self,
                                              attribute: .height,
-                                            multiplier: 0.2,
+                                            multiplier: 0.25,
                                               constant: 0)
         
         inputImageView.translatesAutoresizingMaskIntoConstraints = false

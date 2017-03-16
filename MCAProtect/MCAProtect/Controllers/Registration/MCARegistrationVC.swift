@@ -17,6 +17,8 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var passwordTF : UITextField!
     @IBOutlet weak var confirmPasswordTF : UITextField!
     @IBOutlet weak var userSelectedLabel : UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     var toolbar : UIToolbar?
     let textfieldHeight : CGFloat = 35
     let toolBarHeight : CGFloat = 44
@@ -35,6 +37,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         keyBoardHeight = 216
         self.title = "Brokerage Firm Registration"
        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        signUpButton.layer.cornerRadius = signUpButton.frame.height/2
 //       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         initilazeToolBar()
 

@@ -47,14 +47,7 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Hide the Navigation Bar Back Button
-
-//        let backButton = UIBarButtonItem(title: "",
-//                                         style: UIBarButtonItemStyle.plain,
-//                                         target: navigationController,
-//                                         action: nil)
-//        navigationItem.leftBarButtonItem = backButton
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
 
         registerForKeyboardNotifications()
     }
@@ -79,11 +72,8 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
     //MARK: - Custom Functions
     
     func loadUI() {
-        
 
-        
-        setPinButton.layer.cornerRadius = 5.0
-        
+        setPinButton.layer.cornerRadius = setPinButton.frame.height/2
         newPinSecureInputTF.becomeFirstResponder()
     }
     
@@ -194,21 +184,30 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
                 if string.isEmpty {
                     if textField.tag == 1
                     {
-                        newPinSecureInputView1.inputImageView.isHidden = true
+//                        newPinSecureInputView1.inputImageView.isHidden = true
+                        newPinSecureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
+
                     }
                     else
                     {
-                        confirmPinSecureInputView1.inputImageView.isHidden = true
+//                        confirmPinSecureInputView1.inputImageView.isHidden = true
+                        confirmPinSecureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
+
                     }
                 }
                 else {
                     if(textField.tag == 1)
                     {
-                        newPinSecureInputView1.inputImageView.isHidden = false
+//                        newPinSecureInputView1.inputImageView.isHidden = false
+                        newPinSecureInputView1.inputImageView.image = UIImage(named:"password")
+
+                        
                     }
                     else
                     {
-                        confirmPinSecureInputView1.inputImageView.isHidden = false
+//                        confirmPinSecureInputView1.inputImageView.isHidden = false
+                        confirmPinSecureInputView1.inputImageView.image = UIImage(named:"password")
+
                     }
                 }
                 
@@ -216,21 +215,29 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
                 if string.isEmpty {
                     if textField.tag == 1
                     {
-                        newPinSecureInputView2.inputImageView.isHidden = true
+//                        newPinSecureInputView2.inputImageView.isHidden = true
+                        newPinSecureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
+
                     }
                     else
                     {
-                        confirmPinSecureInputView2.inputImageView.isHidden = true
+//                        confirmPinSecureInputView2.inputImageView.isHidden = true
+                        confirmPinSecureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
+
                     }
                 }
                 else {
                     if(textField.tag == 1)
                     {
-                        newPinSecureInputView2.inputImageView.isHidden = false
+//                        newPinSecureInputView2.inputImageView.isHidden = false
+                        newPinSecureInputView2.inputImageView.image = UIImage(named:"password")
+
                     }
                     else
                     {
-                        confirmPinSecureInputView2.inputImageView.isHidden = false
+//                        confirmPinSecureInputView2.inputImageView.isHidden = false
+                        confirmPinSecureInputView2.inputImageView.image = UIImage(named:"password")
+
                     }
                 }
 
@@ -238,21 +245,29 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
                 if string.isEmpty {
                     if textField.tag == 1
                     {
-                        newPinSecureInputView3.inputImageView.isHidden = true
+//                        newPinSecureInputView3.inputImageView.isHidden = true
+                        newPinSecureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
+
                     }
                     else
                     {
-                        confirmPinSecureInputView3.inputImageView.isHidden = true
+//                        confirmPinSecureInputView3.inputImageView.isHidden = true
+                        confirmPinSecureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
+
                     }
                 }
                 else {
                     if(textField.tag == 1)
                     {
-                        newPinSecureInputView3.inputImageView.isHidden = false
+//                        newPinSecureInputView3.inputImageView.isHidden = false
+                        newPinSecureInputView3.inputImageView.image = UIImage(named:"password")
+
                     }
                     else
                     {
-                        confirmPinSecureInputView3.inputImageView.isHidden = false
+//                        confirmPinSecureInputView3.inputImageView.isHidden = false
+                        confirmPinSecureInputView3.inputImageView.image = UIImage(named:"password")
+
                     }
                 }
 
@@ -260,21 +275,28 @@ class MCASetMPinVC: UIViewController,UITextFieldDelegate {
                 if string.isEmpty {
                     if textField.tag == 1
                     {
-                        newPinSecureInputView4.inputImageView.isHidden = true
+//                        newPinSecureInputView4.inputImageView.isHidden = true
+                        newPinSecureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
+
                     }
                     else
                     {
-                        confirmPinSecureInputView4.inputImageView.isHidden = true
+//                        confirmPinSecureInputView4.inputImageView.isHidden = true
+                        confirmPinSecureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
                     }
                 }
                 else {
                     if(textField.tag == 1)
                     {
-                        newPinSecureInputView4.inputImageView.isHidden = false
+//                        newPinSecureInputView4.inputImageView.isHidden = false
+                        newPinSecureInputView4.inputImageView.image = UIImage(named:"password")
+
                     }
                     else
                     {
-                        confirmPinSecureInputView4.inputImageView.isHidden = false
+//                        confirmPinSecureInputView4.inputImageView.isHidden = false
+                        confirmPinSecureInputView4.inputImageView.image = UIImage(named:"password")
+
                     }
                 }
             default:

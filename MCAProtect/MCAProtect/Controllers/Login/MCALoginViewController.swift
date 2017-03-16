@@ -20,6 +20,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var userSelectedLabel : UILabel!
     @IBOutlet weak var dropDownButton : UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var overlayViewConstraint: NSLayoutConstraint!
     
@@ -33,6 +34,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     
             emailIDTextField.autocorrectionType = UITextAutocorrectionType.no
             passwordTextField.autocorrectionType = UITextAutocorrectionType.no
+        loginButton.layer.cornerRadius = loginButton.frame.height/2
         }
 
     override func viewWillAppear(_ animated: Bool) {
