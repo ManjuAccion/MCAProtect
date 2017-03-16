@@ -14,7 +14,8 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBOutlet weak var emailIDTF: JVFloatLabeledTextField!
+    @IBOutlet weak var emailIDTF: UITextField!
+//    @IBOutlet weak var emailIDTF: JVFloatLabeledTextField!
     var activeTextField : UITextField?
     var toolbar : UIToolbar?
     var doneButton : UIBarButtonItem?
@@ -29,7 +30,7 @@ class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         registerForKeyboardNotifications()
     }
     
