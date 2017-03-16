@@ -10,6 +10,7 @@ import UIKit
 
 class MCAMatchedFundingProgram: NSObject
 {
+    var  showDetails : Bool?
     var  isSelected : Bool?
     var  funderName : NSString?
     var  term :  NSString?
@@ -36,6 +37,7 @@ class MCAMatchedFundingProgram: NSObject
             upsellRate = ""
             totalRate = "10.0"
             isSelected = false
+            showDetails = false
         }
         
     }

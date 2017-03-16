@@ -18,6 +18,8 @@ class MCAMatchedFPListTVCell: UITableViewCell {
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var checkButton : UIButton!
     @IBOutlet weak var loanRangeLabel : UILabel!
+    @IBOutlet weak var detailButton: UIButton!
+    var shouldShowDetails : Bool?
     
     var delegate : MatchedFundingProgramCellDelegate?
     
@@ -33,6 +35,18 @@ class MCAMatchedFPListTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
        
         // Configure the view for the selected state
+    }
+
+    @IBAction func showDetails(_ sender: Any)
+    {
+        if(false == self.shouldShowDetails)
+        {
+            shouldShowDetails = true
+        }
+        else
+        {
+            shouldShowDetails = false
+        }
     }
     
     func updateDataSource(matchedFundingProgramObject : MCAMatchedFundingProgram)  {

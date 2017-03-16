@@ -12,13 +12,13 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
     @IBOutlet weak var setCommonRateButton : UIButton!
-    @IBOutlet weak var headerView : UIView!
+    var headerView : MCAMatchedFPHeaderView!
     
     var applicationState: Int!
 
     
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    var arrayOfModelObject : NSMutableArray?
+    var arrayOfModelObject : NSMutableArray!
     
     var matchedFundingProgram : MCAMatchedFundingProgram!
     var selectedItemsCount = 0;
@@ -26,44 +26,82 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Funding Programs"
-        tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
-        tableView.tableFooterView = UIView()
 
-        headerView.frame = CGRect(x:0,y:0,width:self.view.frame.size.width,height:170)
+}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         
         arrayOfModelObject  = NSMutableArray.init()
-        
         for _   in dataDataSource
         {
             matchedFundingProgram = MCAMatchedFundingProgram(data:nil)
             arrayOfModelObject? .add(matchedFundingProgram)
         }
         
+        self.title = "Funding Programs"
+        tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
+        
+
+        tableView.register(UINib(nibName: "MCAMatchedFPHeaderView", bundle: Bundle.main), forCellReuseIdentifier: "MCAFundingProgramDetailCell")
+
+        
+        tableView.tableFooterView = UIView()
+        
         tableView.reloadData()
-}
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.calculateFundingProgramSelectionCount()
+
     }
 
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated);
+        
+        self.calculateFundingProgramSelectionCount()
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return dataDataSource.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+      return arrayOfModelObject.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-       
-            let listTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAMatchedFPListTVCell", for: indexPath) as! MCAMatchedFPListTVCell
-        listTVCell .updateDataSource(matchedFundingProgramObject: arrayOfModelObject?.object(at: indexPath.row) as! MCAMatchedFundingProgram)
+        
+        if(indexPath.row == 0)
+        {
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: "MCAFundingProgramDetailCell", for: indexPath) as! MCAFundingProgramDetailCell
+            
+            headerCell.contentView.backgroundColor = UIColor.red
+            return headerCell;
+        }
+        
+        
+        let listTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAMatchedFPListTVCell", for: indexPath) as! MCAMatchedFPListTVCell
+        
+        listTVCell .updateDataSource(matchedFundingProgramObject: arrayOfModelObject?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram)
+        
+        
+        let matchedFundingPgm = arrayOfModelObject?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram;
+        
+        if(false == matchedFundingPgm.showDetails)
+        {
+            listTVCell.detailButton.setImage(UIImage(named: "iconArrowRight"), for: UIControlState.normal)
+        }
+        else
+        {
+            listTVCell.detailButton.setImage(UIImage(named: "iconArrowDown"), for: UIControlState.normal)
+        }
+        
+        
         listTVCell.delegate = self
-        listTVCell.checkButton.tag = indexPath.row
+        listTVCell.checkButton.tag = indexPath.row - 1
         listTVCell.selectionStyle = .none
         listTVCell.backgroundColor = UIColor.clear
         return listTVCell
@@ -71,29 +109,42 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyBoard = UIStoryboard(name: StoryboardName.MCAMatchedFundingProgram, bundle: Bundle.main)
-        let matchedFundingProgramDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFundingProgramDetailsVC") as! MCAFundingProgramDetailsVC
-        matchedFundingProgramDetailVC.matchedFundingProgram = arrayOfModelObject?.object(at: indexPath.row) as! MCAMatchedFundingProgram
-        navigationController?.pushViewController(matchedFundingProgramDetailVC, animated: true)
+        if(indexPath.row == 0)
+        {
+            return;
+        }
+        
+        
+        let matchedFP  = arrayOfModelObject?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram
+        
+        if(true == matchedFP.showDetails)
+        {
+            matchedFP.showDetails = false;
+        }
+        else
+        {
+            matchedFP.showDetails = true;
+        }
+
+        tableView.reloadData()
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
 
+        if(indexPath.row == 0)
+        {
+            return 170;
+        }
+        let matchedFP  = arrayOfModelObject?.object(at: indexPath.row > 0 ? indexPath.row  - 1 : 0) as! MCAMatchedFundingProgram
+        if(true == matchedFP.showDetails)
+        {
+            return 330
+        }
+        
         return 60
     }
-    
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-    {
-        return headerView.frame.size.height
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
-        return headerView
-    }
-    
-
     
     @IBAction func infoButtonTapped(_ sender: Any){
         
