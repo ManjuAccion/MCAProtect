@@ -1,17 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
         </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
@@ -21,7 +25,7 @@
         <!--RegistrationVC-->
         <scene sceneID="ddX-Hr-Qe3">
             <objects>
-                <viewController storyboardIdentifier="Registration" id="cnE-zg-xQA" customClass="MCARegistrationVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cnE-zg-xQA" customClass="MCARegistrationVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E0l-wC-4s4"/>
                         <viewControllerLayoutGuide type="bottom" id="8NM-xQ-qw1"/>
@@ -333,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6y-Kh-Qee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="107.49625187406298"/>
+            <point key="canvasLocation" x="956" y="54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xJJ-5W-5aw">
@@ -352,6 +356,234 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJU-Ln-aru" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="107.49625187406298"/>
+        </scene>
+        <!--RegistrationVC-->
+        <scene sceneID="8Bk-5E-Ipg">
+            <objects>
+                <viewController storyboardIdentifier="Registration" id="4rK-me-QyQ" customClass="MCARegistrationVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VW9-UX-AzT"/>
+                        <viewControllerLayoutGuide type="bottom" id="PFp-X9-HEY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jxe-Kl-hm5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@2017 MCA Protect All rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTP-V3-GIR">
+                                <rect key="frame" x="38" y="642" width="300" height="15"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="w03-Vc-Cbv">
+                                <rect key="frame" x="127" y="79" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="igu-PL-kiC"/>
+                                    <constraint firstAttribute="height" constant="120" id="z83-RT-90b"/>
+                                </constraints>
+                            </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zeq-CG-KXx" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="20" y="219" width="335" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Business Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-fh-dF2">
+                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4rK-me-QyQ" id="ypB-74-z3x"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jUc-fh-dF2" secondAttribute="trailing" constant="8" id="27Q-pu-BWv"/>
+                                    <constraint firstAttribute="height" constant="40" id="2eg-52-HtL"/>
+                                    <constraint firstItem="jUc-fh-dF2" firstAttribute="top" secondItem="Zeq-CG-KXx" secondAttribute="top" constant="5" id="2sE-c3-DHw"/>
+                                    <constraint firstAttribute="bottom" secondItem="jUc-fh-dF2" secondAttribute="bottom" constant="5" id="JsH-g3-Wfc"/>
+                                    <constraint firstItem="jUc-fh-dF2" firstAttribute="leading" secondItem="Zeq-CG-KXx" secondAttribute="leading" constant="8" id="djB-Gp-kie"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1H-jG-uZd" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="20" y="269" width="335" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l34-W0-kGp">
+                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4rK-me-QyQ" id="mPy-Sj-Hi8"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0Du-DS-QXR"/>
+                                    <constraint firstItem="l34-W0-kGp" firstAttribute="top" secondItem="c1H-jG-uZd" secondAttribute="top" constant="5" id="QeG-ng-eUP"/>
+                                    <constraint firstAttribute="bottom" secondItem="l34-W0-kGp" secondAttribute="bottom" constant="5" id="dgF-cu-7nf"/>
+                                    <constraint firstItem="l34-W0-kGp" firstAttribute="leading" secondItem="c1H-jG-uZd" secondAttribute="leading" constant="8" id="hIU-0S-cmZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="l34-W0-kGp" secondAttribute="trailing" constant="8" id="oaT-xR-0ft"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdg-RQ-qf8" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="20" y="319" width="335" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQs-Kz-dxg">
+                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4rK-me-QyQ" id="5ew-ew-h17"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eQs-Kz-dxg" firstAttribute="centerY" secondItem="bdg-RQ-qf8" secondAttribute="centerY" id="5ad-hW-S77"/>
+                                    <constraint firstItem="eQs-Kz-dxg" firstAttribute="top" secondItem="bdg-RQ-qf8" secondAttribute="top" constant="5" id="KPE-Tu-xkV"/>
+                                    <constraint firstItem="eQs-Kz-dxg" firstAttribute="leading" secondItem="bdg-RQ-qf8" secondAttribute="leadingMargin" id="KWI-YD-b1V"/>
+                                    <constraint firstAttribute="height" constant="40" id="WSP-Mt-htY"/>
+                                    <constraint firstItem="eQs-Kz-dxg" firstAttribute="trailing" secondItem="bdg-RQ-qf8" secondAttribute="trailingMargin" id="mpf-XX-qks"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eu4-sm-Buz" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="20" y="369" width="335" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-vU-DpL">
+                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4rK-me-QyQ" id="O8K-6A-tyh"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="21B-HL-4rh"/>
+                                    <constraint firstItem="u1V-vU-DpL" firstAttribute="leading" secondItem="eu4-sm-Buz" secondAttribute="leadingMargin" id="8IB-yR-nYB"/>
+                                    <constraint firstItem="u1V-vU-DpL" firstAttribute="trailing" secondItem="eu4-sm-Buz" secondAttribute="trailingMargin" id="Dti-oA-XLM"/>
+                                    <constraint firstItem="u1V-vU-DpL" firstAttribute="centerY" secondItem="eu4-sm-Buz" secondAttribute="centerY" id="I7k-WL-paw"/>
+                                    <constraint firstItem="u1V-vU-DpL" firstAttribute="top" secondItem="eu4-sm-Buz" secondAttribute="top" constant="5" id="sn7-vO-Gp8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srs-Wz-ve3" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="20" y="419" width="335" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-Rp-HXC">
+                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4rK-me-QyQ" id="DpQ-1g-Qrf"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="f2t-Rp-HXC" secondAttribute="trailing" constant="8" id="0I6-kE-fKP"/>
+                                    <constraint firstItem="f2t-Rp-HXC" firstAttribute="leading" secondItem="srs-Wz-ve3" secondAttribute="leading" constant="8" id="9Fg-Rr-i1B"/>
+                                    <constraint firstAttribute="height" constant="40" id="AjB-9V-bwZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="f2t-Rp-HXC" secondAttribute="bottom" constant="5" id="EXh-Xb-hZI"/>
+                                    <constraint firstItem="f2t-Rp-HXC" firstAttribute="top" secondItem="srs-Wz-ve3" secondAttribute="top" constant="5" id="fBi-m9-7NQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfQ-av-Cht">
+                                <rect key="frame" x="20" y="578" width="335" height="35"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="5gs-JQ-bvI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="17.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerButtonPressedWithSender:" destination="4rK-me-QyQ" eventType="touchUpInside" id="uuL-ru-f6Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="c1H-jG-uZd" firstAttribute="centerX" secondItem="Jxe-Kl-hm5" secondAttribute="centerX" id="2hi-bB-XdH"/>
+                            <constraint firstItem="w03-Vc-Cbv" firstAttribute="centerX" secondItem="Jxe-Kl-hm5" secondAttribute="centerX" id="4BJ-Pc-gWS"/>
+                            <constraint firstItem="bdg-RQ-qf8" firstAttribute="top" secondItem="c1H-jG-uZd" secondAttribute="bottom" constant="10" id="6Xq-bc-Pmz"/>
+                            <constraint firstItem="wTP-V3-GIR" firstAttribute="centerX" secondItem="Jxe-Kl-hm5" secondAttribute="centerX" id="6oT-5E-Y2U"/>
+                            <constraint firstItem="PfQ-av-Cht" firstAttribute="width" secondItem="Jxe-Kl-hm5" secondAttribute="width" multiplier="0.895" id="Fxn-jj-fAf"/>
+                            <constraint firstItem="srs-Wz-ve3" firstAttribute="centerX" secondItem="Jxe-Kl-hm5" secondAttribute="centerX" id="Hn9-2x-kXr"/>
+                            <constraint firstItem="wTP-V3-GIR" firstAttribute="width" secondItem="Jxe-Kl-hm5" secondAttribute="width" multiplier="0.8" id="JQb-N9-4ox"/>
+                            <constraint firstItem="srs-Wz-ve3" firstAttribute="width" secondItem="Jxe-Kl-hm5" secondAttribute="width" multiplier="0.895" id="WRZ-zy-Grs"/>
+                            <constraint firstItem="PFp-X9-HEY" firstAttribute="top" secondItem="wTP-V3-GIR" secondAttribute="bottom" constant="10" id="aeC-qJ-PdV"/>
+                            <constraint firstItem="eu4-sm-Buz" firstAttribute="top" secondItem="bdg-RQ-qf8" secondAttribute="bottom" constant="10" id="c4L-yh-oKI"/>
+                            <constraint firstItem="bdg-RQ-qf8" firstAttribute="centerX" secondItem="Jxe-Kl-hm5" secondAttribute="centerX" id="ely-gu-Imw"/>
+                            <constraint firstItem="Zeq-CG-KXx" firstAttribute="width" secondItem="Jxe-Kl-hm5" secondAttribute="width" multiplier="0.895" id="fPe-sS-79k"/>
+                            <constraint firstItem="Zeq-CG-KXx" firstAttribute="top" secondItem="w03-Vc-Cbv" secondAttribute="bottom" constant="20" id="ij6-T5-mob"/>
+                            <constraint firstItem="Zeq-CG-KXx" firstAttribute="centerX" secondItem="Jxe-Kl-hm5" secondAttribute="centerX" id="kkD-zK-Amh"/>
+                            <constraint firstItem="bdg-RQ-qf8" firstAttribute="width" secondItem="Jxe-Kl-hm5" secondAttribute="width" multiplier="0.895" id="lML-dv-5lW"/>
+                            <constraint firstItem="eu4-sm-Buz" firstAttribute="centerX" secondItem="Jxe-Kl-hm5" secondAttribute="centerX" id="mnM-Uz-odV"/>
+                            <constraint firstItem="eu4-sm-Buz" firstAttribute="width" secondItem="Jxe-Kl-hm5" secondAttribute="width" multiplier="0.895" id="nKh-sz-UPj"/>
+                            <constraint firstItem="w03-Vc-Cbv" firstAttribute="top" secondItem="Jxe-Kl-hm5" secondAttribute="topMargin" constant="79" id="qKe-Lw-LXr"/>
+                            <constraint firstItem="wTP-V3-GIR" firstAttribute="top" secondItem="PfQ-av-Cht" secondAttribute="bottom" constant="29" id="rQf-Pr-vka"/>
+                            <constraint firstItem="PfQ-av-Cht" firstAttribute="centerX" secondItem="Jxe-Kl-hm5" secondAttribute="centerX" id="uZP-Hm-LwU"/>
+                            <constraint firstItem="c1H-jG-uZd" firstAttribute="top" secondItem="Zeq-CG-KXx" secondAttribute="bottom" constant="10" id="wQH-rh-GXT"/>
+                            <constraint firstItem="srs-Wz-ve3" firstAttribute="top" secondItem="eu4-sm-Buz" secondAttribute="bottom" constant="10" id="xr0-Fk-UKk"/>
+                            <constraint firstItem="c1H-jG-uZd" firstAttribute="width" secondItem="Jxe-Kl-hm5" secondAttribute="width" multiplier="0.895" id="yCG-vu-ZDE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2xy-9k-VwA"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="businessNameTF" destination="jUc-fh-dF2" id="eWw-RI-tYv"/>
+                        <outlet property="confirmPasswordTF" destination="f2t-Rp-HXC" id="aYR-HC-Y6e"/>
+                        <outlet property="emailTF" destination="l34-W0-kGp" id="5SD-Ml-eEc"/>
+                        <outlet property="passwordTF" destination="u1V-vU-DpL" id="Fsn-oy-F6j"/>
+                        <outlet property="phoneNumberTF" destination="eQs-Kz-dxg" id="s9a-nm-opI"/>
+                        <outlet property="topSpaceConstraints" destination="qKe-Lw-LXr" id="Xd6-k8-TGT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="naD-Gp-DQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="62.518740629685162"/>
         </scene>
     </scenes>
     <resources>

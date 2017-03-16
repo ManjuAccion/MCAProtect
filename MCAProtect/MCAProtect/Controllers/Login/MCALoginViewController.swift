@@ -10,9 +10,12 @@ import UIKit
 import JVFloatLabeledTextField
 
 class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIActionSheetDelegate {
-    
-    @IBOutlet weak var emailIDTextField : JVFloatLabeledTextField!
-    @IBOutlet weak var passwordTextField : JVFloatLabeledTextField!
+
+    @IBOutlet weak var emailIDOverLayView : MCARoundedOverlayView!
+    @IBOutlet weak var passwordOverLayView : MCARoundedOverlayView!
+
+    @IBOutlet weak var emailIDTextField : UITextField!
+    @IBOutlet weak var passwordTextField : UITextField!
     @IBOutlet weak var rememberPasswordBtn : UIButton!
     @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var userSelectedLabel : UILabel!
@@ -25,8 +28,8 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     //       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
 //            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-            let userSelectionTapGesture  = UITapGestureRecognizer(target: self, action:#selector(handleuserSelectionTapGesture))
-            userSelectedLabel.addGestureRecognizer(userSelectionTapGesture)
+//            let userSelectionTapGesture  = UITapGestureRecognizer(target: self, action:#selector(handleuserSelectionTapGesture))
+//            userSelectedLabel.addGestureRecognizer(userSelectionTapGesture)
     
             emailIDTextField.autocorrectionType = UITextAutocorrectionType.no
             passwordTextField.autocorrectionType = UITextAutocorrectionType.no
@@ -35,9 +38,12 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = true;
-        rememberPasswordBtn.setBackgroundImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+//        rememberPasswordBtn.setBackgroundImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
         rememberPasswordBtn.isSelected = false
 
+        
+
+//        btnBgColor
 
     }
 

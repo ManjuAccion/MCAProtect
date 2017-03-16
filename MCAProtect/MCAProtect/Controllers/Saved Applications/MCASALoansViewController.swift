@@ -28,6 +28,7 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
     
     public func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
     {
+        
         return 1;
     }
     

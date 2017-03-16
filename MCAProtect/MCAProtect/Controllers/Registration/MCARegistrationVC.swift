@@ -11,11 +11,11 @@ import JVFloatLabeledTextField
 
 class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var scrollView : UIScrollView!
-    @IBOutlet weak var businessNameTF : JVFloatLabeledTextField!
-    @IBOutlet weak var emailTF : JVFloatLabeledTextField!
-    @IBOutlet weak var phoneNumberTF : JVFloatLabeledTextField!
-    @IBOutlet weak var passwordTF : JVFloatLabeledTextField!
-    @IBOutlet weak var confirmPasswordTF : JVFloatLabeledTextField!
+    @IBOutlet weak var businessNameTF : UITextField!
+    @IBOutlet weak var emailTF : UITextField!
+    @IBOutlet weak var phoneNumberTF : UITextField!
+    @IBOutlet weak var passwordTF : UITextField!
+    @IBOutlet weak var confirmPasswordTF : UITextField!
     @IBOutlet weak var userSelectedLabel : UILabel!
     var toolbar : UIToolbar?
     let textfieldHeight : CGFloat = 35
@@ -40,11 +40,11 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
 
 
         self.navigationController?.navigationBar.isHidden = false
-        businessNameTF.autocorrectionType = UITextAutocorrectionType.no
-        emailTF.autocorrectionType = UITextAutocorrectionType.no
-        phoneNumberTF.autocorrectionType = UITextAutocorrectionType.no
-        passwordTF.autocorrectionType = UITextAutocorrectionType.no
-        confirmPasswordTF.autocorrectionType = UITextAutocorrectionType.no
+//        businessNameTF.autocorrectionType = UITextAutocorrectionType.no
+//        emailTF.autocorrectionType = UITextAutocorrectionType.no
+//        phoneNumberTF.autocorrectionType = UITextAutocorrectionType.no
+//        passwordTF.autocorrectionType = UITextAutocorrectionType.no
+//        confirmPasswordTF.autocorrectionType = UITextAutocorrectionType.no
 
         isAllDetailsPresent = true
            }

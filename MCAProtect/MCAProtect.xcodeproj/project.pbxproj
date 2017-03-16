@@ -64,6 +64,7 @@
 		5BA7B8131E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7B8111E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift */; };
 		5BA7B8141E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA7B8121E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib */; };
 		6A9F9B00E60E6F389BC9AD86 /* Pods_MCAProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */; };
+		7804B62A1E7A95FD00DA9777 /* MCARoundedOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B6291E7A95FD00DA9777 /* MCARoundedOverlayView.swift */; };
 		782BF0D61E5187EF00B79009 /* MCAPerformanceComparisonVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782BF0D51E5187EF00B79009 /* MCAPerformanceComparisonVS.swift */; };
 		782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782C69A91E49ACC500268356 /* Assets.xcassets */; };
 		782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */; };
@@ -233,6 +234,7 @@
 		5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E47A37941517267D683EADE /* Pods-MCAProtect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.debug.xcconfig"; sourceTree = "<group>"; };
 		5E94C53AFF06DF89429C38BA /* Pods-MCAProtectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7804B6291E7A95FD00DA9777 /* MCARoundedOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARoundedOverlayView.swift; sourceTree = "<group>"; };
 		782BF0D51E5187EF00B79009 /* MCAPerformanceComparisonVS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonVS.swift; sourceTree = "<group>"; };
 		782C699F1E49ACC500268356 /* MCAProtect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCAProtect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		782C69A91E49ACC500268356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -876,6 +878,7 @@
 		BA34CD3C1E4C9E72001AF75F /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				7804B6291E7A95FD00DA9777 /* MCARoundedOverlayView.swift */,
 				BA34CD3D1E4C9E72001AF75F /* SecureInputView.swift */,
 				BA8B686C1E5315C6004CEB69 /* MCAApplicationSummaryTVCell.xib */,
 				BA8B686E1E531B66004CEB69 /* MCAApplicationSummaryTVCell.swift */,
@@ -1369,6 +1372,7 @@
 				5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */,
 				BA601F641E78038100EB303C /* MCAAskFunderApplicationListTVCell.swift in Sources */,
 				BA2FF56D1E7148E300A77970 /* MCASubmitStipulationsView.swift in Sources */,
+				7804B62A1E7A95FD00DA9777 /* MCARoundedOverlayView.swift in Sources */,
 				BABF75141E671ECE0062FB81 /* MCASALiensPaymentsVC.swift in Sources */,
 				5B9049561E76C3E100A49A50 /* MCAGenericPopViewController.swift in Sources */,
 				5B4741B81E533397001D9435 /* MCALeftMenuVC.swift in Sources */,
