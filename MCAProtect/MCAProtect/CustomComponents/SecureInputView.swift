@@ -29,9 +29,9 @@ class SecureInputView : UIView {
     override func awakeFromNib() {
         
         inputImageView = UIImageView.init(frame: CGRect(x:0,y:0,width:0,height:0))
-        inputImageView.image = UIImage(named: "pinIcon")
+        inputImageView.image = UIImage(named: "pinPlacement")
         inputImageView.contentMode = .scaleAspectFit
-        inputImageView.isHidden = true
+//        inputImageView.isHidden = true
         self.addSubview(inputImageView)
         
         inputLabel = UILabel.init(frame: CGRect(x:0,
@@ -43,7 +43,7 @@ class SecureInputView : UIView {
         
         initialPlaceholderView = UIView.init(frame: CGRect(x:0,y:0,width:0,height:0))
         initialPlaceholderView.backgroundColor = UIColor.red
-        self.addSubview(initialPlaceholderView)
+//        self.addSubview(initialPlaceholderView)
 
     }
     
@@ -132,44 +132,44 @@ class SecureInputView : UIView {
         
         //initialPlaceholderView Constarints
         
-        let initialPlaceholderViewBottom = NSLayoutConstraint(item: initialPlaceholderView,
-                                                   attribute: .bottom,
-                                                   relatedBy: .equal,
-                                                   toItem: self,
-                                                   attribute: .bottom,
-                                                   multiplier: 1.0,
-                                                   constant: -2)
+//        let initialPlaceholderViewBottom = NSLayoutConstraint(item: initialPlaceholderView,
+//                                                   attribute: .bottom,
+//                                                   relatedBy: .equal,
+//                                                   toItem: self,
+//                                                   attribute: .bottom,
+//                                                   multiplier: 1.0,
+//                                                   constant: -2)
+//        
+//        let initialPlaceholderViewCenterX = NSLayoutConstraint(item: initialPlaceholderView,
+//                                                   attribute: .centerX,
+//                                                   relatedBy: .equal,
+//                                                   toItem: self,
+//                                                   attribute: .centerX,
+//                                                   multiplier: 1.0,
+//                                                   constant: 0)
+//        
+//        let initialPlaceholderViewWidth = NSLayoutConstraint(item: initialPlaceholderView,
+//                                                 attribute: .width,
+//                                                 relatedBy: .equal,
+//                                                 toItem: self,
+//                                                 attribute: .width,
+//                                                 multiplier: 0.6,
+//                                                 constant: 0)
+//        
+//        let initialPlaceholderViewHeight = NSLayoutConstraint(item: initialPlaceholderView,
+//                                                  attribute: .height,
+//                                                  relatedBy: .equal,
+//                                                  toItem: self,
+//                                                  attribute: .height,
+//                                                  multiplier: 0,
+//                                                  constant: 1)
         
-        let initialPlaceholderViewCenterX = NSLayoutConstraint(item: initialPlaceholderView,
-                                                   attribute: .centerX,
-                                                   relatedBy: .equal,
-                                                   toItem: self,
-                                                   attribute: .centerX,
-                                                   multiplier: 1.0,
-                                                   constant: 0)
-        
-        let initialPlaceholderViewWidth = NSLayoutConstraint(item: initialPlaceholderView,
-                                                 attribute: .width,
-                                                 relatedBy: .equal,
-                                                 toItem: self,
-                                                 attribute: .width,
-                                                 multiplier: 0.6,
-                                                 constant: 0)
-        
-        let initialPlaceholderViewHeight = NSLayoutConstraint(item: initialPlaceholderView,
-                                                  attribute: .height,
-                                                  relatedBy: .equal,
-                                                  toItem: self,
-                                                  attribute: .height,
-                                                  multiplier: 0,
-                                                  constant: 1)
-        
-        initialPlaceholderView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([initialPlaceholderViewBottom,
-                                     initialPlaceholderViewCenterX,
-                                     initialPlaceholderViewWidth,
-                                     initialPlaceholderViewHeight]);
+//        initialPlaceholderView.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        NSLayoutConstraint.activate([initialPlaceholderViewBottom,
+//                                     initialPlaceholderViewCenterX,
+//                                     initialPlaceholderViewWidth,
+//                                     initialPlaceholderViewHeight]);
     }
     
     

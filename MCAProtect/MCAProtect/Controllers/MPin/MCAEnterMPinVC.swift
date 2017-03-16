@@ -37,6 +37,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleSecureInputContainerViewTapGesture))
         secureInputContainerView.addGestureRecognizer(newPinContainerViewTapGesture)
         initilazeToolBar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +63,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func loadUI() {
         secureInputTF.autocorrectionType = UITextAutocorrectionType.no
-        loginButton.layer.cornerRadius = 5.0
+        loginButton.layer.cornerRadius = loginButton.frame.height/2
     }
     
     func initilazeToolBar() {
@@ -173,33 +174,44 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
                 
             case 0:
                 if string.isEmpty {
-                    secureInputView1.inputImageView.isHidden = true
+//                    secureInputView1.inputImageView.isHidden = true
+                    secureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
+
                 }
                 else {
-                    secureInputView1.inputImageView.isHidden = false
+//                    secureInputView1.inputImageView.isHidden = false
+                    secureInputView1.inputImageView.image = UIImage(named:"password")
                 }
                 
             case 1:
                 if string.isEmpty {
-                    secureInputView2.inputImageView.isHidden = true
+//                    secureInputView2.inputImageView.isHidden = true
+                    secureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
-                    secureInputView2.inputImageView.isHidden = false
+//                    secureInputView2.inputImageView.isHidden = false
+                    secureInputView2.inputImageView.image = UIImage(named:"password")
                 }
             case 2:
                 if string.isEmpty {
-                    secureInputView3.inputImageView.isHidden = true
+//                    secureInputView2.inputImageView.isHidden = true
+                    secureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
-                    secureInputView3.inputImageView.isHidden = false
+//                    secureInputView2.inputImageView.isHidden = false
+                    secureInputView3.inputImageView.image = UIImage(named:"password")
                 }
+
             case 3:
                 if string.isEmpty {
-                    secureInputView4.inputImageView.isHidden = true
+//                    secureInputView2.inputImageView.isHidden = true
+                    secureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
-                    secureInputView4.inputImageView.isHidden = false
+//                    secureInputView2.inputImageView.isHidden = false
+                    secureInputView4.inputImageView.image = UIImage(named:"password")
                 }
+
             default:
                 print("Default Value")
             }
