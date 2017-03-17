@@ -30,7 +30,7 @@ class SecureInputView : UIView {
         
         inputImageView = UIImageView.init(frame: CGRect(x:0,y:0,width:0,height:0))
         inputImageView.image = UIImage(named: "pinPlacement")
-        inputImageView.contentMode = .scaleAspectFit
+        inputImageView.contentMode = .center
 //        inputImageView.isHidden = true
         self.addSubview(inputImageView)
         
