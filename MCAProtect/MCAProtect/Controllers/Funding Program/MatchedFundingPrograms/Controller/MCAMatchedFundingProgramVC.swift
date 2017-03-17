@@ -18,7 +18,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
 
     
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    var arrayOfModelObject : NSMutableArray!
+    var matchedFPList : NSMutableArray!
     
     var matchedFundingProgram : MCAMatchedFundingProgram!
     var selectedItemsCount = 0;
@@ -31,16 +31,14 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-        arrayOfModelObject  = NSMutableArray.init()
+        matchedFPList  = NSMutableArray.init()
         for _   in dataDataSource
         {
             matchedFundingProgram = MCAMatchedFundingProgram(data:nil)
-            arrayOfModelObject? .add(matchedFundingProgram)
+            matchedFPList? .add(matchedFundingProgram)
         }
         
-        self.title = "Funding Programs"
+        self.title = "Matched Funding Programs"
         tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
         
 
@@ -68,7 +66,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-      return arrayOfModelObject.count + 1
+      return matchedFPList.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -83,28 +81,28 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         }
         
         
-        let listTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAMatchedFPListTVCell", for: indexPath) as! MCAMatchedFPListTVCell
+        let MatchedFPListTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAMatchedFPListTVCell", for: indexPath) as! MCAMatchedFPListTVCell
         
-        listTVCell .updateDataSource(matchedFundingProgramObject: arrayOfModelObject?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram)
+        MatchedFPListTVCell .updateDataSource(matchedFundingProgramObject: matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram)
         
         
-        let matchedFundingPgm = arrayOfModelObject?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram;
+        let matchedFundingPgm = matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram;
         
         if(false == matchedFundingPgm.showDetails)
         {
-            listTVCell.detailButton.setImage(UIImage(named: "iconArrowRight"), for: UIControlState.normal)
+            MatchedFPListTVCell.detailButton.setImage(UIImage(named: "iconArrowRight"), for: UIControlState.normal)
         }
         else
         {
-            listTVCell.detailButton.setImage(UIImage(named: "iconArrowDown"), for: UIControlState.normal)
+            MatchedFPListTVCell.detailButton.setImage(UIImage(named: "iconArrowDown"), for: UIControlState.normal)
         }
         
         
-        listTVCell.delegate = self
-        listTVCell.checkButton.tag = indexPath.row - 1
-        listTVCell.selectionStyle = .none
-        listTVCell.backgroundColor = UIColor.clear
-        return listTVCell
+        MatchedFPListTVCell.delegate = self
+        MatchedFPListTVCell.checkButton.tag = indexPath.row - 1
+        MatchedFPListTVCell.selectionStyle = .none
+        MatchedFPListTVCell.backgroundColor = UIColor.clear
+        return MatchedFPListTVCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -115,7 +113,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         }
         
         
-        let matchedFP  = arrayOfModelObject?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram
+        let matchedFP  = matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram
         
         if(true == matchedFP.showDetails)
         {
@@ -137,7 +135,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         {
             return 170;
         }
-        let matchedFP  = arrayOfModelObject?.object(at: indexPath.row > 0 ? indexPath.row  - 1 : 0) as! MCAMatchedFundingProgram
+        let matchedFP  = matchedFPList?.object(at: indexPath.row > 0 ? indexPath.row  - 1 : 0) as! MCAMatchedFundingProgram
         if(true == matchedFP.showDetails)
         {
             return 330
@@ -165,7 +163,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func programSelected(buttonTag : Int)
     {
-        let selectedProgram : MCAMatchedFundingProgram = arrayOfModelObject! .object(at: buttonTag) as! MCAMatchedFundingProgram
+        let selectedProgram : MCAMatchedFundingProgram = matchedFPList! .object(at: buttonTag) as! MCAMatchedFundingProgram
         selectedProgram.isSelected = true
         selectedItemsCount = selectedItemsCount + 1
         selectedCountLabel.text = "\(selectedItemsCount)"
@@ -175,7 +173,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func programDeSelected(buttonTag : Int)
     {
-        let deselectedProgram : MCAMatchedFundingProgram = arrayOfModelObject! .object(at: buttonTag) as! MCAMatchedFundingProgram
+        let deselectedProgram : MCAMatchedFundingProgram = matchedFPList! .object(at: buttonTag) as! MCAMatchedFundingProgram
         deselectedProgram.isSelected = false
         selectedItemsCount = selectedItemsCount - 1
         selectedCountLabel.text = "\(selectedItemsCount)"
@@ -199,7 +197,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         selectedItemsCount = 0
 
-        for matchedFundingProgram  in arrayOfModelObject!
+        for matchedFundingProgram  in matchedFPList!
         {
             if ((matchedFundingProgram as! MCAMatchedFundingProgram).isSelected == true)
             {
@@ -215,7 +213,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     @IBAction func clearButtonTapped()
     {
-        for matchedFundingProgram  in arrayOfModelObject!
+        for matchedFundingProgram  in matchedFPList!
         {
            (matchedFundingProgram as! MCAMatchedFundingProgram).isSelected = false
         }

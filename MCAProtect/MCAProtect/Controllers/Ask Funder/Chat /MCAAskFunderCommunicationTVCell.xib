@@ -41,7 +41,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xenon LED's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbz-Pz-efu">
-                    <rect key="frame" x="67" y="8" width="214" height="20"/>
+                    <rect key="frame" x="67" y="8" width="214" height="19"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="214" id="0WR-Jw-4fS"/>
                     </constraints>
@@ -49,14 +49,14 @@
                     <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srg-Es-kII">
-                    <rect key="frame" x="67" y="32" width="292" height="33"/>
-                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="srg-Es-kII">
+                    <rect key="frame" x="67" y="31" width="292" height="36"/>
+                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="11"/>
                     <color key="textColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="15 Days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0X-nR-cYn">
-                    <rect key="frame" x="289" y="8" width="70" height="15"/>
+                    <rect key="frame" x="295" y="8" width="64" height="18"/>
                     <fontDescription key="fontDescription" name="Roboto-LightItalic" family="Roboto" pointSize="12"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -77,15 +77,14 @@
                 <constraint firstItem="CGd-nm-iCh" firstAttribute="leading" secondItem="fnK-vr-dC8" secondAttribute="leading" id="3rM-05-wIV"/>
                 <constraint firstItem="EQd-9s-VkG" firstAttribute="top" secondItem="fnK-vr-dC8" secondAttribute="top" id="5RR-wZ-I2h"/>
                 <constraint firstItem="srg-Es-kII" firstAttribute="top" secondItem="jbz-Pz-efu" secondAttribute="bottom" constant="4" id="5Sp-gU-ImO"/>
+                <constraint firstItem="srg-Es-kII" firstAttribute="trailing" secondItem="q0X-nR-cYn" secondAttribute="trailing" id="6Eg-RK-cOY"/>
                 <constraint firstItem="srg-Es-kII" firstAttribute="leading" secondItem="Zcc-ws-0wG" secondAttribute="trailing" constant="11" id="AkF-Fn-5VK"/>
                 <constraint firstItem="jbz-Pz-efu" firstAttribute="top" secondItem="q0X-nR-cYn" secondAttribute="top" id="FmB-uM-If4"/>
                 <constraint firstAttribute="trailing" secondItem="CGd-nm-iCh" secondAttribute="trailing" id="HdI-uO-Zmy"/>
-                <constraint firstItem="q0X-nR-cYn" firstAttribute="leading" secondItem="jbz-Pz-efu" secondAttribute="trailing" constant="8" symbolic="YES" id="HeJ-Zg-7Zy"/>
-                <constraint firstItem="srg-Es-kII" firstAttribute="top" secondItem="q0X-nR-cYn" secondAttribute="bottom" constant="9" id="OhR-Yp-5IL"/>
-                <constraint firstAttribute="trailing" secondItem="srg-Es-kII" secondAttribute="trailing" constant="16" id="XTP-Xv-gTn"/>
+                <constraint firstItem="srg-Es-kII" firstAttribute="top" secondItem="q0X-nR-cYn" secondAttribute="bottom" constant="5" id="OhR-Yp-5IL"/>
                 <constraint firstAttribute="trailing" secondItem="q0X-nR-cYn" secondAttribute="trailing" constant="16" id="Yt4-ok-cqu"/>
                 <constraint firstItem="q0X-nR-cYn" firstAttribute="top" secondItem="fnK-vr-dC8" secondAttribute="top" constant="8" id="e6u-qI-CEz"/>
-                <constraint firstItem="CGd-nm-iCh" firstAttribute="top" secondItem="srg-Es-kII" secondAttribute="bottom" constant="4" id="feZ-3q-tti"/>
+                <constraint firstItem="CGd-nm-iCh" firstAttribute="top" secondItem="srg-Es-kII" secondAttribute="bottom" constant="2" id="feZ-3q-tti"/>
                 <constraint firstAttribute="bottom" secondItem="CGd-nm-iCh" secondAttribute="bottom" id="fkc-zD-H1v"/>
                 <constraint firstItem="Zcc-ws-0wG" firstAttribute="leading" secondItem="EQd-9s-VkG" secondAttribute="trailing" constant="8" id="iVL-h4-WjK"/>
                 <constraint firstItem="Zcc-ws-0wG" firstAttribute="top" secondItem="fnK-vr-dC8" secondAttribute="top" constant="13" id="lxg-KR-0Fi"/>
