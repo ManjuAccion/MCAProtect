@@ -174,42 +174,42 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
                 
             case 0:
                 if string.isEmpty {
-//                    secureInputView1.inputImageView.isHidden = true
-                    secureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
+                    secureInputView1.inputImageView.isHidden = true
+//                    secureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
 
                 }
                 else {
-//                    secureInputView1.inputImageView.isHidden = false
-                    secureInputView1.inputImageView.image = UIImage(named:"password")
+                    secureInputView1.inputImageView.isHidden = false
+//                    secureInputView1.inputImageView.image = UIImage(named:"password")
                 }
                 
             case 1:
                 if string.isEmpty {
-//                    secureInputView2.inputImageView.isHidden = true
-                    secureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
+                    secureInputView2.inputImageView.isHidden = true
+//                    secureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
-//                    secureInputView2.inputImageView.isHidden = false
-                    secureInputView2.inputImageView.image = UIImage(named:"password")
+                    secureInputView2.inputImageView.isHidden = false
+//                    secureInputView2.inputImageView.image = UIImage(named:"password")
                 }
             case 2:
                 if string.isEmpty {
-//                    secureInputView2.inputImageView.isHidden = true
-                    secureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
+                    secureInputView3.inputImageView.isHidden = true
+//                    secureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
-//                    secureInputView2.inputImageView.isHidden = false
-                    secureInputView3.inputImageView.image = UIImage(named:"password")
+                    secureInputView3.inputImageView.isHidden = false
+//                    secureInputView3.inputImageView.image = UIImage(named:"password")
                 }
 
             case 3:
                 if string.isEmpty {
-//                    secureInputView2.inputImageView.isHidden = true
-                    secureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
+                    secureInputView4.inputImageView.isHidden = true
+//                    secureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
-//                    secureInputView2.inputImageView.isHidden = false
-                    secureInputView4.inputImageView.image = UIImage(named:"password")
+                    secureInputView4.inputImageView.isHidden = false
+//                    secureInputView4.inputImageView.image = UIImage(named:"password")
                 }
 
             default:
