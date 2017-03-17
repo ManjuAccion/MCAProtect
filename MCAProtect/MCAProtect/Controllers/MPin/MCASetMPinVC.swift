@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASetMPinVC: UIViewController,UITextFieldDelegate {
+class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var newPinSecureInputView1: SecureInputView!

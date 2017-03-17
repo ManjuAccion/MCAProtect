@@ -12,6 +12,8 @@ protocol MatchedFundingProgramCellDelegate
 {
     func programSelected(buttonTag : Int)
     func programDeSelected(buttonTag : Int)
+    func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
+
 }
 
 class MCAMatchedFPListTVCell: UITableViewCell {
@@ -19,8 +21,9 @@ class MCAMatchedFPListTVCell: UITableViewCell {
     @IBOutlet weak var checkButton : UIButton!
     @IBOutlet weak var loanRangeLabel : UILabel!
     @IBOutlet weak var detailButton: UIButton!
-    var shouldShowDetails : Bool?
     
+    var shouldShowDetails : Bool?
+    var selectedFundingProgram : MCAMatchedFundingProgram!
     var delegate : MatchedFundingProgramCellDelegate?
     
     override func awakeFromNib() {
@@ -39,17 +42,13 @@ class MCAMatchedFPListTVCell: UITableViewCell {
 
     @IBAction func showDetails(_ sender: Any)
     {
-        if(false == self.shouldShowDetails)
-        {
-            shouldShowDetails = true
-        }
-        else
-        {
-            shouldShowDetails = false
-        }
+        delegate?.showDetailOfFundingProgram(matchedFP: selectedFundingProgram)
     }
     
     func updateDataSource(matchedFundingProgramObject : MCAMatchedFundingProgram)  {
+        
+        selectedFundingProgram = matchedFundingProgramObject;
+        
         titleLabel.text = matchedFundingProgramObject.funderName! as String
         loanRangeLabel.text = matchedFundingProgramObject.loanRange! as String
         if matchedFundingProgramObject.isSelected! {

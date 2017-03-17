@@ -9,7 +9,7 @@
 import UIKit
 import JVFloatLabeledTextField
 
-class MCAResetMPINVC: UIViewController,UITextFieldDelegate {
+class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginButton: UIButton!

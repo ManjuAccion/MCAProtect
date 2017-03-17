@@ -113,7 +113,16 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         }
         
         
-        let matchedFP  = matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram
+        
+        let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
+        navigationController?.pushViewController(underwritingMerchantVC, animated: true)
+
+        
+    }
+    
+    func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
+    {
         
         if(true == matchedFP.showDetails)
         {
@@ -123,7 +132,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         {
             matchedFP.showDetails = true;
         }
-
+        
         tableView.reloadData()
         
     }

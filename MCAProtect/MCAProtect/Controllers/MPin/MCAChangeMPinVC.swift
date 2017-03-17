@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAChangeMPinVC: UIViewController,UITextFieldDelegate {
+class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
