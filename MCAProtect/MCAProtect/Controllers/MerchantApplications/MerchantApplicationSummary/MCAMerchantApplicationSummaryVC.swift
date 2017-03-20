@@ -30,8 +30,8 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         self.title = titleText
 
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
-        tableView.register(UINib(nibName: "MCAEmailTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:"MCAEmailTableViewCell")
-        tableView.register(UINib(nibName: "MCAPhoneNumberTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:"MCAPhoneNumberTableViewCell")
+        tableView.register(UINib(nibName: "MCAEmailTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAEmailTableViewCell)
+        tableView.register(UINib(nibName: "MCAPhoneNumberTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAPhoneNumberTableViewCell)
 
         tableView.tableFooterView = UIView()
         let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
@@ -70,7 +70,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         
         
         if dataSourceKeys[indexPath.row] == "Email" {
-             let   emailCell =   tableView.dequeueReusableCell(withIdentifier:"MCAEmailTableViewCell", for: indexPath) as! MCAEmailTableViewCell
+             let   emailCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAEmailTableViewCell, for: indexPath) as! MCAEmailTableViewCell
             emailCell.titleLabel.text = dataSourceKeys[indexPath.row]
             emailCell.emailButton .setTitle(dataSourceValues[indexPath.row], for: UIControlState.normal)
             
@@ -79,7 +79,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         }
         else if dataSourceKeys[indexPath.row] == "Telephone"
         {
-            let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: "MCAPhoneNumberTableViewCell", for: indexPath) as! MCAPhoneNumberTableViewCell
+            let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAPhoneNumberTableViewCell, for: indexPath) as! MCAPhoneNumberTableViewCell
             phoneNumberCell.titleLabel.text = dataSourceKeys[indexPath.row]
             phoneNumberCell.phoneNumberButton .setTitle(dataSourceValues[indexPath.row], for: UIControlState.normal)
             phoneNumberCell.delegate = self
@@ -141,7 +141,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     
     @IBAction func copyApplicationButtonTapped(_ sender: Any) {
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationFormVC") as! MCAApplicationFormVC
+        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
         applicationFormVC.applicationStatus = ApplicationStatus.CopyApplication.rawValue
         navigationController?.pushViewController(applicationFormVC, animated: true)
     }
@@ -149,7 +149,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     @IBAction func viewMatchedFundingProgramTapped(_ sender: Any)
     {
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMatchedFundingProgram, bundle: Bundle.main)
-        let matchedFundingProgramVC = storyBoard.instantiateViewController(withIdentifier: "MCAMatchedFundingProgramVC") as! MCAMatchedFundingProgramVC
+        let matchedFundingProgramVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMatchedFundingProgramVC) as! MCAMatchedFundingProgramVC
         matchedFundingProgramVC.applicationState = self.applicationState
         navigationController?.pushViewController(matchedFundingProgramVC, animated: true)
         

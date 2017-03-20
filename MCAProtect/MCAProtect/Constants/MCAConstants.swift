@@ -52,6 +52,12 @@ struct CellIdentifiers {
     static let MCASavedApplicationsBankDetailsTVCell = "MCASavedApplicationsBankDetailsTVCell"
     static let MCAApplicationListTVCell              = "MCAApplicationTVCell"
     static let MCASubmitStipulationsCell             = "MCASubmitStipulationsCell"
+    static let MCAPhoneNumberTableViewCell           = "MCAPhoneNumberTableViewCell"
+    static let MCAEmailTableViewCell                 = "MCAEmailTableViewCell"
+
+    
+
+    
 }
 
 struct StoryboardName {
@@ -92,6 +98,8 @@ struct VCIdentifiers {
     static let MCAAskFunderApplicationSummaryVC                     = "MCAAskFunderApplicationSummaryVC"
     static let MCAAskFunderChatDetailVC                             = "MCAAskFunderChatDetailVC"
     static let MCAAskFunderChatDashboardVC                          = "MCAAskFunderChatDashboardVC"
+        static let MCAMatchedFundingProgramVC                          = "MCAMatchedFundingProgramVC"
+    
 
 
 
