@@ -153,6 +153,9 @@
 		BABF752A1E698CEA0062FB81 /* MCAMerchantApplicationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF75291E698CEA0062FB81 /* MCAMerchantApplicationListVC.swift */; };
 		BABF752C1E6991300062FB81 /* MerchantApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BABF752B1E6991300062FB81 /* MerchantApplication.storyboard */; };
 		BABF752F1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF752E1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift */; };
+		BAC6AD521E7FB0960047F7D3 /* MCAAskFunderNewChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD511E7FB0960047F7D3 /* MCAAskFunderNewChatVC.swift */; };
+		BAC6AD551E7FB56D0047F7D3 /* MCANewChatTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD531E7FB56D0047F7D3 /* MCANewChatTVCell.swift */; };
+		BAC6AD561E7FB56D0047F7D3 /* MCANewChatTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6AD541E7FB56D0047F7D3 /* MCANewChatTVCell.xib */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -324,6 +327,9 @@
 		BABF75291E698CEA0062FB81 /* MCAMerchantApplicationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationListVC.swift; sourceTree = "<group>"; };
 		BABF752B1E6991300062FB81 /* MerchantApplication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MerchantApplication.storyboard; sourceTree = "<group>"; };
 		BABF752E1E69A5450062FB81 /* MCAMerchantApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationSummaryVC.swift; sourceTree = "<group>"; };
+		BAC6AD511E7FB0960047F7D3 /* MCAAskFunderNewChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderNewChatVC.swift; sourceTree = "<group>"; };
+		BAC6AD531E7FB56D0047F7D3 /* MCANewChatTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANewChatTVCell.swift; sourceTree = "<group>"; };
+		BAC6AD541E7FB56D0047F7D3 /* MCANewChatTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCANewChatTVCell.xib; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -940,6 +946,7 @@
 		BA601F681E79178F00EB303C /* Chat  */ = {
 			isa = PBXGroup;
 			children = (
+				BAC6AD501E7FB0710047F7D3 /* New Chat */,
 				BA601F691E7917C300EB303C /* MCAAskFunderChatDashboardVC.swift */,
 				BA601F6F1E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.swift */,
 				BA601F701E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.xib */,
@@ -996,6 +1003,16 @@
 				BA2FF56C1E7148E300A77970 /* MCASubmitStipulationsView.swift */,
 			);
 			path = MerchantApplicationSummary;
+			sourceTree = "<group>";
+		};
+		BAC6AD501E7FB0710047F7D3 /* New Chat */ = {
+			isa = PBXGroup;
+			children = (
+				BAC6AD511E7FB0960047F7D3 /* MCAAskFunderNewChatVC.swift */,
+				BAC6AD531E7FB56D0047F7D3 /* MCANewChatTVCell.swift */,
+				BAC6AD541E7FB56D0047F7D3 /* MCANewChatTVCell.xib */,
+			);
+			path = "New Chat";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1158,6 +1175,7 @@
 				5B8FC48C1E49CDCF00309CAB /* ForgotPassword.storyboard in Resources */,
 				BA8B686D1E5315C6004CEB69 /* MCAApplicationSummaryTVCell.xib in Resources */,
 				5BA7B8141E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib in Resources */,
+				BAC6AD561E7FB56D0047F7D3 /* MCANewChatTVCell.xib in Resources */,
 				5B643D171E5F282300AE89B1 /* MCAApplicationFormTVCell.xib in Resources */,
 				BABF751A1E671F080062FB81 /* MCASAOwnerAndLocationDetailsTVCell.xib in Resources */,
 				BA2EA84E1E66BC7F00145D33 /* MCASavedApplicationsBankRecordsTVCell.xib in Resources */,
@@ -1380,6 +1398,7 @@
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,
 				BA601F711E7932CA00EB303C /* MCAAskFunderCommunicationTVCell.swift in Sources */,
 				BA2FF5671E713FCB00A77970 /* MCAMASubmitStipulationsVC.swift in Sources */,
+				BAC6AD521E7FB0960047F7D3 /* MCAAskFunderNewChatVC.swift in Sources */,
 				BA8B68731E532390004CEB69 /* MCAApplicationTVCell.swift in Sources */,
 				5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */,
 				BA601F641E78038100EB303C /* MCAAskFunderApplicationListTVCell.swift in Sources */,
@@ -1389,6 +1408,7 @@
 				5B9049561E76C3E100A49A50 /* MCAGenericPopViewController.swift in Sources */,
 				5B4741B81E533397001D9435 /* MCALeftMenuVC.swift in Sources */,
 				5B4741B91E533397001D9435 /* MCARightMenuVC.swift in Sources */,
+				BAC6AD551E7FB56D0047F7D3 /* MCANewChatTVCell.swift in Sources */,
 				BA601F571E767B8B00EB303C /* MCASAOwnerInformationDetailVC.swift in Sources */,
 				782C69FF1E49B85000268356 /* MCADashboardTabbarVC.swift in Sources */,
 				5B7F7D3E1E6FF6710067F1DD /* MCAFPApplicationDetailVC.swift in Sources */,

@@ -9,10 +9,9 @@
 import UIKit
 
 enum chatType : NSInteger {
-    case recentChat = 0
-    case merchantChat = 1
-    case funderChat = 2
-    
+    case recentChat     = 0
+    case merchantChat   = 1
+    case funderChat     = 2
 }
 
 class MCAAskFunderChatDashboardVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
@@ -21,16 +20,10 @@ class MCAAskFunderChatDashboardVC: MCABaseViewController,UITableViewDelegate,UIT
     @IBOutlet weak var composeButton : UIButton!
     var profileImage : UIImage!
     
-    
     var recentDataArray : [String] =  ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    
     var merchantDataArray :[String] =  ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    
     var funderDataArray :[String] =   ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-
-    
     var dataSourceArray : [String] = []
-
     
     //MARK: - View Life Cycle
     
@@ -38,10 +31,9 @@ class MCAAskFunderChatDashboardVC: MCABaseViewController,UITableViewDelegate,UIT
         super.viewDidLoad()
         self.title = "Communication"
         
-        tableView.register(UINib(nibName: "MCAAskFunderCommunicationTVCell", bundle: Bundle.main), forCellReuseIdentifier:"MCAAskFunderCommunicationTVCell")
+        tableView.register(UINib(nibName: "MCAAskFunderCommunicationTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAAskFunderCommunicationTVCell)
         self.automaticallyAdjustsScrollViewInsets = false
-
-
+        tableView.tableFooterView = UIView()
         
         composeButton.layer.cornerRadius = 0.5 * composeButton.bounds.size.width
         composeButton.clipsToBounds = true
@@ -53,11 +45,14 @@ class MCAAskFunderChatDashboardVC: MCABaseViewController,UITableViewDelegate,UIT
         composeButton.layer.masksToBounds = false
         
         profileImage =  UIImage(named : "malecostume")
-
-        
         dataSourceArray = recentDataArray
-
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    
     @IBAction func businessTypeSelected(_ sender:UISegmentedControl )
     {
         switch sender.selectedSegmentIndex {
@@ -85,6 +80,15 @@ class MCAAskFunderChatDashboardVC: MCABaseViewController,UITableViewDelegate,UIT
         }
         
     }
+
+    @IBAction func composeButtonTapped(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAAskFunder, bundle: Bundle.main)
+        let newChatVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAAskFunderNewChatVC) as! MCAAskFunderNewChatVC
+        navigationController?.pushViewController(newChatVC, animated: true)
+    }
+    
+    //MARK: - Table View Datasource methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSourceArray.count
@@ -93,7 +97,8 @@ class MCAAskFunderChatDashboardVC: MCABaseViewController,UITableViewDelegate,UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAAskFunderCommunicationTVCell", for: indexPath) as! MCAAskFunderCommunicationTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAAskFunderCommunicationTVCell, for: indexPath) as! MCAAskFunderCommunicationTVCell
+        
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         let title = dataSourceArray[indexPath.row]
@@ -103,16 +108,15 @@ class MCAAskFunderChatDashboardVC: MCABaseViewController,UITableViewDelegate,UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAAskFunder, bundle: Bundle.main)
+        let askFunderChatDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAAskFunderChatDetailVC) as! MCAAskFunderChatDetailVC
+        navigationController?.pushViewController(askFunderChatDetailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 70.0
     }
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
+    
 }

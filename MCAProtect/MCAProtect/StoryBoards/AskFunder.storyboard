@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -126,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a2-Ln-F8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="36"/>
+            <point key="canvasLocation" x="65" y="90"/>
         </scene>
         <!--Ask Funder Chat DashboardVC-->
         <scene sceneID="oQA-yd-e5L">
@@ -157,6 +157,9 @@
                                 </constraints>
                                 <size key="titleShadowOffset" width="8" height="0.0"/>
                                 <state key="normal" image="iconNewChat"/>
+                                <connections>
+                                    <action selector="composeButtonTapped:" destination="2r2-0z-36n" eventType="touchUpInside" id="pZB-9d-nbx"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dB4-jm-AA4">
                                 <rect key="frame" x="16" y="74" width="343" height="29"/>
@@ -192,6 +195,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FDD-RN-Pqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-607.20000000000005" y="90.404797601199405"/>
+        </scene>
+        <!--Ask Funder New ChatVC-->
+        <scene sceneID="A2l-uy-KJx">
+            <objects>
+                <viewController storyboardIdentifier="MCAAskFunderNewChatVC" id="GDf-c1-uZX" customClass="MCAAskFunderNewChatVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XUI-yO-ANk"/>
+                        <viewControllerLayoutGuide type="bottom" id="CjO-pB-HLj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sag-IK-RsE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="coY-td-xHA">
+                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GDf-c1-uZX" id="hkt-QF-qRo"/>
+                                    <outlet property="delegate" destination="GDf-c1-uZX" id="ljJ-o1-9Zf"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BF-us-8mG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="64"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VW3-eZ-KM8">
+                                        <rect key="frame" x="15" y="17" width="345" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="GDf-c1-uZX" id="lJK-2P-9yo"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="VW3-eZ-KM8" secondAttribute="trailing" constant="15" id="08x-SQ-zZa"/>
+                                    <constraint firstItem="VW3-eZ-KM8" firstAttribute="leading" secondItem="1BF-us-8mG" secondAttribute="leading" constant="15" id="YT9-LA-4yv"/>
+                                    <constraint firstAttribute="bottom" secondItem="VW3-eZ-KM8" secondAttribute="bottom" constant="17" id="dJU-Q2-Ki6"/>
+                                    <constraint firstItem="VW3-eZ-KM8" firstAttribute="top" secondItem="1BF-us-8mG" secondAttribute="top" constant="17" id="fOK-he-s6R"/>
+                                    <constraint firstAttribute="height" constant="64" id="ztV-k6-JaQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1BF-us-8mG" secondAttribute="trailing" id="3Vb-9M-lEP"/>
+                            <constraint firstItem="1BF-us-8mG" firstAttribute="top" secondItem="Sag-IK-RsE" secondAttribute="top" constant="64" id="Stb-SW-UIf"/>
+                            <constraint firstItem="1BF-us-8mG" firstAttribute="leading" secondItem="Sag-IK-RsE" secondAttribute="leading" id="c1N-dB-zeR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchTF" destination="VW3-eZ-KM8" id="wpI-8w-dkY"/>
+                        <outlet property="tableView" destination="coY-td-xHA" id="daG-e6-PAE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C9s-n6-MSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717.60000000000002" y="89.505247376311857"/>
         </scene>
     </scenes>
     <resources>

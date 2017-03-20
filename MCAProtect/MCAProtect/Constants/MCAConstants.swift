@@ -31,11 +31,6 @@ struct ColorConstants {
 
     
     static let btnBgColor           = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A32A2A")
-
-    
-    
-
-    
 }
 
 struct CellIdentifiers {
@@ -54,10 +49,8 @@ struct CellIdentifiers {
     static let MCASubmitStipulationsCell             = "MCASubmitStipulationsCell"
     static let MCAPhoneNumberTableViewCell           = "MCAPhoneNumberTableViewCell"
     static let MCAEmailTableViewCell                 = "MCAEmailTableViewCell"
-
-    
-
-    
+    static let MCANewChatTVCell                      = "MCANewChatTVCell"
+    static let MCAAskFunderCommunicationTVCell       = "MCAAskFunderCommunicationTVCell"
 }
 
 struct StoryboardName {
@@ -98,11 +91,8 @@ struct VCIdentifiers {
     static let MCAAskFunderApplicationSummaryVC                     = "MCAAskFunderApplicationSummaryVC"
     static let MCAAskFunderChatDetailVC                             = "MCAAskFunderChatDetailVC"
     static let MCAAskFunderChatDashboardVC                          = "MCAAskFunderChatDashboardVC"
-        static let MCAMatchedFundingProgramVC                          = "MCAMatchedFundingProgramVC"
-    
-
-
-
+    static let MCAMatchedFundingProgramVC                           = "MCAMatchedFundingProgramVC"
+    static let MCAAskFunderNewChatVC                                = "MCAAskFunderNewChatVC"
 
 }
 
