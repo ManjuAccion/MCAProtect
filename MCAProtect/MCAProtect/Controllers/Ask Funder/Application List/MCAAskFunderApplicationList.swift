@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
+class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,MCAAskFunderApplicationListTVCellDelegate {
     
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
     var amountDataSource = ["$2000","$3000","$4000","$5000","$6000"]
@@ -48,6 +48,7 @@ class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,U
         cell.nameLabel.text = dataDataSource[indexPath.row]
         cell.amountLabel.text = amountDataSource[indexPath.row]
         cell.backgroundColor = ColorConstants.background
+        cell.delegate = self
         
         if let selectedIndexpath = selectedIndexpath, selectedIndexpath == indexPath {
             cell.selectedView.isHidden = false
@@ -91,4 +92,13 @@ class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,U
         textField.resignFirstResponder()
         return true
     }
+    
+    //MARK: - MCAAskFunderApplicationListTVCellDelegate Functions
+    
+    func chatButtonTapped() {
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAAskFunder, bundle: Bundle.main)
+        let askFunderChatDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAAskFunderChatDetailVC) as! MCAAskFunderChatDetailVC
+        navigationController?.pushViewController(askFunderChatDetailVC, animated: true)
+    }
+
 }

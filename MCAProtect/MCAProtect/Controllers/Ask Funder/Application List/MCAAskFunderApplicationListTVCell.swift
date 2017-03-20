@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol MCAAskFunderApplicationListTVCellDelegate {
+    
+    func chatButtonTapped()
+}
+
 class MCAAskFunderApplicationListTVCell: UITableViewCell {
     
     @IBOutlet weak var selectedView: UIView!
@@ -15,6 +20,8 @@ class MCAAskFunderApplicationListTVCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var iconCheckedImageView: UIImageView!
     @IBOutlet weak var chatButton: UIButton!
+    
+    var delegate:MCAAskFunderApplicationListTVCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +33,6 @@ class MCAAskFunderApplicationListTVCell: UITableViewCell {
     }
     
     @IBAction func chatButtonTapped(_ sender: Any) {
-        
+        delegate?.chatButtonTapped()
     }
 }
