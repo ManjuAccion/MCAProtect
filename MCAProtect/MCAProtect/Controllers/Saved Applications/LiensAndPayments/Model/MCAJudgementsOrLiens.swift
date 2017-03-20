@@ -1,5 +1,5 @@
 //
-//  MCALoanDetail.swift
+//  MCAJudgementsOrLiens.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 3/20/17.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class MCALoanDetail: NSObject {
+class MCAJudgementsOrLiens: NSObject {
     
-    var businessName : String?
-    var loanAmount : Float?
-    var creditScore : AnyObject?
-    var loanRequirementTenure : String?
-    var loanTerm : Int?
-    
+    var judgementsOrLiens : Bool?
+    var judgementsOrLiensAmount : Double?
+    var judgementsOrLiensNo : Int?
+    var paymentPlan : Bool?
+    var monthlyPaymentAmount : Double?
+
     init(data : NSDictionary?) {
         if nil == data {
             
