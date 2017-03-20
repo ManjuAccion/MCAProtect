@@ -8,7 +8,18 @@
 
 import UIKit
 
+protocol MatchedFundingProgramDetailCellDelegate
+{
+    
+    func setCommonRate()
+    
+}
+
 class MCAFundingProgramDetailCell: UITableViewCell {
+
+    var delegate : MatchedFundingProgramDetailCellDelegate?
+   @IBOutlet weak var  commonRateButton : UIButton!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +30,12 @@ class MCAFundingProgramDetailCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func commonRateBtnTapped()
+    {
+        self.delegate?.setCommonRate()
+        
     }
 
 }

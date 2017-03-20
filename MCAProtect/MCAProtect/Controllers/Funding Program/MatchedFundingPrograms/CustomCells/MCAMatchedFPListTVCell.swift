@@ -13,6 +13,7 @@ protocol MatchedFundingProgramCellDelegate
     func programSelected(buttonTag : Int)
     func programDeSelected(buttonTag : Int)
     func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
+    func setUpsellRate()
 
 }
 
@@ -81,6 +82,13 @@ class MCAMatchedFPListTVCell: UITableViewCell {
 
         }
  
+        
+    }
+    
+    @IBAction func setCommonRateTapped()
+    {
+        self.delegate?.setUpsellRate()
+()
         
     }
     

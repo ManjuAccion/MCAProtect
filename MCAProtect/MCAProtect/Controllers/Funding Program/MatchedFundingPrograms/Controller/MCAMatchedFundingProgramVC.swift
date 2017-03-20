@@ -8,10 +8,9 @@
 
 import UIKit
 
-class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,GenericPopUpDelegate {
+class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,MatchedFundingProgramDetailCellDelegate,GenericPopUpDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
-    @IBOutlet weak var setCommonRateButton : UIButton!
     var headerView : MCAMatchedFPHeaderView!
     
     var applicationState: Int!
@@ -94,8 +93,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         if(indexPath.row == 0)
         {
             let headerCell = tableView.dequeueReusableCell(withIdentifier: "MCAFundingProgramDetailCell", for: indexPath) as! MCAFundingProgramDetailCell
-            
-            headerCell.contentView.backgroundColor = UIColor.red
+            headerCell.delegate = self;
+            headerCell.selectionStyle = .none
+
             return headerCell;
         }
         
@@ -209,15 +209,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
     }
     
-    @IBAction func setCommonRateTapped()
-    {
-        
-        let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
-        let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
-        popUpVC.popUpDelegate = self
-        navigationController?.present(popUpVC, animated: true, completion: nil)
-        
-    }
+  
     
     
     func calculateFundingProgramSelectionCount()
@@ -255,7 +247,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func didItemSelected(object:AnyObject)
     {
         
-        setCommonRateButton .setTitle(object as? String, for: UIControlState.normal)
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAFundingProgramDetailCell
+        cell.commonRateButton .setTitle(object as? String, for: UIControlState.normal)
         
     }
     
@@ -305,6 +299,26 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         }
         
     }
+    
+    func setUpsellRate()
+    {
+        
+//        let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
+//        let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
+//        navigationController?.present(popUpVC, animated: true, completion: nil)
+        
+    }
+    
+    func setCommonRate()
+    {
+               let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
+            let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
+        popUpVC.popUpDelegate = self
+               navigationController?.present(popUpVC, animated: true, completion: nil)
+        
+    }
+    
+   
 
     /*
     // MARK: - Navigation
