@@ -30,7 +30,6 @@ class MCADashboardTabbarVC: MCABaseViewController{
     @IBOutlet weak var thirdTabBtn: UIButton!
     @IBOutlet weak var secondTabBtn: UIButton!
     
-    var leftMenu : MCALeftMenuVC!
     
     let selectedTab = TabSelected.firstTab
 
@@ -57,16 +56,14 @@ class MCADashboardTabbarVC: MCABaseViewController{
     
     func setupNavigationBarButtons()
     {
+        SlideNavigationController.sharedInstance().menuRevealAnimationOption = UIViewAnimationOptions.curveEaseOut
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"burgerNav"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.leftBarButtonclicked))
         
-        SlideNavigationController.sharedInstance().leftMenu =  MCALeftMenuVC(nibName: "MCALeftMenuVC", bundle: nil)
   
          self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"optionNav"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
         
-        SlideNavigationController.sharedInstance().rightMenu =  MCARightMenuVC(nibName: "MCARightMenuVC", bundle: nil)
-
-    }
+          }
     
     func leftBarButtonclicked()
     {

@@ -18,9 +18,11 @@ enum leftMenuItems : NSInteger {
 
 class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     
+    let loginVC : MCALoginViewController! = nil
+    
     @IBAction func SingoutClicked(_ sender: Any)
     {
-        SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
+        SlideNavigationController.sharedInstance().popToRootAndSwitch(to: loginVC, withCompletion: nil)
     }
     
     @IBOutlet var versionFooterView : UIView!
@@ -41,6 +43,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         profileImageButton.clipsToBounds = true
         
         
+
         sideMenuTableView.register(UINib(nibName: "MCATableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCATableViewCell")
     }
 

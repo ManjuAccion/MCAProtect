@@ -63,6 +63,10 @@
 		5BA7B80E1E796DCA00D9AF15 /* MCAEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA7B80C1E796DCA00D9AF15 /* MCAEmailTableViewCell.xib */; };
 		5BA7B8131E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA7B8111E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.swift */; };
 		5BA7B8141E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA7B8121E796E1600D9AF15 /* MCAPhoneNumberTableViewCell.xib */; };
+		5BB3E5D41E801F5400A67927 /* MCARightMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B71E533397001D9435 /* MCARightMenuVC.swift */; };
+		5BB3E5D51E801F5500A67927 /* MCARightMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B71E533397001D9435 /* MCARightMenuVC.swift */; };
+		5BB3E5D61E801F6000A67927 /* MCALeftMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B61E533397001D9435 /* MCALeftMenuVC.swift */; };
+		5BB3E5D71E801F6100A67927 /* MCALeftMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741B61E533397001D9435 /* MCALeftMenuVC.swift */; };
 		6A9F9B00E60E6F389BC9AD86 /* Pods_MCAProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */; };
 		7804B62A1E7A95FD00DA9777 /* MCARoundedOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B6291E7A95FD00DA9777 /* MCARoundedOverlayView.swift */; };
 		7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B62B1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift */; };
@@ -1496,6 +1500,8 @@
 				782C69DA1E49ADE300268356 /* AppDelegate.swift in Sources */,
 				782C69B81E49ACC500268356 /* MCAProtectTests.swift in Sources */,
 				782C69EA1E49AE9200268356 /* MCABaseViewController.swift in Sources */,
+				5BB3E5D41E801F5400A67927 /* MCARightMenuVC.swift in Sources */,
+				5BB3E5D61E801F6000A67927 /* MCALeftMenuVC.swift in Sources */,
 				782C69EE1E49AEC100268356 /* MCAConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1507,6 +1513,8 @@
 				782C69DB1E49ADE300268356 /* AppDelegate.swift in Sources */,
 				782C69C31E49ACC500268356 /* MCAProtectUITests.swift in Sources */,
 				782C69EB1E49AE9200268356 /* MCABaseViewController.swift in Sources */,
+				5BB3E5D51E801F5500A67927 /* MCARightMenuVC.swift in Sources */,
+				5BB3E5D71E801F6100A67927 /* MCALeftMenuVC.swift in Sources */,
 				782C69EF1E49AEC100268356 /* MCAConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
