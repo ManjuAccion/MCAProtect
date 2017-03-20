@@ -29,7 +29,7 @@ class MCAMatchedFundingProgram: NSObject
         }
         else
         {
-            funderName = "Stacy Botique"
+            funderName = "Greenbox Capital"
             term = "10 Months"
             loanRange = "$10000 to $100000"
             buyRate = "1.5"
