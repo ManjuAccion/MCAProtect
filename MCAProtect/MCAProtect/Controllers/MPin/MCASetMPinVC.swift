@@ -75,6 +75,10 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
 
         setPinButton.layer.cornerRadius = setPinButton.frame.height/2
         newPinSecureInputTF.becomeFirstResponder()
+        changeNewPinColor(color: UIColor.red)
+        changeConfirmPinColor(color: UIColor.lightGray)
+
+
     }
     
     func initilazeToolBar() {
@@ -94,10 +98,16 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func handleNewPinContainerViewTapGesture() {
         newPinSecureInputTF.becomeFirstResponder()
+        changeNewPinColor(color: UIColor.red)
+        changeConfirmPinColor(color: UIColor.lightGray)
+
     }
     
     func handleConfirmPinContainerViewTapGesture() {
         confirmPinSecureInputTF.becomeFirstResponder()
+        changeConfirmPinColor(color: UIColor.red)
+        changeNewPinColor(color: UIColor.lightGray)
+
     }
 
     
@@ -340,11 +350,36 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
         if activeTextField == self.newPinSecureInputTF {
             self.newPinSecureInputTF.resignFirstResponder()
             confirmPinSecureInputTF.becomeFirstResponder()
+            changeConfirmPinColor(color: UIColor.red)
+            changeNewPinColor(color: UIColor.lightGray)
+
         }
         else if activeTextField == self.confirmPinSecureInputTF {
             confirmPinSecureInputTF.resignFirstResponder()
+            changeConfirmPinColor(color: UIColor.lightGray)
+            changeNewPinColor(color: UIColor.lightGray)
         }
     }
+    
+    
+    func changeNewPinColor(color:UIColor)
+    {
+        newPinSecureInputView1.initialPlaceholderView.backgroundColor = color
+        newPinSecureInputView2.initialPlaceholderView.backgroundColor = color
+        newPinSecureInputView3.initialPlaceholderView.backgroundColor = color
+        newPinSecureInputView4.initialPlaceholderView.backgroundColor = color
+        
+    }
+    func changeConfirmPinColor(color:UIColor)
+    {
+        
+        confirmPinSecureInputView1.initialPlaceholderView.backgroundColor = color
+        confirmPinSecureInputView2.initialPlaceholderView.backgroundColor = color
+        confirmPinSecureInputView3.initialPlaceholderView.backgroundColor = color
+        confirmPinSecureInputView4.initialPlaceholderView.backgroundColor = color
+        
+    }
+
 }
 
 

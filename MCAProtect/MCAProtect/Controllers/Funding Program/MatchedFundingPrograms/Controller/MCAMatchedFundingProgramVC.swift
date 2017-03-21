@@ -12,6 +12,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
 {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
+    @IBOutlet weak var backgroungImageView : UIImageView!
     
     var upsellRatePicker = UIPickerView()
     var blurView:UIVisualEffectView!
@@ -39,7 +40,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
          self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconInfo"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
-        
+        backgroungImageView.isHidden = true;
          configPicker()
         initilazeToolBar()
 
@@ -75,13 +76,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         self.title = NSLocalizedString("Matched funding Program title", comment: "")
         tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
-        
-
         tableView.register(UINib(nibName: "MCAMatchedFPHeaderView", bundle: Bundle.main), forCellReuseIdentifier: "MCAFundingProgramDetailCell")
-
-        
         tableView.tableFooterView = UIView()
-        
         tableView.reloadData()
 
     }
@@ -328,10 +324,12 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
    
     func blur() {
-        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurView = UIVisualEffectView(effect: blurEffect)
         blurView.isUserInteractionEnabled = false
-        view.addSubview(blurView)
-        blurView.frame = (UIApplication.shared.keyWindow?.frame)!
+        self.backgroungImageView.frame = self.view.bounds
+        blurView.frame = self.backgroungImageView.bounds
+        backgroungImageView.addSubview(blurView)
     }
     
     func unblur() {
@@ -342,6 +340,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func addPicker(sender : AnyObject) {
         pickerState = 1
         self.blur()
+        backgroungImageView.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
         matchedFundingProgram = sender as! MCAMatchedFundingProgram
         self.view.addSubview(self.upsellRatePicker)
         self.view.addSubview(self.toolbar!)
@@ -351,7 +351,10 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func addPickerForCommonRate(sender : AnyObject)
     {
         pickerState = 0
+        self.navigationController?.navigationBar.isHidden = true
         self.blur()
+        backgroungImageView.isHidden = false
+
         indexPath = sender  as! NSIndexPath
         self.view.addSubview(self.upsellRatePicker)
         self.view.addSubview(self.toolbar!)
@@ -423,6 +426,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func inputToolbarDonePressed() {
         unblur()
+        backgroungImageView.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
+
         self.upsellRatePicker.removeFromSuperview()
         self.toolbar?.removeFromSuperview()
         self.didItemSelected(object:matchedFundingProgram)
