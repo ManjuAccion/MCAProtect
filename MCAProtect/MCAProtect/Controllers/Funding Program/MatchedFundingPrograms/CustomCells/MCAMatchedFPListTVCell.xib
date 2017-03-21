@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -188,7 +188,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-8x-mO8">
                         <rect key="frame" x="0.0" y="60" width="375" height="40"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBox" translatesAutoresizingMaskIntoConstraints="NO" id="Aw8-K7-bv2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Funding Logo 11" translatesAutoresizingMaskIntoConstraints="NO" id="Aw8-K7-bv2">
                                 <rect key="frame" x="14" y="0.0" width="122" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Z7M-Fl-7S4"/>
@@ -330,6 +330,7 @@
                 <outlet property="checkButton" destination="sPb-wT-ZaO" id="ECv-6Z-0xV"/>
                 <outlet property="detailButton" destination="76U-5O-yFQ" id="WFj-cJ-cqq"/>
                 <outlet property="loanRangeLabel" destination="1Q4-kf-Tz0" id="QYO-kR-FsK"/>
+                <outlet property="logoImgView" destination="Aw8-K7-bv2" id="D92-Rs-Iqx"/>
                 <outlet property="titleLabel" destination="cRS-hb-u0i" id="vdi-WA-gAS"/>
                 <outlet property="upsellRateButton" destination="ZJz-6B-GFa" id="TIk-mn-agx"/>
             </connections>
@@ -337,8 +338,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Funding Logo 11" width="110" height="60"/>
         <image name="downArrow" width="10" height="10"/>
-        <image name="greenBox" width="240" height="80"/>
         <image name="iconArrowRight" width="20" height="20"/>
         <image name="iconCheck" width="14" height="14"/>
     </resources>

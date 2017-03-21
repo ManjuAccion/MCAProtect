@@ -23,6 +23,7 @@ class MCAMatchedFPListTVCell: UITableViewCell {
     @IBOutlet weak var loanRangeLabel : UILabel!
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var upsellRateButton: UIButton!
+    @IBOutlet weak var logoImgView: UIImageView!
 
     
     var indexPath : NSIndexPath!

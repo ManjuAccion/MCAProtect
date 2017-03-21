@@ -128,6 +128,20 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         let matchedFundingPgm = matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram;
         
+        
+        if(indexPath.row % 2 == 0)
+        {
+            matchedFundingPgm.logoImgName = "Funding Logo 11.png"
+            matchedFundingPgm.funderName = "Snap Advances"
+
+        }
+        else
+        {
+            matchedFundingPgm.logoImgName = "greenBox.png"
+            matchedFundingPgm.funderName = "Greenbox Capital"
+        }
+
+        
         if(false == matchedFundingPgm.showDetails)
         {
             MatchedFPListTVCell.detailButton.setImage(UIImage(named: "iconArrowRight"), for: UIControlState.normal)

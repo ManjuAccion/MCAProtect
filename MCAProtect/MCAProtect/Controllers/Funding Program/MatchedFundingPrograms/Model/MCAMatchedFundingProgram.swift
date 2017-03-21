@@ -19,6 +19,7 @@ class MCAMatchedFundingProgram: NSObject
     var  maxUpsellRate : NSString?
     var  upsellRate : NSString?
     var  totalRate : NSString?
+    var  logoImgName : NSString?
 
 
     
@@ -29,15 +30,16 @@ class MCAMatchedFundingProgram: NSObject
         }
         else
         {
-            funderName = "Greenbox Capital"
+            funderName = "Snap Advances"
             term = "10 Months"
             loanRange = "$10000 to $100000"
             buyRate = "1.5"
-            maxUpsellRate = "1.55"
+            maxUpsellRate = "10"
             upsellRate = "Rate"
             totalRate = "10.0"
             isSelected = false
             showDetails = false
+            logoImgName = "Funding Logo 11"
         }
         
     }
