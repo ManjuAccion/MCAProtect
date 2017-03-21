@@ -143,16 +143,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
     {
         
-        if(true == matchedFP.showDetails)
-        {
-            matchedFP.showDetails = false;
-        }
-        else
-        {
-            matchedFP.showDetails = true;
-        }
-        
-        tableView.reloadData()
+        let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
+        navigationController?.pushViewController(underwritingMerchantVC, animated: true)
         
     }
     
@@ -163,13 +156,13 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         {
             return 170;
         }
-        let matchedFP  = matchedFPList?.object(at: indexPath.row > 0 ? indexPath.row  - 1 : 0) as! MCAMatchedFundingProgram
-        if(true == matchedFP.showDetails)
-        {
-            return 330
-        }
+//        let matchedFP  = matchedFPList?.object(at: indexPath.row > 0 ? indexPath.row  - 1 : 0) as! MCAMatchedFundingProgram
+//        if(true == matchedFP.showDetails)
+//        {
+//            return 259
+//        }
         
-        return 60
+        return 259
     }
     
     @IBAction func infoButtonTapped(_ sender: Any){
