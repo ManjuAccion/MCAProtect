@@ -341,7 +341,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         let viewFrame = self.view.frame;
         let pickerHeight = self.upsellRatePicker.frame.size.height;
-        let pickerFrame = CGRect(x:0.0, y: viewFrame.size.height/2-pickerHeight/2,
+        let pickerFrame = CGRect(x:0.0, y: viewFrame.size.height-pickerHeight,
                                  width: viewFrame.size.width, height: pickerHeight);
         self.upsellRatePicker.frame = pickerFrame;
         self.upsellRatePicker.tintColor = UIColor.white
