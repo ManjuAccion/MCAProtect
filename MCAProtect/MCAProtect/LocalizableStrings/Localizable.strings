@@ -12,3 +12,9 @@
 "Privacy Policy" = "Privacy Policy";
 "Merchant application has been created successfully" = "Merchant application has been created successfully";
 
+
+"Matched Funding Program Info" = "Based on the details provided by the merchant you can prepare a list of funding programs.Click the checkbox to select one or multiple funding programs for the merchant.After selecting the desired funding programs,click the Refer to Merchant button at the bottom of the screen.";
+
+"Matched funding Program title" = "Matched Funding Programs";
+
+"Matched Funding Program with Merchant Application" = "Matched Funding Program with Merchant Application";

@@ -47,8 +47,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func rightBarButtonclicked()
     {
-        let TitleString = NSAttributedString(string:"Matched Funding Program with Merchant Application", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
-        let MessageString = NSAttributedString(string: "Based on the details provided by the merchant you can prepare a list of funding programs.Click the checkbox to select one or multiple funding programs for the merchant.After selecting the desired funding programs,click the Refer to Merchant button at the bottom of the screen.", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.gray])
+        let TitleString = NSAttributedString(string: NSLocalizedString("Matched Funding Program with Merchant Application", comment: ""), attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
+        let MessageString = NSAttributedString(string: NSLocalizedString("Matched Funding Program Info", comment: ""), attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.gray])
         
         let alertViewController = UIAlertController(title : "", message : "", preferredStyle : .alert)
         alertViewController.setValue(TitleString, forKey: "attributedTitle")
@@ -72,7 +72,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
             matchedFPList? .add(matchedFundingProgram)
         }
         
-        self.title = "Matched Funding Programs"
+        self.title = NSLocalizedString("Matched funding Program title", comment: "")
         tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
         
 
@@ -176,19 +176,13 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         {
             return 170;
         }
-//        let matchedFP  = matchedFPList?.object(at: indexPath.row > 0 ? indexPath.row  - 1 : 0) as! MCAMatchedFundingProgram
-//        if(true == matchedFP.showDetails)
-//        {
-//            return 259
-//        }
-        
         return 259
     }
     
     @IBAction func infoButtonTapped(_ sender: Any){
         
         let TitleString = NSAttributedString(string:"Matched Funding Program with Merchant Application", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
-        let MessageString = NSAttributedString(string: "Based on the details provided by the merchant you can prepare a list of funding programs.Click the checkbox to select one or multiple funding programs for the merchant.After selecting the desired funding programs,click the Refer to Merchant button at the bottom of the screen.", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.gray])
+        let MessageString = NSAttributedString(string: NSLocalizedString("Matched Funding Program Info", comment: ""), attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.gray])
         
         let alertViewController = UIAlertController(title : "", message : "", preferredStyle : .alert)
         alertViewController.setValue(TitleString, forKey: "attributedTitle")
