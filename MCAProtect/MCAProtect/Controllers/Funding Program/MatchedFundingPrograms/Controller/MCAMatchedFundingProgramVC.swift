@@ -24,6 +24,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     var indexPath: NSIndexPath!
     
     var applicationState: Int!
+    var pickerState: Int!
 
     
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
@@ -308,13 +309,12 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func setCommonRate(object: AnyObject)
     {
-        addPicker(sender: object)
-        
+        addPickerForCommonRate(sender:object)
     }
     
    
     func blur() {
-        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         blurView.isUserInteractionEnabled = false
         view.addSubview(blurView)
         blurView.frame = (UIApplication.shared.keyWindow?.frame)!
@@ -326,11 +326,22 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     
     func addPicker(sender : AnyObject) {
+        pickerState = 1
         self.blur()
         matchedFundingProgram = sender as! MCAMatchedFundingProgram
         self.view.addSubview(self.upsellRatePicker)
         self.view.addSubview(self.toolbar!)
         
+    }
+    
+    func addPickerForCommonRate(sender : AnyObject)
+    {
+        pickerState = 0
+        self.blur()
+        indexPath = sender  as! NSIndexPath
+        self.view.addSubview(self.upsellRatePicker)
+        self.view.addSubview(self.toolbar!)
+
     }
     
     func configPicker() {
@@ -406,16 +417,19 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func didItemSelected(object:MCAMatchedFundingProgram)
     {
         
-//        if indexPath.row == 0
-//        {
-//            let cell = tableView.cellForRow(at: indexPath as IndexPath ) as! MCAFundingProgramDetailCell
-//            let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
-//            cell.commonRateButton .setTitle(selectedString, for: UIControlState.normal)
-//            
-//        }
+        if pickerState == 0
+        {
+            let cell = tableView.cellForRow(at: indexPath as IndexPath ) as! MCAFundingProgramDetailCell
+            let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
+            cell.commonRateButton .setTitle(selectedString, for: UIControlState.normal)
+            
+        }
+        else
+        {
         let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
             object.upsellRate = selectedString as NSString?
         tableView.reloadData()
+        }
     }
 
     /*
