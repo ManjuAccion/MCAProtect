@@ -71,6 +71,8 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
         super.viewDidAppear(animated)
         
         loadUI()
+        initialsecureInputViewSetup()
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -88,6 +90,15 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
         oldPinSecureInputTF.becomeFirstResponder()
     }
     
+    func initialsecureInputViewSetup()
+    {
+       changeNewPinColor(color: UIColor.lightGray)
+      changeConfirmPinColor(color: UIColor.lightGray)
+
+      
+
+        
+    }
     func initilazeToolBar() {
         toolbar = UIToolbar()
         toolbar?.barStyle = .blackTranslucent
@@ -137,15 +148,27 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func handleOldPinContainerViewTapGesture() {
         oldPinSecureInputTF.becomeFirstResponder()
+        changeConfirmPinColor(color: UIColor.lightGray)
+        changeNewPinColor(color: UIColor.lightGray)
+        changeOldPinColor(color:  ColorConstants.newRed)
     }
     
     func handleNewPinContainerViewTapGesture() {
         newPinSecureInputTF.becomeFirstResponder()
+        changeNewPinColor(color: ColorConstants.newRed)
+        changeConfirmPinColor(color: UIColor.lightGray)
+        changeOldPinColor(color: UIColor.lightGray)
+
     }
     
     func handleConfirmPinContainerViewTapGesture() {
         confirmPinSecureInputTF.becomeFirstResponder()
+        changeNewPinColor(color: UIColor.lightGray)
+        changeConfirmPinColor(color: ColorConstants.newRed)
+        changeOldPinColor(color: UIColor.lightGray)
+
     }
+    
     
     func registerForKeyboardNotifications() {
         
@@ -383,16 +406,54 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func inputToolbarDonePressed() {
         if activeTextField == oldPinSecureInputTF {
+            
+            changeNewPinColor(color: UIColor.red)
+            changeConfirmPinColor(color: UIColor.lightGray)
+            changeOldPinColor(color: UIColor.lightGray)
+            
             oldPinSecureInputTF.resignFirstResponder()
             newPinSecureInputTF.becomeFirstResponder()
         }
         else if activeTextField == newPinSecureInputTF {
+            changeNewPinColor(color: UIColor.lightGray)
+            changeConfirmPinColor(color: UIColor.red)
+            changeOldPinColor(color: UIColor.lightGray)
+
             newPinSecureInputTF.resignFirstResponder()
             confirmPinSecureInputTF.becomeFirstResponder()
         }
         else {
+            changeConfirmPinColor(color: UIColor.lightGray)
+            changeNewPinColor(color: UIColor.lightGray)
+            changeOldPinColor(color: UIColor.lightGray)
             confirmPinSecureInputTF.resignFirstResponder()
         }
     }
-
+    
+    
+    func changeOldPinColor(color:UIColor)
+    {
+        oldPinSecureInputView1.initialPlaceholderView.backgroundColor = color
+        oldPinSecureInputView2.initialPlaceholderView.backgroundColor = color
+        oldPinSecureInputView3.initialPlaceholderView.backgroundColor = color
+        oldPinSecureInputView4.initialPlaceholderView.backgroundColor = color
+        
+    }
+    func changeNewPinColor(color:UIColor)
+    {
+        newPinSecureInputView1.initialPlaceholderView.backgroundColor = color
+        newPinSecureInputView2.initialPlaceholderView.backgroundColor = color
+        newPinSecureInputView3.initialPlaceholderView.backgroundColor = color
+        newPinSecureInputView4.initialPlaceholderView.backgroundColor = color
+        
+    }
+    func changeConfirmPinColor(color:UIColor)
+    {
+        
+        confirmPinSecureInputView1.initialPlaceholderView.backgroundColor = color
+        confirmPinSecureInputView2.initialPlaceholderView.backgroundColor = color
+        confirmPinSecureInputView3.initialPlaceholderView.backgroundColor = color
+        confirmPinSecureInputView4.initialPlaceholderView.backgroundColor = color
+   
+    }
 }

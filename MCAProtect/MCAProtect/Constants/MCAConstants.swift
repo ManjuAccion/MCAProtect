@@ -11,6 +11,8 @@ import UIKit
 struct ColorConstants {
     
     static let red                  = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A32A2A")
+    static let newRed                  = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#AD2B37")
+
     
     static let grey                 = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#4B4B4B")
     static let greyAlpha80          = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#6F6F6F")
