@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -331,7 +331,7 @@
                 <outlet property="detailButton" destination="76U-5O-yFQ" id="WFj-cJ-cqq"/>
                 <outlet property="loanRangeLabel" destination="1Q4-kf-Tz0" id="QYO-kR-FsK"/>
                 <outlet property="titleLabel" destination="cRS-hb-u0i" id="vdi-WA-gAS"/>
-                <outlet property="upsellRateButton" destination="ARh-Tc-olE" id="52R-FL-U6N"/>
+                <outlet property="upsellRateButton" destination="ZJz-6B-GFa" id="TIk-mn-agx"/>
             </connections>
             <point key="canvasLocation" x="121.5" y="4.5"/>
         </tableViewCell>
