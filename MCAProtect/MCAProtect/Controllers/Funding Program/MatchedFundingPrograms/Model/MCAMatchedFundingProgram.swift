@@ -34,7 +34,7 @@ class MCAMatchedFundingProgram: NSObject
             loanRange = "$10000 to $100000"
             buyRate = "1.5"
             maxUpsellRate = "1.55"
-            upsellRate = ""
+            upsellRate = "Rate"
             totalRate = "10.0"
             isSelected = false
             showDetails = false

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,MatchedFundingProgramDetailCellDelegate,GenericPopUpDelegate,UIPickerViewDataSource,UIPickerViewDelegate
+class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,MatchedFundingProgramDetailCellDelegate,UIPickerViewDataSource,UIPickerViewDelegate
 {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
@@ -299,7 +299,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
     }
     
-    func setUpsellRate(object : AnyObject)
+    func setUpsellRate(object : MCAMatchedFundingProgram)
     {
         
     addPicker(sender: object)
@@ -314,10 +314,10 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
    
     func blur() {
-        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
         blurView.isUserInteractionEnabled = false
-        self.view.addSubview(blurView)
-        blurView.frame = self.view.bounds
+        view.addSubview(blurView)
+        blurView.frame = (UIApplication.shared.keyWindow?.frame)!
     }
     
     func unblur() {
@@ -327,15 +327,15 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func addPicker(sender : AnyObject) {
         self.blur()
-        indexPath = sender as! IndexPath as NSIndexPath!
+        matchedFundingProgram = sender as! MCAMatchedFundingProgram
         self.view.addSubview(self.upsellRatePicker)
-       self.view.addSubview(self.toolbar!)
+        self.view.addSubview(self.toolbar!)
         
     }
     
     func configPicker() {
         upsellRatePicker.alpha = 1.0
-        upsellRatePicker.backgroundColor = UIColor.white
+      //  upsellRatePicker.backgroundColor = UIColor.white
         self.upsellRatePicker.delegate = self
         self.upsellRatePicker.dataSource = self
         
@@ -354,7 +354,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         toolbar?.barStyle = .blackTranslucent
         toolbar?.isTranslucent = true
         toolbar?.sizeToFit()
-        toolbar?.backgroundColor = ColorConstants.red
+        toolbar?.backgroundColor = UIColor.red
         
         doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
         doneButton?.tintColor = .white
@@ -386,36 +386,36 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         return rates.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return rates[row]
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return rates[row]
+//    }
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let strTitle = rates[row]
+        let attString = NSAttributedString(string: strTitle, attributes: [NSForegroundColorAttributeName : ColorConstants.red])
+        return attString
     }
-    
     
     
     func inputToolbarDonePressed() {
         unblur()
         self.upsellRatePicker.removeFromSuperview()
         self.toolbar?.removeFromSuperview()
-        self.didItemSelected(object: indexPath)
+        self.didItemSelected(object:matchedFundingProgram)
     }
     
-    func didItemSelected(object:AnyObject)
+    func didItemSelected(object:MCAMatchedFundingProgram)
     {
         
-        let indexPath =  object
-        if indexPath.row == 0
-        {
-            let cell = tableView.cellForRow(at: indexPath as! IndexPath ) as! MCAFundingProgramDetailCell
-            let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
-            cell.commonRateButton .setTitle(selectedString, for: UIControlState.normal)
-            
-        }
-        else{
-        let cell = tableView.cellForRow(at: indexPath as! IndexPath) as! MCAMatchedFPListTVCell
+//        if indexPath.row == 0
+//        {
+//            let cell = tableView.cellForRow(at: indexPath as IndexPath ) as! MCAFundingProgramDetailCell
+//            let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
+//            cell.commonRateButton .setTitle(selectedString, for: UIControlState.normal)
+//            
+//        }
         let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
-        cell.upsellRateButton .setTitle(selectedString, for: UIControlState.normal)
-        
-    }
+            object.upsellRate = selectedString as NSString?
+        tableView.reloadData()
     }
 
     /*

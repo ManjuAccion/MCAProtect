@@ -13,7 +13,7 @@ protocol MatchedFundingProgramCellDelegate
     func programSelected(buttonTag : Int)
     func programDeSelected(buttonTag : Int)
     func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
-    func setUpsellRate(object : AnyObject)
+    func setUpsellRate(object : MCAMatchedFundingProgram)
 
 }
 
@@ -56,6 +56,7 @@ class MCAMatchedFPListTVCell: UITableViewCell {
         
         titleLabel.text = matchedFundingProgramObject.funderName! as String
         loanRangeLabel.text = matchedFundingProgramObject.loanRange! as String
+        upsellRateButton .setTitle(matchedFundingProgramObject.upsellRate! as String, for: UIControlState.normal)
         if matchedFundingProgramObject.isSelected! {
             checkButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
             checkButton.isSelected = true;
@@ -91,7 +92,7 @@ class MCAMatchedFPListTVCell: UITableViewCell {
     
     @IBAction func upsellRateBtnTapped()
     {
-        self.delegate?.setUpsellRate(object: indexPath)
+        self.delegate?.setUpsellRate(object: selectedFundingProgram)
         
     }
     
