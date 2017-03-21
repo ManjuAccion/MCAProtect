@@ -264,6 +264,9 @@
                                 <state key="normal" title="Rate">
                                     <color key="titleColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="upsellRateBtnTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YTf-Ww-yja"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="O6T-0k-zA7">
                                 <rect key="frame" x="334" y="23" width="32" height="25"/>
@@ -328,6 +331,7 @@
                 <outlet property="detailButton" destination="76U-5O-yFQ" id="WFj-cJ-cqq"/>
                 <outlet property="loanRangeLabel" destination="1Q4-kf-Tz0" id="QYO-kR-FsK"/>
                 <outlet property="titleLabel" destination="cRS-hb-u0i" id="vdi-WA-gAS"/>
+                <outlet property="upsellRateButton" destination="ARh-Tc-olE" id="52R-FL-U6N"/>
             </connections>
             <point key="canvasLocation" x="121.5" y="4.5"/>
         </tableViewCell>

@@ -8,15 +8,27 @@
 
 import UIKit
 
-class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,MatchedFundingProgramDetailCellDelegate,GenericPopUpDelegate {
+class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,MatchedFundingProgramDetailCellDelegate,GenericPopUpDelegate,UIPickerViewDataSource,UIPickerViewDelegate
+{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
+    
+    var upsellRatePicker = UIPickerView()
+    var blurView:UIVisualEffectView!
+
     var headerView : MCAMatchedFPHeaderView!
+    var toolbar : UIToolbar?
+    var doneButton : UIBarButtonItem?
+
+
+    var indexPath: NSIndexPath!
     
     var applicationState: Int!
 
     
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
+    var rates = ["01","02","03","04","05","06","07","08","09"]
+
     var matchedFPList : NSMutableArray!
     
     var matchedFundingProgram : MCAMatchedFundingProgram!
@@ -26,6 +38,10 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
          self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconInfo"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
+        
+         configPicker()
+        initilazeToolBar()
+
 
 }
     
@@ -82,6 +98,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: TableView Datasource and Delegates
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
       return matchedFPList.count + 1
@@ -95,12 +113,14 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
             let headerCell = tableView.dequeueReusableCell(withIdentifier: "MCAFundingProgramDetailCell", for: indexPath) as! MCAFundingProgramDetailCell
             headerCell.delegate = self;
             headerCell.selectionStyle = .none
+            headerCell.indexPath = indexPath as NSIndexPath!
 
             return headerCell;
         }
         
         
         let MatchedFPListTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAMatchedFPListTVCell", for: indexPath) as! MCAMatchedFPListTVCell
+        MatchedFPListTVCell.indexPath = indexPath as NSIndexPath!
         
         MatchedFPListTVCell .updateDataSource(matchedFundingProgramObject: matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram)
         
@@ -237,14 +257,6 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     }
     
     
-    func didItemSelected(object:AnyObject)
-    {
-        
-        let indexPath = IndexPath(row: 0, section: 0)
-        let cell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAFundingProgramDetailCell
-        cell.commonRateButton .setTitle(object as? String, for: UIControlState.normal)
-        
-    }
     
     @IBAction func referButtonTapped()
     
@@ -293,25 +305,124 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
     }
     
-    func setUpsellRate()
+    func setUpsellRate(object : AnyObject)
     {
         
-//        let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
-//        let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
-//        navigationController?.present(popUpVC, animated: true, completion: nil)
+    addPicker(sender: object)
         
     }
     
-    func setCommonRate()
+    func setCommonRate(object: AnyObject)
     {
-               let storyBoard = UIStoryboard(name: StoryboardName.MCAGenericPopUp, bundle: Bundle.main)
-            let popUpVC = storyBoard.instantiateViewController(withIdentifier: "MCAGenericPopViewController") as! MCAGenericPopViewController
-        popUpVC.popUpDelegate = self
-               navigationController?.present(popUpVC, animated: true, completion: nil)
+        addPicker(sender: object)
         
     }
     
    
+    func blur() {
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blurView.isUserInteractionEnabled = false
+        self.view.addSubview(blurView)
+        blurView.frame = self.view.bounds
+    }
+    
+    func unblur() {
+        self.blurView.removeFromSuperview()
+    }
+    
+    
+    func addPicker(sender : AnyObject) {
+        self.blur()
+        indexPath = sender as! IndexPath as NSIndexPath!
+        self.view.addSubview(self.upsellRatePicker)
+       self.view.addSubview(self.toolbar!)
+        
+    }
+    
+    func configPicker() {
+        upsellRatePicker.alpha = 1.0
+        upsellRatePicker.backgroundColor = UIColor.white
+        self.upsellRatePicker.delegate = self
+        self.upsellRatePicker.dataSource = self
+        
+        let viewFrame = self.view.frame;
+        let pickerHeight = self.upsellRatePicker.frame.size.height;
+        let pickerFrame = CGRect(x:0.0, y: viewFrame.size.height/2-pickerHeight/2,
+                                 width: viewFrame.size.width, height: pickerHeight);
+        self.upsellRatePicker.frame = pickerFrame;
+        self.upsellRatePicker.tintColor = UIColor.white
+        
+    }
+    
+    
+    func initilazeToolBar() {
+        toolbar = UIToolbar()
+        toolbar?.barStyle = .blackTranslucent
+        toolbar?.isTranslucent = true
+        toolbar?.sizeToFit()
+        toolbar?.backgroundColor = ColorConstants.red
+        
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton?.tintColor = .white
+        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar?.setItems([flexibleSpaceButton, doneButton!], animated: false)
+        toolbar?.isUserInteractionEnabled = true
+    
+
+        toolbar?.frame = CGRect(x:0,
+                                y:    self.upsellRatePicker.frame.origin.y - 44, // right under the picker
+            width:self.upsellRatePicker.frame.width, // make them the same width
+            height:44)
+        
+
+        
+    }
+
+    
+    //MARK: - PickerView Datasource and Delegates
+  
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int
+ {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return rates.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return rates[row]
+    }
+    
+    
+    
+    func inputToolbarDonePressed() {
+        unblur()
+        self.upsellRatePicker.removeFromSuperview()
+        self.toolbar?.removeFromSuperview()
+        self.didItemSelected(object: indexPath)
+    }
+    
+    func didItemSelected(object:AnyObject)
+    {
+        
+        let indexPath =  object
+        if indexPath.row == 0
+        {
+            let cell = tableView.cellForRow(at: indexPath as! IndexPath ) as! MCAFundingProgramDetailCell
+            let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
+            cell.commonRateButton .setTitle(selectedString, for: UIControlState.normal)
+            
+        }
+        else{
+        let cell = tableView.cellForRow(at: indexPath as! IndexPath) as! MCAMatchedFPListTVCell
+        let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
+        cell.upsellRateButton .setTitle(selectedString, for: UIControlState.normal)
+        
+    }
+    }
 
     /*
     // MARK: - Navigation

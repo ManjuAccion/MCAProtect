@@ -11,7 +11,7 @@ import UIKit
 protocol MatchedFundingProgramDetailCellDelegate
 {
     
-    func setCommonRate()
+    func setCommonRate(object: AnyObject)
     
 }
 
@@ -19,6 +19,7 @@ class MCAFundingProgramDetailCell: UITableViewCell {
 
     var delegate : MatchedFundingProgramDetailCellDelegate?
    @IBOutlet weak var  commonRateButton : UIButton!
+    var indexPath: NSIndexPath!
     
 
     override func awakeFromNib() {
@@ -34,7 +35,7 @@ class MCAFundingProgramDetailCell: UITableViewCell {
     
     @IBAction func commonRateBtnTapped()
     {
-        self.delegate?.setCommonRate()
+        self.delegate?.setCommonRate(object: indexPath)
         
     }
 

@@ -13,7 +13,7 @@ protocol MatchedFundingProgramCellDelegate
     func programSelected(buttonTag : Int)
     func programDeSelected(buttonTag : Int)
     func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
-    func setUpsellRate()
+    func setUpsellRate(object : AnyObject)
 
 }
 
@@ -22,6 +22,10 @@ class MCAMatchedFPListTVCell: UITableViewCell {
     @IBOutlet weak var checkButton : UIButton!
     @IBOutlet weak var loanRangeLabel : UILabel!
     @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var upsellRateButton: UIButton!
+
+    
+    var indexPath : NSIndexPath!
     
     var shouldShowDetails : Bool?
     var selectedFundingProgram : MCAMatchedFundingProgram!
@@ -85,10 +89,9 @@ class MCAMatchedFPListTVCell: UITableViewCell {
         
     }
     
-    @IBAction func setCommonRateTapped()
+    @IBAction func upsellRateBtnTapped()
     {
-        self.delegate?.setUpsellRate()
-()
+        self.delegate?.setUpsellRate(object: indexPath)
         
     }
     
