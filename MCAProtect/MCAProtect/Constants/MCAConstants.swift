@@ -128,8 +128,11 @@ enum ApplicationStatus : Int {
     case CopyApplication    = 2
 }
 
+enum ApplicationSummaryKeys: String {
 
-
-
-
+    case SASummarySubmittedOn   = "Submitted On"
+    case SASummaryBusinessName  = "Business Name"
+    case SASummaryNeedeIn       = "Needed In"
+    case SASummaryLoanValue     = "Loan Value"
+}
 

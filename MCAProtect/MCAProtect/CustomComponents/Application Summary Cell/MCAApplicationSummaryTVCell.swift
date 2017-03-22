@@ -32,6 +32,17 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+
+    
+    
+    func setDatasource(appSummary : MCAApplicationSummary, key : ApplicationSummaryKeys)
+    {
+        titleLabel.text = key.rawValue;
+        dataTF.text =  appSummary.getValueFromKey(key: key);
+        
+        print("\(dataTF.text)")
+    }
+
     
     func setApplicationSummaryDetails(_ : AnyObject)
     {

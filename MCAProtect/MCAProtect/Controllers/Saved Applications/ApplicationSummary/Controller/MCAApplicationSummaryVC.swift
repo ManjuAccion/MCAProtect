@@ -14,17 +14,19 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     @IBOutlet weak var resumeApplicationButton: UIButton!
     @IBOutlet weak var copyApplicationButton: UIButton!
     
-    var dataSourceKeys = ["Submitted on","Business Name","Needed in","Loan Value"]
-    var dataSourceValues = ["10 Days ago","Miami Florists","3 Days","$60000"]
 
-    var dataSourceArray : [String] = []
     var titleText: String?
+    var appSummary : MCAApplicationSummary!
     
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appSummary = MCAApplicationSummary(data: nil);
+
+        
         loadUI()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +49,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceKeys.count
+        return appSummary.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,9 +57,22 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
         
         cell.selectionStyle = .none
-        cell.titleLabel.text = dataSourceKeys[indexPath.row]
-        cell.dataTF.text = dataSourceValues[indexPath.row]
         cell.backgroundColor = UIColor.clear
+        
+        switch indexPath.row
+        {
+        case ApplicationSummaryKeys.SASummarySubmittedOn.hashValue:
+            cell.setDatasource(appSummary: appSummary, key: ApplicationSummaryKeys.SASummarySubmittedOn);
+        case ApplicationSummaryKeys.SASummaryNeedeIn.hashValue:
+            cell.setDatasource(appSummary: appSummary, key: ApplicationSummaryKeys.SASummaryNeedeIn);
+        case ApplicationSummaryKeys.SASummaryBusinessName.hashValue:
+            cell.setDatasource(appSummary: appSummary, key: ApplicationSummaryKeys.SASummaryBusinessName);
+        case ApplicationSummaryKeys.SASummaryLoanValue.hashValue:
+            cell.setDatasource(appSummary: appSummary, key: ApplicationSummaryKeys.SASummaryLoanValue);
+        default:
+            break;
+        }
+        
         if indexPath.row == 1 {
             cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton;
         }
