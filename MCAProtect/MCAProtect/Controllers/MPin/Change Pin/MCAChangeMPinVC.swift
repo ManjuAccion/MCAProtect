@@ -155,7 +155,7 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func handleNewPinContainerViewTapGesture() {
         newPinSecureInputTF.becomeFirstResponder()
-        changeNewPinColor(color: ColorConstants.newRed)
+        changeNewPinColor(color: UIColor.red)
         changeConfirmPinColor(color: UIColor.lightGray)
         changeOldPinColor(color: UIColor.lightGray)
 
@@ -164,7 +164,7 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     func handleConfirmPinContainerViewTapGesture() {
         confirmPinSecureInputTF.becomeFirstResponder()
         changeNewPinColor(color: UIColor.lightGray)
-        changeConfirmPinColor(color: ColorConstants.newRed)
+        changeConfirmPinColor(color: UIColor.red)
         changeOldPinColor(color: UIColor.lightGray)
 
     }
