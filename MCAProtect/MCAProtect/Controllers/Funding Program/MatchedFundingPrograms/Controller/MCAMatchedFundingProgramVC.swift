@@ -152,6 +152,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         MatchedFPListTVCell.checkButton.tag = indexPath.row - 1
         MatchedFPListTVCell.selectionStyle = .none
         MatchedFPListTVCell.backgroundColor = UIColor.clear
+        MatchedFPListTVCell.titleLabel.text = matchedFundingPgm.funderName as String?;
+        MatchedFPListTVCell.logoImgView.image = UIImage(named: matchedFundingPgm.logoImgName as! String)
+        
         return MatchedFPListTVCell
     }
     

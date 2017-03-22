@@ -188,7 +188,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-8x-mO8">
                         <rect key="frame" x="0.0" y="60" width="375" height="40"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Funding Logo 11" translatesAutoresizingMaskIntoConstraints="NO" id="Aw8-K7-bv2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Funding Logo 11" translatesAutoresizingMaskIntoConstraints="NO" id="Aw8-K7-bv2">
                                 <rect key="frame" x="14" y="0.0" width="122" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Z7M-Fl-7S4"/>
@@ -226,7 +226,7 @@
                                 <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.55" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26U-he-PFZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26U-he-PFZ">
                                 <rect key="frame" x="15" y="22" width="80" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="ZrA-h6-hcg"/>
