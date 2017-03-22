@@ -20,6 +20,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     var headerView : MCAMatchedFPHeaderView!
     var toolbar : UIToolbar?
     var doneButton : UIBarButtonItem?
+    var pickerTitle : UIBarButtonItem?
 
 
     var indexPath: NSIndexPath!
@@ -342,6 +343,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func addPicker(sender : AnyObject) {
         pickerState = 1
+        pickerTitle?.title = "Set Upsell Rate"
+
         self.blur()
         backgroungImageView.isHidden = false
         self.navigationController?.navigationBar.isHidden = true
@@ -354,6 +357,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func addPickerForCommonRate(sender : AnyObject)
     {
         pickerState = 0
+        pickerTitle?.title = "Set Common Rate"
         self.navigationController?.navigationBar.isHidden = true
         self.blur()
         backgroungImageView.isHidden = false
@@ -386,12 +390,19 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         toolbar?.isTranslucent = true
         toolbar?.sizeToFit()
         toolbar?.backgroundColor = UIColor.red
-        
+       
         doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
         doneButton?.tintColor = .white
-        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        toolbar?.setItems([flexibleSpaceButton, doneButton!], animated: false)
+        
+        let fixed = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: self, action: nil)
+        fixed.width = 10
+        
+        pickerTitle = UIBarButtonItem(title: "Set Upsell Rate", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        pickerTitle?.setTitleTextAttributes([NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 18.0),
+            NSForegroundColorAttributeName : UIColor.white], for: UIControlState.normal)
+               let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar?.setItems([fixed,pickerTitle!,flexibleSpaceButton, doneButton!], animated: false)
         toolbar?.isUserInteractionEnabled = true
     
 
