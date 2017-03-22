@@ -255,9 +255,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-6B-GFa">
-                                <rect key="frame" x="290" y="26" width="80" height="22"/>
+                                <rect key="frame" x="300" y="26" width="70" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="p19-mm-P6d"/>
+                                    <constraint firstAttribute="width" constant="70" id="p19-mm-P6d"/>
                                     <constraint firstAttribute="height" constant="22" id="w3u-xT-aLe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
