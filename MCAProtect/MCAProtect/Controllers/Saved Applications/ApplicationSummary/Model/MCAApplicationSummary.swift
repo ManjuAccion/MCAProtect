@@ -13,9 +13,8 @@ class MCAApplicationSummary: NSObject {
     var businessName : String!
     var submittedOn : String!
     var neededIn : String!
-    var loanValue : String!
+    var loanValue : Float!
     
-    var applicationSummary: String!
 
     var fieldCount : Int!
     
@@ -29,27 +28,29 @@ class MCAApplicationSummary: NSObject {
             businessName = "Miami Florists"
             submittedOn = "10 Days ago"
             neededIn = "3 Days"
-            loanValue = "$60000"
+            loanValue = 600000
             fieldCount = 4;
         }
     }
     
     func getValueFromKey(key: ApplicationSummaryKeys) -> String{
         
+        var modelValue : String!
+        
         switch key {
-        case ApplicationSummaryKeys.SASummarySubmittedOn :
-            return submittedOn;
-            
-        case ApplicationSummaryKeys.SASummaryBusinessName :
-            return businessName;
+            case ApplicationSummaryKeys.SASummarySubmittedOn :
+                modelValue =  submittedOn
+                
+            case ApplicationSummaryKeys.SASummaryBusinessName :
+                modelValue = businessName
 
-        case ApplicationSummaryKeys.SASummaryNeedeIn :
-            return neededIn;
+            case ApplicationSummaryKeys.SASummaryNeedeIn :
+                modelValue = neededIn
 
-        case ApplicationSummaryKeys.SASummaryLoanValue :
-            return loanValue;
+            case ApplicationSummaryKeys.SASummaryLoanValue :
+                modelValue = MCAUtilities.currencyFormatter(inputItem: loanValue as AnyObject)
 
-            default : break
         }
+        return modelValue
     }
 }

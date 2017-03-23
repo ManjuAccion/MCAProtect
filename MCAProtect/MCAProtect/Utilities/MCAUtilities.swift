@@ -47,6 +47,15 @@ class MCAUtilities: NSObject {
         )
     }
     
+    static func currencyFormatter(inputItem: AnyObject) -> String {
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 0
+        
+        return formatter.string(from: inputItem as! NSNumber)!
+    }
+    
     
   }
 
