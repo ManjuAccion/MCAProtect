@@ -14,6 +14,12 @@ class MCAApplicationTVCell: UITableViewCell {
     
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var contactNameLabel: UILabel!
+    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var phoneNumberButton: UIButton!
+
+
+
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var rightButton: UIButton!
     var delegate : MCABaseViewController!
@@ -25,6 +31,17 @@ class MCAApplicationTVCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    func dataSource(data: MCAFundingProgramList)
+    {
+       headingLabel.text = data.fundingProgramName
+        detailLabel.text = data.minimumLoan
+        contactNameLabel.text = data.contactName
+        emailButton.setTitle(data.email, for: UIControlState.normal)
+        phoneNumberButton.setTitle(data.phoneNumber, for: UIControlState.normal)
+
+        
     }
 
     @IBAction func emailButtonTapped(_ sender: Any) {

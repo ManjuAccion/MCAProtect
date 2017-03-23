@@ -12,6 +12,8 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField : UITextField!
+    var fundingProgramList : MCAFundingProgramList!
+    var FPListArray : NSMutableArray!
     
     var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
     var amountDataSource = ["$2000","$3000","$4000","$5000","$6000"]
@@ -20,6 +22,13 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     {
         super.viewDidLoad()
         self.title = "Funding Programs"
+        
+        for _ in 1...5
+        {
+            fundingProgramList = MCAFundingProgramList(Data:nil)
+            FPListArray? .add(fundingProgramList)
+        }
+        
         
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
         // Do any additional setup after loading the view.
@@ -33,7 +42,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDataSource.count
+        return FPListArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,8 +50,9 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
          cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
-        cell.headingLabel.text = dataDataSource[indexPath.row]
-        cell.detailLabel.text = amountDataSource[indexPath.row]
+        fundingProgramList = FPListArray.object(at: indexPath.row) as! MCAFundingProgramList
+        
+        cell.dataSource(data: fundingProgramList)
         cell.rightButton.isHidden = false
         cell.rightButton .setImage(UIImage(named : "iconCheckRound"), for: UIControlState.normal)
         
