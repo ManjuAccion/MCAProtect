@@ -29,8 +29,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     var pickerState: Int!
 
     
-    var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    var rates = ["01","02","03","04","05","06","07","08","09"]
+       var rates = ["01","02","03","04","05","06","07","08","09"]
 
     var matchedFPList : NSMutableArray!
     
@@ -69,7 +68,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         matchedFPList  = NSMutableArray.init()
-        for _   in dataDataSource
+        for _   in 1...5
         {
             matchedFundingProgram = MCAMatchedFundingProgram(data:nil)
             matchedFPList? .add(matchedFundingProgram)
