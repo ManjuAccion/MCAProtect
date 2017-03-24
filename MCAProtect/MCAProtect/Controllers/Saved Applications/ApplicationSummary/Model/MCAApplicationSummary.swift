@@ -38,16 +38,16 @@ class MCAApplicationSummary: NSObject {
         var modelValue : String!
         
         switch key {
-            case ApplicationSummaryKeys.SASummarySubmittedOn :
+            case .SASummarySubmittedOn :
                 modelValue =  submittedOn
                 
-            case ApplicationSummaryKeys.SASummaryBusinessName :
+            case .SASummaryBusinessName :
                 modelValue = businessName
 
-            case ApplicationSummaryKeys.SASummaryNeedeIn :
+            case .SASummaryNeedeIn :
                 modelValue = neededIn
 
-            case ApplicationSummaryKeys.SASummaryLoanValue :
+            case .SASummaryLoanValue :
                 modelValue = MCAUtilities.currencyFormatter(inputItem: loanValue as AnyObject)
 
         }

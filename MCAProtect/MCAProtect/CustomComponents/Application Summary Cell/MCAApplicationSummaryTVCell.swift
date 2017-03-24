@@ -30,27 +30,37 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
-
     
-    
-    func setDatasource(appSummary : MCAApplicationSummary, key : ApplicationSummaryKeys)
+    func setSavedApplicationSummary(appSummary : MCAApplicationSummary, appSummaryKey : ApplicationSummaryKeys)
     {
-        titleLabel.text = key.rawValue;
-        dataTF.text =  appSummary.getValueFromKey(key: key);
-        
-        print("\(dataTF.text)")
+        titleLabel.text = appSummaryKey.rawValue
+        dataTF.text =  appSummary.getValueFromKey(key: appSummaryKey)
     }
     
+    func setLoanDetail(loanDetail : MCALoanDetail, loanKey : LoanDetailKeys)
+    {
+        titleLabel.text = loanKey.rawValue
+        dataTF.text =  loanDetail.getValueFromKey(key: loanKey)
+    }
+    
+    func setBusinessInformation(businessInformation : MCABusinessInformation, businessInfoKey : BusinessInformationKeys)
+    {
+        titleLabel.text = businessInfoKey.rawValue
+        dataTF.text =  businessInformation.getValueFromKey(key: businessInfoKey)
+    }
+    
+    func setBusinessAddress(businessAddress : MCABusinessAddress, businessAddressKey : BusinessAddressKeys)
+    {
+        titleLabel.text = businessAddressKey.rawValue
+        dataTF.text =  businessAddress.getValueFromKey(key: businessAddressKey)
+    }
     
     func setFPSummaryDetails(FPSummary : MCAFundingProgramList, key : FPApplicationSummaryKeys)
     {
-       titleLabel.text = key.rawValue
+        titleLabel.text = key.rawValue
         dataTF.text = FPSummary.getValueFromKey(key: key) as? String
-        
     }
-
     
     func setApplicationSummaryDetails(_ : AnyObject)
     {

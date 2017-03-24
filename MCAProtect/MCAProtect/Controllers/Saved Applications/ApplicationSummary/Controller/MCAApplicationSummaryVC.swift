@@ -23,10 +23,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         appSummary = MCAApplicationSummary(data: nil);
-
-        
         loadUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,16 +58,20 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         
         switch indexPath.row
         {
-        case ApplicationSummaryKeys.SASummarySubmittedOn.hashValue:
-            cell.setDatasource(appSummary: appSummary, key: ApplicationSummaryKeys.SASummarySubmittedOn);
-        case ApplicationSummaryKeys.SASummaryNeedeIn.hashValue:
-            cell.setDatasource(appSummary: appSummary, key: ApplicationSummaryKeys.SASummaryNeedeIn);
-        case ApplicationSummaryKeys.SASummaryBusinessName.hashValue:
-            cell.setDatasource(appSummary: appSummary, key: ApplicationSummaryKeys.SASummaryBusinessName);
-        case ApplicationSummaryKeys.SASummaryLoanValue.hashValue:
-            cell.setDatasource(appSummary: appSummary, key: ApplicationSummaryKeys.SASummaryLoanValue);
-        default:
-            break;
+            case ApplicationSummaryKeys.SASummarySubmittedOn.hashValue:
+                cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummarySubmittedOn)
+            
+            case ApplicationSummaryKeys.SASummaryNeedeIn.hashValue:
+                cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummaryNeedeIn)
+
+            case ApplicationSummaryKeys.SASummaryBusinessName.hashValue:
+                cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummaryBusinessName)
+
+            case ApplicationSummaryKeys.SASummaryLoanValue.hashValue:
+                cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummaryLoanValue)
+
+            default:
+                break;
         }
         
         if indexPath.row == 1 {

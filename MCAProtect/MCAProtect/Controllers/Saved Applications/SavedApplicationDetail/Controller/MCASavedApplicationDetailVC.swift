@@ -23,13 +23,11 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     var doneButton : UIBarButtonItem?
     var applicationStatus : Int?
     
-    var loanDataSource = ["Business Name","Credit Score","Loan Amount","Loan Term","Need it By"]
-    var loanDataSourceValue = ["Stacy's Boutique","552","$75,000","6 Months","5 Days"]
-
-    var businessInformationDataSource = ["Legal Business Name","Contact Name","Telephone","Email","Federal Tax ID","Gross Annual Sales","Business Entity Type","DBA Business Name","State of Incorporation","Business Start Date","Industry Type","Seasonal Business"]
-    var businessInformationDataSourceValue = ["Stacy's Boutique","Helen Parker","(876) 965-8756","helen.parker@gmail.com","8768968","$30,000","Partnership","Stacy's Boutique","California","2014-12-09","Ice Creanm","Yes"]
-    var businessAddressDataSource = ["Street","City","State","Zip Code","Web Address","Telephone","Fax Number"]
-    var businessAddressDataSourceValue = ["E 76th PI","Los Angeles","California","780098","www.stacysboutique.com","(976) 745-3435","(976) 745-3435"]
+    var loanDetail : MCALoanDetail!
+    var businessInformation : MCABusinessInformation!
+    var businessAddress : MCABusinessAddress!
+    var fieldCount : Int!
+    var applicationModel : AnyObject!
     
     var dataSourceArray : [String] = []
     var dataSourceValueArray : [String] = []
@@ -39,12 +37,15 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loanDetail = MCALoanDetail(data: nil)
+        businessInformation = MCABusinessInformation(data: nil)
+        businessAddress = MCABusinessAddress(data: nil)
+        
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         isViewingMode = true
         initializeToolBar()
-        let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
-        tableView.contentInset = contentInset
-        tableView.tableFooterView = UIView()
+
         
         if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
             
@@ -63,26 +64,29 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         registerForKeyboardNotifications()
         switch applicaionDetailType {
             
-        case SavedApplicationForm.LoanDetails.rawValue:
-            self.title = "Loan Details"
-            dataSourceArray = loanDataSource
-            dataSourceValueArray = loanDataSourceValue
-            self.tableViewBottomConstraint.constant = 0.0
-            
-        case SavedApplicationForm.BusinessInformation.rawValue:
-            self.title = "Business Information"
-            dataSourceArray = businessInformationDataSource
-            dataSourceValueArray = businessInformationDataSourceValue
-            self.tableViewBottomConstraint.constant = 0.0
+            case SavedApplicationForm.LoanDetails.rawValue:
+                self.title = "Loan Details"
+                applicationModel = loanDetail
+                fieldCount = (applicationModel as! MCALoanDetail).fieldCount
+                self.tableViewBottomConstraint.constant = 0.0
+                
+            case SavedApplicationForm.BusinessInformation.rawValue:
+                self.title = "Business Information"
+                applicationModel = businessInformation
+                fieldCount = (applicationModel as! MCABusinessInformation).fieldCount
+                self.tableViewBottomConstraint.constant = 0.0
 
-        case SavedApplicationForm.BusinessAddress.rawValue:
-            self.title = "Business Address"
-            dataSourceArray = businessAddressDataSource
-            dataSourceValueArray = businessAddressDataSourceValue
+            case SavedApplicationForm.BusinessAddress.rawValue:
+                self.title = "Business Address"
+                applicationModel = businessAddress
+                fieldCount = (applicationModel as! MCABusinessAddress).fieldCount
 
-        default:
-            break
+            default:
+                break
         }
+        let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
+        tableView.contentInset = contentInset
+        tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,7 +111,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceArray.count
+        return fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,11 +120,76 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         
-        cell.titleLabel.text = dataSourceArray[indexPath.row]
-        cell.dataTF.text = dataSourceValueArray[indexPath.row]
+        switch applicaionDetailType {
+            
+            case SavedApplicationForm.LoanDetails.rawValue:
+                
+                switch indexPath.row {
+                    case LoanDetailKeys.businessName.hashValue:
+                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.businessName)
+                    case LoanDetailKeys.creditScore.hashValue:
+                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.creditScore)
+                    case LoanDetailKeys.loanAmount.hashValue:
+                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.loanAmount)
+                    case LoanDetailKeys.loanTerm.hashValue:
+                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.loanTerm)
+                    case LoanDetailKeys.needItBy.hashValue:
+                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.needItBy)
+                    default: break
+                }
+
+            case SavedApplicationForm.BusinessInformation.rawValue:
+            
+                switch indexPath.row {
+                    case BusinessInformationKeys.legalBusinessName.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.legalBusinessName)
+                    case BusinessInformationKeys.contactName.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.contactName)
+                    case BusinessInformationKeys.telephone.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.telephone)
+                    case BusinessInformationKeys.email.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.email)
+                    case BusinessInformationKeys.federalTaxID.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.federalTaxID)
+                    case BusinessInformationKeys.grossAnnualSales.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.grossAnnualSales)
+                    case BusinessInformationKeys.businessEntityType.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.businessEntityType)
+                    case BusinessInformationKeys.dBABusinessName.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.dBABusinessName)
+                    case BusinessInformationKeys.stateOfIncorprataion.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.stateOfIncorprataion)
+                    case BusinessInformationKeys.businessStartDate.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.businessStartDate)
+                    case BusinessInformationKeys.industryType.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.industryType)
+                    case BusinessInformationKeys.seasonalBusiness.hashValue:
+                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.seasonalBusiness)
+                    default: break
+                }
+            case SavedApplicationForm.BusinessAddress.rawValue:
+                switch indexPath.row {
+                    case BusinessAddressKeys.street.hashValue:
+                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.street)
+                    case BusinessAddressKeys.city.hashValue:
+                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.city)
+                    case BusinessAddressKeys.state.hashValue:
+                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.state)
+                    case BusinessAddressKeys.zipCode.hashValue:
+                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.zipCode)
+                    case BusinessAddressKeys.webAddress.hashValue:
+                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.webAddress)
+                    case BusinessAddressKeys.telephone.hashValue:
+                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.telephone)
+                    case BusinessAddressKeys.faxNumber.hashValue:
+                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.faxNumber)
+                    default: break
+                    }
+            default: break
+            }
+        
         cell.dataTF.delegate = self
         cell.dataTF.isUserInteractionEnabled = true
-//        cell.dataTF.tag = indexPath.row
         
         return cell
     }

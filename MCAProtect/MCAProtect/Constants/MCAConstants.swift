@@ -148,3 +148,39 @@ enum FPApplicationSummaryKeys : String {
     case FPSUmmaryMaximumLoan = "Maximum Loan"
 }
 
+enum LoanDetailKeys : String {
+    
+    case businessName    = "Business Name"
+    case creditScore      = "Credit Score"
+    case loanAmount      = "Loan Amount"
+    case loanTerm        = "Loan Term"
+    case needItBy        = "Need it By"
+}
+
+enum BusinessInformationKeys : String {
+    
+    case legalBusinessName  = "Legal Business Name"
+    case contactName        = "Contact Name"
+    case telephone          = "Telephone"
+    case email              = "Email"
+    case federalTaxID       = "Federal Tax ID"
+    case grossAnnualSales   = "Gross Annual Sales"
+    case businessEntityType = "Business Entity Type"
+    case dBABusinessName    = "DBA Business Name"
+    case stateOfIncorprataion = "State of Incorporation"
+    case businessStartDate  = "Business Start Date"
+    case industryType       = "Industry Type"
+    case seasonalBusiness   = "Seasonal Business"
+}
+
+enum BusinessAddressKeys : String {
+    
+    case street     = "Street"
+    case city       = "City"
+    case state      = "State"
+    case zipCode    = "Zip Code"
+    case webAddress = "Web Address"
+    case telephone  = "Telephone"
+    case faxNumber  = "Fax Number"
+}
+
