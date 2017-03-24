@@ -12,7 +12,6 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
 {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
-    @IBOutlet weak var backgroungImageView : UIImageView!
     
     var upsellRatePicker = UIPickerView()
     var blurView:UIVisualEffectView!
@@ -40,7 +39,6 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
          self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconInfo"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
-        backgroungImageView.isHidden = true;
          configPicker()
         initilazeToolBar()
 
@@ -325,14 +323,22 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         addPickerForCommonRate(sender:object)
     }
     
-   
+    func addGradientToView()
+    {
+    let gradient = CAGradientLayer()
+    gradient.frame = view.bounds;
+        
+        gradient.colors = [UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor,UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor,UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor]
+     view.layer.addSublayer(gradient)
+
+    }
+    
     func blur() {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         blurView = UIVisualEffectView(effect: blurEffect)
         blurView.isUserInteractionEnabled = false
-        self.backgroungImageView.frame = self.view.bounds
-        blurView.frame = self.backgroungImageView.bounds
-        backgroungImageView.addSubview(blurView)
+        blurView.frame = self.view.bounds
+        view.addSubview(blurView)
     }
     
     func unblur() {
@@ -343,10 +349,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func addPicker(sender : AnyObject) {
         pickerState = 1
         pickerTitle?.title = "Set Upsell Rate"
+        self.navigationController?.navigationBar.isHidden = true
 
         self.blur()
-        backgroungImageView.isHidden = false
-        self.navigationController?.navigationBar.isHidden = true
         matchedFundingProgram = sender as! MCAMatchedFundingProgram
         self.view.addSubview(self.upsellRatePicker)
         self.view.addSubview(self.toolbar!)
@@ -356,10 +361,10 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func addPickerForCommonRate(sender : AnyObject)
     {
         pickerState = 0
-        pickerTitle?.title = "Set Common Rate"
         self.navigationController?.navigationBar.isHidden = true
+
+        pickerTitle?.title = "Set Common Rate"
         self.blur()
-        backgroungImageView.isHidden = false
 
         indexPath = sender  as! NSIndexPath
         self.view.addSubview(self.upsellRatePicker)
@@ -439,7 +444,6 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func inputToolbarDonePressed() {
         unblur()
-        backgroungImageView.isHidden = true
         self.navigationController?.navigationBar.isHidden = false
 
         self.upsellRatePicker.removeFromSuperview()

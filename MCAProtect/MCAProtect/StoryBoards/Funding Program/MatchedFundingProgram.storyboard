@@ -133,27 +133,19 @@
                                     <outlet property="delegate" destination="DX8-oi-VWE" id="2vn-5r-nLB"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="webBackground" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ne4-Wv-Nq3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ne4-Wv-Nq3" firstAttribute="top" secondItem="wkb-bI-z63" secondAttribute="top" id="6IB-Kk-N4x"/>
                             <constraint firstItem="jgq-N4-Aub" firstAttribute="leading" secondItem="wkb-bI-z63" secondAttribute="leading" id="9X7-xF-ZUL"/>
                             <constraint firstItem="jgq-N4-Aub" firstAttribute="top" secondItem="CUs-dK-ho3" secondAttribute="bottom" id="Pbl-Md-sFA"/>
-                            <constraint firstItem="Ne4-Wv-Nq3" firstAttribute="leading" secondItem="wkb-bI-z63" secondAttribute="leading" id="ThA-Ve-yCq"/>
                             <constraint firstItem="CUs-dK-ho3" firstAttribute="top" secondItem="jEc-lf-Hdo" secondAttribute="bottom" id="bu8-Wp-wNq"/>
-                            <constraint firstItem="b15-WL-jNk" firstAttribute="top" secondItem="Ne4-Wv-Nq3" secondAttribute="bottom" id="d0P-lb-2ke"/>
                             <constraint firstItem="b15-WL-jNk" firstAttribute="top" secondItem="jgq-N4-Aub" secondAttribute="bottom" id="dmD-Mc-RJX"/>
-                            <constraint firstAttribute="trailing" secondItem="Ne4-Wv-Nq3" secondAttribute="trailing" id="eNq-e8-TVT"/>
                             <constraint firstAttribute="trailing" secondItem="jgq-N4-Aub" secondAttribute="trailing" id="eb6-8z-8bm"/>
                             <constraint firstAttribute="trailing" secondItem="CUs-dK-ho3" secondAttribute="trailing" id="fxl-t9-aIa"/>
                             <constraint firstItem="CUs-dK-ho3" firstAttribute="leading" secondItem="wkb-bI-z63" secondAttribute="leading" id="zCA-6O-Jzl"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backgroungImageView" destination="Ne4-Wv-Nq3" id="7eC-Fr-cIs"/>
                         <outlet property="selectedCountLabel" destination="9yV-4Q-T8k" id="yNn-zx-UTQ"/>
                         <outlet property="tableView" destination="CUs-dK-ho3" id="gTX-HJ-H2P"/>
                     </connections>
@@ -178,13 +170,13 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green Box Capital" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahD-va-HfC">
-                                        <rect key="frame" x="93.5" y="21.5" width="189.5" height="28"/>
+                                        <rect key="frame" x="90" y="21.5" width="196.5" height="28"/>
                                         <fontDescription key="fontDescription" name="Roboto-BoldItalic" family="Roboto" pointSize="24"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBox" translatesAutoresizingMaskIntoConstraints="NO" id="B6j-D3-PJY">
-                                        <rect key="frame" x="45.5" y="15" width="40" height="40"/>
+                                        <rect key="frame" x="42" y="15" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="I3A-Ho-7Ry"/>
                                             <constraint firstAttribute="height" constant="40" id="W9s-vk-ODp"/>
@@ -216,7 +208,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GreenBox Capital &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf8-LE-hEK">
-                                                <rect key="frame" x="15" y="30" width="169" height="22"/>
+                                                <rect key="frame" x="15" y="30" width="176" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="HDN-Me-CsQ"/>
                                                 </constraints>
@@ -225,7 +217,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="GreenBox Investments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KFk-rv-T0k">
-                                                <rect key="frame" x="194" y="30" width="170" height="22"/>
+                                                <rect key="frame" x="201" y="30" width="163" height="22"/>
                                                 <fontDescription key="fontDescription" name="Roboto-LightItalic" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -553,6 +545,5 @@
         <image name="downArrow" width="10" height="10"/>
         <image name="greenBox" width="240" height="80"/>
         <image name="iconCheck" width="14" height="14"/>
-        <image name="webBackground" width="304" height="288"/>
     </resources>
 </document>
