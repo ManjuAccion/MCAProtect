@@ -136,3 +136,15 @@ enum ApplicationSummaryKeys: String {
     case SASummaryLoanValue     = "Loan Value"
 }
 
+enum FPApplicationSummaryKeys : String {
+    
+    case FPSummaryFundingProgram = "Funding Program"
+    case FPSummaryContact = "Contact"
+    case FPSummaryTerm = "Term"
+    case FPSummaryTimeInBuisness = "Time in Buisness"
+    case FPSummaryBuyRate = "Buy Rate"
+    case FPSummaryCreditScore = "Credit Score"
+    case FPSummaryMinimumLoan = "Minimum Loan"
+    case FPSUmmaryMaximumLoan = "Maximum Loan"
+}
+

@@ -12,14 +12,14 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
 
     @IBOutlet weak var tableView: UITableView!
 
-       var dataSourceArray : [String] = ["Funding Programs","Contact","Term","Time in Buisness","Buy rate","Credit Score","Minimum Loan","Maximum Loan"]
-    var dataValueArray : [NSString] = ["Stacy's Botique","Syndicate Premium","18 Months","6 months","1.28%","650","$2000","$10,000"]
+    
+    var fundingProgramSummary : MCAFundingProgramList!
     
     var titleText: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = titleText
+        self.title = fundingProgramSummary.fundingProgramName
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")
         tableView.tableFooterView = UIView()
         
@@ -37,7 +37,7 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceArray.count
+        return fundingProgramSummary.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,10 +46,38 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
         
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
+        
+        switch indexPath.row {
+        case FPApplicationSummaryKeys.FPSummaryFundingProgram.hashValue:
+            cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryFundingProgram)
+        case FPApplicationSummaryKeys.FPSummaryContact.hashValue:
+            cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryContact)
 
-        let title = dataSourceArray[indexPath.row]
-        cell.titleLabel.text = title
-        cell.dataTF.text = dataValueArray[indexPath.row] as String
+        case FPApplicationSummaryKeys.FPSummaryTerm.hashValue:
+            cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryTerm)
+
+        case FPApplicationSummaryKeys.FPSummaryTimeInBuisness.hashValue:
+            cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryTimeInBuisness)
+
+        case FPApplicationSummaryKeys.FPSummaryBuyRate.hashValue:
+            cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryBuyRate)
+
+        case FPApplicationSummaryKeys.FPSummaryCreditScore.hashValue:
+            cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryCreditScore)
+
+        case FPApplicationSummaryKeys.FPSummaryMinimumLoan.hashValue:
+            cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryMinimumLoan)
+
+        case FPApplicationSummaryKeys.FPSUmmaryMaximumLoan.hashValue:
+            cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSUmmaryMaximumLoan)
+
+        default:
+            break
+        }
+
+    //    let title = dataSourceArray[indexPath.row]
+    //    cell.titleLabel.text = title
+     //   cell.dataTF.text = dataValueArray[indexPath.row] as String
         
         if  (indexPath.row == 0) {
 

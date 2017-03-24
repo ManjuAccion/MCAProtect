@@ -36,10 +36,12 @@ class MCAApplicationTVCell: UITableViewCell {
     func dataSource(data: MCAFundingProgramList)
     {
        headingLabel.text = data.fundingProgramName
-        detailLabel.text = data.minimumLoan
+        detailLabel.text = MCAUtilities.currencyFormatter(inputItem: data.minimumLoan as AnyObject)
+
         contactNameLabel.text = data.contactName
         emailButton.setTitle(data.email, for: UIControlState.normal)
         phoneNumberButton.setTitle(data.phoneNumber, for: UIControlState.normal)
+        
 
         
     }

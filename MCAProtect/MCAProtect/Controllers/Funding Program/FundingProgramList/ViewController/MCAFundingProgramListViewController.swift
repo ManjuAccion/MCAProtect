@@ -15,8 +15,6 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     var fundingProgramList : MCAFundingProgramList!
     var FPListArray : NSMutableArray!
     
-    var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    var amountDataSource = ["$2000","$3000","$4000","$5000","$6000"]
 
     override func viewDidLoad()
     {
@@ -69,7 +67,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         selectedCell.backgroundColor = ColorConstants.selectedBackground
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
         let fundingSummaryVC = storyBoard.instantiateViewController(withIdentifier: "FundingProgramSummaryVC") as! MCAFundingProgramSummaryVC
-        fundingSummaryVC.titleText = dataDataSource[indexPath.row]
+         fundingSummaryVC.fundingProgramSummary = FPListArray.object(at: indexPath.row) as! MCAFundingProgramList
         navigationController?.pushViewController(fundingSummaryVC, animated: true)
     }
     

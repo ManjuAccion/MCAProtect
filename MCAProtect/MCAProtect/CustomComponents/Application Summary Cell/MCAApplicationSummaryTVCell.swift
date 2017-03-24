@@ -42,6 +42,14 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         
         print("\(dataTF.text)")
     }
+    
+    
+    func setFPSummaryDetails(FPSummary : MCAFundingProgramList, key : FPApplicationSummaryKeys)
+    {
+       titleLabel.text = key.rawValue
+        dataTF.text = FPSummary.getValueFromKey(key: key) as? String
+        
+    }
 
     
     func setApplicationSummaryDetails(_ : AnyObject)
