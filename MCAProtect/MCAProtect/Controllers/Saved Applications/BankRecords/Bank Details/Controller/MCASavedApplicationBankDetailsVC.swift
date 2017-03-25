@@ -17,13 +17,14 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
     var bankName: String?
     var applicationStatus : Int?
     
-    let bankDetailsArray = ["Account Number","Range","Statement Period","Number of Deposits","Deposit Amount","Days with Negative Balance","Average Daily Balance"]
-    let bankDetailsValueArray  = ["BOA546897236","1st Nov 2016 31st Dec 2016","1st-Nov-2016_31st-Dec-2016.pdf","20","$75,000","0","$3,300"]
-    
+    var bankDetail : MCABankDetails!
+
     //MARK: View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bankDetail = MCABankDetails(data:nil)
         tableView.register(UINib(nibName: "MCASavedApplicationsBankDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankDetailsTVCell)
         tableView.tableFooterView = UIView()
         if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
@@ -47,7 +48,7 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bankDetailsArray.count
+        return bankDetail.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,8 +56,24 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASavedApplicationsBankDetailsTVCell, for: indexPath) as! MCASavedApplicationsBankDetailsTVCell
         cell.selectionStyle = .none
         
-        cell.headingLabel.text = bankDetailsArray[indexPath.row]
-        cell.dataTF.text = bankDetailsValueArray[indexPath.row]
+        switch indexPath.row
+        {
+            case BankDetailKeys.accountNumber.hashValue:
+                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.accountNumber)
+            case BankDetailKeys.range.hashValue:
+                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.range)
+            case BankDetailKeys.statementPeriod.hashValue:
+                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.statementPeriod)
+            case BankDetailKeys.numberOfDeposits.hashValue:
+                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.numberOfDeposits)
+            case BankDetailKeys.depositAmount.hashValue:
+                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.depositAmount)
+            case BankDetailKeys.daysWithNegativeBalance.hashValue:
+                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.daysWithNegativeBalance)
+            case BankDetailKeys.avgDailyBalance.hashValue:
+                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.avgDailyBalance)
+            default:break
+        }
         cell.dataTF.delegate = self
         cell.dataTF.isUserInteractionEnabled = true
         cell.backgroundColor = UIColor.clear

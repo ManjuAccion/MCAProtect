@@ -30,6 +30,12 @@ class MCASavedApplicationsBankDetailsTVCell: UITableViewCell {
     @IBAction func deleteButtonTapped(_ sender: Any) {
     }
     
+    func setBankDetail(bankDetail : MCABankDetails, mcaLoanKey : BankDetailKeys)
+    {
+        headingLabel.text = mcaLoanKey.rawValue
+        dataTF.text =  bankDetail.getValueFromKey(key: mcaLoanKey)
+    }
+    
     
     
 }

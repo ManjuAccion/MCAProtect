@@ -184,3 +184,14 @@ enum BusinessAddressKeys : String {
     case faxNumber  = "Fax Number"
 }
 
+enum BankDetailKeys : String {
+    
+    case accountNumber              = "Account Number"
+    case range                      = "Range"
+    case statementPeriod            = "Statement Period"
+    case numberOfDeposits           = "Number of Deposits"
+    case depositAmount              = "Deposit Amount"
+    case daysWithNegativeBalance    = "Days with Negative Balance"
+    case avgDailyBalance            = "Average Daily Balance"
+}
+
