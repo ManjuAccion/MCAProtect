@@ -216,3 +216,13 @@ enum OwnerInformationDetailKeys : String {
     case homePhone              = "Home Phone"
     case percentOwned           = "% Owned"
 }
+
+enum BusinessLocationDetailKeys : String {
+    case locationType       = "Location Type"
+    case monthlyPayement    = "Monthly Payement"
+    case streetAddress      = "Street Address"
+    case city               = "City"
+    case state              = "State"
+    case zipCode            = "Zip Code"
+}
+

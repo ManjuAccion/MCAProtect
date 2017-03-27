@@ -16,14 +16,13 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
     var activeField: UITextField?
     var businessLocationName: String?
     var applicationStatus : Int?
+    var businessLocationDetail : MCABusinessLocationDetail!
 
     //MARK: - View Life Cycle
     
-    let businessLocationArray = ["Location Type","Monthly Payement","Street Address","City","State","Zip Code"]
-    let businessLocationValueArray  = ["Mortgaged","$1,200","E 12 Deming PL","Star City","Alabama","12345"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        businessLocationDetail = MCABusinessLocationDetail(data:nil)
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         
@@ -47,7 +46,7 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return businessLocationArray.count
+        return businessLocationDetail.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,8 +55,28 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         
-        cell.titleLabel.text = businessLocationArray[indexPath.row]
-        cell.dataTF.text = businessLocationValueArray[indexPath.row]
+        switch indexPath.row
+        {
+            case BusinessLocationDetailKeys.locationType.hashValue:
+                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.locationType)
+                
+            case BusinessLocationDetailKeys.monthlyPayement.hashValue:
+                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.monthlyPayement)
+                
+            case BusinessLocationDetailKeys.streetAddress.hashValue:
+                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.streetAddress)
+                
+            case BusinessLocationDetailKeys.city.hashValue:
+                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.city)
+            
+            case BusinessLocationDetailKeys.state.hashValue:
+                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.state)
+                
+            case BusinessLocationDetailKeys.zipCode.hashValue:
+                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.zipCode)
+                
+            default: break;
+        }
         
         cell.dataTF.delegate = self
         cell.dataTF.isUserInteractionEnabled = true

@@ -74,6 +74,12 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         dataTF.text =  ownerInfoDetail.getValueFromKey(ownerInformationKey: ownerInfoDetailKey)
     }
     
+    func setBusinessLocationDetail(businessLocationDetail : MCABusinessLocationDetail, businessLocationDetailKey : BusinessLocationDetailKeys)
+    {
+        titleLabel.text = businessLocationDetailKey.rawValue
+        dataTF.text =  businessLocationDetail.getValueFromKey(businessLocationKey: businessLocationDetailKey)
+    }
+    
     func setApplicationSummaryDetails(_ : AnyObject)
     {
         

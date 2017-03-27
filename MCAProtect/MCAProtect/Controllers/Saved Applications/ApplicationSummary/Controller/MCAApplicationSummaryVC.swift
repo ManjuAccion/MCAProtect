@@ -70,8 +70,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
             case ApplicationSummaryKeys.SASummaryLoanValue.hashValue:
                 cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummaryLoanValue)
 
-            default:
-                break;
+            default: break;
         }
         
         if indexPath.row == 1 {
