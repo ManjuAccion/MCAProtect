@@ -26,4 +26,10 @@ class MCASavedApplicationsBankRecordsTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func setBankRecords(bankRecords:MCABankRecords) {
+        bankNameLabel.text = bankRecords.bankName
+        accountNumberLabel.text = bankRecords.accountNumber
+        amountLabel.text = MCAUtilities.currencyFormatter(inputItem: bankRecords.averageDailyBalance as AnyObject)
+    }
+    
 }

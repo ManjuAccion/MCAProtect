@@ -11,17 +11,25 @@ import UIKit
 class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
     var applicationStatus : Int?
+    var bankRecords : MCABankRecords!
+    var bankRecordsArray : [MCABankRecords]!
     
     //MARK: - View Life Cycle
-    
-    var bankNameArray = ["Bank of America","Dag Bank","JPMorgan Chase","Wells Fargo"]
-    var accountNumberArray  = ["BOA546897236","DB1234567890","123JP445545","2346474747464"]
-    var accountBalanceArray = ["$3,300","$2,200","$2,350","$2,456","$4,568"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Bank Records"
+
+        bankRecordsArray = [MCABankRecords]()
+        for _ in 1...6
+        {
+            bankRecords = MCABankRecords(data:nil)
+            bankRecordsArray.append(bankRecords)
+        }
+        
         tableView.register(UINib(nibName: "MCASavedApplicationsBankRecordsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankRecordsTVCell)
         tableView.tableFooterView = UIView()
     }
@@ -33,7 +41,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bankNameArray.count
+        return bankRecords.bankRecordsCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,9 +49,9 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASavedApplicationsBankRecordsTVCell, for: indexPath) as! MCASavedApplicationsBankRecordsTVCell
         cell.selectionStyle = .none
         
-        cell.bankNameLabel.text = bankNameArray[indexPath.row]
-        cell.accountNumberLabel.text = accountNumberArray[indexPath.row]
-        cell.amountLabel.text = accountBalanceArray[indexPath.row]
+        bankRecords = bankRecordsArray[indexPath.row]
+        cell.setBankRecords(bankRecords: bankRecords)
+
         cell.backgroundColor = UIColor.clear
         
         return cell
@@ -57,7 +65,8 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
         let savedApplicationBankDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationBankDetailsVC) as! MCASavedApplicationBankDetailsVC
-        savedApplicationBankDetailsVC.bankName = bankNameArray[indexPath.row]
+        bankRecords = bankRecordsArray[indexPath.row]
+        savedApplicationBankDetailsVC.bankName = bankRecords.bankName
         savedApplicationBankDetailsVC.applicationStatus = applicationStatus
         navigationController?.pushViewController(savedApplicationBankDetailsVC, animated: true)
 
