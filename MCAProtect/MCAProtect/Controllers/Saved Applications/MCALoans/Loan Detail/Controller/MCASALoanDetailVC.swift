@@ -16,12 +16,13 @@ class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableView
     var activeField: UITextField?
     var bankName: String?
     var applicationStatus : Int?
-
-    let bankDetailsArray = ["Company","Funded Amount","Current Balance","Loan Terms","Frequency","Amount"]
-    let bankDetailsValueArray  = ["Glink Lender","$20,000","$5,000","4","Monthly","$1,300"]
+    var existingLoanDetail : MCAExistingLoanDetail!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Glink Lender"
+        existingLoanDetail = MCAExistingLoanDetail(data: nil)
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         isViewingMode = true
@@ -45,7 +46,7 @@ class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableView
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bankDetailsArray.count
+        return existingLoanDetail.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,9 +54,33 @@ class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
+        
+        switch indexPath.row
+        {
+            case MCALoanDetailKeys.company.hashValue:
+                cell.setExistingMCALoan(existingLoan:existingLoanDetail , mcaLoanKey: MCALoanDetailKeys.company)
+            
+            case MCALoanDetailKeys.fundedAmount.hashValue:
+                cell.setExistingMCALoan(existingLoan:existingLoanDetail , mcaLoanKey: MCALoanDetailKeys.fundedAmount)
+            
+            case MCALoanDetailKeys.currentBalance.hashValue:
+                cell.setExistingMCALoan(existingLoan:existingLoanDetail , mcaLoanKey: MCALoanDetailKeys.currentBalance)
+            
+            case MCALoanDetailKeys.loanTerms.hashValue:
+                cell.setExistingMCALoan(existingLoan:existingLoanDetail , mcaLoanKey: MCALoanDetailKeys.loanTerms)
+            
+            case MCALoanDetailKeys.frequency.hashValue:
+                cell.setExistingMCALoan(existingLoan:existingLoanDetail , mcaLoanKey: MCALoanDetailKeys.frequency)
+            
+            case MCALoanDetailKeys.amount.hashValue:
+                cell.setExistingMCALoan(existingLoan:existingLoanDetail , mcaLoanKey: MCALoanDetailKeys.amount)
+            
+            default:
+                break;
+        }
 
-        cell.titleLabel.text = bankDetailsArray[indexPath.row]
-        cell.dataTF.text = bankDetailsValueArray[indexPath.row]
+        
+        
         cell.dataTF.delegate = self
         cell.dataTF.isUserInteractionEnabled = true
         

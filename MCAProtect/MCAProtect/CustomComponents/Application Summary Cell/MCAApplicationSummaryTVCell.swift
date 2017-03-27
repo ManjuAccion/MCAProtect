@@ -62,6 +62,12 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         dataTF.text = FPSummary.getValueFromKey(key: key) as? String
     }
     
+    func setExistingMCALoan(existingLoan : MCAExistingLoanDetail, mcaLoanKey : MCALoanDetailKeys)
+    {
+        titleLabel.text = mcaLoanKey.rawValue
+        dataTF.text =  existingLoan.getValueFromKey(key: mcaLoanKey)
+    }
+    
     func setApplicationSummaryDetails(_ : AnyObject)
     {
         

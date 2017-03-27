@@ -195,3 +195,11 @@ enum BankDetailKeys : String {
     case avgDailyBalance            = "Average Daily Balance"
 }
 
+enum MCALoanDetailKeys : String {
+    case company            = "Company"
+    case fundedAmount       = "Funded Amount"
+    case currentBalance     = "Current Balance"
+    case loanTerms          = "Loan Terms"
+    case frequency          = "Frequency"
+    case amount             = "Amount"
+}
