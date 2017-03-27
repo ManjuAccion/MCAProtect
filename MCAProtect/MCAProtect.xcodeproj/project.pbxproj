@@ -78,7 +78,6 @@
 		782C69FF1E49B85000268356 /* MCADashboardTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69FE1E49B85000268356 /* MCADashboardTabbarVC.swift */; };
 		782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A001E49B8D200268356 /* MCADealsFundedVC.swift */; };
 		782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A081E49BE1D00268356 /* MCAForgotPasswordVC.swift */; };
-		782C6A0B1E49BE2F00268356 /* MCALoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0A1E49BE2F00268356 /* MCALoginViewController.swift */; };
 		782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */; };
 		7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3331E5312310019B707 /* MCANavigationController.swift */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
@@ -174,6 +173,8 @@
 		BAC6AE681E8250F90047F7D3 /* MCAPerformanceComparisonVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE641E8250F90047F7D3 /* MCAPerformanceComparisonVS.swift */; };
 		BAC6AE691E8250F90047F7D3 /* MCAPerformanceComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE661E8250F90047F7D3 /* MCAPerformanceComparisonCell.swift */; };
 		BAC6AE6A1E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6AE671E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib */; };
+		BACC53041E892C85003C4852 /* MCALoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC53031E892C85003C4852 /* MCALoginViewController.swift */; };
+		BACC53061E892DAF003C4852 /* MCAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC53051E892DAF003C4852 /* MCAUser.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -272,7 +273,6 @@
 		782C69FE1E49B85000268356 /* MCADashboardTabbarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADashboardTabbarVC.swift; sourceTree = "<group>"; };
 		782C6A001E49B8D200268356 /* MCADealsFundedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsFundedVC.swift; sourceTree = "<group>"; };
 		782C6A081E49BE1D00268356 /* MCAForgotPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAForgotPasswordVC.swift; sourceTree = "<group>"; };
-		782C6A0A1E49BE2F00268356 /* MCALoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoginViewController.swift; sourceTree = "<group>"; };
 		782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARegistrationVC.swift; sourceTree = "<group>"; };
 		7871E3331E5312310019B707 /* MCANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANavigationController.swift; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -368,6 +368,8 @@
 		BAC6AE641E8250F90047F7D3 /* MCAPerformanceComparisonVS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonVS.swift; sourceTree = "<group>"; };
 		BAC6AE661E8250F90047F7D3 /* MCAPerformanceComparisonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonCell.swift; sourceTree = "<group>"; };
 		BAC6AE671E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPerformanceComparisonCell.xib; sourceTree = "<group>"; };
+		BACC53031E892C85003C4852 /* MCALoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoginViewController.swift; sourceTree = "<group>"; };
+		BACC53051E892DAF003C4852 /* MCAUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUser.swift; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1033,7 +1035,8 @@
 		782C6A051E49BE0200268356 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				782C6A0A1E49BE2F00268356 /* MCALoginViewController.swift */,
+				BACC53031E892C85003C4852 /* MCALoginViewController.swift */,
+				BACC53011E892A01003C4852 /* Model */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1889,6 +1892,14 @@
 			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
+		BACC53011E892A01003C4852 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BACC53051E892DAF003C4852 /* MCAUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2243,6 +2254,7 @@
 				5BB3E5FA1E8293A800A67927 /* MCAApplicationTVCell.swift in Sources */,
 				BAC6ADDF1E8158D70047F7D3 /* MCAExistingLoanDetail.swift in Sources */,
 				BAC6ADE71E8160350047F7D3 /* MCAAskFunderApplicationListTVCell.swift in Sources */,
+				BACC53041E892C85003C4852 /* MCALoginViewController.swift in Sources */,
 				BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */,
 				5BB3E6021E8293A800A67927 /* MCAEmailTableViewCell.swift in Sources */,
 				BAC6AD9D1E81020A0047F7D3 /* MCASavedApplicationsListTVCell.swift in Sources */,
@@ -2260,7 +2272,6 @@
 				BAC6AD8D1E8101770047F7D3 /* MCASavedApplicationsBankRecordsVC.swift in Sources */,
 				5B1F8D5E1E83AB2800BD53F2 /* MCAFPApplicationDetailVC.swift in Sources */,
 				BAC6AD611E7FE8E10047F7D3 /* MCABankruptcy.swift in Sources */,
-				782C6A0B1E49BE2F00268356 /* MCALoginViewController.swift in Sources */,
 				BAC6AD861E80FFB90047F7D3 /* MCASavedApplicationsBankDetailsTVCell.swift in Sources */,
 				BAC6AE601E8250C90047F7D3 /* MCADealsPipelineVC.swift in Sources */,
 				5BB3E6061E8293A800A67927 /* MCAPhoneNumberTableViewCell.swift in Sources */,
@@ -2279,6 +2290,7 @@
 				5B1F8D7E1E83E9E400BD53F2 /* MCAFundingProgramApplicationForm.swift in Sources */,
 				BAC6AD821E80FE6E0047F7D3 /* MCABankDetails.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
+				BACC53061E892DAF003C4852 /* MCAUser.swift in Sources */,
 				BAC6ADDD1E8153B90047F7D3 /* MCABusinessLocationDetail.swift in Sources */,
 				5B1F8D6D1E83ABE700BD53F2 /* MCAFundingProgramListViewController.swift in Sources */,
 				BAC6AE371E824F800047F7D3 /* MCAAskFunderApplicationSummaryVC.swift in Sources */,
