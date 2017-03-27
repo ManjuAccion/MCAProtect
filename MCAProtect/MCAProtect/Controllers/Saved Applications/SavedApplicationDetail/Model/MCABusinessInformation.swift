@@ -67,7 +67,7 @@ class MCABusinessInformation: NSObject {
                 modelValue = federalTaxId
             
             case .grossAnnualSales:
-                modelValue = "\(grossAnnualSales!)"
+                modelValue = MCAUtilities.currencyFormatter(inputItem: grossAnnualSales as AnyObject)
             
             case .businessEntityType:
                 modelValue = businessEntityTypeId

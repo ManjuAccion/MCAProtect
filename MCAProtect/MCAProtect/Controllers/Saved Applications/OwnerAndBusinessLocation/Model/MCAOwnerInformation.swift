@@ -16,7 +16,8 @@ class MCAOwnerInformation: NSObject {
     init(data :NSDictionary?) {
         
         if nil == data {
-            
+            ownerName = "Randell D'souza"
+            socialSecurityNumber = "666777888"
         }
         else {
             

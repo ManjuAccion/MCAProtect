@@ -24,7 +24,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         self.title = "Bank Records"
 
         bankRecordsArray = [MCABankRecords]()
-        for _ in 1...6
+        for _ in 1...4
         {
             bankRecords = MCABankRecords(data:nil)
             bankRecordsArray.append(bankRecords)

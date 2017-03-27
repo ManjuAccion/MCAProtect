@@ -11,23 +11,48 @@ import UIKit
 class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    let ownerDSArray = ["Randell D'souza","Angela Merkel","William Jebor"]
-    let ownerDSValueArray  = ["666346173","666552699","666023487"]
-    
-    let businessDSArray = ["Business Location 1","Business Location 2","Business Location 3","Business Location 4","Business Location 5"]
-    let businessDSValueArray  = ["Columbiana Country","Alexander City","Birmingham","HeadLand","Montgomery"]
-    
-    var dataSourceArray : [String] = []
-    var dataSourceValueArray : [String] = []
+
+    var dataSourceArray : [AnyObject] = []
     
     var applicaionDetailType: NSInteger!
     var applicationStatus : Int?
+    
+    var ownerInformation : MCAOwnerInformation!
+    var ownerInformationArray : [MCAOwnerInformation]!
+    
+    var businessLocation : MCABusinessLocation!
+    var businessLocationArray : [MCABusinessLocation]!
     
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch applicaionDetailType {
+            
+            case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
+                self.title = "Owner Information"
+                ownerInformationArray = [MCAOwnerInformation]()
+                for _ in 1...4
+                {
+                    ownerInformation = MCAOwnerInformation(data:nil)
+                    ownerInformationArray.append(ownerInformation)
+                }
+                dataSourceArray = ownerInformationArray
+                
+            case SavedApplicationForm.BusinessLocation.rawValue:
+                self.title = "Business Location"
+                businessLocationArray = [MCABusinessLocation]()
+                for _ in 1...4
+                {
+                    businessLocation = MCABusinessLocation(data:nil)
+                    businessLocationArray.append(businessLocation)
+                }
+                dataSourceArray = businessLocationArray
+                
+            default: break
+        }
+        
         tableView.register(UINib(nibName: "MCASAOwnerAndLocationDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell)
         tableView.tableFooterView = UIView()
     }
@@ -35,20 +60,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(
             animated)
-        switch applicaionDetailType {
-            
-        case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
-            self.title = "Owner Information"
-            dataSourceArray = ownerDSArray
-            dataSourceValueArray = ownerDSValueArray
-        case SavedApplicationForm.BusinessLocation.rawValue:
-            self.title = "Business Location"
-            dataSourceArray = businessDSArray
-            dataSourceValueArray = businessDSValueArray
 
-        default:
-            break
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,10 +78,16 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell, for: indexPath) as! MCASAOwnerAndLocationDetailsTVCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
-        
-        cell.headingLabel.text = dataSourceArray[indexPath.row]
-        cell.detailLabel.text = dataSourceValueArray[indexPath.row]
-        
+
+        switch applicaionDetailType {
+            case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
+                ownerInformation = dataSourceArray[indexPath.row] as! MCAOwnerInformation
+                cell.setOwnerInformation(ownerInformation: ownerInformation)
+            case SavedApplicationForm.BusinessLocation.rawValue:
+                businessLocation = businessLocationArray[indexPath.row] 
+                cell.setBusinessLocation(businessLocation: businessLocation)
+            default : break
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -82,18 +100,19 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
             
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let businessLocationDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASABusinessLocationDetails) as! MCASABusinessLocationDetails
-            businessLocationDetailsVC.businessLocationName = businessDSArray[indexPath.row]
+            businessLocation = dataSourceArray[indexPath.row] as! MCABusinessLocation
+            businessLocationDetailsVC.businessLocationName = businessLocation.businessLocation
             businessLocationDetailsVC.applicationStatus = applicationStatus
             navigationController?.pushViewController(businessLocationDetailsVC, animated: true)
         }
         else if applicaionDetailType == SavedApplicationForm.OwnerOrOfficerInformation.rawValue {
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let ownerInformationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerInformationDetailVC) as! MCASAOwnerInformationDetailVC
-            ownerInformationDetailVC.ownerName = ownerDSArray[indexPath.row]
+            ownerInformation = dataSourceArray[indexPath.row] as! MCAOwnerInformation
+            ownerInformationDetailVC.ownerName = ownerInformation.ownerName
             ownerInformationDetailVC.applicationStatus = applicationStatus
             navigationController?.pushViewController(ownerInformationDetailVC, animated: true)
         }
- 
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
