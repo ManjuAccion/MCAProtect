@@ -68,6 +68,12 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         dataTF.text =  existingLoan.getValueFromKey(key: mcaLoanKey)
     }
     
+    func setOwnerInformationDetail(ownerInfoDetail : MCAOwnerInformationDetail, ownerInfoDetailKey : OwnerInformationDetailKeys)
+    {
+        titleLabel.text = ownerInfoDetailKey.rawValue
+        dataTF.text =  ownerInfoDetail.getValueFromKey(ownerInformationKey: ownerInfoDetailKey)
+    }
+    
     func setApplicationSummaryDetails(_ : AnyObject)
     {
         

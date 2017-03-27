@@ -203,3 +203,16 @@ enum MCALoanDetailKeys : String {
     case frequency          = "Frequency"
     case amount             = "Amount"
 }
+
+enum OwnerInformationDetailKeys : String {
+    
+    case name                   = "Name"
+    case socialSecurityNumber   = "Social Security Number (SSN)"
+    case dob                    = "DOB"
+    case streetAddress          = "Street Address"
+    case city                   = "City"
+    case state                  = "State"
+    case zipCode                = "Zip Code"
+    case homePhone              = "Home Phone"
+    case percentOwned           = "% Owned"
+}

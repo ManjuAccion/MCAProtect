@@ -16,15 +16,13 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
     var activeField: UITextField?
     var ownerName: String?
     var applicationStatus : Int?
+    var ownerInformationDetail : MCAOwnerInformationDetail!
     
     //MARK: - View Life Cycle
-    
-    let ownerInformationArray = ["Name","Social Security Number (SSN)","DOB","Street Address","City","State","Zip Code","Home Phone","% Owned"]
-    let ownerInformationValueArray  = ["Randell D'souza","666346173","1969-12-12","4455 W Deming PL","Alabama","Illinois","60639","(801) 459-2206","50%"]
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ownerInformationDetail = MCAOwnerInformationDetail(data:nil)
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         
@@ -48,7 +46,7 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ownerInformationArray.count
+        return ownerInformationDetail.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,8 +55,28 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         
-        cell.titleLabel.text = ownerInformationArray[indexPath.row]
-        cell.dataTF.text = ownerInformationValueArray[indexPath.row]
+        switch indexPath.row
+        {
+            case OwnerInformationDetailKeys.name.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.name)
+            case OwnerInformationDetailKeys.socialSecurityNumber.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.socialSecurityNumber)
+            case OwnerInformationDetailKeys.dob.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.dob)
+            case OwnerInformationDetailKeys.streetAddress.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.streetAddress)
+            case OwnerInformationDetailKeys.city.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.city)
+            case OwnerInformationDetailKeys.state.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.state)
+            case OwnerInformationDetailKeys.zipCode.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.zipCode)
+            case OwnerInformationDetailKeys.homePhone.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.homePhone)
+            case OwnerInformationDetailKeys.percentOwned.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.percentOwned)
+            default: break;
+        }
         
         cell.dataTF.delegate = self
         cell.dataTF.isUserInteractionEnabled = true
