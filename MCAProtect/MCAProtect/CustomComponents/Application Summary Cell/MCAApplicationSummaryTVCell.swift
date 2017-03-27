@@ -80,6 +80,12 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         dataTF.text =  businessLocationDetail.getValueFromKey(businessLocationKey: businessLocationDetailKey)
     }
     
+    func setMerchantDocumentation(merchantDocumentation : MCAMerchantDocumentation, merchantDocumentationKey : MerchantDocumentationKeys)
+    {
+        titleLabel.text = merchantDocumentationKey.rawValue
+        dataTF.text =  merchantDocumentation.getValueFromKey(merchantDoumentationKey: merchantDocumentationKey)
+    }
+    
     func setApplicationSummaryDetails(_ : AnyObject)
     {
         

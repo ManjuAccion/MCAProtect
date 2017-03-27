@@ -11,19 +11,18 @@ import UIKit
 class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    var dataSourceArray = ["Proof of Identity","Proof of Residence"]
-    var dataSourceValueArray  = ["Passport","Utility Bill"]
 
+    var merchantDocumentation : MCAMerchantDocumentation!
 
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        merchantDocumentation = MCAMerchantDocumentation(data:nil)
         self.title = "Merchant Documentation"
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +32,7 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceArray.count
+        return merchantDocumentation.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,8 +41,17 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         
-        cell.titleLabel.text = dataSourceArray[indexPath.row]
-        cell.dataTF.text = dataSourceValueArray[indexPath.row]
+        switch indexPath.row
+        {
+            case MerchantDocumentationKeys.proofOfIdentity.hashValue:
+                cell.setMerchantDocumentation(merchantDocumentation: merchantDocumentation, merchantDocumentationKey: MerchantDocumentationKeys.proofOfIdentity)
+                
+            case MerchantDocumentationKeys.proofOfResidence .hashValue:
+                cell.setMerchantDocumentation(merchantDocumentation: merchantDocumentation, merchantDocumentationKey: MerchantDocumentationKeys.proofOfResidence)
+            
+            default: break;
+        }
+        
         cell.viewDetailsButton.setImage(UIImage(named: "iconDownload"), for: UIControlState.normal)
         cell.viewDetailsButton.isHidden = false
         

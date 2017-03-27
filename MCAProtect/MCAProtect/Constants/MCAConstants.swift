@@ -226,3 +226,8 @@ enum BusinessLocationDetailKeys : String {
     case zipCode            = "Zip Code"
 }
 
+enum MerchantDocumentationKeys : String {
+    case proofOfIdentity    = "Proof of Identity"
+    case proofOfResidence   = "Proof of Residence"
+}
+
