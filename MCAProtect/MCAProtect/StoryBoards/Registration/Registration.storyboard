@@ -385,8 +385,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zeq-CG-KXx" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
                                 <rect key="frame" x="20" y="219" width="335" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Business Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-fh-dF2">
-                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Business Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-fh-dF2">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -397,11 +397,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="jUc-fh-dF2" secondAttribute="trailing" constant="8" id="27Q-pu-BWv"/>
+                                    <constraint firstAttribute="trailing" secondItem="jUc-fh-dF2" secondAttribute="trailing" constant="10" id="27Q-pu-BWv"/>
                                     <constraint firstAttribute="height" constant="40" id="2eg-52-HtL"/>
                                     <constraint firstItem="jUc-fh-dF2" firstAttribute="top" secondItem="Zeq-CG-KXx" secondAttribute="top" constant="5" id="2sE-c3-DHw"/>
                                     <constraint firstAttribute="bottom" secondItem="jUc-fh-dF2" secondAttribute="bottom" constant="5" id="JsH-g3-Wfc"/>
-                                    <constraint firstItem="jUc-fh-dF2" firstAttribute="leading" secondItem="Zeq-CG-KXx" secondAttribute="leading" constant="8" id="djB-Gp-kie"/>
+                                    <constraint firstItem="jUc-fh-dF2" firstAttribute="leading" secondItem="Zeq-CG-KXx" secondAttribute="leading" constant="15" id="djB-Gp-kie"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -413,8 +413,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1H-jG-uZd" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
                                 <rect key="frame" x="20" y="269" width="335" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l34-W0-kGp">
-                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l34-W0-kGp">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
@@ -428,8 +428,8 @@
                                     <constraint firstAttribute="height" constant="40" id="0Du-DS-QXR"/>
                                     <constraint firstItem="l34-W0-kGp" firstAttribute="top" secondItem="c1H-jG-uZd" secondAttribute="top" constant="5" id="QeG-ng-eUP"/>
                                     <constraint firstAttribute="bottom" secondItem="l34-W0-kGp" secondAttribute="bottom" constant="5" id="dgF-cu-7nf"/>
-                                    <constraint firstItem="l34-W0-kGp" firstAttribute="leading" secondItem="c1H-jG-uZd" secondAttribute="leading" constant="8" id="hIU-0S-cmZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="l34-W0-kGp" secondAttribute="trailing" constant="8" id="oaT-xR-0ft"/>
+                                    <constraint firstItem="l34-W0-kGp" firstAttribute="leading" secondItem="c1H-jG-uZd" secondAttribute="leading" constant="15" id="hIU-0S-cmZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="l34-W0-kGp" secondAttribute="trailing" constant="10" id="oaT-xR-0ft"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -441,8 +441,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdg-RQ-qf8" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
                                 <rect key="frame" x="20" y="319" width="335" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQs-Kz-dxg">
-                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQs-Kz-dxg">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
@@ -455,9 +455,9 @@
                                 <constraints>
                                     <constraint firstItem="eQs-Kz-dxg" firstAttribute="centerY" secondItem="bdg-RQ-qf8" secondAttribute="centerY" id="5ad-hW-S77"/>
                                     <constraint firstItem="eQs-Kz-dxg" firstAttribute="top" secondItem="bdg-RQ-qf8" secondAttribute="top" constant="5" id="KPE-Tu-xkV"/>
-                                    <constraint firstItem="eQs-Kz-dxg" firstAttribute="leading" secondItem="bdg-RQ-qf8" secondAttribute="leadingMargin" id="KWI-YD-b1V"/>
+                                    <constraint firstItem="eQs-Kz-dxg" firstAttribute="leading" secondItem="bdg-RQ-qf8" secondAttribute="leadingMargin" constant="7" id="KWI-YD-b1V"/>
                                     <constraint firstAttribute="height" constant="40" id="WSP-Mt-htY"/>
-                                    <constraint firstItem="eQs-Kz-dxg" firstAttribute="trailing" secondItem="bdg-RQ-qf8" secondAttribute="trailingMargin" id="mpf-XX-qks"/>
+                                    <constraint firstItem="eQs-Kz-dxg" firstAttribute="trailing" secondItem="bdg-RQ-qf8" secondAttribute="trailingMargin" constant="-2" id="mpf-XX-qks"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -469,8 +469,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eu4-sm-Buz" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
                                 <rect key="frame" x="20" y="369" width="335" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-vU-DpL">
-                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-vU-DpL">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
@@ -482,8 +482,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="21B-HL-4rh"/>
-                                    <constraint firstItem="u1V-vU-DpL" firstAttribute="leading" secondItem="eu4-sm-Buz" secondAttribute="leadingMargin" id="8IB-yR-nYB"/>
-                                    <constraint firstItem="u1V-vU-DpL" firstAttribute="trailing" secondItem="eu4-sm-Buz" secondAttribute="trailingMargin" id="Dti-oA-XLM"/>
+                                    <constraint firstItem="u1V-vU-DpL" firstAttribute="leading" secondItem="eu4-sm-Buz" secondAttribute="leadingMargin" constant="7" id="8IB-yR-nYB"/>
+                                    <constraint firstItem="u1V-vU-DpL" firstAttribute="trailing" secondItem="eu4-sm-Buz" secondAttribute="trailingMargin" constant="-2" id="Dti-oA-XLM"/>
                                     <constraint firstItem="u1V-vU-DpL" firstAttribute="centerY" secondItem="eu4-sm-Buz" secondAttribute="centerY" id="I7k-WL-paw"/>
                                     <constraint firstItem="u1V-vU-DpL" firstAttribute="top" secondItem="eu4-sm-Buz" secondAttribute="top" constant="5" id="sn7-vO-Gp8"/>
                                 </constraints>
@@ -497,8 +497,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srs-Wz-ve3" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
                                 <rect key="frame" x="20" y="419" width="335" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-Rp-HXC">
-                                        <rect key="frame" x="8" y="5" width="319" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-Rp-HXC">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
@@ -509,8 +509,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="f2t-Rp-HXC" secondAttribute="trailing" constant="8" id="0I6-kE-fKP"/>
-                                    <constraint firstItem="f2t-Rp-HXC" firstAttribute="leading" secondItem="srs-Wz-ve3" secondAttribute="leading" constant="8" id="9Fg-Rr-i1B"/>
+                                    <constraint firstAttribute="trailing" secondItem="f2t-Rp-HXC" secondAttribute="trailing" constant="10" id="0I6-kE-fKP"/>
+                                    <constraint firstItem="f2t-Rp-HXC" firstAttribute="leading" secondItem="srs-Wz-ve3" secondAttribute="leading" constant="15" id="9Fg-Rr-i1B"/>
                                     <constraint firstAttribute="height" constant="40" id="AjB-9V-bwZ"/>
                                     <constraint firstAttribute="bottom" secondItem="f2t-Rp-HXC" secondAttribute="bottom" constant="5" id="EXh-Xb-hZI"/>
                                     <constraint firstItem="f2t-Rp-HXC" firstAttribute="top" secondItem="srs-Wz-ve3" secondAttribute="top" constant="5" id="fBi-m9-7NQ"/>

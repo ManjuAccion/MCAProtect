@@ -522,6 +522,7 @@
                                 <state key="normal" image="iconCheck"/>
                                 <connections>
                                     <action selector="rememberBtn_boxWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZ8-Na-NsL"/>
+                                    <action selector="rememberBtn_boxWithSender:" destination="Lps-J5-z4L" eventType="touchUpInside" id="P8q-Bl-iXN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep Me Logged In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWi-DY-SXg">

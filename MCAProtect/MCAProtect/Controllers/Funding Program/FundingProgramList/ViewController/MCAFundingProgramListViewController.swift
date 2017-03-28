@@ -49,6 +49,8 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         
         cell.dataSource(data: fundingProgramList)
         cell.rightButton.isHidden = false
+        cell.emailButton.isHidden = true
+        cell.phoneNumberButton.isHidden = true
         cell.rightButton .setImage(UIImage(named : "iconCheckRound"), for: UIControlState.normal)
         
         cell.delegate = self;
@@ -74,7 +76,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 96.0
+        return 70.0
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool

@@ -18,12 +18,7 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
     
     @IBOutlet weak var tableView: UITableView!
 
-    var programInformationArray : [String] = ["Program Information","Max Term","Minimum Loan Amount","Maximum Loan Amount","Buy rate","Max Up Sell Rate","Max % of Gross Revenue","Origination Fee","Loan Type","Installment Type","Accept Loan Position","Loan Agreement False"]
-    
-    var mearchantRequirementArray :[String] = ["Minimum Credit Score","Minimum Time in Business","Minimum Monthly Sales","Minimum Number of Bank Deposits(Avg)","Days with Negative Balance","Minimum Deposit Amount(Avg)","Minimum Daily Balance(Avg)"]
-    
-    var liensBankruptcyArray :[String] =
-        ["Judgements/Liens Allowed","Number of Judgements/Liens Allowed","Max Liens/Judgements Amount","Is Bankruptcy Allowed?", "Can Merchant be in Payment Plan","Allowed Montly Payment", "Has Merchant Satisfied Bankruptcy?","When Discharged from Bankruptcy?"]
+   
     
     var fieldCount : Int!
     var applicationModel : AnyObject!
@@ -31,7 +26,6 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
     var merchantRequirement : MCAFPMerchantRquirement!
     var liensOrBankruptcy : MCAFPLiensOrBankruptcy!
     
-    var dataSourceArray : [String] = []
 
     var categorySelected : NSInteger!
     

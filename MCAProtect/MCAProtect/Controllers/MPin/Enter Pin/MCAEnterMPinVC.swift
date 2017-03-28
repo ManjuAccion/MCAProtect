@@ -31,6 +31,8 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Enter PIN"
+        
         secureInputTF.becomeFirstResponder()
         self.hideKeyboardWhenTappedAround()
         
@@ -42,7 +44,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+       self.navigationController?.navigationBar.isHidden = false
 //        registerForKeyboardNotifications()
     }
     

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -54,7 +54,7 @@
                         <state key="normal" image="iconUpload"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTF-Ld-tTH">
-                        <rect key="frame" x="15" y="62" width="111" height="29"/>
+                        <rect key="frame" x="15" y="62.5" width="111" height="29"/>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <state key="normal" title="halen@gmail.com">
                             <color key="titleColor" red="0.20000000000000001" green="0.47843137254901957" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,7 +64,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OoS-jG-8ew">
-                        <rect key="frame" x="222" y="62" width="105" height="29"/>
+                        <rect key="frame" x="222" y="62.5" width="105" height="29"/>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <state key="normal" title="+44 7415554422">
                             <color key="titleColor" red="0.20000000000000001" green="0.47843137250000001" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,7 +74,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helen Rock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARl-H4-MbH">
-                        <rect key="frame" x="15" y="38" width="274" height="18"/>
+                        <rect key="frame" x="15" y="38.5" width="274" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="ys8-Xh-3Md"/>
                         </constraints>
@@ -101,13 +101,14 @@
                     <constraint firstItem="j9d-GZ-cAj" firstAttribute="leading" secondItem="1eL-3U-XqE" secondAttribute="trailing" constant="8" symbolic="YES" id="ADT-v0-rJl"/>
                     <constraint firstAttribute="bottom" secondItem="ouI-6m-fEr" secondAttribute="bottom" id="FX3-xG-C2x"/>
                     <constraint firstItem="BTF-Ld-tTH" firstAttribute="baseline" secondItem="OoS-jG-8ew" secondAttribute="firstBaseline" id="GWy-RF-PZP"/>
+                    <constraint firstItem="BTF-Ld-tTH" firstAttribute="top" secondItem="ARl-H4-MbH" secondAttribute="bottom" constant="6" id="PdE-eh-Mau"/>
                     <constraint firstItem="j9d-GZ-cAj" firstAttribute="top" secondItem="1eL-3U-XqE" secondAttribute="top" id="PwB-DO-VPn"/>
                     <constraint firstAttribute="trailing" secondItem="16k-Av-Jg6" secondAttribute="trailing" constant="25" id="Rp0-I4-oag"/>
                     <constraint firstItem="BTF-Ld-tTH" firstAttribute="leading" secondItem="ouI-6m-fEr" secondAttribute="trailing" constant="11" id="SMh-5a-cOR"/>
                     <constraint firstItem="ouI-6m-fEr" firstAttribute="top" secondItem="ciV-9Q-FeS" secondAttribute="top" id="Zzy-Pc-vHd"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ARl-H4-MbH" secondAttribute="trailing" constant="45" id="d7p-Op-Tmx"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="BTF-Ld-tTH" secondAttribute="bottom" constant="-4" id="egc-4T-XUh"/>
                     <constraint firstItem="1eL-3U-XqE" firstAttribute="leading" secondItem="ouI-6m-fEr" secondAttribute="trailing" constant="11" id="ki7-Sn-nku"/>
+                    <constraint firstItem="ARl-H4-MbH" firstAttribute="top" secondItem="j9d-GZ-cAj" secondAttribute="bottom" constant="9.5" id="mYg-lI-Vhh"/>
                     <constraint firstItem="BTF-Ld-tTH" firstAttribute="top" secondItem="OoS-jG-8ew" secondAttribute="top" id="smm-Lx-6Ht"/>
                     <constraint firstItem="BTF-Ld-tTH" firstAttribute="firstBaseline" secondItem="OoS-jG-8ew" secondAttribute="baseline" id="v0W-5r-guK"/>
                     <constraint firstItem="ARl-H4-MbH" firstAttribute="leading" secondItem="ouI-6m-fEr" secondAttribute="trailing" constant="11" id="wON-Jy-AfE"/>
@@ -123,7 +124,7 @@
                 <outlet property="rightButton" destination="16k-Av-Jg6" id="6Zh-hb-mo9"/>
                 <outlet property="selectedView" destination="ouI-6m-fEr" id="xVH-F7-Rkk"/>
             </connections>
-            <point key="canvasLocation" x="-71" y="-46"/>
+            <point key="canvasLocation" x="-359" y="-62"/>
         </tableViewCell>
     </objects>
     <resources>

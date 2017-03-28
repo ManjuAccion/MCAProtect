@@ -13,7 +13,10 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataDataSource = ["Program Information", "Merchant Requirements", "Liens/Payments/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
+    var formDataSource = ["Program Information", "Merchant Requirements", "Liens/Payments/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
+
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +36,13 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDataSource.count
+        return formDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell  = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
-        cell.titleLabel.text = dataDataSource[indexPath.row]
+        cell.titleLabel.text = formDataSource[indexPath.row]
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         

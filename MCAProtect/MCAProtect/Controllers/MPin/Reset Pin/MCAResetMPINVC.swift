@@ -23,13 +23,15 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Reset PIN"
+
         initilazeToolBar()
         self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+      //  self.navigationController?.setNavigationBarHidden(true, animated: animated)
         registerForKeyboardNotifications()
     }
     
@@ -119,15 +121,10 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
         var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         
-        var contentInset:UIEdgeInsets = scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
-        scrollView.contentInset = contentInset
     }
     
     func keyboardWillBeHidden(sender: NSNotification) {
         let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
     }
     
     //MARK: - UITextfield Delegate Methods
@@ -136,12 +133,10 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
         activeTextField = textField
         activeTextField?.inputAccessoryView = toolbar
         activeTextField?.autocorrectionType = UITextAutocorrectionType.no
-        scrollView.isScrollEnabled = true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         //        activeTextField = nil
-        scrollView.isScrollEnabled = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

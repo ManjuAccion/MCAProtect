@@ -144,11 +144,11 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     
     @IBAction func rememberBtn_box(sender: UIButton) {
         if (rememberPasswordBtn.isSelected == true) {
-            rememberPasswordBtn.setBackgroundImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+            rememberPasswordBtn.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
                       rememberPasswordBtn.isSelected = false;
         }
         else {
-            rememberPasswordBtn.setBackgroundImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+            rememberPasswordBtn.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
             
             rememberPasswordBtn.isSelected = true;
         }

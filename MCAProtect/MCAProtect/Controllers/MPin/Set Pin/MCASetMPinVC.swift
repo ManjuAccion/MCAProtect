@@ -35,6 +35,8 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Set PIN"
+        
         self.hideKeyboardWhenTappedAround()
 
         let newPinContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handleNewPinContainerViewTapGesture))
@@ -47,7 +49,7 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+     //   self.navigationController?.setNavigationBarHidden(true, animated: animated)
 
         registerForKeyboardNotifications()
     }
