@@ -77,6 +77,6 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 113.0
+        return 96.0
     }
 }

@@ -10,5 +10,12 @@ import UIKit
 
 class MCAFundingProgramApplicationForm: NSObject
 {
+    
+    var formDataSource = [String]()
 
+    override init() {
+        
+        formDataSource =  ["Program Information", "Merchant Requirements", "Liens/Payments/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
+
+    }
 }

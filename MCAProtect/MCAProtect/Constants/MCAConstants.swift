@@ -148,6 +148,48 @@ enum FPApplicationSummaryKeys : String {
     case FPSUmmaryMaximumLoan = "Maximum Loan"
 }
 
+enum FPProgramInformationKeys : String
+{
+    
+    case FPProgramInformation = "Program Information"
+    case FPMaxTerm =  "Max Term"
+    case FPMinimumLoanAmount = "Minimum Loan Amount"
+    case FPMaximumLoanAmount = "Maximum Loan Amount"
+    case FPBuyRate = "Buy rate"
+    case FPMaxUPSellRate = "Max Up Sell Rate"
+    case FPMaxGrossRevenue = "Max % of Gross Revenue"
+    case FPOriginationFee = "Origination Fee"
+    case FPLoanType = "Loan Type"
+    case FPInstallmentType = "Installment Type"
+    case FPAcceptLoanPosition = "Accept Loan Position"
+    case FPLoanAgreement = "Loan Agreement False"
+    
+    
+}
+
+enum FPMerchantRequirementkeys : String{
+    
+    case FPMinimumCreditScore = "Minimum Credit Score"
+    case FPMinimumTimeInBusiness = "Minimum Time in Business"
+    case FPMinimumMonthlySales = "Minimum Monthly Sales"
+    case FPMinimumNumOfBankDeposits = "Minimum Number of Bank Deposits(Avg)"
+    case FPDaysWithNegativeBalance =  "Days with Negative Balance"
+    case FPMinimumDepositeAmount = "Minimum Deposit Amount(Avg)"
+    case FPMinimumDailyBalance = "Minimum Daily Balance(Avg)"
+}
+
+enum FPLiensAndBankruptcyKeys : String{
+    
+    case FPJudegementsORLiens = "Judgements/Liens Allowed"
+    case FPNumberOfJudementsOrLiens = "Number of Judgements/Liens Allowed"
+    case FPMaxLiensOrJudgementAmount = "Max Liens/Judgements Amount"
+    case FPIsBankruptcyAllowed = "Is Bankruptcy Allowed?"
+    case FPPaymentPlan  = "Can Merchant be in Payment Plan"
+    case FPMontlyPaymentAllowed = "Allowed Montly Payment"
+    case FPMerchantSatisfiedBankruptcy = "Has Merchant Satisfied Bankruptcy?"
+    case FPDischargedBankruptcy = "When Discharged from Bankruptcy?"
+    
+}
 enum LoanDetailKeys : String {
     
     case businessName    = "Business Name"

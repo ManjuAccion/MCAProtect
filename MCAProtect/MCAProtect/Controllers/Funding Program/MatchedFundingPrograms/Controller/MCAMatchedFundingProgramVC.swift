@@ -66,6 +66,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         matchedFPList  = NSMutableArray.init()
+        
         for _   in 1...5
         {
             matchedFundingProgram = MCAMatchedFundingProgram(data:nil)

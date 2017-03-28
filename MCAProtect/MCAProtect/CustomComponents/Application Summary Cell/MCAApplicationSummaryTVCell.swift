@@ -91,7 +91,28 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         
         
     }
+    
+    func setFPProgramInformation(programInfromation : MCAFPProgramInformation, programInformationKeys : FPProgramInformationKeys)
+    {
+        titleLabel.text = programInformationKeys.rawValue
+        dataTF.text = programInfromation.getValueFromKey(key: programInformationKeys) as String
 
+        
+    }
+    func setFPMerchantRequirement(merchantRequirement : MCAFPMerchantRquirement, merchantRequirementKeys : FPMerchantRequirementkeys)
+    {
+        titleLabel.text = merchantRequirementKeys.rawValue
+        dataTF.text = merchantRequirement.getValueFromKey(key: merchantRequirementKeys) as String
+        
+        
+    }
+    func setFPLiensBankruptcy(liensBankruptcyDetails : MCAFPLiensOrBankruptcy, liensBankruptcyKeys : FPLiensAndBankruptcyKeys)
+    {
+        titleLabel.text = liensBankruptcyKeys.rawValue
+        dataTF.text = liensBankruptcyDetails.getValueFromKey(key: liensBankruptcyKeys) as String
+        
+        
+    }
     @IBAction func viewDetailsButtonTapped(_ sender: Any) {
         delegate?.rightActionButtonTapped()
         
