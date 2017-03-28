@@ -46,10 +46,10 @@ class MCALoanDetail: NSObject {
             modelValue = "\(creditScore!)"
             
         case .needItBy :
-            modelValue = "\(loanRequirementTenure!)"
+            modelValue = "\(loanRequirementTenure!) Days"
             
         case .loanTerm :
-            modelValue = "\(loanTerm!)"
+            modelValue = "\(loanTerm!) Months"
         }
         return modelValue
     }

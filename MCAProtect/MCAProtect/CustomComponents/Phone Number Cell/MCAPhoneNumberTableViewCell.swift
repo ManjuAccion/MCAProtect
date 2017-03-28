@@ -9,6 +9,7 @@
 import UIKit
 
 class MCAPhoneNumberTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var phoneNumberButton: UIButton!
     @IBOutlet weak var titleLabel : UILabel!
     
@@ -27,11 +28,16 @@ class MCAPhoneNumberTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
     @IBAction func phoneNumberButtonTapped(_ sender: Any) {
         
         delegate.callButtonTapped();
-        
     }
+    
+    func setMerchantApplicationSummary(merchantSummary : MCAMASummary, merchantSummaryKey : MASummaryKeys)
+    {
+        titleLabel.text = merchantSummaryKey.rawValue
+        phoneNumberButton.setTitle(merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey), for: .normal)
+    }
+
 
 }

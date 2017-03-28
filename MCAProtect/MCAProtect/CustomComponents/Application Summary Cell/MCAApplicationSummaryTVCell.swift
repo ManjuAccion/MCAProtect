@@ -86,6 +86,12 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         dataTF.text =  merchantDocumentation.getValueFromKey(merchantDoumentationKey: merchantDocumentationKey)
     }
     
+    func setMerchantApplicationSummary(merchantSummary : MCAMASummary, merchantSummaryKey : MASummaryKeys)
+    {
+        titleLabel.text = merchantSummaryKey.rawValue
+        dataTF.text =  merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey)
+    }
+    
     func setApplicationSummaryDetails(_ : AnyObject)
     {
         

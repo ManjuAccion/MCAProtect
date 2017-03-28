@@ -9,8 +9,10 @@
 import UIKit
 
 class MCAEmailTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var titleLabel : UILabel!
+    
     var delegate : MCABaseViewController!
 
     override func awakeFromNib() {
@@ -27,6 +29,13 @@ class MCAEmailTableViewCell: UITableViewCell {
     @IBAction func emailButtonTapped(_ sender: Any) {
         delegate.emailButtonTapped()
     }
+    
+    func setMerchantApplicationSummary(merchantSummary : MCAMASummary, merchantSummaryKey : MASummaryKeys)
+    {
+        titleLabel.text = merchantSummaryKey.rawValue
+        emailButton.setTitle(merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey), for: .normal)
+    }
+
     
    
     

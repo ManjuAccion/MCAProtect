@@ -179,6 +179,7 @@
 		BACC53041E892C85003C4852 /* MCALoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC53031E892C85003C4852 /* MCALoginViewController.swift */; };
 		BACC53061E892DAF003C4852 /* MCAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC53051E892DAF003C4852 /* MCAUser.swift */; };
 		BACC53081E893CC2003C4852 /* MCABusinessLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC53071E893CC2003C4852 /* MCABusinessLocation.swift */; };
+		BACC530B1E8A476F003C4852 /* MCAMASummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC530A1E8A476F003C4852 /* MCAMASummary.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -378,6 +379,7 @@
 		BACC53031E892C85003C4852 /* MCALoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoginViewController.swift; sourceTree = "<group>"; };
 		BACC53051E892DAF003C4852 /* MCAUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUser.swift; sourceTree = "<group>"; };
 		BACC53071E893CC2003C4852 /* MCABusinessLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessLocation.swift; sourceTree = "<group>"; };
+		BACC530A1E8A476F003C4852 /* MCAMASummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMASummary.swift; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1601,6 +1603,7 @@
 		BAC6ADE91E824ABB0047F7D3 /* MerchantApplicationSummary */ = {
 			isa = PBXGroup;
 			children = (
+				BACC53091E8A4738003C4852 /* Model */,
 				BAC6ADEA1E824ABB0047F7D3 /* MCAMerchantApplicationSummaryVC.swift */,
 			);
 			path = MerchantApplicationSummary;
@@ -1908,6 +1911,14 @@
 			isa = PBXGroup;
 			children = (
 				BACC53051E892DAF003C4852 /* MCAUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BACC53091E8A4738003C4852 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BACC530A1E8A476F003C4852 /* MCAMASummary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2349,6 +2360,7 @@
 				BAC6AE591E8250720047F7D3 /* MCAResetMPINVC.swift in Sources */,
 				BAC6AE5A1E8250720047F7D3 /* MCASetMPinVC.swift in Sources */,
 				5B1F8D631E83AB5F00BD53F2 /* MCAFPAdditionalStipulationVC.swift in Sources */,
+				BACC530B1E8A476F003C4852 /* MCAMASummary.swift in Sources */,
 				BAC6ADC21E8106DE0047F7D3 /* MCASALoansViewController.swift in Sources */,
 				5B9049501E72881A00A49A50 /* MCAMatchedFPListTVCell.swift in Sources */,
 				BAC6ADB51E8105920047F7D3 /* MCASAOwnerAndLocationDetailsVC.swift in Sources */,

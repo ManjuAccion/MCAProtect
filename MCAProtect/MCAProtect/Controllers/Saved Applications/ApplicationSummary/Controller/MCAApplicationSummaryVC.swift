@@ -84,7 +84,6 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         {
             cell.accessoryType = UITableViewCellAccessoryType.none
         }
-
         
         return cell
     }

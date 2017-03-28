@@ -18,16 +18,15 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     var titleText: String?
     var applicationState: Int!
     
-    
-    var dataSourceKeys = ["Business Name","Contact Name","Loan Amount","Email","Telephone","Offered on"]
-    var dataSourceValues = ["Miami Florists","Christian A","$75,000","chirstian.a@gmail.com","(123) 876 -876","2017-01-21"]
-    
-    
+    var merchantApplicationSummary : MCAMASummary!
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = titleText
+        
+        merchantApplicationSummary = MCAMASummary(data: nil);
 
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.register(UINib(nibName: "MCAEmailTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAEmailTableViewCell)
@@ -42,16 +41,12 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         copyApplicationButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         copyApplicationButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
         
-        
-       
-
         switch applicationState {
-        case ApplicationState.NeedMoreStips.rawValue:
-            tableViewBottomConstraint.constant = 0
-        default:
-            break
+            case ApplicationState.NeedMoreStips.rawValue:
+                tableViewBottomConstraint.constant = 0
+            default:
+                break
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,70 +56,76 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceKeys.count
+        return merchantApplicationSummary.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell : UITableViewCell!
         
-        
-        if dataSourceKeys[indexPath.row] == "Email" {
-             let   emailCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAEmailTableViewCell, for: indexPath) as! MCAEmailTableViewCell
-            emailCell.titleLabel.text = dataSourceKeys[indexPath.row]
-            emailCell.emailButton .setTitle(dataSourceValues[indexPath.row], for: UIControlState.normal)
-            
-            emailCell.delegate = self
-            cell = emailCell
-        }
-        else if dataSourceKeys[indexPath.row] == "Telephone"
+        switch indexPath.row
         {
-            let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAPhoneNumberTableViewCell, for: indexPath) as! MCAPhoneNumberTableViewCell
-            phoneNumberCell.titleLabel.text = dataSourceKeys[indexPath.row]
-            phoneNumberCell.phoneNumberButton .setTitle(dataSourceValues[indexPath.row], for: UIControlState.normal)
-            phoneNumberCell.delegate = self
-            cell = phoneNumberCell
- 
-        }
-        else
-        {
-      
- let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
-        summaryCell.titleLabel.text = dataSourceKeys[indexPath.row]
-        summaryCell.dataTF.text = dataSourceValues[indexPath.row]
-        summaryCell.delegate = self
-            
-            
-            switch applicationState {
-            case ApplicationState.UnderWriting.rawValue:
-                fallthrough
-            case ApplicationState.NeedMoreStips.rawValue:
-                if indexPath.row == 0 {
-                    summaryCell.viewDetailsButton.isHidden = false
+            case MASummaryKeys.businessName.hashValue:
+                let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
+                summaryCell.delegate = self
+                switch applicationState {
+                    case ApplicationState.UnderWriting.rawValue:
+                        fallthrough
+                    case ApplicationState.NeedMoreStips.rawValue:
+                            summaryCell.viewDetailsButton.isHidden = false
+                    default:break
                 }
-            default:
-                break
-            }
-            
-            if  (indexPath.row == 0) {
+                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.businessName)
                 summaryCell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            }
-            else
-            {
-                summaryCell.accessoryType = UITableViewCellAccessoryType.none
-            }
-            
+                cell = summaryCell
 
-            cell = summaryCell
+            case MASummaryKeys.contactName.hashValue:
+                let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
+                summaryCell.delegate = self
+                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.contactName)
+                summaryCell.accessoryType = UITableViewCellAccessoryType.none
+                cell = summaryCell
+
+            case MASummaryKeys.loanAmount.hashValue:
+                let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
+                summaryCell.delegate = self
+                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.loanAmount)
+                summaryCell.accessoryType = UITableViewCellAccessoryType.none
+
+                cell = summaryCell
+
+            case MASummaryKeys.email.hashValue:
+                
+                
+                let   emailCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAEmailTableViewCell, for: indexPath) as! MCAEmailTableViewCell
+                emailCell.delegate = self
+                
+                emailCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.email)
+                cell = emailCell
+            
+            case MASummaryKeys.telephone.hashValue:
+
+                let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAPhoneNumberTableViewCell, for: indexPath) as! MCAPhoneNumberTableViewCell
+                phoneNumberCell.delegate = self
+                
+                phoneNumberCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.telephone)
+                cell = phoneNumberCell
+            case MASummaryKeys.offeredOn.hashValue:
+                let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
+                summaryCell.delegate = self
+                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.offeredOn)
+                cell = summaryCell
+
+            default: break;
         }
-        
        
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         
-        
         return cell
     }
+    
+    //MARK: - Table View Delegate Methods
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
@@ -152,9 +153,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         let matchedFundingProgramVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMatchedFundingProgramVC) as! MCAMatchedFundingProgramVC
         matchedFundingProgramVC.applicationState = self.applicationState
         navigationController?.pushViewController(matchedFundingProgramVC, animated: true)
-        
     }
-    
     
     func rightActionButtonTapped() {
         switch applicationState {
@@ -167,7 +166,6 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         default:
             break
         }
-
     }
 
 }

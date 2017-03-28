@@ -273,3 +273,12 @@ enum MerchantDocumentationKeys : String {
     case proofOfResidence   = "Proof of Residence"
 }
 
+enum MASummaryKeys : String {
+    case businessName   = "Business Name"
+    case contactName    = "Contact Name"
+    case loanAmount     = "Loan Amount"
+    case email          = "Email"
+    case telephone      = "Telephone"
+    case offeredOn      = "Offered on"
+}
+
