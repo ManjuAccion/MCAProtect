@@ -7,20 +7,19 @@
 //
 
 import UIKit
-import JVFloatLabeledTextField
 
 class MCASavedApplicationsListTVCell: UITableViewCell {
 
-   
     @IBOutlet weak var daysLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var applicationNameLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var selectedView: UIView!
+    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var phoneNumberButton: UIButton!
+    @IBOutlet weak var merchantNameLabel: UILabel!
     
     var delegate : MCABaseViewController!
 
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -36,8 +35,18 @@ class MCASavedApplicationsListTVCell: UITableViewCell {
     @IBAction func phoneNumberButtonTapped(_ sender: Any) {
         
         delegate.callButtonTapped();
-        
     }
+    
+    func setSavedApplicationList(savedApplicationData:MCASavedApplicationList) {
+        
+        applicationNameLabel.text = savedApplicationData.applicationName
+        amountLabel.text = "\(savedApplicationData.amount!)"
+        daysLabel.text = "Need in \(savedApplicationData.neededIn!) Days"
+        emailButton.setTitle(savedApplicationData.merchantEmail, for: .normal)
+        phoneNumberButton.setTitle(savedApplicationData.merchantPhoneNumber, for: .normal)
+        merchantNameLabel.text = savedApplicationData.merchantName
+    }
+    
 
 
 }

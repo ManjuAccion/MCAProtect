@@ -61,6 +61,8 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         return cell
     }
     
+    //MARK: - Table View Delegate Methods
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)

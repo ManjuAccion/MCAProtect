@@ -12,33 +12,34 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    var amountDataSource = ["$2000","$3000","$4000","$5000","$6000"]
-
+    var dataSource = [MCASavedApplicationList]()
+    var savedApplicationList: MCASavedApplicationList!
     
     //MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadUI()
+        self.navigationItem.title = "Saved Applications"
+        
+        for _ in 1...5
+        {
+            savedApplicationList = MCASavedApplicationList(data:nil)
+            dataSource.append(savedApplicationList)
+        }
+        
+        tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell)
+        tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func loadUI() {
-        
-        self.navigationItem.title = "Saved Applications"
-        tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell)
-        tableView.tableFooterView = UIView()
-    }
-    
+
     //MARK: - Table View Datasource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDataSource.count
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,8 +47,10 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell, for: indexPath) as! MCASavedApplicationsListTVCell
         cell.delegate = self
         cell.selectionStyle = .none
-        cell.nameLabel.text = dataDataSource[indexPath.row]
-        cell.amountLabel.text = amountDataSource[indexPath.row]
+        
+        savedApplicationList = dataSource[indexPath.row]
+        cell.setSavedApplicationList(savedApplicationData: savedApplicationList)
+
         cell.backgroundColor = ColorConstants.background
         
         return cell
@@ -56,7 +59,9 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
         let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
-        applicationSummaryVC.titleText = dataDataSource[indexPath.row]
+        savedApplicationList = dataSource[indexPath.row]
+
+        applicationSummaryVC.titleText = savedApplicationList.applicationName
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
         selectedCell.selectedView.isHidden = false

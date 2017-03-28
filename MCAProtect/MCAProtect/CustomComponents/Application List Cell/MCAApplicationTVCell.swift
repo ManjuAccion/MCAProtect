@@ -32,27 +32,21 @@ class MCAApplicationTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    
-    func dataSource(data: MCAFundingProgramList)
-    {
-       headingLabel.text = data.fundingProgramName
-        detailLabel.text = MCAUtilities.currencyFormatter(inputItem: data.minimumLoan as AnyObject)
-
-        contactNameLabel.text = data.contactName
-        emailButton.setTitle(data.email, for: UIControlState.normal)
-        phoneNumberButton.setTitle(data.phoneNumber, for: UIControlState.normal)
-        
-
-        
-    }
 
     @IBAction func emailButtonTapped(_ sender: Any) {
       delegate.emailButtonTapped()
     }
     
     @IBAction func phoneNumberButtonTapped(_ sender: Any) {
-        
         delegate.callButtonTapped();
-        
-            }
+    }
+    
+    func dataSource(data: MCAFundingProgramList)
+    {
+        headingLabel.text = data.fundingProgramName
+        detailLabel.text = MCAUtilities.currencyFormatter(inputItem: data.minimumLoan as AnyObject)
+        contactNameLabel.text = data.contactName
+        emailButton.setTitle(data.email, for: UIControlState.normal)
+        phoneNumberButton.setTitle(data.phoneNumber, for: UIControlState.normal)
+    }
 }

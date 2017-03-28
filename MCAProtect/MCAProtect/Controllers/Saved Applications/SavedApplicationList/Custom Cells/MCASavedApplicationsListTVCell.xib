@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -61,7 +61,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Need in 130 Days" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3To-Dn-9aM">
-                    <rect key="frame" x="262" y="40" width="98" height="15"/>
+                    <rect key="frame" x="262" y="40" width="98" height="14"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="98" id="NY8-dy-eCo"/>
                     </constraints>
@@ -130,8 +130,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="amountLabel" destination="ree-9B-xLT" id="6W5-OG-bfx"/>
+                <outlet property="applicationNameLabel" destination="LNC-Xj-hRB" id="D8P-Ej-ONX"/>
                 <outlet property="daysLabel" destination="3To-Dn-9aM" id="0dm-Ic-OCM"/>
-                <outlet property="nameLabel" destination="LNC-Xj-hRB" id="L0K-09-dEn"/>
+                <outlet property="emailButton" destination="l1S-EA-cEp" id="Ymr-HS-ZCb"/>
+                <outlet property="merchantNameLabel" destination="Wgi-bG-6LJ" id="ahy-PG-4xL"/>
+                <outlet property="phoneNumberButton" destination="7x5-L6-kws" id="jx1-ew-c4H"/>
                 <outlet property="selectedView" destination="w1j-OK-CLw" id="9gy-Pc-ZNF"/>
             </connections>
             <point key="canvasLocation" x="-54.5" y="-20"/>
