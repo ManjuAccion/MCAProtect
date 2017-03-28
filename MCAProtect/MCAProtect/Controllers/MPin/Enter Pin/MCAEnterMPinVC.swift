@@ -85,7 +85,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         secureInputTF.becomeFirstResponder()
     }
     
-    //MARK :- IBAction Actions
+    //MARK: - IBAction Actions
     
     @IBAction func changeMPinTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "mPin", bundle: nil)

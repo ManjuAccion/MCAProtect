@@ -72,7 +72,6 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
         
         loadUI()
         initialsecureInputViewSetup()
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -93,12 +92,9 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     func initialsecureInputViewSetup()
     {
        changeNewPinColor(color: UIColor.lightGray)
-      changeConfirmPinColor(color: UIColor.lightGray)
-
-      
-
-        
+        changeConfirmPinColor(color: UIColor.lightGray)
     }
+    
     func initilazeToolBar() {
         toolbar = UIToolbar()
         toolbar?.barStyle = .blackTranslucent
@@ -144,7 +140,7 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
         }
     }
     
-
+    //MARK: - Gesture Methods
     
     func handleOldPinContainerViewTapGesture() {
         oldPinSecureInputTF.becomeFirstResponder()
@@ -169,6 +165,7 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
 
     }
     
+    //MARK: - Keyboard Notifications
     
     func registerForKeyboardNotifications() {
         

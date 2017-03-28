@@ -13,9 +13,8 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var emailIDTF: UITextField!
-//    @IBOutlet weak var emailIDTF: JVFloatLabeledTextField!
+    
     var activeTextField : UITextField?
     var toolbar : UIToolbar?
     var doneButton : UIBarButtonItem?
@@ -48,6 +47,9 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    //MARK: - Action Methods
+
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
@@ -85,6 +87,8 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
         toolbar?.isUserInteractionEnabled = true
         
     }
+    
+    //MARK: - Keyboard Notifcations
     
     func registerForKeyboardNotifications() {
         
@@ -125,6 +129,8 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
+    
+    //MARK: - UITextfield Delegate Methods
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
