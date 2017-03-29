@@ -83,8 +83,6 @@
 		782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A081E49BE1D00268356 /* MCAForgotPasswordVC.swift */; };
 		782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */; };
 		7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3331E5312310019B707 /* MCANavigationController.swift */; };
-		78F788761E8A57B600550ABD /* MCASessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F788751E8A57B600550ABD /* MCASessionManager.swift */; };
-		78F788781E8A599200550ABD /* MCAWebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F788771E8A599200550ABD /* MCAWebServiceManager.swift */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
 		BA1237CC1E8BB4DC008A2AFE /* MCADealsPipeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */; };
 		BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */; };
@@ -287,8 +285,6 @@
 		782C6A081E49BE1D00268356 /* MCAForgotPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAForgotPasswordVC.swift; sourceTree = "<group>"; };
 		782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARegistrationVC.swift; sourceTree = "<group>"; };
 		7871E3331E5312310019B707 /* MCANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANavigationController.swift; sourceTree = "<group>"; };
-		78F788751E8A57B600550ABD /* MCASessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASessionManager.swift; sourceTree = "<group>"; };
-		78F788771E8A599200550ABD /* MCAWebServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebServiceManager.swift; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsPipeLine.swift; sourceTree = "<group>"; };
 		BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -876,7 +872,6 @@
 		782C69A11E49ACC500268356 /* MCAProtect */ = {
 			isa = PBXGroup;
 			children = (
-				78F788741E8A579C00550ABD /* SessionManager */,
 				7871E3321E5312140019B707 /* NavigationController */,
 				782C6A101E49DEB900268356 /* WebServicesManager */,
 				782C69D71E49ADE300268356 /* Application Delegate */,
@@ -1086,7 +1081,6 @@
 		782C6A101E49DEB900268356 /* WebServicesManager */ = {
 			isa = PBXGroup;
 			children = (
-				78F788771E8A599200550ABD /* MCAWebServiceManager.swift */,
 			);
 			path = WebServicesManager;
 			sourceTree = "<group>";
@@ -1099,21 +1093,12 @@
 			path = NavigationController;
 			sourceTree = "<group>";
 		};
-<<<<<<< Updated upstream
 		BA1237CA1E8BB4B0008A2AFE /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */,
 			);
 			path = Model;
-=======
-		78F788741E8A579C00550ABD /* SessionManager */ = {
-			isa = PBXGroup;
-			children = (
-				78F788751E8A57B600550ABD /* MCASessionManager.swift */,
-			);
-			path = SessionManager;
->>>>>>> Stashed changes
 			sourceTree = "<group>";
 		};
 		BA2EA8391E66BC7F00145D33 /* ApplicationForm */ = {
@@ -2311,7 +2296,6 @@
 				BAC6AE3D1E824FB10047F7D3 /* MCAGenericPopViewController.swift in Sources */,
 				7804B6301E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift in Sources */,
 				BAC6AD591E7FDBF80047F7D3 /* MCALoanDetail.swift in Sources */,
-				78F788781E8A599200550ABD /* MCAWebServiceManager.swift in Sources */,
 				7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */,
 				BAC6ADC31E8106DE0047F7D3 /* MCASALoansTVCell.swift in Sources */,
 				5BB3E5FA1E8293A800A67927 /* MCAApplicationTVCell.swift in Sources */,
@@ -2383,7 +2367,6 @@
 				BAC6AE0B1E824B7F0047F7D3 /* MCAAskFunderChatDetailVC.swift in Sources */,
 				782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */,
 				BAC6AE691E8250F90047F7D3 /* MCAPerformanceComparisonCell.swift in Sources */,
-				78F788761E8A57B600550ABD /* MCASessionManager.swift in Sources */,
 				BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */,
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,
 				BAC6AE4D1E8250260047F7D3 /* MCARightMenuVC.swift in Sources */,
