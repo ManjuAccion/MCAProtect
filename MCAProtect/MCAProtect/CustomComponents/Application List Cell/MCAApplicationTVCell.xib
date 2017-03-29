@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -116,10 +116,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="amountLabel" destination="j9d-GZ-cAj" id="Nuh-hI-m7g"/>
                 <outlet property="contactNameLabel" destination="ARl-H4-MbH" id="b3C-Ih-5R3"/>
-                <outlet property="detailLabel" destination="j9d-GZ-cAj" id="5j9-EI-XF1"/>
                 <outlet property="emailButton" destination="BTF-Ld-tTH" id="Cof-gI-DWY"/>
-                <outlet property="headingLabel" destination="1eL-3U-XqE" id="9e2-in-XxZ"/>
+                <outlet property="nameLabel" destination="1eL-3U-XqE" id="4af-LI-cMR"/>
                 <outlet property="phoneNumberButton" destination="OoS-jG-8ew" id="AeK-R2-ts3"/>
                 <outlet property="rightButton" destination="16k-Av-Jg6" id="6Zh-hb-mo9"/>
                 <outlet property="selectedView" destination="ouI-6m-fEr" id="xVH-F7-Rkk"/>

@@ -8,20 +8,16 @@
 
 import UIKit
 
-
-
 class MCAApplicationTVCell: UITableViewCell {
     
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneNumberButton: UIButton!
-
-
-
+    @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var rightButton: UIButton!
+    
     var delegate : MCABaseViewController!
 
     override func awakeFromNib() {
@@ -43,10 +39,19 @@ class MCAApplicationTVCell: UITableViewCell {
     
     func dataSource(data: MCAFundingProgramList)
     {
-        headingLabel.text = data.fundingProgramName
-        detailLabel.text = MCAUtilities.currencyFormatter(inputItem: data.minimumLoan as AnyObject)
+        nameLabel.text = data.fundingProgramName
+        amountLabel.text = MCAUtilities.currencyFormatter(inputItem: data.minimumLoan as AnyObject)
         contactNameLabel.text = data.contactName
         emailButton.setTitle(data.email, for: UIControlState.normal)
         phoneNumberButton.setTitle(data.phoneNumber, for: UIControlState.normal)
+    }
+    
+    func setMerchantApplicationList(merchantApplicationList: MCAMerchantApplicationDetail) {
+        
+        nameLabel.text = merchantApplicationList.businessName
+        amountLabel.text = MCAUtilities.currencyFormatter(inputItem: merchantApplicationList.loanAmount as AnyObject)
+        emailButton.setTitle(merchantApplicationList.merchantEmail, for: UIControlState.normal)
+        phoneNumberButton.setTitle(merchantApplicationList.contactNumber, for: UIControlState.normal)
+        contactNameLabel.text = merchantApplicationList.contactName
     }
 }

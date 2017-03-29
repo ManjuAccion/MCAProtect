@@ -14,8 +14,8 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     var applicationState: Int!
     var titleText: String?
     
-    var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    var amountDataSource = ["$2000","$3000","$4000","$5000","$6000"]
+    var merchantApplicationDetail : MCAMerchantApplicationDetail!
+    var dataSource = [MCAMerchantApplicationDetail]()
     
     //MARK: View Life Cycle
     
@@ -23,6 +23,11 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         super.viewDidLoad()
         
         self.navigationItem.title = titleText
+        
+        for _ in 1...6 {
+            merchantApplicationDetail = MCAMerchantApplicationDetail(data:nil)
+            dataSource.append(merchantApplicationDetail)
+        }
 
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationListTVCell)
         tableView.tableFooterView = UIView()
@@ -36,7 +41,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDataSource.count
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,17 +50,19 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         
         cell.delegate = self;
         cell.selectionStyle = .none
-        cell.headingLabel.text = dataDataSource[indexPath.row]
-        cell.detailLabel.text = amountDataSource[indexPath.row]
+        
+        merchantApplicationDetail = dataSource[indexPath.row]
+        cell.setMerchantApplicationList(merchantApplicationList: merchantApplicationDetail)
+        
         cell.rightButton.isHidden = false
         cell.backgroundColor = UIColor.clear
         
         switch applicationState {
-        case ApplicationState.New.rawValue:
-            cell.rightButton.isHidden = true
+            case ApplicationState.New.rawValue:
+                cell.rightButton.isHidden = true
 
-        default:
-            break
+            default:
+                break
         }
         
         return cell
@@ -68,7 +75,9 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
         let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
         applicationSummaryVC.applicationState = applicationState
-        applicationSummaryVC.titleText = dataDataSource[indexPath.row]
+        merchantApplicationDetail = dataSource[indexPath.row]
+        applicationSummaryVC.titleText = merchantApplicationDetail.businessName
+        
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationTVCell
         selectedCell.selectedView.isHidden = false
