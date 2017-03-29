@@ -42,7 +42,6 @@ struct CellIdentifiers {
     static let MCAApplicationTVCell                 = "MCAApplicationTVCell"
     static let MCASavedApplicationsListTVCell       = "MCASavedApplicationsListTVCell"
     static let MCAAskFunderApplicationListTVCell    = "MCAAskFunderApplicationListTVCell"
-
     static let MCAApplicationSummaryTVCell          = "MCAApplicationSummaryTVCell"
     static let MCAOwnerAndLocationDetailsTVCell     = "MCASAOwnerAndLocationDetailsTVCell"
     static let MCASavedApplicationsBankRecordsTVCell = "MCASavedApplicationsBankRecordsTVCell"
@@ -53,6 +52,8 @@ struct CellIdentifiers {
     static let MCAEmailTableViewCell                 = "MCAEmailTableViewCell"
     static let MCANewChatTVCell                      = "MCANewChatTVCell"
     static let MCAAskFunderCommunicationTVCell       = "MCAAskFunderCommunicationTVCell"
+    static let MCADealsPipelineTVCell                = "MCADealsPipelineTVCell"
+
 }
 
 struct StoryboardName {
@@ -114,13 +115,13 @@ enum SavedApplicationForm : Int {
 
 enum ApplicationState :Int {
     
-    case New                = 0
-    case UnderWriting       = 1
-    case NeedMoreStips      = 2
-    case Funded             = 3
-    case DNQ                = 4
-    case Lost               = 5
-    case Renewal            = 6
+    case New                = 1
+    case UnderWriting       = 2
+    case NeedMoreStips      = 3
+    case Funded             = 4
+    case DNQ                = 5
+    case Lost               = 6
+    case Renewal            = 7
 }
 
 enum ApplicationStatus : Int {

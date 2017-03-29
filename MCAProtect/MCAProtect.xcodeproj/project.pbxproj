@@ -84,6 +84,7 @@
 		782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */; };
 		7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3331E5312310019B707 /* MCANavigationController.swift */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
+		BA1237CC1E8BB4DC008A2AFE /* MCADealsPipeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */; };
 		BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */; };
 		BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */; };
 		BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */; };
@@ -170,8 +171,8 @@
 		BAC6AE591E8250720047F7D3 /* MCAResetMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE541E8250720047F7D3 /* MCAResetMPINVC.swift */; };
 		BAC6AE5A1E8250720047F7D3 /* MCASetMPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE561E8250720047F7D3 /* MCASetMPinVC.swift */; };
 		BAC6AE601E8250C90047F7D3 /* MCADealsPipelineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE5C1E8250C90047F7D3 /* MCADealsPipelineVC.swift */; };
-		BAC6AE611E8250C90047F7D3 /* MCADelasPipelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE5E1E8250C90047F7D3 /* MCADelasPipelineCell.swift */; };
-		BAC6AE621E8250C90047F7D3 /* MCADelasPipelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6AE5F1E8250C90047F7D3 /* MCADelasPipelineCell.xib */; };
+		BAC6AE611E8250C90047F7D3 /* MCADealsPipelineTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE5E1E8250C90047F7D3 /* MCADealsPipelineTVCell.swift */; };
+		BAC6AE621E8250C90047F7D3 /* MCADealsPipelineTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6AE5F1E8250C90047F7D3 /* MCADealsPipelineTVCell.xib */; };
 		BAC6AE681E8250F90047F7D3 /* MCAPerformanceComparisonVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE641E8250F90047F7D3 /* MCAPerformanceComparisonVS.swift */; };
 		BAC6AE691E8250F90047F7D3 /* MCAPerformanceComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AE661E8250F90047F7D3 /* MCAPerformanceComparisonCell.swift */; };
 		BAC6AE6A1E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6AE671E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib */; };
@@ -285,6 +286,7 @@
 		782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARegistrationVC.swift; sourceTree = "<group>"; };
 		7871E3331E5312310019B707 /* MCANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANavigationController.swift; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsPipeLine.swift; sourceTree = "<group>"; };
 		BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -371,8 +373,8 @@
 		BAC6AE541E8250720047F7D3 /* MCAResetMPINVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAResetMPINVC.swift; sourceTree = "<group>"; };
 		BAC6AE561E8250720047F7D3 /* MCASetMPinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASetMPinVC.swift; sourceTree = "<group>"; };
 		BAC6AE5C1E8250C90047F7D3 /* MCADealsPipelineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsPipelineVC.swift; sourceTree = "<group>"; };
-		BAC6AE5E1E8250C90047F7D3 /* MCADelasPipelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADelasPipelineCell.swift; sourceTree = "<group>"; };
-		BAC6AE5F1E8250C90047F7D3 /* MCADelasPipelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCADelasPipelineCell.xib; sourceTree = "<group>"; };
+		BAC6AE5E1E8250C90047F7D3 /* MCADealsPipelineTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsPipelineTVCell.swift; sourceTree = "<group>"; };
+		BAC6AE5F1E8250C90047F7D3 /* MCADealsPipelineTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCADealsPipelineTVCell.xib; sourceTree = "<group>"; };
 		BAC6AE641E8250F90047F7D3 /* MCAPerformanceComparisonVS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonVS.swift; sourceTree = "<group>"; };
 		BAC6AE661E8250F90047F7D3 /* MCAPerformanceComparisonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAPerformanceComparisonCell.swift; sourceTree = "<group>"; };
 		BAC6AE671E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPerformanceComparisonCell.xib; sourceTree = "<group>"; };
@@ -1015,6 +1017,7 @@
 		782C69F31E49AFDB00268356 /* DealsPipeline */ = {
 			isa = PBXGroup;
 			children = (
+				BA1237CA1E8BB4B0008A2AFE /* Model */,
 				BAC6AE5B1E8250C90047F7D3 /* Controller */,
 				BAC6AE5D1E8250C90047F7D3 /* Custom Cells */,
 			);
@@ -1088,6 +1091,14 @@
 				7871E3331E5312310019B707 /* MCANavigationController.swift */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		BA1237CA1E8BB4B0008A2AFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BA2EA8391E66BC7F00145D33 /* ApplicationForm */ = {
@@ -1887,8 +1898,8 @@
 		BAC6AE5D1E8250C90047F7D3 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BAC6AE5E1E8250C90047F7D3 /* MCADelasPipelineCell.swift */,
-				BAC6AE5F1E8250C90047F7D3 /* MCADelasPipelineCell.xib */,
+				BAC6AE5E1E8250C90047F7D3 /* MCADealsPipelineTVCell.swift */,
+				BAC6AE5F1E8250C90047F7D3 /* MCADealsPipelineTVCell.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -2070,7 +2081,7 @@
 				5B8FC4A61E4C7E9600309CAB /* Roboto-Bold.ttf in Resources */,
 				BAC6AE2F1E824E700047F7D3 /* Login.storyboard in Resources */,
 				782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */,
-				BAC6AE621E8250C90047F7D3 /* MCADelasPipelineCell.xib in Resources */,
+				BAC6AE621E8250C90047F7D3 /* MCADealsPipelineTVCell.xib in Resources */,
 				BAC6AE331E824E700047F7D3 /* Registration.storyboard in Resources */,
 				BAC6AD871E80FFB90047F7D3 /* MCASavedApplicationsBankDetailsTVCell.xib in Resources */,
 				5B8FC4A71E4C7E9600309CAB /* Roboto-BoldItalic.ttf in Resources */,
@@ -2317,7 +2328,7 @@
 				5BB3E5F81E8293A800A67927 /* MCAApplicationFormTVCell.swift in Sources */,
 				782C69ED1E49AEC100268356 /* MCAConstants.swift in Sources */,
 				BAC6AE491E8250260047F7D3 /* MCATableViewCell.swift in Sources */,
-				BAC6AE611E8250C90047F7D3 /* MCADelasPipelineCell.swift in Sources */,
+				BAC6AE611E8250C90047F7D3 /* MCADealsPipelineTVCell.swift in Sources */,
 				BAC6ADA61E8102630047F7D3 /* MCAApplicationFormVC.swift in Sources */,
 				BAC6ADCB1E813D3B0047F7D3 /* MCASavedApplicationList.swift in Sources */,
 				BAC6AE0C1E824B7F0047F7D3 /* MCAAskFunderNewChatVC.swift in Sources */,
@@ -2336,6 +2347,7 @@
 				BAC6AD631E7FE9310047F7D3 /* MCAJudgementsOrLiens.swift in Sources */,
 				BAC6AE4B1E8250260047F7D3 /* MCALeftMenuVC.swift in Sources */,
 				BAC6AD951E8101C30047F7D3 /* MCASavedApplicationDetailVC.swift in Sources */,
+				BA1237CC1E8BB4DC008A2AFE /* MCADealsPipeLine.swift in Sources */,
 				5BB3E5FC1E8293A800A67927 /* MCAApplicationStatusTVCell.swift in Sources */,
 				BAC6ADD71E8150BB0047F7D3 /* MCAOwnerInformationDetail.swift in Sources */,
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,

@@ -11,69 +11,56 @@ import UIKit
 class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var pipeLineTableView: UITableView!
-
     
-    var dataSource : [String] = ["New","Underwriting", "Need More Stips", "Funded", "DNQ", "Lost", "Renewal"]
+    var dealsPipeline : MCADealsPipeLine!
+    var dataSourceArray = [MCADealsPipeLine]()
 
     weak var parentController: MCADashboardTabbarVC!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for _ in 1...7 {
+            
+            dealsPipeline = MCADealsPipeLine(data:nil)
+            dataSourceArray.append(dealsPipeline)
+        }
 
-        pipeLineTableView.register(UINib(nibName: "MCADelasPipelineCell", bundle: nil), forCellReuseIdentifier: "MCADelasPipelineCell")
-        // Do any additional setup after loading the view.
+        pipeLineTableView.register(UINib(nibName: "MCADealsPipelineTVCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.MCADealsPipelineTVCell)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    
     
     //MARK: - Table View Datasource
     
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        
-        let applicationVC  = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCAMerchantApplicationListVC) as! MCAMerchantApplicationListVC
-        applicationVC.titleText = dataSource[indexPath.row]
-        applicationVC.applicationState = indexPath.row
-        
-        parentController.navigationController?.pushViewController(applicationVC, animated: true);
-        
-    }
-    
-    public func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
-    {
-        return 1;
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7;
+        return dataSourceArray.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCADelasPipelineCell") as! MCADelasPipelineCell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCADealsPipelineTVCell) as! MCADealsPipelineTVCell!
         cell?.selectionStyle = .none
         
-        cell?.pipelineTitleLabel.text = dataSource[indexPath.row]
+        dealsPipeline = dataSourceArray[indexPath.row]
+        cell?.setDealsPipeline(dealsPipeline: dealsPipeline)
         
         return cell!
     }
-
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: - Table View Delegate Methods
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let applicationVC  = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCAMerchantApplicationListVC) as! MCAMerchantApplicationListVC
+        
+        dealsPipeline = dataSourceArray[indexPath.row]
+        applicationVC.titleText = dealsPipeline.applicationStateName
+        applicationVC.applicationState = dealsPipeline.applicationStateID
+        parentController.navigationController?.pushViewController(applicationVC, animated: true);
     }
-    */
+
 
 }

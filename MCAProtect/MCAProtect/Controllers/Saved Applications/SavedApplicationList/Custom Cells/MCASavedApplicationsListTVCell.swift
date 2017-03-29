@@ -40,7 +40,7 @@ class MCASavedApplicationsListTVCell: UITableViewCell {
     func setSavedApplicationList(savedApplicationData:MCASavedApplicationList) {
         
         applicationNameLabel.text = savedApplicationData.applicationName
-        amountLabel.text = "\(savedApplicationData.amount!)"
+        amountLabel.text = MCAUtilities.currencyFormatter(inputItem: savedApplicationData.amount as AnyObject)
         daysLabel.text = "Need in \(savedApplicationData.neededIn!) Days"
         emailButton.setTitle(savedApplicationData.merchantEmail, for: .normal)
         phoneNumberButton.setTitle(savedApplicationData.merchantPhoneNumber, for: .normal)
