@@ -35,4 +35,11 @@ class MCAAskFunderApplicationListTVCell: UITableViewCell {
     @IBAction func chatButtonTapped(_ sender: Any) {
         delegate?.chatButtonTapped()
     }
+    
+    func setAskFunderApplicationList(applicationList:MCAAskFunderApplicationList) {
+        nameLabel.text = applicationList.name
+        amountLabel.text = MCAUtilities.currencyFormatter(inputItem: applicationList.amount as AnyObject)
+    }
+
+    
 }

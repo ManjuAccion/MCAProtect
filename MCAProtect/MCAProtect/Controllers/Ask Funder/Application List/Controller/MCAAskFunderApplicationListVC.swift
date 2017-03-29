@@ -1,5 +1,5 @@
 //
-//  MCAAskFunderApplicationList.swift
+//  MCAAskFunderApplicationListVC.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 3/14/17.
@@ -8,12 +8,11 @@
 
 import UIKit
 
-class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,MCAAskFunderApplicationListTVCellDelegate {
-    
-    var dataDataSource = ["The Jewellery Shop", "Stacy's Boutique", "Miami Florists", "Food Truck", "Sport's World"]
-    var amountDataSource = ["$2000","$3000","$4000","$5000","$6000"]
-    var selectedIndexpath : IndexPath?
+class MCAAskFunderApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,MCAAskFunderApplicationListTVCellDelegate {
 
+    var selectedIndexpath : IndexPath?
+    var askFunderApplicationList : MCAAskFunderApplicationList!
+    var askFunderDataSource = [MCAAskFunderApplicationList]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField : UITextField!
@@ -25,6 +24,13 @@ class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,U
         super.viewDidLoad()
         
         self.navigationItem.title = "Ask Funder"
+        
+        for _ in 1...5
+        {
+            askFunderApplicationList = MCAAskFunderApplicationList(data:nil)
+            askFunderDataSource.append(askFunderApplicationList)
+        }
+        
         tableView.register(UINib(nibName: "MCAAskFunderApplicationListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAAskFunderApplicationListTVCell)
         tableView.tableFooterView = UIView()
         self.automaticallyAdjustsScrollViewInsets = false
@@ -37,7 +43,7 @@ class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,U
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataDataSource.count
+        return askFunderDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,8 +51,10 @@ class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,U
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAAskFunderApplicationListTVCell, for: indexPath) as! MCAAskFunderApplicationListTVCell
         
         cell.selectionStyle = .none
-        cell.nameLabel.text = dataDataSource[indexPath.row]
-        cell.amountLabel.text = amountDataSource[indexPath.row]
+        
+        askFunderApplicationList = askFunderDataSource[indexPath.row]
+        cell.setAskFunderApplicationList(applicationList: askFunderApplicationList)
+
         cell.backgroundColor = ColorConstants.background
         cell.delegate = self
         
@@ -76,7 +84,8 @@ class MCAAskFunderApplicationList: MCABaseViewController,UITableViewDataSource,U
         
         let storyBoard = UIStoryboard(name: StoryboardName.MCAAskFunder, bundle: Bundle.main)
         let askFunderApplicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAAskFunderApplicationSummaryVC) as! MCAAskFunderApplicationSummaryVC
-        askFunderApplicationSummaryVC.titleText = dataDataSource[indexPath.row]
+        askFunderApplicationList = askFunderDataSource[indexPath.row]
+        askFunderApplicationSummaryVC.titleText = askFunderApplicationList.name
         navigationController?.pushViewController(askFunderApplicationSummaryVC, animated: true)
     }
 

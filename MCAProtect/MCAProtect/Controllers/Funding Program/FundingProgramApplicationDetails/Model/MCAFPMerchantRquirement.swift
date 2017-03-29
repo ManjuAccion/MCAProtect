@@ -38,12 +38,8 @@ class MCAFPMerchantRquirement: NSObject {
             minimumDepositeAmount = "$5000 per 6 Months"
             minimumDailyBalance = "$1000 per 6 Months"
             fieldCount = 7
-
-            
-            
         }
     }
-    
     
     func getValueFromKey(key: FPMerchantRequirementkeys) -> String{
         
