@@ -10,6 +10,10 @@ import UIKit
 
 struct ColorConstants {
     
+    
+    
+    static let newbgColor                  = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A02336")
+
     static let red                  = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A32A2A")
     static let newRed                  = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#AD2B37")
 
