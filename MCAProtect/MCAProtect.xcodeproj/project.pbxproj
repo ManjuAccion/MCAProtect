@@ -83,6 +83,8 @@
 		782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A081E49BE1D00268356 /* MCAForgotPasswordVC.swift */; };
 		782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */; };
 		7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7871E3331E5312310019B707 /* MCANavigationController.swift */; };
+		789BFC371E8BE4D700DAEB69 /* MCASessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789BFC341E8BE4D700DAEB69 /* MCASessionManager.swift */; };
+		789BFC381E8BE4D700DAEB69 /* MCAWebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789BFC361E8BE4D700DAEB69 /* MCAWebServiceManager.swift */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
 		BA1237CC1E8BB4DC008A2AFE /* MCADealsPipeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */; };
 		BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */; };
@@ -285,6 +287,8 @@
 		782C6A081E49BE1D00268356 /* MCAForgotPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAForgotPasswordVC.swift; sourceTree = "<group>"; };
 		782C6A0C1E49BE4200268356 /* MCARegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARegistrationVC.swift; sourceTree = "<group>"; };
 		7871E3331E5312310019B707 /* MCANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANavigationController.swift; sourceTree = "<group>"; };
+		789BFC341E8BE4D700DAEB69 /* MCASessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASessionManager.swift; sourceTree = "<group>"; };
+		789BFC361E8BE4D700DAEB69 /* MCAWebServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebServiceManager.swift; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsPipeLine.swift; sourceTree = "<group>"; };
 		BA8B68BA1E5C709F004CEB69 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -872,8 +876,9 @@
 		782C69A11E49ACC500268356 /* MCAProtect */ = {
 			isa = PBXGroup;
 			children = (
+				789BFC331E8BE4D700DAEB69 /* SessionManager */,
+				789BFC351E8BE4D700DAEB69 /* WebServicesManager */,
 				7871E3321E5312140019B707 /* NavigationController */,
-				782C6A101E49DEB900268356 /* WebServicesManager */,
 				782C69D71E49ADE300268356 /* Application Delegate */,
 				782C69D21E49ADD700268356 /* BaseViewController */,
 				782C69D31E49ADD700268356 /* Constants */,
@@ -1078,19 +1083,28 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
-		782C6A101E49DEB900268356 /* WebServicesManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WebServicesManager;
-			sourceTree = "<group>";
-		};
 		7871E3321E5312140019B707 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
 				7871E3331E5312310019B707 /* MCANavigationController.swift */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		789BFC331E8BE4D700DAEB69 /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				789BFC341E8BE4D700DAEB69 /* MCASessionManager.swift */,
+			);
+			path = SessionManager;
+			sourceTree = "<group>";
+		};
+		789BFC351E8BE4D700DAEB69 /* WebServicesManager */ = {
+			isa = PBXGroup;
+			children = (
+				789BFC361E8BE4D700DAEB69 /* MCAWebServiceManager.swift */,
+			);
+			path = WebServicesManager;
 			sourceTree = "<group>";
 		};
 		BA1237CA1E8BB4B0008A2AFE /* Model */ = {
@@ -2313,7 +2327,9 @@
 				782C6A091E49BE1D00268356 /* MCAForgotPasswordVC.swift in Sources */,
 				5B1F8D801E89062100BD53F2 /* MCAFPProgramInformation.swift in Sources */,
 				5B9049531E72A77900A49A50 /* MCAMatchedFundingProgram.swift in Sources */,
+				789BFC371E8BE4D700DAEB69 /* MCASessionManager.swift in Sources */,
 				BAC6ADB61E8105920047F7D3 /* MCASAOwnerAndLocationDetailsTVCell.swift in Sources */,
+				789BFC381E8BE4D700DAEB69 /* MCAWebServiceManager.swift in Sources */,
 				BAC6ADDB1E8152EA0047F7D3 /* MCASABusinessLocationDetails.swift in Sources */,
 				BAC6AD801E80FE560047F7D3 /* MCASavedApplicationBankDetailsVC.swift in Sources */,
 				5BB3E6081E8293A800A67927 /* MCARoundedOverlayView.swift in Sources */,
