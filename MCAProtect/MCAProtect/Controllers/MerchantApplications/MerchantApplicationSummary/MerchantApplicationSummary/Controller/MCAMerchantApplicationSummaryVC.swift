@@ -18,15 +18,15 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     var titleText: String?
     var applicationState: Int!
     
-    var merchantApplicationSummary : MCAMASummary!
+    var merchantApplicationDetail : MCAMerchantApplicationDetail!
 
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = titleText
         
-        merchantApplicationSummary = MCAMASummary(data: nil);
+        self.title = titleText
+        merchantApplicationDetail = MCAMerchantApplicationDetail(data:nil)
 
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.register(UINib(nibName: "MCAEmailTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAEmailTableViewCell)
@@ -56,7 +56,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return merchantApplicationSummary.fieldCount
+        return merchantApplicationDetail.fieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,21 +75,21 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
                             summaryCell.viewDetailsButton.isHidden = false
                     default:break
                 }
-                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.businessName)
+                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.businessName)
                 summaryCell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
                 cell = summaryCell
 
             case MASummaryKeys.contactName.hashValue:
                 let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
                 summaryCell.delegate = self
-                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.contactName)
+                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.contactName)
                 summaryCell.accessoryType = UITableViewCellAccessoryType.none
                 cell = summaryCell
 
             case MASummaryKeys.loanAmount.hashValue:
                 let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
                 summaryCell.delegate = self
-                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.loanAmount)
+                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.loanAmount)
                 summaryCell.accessoryType = UITableViewCellAccessoryType.none
 
                 cell = summaryCell
@@ -100,7 +100,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
                 let   emailCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAEmailTableViewCell, for: indexPath) as! MCAEmailTableViewCell
                 emailCell.delegate = self
                 
-                emailCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.email)
+                emailCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.email)
                 cell = emailCell
             
             case MASummaryKeys.telephone.hashValue:
@@ -108,15 +108,15 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
                 let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAPhoneNumberTableViewCell, for: indexPath) as! MCAPhoneNumberTableViewCell
                 phoneNumberCell.delegate = self
                 
-                phoneNumberCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.telephone)
+                phoneNumberCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.telephone)
                 cell = phoneNumberCell
             case MASummaryKeys.offeredOn.hashValue:
                 let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
                 summaryCell.delegate = self
-                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationSummary, merchantSummaryKey: MASummaryKeys.offeredOn)
+                summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.offeredOn)
                 cell = summaryCell
 
-            default: break;
+            default: break
         }
        
         cell.selectionStyle = .none

@@ -33,7 +33,7 @@ class MCAPhoneNumberTableViewCell: UITableViewCell {
         delegate.callButtonTapped();
     }
     
-    func setMerchantApplicationSummary(merchantSummary : MCAMASummary, merchantSummaryKey : MASummaryKeys)
+    func setMerchantApplicationSummary(merchantSummary : MCAMerchantApplicationDetail, merchantSummaryKey : MASummaryKeys)
     {
         titleLabel.text = merchantSummaryKey.rawValue
         phoneNumberButton.setTitle(merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey), for: .normal)

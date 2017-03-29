@@ -30,7 +30,7 @@ class MCAEmailTableViewCell: UITableViewCell {
         delegate.emailButtonTapped()
     }
     
-    func setMerchantApplicationSummary(merchantSummary : MCAMASummary, merchantSummaryKey : MASummaryKeys)
+    func setMerchantApplicationSummary(merchantSummary : MCAMerchantApplicationDetail, merchantSummaryKey : MASummaryKeys)
     {
         titleLabel.text = merchantSummaryKey.rawValue
         emailButton.setTitle(merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey), for: .normal)
