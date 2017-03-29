@@ -76,7 +76,30 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         {
             let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
             let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
-            self.navigationController?.pushViewController(mPin, animated: true)
+            
+            
+            self.showActivityIndicator()
+            
+            var paramDict = Dictionary<String, String>()
+            paramDict["email"] = emailIDTextField.text
+            paramDict["password"] = passwordTextField.text
+            
+            
+            MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                     endPoint:"/broker/sign_in.json"
+                , successCallBack:{ (response : Any) in
+                    self.stopActivityIndicator()
+                    print("Success \(response)")
+                    self.navigationController?.pushViewController(mPin, animated: true)
+            }, failureCallBack: { (response : Any, error : Error) in
+                self.stopActivityIndicator()
+                    print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+
+            })
+            
         }
     }
     

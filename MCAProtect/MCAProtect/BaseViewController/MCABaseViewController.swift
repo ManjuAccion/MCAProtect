@@ -10,6 +10,9 @@ import UIKit
 import MessageUI
 
 class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegate {
+    
+    var activityView:UIView!
+    var activityIndicatorCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,8 +91,68 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
        
         present(alertViewController, animated: true , completion: nil)
 
+    }
+    
+    
+    public func showActivityIndicator()
+    {
+        activityIndicatorCount = activityIndicatorCount + 1
+        if activityIndicatorCount > 1 {
+            return;
+        }
         
+        UIApplication.shared.keyWindow?.viewWithTag(987)?.removeFromSuperview()
+        self.view.layoutIfNeeded();
+        
+        if  nil == activityView {
+            activityView = UIView(frame: self.view.bounds)
+            activityView.tag = 987;
+            activityView.backgroundColor = UIColor.clear
+            activityView.alpha = 0.0
+            let bgView = UIView(frame: activityView.bounds)
+            bgView.alpha = 0.0
+            bgView.backgroundColor = ColorConstants.newRed
+            activityView.addSubview(bgView)
+            let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            activityView.addSubview(spinner)
+            spinner.color = UIColor.white
+            spinner.startAnimating()
+            
+            activityView.center = CGPoint(x: self.view.frame.size.width / 2.0, y: self.view.frame.size.height / 2.0)
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                    bgView.alpha = 0.5;
+                    self.activityView.alpha = 1.0;
+
+            })
+            
+        }
+        else
+        {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.activityView.alpha = 1.0;
+                
+            })
+        }
+        
+        UIApplication.shared.keyWindow?.addSubview(activityView)
         
     }
 
+    
+    public func stopActivityIndicator()
+    {
+        activityIndicatorCount = activityIndicatorCount - 1
+        if activityIndicatorCount <= 0
+        {
+            activityIndicatorCount = 0;
+            UIView.animate(withDuration: 0.2, animations: {
+                self.activityView.alpha = 0.0;
+            }, completion: { (true: Bool) in
+                self.activityView.removeFromSuperview()
+            })
+        }
+    }
+
+    
 }
