@@ -113,5 +113,17 @@
 		<string>fb-messenger-api</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>PRODUCTION</key>
+	<dict>
+		<key>BASE_URL</key>
+		<string>https://broker-dev.mcaprotect.org/api</string>
+	</dict>
+	<key>DEVELOPMENT</key>
+	<dict>
+		<key>BASE_URL</key>
+		<string>https://broker-dev.mcaprotect.org/api</string>
+	</dict>
+	<key>ENVIRONMENT</key>
+	<string>DEVELOPMENT</string>
 </dict>
 </plist>

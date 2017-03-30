@@ -27,6 +27,7 @@ class MCAWebServiceManager: NSObject
                 successCallBack: @escaping (_ responseData: Any) -> Void,
                 failureCallBack: @escaping (_ responseData: Any , _ error: Error) -> Void)
     {
+            
         let dataRequest =  Alamofire.request(URL(string: "https://broker-dev.mcaprotect.org/api/broker/sign_in.json")!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: ["Content-Type":"application/json ; charset=utf-8","Accept":   "application/json"]);
         
         dataRequest.validate()
@@ -93,86 +94,4 @@ class MCAWebServiceManager: NSObject
         }
        
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        Alamofire.upload(
-//            multipartFormData: { multipartFormData in
-//                multipartFormData.append(imageData,
-//                                         withName: "imagefile",
-//                                         fileName: "image.jpg",
-//                                         mimeType: "image/jpeg")
-//        },
-//            with: ImaggaRouter.content,
-//            encodingCompletion: { encodingResult in
-//                switch encodingResult {
-//                case .success(let upload, _, _):
-//                    upload.uploadProgress { progress in
-//                        progressCompletion(Float(progress.fractionCompleted))
-//                    }
-//                    upload.validate()
-//                    upload.responseJSON { response in
-//                        guard response.result.isSuccess else {
-//                            print("Error while uploading file: \(response.result.error)")
-//                            completion([String](), [PhotoColor]())
-//                            return
-//                        }
-//                        
-//                        guard let responseJSON = response.result.value as? [String: Any],
-//                            let uploadedFiles = responseJSON["uploaded"] as? [Any],
-//                            let firstFile = uploadedFiles.first as? [String: Any],
-//                            let firstFileID = firstFile["id"] as? String else {
-//                                print("Invalid information received from service")
-//                                completion([String](), [PhotoColor]())
-//                                return
-//                        }
-//                        
-//                        print("Content uploaded with ID: \(firstFileID)")
-//                        
-//                        self.downloadTags(contentID: firstFileID) { tags in
-//                            self.downloadColors(contentID: firstFileID) { colors in
-//                                completion(tags, colors)
-//                            }
-//                        }
-//                    }
-//                case .failure(let encodingError):
-//                    print(encodingError)
-//                }
-//        }
-//        )
-//    }
-//    
-////    public func postRequest(requestParams: Dictionary<String , Any>)
-////    {
-////        
-////        
-////    }
 }

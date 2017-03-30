@@ -53,8 +53,6 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         
         func mailComposeController(_ controller:MFMailComposeViewController , didFinishWith result: MFMailComposeResult, error: Error?) {
             controller.dismiss(animated: true)
-        
-        
     }
     
     public func callButtonTapped()
@@ -75,7 +73,6 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
             
         }))
 
-       
         present(alertViewController, animated: true , completion: nil)
 
     }
