@@ -61,6 +61,30 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         applicationVC.applicationState = dealsPipeline.applicationStateID
         parentController.navigationController?.pushViewController(applicationVC, animated: true);
     }
-
+    
+//    func loadDealsPipeline() {
+//        
+//        self.showActivityIndicator()
+//        
+//        var paramDict = Dictionary<String, String>()
+//        paramDict["email"] = emailIDTextField.text
+//        paramDict["password"] = passwordTextField.text
+//        
+//        
+//        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+//                                                                 endPoint:"/broker/sign_in.json"
+//            , successCallBack:{ (response : Any) in
+//                self.stopActivityIndicator()
+//                print("Success \(response)")
+//        }, failureCallBack: { (response : Any, error : Error) in
+//            self.stopActivityIndicator()
+//            print("Failure \(error)")
+//            let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
+//            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+//            self.present(alertViewController, animated: true , completion: nil)
+//            
+//        })
+//
+//    }
 
 }

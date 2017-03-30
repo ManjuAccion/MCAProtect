@@ -18,41 +18,31 @@ enum TabSelected : NSInteger {
 
 class MCADashboardTabbarVC: MCABaseViewController{
 
-    
-    
     var dealsPipelineVC : MCADealsPipelineVC!
     var dealsFundedVC : MCADealsFundedVC!
     var performanceCompVC : MCAPerformanceComparisonVS!
     
     @IBOutlet weak var tabbarContentView: UIView!
-
     @IBOutlet weak var firstTabBtn: UIButton!
     @IBOutlet weak var thirdTabBtn: UIButton!
     @IBOutlet weak var secondTabBtn: UIButton!
-    
-    
-    let selectedTab = TabSelected.firstTab
-
     @IBOutlet weak var dealsPipelineLabel: UILabel!
     @IBOutlet weak var dealsFundedLAbel: UILabel!
     @IBOutlet weak var performanceComparisonLabel: UILabel!
     
-    
+    let selectedTab = TabSelected.firstTab
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         // Tabbar navigation should be hidden by default!
-        self.title = "DashBoard"
+        self.title = "Dashboard"
         self.navigationController?.setNavigationBarHidden(false, animated: false);
         
         self .setupNavigationBarButtons();
         self.selectTab(firstTabBtn)
-
         firstTabBtn.backgroundColor = ColorConstants.red
-
     }
-    
     
     func setupNavigationBarButtons()
     {
@@ -87,19 +77,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    
     // MARK: - Tab Selection method
 
     // Custom Tab bar selection method
@@ -131,8 +109,6 @@ class MCADashboardTabbarVC: MCABaseViewController{
         dealsFundedLAbel.textColor =  UIColor(colorLiteralRed: 256.0, green: 256.0, blue: 256.0, alpha: 0.85)
         performanceComparisonLabel.textColor =  UIColor(colorLiteralRed: 256.0, green: 256.0, blue: 256.0, alpha: 0.85)
 
-        
-        
         // TODO: need to identify how to use enumerations properly instead of using the constants in Case statement
         switch (sender as AnyObject).tag
         {
@@ -141,9 +117,6 @@ class MCADashboardTabbarVC: MCABaseViewController{
             {
                 dealsPipelineVC = self.storyboard!.instantiateViewController(withIdentifier: "DealsPipeline") as! MCADealsPipelineVC
                 dealsPipelineVC.parentController = self
-                
-
-                
             }
             dealsPipelineLabel.textColor = UIColor.white
 
@@ -184,7 +157,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
     
     func autoresizeViewForController(_ aViewController : MCABaseViewController)
     {
-            aViewController.view.frame = self.tabbarContentView.bounds;
+        aViewController.view.frame = self.tabbarContentView.bounds;
     }
     
 }
