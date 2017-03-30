@@ -115,17 +115,15 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
             activityView.addSubview(bgView)
             let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             activityView.addSubview(spinner)
+            spinner.center = self.view.center
             spinner.color = UIColor.white
             spinner.startAnimating()
-            
-            activityView.center = CGPoint(x: self.view.frame.size.width / 2.0, y: self.view.frame.size.height / 2.0)
             
             UIView.animate(withDuration: 0.2, animations: {
                     bgView.alpha = 0.5;
                     self.activityView.alpha = 1.0;
 
             })
-            
         }
         else
         {
