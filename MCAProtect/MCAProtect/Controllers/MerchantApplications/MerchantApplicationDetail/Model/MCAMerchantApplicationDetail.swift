@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MCAMerchantApplicationDetail: NSObject {
     
@@ -21,9 +22,10 @@ class MCAMerchantApplicationDetail: NSObject {
     var offeredOn : String!
     var fieldCount : Int!
     
-    init (data : NSDictionary?) {
+    init(merchantApplicationDetail: JSON!) {
         
-        if nil == data {
+        if merchantApplicationDetail.isEmpty {
+            
             applicationID               = 233
             acceptedFundingProgramID    = 136
             contactName                 = "andrew sobers"
@@ -34,13 +36,30 @@ class MCAMerchantApplicationDetail: NSObject {
             loanRequirementTenure       = "4 days"
             offeredOn                   = "2016-12-12"
             fieldCount                  = 6
-        }
-        else {
             
+            return
         }
+        
+        acceptedFundingProgramID = merchantApplicationDetail["accepted_lending_program_id"] != JSON.null ? merchantApplicationDetail["accepted_lending_program_id"].intValue : 0
+        
+        businessName = merchantApplicationDetail["business_name"] != JSON.null ? merchantApplicationDetail["business_name"].stringValue : ""
+        
+        contactName =  merchantApplicationDetail["contact_name"] != JSON.null ? merchantApplicationDetail["contact_name"].stringValue : ""
+        
+        contactNumber = merchantApplicationDetail["contact_number"] != JSON.null ?   merchantApplicationDetail["contact_number"].stringValue : ""
+        
+        applicationID = merchantApplicationDetail["id"] != JSON.null ? merchantApplicationDetail["id"].intValue : 0
+        
+        loanAmount = merchantApplicationDetail["loan_amount"] != JSON.null ? merchantApplicationDetail["loan_amount"].floatValue : 0
+        
+        loanRequirementTenure =  merchantApplicationDetail["loan_requirement_tenure"] != JSON.null ?merchantApplicationDetail["loan_requirement_tenure"].stringValue : ""
+        
+        merchantEmail = merchantApplicationDetail["merchant_mail"] != JSON.null ? merchantApplicationDetail["merchant_mail"].stringValue : ""
+        
+        offeredOn = merchantApplicationDetail["offered_on"] != JSON.null ?  merchantApplicationDetail["offered_on"].stringValue : ""
     }
     
-    func getValueFromKey(merchantSummaryKey: MASummaryKeys) -> String{
+    func getValueFromKey(merchantSummaryKey: MASummaryKeys) -> String {
         
         var modelValue : String!
         

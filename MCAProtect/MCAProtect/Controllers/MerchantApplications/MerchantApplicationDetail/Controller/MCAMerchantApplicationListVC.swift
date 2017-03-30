@@ -25,7 +25,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         self.navigationItem.title = titleText
         
         for _ in 1...6 {
-            merchantApplicationDetail = MCAMerchantApplicationDetail(data:nil)
+            merchantApplicationDetail = MCAMerchantApplicationDetail(merchantApplicationDetail:"")
             dataSource.append(merchantApplicationDetail)
         }
 

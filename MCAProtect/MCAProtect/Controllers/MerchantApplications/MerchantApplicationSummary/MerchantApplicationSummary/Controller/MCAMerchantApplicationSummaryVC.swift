@@ -26,7 +26,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         super.viewDidLoad()
         
         self.title = titleText
-        merchantApplicationDetail = MCAMerchantApplicationDetail(data:nil)
+        merchantApplicationDetail = MCAMerchantApplicationDetail(merchantApplicationDetail:"")
 
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.register(UINib(nibName: "MCAEmailTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAEmailTableViewCell)
