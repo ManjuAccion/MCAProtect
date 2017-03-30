@@ -22,7 +22,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         
         for _ in 1...7 {
             
-            dealsPipeline = MCADealsPipeLine(data:nil)
+            dealsPipeline = MCADealsPipeLine(dealsPipeLine:"")
             dataSourceArray.append(dealsPipeline)
         }
 
