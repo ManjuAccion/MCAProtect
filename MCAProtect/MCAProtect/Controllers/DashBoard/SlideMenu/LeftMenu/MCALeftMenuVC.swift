@@ -9,12 +9,7 @@
 import UIKit
 import iOS_Slide_Menu
 
-enum leftMenuItems : NSInteger {
-    case Dashboard = 0
-    case SavedApplications = 1
-    case FundingPrograms = 2
-    case AskFunder = 3
-}
+
 
 class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     

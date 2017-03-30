@@ -9,16 +9,7 @@
 import UIKit
 import iOS_Slide_Menu
 
-enum rightMenuItems : NSInteger {
-    case Notification = 0
-    case PersonalisedSettings = 1
-    case AboutUs = 2
-    case TermsOfUse = 3
-    case PrivacyPolicy = 4
-    case ShareFeedback = 5
-    case ShareApp = 6
-    case RateUs = 7
-}
+
 class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var sideRightMenuTableView : UITableView!

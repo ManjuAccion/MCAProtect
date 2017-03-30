@@ -37,6 +37,7 @@ struct ColorConstants {
 
     
     static let btnBgColor           = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A32A2A")
+    static let btnborderColor           = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#8C8C8C")
 }
 
 struct CellIdentifiers {
@@ -285,5 +286,23 @@ enum MASummaryKeys : String {
     case email          = "Email"
     case telephone      = "Telephone"
     case offeredOn      = "Offered on"
+}
+
+enum rightMenuItems : NSInteger {
+    case Notification = 0
+    case PersonalisedSettings = 1
+    case AboutUs = 2
+    case TermsOfUse = 3
+    case PrivacyPolicy = 4
+    case ShareFeedback = 5
+    case ShareApp = 6
+    case RateUs = 7
+}
+
+enum leftMenuItems : NSInteger {
+    case Dashboard = 0
+    case SavedApplications = 1
+    case FundingPrograms = 2
+    case AskFunder = 3
 }
 

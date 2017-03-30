@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B08EDFB1E8D44AF00F7C4FD /* MCAProfileDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08EDFA1E8D44AF00F7C4FD /* MCAProfileDetails.swift */; };
 		5B1F8D591E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D581E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift */; };
 		5B1F8D5E1E83AB2800BD53F2 /* MCAFPApplicationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D5D1E83AB2800BD53F2 /* MCAFPApplicationDetailVC.swift */; };
 		5B1F8D631E83AB5F00BD53F2 /* MCAFPAdditionalStipulationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D621E83AB5F00BD53F2 /* MCAFPAdditionalStipulationVC.swift */; };
@@ -21,7 +22,7 @@
 		5B1F8D801E89062100BD53F2 /* MCAFPProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D7F1E89062100BD53F2 /* MCAFPProgramInformation.swift */; };
 		5B1F8D821E89064E00BD53F2 /* MCAFPMerchantRquirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D811E89064E00BD53F2 /* MCAFPMerchantRquirement.swift */; };
 		5B1F8D841E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D831E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift */; };
-		5B4741CC1E570D2A001D9435 /* MCAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4741CB1E570D2A001D9435 /* MCAProfileViewController.swift */; };
+		5B6C97C51E8D36BA003BEA82 /* MCAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C97C21E8D36BA003BEA82 /* MCAProfileViewController.swift */; };
 		5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */; };
 		5B8FC4A31E4C7E9600309CAB /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC4961E4C7E9600309CAB /* Apache License.txt */; };
 		5B8FC4A41E4C7E9600309CAB /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC4971E4C7E9600309CAB /* Roboto-Black.ttf */; };
@@ -208,6 +209,7 @@
 		15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD461690C404A50EA48979D /* Pods-MCAProtectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.release.xcconfig"; sourceTree = "<group>"; };
 		49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B08EDFA1E8D44AF00F7C4FD /* MCAProfileDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileDetails.swift; sourceTree = "<group>"; };
 		5B1F8D581E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPApplicationFormVC.swift; sourceTree = "<group>"; };
 		5B1F8D5D1E83AB2800BD53F2 /* MCAFPApplicationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPApplicationDetailVC.swift; sourceTree = "<group>"; };
 		5B1F8D621E83AB5F00BD53F2 /* MCAFPAdditionalStipulationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPAdditionalStipulationVC.swift; sourceTree = "<group>"; };
@@ -223,7 +225,7 @@
 		5B1F8D811E89064E00BD53F2 /* MCAFPMerchantRquirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPMerchantRquirement.swift; sourceTree = "<group>"; };
 		5B1F8D831E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPLiensOrBankruptcy.swift; sourceTree = "<group>"; };
 		5B4741BC1E533511001D9435 /* MCAProtect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAProtect-Bridging-Header.h"; sourceTree = "<group>"; };
-		5B4741CB1E570D2A001D9435 /* MCAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileViewController.swift; sourceTree = "<group>"; };
+		5B6C97C21E8D36BA003BEA82 /* MCAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileViewController.swift; sourceTree = "<group>"; };
 		5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebViewController.swift; sourceTree = "<group>"; };
 		5B8FC4961E4C7E9600309CAB /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
 		5B8FC4971E4C7E9600309CAB /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -448,11 +450,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B1F8D571E83AAD800BD53F2 /* ViewController */ = {
+		5B1F8D571E83AAD800BD53F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5B1F8D581E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift */,
 			);
+			name = Controller;
 			path = ViewController;
 			sourceTree = "<group>";
 		};
@@ -473,11 +476,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B1F8D5C1E83AB2800BD53F2 /* ViewController */ = {
+		5B1F8D5C1E83AB2800BD53F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5B1F8D5D1E83AB2800BD53F2 /* MCAFPApplicationDetailVC.swift */,
 			);
+			name = Controller;
 			path = ViewController;
 			sourceTree = "<group>";
 		};
@@ -496,11 +500,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B1F8D611E83AB5F00BD53F2 /* ViewController */ = {
+		5B1F8D611E83AB5F00BD53F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5B1F8D621E83AB5F00BD53F2 /* MCAFPAdditionalStipulationVC.swift */,
 			);
+			name = Controller;
 			path = ViewController;
 			sourceTree = "<group>";
 		};
@@ -519,11 +524,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B1F8D661E83ABA000BD53F2 /* ViewController */ = {
+		5B1F8D661E83ABA000BD53F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5B1F8D671E83ABA000BD53F2 /* MCAFPBusinessTypeVC.swift */,
 			);
+			name = Controller;
 			path = ViewController;
 			sourceTree = "<group>";
 		};
@@ -542,11 +548,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B1F8D6B1E83ABE700BD53F2 /* ViewController */ = {
+		5B1F8D6B1E83ABE700BD53F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5B1F8D6C1E83ABE700BD53F2 /* MCAFundingProgramListViewController.swift */,
 			);
+			name = Controller;
 			path = ViewController;
 			sourceTree = "<group>";
 		};
@@ -565,11 +572,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5B1F8D711E83AC1B00BD53F2 /* ViewController */ = {
+		5B1F8D711E83AC1B00BD53F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5B1F8D771E83AD2800BD53F2 /* MCAFundingProgramSummaryVC.swift */,
 			);
+			name = Controller;
 			path = ViewController;
 			sourceTree = "<group>";
 		};
@@ -587,7 +595,9 @@
 		5B4741CA1E570C6C001D9435 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				5B4741CB1E570D2A001D9435 /* MCAProfileViewController.swift */,
+				5B6C97C11E8D36BA003BEA82 /* Controller */,
+				5B6C97C31E8D36BA003BEA82 /* Custom Cells */,
+				5B6C97C41E8D36BA003BEA82 /* Model */,
 			);
 			name = Profile;
 			path = DashBoard/Profile;
@@ -607,12 +617,35 @@
 			path = "Funding Program";
 			sourceTree = "<group>";
 		};
+		5B6C97C11E8D36BA003BEA82 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5B6C97C21E8D36BA003BEA82 /* MCAProfileViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B6C97C31E8D36BA003BEA82 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		5B6C97C41E8D36BA003BEA82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B08EDFA1E8D44AF00F7C4FD /* MCAProfileDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5B7F7D311E6FF6710067F1DD /* FundingProgramAdditionalStipulation */ = {
 			isa = PBXGroup;
 			children = (
 				5B1F8D5F1E83AB5F00BD53F2 /* CustomCells */,
 				5B1F8D601E83AB5F00BD53F2 /* Model */,
-				5B1F8D611E83AB5F00BD53F2 /* ViewController */,
+				5B1F8D611E83AB5F00BD53F2 /* Controller */,
 			);
 			path = FundingProgramAdditionalStipulation;
 			sourceTree = "<group>";
@@ -622,7 +655,7 @@
 			children = (
 				5B1F8D5A1E83AB2800BD53F2 /* CustomCells */,
 				5B1F8D5B1E83AB2800BD53F2 /* Model */,
-				5B1F8D5C1E83AB2800BD53F2 /* ViewController */,
+				5B1F8D5C1E83AB2800BD53F2 /* Controller */,
 			);
 			path = FundingProgramApplicationDetails;
 			sourceTree = "<group>";
@@ -632,7 +665,7 @@
 			children = (
 				5B1F8D551E83AAD800BD53F2 /* CustomCells */,
 				5B1F8D561E83AAD800BD53F2 /* Model */,
-				5B1F8D571E83AAD800BD53F2 /* ViewController */,
+				5B1F8D571E83AAD800BD53F2 /* Controller */,
 			);
 			path = FundingProgramApplicationForm;
 			sourceTree = "<group>";
@@ -642,7 +675,7 @@
 			children = (
 				5B1F8D641E83ABA000BD53F2 /* CustomCells */,
 				5B1F8D651E83ABA000BD53F2 /* Model */,
-				5B1F8D661E83ABA000BD53F2 /* ViewController */,
+				5B1F8D661E83ABA000BD53F2 /* Controller */,
 			);
 			path = FundingProgramBusinessType;
 			sourceTree = "<group>";
@@ -652,7 +685,7 @@
 			children = (
 				5B1F8D691E83ABE700BD53F2 /* CustomCells */,
 				5B1F8D6A1E83ABE700BD53F2 /* Model */,
-				5B1F8D6B1E83ABE700BD53F2 /* ViewController */,
+				5B1F8D6B1E83ABE700BD53F2 /* Controller */,
 			);
 			path = FundingProgramList;
 			sourceTree = "<group>";
@@ -662,7 +695,7 @@
 			children = (
 				5B1F8D6E1E83AC1B00BD53F2 /* CustomCells */,
 				5B1F8D6F1E83AC1B00BD53F2 /* Model */,
-				5B1F8D711E83AC1B00BD53F2 /* ViewController */,
+				5B1F8D711E83AC1B00BD53F2 /* Controller */,
 			);
 			path = FundingProgramSummary;
 			sourceTree = "<group>";
@@ -2317,6 +2350,7 @@
 				BAC6AE3D1E824FB10047F7D3 /* MCAGenericPopViewController.swift in Sources */,
 				7804B6301E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift in Sources */,
 				BAC6AD591E7FDBF80047F7D3 /* MCALoanDetail.swift in Sources */,
+				5B6C97C51E8D36BA003BEA82 /* MCAProfileViewController.swift in Sources */,
 				7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */,
 				BAC6ADC31E8106DE0047F7D3 /* MCASALoansTVCell.swift in Sources */,
 				5BB3E5FA1E8293A800A67927 /* MCAApplicationTVCell.swift in Sources */,
@@ -2376,6 +2410,7 @@
 				BAC6ADD71E8150BB0047F7D3 /* MCAOwnerInformationDetail.swift in Sources */,
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,
 				BAC6AD9C1E81020A0047F7D3 /* MCASavedApplicationListVC.swift in Sources */,
+				5B08EDFB1E8D44AF00F7C4FD /* MCAProfileDetails.swift in Sources */,
 				BAC6AD5B1E7FDF2C0047F7D3 /* MCABusinessInformation.swift in Sources */,
 				BAC6ADF61E824ABB0047F7D3 /* MCASubmitStipulationsCell.swift in Sources */,
 				5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */,
@@ -2399,7 +2434,6 @@
 				5B1F8D781E83AD2800BD53F2 /* MCAFundingProgramSummaryVC.swift in Sources */,
 				BAC6AE571E8250720047F7D3 /* MCAChangeMPinVC.swift in Sources */,
 				BAC6AD5D1E7FE3CC0047F7D3 /* MCABusinessAddress.swift in Sources */,
-				5B4741CC1E570D2A001D9435 /* MCAProfileViewController.swift in Sources */,
 				5B1F8D761E83ACF600BD53F2 /* MCAFundingProgramSummary.swift in Sources */,
 				BAC6ADD51E8150660047F7D3 /* MCASAOwnerInformationDetailVC.swift in Sources */,
 				5B90494F1E72881A00A49A50 /* MCAMatchedFundingProgramVC.swift in Sources */,
