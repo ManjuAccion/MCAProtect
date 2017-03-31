@@ -63,4 +63,13 @@ class MCAUtilities: NSObject {
         let environmentDict = settingsDict[EnvironmentString] as! NSDictionary
         return environmentDict.value(forKey: "BASE_URL") as! String
     }
+    
+    static func getnilcheckedStringValue(stringToNilCheck : String?) -> String {
+        
+        return stringToNilCheck == nil ? "" : stringToNilCheck!
+        
+    }
+    
+    
+    
 }

@@ -291,6 +291,7 @@
 		7871E3331E5312310019B707 /* MCANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANavigationController.swift; sourceTree = "<group>"; };
 		789BFC341E8BE4D700DAEB69 /* MCASessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASessionManager.swift; sourceTree = "<group>"; };
 		789BFC361E8BE4D700DAEB69 /* MCAWebServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebServiceManager.swift; sourceTree = "<group>"; };
+		789BFC3A1E8E549200DAEB69 /* MCAProtect.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCAProtect.pch; sourceTree = "<group>"; };
 		84A7B9792B818B5B33B81216 /* Pods-MCAProtectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BA1237CB1E8BB4DC008A2AFE /* MCADealsPipeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADealsPipeLine.swift; sourceTree = "<group>"; };
 		BA1237CE1E8BDFF0008A2AFE /* MCAMerchantApplicationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationDetail.swift; sourceTree = "<group>"; };
@@ -722,6 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				5B8FC4951E4C7E9600309CAB /* roboto */,
+				789BFC3A1E8E549200DAEB69 /* MCAProtect.pch */,
 			);
 			name = Resources;
 			path = Utilities/Resources;
@@ -2603,6 +2605,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Relton Alexander (KK3SRAHRSL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 78RNVBBGXR;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				INFOPLIST_FILE = MCAProtect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2625,6 +2628,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Relton Alexander (KK3SRAHRSL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 78RNVBBGXR;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				INFOPLIST_FILE = MCAProtect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
