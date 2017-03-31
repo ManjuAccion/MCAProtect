@@ -19,8 +19,9 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     @IBOutlet weak var emailOverlayView : MCARoundedOverlayView!
     @IBOutlet weak var updateButton : UIButton!
     @IBOutlet weak var cameraButton : UIButton!
-
     @IBOutlet weak var topConstraints: NSLayoutConstraint!
+    
+    var mcaUser : MCAUser!
     var imagePicker:UIImagePickerController?=UIImagePickerController()
     
 
@@ -43,6 +44,12 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
+        mcaUser = MCASessionManager.sharedSessionManager.mcapUser
+        firstNameTF.text = mcaUser.brokerContactName
+        emailTF.text = mcaUser.brokerEmail
+        phoneNumberTF.text = mcaUser.brokerContactNumber
 
         // Do any additional setup after loading the view.
     }
@@ -162,6 +169,41 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func updateProfileDetails()
+    {
+        
+        self.showActivityIndicator()
+        var paramDict  = Dictionary<String, String>()
+        paramDict["contact_name"] = firstNameTF.text
+        paramDict["contact_number"] = phoneNumberTF.text
+        paramDict["image_url"] = "https://mcaprotect-dev-storage.s3.amazonaws.com/profile-images/1486979609971-Df3yv7vvkcZvETgG.jpg"
+
+        
+        
+        
+        MCAWebServiceManager.sharedWebServiceManager.patchRequest(requestParam:paramDict,
+                                                                 endPoint:MCAAPIEndPoints.BrokerUpdateProfileAPIEndpoint
+            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+               
+                
+        },
+              failureCallBack: { (response :  Dictionary<String, AnyObject>!, error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+
+        
     }
 
   

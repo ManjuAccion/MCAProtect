@@ -126,7 +126,8 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         
         let profileStoryBoard = UIStoryboard.init(name:"ProfileDetail", bundle: nil)
         let ProfileVC = profileStoryBoard.instantiateViewController(withIdentifier: "MCAProfileViewController")
-        SlideNavigationController.sharedInstance().pushViewController(ProfileVC, animated: false)
+        SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,ProfileVC], animated: false);
+        SlideNavigationController.sharedInstance().toggleLeftMenu()
         
     }
 }

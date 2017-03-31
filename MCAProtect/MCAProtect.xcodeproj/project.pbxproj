@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B08EDFB1E8D44AF00F7C4FD /* MCAProfileDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08EDFA1E8D44AF00F7C4FD /* MCAProfileDetails.swift */; };
 		5B1F8D591E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D581E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift */; };
 		5B1F8D5E1E83AB2800BD53F2 /* MCAFPApplicationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D5D1E83AB2800BD53F2 /* MCAFPApplicationDetailVC.swift */; };
 		5B1F8D631E83AB5F00BD53F2 /* MCAFPAdditionalStipulationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F8D621E83AB5F00BD53F2 /* MCAFPAdditionalStipulationVC.swift */; };
@@ -210,7 +209,6 @@
 		15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD461690C404A50EA48979D /* Pods-MCAProtectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.release.xcconfig"; sourceTree = "<group>"; };
 		49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B08EDFA1E8D44AF00F7C4FD /* MCAProfileDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileDetails.swift; sourceTree = "<group>"; };
 		5B1F8D581E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPApplicationFormVC.swift; sourceTree = "<group>"; };
 		5B1F8D5D1E83AB2800BD53F2 /* MCAFPApplicationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPApplicationDetailVC.swift; sourceTree = "<group>"; };
 		5B1F8D621E83AB5F00BD53F2 /* MCAFPAdditionalStipulationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPAdditionalStipulationVC.swift; sourceTree = "<group>"; };
@@ -638,7 +636,6 @@
 		5B6C97C41E8D36BA003BEA82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5B08EDFA1E8D44AF00F7C4FD /* MCAProfileDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2416,7 +2413,6 @@
 				BAC6ADD71E8150BB0047F7D3 /* MCAOwnerInformationDetail.swift in Sources */,
 				782C69FA1E49B20000268356 /* MCAUtilities.swift in Sources */,
 				BAC6AD9C1E81020A0047F7D3 /* MCASavedApplicationListVC.swift in Sources */,
-				5B08EDFB1E8D44AF00F7C4FD /* MCAProfileDetails.swift in Sources */,
 				BAC6AD5B1E7FDF2C0047F7D3 /* MCABusinessInformation.swift in Sources */,
 				BAC6ADF61E824ABB0047F7D3 /* MCASubmitStipulationsCell.swift in Sources */,
 				5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */,

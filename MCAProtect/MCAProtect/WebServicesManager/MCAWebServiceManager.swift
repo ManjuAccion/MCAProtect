@@ -73,6 +73,8 @@ class MCAWebServiceManager: NSObject
         apiRequest.validate()
         apiRequest.responseJSON { (response) in
             
+            
+            
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(response.result.error)")
                 failureCallBack(response, response.error!)
@@ -90,26 +92,30 @@ class MCAWebServiceManager: NSObject
     
     func patchRequest(requestParam: Dictionary<String , Any>,
                       endPoint: String?,
-                    successCallBack: @escaping (_ responseData: Any) -> Void,
-                    failureCallBack: @escaping (_ responseData: Any , _ error: Error) -> Void)
+                      successCallBack: @escaping (_ responseData: Dictionary<String , AnyObject>) -> Void,
+                      failureCallBack: @escaping (_ responseData: Dictionary<String , AnyObject> , _ error: Error) -> Void)
+
     {
         
         var completeURL : String = baseURL
         completeURL.append(endPoint!)
 
-        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .patch, parameters: requestParam, encoding: URLEncoding.default, headers: ["Content-Type":"application/json","Accept":   "application/json"]);
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .put, parameters: requestParam, encoding: URLEncoding.default, headers: ["Content-Type":"application/json","Accept":   "application/json"]);
         
         apiRequest.validate()
         apiRequest.responseJSON { (response) in
+           
             
+            let dataDictionary = JSON(response.result.value!)
+
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(response.result.error)")
-                failureCallBack(response, response.error!)
+                failureCallBack(dataDictionary.dictionaryObject as Dictionary<String, AnyObject>!, response.error!)
                 return
             }
             
             print(response)
-            successCallBack(response)
+            successCallBack(dataDictionary.dictionaryObject as Dictionary<String, AnyObject>!)
             return
         }
        
