@@ -14,7 +14,8 @@ class MCAProfileDetails: NSObject {
     var contactNumber : String!
     var email : String!
     var profileImageUrl : String!
-    var user_Id : String!
+    var user_Id : Int!
+    var fieldCount : Int!
     
     init (data : NSDictionary?) {
         
@@ -23,7 +24,7 @@ class MCAProfileDetails: NSObject {
             contactName                 = "andrew sobers"
             businessName                = "whiteshark tech"
             contactNumber               = "9744794999"
-            merchantEmail               = "broker085@gmail.com"
+            email               = "broker085@gmail.com"
             fieldCount                  = 5
         }
         else {
