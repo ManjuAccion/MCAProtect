@@ -55,8 +55,12 @@ class MCAUtilities: NSObject {
         
         return formatter.string(from: inputItem as! NSNumber)!
     }
-    
-    
-  }
 
-
+    static func getBaseURL(environment: String) -> String
+    {
+        let settingsDict = Bundle.main.infoDictionary!
+        let EnvironmentString = settingsDict[environment] as! String
+        let environmentDict = settingsDict[EnvironmentString] as! NSDictionary
+        return environmentDict.value(forKey: "BASE_URL") as! String
+    }
+}

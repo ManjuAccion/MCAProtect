@@ -12,8 +12,11 @@ import Alamofire
 class MCAWebServiceManager: NSObject
 {
 
+    var baseURL : String!
     // Can't init is singleton
-    private override init() {}
+    private override init() {
+        baseURL  = MCAUtilities.getBaseURL(environment: "ENVIRONMENT")
+    }
     
     //MARK: Shared Instance
     
@@ -27,8 +30,11 @@ class MCAWebServiceManager: NSObject
                 successCallBack: @escaping (_ responseData: Any) -> Void,
                 failureCallBack: @escaping (_ responseData: Any , _ error: Error) -> Void)
     {
-            
-        let dataRequest =  Alamofire.request(URL(string: "https://broker-dev.mcaprotect.org/api/broker/sign_in.json")!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: ["Content-Type":"application/json ; charset=utf-8","Accept":   "application/json"]);
+        
+        var completeURL : String = baseURL
+        completeURL.append(endPoint!)
+        
+        let dataRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: ["Content-Type":"application/json ; charset=utf-8","Accept":   "application/json"]);
         
         dataRequest.validate()
         dataRequest.responseJSON { (response) in

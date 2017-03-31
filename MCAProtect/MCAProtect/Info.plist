@@ -18,6 +18,13 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>DEVELOPMENT</key>
+	<dict>
+		<key>BASE_URL</key>
+		<string>https://broker-dev.mcaprotect.org/api</string>
+	</dict>
+	<key>ENVIRONMENT</key>
+	<string>DEVELOPMENT</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -67,18 +74,6 @@
 		<string>fb-messenger-api</string>
 		<string>fbshareextension</string>
 	</array>
-	<key>PRODUCTION</key>
-	<dict>
-		<key>BASE_URL</key>
-		<string>https://broker-dev.mcaprotect.org/api</string>
-	</dict>
-	<key>DEVELOPMENT</key>
-	<dict>
-		<key>BASE_URL</key>
-		<string>https://broker-dev.mcaprotect.org/api</string>
-	</dict>
-	<key>ENVIRONMENT</key>
-	<string>DEVELOPMENT</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -100,6 +95,11 @@
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app requires access to the photo library.</string>
+	<key>PRODUCTION</key>
+	<dict>
+		<key>BASE_URL</key>
+		<string>https://broker-dev.mcaprotect.org/api</string>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-BoldItalic.ttf</string>
@@ -113,7 +113,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>DashBoard</string>
+	<string>Login</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

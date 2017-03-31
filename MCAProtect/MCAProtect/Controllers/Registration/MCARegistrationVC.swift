@@ -242,14 +242,46 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         
     if isAllDetailsPresent != nil && isAllDetailsPresent == true {
         
-        let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-        let setPinVC = storyboard.instantiateViewController(withIdentifier: "MCASetMPinVC") as! MCASetMPinVC
-        setPinVC.isFromRegistrationFlow = true
-        navigationController?.pushViewController(setPinVC,
-                                                      animated: true)
+    }
+        self.RegisterBrokerage()
     }
 
+    
+    
+    func RegisterBrokerage() {
+        
+        self.showActivityIndicator()
+        
+        var paramDict = Dictionary<String, String>()
+        
+        paramDict["business_name"] = businessNameTF.text
+        paramDict["email"] = emailTF.text
+        paramDict["contact_number"] = phoneNumberTF.text
+        paramDict["password"] = passwordTF.text
+        paramDict["password_confirmation"] = confirmPasswordTF.text
+        
+        
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                 endPoint:MCAAPIEndPoints.BrokerageRegistrationAPIEndPoint
+            , successCallBack:{ (response : Any) in
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+                let setPinVC = storyboard.instantiateViewController(withIdentifier: "MCASetMPinVC") as! MCASetMPinVC
+                setPinVC.isFromRegistrationFlow = true
+                self.navigationController?.pushViewController(setPinVC,
+                                                         animated: true)
+        }, failureCallBack: { (response : Any, error : Error) in
+            self.stopActivityIndicator()
+            print("Failure \(error)")
+            let alertViewController = UIAlertController(title : "MCAP", message : "Registration Failed", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            self.present(alertViewController, animated: true , completion: nil)
+            
+        })
     }
-
+    
+    
+    
    
 }
