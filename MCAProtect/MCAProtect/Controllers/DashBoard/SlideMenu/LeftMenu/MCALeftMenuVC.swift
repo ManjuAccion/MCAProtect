@@ -46,6 +46,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidAppear(animated)
 
         sideMenuTableView.reloadData()
+        profileHeaderView.setPrfileDetails(mcapUser: MCASessionManager.sharedSessionManager.mcapUser)
     }
     
     override func didReceiveMemoryWarning() {

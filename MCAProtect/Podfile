@@ -12,7 +12,7 @@ target 'MCAProtect' do
   pod 'JVFloatLabeledTextField'
   pod 'iOS-Slide-Menu', '~> 1.5'
   pod 'SwiftyJSON', '~> 3.1'
-
+  pod 'SDWebImage', '~> 3.8'
   target 'MCAProtectTests' do
     inherit! :search_paths
     # Pods for testing

@@ -127,7 +127,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember my password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xct-bN-1OW">
-                                        <rect key="frame" x="69" y="352" width="155" height="21"/>
+                                        <rect key="frame" x="69" y="352" width="157" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="bnX-I5-SCQ"/>
                                         </constraints>

@@ -21,4 +21,12 @@ class MCAProfileHeaderView: UIView {
     }
     */
 
+    
+    func setPrfileDetails(mcapUser: MCAUser)
+    {
+        profileNameLabel.text = mcapUser.brokerContactName;
+//        profileNameLabel.text = mcapUser.brokerContactName;
+        
+    }
+    
 }
