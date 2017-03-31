@@ -306,3 +306,18 @@ enum leftMenuItems : NSInteger {
     case AskFunder = 3
 }
 
+
+struct MCAAPIEndPoints {
+    
+    static let BrokerLoginAPIEndPoint               = "/broker/sign_in.json"
+    static let BrokerLogoutAPIEndPoint               = "/broker/sign_out.json"
+    static let BrokerForgotPasswordAPIEndPoint               = "/broker/password.json"
+    static let BrokerDashBoardAPIEndpoint               = "MCAApplicationFormTVCell"
+    static let BrokerUpdateProfileAPIEndpoint               = "/broker.json"
+
+    static let BrokerageLoginAPIEndPoint               = "/brokerage_firm/sign_in.json"
+    static let BrokerageLogoutAPIEndPoint               = "/brokerage_firm/sign_out.json"
+    static let BrokerageForgotPasswordAPIEndPoint               = "/brokerage_firm/password.json"
+    static let BrokerageUpdateProfileAPIEndpoint               = "/brokerage_firm.json"
+
+}
