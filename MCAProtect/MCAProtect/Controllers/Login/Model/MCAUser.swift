@@ -10,8 +10,8 @@ import UIKit
 
 class MCAUser: NSObject {
 
-    var brokerID: String!
-    var brokarageFirmID : String!
+    var brokerID: Int!
+    var brokarageFirmID : Int!
     var brokerUID : String!
     var brokerEmail : String!
     var brokerContactNumber : String!
@@ -46,12 +46,15 @@ class MCAUser: NSObject {
  */
  
  
-    init(loginUserData: NSDictionary! , userLoginType: Int)
+    init(loginUserData: Dictionary<String,AnyObject>! , userLoginType: Int)
     {
         
-        if nil == loginUserData {
-            brokerID      = "Glink Lender"
-            brokarageFirmID    = "Glink Lender"
+        let userData = loginUserData["data"] as! Dictionary<String,AnyObject>
+        
+        if nil == userData
+        {
+            brokerID      = 67
+            brokarageFirmID    = 68
             brokerUID  = "Glink Lender"
             brokerEmail        = "Glink Lender"
             brokerContactNumber       = "Monthly"
@@ -60,12 +63,13 @@ class MCAUser: NSObject {
         }
         else
         {
-            brokerID            = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: loginUserData.value(forKey: "uid") as! String?)
-            brokarageFirmID     = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: loginUserData.value(forKey: "brokerage_firm_id") as! String?)
-            brokerUID           = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: loginUserData.value(forKey: "uid") as! String?)
-            brokerEmail         =  MCAUtilities.getnilcheckedStringValue(stringToNilCheck: loginUserData.value(forKey: "email") as! String?)
-            brokerContactNumber =  MCAUtilities.getnilcheckedStringValue(stringToNilCheck: loginUserData.value(forKey: "contact_number") as! String?)
-            brokerContactName   =  MCAUtilities.getnilcheckedStringValue(stringToNilCheck: loginUserData.value(forKey: "contact_name") as! String?)
+            brokerID            = userData["id"] as! Int
+            brokarageFirmID     = userData["brokerage_firm_id"]  as! Int
+            brokerUID           = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["uid"] as! String?)
+            brokerEmail         = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["email"] as! String?)
+            brokerContactNumber = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["contact_number"] as! String?)
+            brokerContactName   = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["contact_name"] as! String?)
+            
             userType = userLoginType
         }
     }

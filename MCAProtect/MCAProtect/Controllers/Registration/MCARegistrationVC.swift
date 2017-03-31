@@ -263,7 +263,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         
         MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerageRegistrationAPIEndPoint
-            , successCallBack:{ (response : Any) in
+            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
                 self.stopActivityIndicator()
                 print("Success \(response)")
                 let storyboard = UIStoryboard(name: "mPin", bundle: nil)
@@ -271,7 +271,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
                 setPinVC.isFromRegistrationFlow = true
                 self.navigationController?.pushViewController(setPinVC,
                                                          animated: true)
-        }, failureCallBack: { (response : Any, error : Error) in
+        }, failureCallBack: { (response : Dictionary<String, AnyObject>!, error : Error) in
             self.stopActivityIndicator()
             print("Failure \(error)")
             let alertViewController = UIAlertController(title : "MCAP", message : "Registration Failed", preferredStyle : .alert)

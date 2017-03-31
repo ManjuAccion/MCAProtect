@@ -10,6 +10,7 @@ import UIKit
 
 class MCASessionManager: NSObject {
     
+    var mcapUser : MCAUser!
     // Can't init is singleton
     private override init() {}
     

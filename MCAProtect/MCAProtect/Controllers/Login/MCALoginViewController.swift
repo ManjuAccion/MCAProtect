@@ -8,7 +8,7 @@
 
 import UIKit
 import JVFloatLabeledTextField
-
+import SwiftyJSON
 class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIActionSheetDelegate {
 
     @IBOutlet weak var emailIDOverLayView : MCARoundedOverlayView!
@@ -96,21 +96,24 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     func loginBroker() {
         
         self.showActivityIndicator()
-        
         var paramDict = Dictionary<String, String>()
         paramDict["email"] = emailIDTextField.text
         paramDict["password"] = passwordTextField.text
         
-        
         MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerLoginAPIEndPoint
-            , successCallBack:{ (response : Any) in
+            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+                
                 self.stopActivityIndicator()
                 print("Success \(response)")
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 0) // Need to replace '0' with Enum
                 let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
                 let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
                 self.navigationController?.pushViewController(mPin, animated: true)
-        }, failureCallBack: { (response : Any, error : Error) in
+                
+        },
+              failureCallBack: { (response :  Dictionary<String, AnyObject>!, error : Error) in
+                
             self.stopActivityIndicator()
             print("Failure \(error)")
             let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
@@ -132,33 +135,42 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         
         MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerageLoginAPIEndPoint
-            , successCallBack:{ (response : Any) in
+            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+                
                 self.stopActivityIndicator()
                 print("Success \(response)")
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
                 let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
                 let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
                 self.navigationController?.pushViewController(mPin, animated: true)
-        }, failureCallBack: { (response : Any, error : Error) in
-            self.stopActivityIndicator()
-            print("Failure \(error)")
-            let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
-            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-            self.present(alertViewController, animated: true , completion: nil)
-            
+                
+        },
+              failureCallBack: { (response :  Dictionary<String, AnyObject>!, error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
         })
     }
     
     @IBAction func forgotPasswordButtonPressed (sender : AnyObject){
-        let forgotPasswordStoryBoard = UIStoryboard(name : "ForgotPassword", bundle : nil)
+        let forgotPasswordStoryBoard = UIStoryboard(name : "ForgotPassword",
+                                                    bundle : nil)
         let forgotPassword = forgotPasswordStoryBoard.instantiateViewController(withIdentifier: "ForgotPassword") as! MCAForgotPasswordVC
-        self.navigationController?.pushViewController(forgotPassword, animated: true)
+        self.navigationController?.pushViewController(forgotPassword,
+                                                      animated: true)
     }
     
     @IBAction func newUserButtonPressed (sender : AnyObject){
-        let registrationStoryBoard = UIStoryboard(name : "Registration", bundle : nil)
+        let registrationStoryBoard = UIStoryboard(name : "Registration",
+                                                  bundle : nil)
         let registration = registrationStoryBoard.instantiateViewController(withIdentifier: "Registration") as! MCARegistrationVC
         
-        self.navigationController?.pushViewController(registration, animated: true)
+        self.navigationController?.pushViewController(registration,
+                                                      animated: true)
     }
     
     @IBAction func aboutUSButtonPressed (sender : AnyObject){

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class MCAWebServiceManager: NSObject
 {
@@ -25,10 +26,11 @@ class MCAWebServiceManager: NSObject
     
     
     
+    
     func postRequest(requestParam: Dictionary<String , Any>,
                      endPoint: String?,
-                successCallBack: @escaping (_ responseData: Any) -> Void,
-                failureCallBack: @escaping (_ responseData: Any , _ error: Error) -> Void)
+                successCallBack: @escaping (_ responseData: Dictionary<String , AnyObject>) -> Void,
+                failureCallBack: @escaping (_ responseData: Dictionary<String , AnyObject> , _ error: Error) -> Void)
     {
         
         var completeURL : String = baseURL
@@ -39,14 +41,18 @@ class MCAWebServiceManager: NSObject
         apiRequest.validate()
         apiRequest.responseJSON { (response) in
             
+            let dataDictionary = JSON(response.result.value!)
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(response.result.error)")
-                failureCallBack(response, response.error!)
+                failureCallBack(dataDictionary.dictionaryObject as Dictionary<String, AnyObject>!, response.error!)
                 return
             }
             
+            
+            
+            
             print(response)
-            successCallBack(response)
+            successCallBack(dataDictionary.dictionaryObject as Dictionary<String, AnyObject>!)
             return
         }
     }
