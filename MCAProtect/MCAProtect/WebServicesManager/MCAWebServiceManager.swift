@@ -34,10 +34,10 @@ class MCAWebServiceManager: NSObject
         var completeURL : String = baseURL
         completeURL.append(endPoint!)
         
-        let dataRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: ["Content-Type":"application/json ; charset=utf-8","Accept":   "application/json"]);
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: ["Content-Type":"application/json ; charset=utf-8","Accept":   "application/json"]);
         
-        dataRequest.validate()
-        dataRequest.responseJSON { (response) in
+        apiRequest.validate()
+        apiRequest.responseJSON { (response) in
             
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(response.result.error)")
@@ -58,10 +58,14 @@ class MCAWebServiceManager: NSObject
                      failureCallBack: @escaping (_ responseData: Any , _ error: Error) -> Void)
     {
         
-        let dataRequest =  Alamofire.request(URL(string: "http://localhost:5984/rooms/_all_docs")!, method: .get, parameters: requestParam, encoding: URLEncoding.default, headers: ["Content-Type":"application/json ; charset=utf-8","Accept":   "application/json"]);
+        var completeURL : String = baseURL
+        completeURL.append(endPoint!)
 
-        dataRequest.validate()
-        dataRequest.responseJSON { (response) in
+        
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .get, parameters: requestParam, encoding: URLEncoding.default, headers: ["Content-Type":"application/json ; charset=utf-8","Accept":   "application/json"]);
+
+        apiRequest.validate()
+        apiRequest.responseJSON { (response) in
             
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(response.result.error)")
@@ -83,10 +87,14 @@ class MCAWebServiceManager: NSObject
                     successCallBack: @escaping (_ responseData: Any) -> Void,
                     failureCallBack: @escaping (_ responseData: Any , _ error: Error) -> Void)
     {
-        let dataRequest =  Alamofire.request(URL(string: "http://localhost:5984/rooms/_all_docs")!, method: .patch, parameters: requestParam, encoding: URLEncoding.default, headers: ["Content-Type":"application/json","Accept":   "application/json"]);
         
-        dataRequest.validate()
-        dataRequest.responseJSON { (response) in
+        var completeURL : String = baseURL
+        completeURL.append(endPoint!)
+
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .patch, parameters: requestParam, encoding: URLEncoding.default, headers: ["Content-Type":"application/json","Accept":   "application/json"]);
+        
+        apiRequest.validate()
+        apiRequest.responseJSON { (response) in
             
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(response.result.error)")
