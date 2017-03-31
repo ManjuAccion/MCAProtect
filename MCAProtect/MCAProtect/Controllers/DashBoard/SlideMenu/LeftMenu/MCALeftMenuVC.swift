@@ -17,12 +17,11 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction func SingoutClicked(_ sender: Any)
     {
-        SlideNavigationController.sharedInstance().popToRootAndSwitch(to: loginVC, withCompletion: nil)
+        SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
     }
     
     @IBOutlet var versionFooterView : UIView!
     @IBOutlet var profileHeaderView : MCAProfileHeaderView!
-    @IBOutlet weak var profileImageButton : UIButton!
     @IBOutlet weak var sideMenuTableView : UITableView!
 
     var arrayDataSource : [String] = ["Dashboard", "Saved Applications", "Funding Programs","Ask Funder"]
@@ -32,11 +31,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.profileImageButton.layer.borderWidth = 1.0;
-        self.profileImageButton.layer.cornerRadius = profileImageButton.frame.height/2
-        self.profileImageButton.layer.borderColor = UIColor.white.cgColor
-        profileImageButton.clipsToBounds = true
-        
+               
         
 
         sideMenuTableView.register(UINib(nibName: "MCATableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCATableViewCell")

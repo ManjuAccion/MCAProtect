@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MCAProfileHeaderView: UIView {
-    @IBOutlet weak var avatarButton : UIButton!
+    @IBOutlet weak var avatarImageView : UIImageView!
     @IBOutlet weak var profileNameLabel : UILabel!
 
     
@@ -20,6 +21,13 @@ class MCAProfileHeaderView: UIView {
         // Drawing code
     }
     */
+    
+    override func awakeFromNib() {
+        self.avatarImageView.layer.cornerRadius = avatarImageView.frame.height/2
+        self.avatarImageView.layer.borderColor = UIColor.white.cgColor
+        avatarImageView.clipsToBounds = true
+
+    }
 
     
     func setPrfileDetails(mcapUser: MCAUser)
