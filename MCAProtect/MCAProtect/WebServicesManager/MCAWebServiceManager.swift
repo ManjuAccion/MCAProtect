@@ -53,7 +53,7 @@ class MCAWebServiceManager: NSObject
 
     
     func getRequest(requestParam: Dictionary<String , Any>,
-                    endPoint: String,
+                    endPoint: String?,
                      successCallBack: @escaping (_ responseData: Any) -> Void,
                      failureCallBack: @escaping (_ responseData: Any , _ error: Error) -> Void)
     {
@@ -83,7 +83,7 @@ class MCAWebServiceManager: NSObject
 
     
     func patchRequest(requestParam: Dictionary<String , Any>,
-                      endPoint: String,
+                      endPoint: String?,
                     successCallBack: @escaping (_ responseData: Any) -> Void,
                     failureCallBack: @escaping (_ responseData: Any , _ error: Error) -> Void)
     {
