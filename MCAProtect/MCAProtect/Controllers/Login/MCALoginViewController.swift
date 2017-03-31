@@ -24,6 +24,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var overlayViewConstraint: NSLayoutConstraint!
+
     
     var isBrokerLogin:Bool! = true
     //MARK: - View Life Cycle
@@ -96,7 +97,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     func loginBroker() {
         
         self.showActivityIndicator()
-        var paramDict = Dictionary<String, String>()
+        var paramDict  = Dictionary<String, String>()
         paramDict["email"] = emailIDTextField.text
         paramDict["password"] = passwordTextField.text
         

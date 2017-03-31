@@ -60,6 +60,7 @@
 		5BB3E6071E8293A800A67927 /* MCAPhoneNumberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB3E5F31E8293A800A67927 /* MCAPhoneNumberTableViewCell.xib */; };
 		5BB3E6081E8293A800A67927 /* MCARoundedOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3E5F51E8293A800A67927 /* MCARoundedOverlayView.swift */; };
 		5BB3E6091E8293A800A67927 /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3E5F71E8293A800A67927 /* SecureInputView.swift */; };
+		5BD4EA371E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4EA361E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift */; };
 		6A9F9B00E60E6F389BC9AD86 /* Pods_MCAProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */; };
 		7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B62B1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift */; };
 		7804B62E1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7804B62D1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib */; };
@@ -263,6 +264,7 @@
 		5BB3E5F31E8293A800A67927 /* MCAPhoneNumberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPhoneNumberTableViewCell.xib; sourceTree = "<group>"; };
 		5BB3E5F51E8293A800A67927 /* MCARoundedOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCARoundedOverlayView.swift; sourceTree = "<group>"; };
 		5BB3E5F71E8293A800A67927 /* SecureInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
+		5BD4EA361E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileHeaderView.swift; sourceTree = "<group>"; };
 		5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E47A37941517267D683EADE /* Pods-MCAProtect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.debug.xcconfig"; sourceTree = "<group>"; };
 		5E94C53AFF06DF89429C38BA /* Pods-MCAProtectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1898,6 +1900,7 @@
 			children = (
 				BAC6AE411E8250260047F7D3 /* MCATableViewCell.swift */,
 				BAC6AE421E8250260047F7D3 /* MCATableViewCell.xib */,
+				5BD4EA361E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2406,6 +2409,7 @@
 				BAC6ADD11E814DC10047F7D3 /* MCAOwnerInformation.swift in Sources */,
 				BAC6AD631E7FE9310047F7D3 /* MCAJudgementsOrLiens.swift in Sources */,
 				BAC6AE4B1E8250260047F7D3 /* MCALeftMenuVC.swift in Sources */,
+				5BD4EA371E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift in Sources */,
 				BAC6AD951E8101C30047F7D3 /* MCASavedApplicationDetailVC.swift in Sources */,
 				BA1237CC1E8BB4DC008A2AFE /* MCADealsPipeLine.swift in Sources */,
 				5BB3E5FC1E8293A800A67927 /* MCAApplicationStatusTVCell.swift in Sources */,

@@ -21,7 +21,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @IBOutlet var versionFooterView : UIView!
-    @IBOutlet var profileHeaderView : UIView!
+    @IBOutlet var profileHeaderView : MCAProfileHeaderView!
     @IBOutlet weak var profileImageButton : UIButton!
     @IBOutlet weak var sideMenuTableView : UITableView!
 

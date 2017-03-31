@@ -12,7 +12,6 @@ import JVFloatLabeledTextField
 class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var profileImageButton : UIButton!
-    @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var firstNameTF : UITextField!
    
     @IBOutlet weak var phoneNumberTF : UITextField!
