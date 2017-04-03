@@ -9,7 +9,7 @@
 import UIKit
 import iOS_Slide_Menu
 
-
+import SwiftyJSON
 
 class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -17,7 +17,34 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction func SingoutClicked(_ sender: Any)
     {
-        SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
+        
+        self.showActivityIndicator()
+        let paramDict  = Dictionary<String, String>()
+        
+        
+        MCAWebServiceManager.sharedWebServiceManager.deleteRequest(requestParam:paramDict,
+                                                                  endPoint:MCAAPIEndPoints.BrokerLogoutAPIEndPoint
+            , successCallBack:{ (response : JSON!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 0)
+                
+                SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
+
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Signout Failied", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
     }
     
     @IBOutlet var versionFooterView : UIView!

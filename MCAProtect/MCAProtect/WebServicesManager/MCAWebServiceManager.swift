@@ -24,18 +24,33 @@ class MCAWebServiceManager: NSObject
     static let sharedWebServiceManager: MCAWebServiceManager = MCAWebServiceManager()
 
     
-    
-    
-    
-    func postRequest(requestParam: Dictionary<String , Any>,
-                     endPoint: String?,
-                successCallBack: @escaping (_ responseData: Dictionary<String , AnyObject>) -> Void,
-                failureCallBack: @escaping (_ error: Error) -> Void)
+    func readAPIHeaders1() -> Dictionary<String,String>
     {
-        
-        
-        
         var headersDict : Dictionary<String,String> = Dictionary()
+        
+        headersDict["Content-Type"] = "application/json ; charset=utf-8"
+        headersDict["Accept"] = "application/json"
+        if nil != MCASessionManager.sharedSessionManager.accessToken
+        {
+            headersDict["access-token"] = MCASessionManager.sharedSessionManager.accessToken
+        }
+        if nil != MCASessionManager.sharedSessionManager.client
+        {
+            headersDict["client"] = MCASessionManager.sharedSessionManager.client
+        }
+        if nil != MCASessionManager.sharedSessionManager.uid
+        {
+            headersDict["uid"] = MCASessionManager.sharedSessionManager.uid
+        }
+        
+        return headersDict
+    }
+    
+    
+    func readAPIHeaders() -> Dictionary<String,String>
+    {
+        var headersDict : Dictionary<String,String> = Dictionary()
+        
         headersDict["Content-Type"] = "application/json ; charset=utf-8"
         headersDict["Accept"] = "application/json"
         if nil != MCASessionManager.sharedSessionManager.accessToken
@@ -51,8 +66,38 @@ class MCAWebServiceManager: NSObject
             headersDict["Uid"] = MCASessionManager.sharedSessionManager.uid
         }
         
+        return headersDict
+    }
+    
+    
+    func setAPIHeaders(header : Dictionary<AnyHashable,Any>)
+    {
+        if nil != header["access-token"] {
+            MCASessionManager.sharedSessionManager.accessToken = header["access-token"] as! String?
+        }
+        if nil != header["client"] {
+            MCASessionManager.sharedSessionManager.client = header["client"] as! String?
+        }
+        if nil != header["uid"] {
+            MCASessionManager.sharedSessionManager.uid = header["uid"] as! String?
+        }
+    }
 
+    
+    
+    
+    
+    func postRequest(requestParam: Dictionary<String , Any>,
+                     endPoint: String?,
+                successCallBack: @escaping (_ responseData: JSON) -> Void,
+                failureCallBack: @escaping (_ error: Error) -> Void)
+    {
+        
+        
+        
+        
 
+        let headersDict = self.readAPIHeaders();
         
         var completeURL : String = baseURL
         completeURL.append(endPoint!)
@@ -72,24 +117,16 @@ class MCAWebServiceManager: NSObject
             
             let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
             
-            if nil != header["Access-Token"] {
-                MCASessionManager.sharedSessionManager.accessToken = header["Access-Token"] as! String?
-            }
-            if nil != header["Client"] {
-                MCASessionManager.sharedSessionManager.client = header["Client"] as! String?
-            }
-            if nil != header["Uid"] {
-                MCASessionManager.sharedSessionManager.uid = header["Uid"] as! String?
-            }
-            
+            self.setAPIHeaders(header: header);
         
-            
-            
             print(response)
-            successCallBack(dataDictionary.dictionaryObject as Dictionary<String, AnyObject>!)
+            successCallBack(dataDictionary)
             return
         }
     }
+
+    
+    
 
     
     func getRequest(requestParam: Dictionary<String , Any>,
@@ -100,22 +137,9 @@ class MCAWebServiceManager: NSObject
         
         var completeURL : String = baseURL
         completeURL.append(endPoint!)
-        var headersDict : Dictionary<String,String> = Dictionary()
-        headersDict["Content-Type"] = "application/json ; charset=utf-8"
-        headersDict["Accept"] = "application/json"
-        if nil != MCASessionManager.sharedSessionManager.accessToken
-        {
-            headersDict["Access-Token"] = MCASessionManager.sharedSessionManager.accessToken
-        }
-        if nil != MCASessionManager.sharedSessionManager.client
-        {
-            headersDict["Client"] = MCASessionManager.sharedSessionManager.client
-        }
-        if nil != MCASessionManager.sharedSessionManager.uid
-        {
-            headersDict["Uid"] = MCASessionManager.sharedSessionManager.uid
-        }
+
         
+        let headersDict = self.readAPIHeaders();
 
         
         let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .get, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
@@ -135,15 +159,7 @@ class MCAWebServiceManager: NSObject
             print(response)
             let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
             
-            if nil != header["Access-Token"] {
-                MCASessionManager.sharedSessionManager.accessToken = header["Access-Token"] as! String?
-            }
-            if nil != header["Client"] {
-                MCASessionManager.sharedSessionManager.client = header["Client"] as! String?
-            }
-            if nil != header["Uid"] {
-                MCASessionManager.sharedSessionManager.uid = header["Uid"] as! String?
-            }
+            self.setAPIHeaders(header: header);
             
 
             successCallBack(dataDictionary.dictionaryObject as Dictionary<String, AnyObject>!)
@@ -156,28 +172,16 @@ class MCAWebServiceManager: NSObject
     
     func patchRequest(requestParam: Dictionary<String , Any>,
                       endPoint: String?,
-                      successCallBack: @escaping (_ responseData: Dictionary<String , AnyObject>) -> Void,
+                      successCallBack: @escaping (_ responseData: JSON) -> Void,
                       failureCallBack: @escaping (_ error: Error) -> Void)
 
     {
         
         var completeURL : String = baseURL
         completeURL.append(endPoint!)
-        var headersDict : Dictionary<String,String> = Dictionary()
-        headersDict["Content-Type"] = "application/json;charset=utf-8"
-        headersDict["Accept"] = "application/json"
-        if nil != MCASessionManager.sharedSessionManager.accessToken
-        {
-            headersDict["Access-Token"] = MCASessionManager.sharedSessionManager.accessToken
-        }
-        if nil != MCASessionManager.sharedSessionManager.client
-        {
-            headersDict["Client"] = MCASessionManager.sharedSessionManager.client
-        }
-        if nil != MCASessionManager.sharedSessionManager.uid
-        {
-            headersDict["Uid"] = MCASessionManager.sharedSessionManager.uid
-        }
+        
+        
+        let headersDict = self.readAPIHeaders1();
         
 
         let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .patch, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
@@ -196,20 +200,55 @@ class MCAWebServiceManager: NSObject
             let dataDictionary = JSON(response.result.value!)
 
             print(response)
+
             let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
             
-            if nil != header["Access-Token"] {
-                MCASessionManager.sharedSessionManager.accessToken = header["Access-Token"] as! String?
-            }
-            if nil != header["Client"] {
-                MCASessionManager.sharedSessionManager.client = header["Client"] as! String?
-            }
-            if nil != header["Uid"] {
-                MCASessionManager.sharedSessionManager.uid = header["Uid"] as! String?
-            }
-            successCallBack(dataDictionary.dictionaryObject as Dictionary<String, AnyObject>!)
+            self.setAPIHeaders(header: header);
+            successCallBack(dataDictionary)
             return
         }
        
     }
+    
+    func deleteRequest(requestParam: Dictionary<String , Any>,
+                      endPoint: String?,
+                      successCallBack: @escaping (_ responseData: JSON) -> Void,
+                      failureCallBack: @escaping (_ error: Error) -> Void)
+        
+    {
+        
+        var completeURL : String = baseURL
+        completeURL.append(endPoint!)
+        
+        
+        let headersDict = self.readAPIHeaders1();
+        
+        
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .delete, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
+        
+        apiRequest.validate()
+        apiRequest.responseJSON { (response) in
+            
+            
+            
+            guard response.result.isSuccess else {
+                print("Error while fetching remote rooms: \(response.result.error)")
+                failureCallBack( response.error!)
+                return
+            }
+            
+            let dataDictionary = JSON(response.result.value!)
+            
+            print(response)
+            
+            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
+            
+            self.setAPIHeaders(header: header);
+            successCallBack(dataDictionary)
+            return
+        }
+        
+    }
+    
+    
 }

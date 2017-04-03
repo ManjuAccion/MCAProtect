@@ -103,7 +103,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         
         MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerLoginAPIEndPoint
-            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+            , successCallBack:{ (response : JSON!) in
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
@@ -136,7 +136,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         
         MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerageLoginAPIEndPoint
-            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+            , successCallBack:{ (response : JSON!) in
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")

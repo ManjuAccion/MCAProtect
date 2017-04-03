@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class MCAUser: NSObject {
 
     var brokerID: Int!
@@ -46,10 +46,10 @@ class MCAUser: NSObject {
  */
  
  
-    init(loginUserData: Dictionary<String,AnyObject>! , userLoginType: Int)
+    init(loginUserData: JSON! , userLoginType: Int)
     {
         
-        let userData = loginUserData["data"] as! Dictionary<String,AnyObject>
+        let userData = loginUserData["data"]
         
         if nil == userData
         {
@@ -63,16 +63,41 @@ class MCAUser: NSObject {
         }
         else
         {
-            brokerID            = MCAUtilities.getnilcheckedIntValue(IntegerToNilCheck:userData["id"] as! Int? )
-            brokarageFirmID     = MCAUtilities.getnilcheckedIntValue(IntegerToNilCheck:userData["brokerage_firm_id"] as! Int? )
-            brokerUID           = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["uid"] as! String?)
-            brokerEmail         = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["email"] as! String?)
-            brokerContactNumber = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["contact_number"] as! String?)
-            brokerContactName   = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["contact_name"] as! String?)
-            
+            brokerID            = userData["id"].intValue
+            brokarageFirmID     = userData["brokerage_firm_id"].intValue
+            brokerUID           = userData["uid"].stringValue
+            brokerEmail         = userData["email"].stringValue
+            brokerContactNumber = userData["contact_number"].stringValue
+            brokerContactName   = userData["contact_name"].stringValue
             userType = userLoginType
         }
     }
+//    {
+//        
+//        let userData = loginUserData["data"] as! Dictionary<String,AnyObject>
+//        
+//        if nil == userData
+//        {
+//            brokerID      = 67
+//            brokarageFirmID    = 68
+//            brokerUID  = "Glink Lender"
+//            brokerEmail        = "Glink Lender"
+//            brokerContactNumber       = "Monthly"
+//            brokerContactName          = "Glink Lender"
+//            userType = userLoginType
+//        }
+//        else
+//        {
+//            brokerID            = MCAUtilities.getnilcheckedIntValue(IntegerToNilCheck:userData["id"] as! Int? )
+//            brokarageFirmID     = MCAUtilities.getnilcheckedIntValue(IntegerToNilCheck:userData["brokerage_firm_id"] as! Int? )
+//            brokerUID           = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["uid"] as! String?)
+//            brokerEmail         = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["email"] as! String?)
+//            brokerContactNumber = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["contact_number"] as! String?)
+//            brokerContactName   = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["contact_name"] as! String?)
+//            
+//            userType = userLoginType
+//        }
+//    }
 
     
 }

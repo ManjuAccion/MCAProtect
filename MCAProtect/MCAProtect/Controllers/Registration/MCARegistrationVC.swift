@@ -8,7 +8,7 @@
 
 import UIKit
 import JVFloatLabeledTextField
-
+import SwiftyJSON
 class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var businessNameTF : UITextField!
@@ -263,7 +263,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         
         MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerageRegistrationAPIEndPoint
-            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+            , successCallBack:{ (response : JSON!) in
                 self.stopActivityIndicator()
                 print("Success \(response)")
                 let storyboard = UIStoryboard(name: "mPin", bundle: nil)

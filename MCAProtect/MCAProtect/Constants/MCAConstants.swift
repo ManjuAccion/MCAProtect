@@ -313,12 +313,10 @@ struct MCAAPIEndPoints {
     static let BrokerLogoutAPIEndPoint               = "/broker/sign_out.json"
     static let BrokerForgotPasswordAPIEndPoint       = "/broker/password.json"
     static let BrokerDashBoardAPIEndpoint            = "/brokers/overall_daterange_wise_application_status/"
-
-    static let BrokerApplicationSummaryAPIEndpoint      = "/brokers/get_state_wise_applications/%@/%@?from_date=%@&to_date=%@"
+    static let BrokerApplicationSummaryAPIEndpoint      = "/brokers/get_state_wise_applications"
 
     
     static let BrokerUpdateProfileAPIEndpoint               = "/broker"
-
     static let BrokerageRegistrationAPIEndPoint               = "/brokerage_firm.json"
     static let BrokerageLoginAPIEndPoint                      = "/brokerage_firm/sign_in.json"
     static let BrokerageLogoutAPIEndPoint                     = "/brokerage_firm/sign_out.json"
@@ -326,3 +324,7 @@ struct MCAAPIEndPoints {
     static let BrokerageUpdateProfileAPIEndpoint               = "/brokerage_firm.json"
 
 }
+
+
+
+

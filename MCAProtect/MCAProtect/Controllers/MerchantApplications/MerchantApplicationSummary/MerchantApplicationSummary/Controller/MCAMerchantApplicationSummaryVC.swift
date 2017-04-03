@@ -22,6 +22,13 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
 
     //MARK: - View Life Cycle
     
+    
+    
+    func getApplicationSummary()
+    {
+//        /%@/%@?from_date=%@&to_date=%@"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

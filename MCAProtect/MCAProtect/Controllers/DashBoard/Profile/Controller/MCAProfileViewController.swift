@@ -8,7 +8,7 @@
 
 import UIKit
 import JVFloatLabeledTextField
-
+import SwiftyJSON
 class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var profileImageButton : UIButton!
@@ -186,7 +186,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         
         MCAWebServiceManager.sharedWebServiceManager.patchRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerUpdateProfileAPIEndpoint
-            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+            , successCallBack:{ (response : JSON!) in
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")

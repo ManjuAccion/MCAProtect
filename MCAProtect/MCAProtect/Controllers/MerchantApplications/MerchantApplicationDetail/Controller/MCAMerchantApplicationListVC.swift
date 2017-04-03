@@ -17,7 +17,22 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
     var dataSource = [MCAMerchantApplicationDetail]()
     
+    var selectedDealsPipeline : MCADealsPipeLine!
+
     //MARK: View Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        titleText = selectedDealsPipeline.applicationStateName
+        applicationState = selectedDealsPipeline.applicationStateID
+
+    }
+    
+    
+    func getApplicationList()
+    {
+//        selectedDealsPipeline
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
