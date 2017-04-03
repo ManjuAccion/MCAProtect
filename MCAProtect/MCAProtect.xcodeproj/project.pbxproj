@@ -190,6 +190,9 @@
 		CE9F69681E9289790089F8CE /* MCAProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */; };
 		CE9F696A1E928C210089F8CE /* MCALoanAccountsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69691E928C210089F8CE /* MCALoanAccountsList.swift */; };
 		CE9F696C1E928D3F0089F8CE /* MCAAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F696B1E928D3F0089F8CE /* MCAAddress.swift */; };
+		CE9F696E1E9291200089F8CE /* MCABusinessEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F696D1E9291200089F8CE /* MCABusinessEntityType.swift */; };
+		CE9F69701E9291F90089F8CE /* MCABusinessFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F696F1E9291F90089F8CE /* MCABusinessFinance.swift */; };
+		CE9F69721E9293AE0089F8CE /* MCABusinessLocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69711E9293AE0089F8CE /* MCABusinessLocationList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -400,6 +403,9 @@
 		CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProgramInformation.swift; sourceTree = "<group>"; };
 		CE9F69691E928C210089F8CE /* MCALoanAccountsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MCALoanAccountsList.swift; path = "MCAProtect/Controllers/Saved Applications/SavedApplicationDetail/Model/MCALoanAccountsList.swift"; sourceTree = SOURCE_ROOT; };
 		CE9F696B1E928D3F0089F8CE /* MCAAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAddress.swift; sourceTree = "<group>"; };
+		CE9F696D1E9291200089F8CE /* MCABusinessEntityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessEntityType.swift; sourceTree = "<group>"; };
+		CE9F696F1E9291F90089F8CE /* MCABusinessFinance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessFinance.swift; sourceTree = "<group>"; };
+		CE9F69711E9293AE0089F8CE /* MCABusinessLocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessLocationList.swift; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1356,6 +1362,8 @@
 				BAC6AD5C1E7FE3CC0047F7D3 /* MCABusinessAddress.swift */,
 				CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */,
 				CE9F696B1E928D3F0089F8CE /* MCAAddress.swift */,
+				CE9F696D1E9291200089F8CE /* MCABusinessEntityType.swift */,
+				CE9F696F1E9291F90089F8CE /* MCABusinessFinance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1560,6 +1568,7 @@
 				BAC6ADD01E814DC10047F7D3 /* MCAOwnerInformation.swift */,
 				BACC53071E893CC2003C4852 /* MCABusinessLocation.swift */,
 				CE9F69651E92877E0089F8CE /* MCABillingState.swift */,
+				CE9F69711E9293AE0089F8CE /* MCABusinessLocationList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2386,6 +2395,7 @@
 				BAC6ADB61E8105920047F7D3 /* MCASAOwnerAndLocationDetailsTVCell.swift in Sources */,
 				789BFC381E8BE4D700DAEB69 /* MCAWebServiceManager.swift in Sources */,
 				BAC6ADDB1E8152EA0047F7D3 /* MCASABusinessLocationDetails.swift in Sources */,
+				CE9F69701E9291F90089F8CE /* MCABusinessFinance.swift in Sources */,
 				BAC6AD801E80FE560047F7D3 /* MCASavedApplicationBankDetailsVC.swift in Sources */,
 				5BB3E6081E8293A800A67927 /* MCARoundedOverlayView.swift in Sources */,
 				5B1F8D821E89064E00BD53F2 /* MCAFPMerchantRquirement.swift in Sources */,
@@ -2409,6 +2419,7 @@
 				5B1F8D7A1E83E32200BD53F2 /* MCAFundingProgramBusinessType.swift in Sources */,
 				BAC6ADCF1E81422A0047F7D3 /* MCAApplicationForm.swift in Sources */,
 				5B1F8D7E1E83E9E400BD53F2 /* MCAFundingProgramApplicationForm.swift in Sources */,
+				CE9F69721E9293AE0089F8CE /* MCABusinessLocationList.swift in Sources */,
 				BAC6AD821E80FE6E0047F7D3 /* MCABankDetails.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
 				BACC53061E892DAF003C4852 /* MCAUser.swift in Sources */,
@@ -2447,6 +2458,7 @@
 				BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */,
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,
 				BAC6AE4D1E8250260047F7D3 /* MCARightMenuVC.swift in Sources */,
+				CE9F696E1E9291200089F8CE /* MCABusinessEntityType.swift in Sources */,
 				BAC6AD741E80F9B60047F7D3 /* MCAMerchantDocumentation.swift in Sources */,
 				5B1F8D781E83AD2800BD53F2 /* MCAFundingProgramSummaryVC.swift in Sources */,
 				BAC6AE571E8250720047F7D3 /* MCAChangeMPinVC.swift in Sources */,
