@@ -127,7 +127,7 @@ class MCAWebServiceManager: NSObject
     
     func getRequest(requestParam: Dictionary<String , Any>,
                      endPoint: String?,
-                     successCallBack: @escaping (_ responseData: Dictionary<String , AnyObject>) -> Void,
+                     successCallBack: @escaping (_ responseData: JSON) -> Void,
                      failureCallBack: @escaping (_ error: Error) -> Void)
     {
         
@@ -158,7 +158,7 @@ class MCAWebServiceManager: NSObject
             self.setAPIHeaders(header: header);
             
 
-            successCallBack(dataDictionary.dictionaryObject as Dictionary<String, AnyObject>!)
+            successCallBack(dataDictionary)
             return
         }
   
@@ -177,10 +177,10 @@ class MCAWebServiceManager: NSObject
         completeURL.append(endPoint!)
         
         
-        let headersDict = self.readAPIHeaders1();
+        let headersDict = self.readAPIHeaders();
         
 
-        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .patch, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .patch, parameters: requestParam, encoding: URLEncoding.methodDependent, headers: headersDict);
         
         apiRequest.validate()
         apiRequest.responseJSON { (response) in
@@ -217,10 +217,10 @@ class MCAWebServiceManager: NSObject
         completeURL.append(endPoint!)
         
         
-        let headersDict = self.readAPIHeaders1();
+        let headersDict = self.readAPIHeaders();
         
         
-        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .delete, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .delete, parameters: requestParam, encoding: URLEncoding.methodDependent, headers: headersDict);
         
         apiRequest.validate()
         apiRequest.responseJSON { (response) in

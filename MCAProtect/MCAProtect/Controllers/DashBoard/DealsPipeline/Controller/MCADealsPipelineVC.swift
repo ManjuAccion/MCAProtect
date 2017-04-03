@@ -30,12 +30,12 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
 
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
                                                                 endPoint:endPoint
-            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+            , successCallBack:{ (response : JSON) in
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
                 
-                if let items = response["data"] as? [[String:AnyObject]]
+                if let items = response["data"].array
                 {
                     for item in items {
                         self.dealsPipeline = MCADealsPipeLine(dealsPipeLine:item)

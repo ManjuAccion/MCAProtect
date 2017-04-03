@@ -11,9 +11,11 @@ import JVFloatLabeledTextField
 import SwiftyJSON
 class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIActionSheetDelegate {
 
+    
+    //MARK: - Attributes -
+
     @IBOutlet weak var emailIDOverLayView : MCARoundedOverlayView!
     @IBOutlet weak var passwordOverLayView : MCARoundedOverlayView!
-
     @IBOutlet weak var brokerSelectionSwitch: UISegmentedControl!
     @IBOutlet weak var emailIDTextField : UITextField!
     @IBOutlet weak var passwordTextField : UITextField!
@@ -22,12 +24,10 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     @IBOutlet weak var userSelectedLabel : UILabel!
     @IBOutlet weak var dropDownButton : UIButton!
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var overlayViewConstraint: NSLayoutConstraint!
-
     
     var isBrokerLogin:Bool! = true
-    //MARK: - View Life Cycle
+    //MARK: - View Life Cycle -
     
     @IBAction func changeBrokerSelection(_ sender: Any)
     {
@@ -59,7 +59,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         self.view.endEditing(true);
     }
     
-    //MARK: - Action Methods
+//MARK: - Action Methods  -
     
     @IBAction func loginButtonPressed(sender:AnyObject){
         
@@ -91,87 +91,6 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 self.loginBrokerage()
             }
         }
-    }
-    
-    
-    func loginBroker() {
-        
-        self.showActivityIndicator()
-        var paramDict  = Dictionary<String, String>()
-        paramDict["email"] = emailIDTextField.text
-        paramDict["password"] = passwordTextField.text
-        
-        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
-                                                                 endPoint:MCAAPIEndPoints.BrokerLoginAPIEndPoint
-            , successCallBack:{ (response : JSON!) in
-                
-                self.stopActivityIndicator()
-                print("Success \(response)")
-                
-                
-                let alertViewController = UIAlertController(title : "MCAP", message : "Login Success!", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    
-                    MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
-                    let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
-                    let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
-                    self.navigationController?.pushViewController(mPin, animated: true)
-                    
-                    
-                }))
-                self.present(alertViewController, animated: true , completion: nil)
-                
-        },
-              failureCallBack: { (error : Error) in
-                
-            self.stopActivityIndicator()
-            print("Failure \(error)")
-            let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
-            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-            self.present(alertViewController, animated: true , completion: nil)
-            
-        })
-    }
-    
-    
-    func loginBrokerage() {
-        
-        self.showActivityIndicator()
-        
-        var paramDict = Dictionary<String, String>()
-        paramDict["email"] = emailIDTextField.text
-        paramDict["password"] = passwordTextField.text
-        
-        
-        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
-                                                                 endPoint:MCAAPIEndPoints.BrokerageLoginAPIEndPoint
-            , successCallBack:{ (response : JSON!) in
-                
-                self.stopActivityIndicator()
-                print("Success \(response)")
-                
-                
-                let alertViewController = UIAlertController(title : "MCAP", message : "Login Success!", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    
-                    MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
-                    let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
-                    let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
-                    self.navigationController?.pushViewController(mPin, animated: true)
-                    
-                    
-                }))
-                self.present(alertViewController, animated: true , completion: nil)
-                
-            },
-              failureCallBack: { (error : Error) in
-                self.stopActivityIndicator()
-                print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                self.present(alertViewController, animated: true , completion: nil)
-                
-        })
     }
     
     @IBAction func forgotPasswordButtonPressed (sender : AnyObject){
@@ -213,7 +132,20 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         self.navigationController?.pushViewController(privacy, animated: true)
     }
     
-    //MARK: - UITextField Methods
+    @IBAction func rememberBtn_box(sender: UIButton) {
+        if (rememberPasswordBtn.isSelected == true) {
+            rememberPasswordBtn.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+            rememberPasswordBtn.isSelected = false;
+        }
+        else {
+            rememberPasswordBtn.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+            
+            rememberPasswordBtn.isSelected = true;
+        }
+    }
+    
+
+//MARK: - UITextField Methods -
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true);
@@ -240,15 +172,88 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     }
     
     
-    @IBAction func rememberBtn_box(sender: UIButton) {
-        if (rememberPasswordBtn.isSelected == true) {
-            rememberPasswordBtn.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
-                      rememberPasswordBtn.isSelected = false;
-        }
-        else {
-            rememberPasswordBtn.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
-            
-            rememberPasswordBtn.isSelected = true;
-        }
+    
+    
+    //MARK: - Login Methods -
+
+    
+    func loginBroker() {
+        
+        self.showActivityIndicator()
+        var paramDict  = Dictionary<String, String>()
+        paramDict["email"] = emailIDTextField.text
+        paramDict["password"] = passwordTextField.text
+        
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                 endPoint:MCAAPIEndPoints.BrokerLoginAPIEndPoint
+            , successCallBack:{ (response : JSON!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                
+                
+                let alertViewController = UIAlertController(title : "MCAP", message : "Login Success!", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    
+                    MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
+                    let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
+                    let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
+                    self.navigationController?.pushViewController(mPin, animated: true)
+                    
+                    
+                }))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
     }
+    
+    
+    func loginBrokerage() {
+        
+        self.showActivityIndicator()
+        
+        var paramDict = Dictionary<String, String>()
+        paramDict["email"] = emailIDTextField.text
+        paramDict["password"] = passwordTextField.text
+        
+        
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                 endPoint:MCAAPIEndPoints.BrokerageLoginAPIEndPoint
+            , successCallBack:{ (response : JSON!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                
+                let alertViewController = UIAlertController(title : "MCAP", message : "Login Success!", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    
+                    MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
+                    let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
+                    let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
+                    self.navigationController?.pushViewController(mPin, animated: true)
+                    
+                    
+                }))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        },
+              failureCallBack: { (error : Error) in
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+    }
+
 }

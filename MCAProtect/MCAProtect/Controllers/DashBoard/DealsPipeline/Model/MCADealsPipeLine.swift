@@ -18,7 +18,7 @@ class MCADealsPipeLine: NSObject {
     var average : Float!
     var dealsFunded : Int!
     
-    init(dealsPipeLine: Dictionary<String,AnyObject>) {
+    init(dealsPipeLine: JSON) {
         
         if dealsPipeLine.isEmpty {
             
@@ -31,17 +31,17 @@ class MCADealsPipeLine: NSObject {
             return
         }
         
-        applicationCount = dealsPipeLine["application_count"] as! Int!
+        applicationCount = dealsPipeLine["application_count"].intValue
         
-        applicationStateID = dealsPipeLine["application_state_id"] as! Int!
+        applicationStateID = dealsPipeLine["application_state_id"].intValue
         
-        applicationStateName = dealsPipeLine["application_state_name"] as! String!
+        applicationStateName = dealsPipeLine["application_state_name"].stringValue
         
-        average = dealsPipeLine["average"] as! Float!
+        average = dealsPipeLine["average"].floatValue
         
-        dealsFunded = dealsPipeLine["deals_funded"] as! Int!
+        dealsFunded = dealsPipeLine["deals_funded"].intValue
         
-        sum = dealsPipeLine["sum"] as! Float!
+        sum = dealsPipeLine["sum"].floatValue
     }
 
 }
