@@ -40,15 +40,15 @@ class MCAWebServiceManager: NSObject
         headersDict["Accept"] = "application/json"
         if nil != MCASessionManager.sharedSessionManager.accessToken
         {
-            headersDict["access-token"] = MCASessionManager.sharedSessionManager.accessToken
+            headersDict["Access-Token"] = MCASessionManager.sharedSessionManager.accessToken
         }
         if nil != MCASessionManager.sharedSessionManager.client
         {
-            headersDict["client"] = MCASessionManager.sharedSessionManager.client
+            headersDict["Client"] = MCASessionManager.sharedSessionManager.client
         }
         if nil != MCASessionManager.sharedSessionManager.uid
         {
-            headersDict["uid"] = MCASessionManager.sharedSessionManager.uid
+            headersDict["Uid"] = MCASessionManager.sharedSessionManager.uid
         }
         
 
@@ -72,14 +72,14 @@ class MCAWebServiceManager: NSObject
             
             let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
             
-            if nil != header["access-token"] {
-                MCASessionManager.sharedSessionManager.accessToken = header["access-token"] as! String?
+            if nil != header["Access-Token"] {
+                MCASessionManager.sharedSessionManager.accessToken = header["Access-Token"] as! String?
             }
-            if nil != header["client"] {
-                MCASessionManager.sharedSessionManager.client = header["client"] as! String?
+            if nil != header["Client"] {
+                MCASessionManager.sharedSessionManager.client = header["Client"] as! String?
             }
-            if nil != header["uid"] {
-                MCASessionManager.sharedSessionManager.uid = header["uid"] as! String?
+            if nil != header["Uid"] {
+                MCASessionManager.sharedSessionManager.uid = header["Uid"] as! String?
             }
             
         
@@ -105,20 +105,20 @@ class MCAWebServiceManager: NSObject
         headersDict["Accept"] = "application/json"
         if nil != MCASessionManager.sharedSessionManager.accessToken
         {
-            headersDict["Access-token"] = MCASessionManager.sharedSessionManager.accessToken
+            headersDict["Access-Token"] = MCASessionManager.sharedSessionManager.accessToken
         }
         if nil != MCASessionManager.sharedSessionManager.client
         {
-            headersDict["client"] = MCASessionManager.sharedSessionManager.client
+            headersDict["Client"] = MCASessionManager.sharedSessionManager.client
         }
         if nil != MCASessionManager.sharedSessionManager.uid
         {
-            headersDict["uid"] = MCASessionManager.sharedSessionManager.uid
+            headersDict["Uid"] = MCASessionManager.sharedSessionManager.uid
         }
         
 
         
-        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .get, parameters: requestParam, encoding: URLEncoding.default, headers: headersDict);
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .get, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
 
         apiRequest.validate()
         apiRequest.responseJSON { (response) in
@@ -135,14 +135,14 @@ class MCAWebServiceManager: NSObject
             print(response)
             let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
             
-            if nil != header["access-token"] {
-                MCASessionManager.sharedSessionManager.accessToken = header["access-token"] as! String?
+            if nil != header["Access-Token"] {
+                MCASessionManager.sharedSessionManager.accessToken = header["Access-Token"] as! String?
             }
-            if nil != header["client"] {
-                MCASessionManager.sharedSessionManager.client = header["client"] as! String?
+            if nil != header["Client"] {
+                MCASessionManager.sharedSessionManager.client = header["Client"] as! String?
             }
-            if nil != header["uid"] {
-                MCASessionManager.sharedSessionManager.uid = header["uid"] as! String?
+            if nil != header["Uid"] {
+                MCASessionManager.sharedSessionManager.uid = header["Uid"] as! String?
             }
             
 
