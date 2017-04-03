@@ -17,65 +17,26 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
 
     weak var parentController: MCADashboardTabbarVC!
 
-    
-    func getDealsPipelineList() {
-        
-        
-        self.showActivityIndicator()
+    //MARK: - View Life Cycle -
 
-        var endPoint = String()
-        endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint);
-        endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
-        endPoint.append("?from_date=2017-01-01&to_date=2017-12-31")
-
-        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
-                                                                endPoint:endPoint
-            , successCallBack:{ (response : JSON) in
-                
-                self.stopActivityIndicator()
-                print("Success \(response)")
-                
-                if let items = response["data"].array
-                {
-                    for item in items {
-                        self.dealsPipeline = MCADealsPipeLine(dealsPipeLine:item)
-                        self.dataSourceArray.append(self.dealsPipeline)
-                    }
-                    
-                    self.pipeLineTableView.reloadData()
-                }
-                
-        },
-              failureCallBack: { (error : Error) in
-                
-                self.stopActivityIndicator()
-                print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                self.present(alertViewController, animated: true , completion: nil)
-                
-        })
-    
-    
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         pipeLineTableView.register(UINib(nibName: "MCADealsPipelineTVCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.MCADealsPipelineTVCell)
         
-        
         self.getDealsPipelineList()
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: - Table View Datasource
+    //MARK: - Table View Datasource -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSourceArray.count;
@@ -103,34 +64,41 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         parentController.navigationController?.pushViewController(applicationVC, animated: true);
     }
     
-//    func loadDealsPipeline() {
-//        
-//        self.showActivityIndicator()
-//        
-//        var paramDict = Dictionary<String, String>()
-//        paramDict["email"] = emailIDTextField.text
-//        paramDict["password"] = passwordTextField.text
-//        
-//        
-//        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
-//                                                                 endPoint:"/broker/sign_in.json"
-//            , successCallBack:{ (response : Any) in
-//                self.stopActivityIndicator()
-//                print("Success \(response)")
-//        }, failureCallBack: { (response : Any, error : Error) in
-//            self.stopActivityIndicator()
-//            print("Failure \(error)")
-//            let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
-//            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-//            self.present(alertViewController, animated: true , completion: nil)
-//            
-//        })
-//
-//    }
+    func getDealsPipelineList() {
+        
+        self.showActivityIndicator()
+        
+        var endPoint = String()
+        endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint);
+        endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
+        endPoint.append("?from_date=2017-01-01&to_date=2017-12-31")
+        
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
+                                                                endPoint:endPoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                
+                if let items = response["data"].array
+                {
+                    let sortedResults = items.sorted { $0["application_state_id"].doubleValue < $1["application_state_id"].doubleValue }
+                    print("Sorted Data \(sortedResults)")
 
-    
-    override func viewDidAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
+                    for item in sortedResults {
+                        self.dealsPipeline = MCADealsPipeLine(dealsPipeLine:item)
+                        self.dataSourceArray.append(self.dealsPipeline)
+                    }
+                    self.pipeLineTableView.reloadData()
+                }
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+        })
     }
 }
