@@ -22,14 +22,13 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         
         
         self.showActivityIndicator()
-        var paramDict  = Dictionary<String, String>()
 
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint);
         endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
         endPoint.append("?from_date=2017-01-01&to_date=2017-12-31")
 
-        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:paramDict,
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
                                                                 endPoint:endPoint
             , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
                 
