@@ -93,8 +93,8 @@ class MCAWebServiceManager: NSObject
 
     
     func getRequest(requestParam: Dictionary<String , Any>,
-                    endPoint: String?,
-                     successCallBack: @escaping (_ responseData: Any) -> Void,
+                     endPoint: String?,
+                     successCallBack: @escaping (_ responseData: Dictionary<String , AnyObject>) -> Void,
                      failureCallBack: @escaping (_ error: Error) -> Void)
     {
         

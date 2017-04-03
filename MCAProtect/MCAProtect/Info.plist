@@ -21,7 +21,7 @@
 	<key>DEVELOPMENT</key>
 	<dict>
 		<key>BASE_URL</key>
-		<string>https://broker-dev.mcaprotect.org/api</string>
+		<string>https://broker-qa.mcaprotect.org/api</string>
 		<key>IMAGE_BASE_URL</key>
 		<string>https://broker-dev.mcaprotect.org</string>
 	</dict>

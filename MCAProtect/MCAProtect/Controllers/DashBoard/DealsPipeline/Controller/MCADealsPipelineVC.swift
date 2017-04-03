@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var pipeLineTableView: UITableView!
@@ -17,16 +17,59 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
 
     weak var parentController: MCADashboardTabbarVC!
 
+    
+    func getDealsPipelineList() {
+        
+        
+        self.showActivityIndicator()
+        var paramDict  = Dictionary<String, String>()
+
+        var endPoint = String()
+        endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint);
+        endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
+        endPoint.append("?from_date=2017-01-01&to_date=2017-12-31")
+
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:paramDict,
+                                                                endPoint:endPoint
+            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                
+                if let items = response["data"] as? [[String:AnyObject]]
+                {
+                    for item in items {
+                        self.dealsPipeline = MCADealsPipeLine(dealsPipeLine:item)
+                        self.dataSourceArray.append(self.dealsPipeline)
+                    }
+                    
+                    self.pipeLineTableView.reloadData()
+                }
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+    
+    
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for _ in 1...7 {
-            
-            dealsPipeline = MCADealsPipeLine(dealsPipeLine:"")
-            dataSourceArray.append(dealsPipeline)
-        }
 
         pipeLineTableView.register(UINib(nibName: "MCADealsPipelineTVCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.MCADealsPipelineTVCell)
+        
+        
+        self.getDealsPipelineList()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,4 +130,9 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
 //
 //    }
 
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+    }
 }
