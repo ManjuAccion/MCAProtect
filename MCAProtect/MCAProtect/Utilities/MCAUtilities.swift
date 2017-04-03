@@ -96,6 +96,15 @@ class MCAUtilities: NSObject {
         
     }
     
+    // Pass Any Format yyyy-mm-dd
+ static  func getFormmattedDate(date : Date) -> String
+ {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let DateFormated = dateFormatter.string(from: date)
+    return DateFormated
+    }
+
     
     
 }
