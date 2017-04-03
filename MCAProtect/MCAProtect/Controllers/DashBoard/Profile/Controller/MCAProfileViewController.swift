@@ -22,6 +22,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     @IBOutlet weak var topConstraints: NSLayoutConstraint!
     
     var mcaUser : MCAUser!
+    var imageData : NSData!
     var imagePicker:UIImagePickerController?=UIImagePickerController()
     
 
@@ -50,6 +51,12 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         firstNameTF.text = mcaUser.brokerContactName
         emailTF.text = mcaUser.brokerEmail
         phoneNumberTF.text = mcaUser.brokerContactNumber
+        
+//       let imageUrl = NSURL(string : mcaUser.brokerImageUrl)
+//        let data = NSData(contentsOf:imageUrl! as URL)
+//        if data != nil {
+//            profileImageButton.setImage(UIImage(data:data as! Data), for: UIControlState.normal)
+//        }
 
         // Do any additional setup after loading the view.
     }
@@ -155,23 +162,62 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     }
         }
     
+    
+    func getDirectoryPath() -> String
+    {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+
     // MARK: - Image Picker Controller Delegates
 
     
        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let profileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+         let imageData = UIImagePNGRepresentation(profileImage)
+        
+         let base64 = imageData?.base64EncodedString()
+        self.showActivityIndicator()
+
+        var paramDict  = Dictionary<String,Any>()
+        paramDict["file"] = base64
+        paramDict["file_name"] = "profileImage"
+        paramDict["file_extension"] = ".png"
+
+        
+        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:paramDict,
+                                                                  endPoint:MCAAPIEndPoints.BrokerUploadImageAPIEndpoint
+            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                
+                
+        },
+              failureCallBack: { (error : Error) in
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+
         profileImageButton.contentMode = .scaleAspectFit
-        profileImageButton.setImage(chosenImage, for: UIControlState.normal)
+        profileImageButton.setImage(profileImage, for: UIControlState.normal)
         dismiss(animated:true, completion: nil) 
     }
     
-    
+
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
     
-    
+      
     @IBAction func updateProfileDetails()
     {
         
@@ -179,7 +225,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         var paramDict  = Dictionary<String, String>()
         paramDict["contact_name"] = firstNameTF.text
         paramDict["contact_number"] = phoneNumberTF.text
-        paramDict["image_url"] = ""
+        paramDict["image_url"] = mcaUser.brokerImageUrl
 
         
         
@@ -206,7 +252,5 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
 
         
     }
-
-  
-
 }
+  

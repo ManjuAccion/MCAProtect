@@ -16,6 +16,7 @@ class MCAUser: NSObject {
     var brokerEmail : String!
     var brokerContactNumber : String!
     var brokerContactName : String!
+    var brokerImageUrl : String!
     var userType : Int!
 
     

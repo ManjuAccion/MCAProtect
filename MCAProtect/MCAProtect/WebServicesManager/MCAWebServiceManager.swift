@@ -51,7 +51,7 @@ class MCAWebServiceManager: NSObject
     {
         var headersDict : Dictionary<String,String> = Dictionary()
         
-        headersDict["Content-Type"] = "application/json ; charset=utf-8"
+        headersDict["Content-Type"] = "application/json;charset=utf-8"
         headersDict["Accept"] = "application/json"
         if nil != MCASessionManager.sharedSessionManager.accessToken
         {
@@ -207,9 +207,9 @@ class MCAWebServiceManager: NSObject
     }
     
     func deleteRequest(requestParam: Dictionary<String , Any>,
-                      endPoint: String?,
-                      successCallBack: @escaping (_ responseData: JSON) -> Void,
-                      failureCallBack: @escaping (_ error: Error) -> Void)
+                       endPoint: String?,
+                       successCallBack: @escaping (_ responseData: JSON) -> Void,
+                       failureCallBack: @escaping (_ error: Error) -> Void)
         
     {
         
@@ -246,5 +246,15 @@ class MCAWebServiceManager: NSObject
         
     }
     
+    func uploadImageRequest(requestParam: Dictionary<String , Any>,
+                     endPoint: String?,
+                     successCallBack: @escaping (_ responseData: Dictionary<String , AnyObject>) -> Void,
+                     failureCallBack: @escaping (_ error: Error) -> Void)
+    {
+        
+        
+        
+    }
+
     
 }
