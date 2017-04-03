@@ -19,7 +19,7 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        merchantDocumentation = MCAMerchantDocumentation(data:nil)
+        merchantDocumentation = MCAMerchantDocumentation(merchantDocumentation:"")
         self.title = "Merchant Documentation"
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
