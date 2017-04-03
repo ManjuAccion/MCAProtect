@@ -92,10 +92,6 @@ class MCAWebServiceManager: NSObject
                 successCallBack: @escaping (_ responseData: JSON) -> Void,
                 failureCallBack: @escaping (_ error: Error) -> Void)
     {
-        
-        
-        
-        
 
         let headersDict = self.readAPIHeaders();
         
@@ -107,7 +103,6 @@ class MCAWebServiceManager: NSObject
         apiRequest.validate()
         apiRequest.responseJSON { (response) in
             
-            let dataDictionary = JSON(response.result.value!)
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(response.result.error)")
                 failureCallBack(response.error!)
@@ -115,6 +110,7 @@ class MCAWebServiceManager: NSObject
             }
             
             
+            let dataDictionary = JSON(response.result.value!)
             let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
             
             self.setAPIHeaders(header: header);
