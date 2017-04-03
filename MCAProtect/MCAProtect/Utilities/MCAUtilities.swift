@@ -90,6 +90,12 @@ class MCAUtilities: NSObject {
         
     }
     
+    static func getnilcheckedIntValue(IntegerToNilCheck : Int?) -> Int {
+        
+        return IntegerToNilCheck == nil ? 0 : IntegerToNilCheck!
+        
+    }
+    
     
     
 }

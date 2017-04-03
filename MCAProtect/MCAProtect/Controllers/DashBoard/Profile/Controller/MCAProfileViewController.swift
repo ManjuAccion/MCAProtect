@@ -190,6 +190,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 0)
                
                 
         },

@@ -63,8 +63,8 @@ class MCAUser: NSObject {
         }
         else
         {
-            brokerID            = userData["id"] as! Int
-            brokarageFirmID     = userData["brokerage_firm_id"]  as! Int
+            brokerID            = MCAUtilities.getnilcheckedIntValue(IntegerToNilCheck:userData["id"] as! Int? )
+            brokarageFirmID     = MCAUtilities.getnilcheckedIntValue(IntegerToNilCheck:userData["brokerage_firm_id"] as! Int? )
             brokerUID           = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["uid"] as! String?)
             brokerEmail         = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["email"] as! String?)
             brokerContactNumber = MCAUtilities.getnilcheckedStringValue(stringToNilCheck: userData["contact_number"] as! String?)
