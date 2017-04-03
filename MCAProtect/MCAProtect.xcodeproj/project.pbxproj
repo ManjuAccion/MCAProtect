@@ -186,6 +186,8 @@
 		BACC530E1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC530D1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift */; };
 		BACC53101E8AA674003C4852 /* MCAAskFunderApplicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC530F1E8AA674003C4852 /* MCAAskFunderApplicationList.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
+		CE9F69661E92877E0089F8CE /* MCABillingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69651E92877E0089F8CE /* MCABillingState.swift */; };
+		CE9F69681E9289790089F8CE /* MCAProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -392,6 +394,8 @@
 		BACC530D1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationSummaryVC.swift; sourceTree = "<group>"; };
 		BACC530F1E8AA674003C4852 /* MCAAskFunderApplicationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderApplicationList.swift; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE9F69651E92877E0089F8CE /* MCABillingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABillingState.swift; sourceTree = "<group>"; };
+		CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProgramInformation.swift; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1346,6 +1350,7 @@
 				BAC6AD581E7FDBF80047F7D3 /* MCALoanDetail.swift */,
 				BAC6AD5A1E7FDF2C0047F7D3 /* MCABusinessInformation.swift */,
 				BAC6AD5C1E7FE3CC0047F7D3 /* MCABusinessAddress.swift */,
+				CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1549,6 +1554,7 @@
 			children = (
 				BAC6ADD01E814DC10047F7D3 /* MCAOwnerInformation.swift */,
 				BACC53071E893CC2003C4852 /* MCABusinessLocation.swift */,
+				CE9F69651E92877E0089F8CE /* MCABillingState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2405,6 +2411,7 @@
 				BAC6AE371E824F800047F7D3 /* MCAAskFunderApplicationSummaryVC.swift in Sources */,
 				BAC6ADD11E814DC10047F7D3 /* MCAOwnerInformation.swift in Sources */,
 				BAC6AD631E7FE9310047F7D3 /* MCAJudgementsOrLiens.swift in Sources */,
+				CE9F69681E9289790089F8CE /* MCAProgramInformation.swift in Sources */,
 				BAC6AE4B1E8250260047F7D3 /* MCALeftMenuVC.swift in Sources */,
 				5BD4EA371E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift in Sources */,
 				BAC6AD951E8101C30047F7D3 /* MCASavedApplicationDetailVC.swift in Sources */,
@@ -2420,6 +2427,7 @@
 				BACC53081E893CC2003C4852 /* MCABusinessLocation.swift in Sources */,
 				5B1F8D681E83ABA000BD53F2 /* MCAFPBusinessTypeVC.swift in Sources */,
 				BA1237D21E8BF091008A2AFE /* MCAMerchantApplicationListVC.swift in Sources */,
+				CE9F69661E92877E0089F8CE /* MCABillingState.swift in Sources */,
 				BAC6ADE61E8160350047F7D3 /* MCAAskFunderApplicationListVC.swift in Sources */,
 				BAC6AD8E1E8101770047F7D3 /* MCASavedApplicationsBankRecordsTVCell.swift in Sources */,
 				5BB3E6091E8293A800A67927 /* SecureInputView.swift in Sources */,
