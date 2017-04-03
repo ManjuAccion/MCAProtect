@@ -179,7 +179,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         var paramDict  = Dictionary<String, String>()
         paramDict["contact_name"] = firstNameTF.text
         paramDict["contact_number"] = phoneNumberTF.text
-        paramDict["image_url"] = "https://mcaprotect-dev-storage.s3.amazonaws.com/profile-images/1486979609971-Df3yv7vvkcZvETgG.jpg"
+        paramDict["image_url"] = ""
 
         
         
@@ -193,7 +193,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                
                 
         },
-              failureCallBack: { (response :  Dictionary<String, AnyObject>!, error : Error) in
+               failureCallBack: { (error : Error) in
                 
                 self.stopActivityIndicator()
                 print("Failure \(error)")

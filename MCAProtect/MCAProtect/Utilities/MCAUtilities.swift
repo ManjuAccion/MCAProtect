@@ -73,6 +73,16 @@ class MCAUtilities: NSObject {
     }
 
     
+    static func blur(viewToBlur:UIView! , blurView : UIView!)
+    {
+        var bView = blurView as UIView!
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        bView = UIVisualEffectView(effect: blurEffect)
+        bView?.isUserInteractionEnabled = false
+        bView?.frame = viewToBlur.bounds
+        viewToBlur.addSubview(bView!)
+    }
+
     
     static func getnilcheckedStringValue(stringToNilCheck : String?) -> String {
         

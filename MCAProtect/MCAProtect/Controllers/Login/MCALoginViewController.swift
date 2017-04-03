@@ -113,7 +113,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 self.navigationController?.pushViewController(mPin, animated: true)
                 
         },
-              failureCallBack: { (response :  Dictionary<String, AnyObject>!, error : Error) in
+              failureCallBack: { (error : Error) in
                 
             self.stopActivityIndicator()
             print("Failure \(error)")
@@ -146,8 +146,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 self.navigationController?.pushViewController(mPin, animated: true)
                 
         },
-              failureCallBack: { (response :  Dictionary<String, AnyObject>!, error : Error) in
-                
+              failureCallBack: { (error : Error) in
                 self.stopActivityIndicator()
                 print("Failure \(error)")
                 let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)

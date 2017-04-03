@@ -313,7 +313,7 @@ struct MCAAPIEndPoints {
     static let BrokerLogoutAPIEndPoint               = "/broker/sign_out.json"
     static let BrokerForgotPasswordAPIEndPoint               = "/broker/password.json"
     static let BrokerDashBoardAPIEndpoint               = "MCAApplicationFormTVCell"
-    static let BrokerUpdateProfileAPIEndpoint               = "/broker.json"
+    static let BrokerUpdateProfileAPIEndpoint               = "/broker"
 
     static let BrokerageRegistrationAPIEndPoint               = "/brokerage_firm.json"
     static let BrokerageLoginAPIEndPoint                      = "/brokerage_firm/sign_in.json"

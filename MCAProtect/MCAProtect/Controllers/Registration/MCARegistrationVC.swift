@@ -271,7 +271,7 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
                 setPinVC.isFromRegistrationFlow = true
                 self.navigationController?.pushViewController(setPinVC,
                                                          animated: true)
-        }, failureCallBack: { (response : Dictionary<String, AnyObject>!, error : Error) in
+        }, failureCallBack: { (error : Error) in
             self.stopActivityIndicator()
             print("Failure \(error)")
             let alertViewController = UIAlertController(title : "MCAP", message : "Registration Failed", preferredStyle : .alert)
