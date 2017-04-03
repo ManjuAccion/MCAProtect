@@ -193,6 +193,8 @@
 		CE9F696E1E9291200089F8CE /* MCABusinessEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F696D1E9291200089F8CE /* MCABusinessEntityType.swift */; };
 		CE9F69701E9291F90089F8CE /* MCABusinessFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F696F1E9291F90089F8CE /* MCABusinessFinance.swift */; };
 		CE9F69721E9293AE0089F8CE /* MCABusinessLocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69711E9293AE0089F8CE /* MCABusinessLocationList.swift */; };
+		CE9F69741E9295CF0089F8CE /* MCAIndustryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69731E9295CF0089F8CE /* MCAIndustryType.swift */; };
+		CE9F69761E9297390089F8CE /* MCALoanApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69751E9297390089F8CE /* MCALoanApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,6 +408,8 @@
 		CE9F696D1E9291200089F8CE /* MCABusinessEntityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessEntityType.swift; sourceTree = "<group>"; };
 		CE9F696F1E9291F90089F8CE /* MCABusinessFinance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessFinance.swift; sourceTree = "<group>"; };
 		CE9F69711E9293AE0089F8CE /* MCABusinessLocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessLocationList.swift; sourceTree = "<group>"; };
+		CE9F69731E9295CF0089F8CE /* MCAIndustryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAIndustryType.swift; sourceTree = "<group>"; };
+		CE9F69751E9297390089F8CE /* MCALoanApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoanApplication.swift; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1364,6 +1368,7 @@
 				CE9F696B1E928D3F0089F8CE /* MCAAddress.swift */,
 				CE9F696D1E9291200089F8CE /* MCABusinessEntityType.swift */,
 				CE9F696F1E9291F90089F8CE /* MCABusinessFinance.swift */,
+				CE9F69731E9295CF0089F8CE /* MCAIndustryType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1508,6 +1513,7 @@
 			isa = PBXGroup;
 			children = (
 				BAC6ADCC1E8140510047F7D3 /* MCAApplicationSummary.swift */,
+				CE9F69751E9297390089F8CE /* MCALoanApplication.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2364,6 +2370,7 @@
 				BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */,
 				BACC53101E8AA674003C4852 /* MCAAskFunderApplicationList.swift in Sources */,
 				782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */,
+				CE9F69741E9295CF0089F8CE /* MCAIndustryType.swift in Sources */,
 				5BB3E6041E8293A800A67927 /* MCALiensPaymentsTVCell.swift in Sources */,
 				BAC6ADA91E8102F60047F7D3 /* MCASALiensPaymentsVC.swift in Sources */,
 				BAC6ADF81E824ABB0047F7D3 /* MCASubmitStipulationsView.swift in Sources */,
@@ -2464,6 +2471,7 @@
 				BAC6AE571E8250720047F7D3 /* MCAChangeMPinVC.swift in Sources */,
 				CE9F696A1E928C210089F8CE /* MCALoanAccountsList.swift in Sources */,
 				BAC6AD5D1E7FE3CC0047F7D3 /* MCABusinessAddress.swift in Sources */,
+				CE9F69761E9297390089F8CE /* MCALoanApplication.swift in Sources */,
 				5B1F8D761E83ACF600BD53F2 /* MCAFundingProgramSummary.swift in Sources */,
 				BAC6ADD51E8150660047F7D3 /* MCASAOwnerInformationDetailVC.swift in Sources */,
 				5B90494F1E72881A00A49A50 /* MCAMatchedFundingProgramVC.swift in Sources */,

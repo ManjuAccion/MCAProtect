@@ -7,21 +7,40 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MCABusinessInformation: NSObject {
     
-    var legalBusinessName : String!
+    var bankruptcy                  : Bool!
+    var bankruptcyDischargeDate     : AnyObject!
+    var bankruptcyMonthlyPayment    : Int!
+    var bankruptcyPaymentPlan       : Bool!
+    var bankruptcySatisfied         : Bool!
+    var businessEntityType          : MCABusinessEntityType!
+    var businessSeasonal            : Bool!
+    var businessStartDate           : String!
+    var dbaBusinessName             : String!
+    var federalTaxId                : Int!
+    var incorporationState          : MCABillingState!
+    var industryType                : MCAIndustryType!
+    var judgementsOrLiens           : Bool!
+    var judgementsOrLiensAmount     : Int!
+    var judgementsOrLiensNo         : Int!
+    var legalBusinessName           : String!
+    var monthlyPaymentAmount        : Int!
+    var paymentPlan                 : Bool!
+    var peakMonths                  : String!
+    
+    
+    //TODO: - Need to remove the old data 
+    
     var contactName : String!
     var contactNumber : String!
     var email : String!
-    var federalTaxId : String!
     var grossAnnualSales : Int!
     var businessEntityTypeId : String!
-    var dbaBusinessName : String!
     var incorporationCountryStateId : Int!
-    var businessStartDate : String!
     var industryTypeId : String!
-    var businessSeasonal : String!
     var fieldCount : Int!
 
     
@@ -31,19 +50,61 @@ class MCABusinessInformation: NSObject {
             contactName         = "Harry Parker"
             contactNumber       = "(876) 965-8756"
             email               = "harry.parker@yahoo.com"
-            federalTaxId        = "8768967"
+            federalTaxId        = 8768967
             grossAnnualSales    = 30000
             businessEntityTypeId = "Patnership"
             dbaBusinessName     = "Stacy's Boutique"
             incorporationCountryStateId = 1
             businessStartDate   = "2014-12-09"
             industryTypeId      = "Ice Cream"
-            businessSeasonal    = "Yes"
+            businessSeasonal    = true
             fieldCount          = 12
         }
         else {
             
         }
+    }
+    
+    init(businessInformation: JSON!) {
+        
+        if businessInformation.isEmpty {
+            return
+        }
+        
+        bankruptcy                  = businessInformation["bankruptcy"].boolValue
+        bankruptcyDischargeDate     = businessInformation["bankruptcy_discharge_date"].stringValue as AnyObject
+        bankruptcyMonthlyPayment    = businessInformation["bankruptcy_monthly_payment"].intValue
+        bankruptcyPaymentPlan       = businessInformation["bankruptcy_payment_plan"].boolValue
+        bankruptcySatisfied         = businessInformation["bankruptcy_satisfied"].boolValue
+        let businessEntityTypeJson  = businessInformation["business_entity_type"]
+        
+        if !businessEntityTypeJson.isEmpty{
+            businessEntityType = MCABusinessEntityType(businessEnityType: businessEntityTypeJson)
+        }
+        
+        businessSeasonal            = businessInformation["business_seasonal"].boolValue
+        businessStartDate           = businessInformation["business_start_date"].stringValue
+        dbaBusinessName             = businessInformation["dba_business_name"].stringValue
+        federalTaxId                = businessInformation["federal_tax_id"].intValue
+        let incorporationStateJson  = businessInformation["incorporation_state"]
+        
+        if !incorporationStateJson.isEmpty {
+            incorporationState      = MCABillingState(billingState: incorporationStateJson)
+        }
+        
+        let industryTypeJson        = businessInformation["industry_type"]
+        
+        if !industryTypeJson.isEmpty {
+            industryType            = MCAIndustryType(industryType: industryTypeJson)
+        }
+        
+        judgementsOrLiens           = businessInformation["judgements_or_liens"].boolValue
+        judgementsOrLiensAmount     = businessInformation["judgements_or_liens_amount"].intValue
+        judgementsOrLiensNo         = businessInformation["judgements_or_liens_no"].intValue
+        legalBusinessName           = businessInformation["legal_business_name"].stringValue
+        monthlyPaymentAmount        = businessInformation["monthly_payment_amount"].intValue
+        paymentPlan                 = businessInformation["payment_plan"].boolValue
+        peakMonths                  = businessInformation["peak_months"].stringValue
     }
     
     func getValueFromKey(key: BusinessInformationKeys) -> String{
@@ -64,7 +125,7 @@ class MCABusinessInformation: NSObject {
                 modelValue = email
             
             case .federalTaxID:
-                modelValue = federalTaxId
+                modelValue = "\(federalTaxId)"
             
             case .grossAnnualSales:
                 modelValue = MCAUtilities.currencyFormatter(inputItem: grossAnnualSales as AnyObject)
@@ -85,7 +146,7 @@ class MCABusinessInformation: NSObject {
                 modelValue = industryTypeId
             
             case .seasonalBusiness:
-                modelValue = businessSeasonal
+                modelValue = "true" //TODO: Need to remove the hardcodes.
             
         }
         return modelValue
