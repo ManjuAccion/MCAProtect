@@ -188,6 +188,8 @@
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 		CE9F69661E92877E0089F8CE /* MCABillingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69651E92877E0089F8CE /* MCABillingState.swift */; };
 		CE9F69681E9289790089F8CE /* MCAProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */; };
+		CE9F696A1E928C210089F8CE /* MCALoanAccountsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69691E928C210089F8CE /* MCALoanAccountsList.swift */; };
+		CE9F696C1E928D3F0089F8CE /* MCAAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F696B1E928D3F0089F8CE /* MCAAddress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -396,6 +398,8 @@
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9F69651E92877E0089F8CE /* MCABillingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABillingState.swift; sourceTree = "<group>"; };
 		CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProgramInformation.swift; sourceTree = "<group>"; };
+		CE9F69691E928C210089F8CE /* MCALoanAccountsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MCALoanAccountsList.swift; path = "MCAProtect/Controllers/Saved Applications/SavedApplicationDetail/Model/MCALoanAccountsList.swift"; sourceTree = SOURCE_ROOT; };
+		CE9F696B1E928D3F0089F8CE /* MCAAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAddress.swift; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1351,6 +1355,7 @@
 				BAC6AD5A1E7FDF2C0047F7D3 /* MCABusinessInformation.swift */,
 				BAC6AD5C1E7FE3CC0047F7D3 /* MCABusinessAddress.swift */,
 				CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */,
+				CE9F696B1E928D3F0089F8CE /* MCAAddress.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1608,6 +1613,7 @@
 		BAC6ADC11E8106DE0047F7D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE9F69691E928C210089F8CE /* MCALoanAccountsList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2426,6 +2432,7 @@
 				5B1F8D591E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift in Sources */,
 				BACC53081E893CC2003C4852 /* MCABusinessLocation.swift in Sources */,
 				5B1F8D681E83ABA000BD53F2 /* MCAFPBusinessTypeVC.swift in Sources */,
+				CE9F696C1E928D3F0089F8CE /* MCAAddress.swift in Sources */,
 				BA1237D21E8BF091008A2AFE /* MCAMerchantApplicationListVC.swift in Sources */,
 				CE9F69661E92877E0089F8CE /* MCABillingState.swift in Sources */,
 				BAC6ADE61E8160350047F7D3 /* MCAAskFunderApplicationListVC.swift in Sources */,
@@ -2443,6 +2450,7 @@
 				BAC6AD741E80F9B60047F7D3 /* MCAMerchantDocumentation.swift in Sources */,
 				5B1F8D781E83AD2800BD53F2 /* MCAFundingProgramSummaryVC.swift in Sources */,
 				BAC6AE571E8250720047F7D3 /* MCAChangeMPinVC.swift in Sources */,
+				CE9F696A1E928C210089F8CE /* MCALoanAccountsList.swift in Sources */,
 				BAC6AD5D1E7FE3CC0047F7D3 /* MCABusinessAddress.swift in Sources */,
 				5B1F8D761E83ACF600BD53F2 /* MCAFundingProgramSummary.swift in Sources */,
 				BAC6ADD51E8150660047F7D3 /* MCASAOwnerInformationDetailVC.swift in Sources */,
