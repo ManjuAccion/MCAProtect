@@ -195,6 +195,7 @@
 		CE9F69721E9293AE0089F8CE /* MCABusinessLocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69711E9293AE0089F8CE /* MCABusinessLocationList.swift */; };
 		CE9F69741E9295CF0089F8CE /* MCAIndustryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69731E9295CF0089F8CE /* MCAIndustryType.swift */; };
 		CE9F69761E9297390089F8CE /* MCALoanApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69751E9297390089F8CE /* MCALoanApplication.swift */; };
+		CE9F697D1E93802B0089F8CE /* MCAReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F697C1E93802B0089F8CE /* MCAReachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -410,6 +411,7 @@
 		CE9F69711E9293AE0089F8CE /* MCABusinessLocationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessLocationList.swift; sourceTree = "<group>"; };
 		CE9F69731E9295CF0089F8CE /* MCAIndustryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAIndustryType.swift; sourceTree = "<group>"; };
 		CE9F69751E9297390089F8CE /* MCALoanApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoanApplication.swift; sourceTree = "<group>"; };
+		CE9F697C1E93802B0089F8CE /* MCAReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAReachability.swift; sourceTree = "<group>"; };
 		CF63E6088842F5D2B3565710 /* Pods-MCAProtect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1257,6 +1259,7 @@
 		BA34CD3C1E4C9E72001AF75F /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				CE9F697B1E937FCE0089F8CE /* Reachability */,
 				5BB3E5DC1E8293A800A67927 /* Application Form Cell */,
 				5BB3E5DF1E8293A800A67927 /* Application List Cell */,
 				5BB3E5E21E8293A800A67927 /* Application Status Cell */,
@@ -2029,6 +2032,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		CE9F697B1E937FCE0089F8CE /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F697C1E93802B0089F8CE /* MCAReachability.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2371,6 +2382,7 @@
 				BACC53101E8AA674003C4852 /* MCAAskFunderApplicationList.swift in Sources */,
 				782C6A011E49B8D200268356 /* MCADealsFundedVC.swift in Sources */,
 				CE9F69741E9295CF0089F8CE /* MCAIndustryType.swift in Sources */,
+				CE9F697D1E93802B0089F8CE /* MCAReachability.swift in Sources */,
 				5BB3E6041E8293A800A67927 /* MCALiensPaymentsTVCell.swift in Sources */,
 				BAC6ADA91E8102F60047F7D3 /* MCASALiensPaymentsVC.swift in Sources */,
 				BAC6ADF81E824ABB0047F7D3 /* MCASubmitStipulationsView.swift in Sources */,

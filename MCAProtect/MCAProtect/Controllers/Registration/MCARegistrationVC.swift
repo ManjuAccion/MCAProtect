@@ -158,95 +158,58 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         
     if ((businessNameTF.text?.isEmpty)!) {
         
-        let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Business Name", comment: ""), preferredStyle : .alert)
-        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-        present(alertViewController, animated: true , completion: nil)
-        isAllDetailsPresent = false
-        
-    }
-        else
-    {
-        isAllDetailsPresent = true
-
-        }
-    if ((emailTF.text?.isEmpty)!) {
-            
-        let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Email", comment: "") , preferredStyle : .alert)
-        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-        present(alertViewController, animated: true , completion: nil)
+        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Business Name", comment: ""))
         isAllDetailsPresent = false
     }
-    else {
-        if !(MCAUtilities.isValidEmail(inEmailId: emailTF.text!)) {
-            let alertViewController = UIAlertController(title : "Alert", message : "Please Enter Valid  Email Id", preferredStyle : .alert)
-            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-            present(alertViewController, animated: true , completion: nil)
-            isAllDetailsPresent = false
-        }
-        else{
-            
-            isAllDetailsPresent = true
-
-        }
-    }
-
-    if ((phoneNumberTF.text?.isEmpty)!)
-    {
+    else if ((emailTF.text?.isEmpty)!) {
         
-        let alertViewController = UIAlertController(title : "Alert", message :NSLocalizedString("Please Enter Phone Number", comment: ""), preferredStyle : .alert)
-        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-        present(alertViewController, animated: true , completion: nil)
+        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Email", comment: ""))
         isAllDetailsPresent = false
     }
-        else
-    {
+    else if !(MCAUtilities.isValidEmail(inEmailId: emailTF.text!)) {
         
-        isAllDetailsPresent = true
-
-        }
-    if ((passwordTF.text?.isEmpty)!)
-    {
-        
-        let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment: "") , preferredStyle : .alert)
-        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-        present(alertViewController, animated: true , completion: nil)
+        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Valid  Email Id", comment: ""))
         isAllDetailsPresent = false
     }
-    else{
-        
-        isAllDetailsPresent = true
-
-        }
-    if ((confirmPasswordTF.text?.isEmpty)!)
+    else if ((phoneNumberTF.text?.isEmpty)!)
     {
-        let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Please Enter Confirm Password", comment:"") , preferredStyle : .alert)
-        alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-        present(alertViewController, animated: true , completion: nil)
+        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Phone Number", comment: ""))
         isAllDetailsPresent = false
     }
+    else if ((passwordTF.text?.isEmpty)!) {
         
-    if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
+        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Password", comment: ""))
+        isAllDetailsPresent = false
+    }
+    else if ((confirmPasswordTF.text?.isEmpty)!) {
+        
+        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Confirm Password", comment: ""))
+        isAllDetailsPresent = false
+    }
+    else if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
     {
         if (confirmPasswordTF.text == passwordTF.text) {
             isAllDetailsPresent = true
- 
         }
-        else{
+        else {
             
-            let alertViewController = UIAlertController(title : "Alert", message : NSLocalizedString("Passwords Do Not Match", comment : "")  , preferredStyle : .alert)
-            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-            present(alertViewController, animated: true , completion: nil)
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Passwords Do Not Match", comment: ""))
             isAllDetailsPresent = false
         }
     }
+    else {
+        isAllDetailsPresent = true
+    }
         
     if isAllDetailsPresent != nil && isAllDetailsPresent == true {
-        
+        if MCAReachability.isConnectedToNetwork() == true {
+            self.RegisterBrokerage()
+        }
+        else {
+            presentAlertWithTitle(title: "No Internet Connection", message: NSLocalizedString("Make sure your device is connected to the internet.", comment: ""))
+        }
     }
-        self.RegisterBrokerage()
-    }
-
-    
+}
     
     func RegisterBrokerage() {
         

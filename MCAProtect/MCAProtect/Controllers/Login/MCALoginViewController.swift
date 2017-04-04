@@ -84,11 +84,18 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         }
         else
         {
-            if true == isBrokerLogin {
+            if true == isBrokerLogin && MCAReachability.isConnectedToNetwork() == true {
+                
                 self.loginBroker()
             }
-            else {
+            else if MCAReachability.isConnectedToNetwork() == true  {
                 self.loginBrokerage()
+            }
+            else {
+                
+                let alertViewController = UIAlertController(title : "No Internet Connection", message : "Make sure your device is connected to the internet.", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                present(alertViewController, animated: true , completion: nil)
             }
         }
     }
