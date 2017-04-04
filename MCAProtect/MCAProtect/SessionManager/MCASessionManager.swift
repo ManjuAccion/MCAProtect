@@ -20,6 +20,12 @@ class MCASessionManager: NSObject {
     
     //MARK: Shared Instance
     static let sharedSessionManager: MCASessionManager = MCASessionManager()
-    
+
+    func resetSesssion() {
+        accessToken = nil;
+        client = nil;
+        uid = nil;
+        mcapUser = nil;
+    }
     
 }

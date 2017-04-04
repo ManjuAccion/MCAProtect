@@ -28,9 +28,23 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
-                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 0)
                 
-                SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
+                let alertViewController = UIAlertController(title : "MCAP", message : "SignOut Success!", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    
+                    MCASessionManager.sharedSessionManager.resetSesssion();
+                    
+                    SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
+                    
+                }))
+
+                
+                
+                
+                self.present(alertViewController, animated: true , completion: nil)
+
+                
+                
 
                 
         },
