@@ -15,52 +15,6 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     let loginVC : MCALoginViewController! = nil
     
-    @IBAction func SingoutClicked(_ sender: Any)
-    {
-        
-        self.showActivityIndicator()
-        let paramDict  = Dictionary<String, String>()
-        
-        
-        MCAWebServiceManager.sharedWebServiceManager.deleteRequest(requestParam:paramDict,
-                                                                  endPoint:MCAAPIEndPoints.BrokerLogoutAPIEndPoint
-            , successCallBack:{ (response : JSON!) in
-                
-                self.stopActivityIndicator()
-                print("Success \(response)")
-                
-                let alertViewController = UIAlertController(title : "MCAP", message : "SignOut Success!", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    
-                    MCASessionManager.sharedSessionManager.resetSesssion();
-                    
-                    SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
-                    
-                }))
-
-                
-                
-                
-                self.present(alertViewController, animated: true , completion: nil)
-
-                
-                
-
-                
-        },
-              failureCallBack: { (error : Error) in
-                
-                self.stopActivityIndicator()
-                print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "SignOut Failed", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                self.present(alertViewController, animated: true , completion: nil)
-                
-        })
-        
-        
-    }
-    
     @IBOutlet var versionFooterView : UIView!
     @IBOutlet var profileHeaderView : MCAProfileHeaderView!
     @IBOutlet weak var sideMenuTableView : UITableView!
@@ -166,4 +120,45 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         SlideNavigationController.sharedInstance().toggleLeftMenu()
         
     }
+    
+    @IBAction func SingoutClicked(_ sender: Any)
+    {
+        
+        self.showActivityIndicator()
+        let paramDict  = Dictionary<String, String>()
+        
+        
+        MCAWebServiceManager.sharedWebServiceManager.deleteRequest(requestParam:paramDict,
+                                                                   endPoint:MCAAPIEndPoints.BrokerLogoutAPIEndPoint
+            , successCallBack:{ (response : JSON!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 0)
+                
+                let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "MCALoginViewController") as! MCALoginViewController
+                
+                 let stack = NSArray.init(object: loginVC)
+                SlideNavigationController.sharedInstance().viewControllers = stack as! [UIViewController]
+                
+                SlideNavigationController.sharedInstance().popToRootViewController(animated: true)
+                
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "SignOut Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
+    }
+    
+    
 }
+

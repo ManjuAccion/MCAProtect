@@ -165,8 +165,8 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
 
                 if self.isFromRegistrationFlow == true {
                     let storyboard = UIStoryboard(name: "Login", bundle: nil)
-                    let enterMPinVC = storyboard.instantiateViewController(withIdentifier: "MCALoginViewController") as! MCALoginViewController
-                    self.navigationController?.pushViewController(enterMPinVC,
+                    let loginVC = storyboard.instantiateViewController(withIdentifier: "MCALoginViewController") as! MCALoginViewController
+                    self.navigationController?.pushViewController(loginVC,
                                                                   animated: true)
                 }
                 else

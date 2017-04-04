@@ -9,6 +9,9 @@
 import UIKit
 import JVFloatLabeledTextField
 import SwiftyJSON
+import Alamofire
+
+
 class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var profileImageButton : UIButton!
@@ -177,34 +180,56 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     {
         let profileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-         let imageData = UIImagePNGRepresentation(profileImage)
-        
-         let base64 = imageData?.base64EncodedString()
-        self.showActivityIndicator()
+
+
+      //  self.showActivityIndicator()
 
         var paramDict  = Dictionary<String,Any>()
-        paramDict["file"] = base64
+        paramDict["file"] = ""
         paramDict["file_name"] = "profileImage"
         paramDict["file_extension"] = ".png"
 
+        let parameters = [
+            "file_name": "profile_image.jpeg"
+        ]
         
-        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:paramDict,
-                                                                  endPoint:MCAAPIEndPoints.BrokerUploadImageAPIEndpoint
-            , successCallBack:{ (response : Dictionary<String, AnyObject>!) in
-                
-                self.stopActivityIndicator()
-                print("Success \(response)")
-                
-                
-        },
-              failureCallBack: { (error : Error) in
-                self.stopActivityIndicator()
-                print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "Update Failed", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                self.present(alertViewController, animated: true , completion: nil)
-                
-        })
+        
+        // Set static name, so everytime image is cloned, it will be named "temp", thus rewrite the last "temp" image.
+        // *Don't worry it won't be shown in Photos app.
+        
+        // Encode this image into JPEG. *You can add conditional based on filetype, to encode into JPEG or PNG
+         let data = UIImageJPEGRepresentation(profileImage, 80)
+            // Save cloned image into document directory
+            
+            let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.jpg")
+            
+            do {
+                try data?.write(to: fileURL, options: .atomic)
+            } catch {
+                print(error)
+            }
+        
+        Alamofire.upload(fileURL, to: "http://192.168.169.84:3000/api/sf_integrations/upload_document").responseJSON
+            { response in
+            debugPrint(response)
+        }
+//        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:paramDict,
+//                                                                  endPoint:MCAAPIEndPoints.BrokerUploadImageAPIEndpoint
+//            , successCallBack:{ (response : JSON!) in
+//                
+//                self.stopActivityIndicator()
+//             //   print("Success \(response)")
+//                
+//                
+//        },
+//              failureCallBack: { (error : Error) in
+//                self.stopActivityIndicator()
+//                print("Failure \(error)")
+//                let alertViewController = UIAlertController(title : "MCAP", message : "Update Failed", preferredStyle : .alert)
+//                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+//                self.present(alertViewController, animated: true , completion: nil)
+//                
+//        })
 
         profileImageButton.contentMode = .scaleAspectFit
         profileImageButton.setImage(profileImage, for: UIControlState.normal)
@@ -225,7 +250,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         var paramDict  = Dictionary<String, String>()
         paramDict["contact_name"] = firstNameTF.text
         paramDict["contact_number"] = phoneNumberTF.text
-        paramDict["image_url"] = mcaUser.brokerImageUrl
+        paramDict["image_url"] = ""
 
         
         
@@ -237,6 +262,10 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 self.stopActivityIndicator()
                 print("Success \(response)")
                 MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 0)
+                let alertViewController = UIAlertController(title : "MCAP", message : "Update Successfully", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+
                
                 
         },

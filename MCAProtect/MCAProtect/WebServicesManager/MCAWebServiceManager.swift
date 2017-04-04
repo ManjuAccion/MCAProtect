@@ -253,7 +253,7 @@ class MCAWebServiceManager: NSObject
         let headersDict = self.readAPIHeaders();
         
         
-        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .delete, parameters: requestParam, encoding: URLEncoding.methodDependent, headers: headersDict);
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .delete, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
         
         apiRequest.validate()
         apiRequest.responseJSON { (response) in
@@ -281,10 +281,36 @@ class MCAWebServiceManager: NSObject
     
     func uploadImageRequest(requestParam: Dictionary<String , Any>,
                      endPoint: String?,
-                     successCallBack: @escaping (_ responseData: Dictionary<String , AnyObject>) -> Void,
+                     successCallBack: @escaping (_ responseData: JSON) -> Void,
                      failureCallBack: @escaping (_ error: Error) -> Void)
     {
+        let headersDict = self.readAPIHeaders();
         
+        var completeURL : String = "http://192.168.169.84:3000/api/sf_integrations/upload_document"
+        completeURL.append(endPoint!)
+        
+               let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
+        
+        apiRequest.validate()
+        apiRequest.responseJSON { (response) in
+            
+            guard response.result.isSuccess else {
+                print("Error while fetching remote rooms: \(response.result.error)")
+                failureCallBack(response.error!)
+                return
+            }
+            
+            
+            let dataDictionary = JSON(response.result.value!)
+            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
+            
+            self.setAPIHeaders(header: header);
+            
+            print(response)
+            successCallBack(dataDictionary)
+            return
+        }
+
         
         
     }
