@@ -184,7 +184,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         paramDict["email"] = emailIDTextField.text
         paramDict["password"] = passwordTextField.text
         
-        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+        MCAWebServiceManager.sharedWebServiceManager.loginRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerLoginAPIEndPoint
             , successCallBack:{ (response : JSON!) in
                 
@@ -226,7 +226,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         paramDict["password"] = passwordTextField.text
         
         
-        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+        MCAWebServiceManager.sharedWebServiceManager.loginRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerageLoginAPIEndPoint
             , successCallBack:{ (response : JSON!) in
                 

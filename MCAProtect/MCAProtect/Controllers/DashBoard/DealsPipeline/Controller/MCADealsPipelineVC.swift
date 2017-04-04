@@ -8,13 +8,13 @@
 
 import UIKit
 import SwiftyJSON
-class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
+class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDataSource,UIPickerViewDelegate,UIActionSheetDelegate {
 
     @IBOutlet weak var pipeLineTableView: UITableView!
     
     var dealsPipeline : MCADealsPipeLine!
     var dataSourceArray = [MCADealsPipeLine]()
-
+    var pickerViewPopup : UIActionSheet!
     @IBOutlet weak var rangeSelectionLabel: UILabel!
     
     var rangePicker = UIPickerView()
@@ -115,72 +115,62 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     }
     
 
-    func blur() {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.isUserInteractionEnabled = false
-        blurView.frame = self.view.bounds
-        view.addSubview(blurView)
+    
+    //MARK: - PickerView Datasource and Delegates
+    
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int
+    {
+        return 1
     }
     
-    func unblur() {
-        self.blurView.removeFromSuperview()
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return rangeList.count
     }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return rangeList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let strTitle = rangeList[row]
+        let attString = NSAttributedString(string: strTitle, attributes: [NSForegroundColorAttributeName : ColorConstants.red])
+        return attString
+    }
+    
     
     
 
     @IBAction func selectDateRange(_ sender: Any)
     {
-        pickerTitle?.title = "Select Range"
-        self.navigationController?.navigationBar.isHidden = true
         
-        self.blur()
-        self.view.addSubview(self.rangePicker)
-        self.view.addSubview(self.toolbar!)
+        pickerViewPopup = UIActionSheet(title: "Select Range", delegate: self, cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: "")
+        
+        
+        rangePicker = UIPickerView(frame: CGRect(x: 0, y: 44, width: 320, height: 200))
+        
+        rangePicker.delegate = self
+        rangePicker.dataSource = self
+        rangePicker.showsSelectionIndicator = true
+
+        
+        
+        toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+        toolbar?.barStyle = .blackOpaque
+        toolbar?.sizeToFit()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem:.flexibleSpace , target: self, action: nil)
+        let doneBtn = UIBarButtonItem(barButtonSystemItem:.done , target: self, action: nil)
+        
+        
+        toolbar?.setItems([flexSpace, doneBtn], animated: true)
+        
+        pickerViewPopup.addSubview(toolbar!);
+        pickerViewPopup.addSubview(rangePicker)
+        pickerViewPopup.show(in: self.view)
+        pickerViewPopup.bounds = CGRect(x: 0, y: 0, width: 320, height: 300)
     }
 
     
-    func initilazeToolBar() {
-        toolbar = UIToolbar()
-        toolbar?.barStyle = .blackTranslucent
-        toolbar?.isTranslucent = true
-        toolbar?.sizeToFit()
-        toolbar?.backgroundColor = UIColor.red
-        
-        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
-        doneButton?.tintColor = .white
-        
-        
-        let fixed = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: self, action: nil)
-        fixed.width = 10
-        
-        pickerTitle = UIBarButtonItem(title: "Select Range", style: UIBarButtonItemStyle.plain, target: self, action: nil)
-        pickerTitle?.setTitleTextAttributes([NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 18.0),
-                                             NSForegroundColorAttributeName : UIColor.white], for: UIControlState.normal)
-        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar?.setItems([fixed,pickerTitle!,flexibleSpaceButton, doneButton!], animated: false)
-        toolbar?.isUserInteractionEnabled = true
-        
-        
-        toolbar?.frame = CGRect(x:0,
-                                y:    self.rangePicker.frame.origin.y - 44, // right under the picker
-            width:self.rangePicker.frame.width, // make them the same width
-            height:44)
-        
-        
-        
-    }
-    
-    
-    
-    func inputToolbarDonePressed() {
-        unblur()
-        self.navigationController?.navigationBar.isHidden = false
-        
-        self.rangePicker.removeFromSuperview()
-        self.toolbar?.removeFromSuperview()
-        self.didItemSelected(rangeValue: "Current Year")
-    }
     
     func didItemSelected(rangeValue : String)
     {

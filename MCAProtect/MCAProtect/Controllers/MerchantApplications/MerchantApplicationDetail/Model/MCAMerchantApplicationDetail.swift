@@ -57,6 +57,7 @@ class MCAMerchantApplicationDetail: NSObject {
         merchantEmail = merchantApplicationDetail["merchant_mail"] != JSON.null ? merchantApplicationDetail["merchant_mail"].stringValue : ""
         
         offeredOn = merchantApplicationDetail["offered_on"] != JSON.null ?  merchantApplicationDetail["offered_on"].stringValue : ""
+        fieldCount                  = 6
     }
     
     func getValueFromKey(merchantSummaryKey: MASummaryKeys) -> String {
