@@ -24,11 +24,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     
     
     
-    func getApplicationSummary()
-    {
-//        /%@/%@?from_date=%@&to_date=%@"
-    }
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -140,6 +136,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         if indexPath.row == 0 {
            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
+            applicationFormVC.merchantApplicationDetail = self.merchantApplicationDetail
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }
     }

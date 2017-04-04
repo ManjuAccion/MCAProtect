@@ -8,14 +8,16 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-    
+    var merchantApplicationDetail : MCAMerchantApplicationDetail!
+
+    var loanApplication : MCALoanApplication!
     var selectedIndexpath : IndexPath?
     var applicationStatus : Int?
     
@@ -30,10 +32,50 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         submitButton.layer.cornerRadius = 3.0
         cancelButton.layer.cornerRadius = 3.0
         loadUI()
+        self.getLoanApplication()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    
+    
+    func getLoanApplication(){
+        
+        
+        self.showActivityIndicator()
+        
+        var endPoint = String()
+        endPoint.append(MCAAPIEndPoints.BrokerLoanApplicationAPIEndpoint);
+        endPoint.append("/\(merchantApplicationDetail.applicationID!).json");
+        
+        
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
+                                                                endPoint:endPoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                
+                
+              self.loanApplication =  MCALoanApplication(loanApplication: response)
+                
+                
+                
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
     }
     
     func loadUI() {
@@ -106,12 +148,16 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             case SavedApplicationForm.LoanDetails.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationDetailVC) as! MCASavedApplicationDetailVC
+                savedApplicationDetailVC.selectedLoanApp = loanApplication
                 savedApplicationDetailVC.applicationStatus = applicationStatus
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.LoanDetails.rawValue
+                
+                
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
             case SavedApplicationForm.BusinessInformation.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationDetailVC) as! MCASavedApplicationDetailVC
+                savedApplicationDetailVC.selectedLoanApp = loanApplication
                 savedApplicationDetailVC.applicationStatus = applicationStatus
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessInformation.rawValue
 
@@ -119,6 +165,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             case SavedApplicationForm.BusinessAddress.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationDetailVC) as! MCASavedApplicationDetailVC
+                savedApplicationDetailVC.selectedLoanApp = loanApplication
                 savedApplicationDetailVC.applicationStatus = applicationStatus
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessAddress.rawValue
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)

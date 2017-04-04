@@ -11,9 +11,9 @@ import UIKit
 class MCALoanDetail: NSObject {
     
     var businessName : String!
-    var loanAmount : Float!
+    var loanAmount : Int!
     var creditScore : Int!
-    var loanRequirementTenure : Int!
+    var loanRequirementTenure : String!
     var loanTerm : Int!
     var fieldCount : Int!
     
@@ -22,7 +22,7 @@ class MCALoanDetail: NSObject {
             businessName = "Stacy's Boutique"
             loanAmount = 75000
             creditScore = 552
-            loanRequirementTenure = 5
+            loanRequirementTenure = "5"
             loanTerm = 6
             fieldCount = 5
         }
@@ -30,6 +30,19 @@ class MCALoanDetail: NSObject {
             
         }
     }
+
+    
+    
+    init(loanApplication : MCALoanApplication?)
+    {
+        businessName = loanApplication?.businessInfo.legalBusinessName
+        loanAmount = loanApplication?.programInfo.loanAmount
+        creditScore = loanApplication?.programInfo.creditScore
+        loanRequirementTenure = loanApplication?.programInfo.loanRequirementTenure
+        loanTerm = loanApplication?.programInfo.loanTerm
+        fieldCount = 5
+    }
+    
     
     func getValueFromKey(key:LoanDetailKeys) -> String {
         
@@ -46,7 +59,7 @@ class MCALoanDetail: NSObject {
             modelValue = "\(creditScore!)"
             
         case .needItBy :
-            modelValue = "\(loanRequirementTenure!) Days"
+            modelValue = loanRequirementTenure
             
         case .loanTerm :
             modelValue = "\(loanTerm!) Months"

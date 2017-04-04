@@ -34,6 +34,19 @@ class MCABusinessAddress: NSObject {
             
         }
     }
+
+    
+    init(loanApplication : MCALoanApplication) {
+        
+            street = loanApplication.address.businessStreetAddress
+            city = loanApplication.address.businessCity
+            state = loanApplication.address.businessState.stateName
+            zipCode = loanApplication.address.businessZipcode
+            webAddress = loanApplication.address.webAddress
+            telephone = loanApplication.ownersInfo.last?.homeTelephone
+            faxNumber = "\(loanApplication.address.businessFaxNumber!)"
+            fieldCount = 7
+    }
     
     func getValueFromKey(key:BusinessAddressKeys) -> String {
         

@@ -31,6 +31,8 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     
     var dataSourceArray : [String] = []
     var dataSourceValueArray : [String] = []
+    
+    var selectedLoanApp : MCALoanApplication!
 
     
     //MARK: - View Life Cycle
@@ -38,9 +40,9 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loanDetail = MCALoanDetail(data: nil)
-        businessInformation = MCABusinessInformation(data: nil)
-        businessAddress = MCABusinessAddress(data: nil)
+        loanDetail = MCALoanDetail(loanApplication: selectedLoanApp)
+        businessInformation = MCABusinessInformation(loanApplication: selectedLoanApp)
+        businessAddress = MCABusinessAddress(loanApplication: selectedLoanApp)
         
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         isViewingMode = true
