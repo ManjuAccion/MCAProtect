@@ -24,13 +24,13 @@ class MCASAOwnerAndLocationDetailsTVCell: UITableViewCell {
     }
     
     func setOwnerInformation(ownerInformation:MCAOwnerInformation) {
-        headingLabel.text = ownerInformation.ownerName
-        detailLabel.text = ownerInformation.socialSecurityNumber
+        headingLabel.text = "\(ownerInformation.firstName!) \(ownerInformation.lastName!)"
+        detailLabel.text = ownerInformation.ssnNumber
     }
     
-    func setBusinessLocation(businessLocation:MCABusinessLocation) {
-        headingLabel.text = businessLocation.businessLocation
-        detailLabel.text = businessLocation.locationName
+    func setBusinessLocation(businessLocation:MCABusinessLocationList) {
+        headingLabel.text = businessLocation.locationName
+        detailLabel.text = "\(businessLocation.streetAddress!), \(businessLocation.city!)"
     }
     
 }

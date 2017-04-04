@@ -77,7 +77,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = titleText
+        self.navigationItem.title = self.selectedDealsPipeline.applicationStateName
         
 
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationListTVCell)

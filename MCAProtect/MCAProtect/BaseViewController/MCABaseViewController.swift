@@ -95,7 +95,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
             activityView.alpha = 0.0
             let bgView = UIView(frame: activityView.bounds)
             bgView.alpha = 0.0
-            bgView.backgroundColor = ColorConstants.newRed
+            bgView.backgroundColor = UIColor.gray
             activityView.addSubview(bgView)
             let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             activityView.addSubview(spinner)

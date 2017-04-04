@@ -15,7 +15,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
     var applicationStatus : Int?
     var bankRecords : MCABankRecords!
     var bankRecordsArray : [MCABankRecords]!
-    
+    var loanApplication : MCALoanApplication!
     //MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -23,12 +23,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         
         self.title = "Bank Records"
 
-        bankRecordsArray = [MCABankRecords]()
-        for _ in 1...4
-        {
-            bankRecords = MCABankRecords(data:nil)
-            bankRecordsArray.append(bankRecords)
-        }
+        bankRecordsArray = loanApplication.businessFinance.bankRecords
         
         tableView.register(UINib(nibName: "MCASavedApplicationsBankRecordsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankRecordsTVCell)
         tableView.tableFooterView = UIView()
@@ -41,7 +36,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bankRecords.bankRecordsCount
+        return bankRecordsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

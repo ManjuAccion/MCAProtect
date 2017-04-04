@@ -33,7 +33,7 @@ class MCABusinessLocationList: NSObject {
         city                    = businessLocationList["city"].stringValue
         createdAt               = businessLocationList["created_at"].stringValue
         businessLocationListID  = businessLocationList["id"].intValue
-        locationName            = businessLocationList["location_name"].stringValue
+        locationName            = businessLocationList["business_location_type"].stringValue
         minimunMonthlySales     = businessLocationList["minimun_monthly_sales"].stringValue
         monthlyPayment          = businessLocationList["monthly_payment"].intValue
         let stateJson           = businessLocationList["state"]

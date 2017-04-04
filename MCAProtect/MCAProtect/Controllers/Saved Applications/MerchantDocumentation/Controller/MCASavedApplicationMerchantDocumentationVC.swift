@@ -13,13 +13,13 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
     @IBOutlet weak var tableView: UITableView!
 
     var merchantDocumentation : MCAMerchantDocumentation!
-
+    var loanApplication : MCALoanApplication!
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        merchantDocumentation = MCAMerchantDocumentation(merchantDocumentation:"")
+        merchantDocumentation = MCAMerchantDocumentation(loanApplication: loanApplication)
         self.title = "Merchant Documentation"
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()

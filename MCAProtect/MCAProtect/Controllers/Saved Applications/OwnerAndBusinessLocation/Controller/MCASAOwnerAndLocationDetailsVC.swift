@@ -20,9 +20,9 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
     var ownerInformation : MCAOwnerInformation!
     var ownerInformationArray : [MCAOwnerInformation]!
     
-    var businessLocation : MCABusinessLocation!
-    var businessLocationArray : [MCABusinessLocation]!
-    
+    var businessLocation : MCABusinessLocationList!
+    var businessLocationArray : [MCABusinessLocationList]!
+    var loanApplication : MCALoanApplication!
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -32,22 +32,12 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
             
             case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
                 self.title = "Owner Information"
-                ownerInformationArray = [MCAOwnerInformation]()
-                for _ in 1...4
-                {
-                    ownerInformation = MCAOwnerInformation(data:nil)
-                    ownerInformationArray.append(ownerInformation)
-                }
+                ownerInformationArray = loanApplication.ownersInfo                
                 dataSourceArray = ownerInformationArray
                 
             case SavedApplicationForm.BusinessLocation.rawValue:
                 self.title = "Business Location"
-                businessLocationArray = [MCABusinessLocation]()
-                for _ in 1...4
-                {
-                    businessLocation = MCABusinessLocation(data:nil)
-                    businessLocationArray.append(businessLocation)
-                }
+                businessLocationArray = loanApplication.businessFinance.businessLocationsList
                 dataSourceArray = businessLocationArray
                 
             default: break
@@ -100,8 +90,8 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
             
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let businessLocationDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASABusinessLocationDetails) as! MCASABusinessLocationDetails
-            businessLocation = dataSourceArray[indexPath.row] as! MCABusinessLocation
-            businessLocationDetailsVC.businessLocationName = businessLocation.businessLocation
+            businessLocation = dataSourceArray[indexPath.row] as! MCABusinessLocationList
+            businessLocationDetailsVC.businessLocationName = businessLocation.locationName
             businessLocationDetailsVC.applicationStatus = applicationStatus
             navigationController?.pushViewController(businessLocationDetailsVC, animated: true)
         }

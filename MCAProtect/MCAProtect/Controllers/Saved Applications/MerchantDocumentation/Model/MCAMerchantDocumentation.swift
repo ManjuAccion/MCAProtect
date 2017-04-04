@@ -35,6 +35,15 @@ class MCAMerchantDocumentation: NSObject {
         }
     }
 
+    init(loanApplication: MCALoanApplication!) {
+        documentName = loanApplication.merchantDocumentation.last?.documentName
+        documentDescription = loanApplication.merchantDocumentation.last?.documentDescription
+        fieldCount = 2
+    }
+    
+    
+    
+    
     func getValueFromKey(merchantDoumentationKey: MerchantDocumentationKeys) -> String{
         
         var modelValue : String!
