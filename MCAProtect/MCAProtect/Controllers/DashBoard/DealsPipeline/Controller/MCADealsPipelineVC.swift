@@ -15,6 +15,18 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     var dealsPipeline : MCADealsPipeLine!
     var dataSourceArray = [MCADealsPipeLine]()
 
+    @IBOutlet weak var rangeSelectionLabel: UILabel!
+    
+    var rangePicker = UIPickerView()
+    var blurView:UIVisualEffectView!
+    
+    var toolbar : UIToolbar?
+    var doneButton : UIBarButtonItem?
+    var pickerTitle : UIBarButtonItem?
+    var rangeList = ["Custom","Current Week","Current Month","Previous Month","Current Quarter","Previous Quarter","Current Year"]
+
+    
+    
     weak var parentController: MCADashboardTabbarVC!
 
     //MARK: - View Life Cycle -
@@ -101,4 +113,79 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 self.present(alertViewController, animated: true , completion: nil)
         })
     }
+    
+
+    func blur() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.isUserInteractionEnabled = false
+        blurView.frame = self.view.bounds
+        view.addSubview(blurView)
+    }
+    
+    func unblur() {
+        self.blurView.removeFromSuperview()
+    }
+    
+    
+
+    @IBAction func selectDateRange(_ sender: Any)
+    {
+        pickerTitle?.title = "Select Range"
+        self.navigationController?.navigationBar.isHidden = true
+        
+        self.blur()
+        self.view.addSubview(self.rangePicker)
+        self.view.addSubview(self.toolbar!)
+    }
+
+    
+    func initilazeToolBar() {
+        toolbar = UIToolbar()
+        toolbar?.barStyle = .blackTranslucent
+        toolbar?.isTranslucent = true
+        toolbar?.sizeToFit()
+        toolbar?.backgroundColor = UIColor.red
+        
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
+        doneButton?.tintColor = .white
+        
+        
+        let fixed = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: self, action: nil)
+        fixed.width = 10
+        
+        pickerTitle = UIBarButtonItem(title: "Select Range", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        pickerTitle?.setTitleTextAttributes([NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 18.0),
+                                             NSForegroundColorAttributeName : UIColor.white], for: UIControlState.normal)
+        let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar?.setItems([fixed,pickerTitle!,flexibleSpaceButton, doneButton!], animated: false)
+        toolbar?.isUserInteractionEnabled = true
+        
+        
+        toolbar?.frame = CGRect(x:0,
+                                y:    self.rangePicker.frame.origin.y - 44, // right under the picker
+            width:self.rangePicker.frame.width, // make them the same width
+            height:44)
+        
+        
+        
+    }
+    
+    
+    
+    func inputToolbarDonePressed() {
+        unblur()
+        self.navigationController?.navigationBar.isHidden = false
+        
+        self.rangePicker.removeFromSuperview()
+        self.toolbar?.removeFromSuperview()
+        self.didItemSelected(rangeValue: "Current Year")
+    }
+    
+    func didItemSelected(rangeValue : String)
+    {
+        let selectedString = rangeList[self.rangePicker.selectedRow(inComponent: 0)] as String
+        rangeSelectionLabel.text = selectedString
+    }
+    
 }

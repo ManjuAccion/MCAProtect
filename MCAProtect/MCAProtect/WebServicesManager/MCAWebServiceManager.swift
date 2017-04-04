@@ -55,15 +55,15 @@ class MCAWebServiceManager: NSObject
         headersDict["Accept"] = "application/json"
         if nil != MCASessionManager.sharedSessionManager.accessToken
         {
-            headersDict["Access-Token"] = MCASessionManager.sharedSessionManager.accessToken
+            headersDict["access-token"] = MCASessionManager.sharedSessionManager.accessToken
         }
         if nil != MCASessionManager.sharedSessionManager.client
         {
-            headersDict["Client"] = MCASessionManager.sharedSessionManager.client
+            headersDict["client"] = MCASessionManager.sharedSessionManager.client
         }
         if nil != MCASessionManager.sharedSessionManager.uid
         {
-            headersDict["Uid"] = MCASessionManager.sharedSessionManager.uid
+            headersDict["uid"] = MCASessionManager.sharedSessionManager.uid
         }
         
         return headersDict
@@ -180,7 +180,7 @@ class MCAWebServiceManager: NSObject
         let headersDict = self.readAPIHeaders();
         
 
-        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .patch, parameters: requestParam, encoding: URLEncoding.methodDependent, headers: headersDict);
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .patch, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
         
         apiRequest.validate()
         apiRequest.responseJSON { (response) in

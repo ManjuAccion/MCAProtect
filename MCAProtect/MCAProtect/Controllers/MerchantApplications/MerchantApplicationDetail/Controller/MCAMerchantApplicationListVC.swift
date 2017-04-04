@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
@@ -30,7 +31,46 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     
     func getApplicationList()
     {
-//        selectedDealsPipeline
+        
+        
+        self.showActivityIndicator()
+        
+        var endPoint = String()
+        endPoint.append(MCAAPIEndPoints.BrokerApplicationSummaryAPIEndpoint);
+        endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
+        endPoint.append("/\(selectedDealsPipeline.applicationStateID!)");
+        
+        endPoint.append("?from_date=2017-01-01&to_date=2017-04-04")
+        
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
+                                                                endPoint:endPoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                
+                if let items = response["data"].array
+                {
+                    for item in items {
+                        self.merchantApplicationDetail = MCAMerchantApplicationDetail(merchantApplicationDetail:item)
+                        self.dataSource.append(self.merchantApplicationDetail)
+                    }
+                    
+                    self.tableView.reloadData()
+                }
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
     }
     
     
@@ -39,14 +79,11 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         
         self.navigationItem.title = titleText
         
-        for _ in 1...6 {
-            merchantApplicationDetail = MCAMerchantApplicationDetail(merchantApplicationDetail:"")
-            dataSource.append(merchantApplicationDetail)
-        }
 
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationListTVCell)
         tableView.tableFooterView = UIView()
 
+        self.getApplicationList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,9 +127,10 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
         let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
         applicationSummaryVC.applicationState = applicationState
+        
         merchantApplicationDetail = dataSource[indexPath.row]
         applicationSummaryVC.titleText = merchantApplicationDetail.businessName
-        
+        applicationSummaryVC.merchantApplicationDetail = merchantApplicationDetail;
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationTVCell
         selectedCell.selectedView.isHidden = false

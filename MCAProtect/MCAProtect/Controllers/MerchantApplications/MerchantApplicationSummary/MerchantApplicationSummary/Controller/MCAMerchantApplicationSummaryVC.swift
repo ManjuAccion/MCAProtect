@@ -33,7 +33,6 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         super.viewDidLoad()
         
         self.title = titleText
-        merchantApplicationDetail = MCAMerchantApplicationDetail(merchantApplicationDetail:"")
 
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.register(UINib(nibName: "MCAEmailTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAEmailTableViewCell)
@@ -63,7 +62,10 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return merchantApplicationDetail.fieldCount
+        if nil != merchantApplicationDetail{
+            return merchantApplicationDetail.fieldCount
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
