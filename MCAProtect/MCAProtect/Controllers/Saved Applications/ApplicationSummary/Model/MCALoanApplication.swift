@@ -38,10 +38,19 @@ class MCALoanApplication: NSObject {
             businessFinance     = MCABusinessFinance(businessFinance: businessFinanceJson)
         }
         
+        let programInfoJson     = loanApplication["program_info"]
+        
+        if !programInfoJson.isEmpty {
+            programInfo         = MCAProgramInformation(programInformation: programInfoJson)
+        }
+        
         let businessInfoJson    = loanApplication["business_info"]
         
         if !businessInfoJson.isEmpty {
-            businessInfo        = MCABusinessInformation(businessInformation: businessInfoJson)
+            businessInfo                = MCABusinessInformation(businessInformation: businessInfoJson)
+            businessInfo.contactName    = programInfo.contactName
+            businessInfo.contactNumber  = programInfo.contactNumber
+            businessInfo.email          = programInfo.email
         }
         
         merchantDocumentation   = [MCAMerchantDocumentation]()
@@ -57,12 +66,6 @@ class MCALoanApplication: NSObject {
         for ownersInfoJson in ownersInfoArray {
             let value = MCAOwnerInformation(ownerInformation: ownersInfoJson)
             ownersInfo.append(value)
-        }
-        
-        let programInfoJson     = loanApplication["program_info"]
-        
-        if !programInfoJson.isEmpty {
-            programInfo         = MCAProgramInformation(programInformation: programInfoJson)
         }
     }
 }

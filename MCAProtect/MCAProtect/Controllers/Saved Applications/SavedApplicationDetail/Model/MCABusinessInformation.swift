@@ -30,41 +30,15 @@ class MCABusinessInformation: NSObject {
     var monthlyPaymentAmount        : Int!
     var paymentPlan                 : Bool!
     var peakMonths                  : String!
-    
-    
-    //TODO: - Need to remove the old data 
-    
-    var contactName : String!
-    var contactNumber : String!
-    var email : String!
-    var grossAnnualSales : Int!
-    var businessEntityTypeId : String!
+    var contactName                 : String!
+    var contactNumber               : Int!
+    var email                       : String!
+    var grossAnnualSales            : Int!
+    var businessEntityTypeId        : String!
     var incorporationCountryStateId : Int!
-    var industryTypeId : String!
-    var fieldCount : Int!
+    var industryTypeId              : String!
+    var fieldCount                  : Int!
 
-    
-    init(data : NSDictionary?) {
-        if nil == data {
-            legalBusinessName   = "Stacy's Boutique"
-            contactName         = "Harry Parker"
-            contactNumber       = "(876) 965-8756"
-            email               = "harry.parker@yahoo.com"
-            federalTaxId        = 8768967
-            grossAnnualSales    = 30000
-            businessEntityTypeId = "Patnership"
-            dbaBusinessName     = "Stacy's Boutique"
-            incorporationCountryStateId = 1
-            businessStartDate   = "2014-12-09"
-            industryTypeId      = "Ice Cream"
-            businessSeasonal    = true
-            fieldCount          = 12
-        }
-        else {
-            
-        }
-    }
-    
     init(businessInformation: JSON!) {
         
         if businessInformation.isEmpty {
@@ -78,7 +52,7 @@ class MCABusinessInformation: NSObject {
         bankruptcySatisfied         = businessInformation["bankruptcy_satisfied"].boolValue
         let businessEntityTypeJson  = businessInformation["business_entity_type"]
         
-        if !businessEntityTypeJson.isEmpty{
+        if !businessEntityTypeJson.isEmpty {
             businessEntityType = MCABusinessEntityType(businessEnityType: businessEntityTypeJson)
         }
         
@@ -106,51 +80,10 @@ class MCABusinessInformation: NSObject {
         paymentPlan                 = businessInformation["payment_plan"].boolValue
         peakMonths                  = businessInformation["peak_months"].stringValue
         
-        grossAnnualSales    = 30000
-
+        grossAnnualSales            = 30000 //TODO: Harcoded value need to remove.
+        
+        fieldCount                  = 12
     }
-    
-
-    
-    
-    
-    init(loanApplication: MCALoanApplication) {
-        
-        
-        bankruptcy                  = loanApplication.businessInfo.bankruptcy
-        bankruptcyDischargeDate     = loanApplication.businessInfo.bankruptcyDischargeDate
-        bankruptcyMonthlyPayment    = loanApplication.businessInfo.bankruptcyMonthlyPayment
-        bankruptcyPaymentPlan       = loanApplication.businessInfo.bankruptcyPaymentPlan
-        bankruptcySatisfied         = loanApplication.businessInfo.bankruptcySatisfied
-        businessEntityType          = loanApplication.businessInfo.businessEntityType
-        
-        businessSeasonal            = loanApplication.businessInfo.businessSeasonal
-        businessStartDate           = loanApplication.businessInfo.businessStartDate
-        dbaBusinessName             = loanApplication.businessInfo.dbaBusinessName
-        federalTaxId                = loanApplication.businessInfo.federalTaxId
-        
-        incorporationState          = loanApplication.businessInfo.incorporationState
-        
-        industryType                = loanApplication.businessInfo.industryType
-        
-        judgementsOrLiens           = loanApplication.businessInfo.judgementsOrLiens
-        judgementsOrLiensAmount     = loanApplication.businessInfo.judgementsOrLiensAmount
-        judgementsOrLiensNo         = loanApplication.businessInfo.judgementsOrLiensNo
-        legalBusinessName           = loanApplication.businessInfo.legalBusinessName
-        monthlyPaymentAmount        = loanApplication.businessInfo.monthlyPaymentAmount
-        paymentPlan                 = loanApplication.businessInfo.paymentPlan
-        peakMonths                  = loanApplication.businessInfo.peakMonths
-        contactNumber               = "\(loanApplication.programInfo.contactNumber!)"
-        contactName                 = loanApplication.programInfo.contactName
-        email                       = loanApplication.programInfo.email
-        
-        grossAnnualSales    = 30000
-
-        fieldCount          = 12
-
-    }
-    
-    
     
     func getValueFromKey(key: BusinessInformationKeys) -> String{
         
@@ -164,7 +97,7 @@ class MCABusinessInformation: NSObject {
                 modelValue = contactName
                 
             case .telephone:
-                modelValue = contactNumber
+                modelValue = "\(contactNumber!)"
                 
             case .email:
                 modelValue = email
@@ -191,8 +124,7 @@ class MCABusinessInformation: NSObject {
                 modelValue = "\(industryType.industryTypeID!)"
             
             case .seasonalBusiness:
-                modelValue = "true" //TODO: Need to remove the hardcodes.
-            
+                modelValue = businessSeasonal == true ? "Yes" : "No"
         }
         return modelValue
     }

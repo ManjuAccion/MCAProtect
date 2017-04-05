@@ -23,7 +23,6 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     var doneButton : UIBarButtonItem?
     var applicationStatus : Int?
     
-    var businessInformation : MCABusinessInformation!
     var businessAddress : MCABusinessAddress!
     var fieldCount : Int!
     var applicationModel : AnyObject!
@@ -39,7 +38,6 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        businessInformation = MCABusinessInformation(loanApplication: selectedLoanApp)
         businessAddress = MCABusinessAddress(loanApplication: selectedLoanApp)
         
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
@@ -71,8 +69,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
                 
             case SavedApplicationForm.BusinessInformation.rawValue:
                 self.title = "Business Information"
-                applicationModel = businessInformation
-                fieldCount = (applicationModel as! MCABusinessInformation).fieldCount
+                fieldCount = selectedLoanApp.businessInfo.fieldCount
                 self.tableViewBottomConstraint.constant = 0.0
 
             case SavedApplicationForm.BusinessAddress.rawValue:
@@ -141,29 +138,29 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
             
                 switch indexPath.row {
                     case BusinessInformationKeys.legalBusinessName.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.legalBusinessName)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.legalBusinessName)
                     case BusinessInformationKeys.contactName.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.contactName)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.contactName)
                     case BusinessInformationKeys.telephone.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.telephone)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.telephone)
                     case BusinessInformationKeys.email.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.email)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.email)
                     case BusinessInformationKeys.federalTaxID.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.federalTaxID)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.federalTaxID)
                     case BusinessInformationKeys.grossAnnualSales.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.grossAnnualSales)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.grossAnnualSales)
                     case BusinessInformationKeys.businessEntityType.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.businessEntityType)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.businessEntityType)
                     case BusinessInformationKeys.dBABusinessName.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.dBABusinessName)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.dBABusinessName)
                     case BusinessInformationKeys.stateOfIncorprataion.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.stateOfIncorprataion)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.stateOfIncorprataion)
                     case BusinessInformationKeys.businessStartDate.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.businessStartDate)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.businessStartDate)
                     case BusinessInformationKeys.industryType.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.industryType)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.industryType)
                     case BusinessInformationKeys.seasonalBusiness.hashValue:
-                        cell.setBusinessInformation(businessInformation: businessInformation, businessInfoKey: BusinessInformationKeys.seasonalBusiness)
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.seasonalBusiness)
                     default: break
                 }
             case SavedApplicationForm.BusinessAddress.rawValue:
