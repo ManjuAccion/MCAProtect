@@ -23,7 +23,6 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     var doneButton : UIBarButtonItem?
     var applicationStatus : Int?
     
-    var loanDetail : MCALoanDetail!
     var businessInformation : MCABusinessInformation!
     var businessAddress : MCABusinessAddress!
     var fieldCount : Int!
@@ -40,7 +39,6 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loanDetail = MCALoanDetail(loanApplication: selectedLoanApp)
         businessInformation = MCABusinessInformation(loanApplication: selectedLoanApp)
         businessAddress = MCABusinessAddress(loanApplication: selectedLoanApp)
         
@@ -68,8 +66,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
             
             case SavedApplicationForm.LoanDetails.rawValue:
                 self.title = "Loan Details"
-                applicationModel = loanDetail
-                fieldCount = (applicationModel as! MCALoanDetail).fieldCount
+                fieldCount = selectedLoanApp.programInfo.loanDetailFieldCount
                 self.tableViewBottomConstraint.constant = 0.0
                 
             case SavedApplicationForm.BusinessInformation.rawValue:
@@ -128,15 +125,15 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
                 
                 switch indexPath.row {
                     case LoanDetailKeys.businessName.hashValue:
-                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.businessName)
+                        cell.setLoanDetail(programInformation: selectedLoanApp.programInfo, loanKey: LoanDetailKeys.businessName)
                     case LoanDetailKeys.creditScore.hashValue:
-                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.creditScore)
+                        cell.setLoanDetail(programInformation: selectedLoanApp.programInfo, loanKey: LoanDetailKeys.creditScore)
                     case LoanDetailKeys.loanAmount.hashValue:
-                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.loanAmount)
+                        cell.setLoanDetail(programInformation: selectedLoanApp.programInfo, loanKey: LoanDetailKeys.loanAmount)
                     case LoanDetailKeys.loanTerm.hashValue:
-                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.loanTerm)
+                        cell.setLoanDetail(programInformation: selectedLoanApp.programInfo, loanKey: LoanDetailKeys.loanTerm)
                     case LoanDetailKeys.needItBy.hashValue:
-                        cell.setLoanDetail(loanDetail: loanDetail, loanKey: LoanDetailKeys.needItBy)
+                        cell.setLoanDetail(programInformation: selectedLoanApp.programInfo, loanKey: LoanDetailKeys.needItBy)
                     default: break
                 }
 

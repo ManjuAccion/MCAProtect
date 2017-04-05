@@ -37,11 +37,11 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         titleLabel.text = appSummaryKey.rawValue
         dataTF.text =  appSummary.getValueFromKey(key: appSummaryKey)
     }
-    
-    func setLoanDetail(loanDetail : MCALoanDetail, loanKey : LoanDetailKeys)
+
+    func setLoanDetail(programInformation : MCAProgramInformation, loanKey : LoanDetailKeys)
     {
         titleLabel.text = loanKey.rawValue
-        dataTF.text =  loanDetail.getValueFromKey(key: loanKey)
+        dataTF.text = programInformation.getLoanDetailsFromProgramInformation(loanDetailKey: loanKey)
     }
     
     func setBusinessInformation(businessInformation : MCABusinessInformation, businessInfoKey : BusinessInformationKeys)

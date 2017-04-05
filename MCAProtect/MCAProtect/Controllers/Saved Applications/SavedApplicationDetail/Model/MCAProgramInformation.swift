@@ -23,6 +23,8 @@ class MCAProgramInformation: NSObject {
     var loanRequirementTenure : String!
     var loanTerm : Int!
     var token : String!
+    var loanDetailFieldCount : Int!
+    
     
     init(programInformation: JSON!) {
         
@@ -42,5 +44,34 @@ class MCAProgramInformation: NSObject {
         loanRequirementTenure = programInformation["loan_requirement_tenure"].stringValue
         loanTerm = programInformation["loan_term"].intValue
         token = programInformation["token"].stringValue
+        loanDetailFieldCount = 5
+    }
+    
+    
+    func getLoanDetailsFromProgramInformation(loanDetailKey:LoanDetailKeys) -> String {
+        
+        var modelValue : String!
+        
+        switch loanDetailKey {
+            
+        case .businessName :
+            modelValue =  businessName
+            
+        case .loanAmount :
+            modelValue = MCAUtilities.currencyFormatter(inputItem: loanAmount as AnyObject)
+            
+        case .creditScore :
+            modelValue = "\(creditScore!)"
+            
+        case .needItBy :
+            modelValue = loanRequirementTenure
+            
+        case .loanTerm :
+            modelValue = "\(loanTerm!) Months"
+        }
+        return modelValue
     }
 }
+
+
+
