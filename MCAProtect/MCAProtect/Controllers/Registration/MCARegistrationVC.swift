@@ -229,11 +229,23 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
             , successCallBack:{ (response : JSON!) in
                 self.stopActivityIndicator()
                 print("Success \(response)")
-                let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-                let setPinVC = storyboard.instantiateViewController(withIdentifier: "MCASetMPinVC") as! MCASetMPinVC
-                setPinVC.isFromRegistrationFlow = true
-                self.navigationController?.pushViewController(setPinVC,
-                                                         animated: true)
+                
+                let alertViewController = UIAlertController(title : "MCAP", message : "Registration Successful", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : { action in
+                    
+                    let storyboard = UIStoryboard(name: "mPin", bundle: nil)
+                    let setPinVC = storyboard.instantiateViewController(withIdentifier: "MCASetMPinVC") as! MCASetMPinVC
+                    setPinVC.isFromRegistrationFlow = true
+                    self.navigationController?.pushViewController(setPinVC,
+                                                                  animated: true)
+                    
+                    
+                }))
+                
+                
+                self.present(alertViewController, animated: true , completion: nil)
+
+                
         }, failureCallBack: { (error : Error) in
             self.stopActivityIndicator()
             print("Failure \(error)")

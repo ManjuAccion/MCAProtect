@@ -51,7 +51,7 @@ class MCAUtilities: NSObject {
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        formatter.locale = Locale(identifier: "es_CL")
+        formatter.locale = Locale(identifier: "en_US")
         formatter.maximumFractionDigits = 0
         return formatter.string(from: inputItem as! NSNumber)!
     }

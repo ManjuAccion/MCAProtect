@@ -27,7 +27,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Stacty's Boutique"
+//        self.title = merchantApplicationDetail.contactName
         tableViewBottomConstraint.constant = 0
         submitButton.layer.cornerRadius = 3.0
         cancelButton.layer.cornerRadius = 3.0

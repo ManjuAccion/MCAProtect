@@ -114,10 +114,7 @@ class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
                 let alertViewController = UIAlertController(title : "MCAP", message : response["message"].stringValue, preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     
-                    MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
-                    let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
-                    let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
-                    self.navigationController?.pushViewController(mPin, animated: true)
+                    self.navigationController?.popViewController(animated: true)
 
                     
                 }))

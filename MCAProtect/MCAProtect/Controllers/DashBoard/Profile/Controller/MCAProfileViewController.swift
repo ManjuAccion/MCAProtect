@@ -262,7 +262,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 self.stopActivityIndicator()
                 print("Success \(response)")
                 MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 0)
-                let alertViewController = UIAlertController(title : "MCAP", message : "Update Successfully", preferredStyle : .alert)
+                let alertViewController = UIAlertController(title : "MCAP", message : "Profile Updated Successfully", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 self.present(alertViewController, animated: true , completion: nil)
 
