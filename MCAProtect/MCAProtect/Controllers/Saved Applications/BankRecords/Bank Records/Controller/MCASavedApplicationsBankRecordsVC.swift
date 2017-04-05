@@ -61,8 +61,8 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
         let savedApplicationBankDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationBankDetailsVC) as! MCASavedApplicationBankDetailsVC
         bankRecords = bankRecordsArray[indexPath.row]
-        savedApplicationBankDetailsVC.bankName = bankRecords.bankName
         savedApplicationBankDetailsVC.applicationStatus = applicationStatus
+        savedApplicationBankDetailsVC.bankRecord = bankRecords
         navigationController?.pushViewController(savedApplicationBankDetailsVC, animated: true)
 
     }

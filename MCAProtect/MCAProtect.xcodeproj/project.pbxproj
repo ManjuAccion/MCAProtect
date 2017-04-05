@@ -99,7 +99,6 @@
 		BAC6AD741E80F9B60047F7D3 /* MCAMerchantDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD731E80F9B60047F7D3 /* MCAMerchantDocumentation.swift */; };
 		BAC6AD771E80FCE00047F7D3 /* MCABankRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD761E80FCE00047F7D3 /* MCABankRecords.swift */; };
 		BAC6AD801E80FE560047F7D3 /* MCASavedApplicationBankDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD7D1E80FE560047F7D3 /* MCASavedApplicationBankDetailsVC.swift */; };
-		BAC6AD821E80FE6E0047F7D3 /* MCABankDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD811E80FE6E0047F7D3 /* MCABankDetails.swift */; };
 		BAC6AD861E80FFB90047F7D3 /* MCASavedApplicationsBankDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD841E80FFB90047F7D3 /* MCASavedApplicationsBankDetailsTVCell.swift */; };
 		BAC6AD871E80FFB90047F7D3 /* MCASavedApplicationsBankDetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6AD851E80FFB90047F7D3 /* MCASavedApplicationsBankDetailsTVCell.xib */; };
 		BAC6AD8D1E8101770047F7D3 /* MCASavedApplicationsBankRecordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD891E8101770047F7D3 /* MCASavedApplicationsBankRecordsVC.swift */; };
@@ -315,7 +314,6 @@
 		BAC6AD731E80F9B60047F7D3 /* MCAMerchantDocumentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantDocumentation.swift; sourceTree = "<group>"; };
 		BAC6AD761E80FCE00047F7D3 /* MCABankRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABankRecords.swift; sourceTree = "<group>"; };
 		BAC6AD7D1E80FE560047F7D3 /* MCASavedApplicationBankDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationBankDetailsVC.swift; sourceTree = "<group>"; };
-		BAC6AD811E80FE6E0047F7D3 /* MCABankDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABankDetails.swift; sourceTree = "<group>"; };
 		BAC6AD841E80FFB90047F7D3 /* MCASavedApplicationsBankDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationsBankDetailsTVCell.swift; sourceTree = "<group>"; };
 		BAC6AD851E80FFB90047F7D3 /* MCASavedApplicationsBankDetailsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASavedApplicationsBankDetailsTVCell.xib; sourceTree = "<group>"; };
 		BAC6AD891E8101770047F7D3 /* MCASavedApplicationsBankRecordsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationsBankRecordsVC.swift; sourceTree = "<group>"; };
@@ -1389,7 +1387,6 @@
 			children = (
 				BAC6AD831E80FFB90047F7D3 /* Custom Cells */,
 				BAC6AD7C1E80FE560047F7D3 /* Controller */,
-				BAC6AD781E80FDD70047F7D3 /* Model */,
 			);
 			path = "Bank Details";
 			sourceTree = "<group>";
@@ -1416,14 +1413,6 @@
 			isa = PBXGroup;
 			children = (
 				BAC6AD761E80FCE00047F7D3 /* MCABankRecords.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BAC6AD781E80FDD70047F7D3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BAC6AD811E80FE6E0047F7D3 /* MCABankDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2447,7 +2436,6 @@
 				BAC6ADCF1E81422A0047F7D3 /* MCAApplicationForm.swift in Sources */,
 				5B1F8D7E1E83E9E400BD53F2 /* MCAFundingProgramApplicationForm.swift in Sources */,
 				CE9F69721E9293AE0089F8CE /* MCABusinessLocationList.swift in Sources */,
-				BAC6AD821E80FE6E0047F7D3 /* MCABankDetails.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
 				BACC53061E892DAF003C4852 /* MCAUser.swift in Sources */,
 				BAC6ADDD1E8153B90047F7D3 /* MCABusinessLocationDetail.swift in Sources */,

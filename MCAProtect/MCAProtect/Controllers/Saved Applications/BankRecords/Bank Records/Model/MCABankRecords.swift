@@ -25,32 +25,13 @@ class MCABankRecords: NSObject {
     var rangeToDate                 : String!
     var totalBankDepositsAmount     : Int!
     var updatedAt                   : String!
+    var accountNumber               : String!
+    var bankRecordsCount            : Int!
+    var bankRecordDetailFieldCount  : Int!
     
-    
-    //TODO: - Need to remove the old data
-    
-    var accountNumber : String!
-    var bankRecordsCount : Int!
-
-    init(data : NSDictionary?) {
-
-        if nil == data {
-            
-            bankName = "Bank Of America"
-            accountNumber = "BOA76587650"
-            averageDailyBalance = 2200
-            bankRecordsCount = 4
-            
-        }
-        else {
-            
-        }
-    }
-    
-    
-    init(bankRecords: JSON!){
+    init(bankRecords: JSON!) {
         
-        if bankRecords.isEmpty{
+        if bankRecords.isEmpty {
             return
         }
         
@@ -68,5 +49,24 @@ class MCABankRecords: NSObject {
         rangeToDate                     = bankRecords["range_to_date"].stringValue
         totalBankDepositsAmount         = bankRecords["total_bank_deposits_amount"].intValue
         updatedAt                       = bankRecords["updated_at"].stringValue
+        accountNumber                   = "" //TODO:- Need to fetch the account number need to add validation also
+        bankRecordDetailFieldCount      = 7
+    }
+    
+    func getValueFromKey(key: BankDetailKeys) -> String {
+        
+        var modelValue : String!
+        
+        switch key {
+            
+            case .accountNumber             : modelValue = accountNumber
+            case .range                     : modelValue = rangeFromDate + rangeToDate
+            case .statementPeriod           : modelValue = rangeFromDate + rangeToDate //TODO:- No seperate value coming for statement period so used range.
+            case .numberOfDeposits          : modelValue = "\(numberOfBusinessBankDeposits!)"
+            case .depositAmount             : modelValue = MCAUtilities.currencyFormatter(inputItem: totalBankDepositsAmount as AnyObject)
+            case .daysWithNegativeBalance   : modelValue = "\(daysWithNegativeBalance!)"
+            case .avgDailyBalance           : modelValue = MCAUtilities.currencyFormatter(inputItem: averageDailyBalance as AnyObject)
+        }
+        return modelValue
     }
 }

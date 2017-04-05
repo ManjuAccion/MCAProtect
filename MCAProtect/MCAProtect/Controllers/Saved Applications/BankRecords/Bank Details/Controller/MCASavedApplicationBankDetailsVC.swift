@@ -14,17 +14,14 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
     
     var isViewingMode : Bool?
     var activeField: UITextField?
-    var bankName: String?
     var applicationStatus : Int?
-    
-    var bankDetail : MCABankDetails!
+    var bankRecord : MCABankRecords!
 
     //MARK: View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bankDetail = MCABankDetails(data:nil)
         tableView.register(UINib(nibName: "MCASavedApplicationsBankDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankDetailsTVCell)
         tableView.tableFooterView = UIView()
         if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
@@ -32,7 +29,7 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         }
 
-        self.title = bankName
+        self.title = bankRecord.bankName
         isViewingMode = true
     }
     
@@ -48,7 +45,7 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bankDetail.fieldCount
+        return bankRecord.bankRecordDetailFieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,19 +56,19 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
         switch indexPath.row
         {
             case BankDetailKeys.accountNumber.hashValue:
-                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.accountNumber)
+                cell.setBankDetail(bankDetail: bankRecord, mcaLoanKey: BankDetailKeys.accountNumber)
             case BankDetailKeys.range.hashValue:
-                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.range)
+                cell.setBankDetail(bankDetail: bankRecord, mcaLoanKey: BankDetailKeys.range)
             case BankDetailKeys.statementPeriod.hashValue:
-                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.statementPeriod)
+                cell.setBankDetail(bankDetail: bankRecord, mcaLoanKey: BankDetailKeys.statementPeriod)
             case BankDetailKeys.numberOfDeposits.hashValue:
-                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.numberOfDeposits)
+                cell.setBankDetail(bankDetail: bankRecord, mcaLoanKey: BankDetailKeys.numberOfDeposits)
             case BankDetailKeys.depositAmount.hashValue:
-                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.depositAmount)
+                cell.setBankDetail(bankDetail: bankRecord, mcaLoanKey: BankDetailKeys.depositAmount)
             case BankDetailKeys.daysWithNegativeBalance.hashValue:
-                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.daysWithNegativeBalance)
+                cell.setBankDetail(bankDetail: bankRecord, mcaLoanKey: BankDetailKeys.daysWithNegativeBalance)
             case BankDetailKeys.avgDailyBalance.hashValue:
-                cell.setBankDetail(bankDetail: bankDetail, mcaLoanKey: BankDetailKeys.avgDailyBalance)
+                cell.setBankDetail(bankDetail: bankRecord, mcaLoanKey: BankDetailKeys.avgDailyBalance)
             default:break
         }
         cell.dataTF.delegate = self
