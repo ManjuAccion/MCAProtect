@@ -14,14 +14,16 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
 
     var merchantDocumentation : MCAMerchantDocumentation!
     var loanApplication : MCALoanApplication!
+    var merchantDocumentationArray : [MCAMerchantDocumentation]!
+    
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        merchantDocumentation = MCAMerchantDocumentation(loanApplication: loanApplication)
+        merchantDocumentationArray = loanApplication.merchantDocumentation
         self.title = "Merchant Documentation"
-        tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
+        tableView.register(UINib(nibName: "MCAMerchantDocumentationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAMerchantDocumentationTVCell)
         tableView.tableFooterView = UIView()
     }
 
@@ -32,28 +34,16 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return merchantDocumentation.fieldCount
+        return merchantDocumentationArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAMerchantDocumentationTVCell, for: indexPath) as! MCAMerchantDocumentationTVCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
-        
-        switch indexPath.row
-        {
-            case MerchantDocumentationKeys.proofOfIdentity.hashValue:
-                cell.setMerchantDocumentation(merchantDocumentation: merchantDocumentation, merchantDocumentationKey: MerchantDocumentationKeys.proofOfIdentity)
-                
-            case MerchantDocumentationKeys.proofOfResidence .hashValue:
-                cell.setMerchantDocumentation(merchantDocumentation: merchantDocumentation, merchantDocumentationKey: MerchantDocumentationKeys.proofOfResidence)
-            
-            default: break;
-        }
-        
-        cell.viewDetailsButton.setImage(UIImage(named: "iconDownload"), for: UIControlState.normal)
-        cell.viewDetailsButton.isHidden = false
+        merchantDocumentation = merchantDocumentationArray[indexPath.row]
+        cell.setMerchantDocumentation(merchantDocumentation: merchantDocumentation)
         
         return cell
     }
@@ -63,7 +53,7 @@ class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableV
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 60.0
+        return 96.0
     }
 
 }

@@ -58,7 +58,7 @@ struct CellIdentifiers {
     static let MCANewChatTVCell                      = "MCANewChatTVCell"
     static let MCAAskFunderCommunicationTVCell       = "MCAAskFunderCommunicationTVCell"
     static let MCADealsPipelineTVCell                = "MCADealsPipelineTVCell"
-
+    static let MCAMerchantDocumentationTVCell        = "MCAMerchantDocumentationTVCell"
 }
 
 struct StoryboardName {

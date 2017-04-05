@@ -184,6 +184,8 @@
 		BACC530E1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC530D1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift */; };
 		BACC53101E8AA674003C4852 /* MCAAskFunderApplicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC530F1E8AA674003C4852 /* MCAAskFunderApplicationList.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
+		CE5338251E951C0000B20861 /* MCAMerchantDocumentationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5338231E951C0000B20861 /* MCAMerchantDocumentationTVCell.swift */; };
+		CE5338261E951C0000B20861 /* MCAMerchantDocumentationTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5338241E951C0000B20861 /* MCAMerchantDocumentationTVCell.xib */; };
 		CE9F69661E92877E0089F8CE /* MCABillingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69651E92877E0089F8CE /* MCABillingState.swift */; };
 		CE9F69681E9289790089F8CE /* MCAProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */; };
 		CE9F696A1E928C210089F8CE /* MCALoanAccountsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F69691E928C210089F8CE /* MCALoanAccountsList.swift */; };
@@ -398,6 +400,8 @@
 		BACC530D1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationSummaryVC.swift; sourceTree = "<group>"; };
 		BACC530F1E8AA674003C4852 /* MCAAskFunderApplicationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderApplicationList.swift; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE5338231E951C0000B20861 /* MCAMerchantDocumentationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantDocumentationTVCell.swift; sourceTree = "<group>"; };
+		CE5338241E951C0000B20861 /* MCAMerchantDocumentationTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAMerchantDocumentationTVCell.xib; sourceTree = "<group>"; };
 		CE9F69651E92877E0089F8CE /* MCABillingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABillingState.swift; sourceTree = "<group>"; };
 		CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProgramInformation.swift; sourceTree = "<group>"; };
 		CE9F69691E928C210089F8CE /* MCALoanAccountsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MCALoanAccountsList.swift; path = "MCAProtect/Controllers/Saved Applications/SavedApplicationDetail/Model/MCALoanAccountsList.swift"; sourceTree = SOURCE_ROOT; };
@@ -1211,6 +1215,7 @@
 		BA2EA8401E66BC7F00145D33 /* MerchantDocumentation */ = {
 			isa = PBXGroup;
 			children = (
+				CE5338221E951BCB00B20861 /* Custom Cells */,
 				BAC6AD901E8101990047F7D3 /* Controller */,
 				BAC6AD721E80F99B0047F7D3 /* Model */,
 			);
@@ -2026,6 +2031,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		CE5338221E951BCB00B20861 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE5338231E951C0000B20861 /* MCAMerchantDocumentationTVCell.swift */,
+				CE5338241E951C0000B20861 /* MCAMerchantDocumentationTVCell.xib */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		CE9F697B1E937FCE0089F8CE /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -2180,6 +2194,7 @@
 				5BB3E5FB1E8293A800A67927 /* MCAApplicationTVCell.xib in Resources */,
 				BAC6AE4A1E8250260047F7D3 /* MCATableViewCell.xib in Resources */,
 				5BB3E6031E8293A800A67927 /* MCAEmailTableViewCell.xib in Resources */,
+				CE5338261E951C0000B20861 /* MCAMerchantDocumentationTVCell.xib in Resources */,
 				BAC6AE4E1E8250260047F7D3 /* MCARightMenuVC.xib in Resources */,
 				782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */,
 				BAC6AE301E824E700047F7D3 /* WebView.storyboard in Resources */,
@@ -2458,6 +2473,7 @@
 				CE9F696C1E928D3F0089F8CE /* MCAAddress.swift in Sources */,
 				BA1237D21E8BF091008A2AFE /* MCAMerchantApplicationListVC.swift in Sources */,
 				CE9F69661E92877E0089F8CE /* MCABillingState.swift in Sources */,
+				CE5338251E951C0000B20861 /* MCAMerchantDocumentationTVCell.swift in Sources */,
 				BAC6ADE61E8160350047F7D3 /* MCAAskFunderApplicationListVC.swift in Sources */,
 				BAC6AD8E1E8101770047F7D3 /* MCASavedApplicationsBankRecordsTVCell.swift in Sources */,
 				5BB3E6091E8293A800A67927 /* SecureInputView.swift in Sources */,
