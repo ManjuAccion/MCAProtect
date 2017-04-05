@@ -94,7 +94,6 @@
 		BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */; };
 		BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */; };
 		BAC6AD5B1E7FDF2C0047F7D3 /* MCABusinessInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD5A1E7FDF2C0047F7D3 /* MCABusinessInformation.swift */; };
-		BAC6AD5D1E7FE3CC0047F7D3 /* MCABusinessAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD5C1E7FE3CC0047F7D3 /* MCABusinessAddress.swift */; };
 		BAC6AD611E7FE8E10047F7D3 /* MCABankruptcy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD601E7FE8E10047F7D3 /* MCABankruptcy.swift */; };
 		BAC6AD631E7FE9310047F7D3 /* MCAJudgementsOrLiens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD621E7FE9310047F7D3 /* MCAJudgementsOrLiens.swift */; };
 		BAC6AD741E80F9B60047F7D3 /* MCAMerchantDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6AD731E80F9B60047F7D3 /* MCAMerchantDocumentation.swift */; };
@@ -309,7 +308,6 @@
 		BA8B68BC1E5C72B7004CEB69 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		BA8B68BE1E5C73E0004CEB69 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		BAC6AD5A1E7FDF2C0047F7D3 /* MCABusinessInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessInformation.swift; sourceTree = "<group>"; };
-		BAC6AD5C1E7FE3CC0047F7D3 /* MCABusinessAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessAddress.swift; sourceTree = "<group>"; };
 		BAC6AD601E7FE8E10047F7D3 /* MCABankruptcy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABankruptcy.swift; sourceTree = "<group>"; };
 		BAC6AD621E7FE9310047F7D3 /* MCAJudgementsOrLiens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAJudgementsOrLiens.swift; sourceTree = "<group>"; };
 		BAC6AD731E80F9B60047F7D3 /* MCAMerchantDocumentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantDocumentation.swift; sourceTree = "<group>"; };
@@ -1363,7 +1361,6 @@
 			isa = PBXGroup;
 			children = (
 				BAC6AD5A1E7FDF2C0047F7D3 /* MCABusinessInformation.swift */,
-				BAC6AD5C1E7FE3CC0047F7D3 /* MCABusinessAddress.swift */,
 				CE9F69671E9289790089F8CE /* MCAProgramInformation.swift */,
 				CE9F696B1E928D3F0089F8CE /* MCAAddress.swift */,
 				CE9F696D1E9291200089F8CE /* MCABusinessEntityType.swift */,
@@ -2478,7 +2475,6 @@
 				5B1F8D781E83AD2800BD53F2 /* MCAFundingProgramSummaryVC.swift in Sources */,
 				BAC6AE571E8250720047F7D3 /* MCAChangeMPinVC.swift in Sources */,
 				CE9F696A1E928C210089F8CE /* MCALoanAccountsList.swift in Sources */,
-				BAC6AD5D1E7FE3CC0047F7D3 /* MCABusinessAddress.swift in Sources */,
 				CE9F69761E9297390089F8CE /* MCALoanApplication.swift in Sources */,
 				5B1F8D761E83ACF600BD53F2 /* MCAFundingProgramSummary.swift in Sources */,
 				BAC6ADD51E8150660047F7D3 /* MCASAOwnerInformationDetailVC.swift in Sources */,

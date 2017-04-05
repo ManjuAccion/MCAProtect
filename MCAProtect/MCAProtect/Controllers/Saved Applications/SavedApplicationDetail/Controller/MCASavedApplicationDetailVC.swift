@@ -15,36 +15,28 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     @IBOutlet weak var tableViewBottomConstraint:NSLayoutConstraint!
     @IBOutlet weak var billingAddressContainerView: UIView!
     
-    var applicaionDetailType: NSInteger!
-    var isViewingMode : Bool?
-    var summaryTVCell : MCAApplicationSummaryTVCell?
-    var activeField: UITextField?
-    var toolBar : UIToolbar?
-    var doneButton : UIBarButtonItem?
-    var applicationStatus : Int?
-    
-    var businessAddress : MCABusinessAddress!
-    var fieldCount : Int!
-    var applicationModel : AnyObject!
-    
-    var dataSourceArray : [String] = []
-    var dataSourceValueArray : [String] = []
-    
-    var selectedLoanApp : MCALoanApplication!
+    var applicaionDetailType    : NSInteger!
+    var isViewingMode           : Bool?
+    var summaryTVCell           : MCAApplicationSummaryTVCell?
+    var activeField             : UITextField?
+    var toolBar                 : UIToolbar?
+    var doneButton              : UIBarButtonItem?
+    var applicationStatus       : Int?
+    var fieldCount              : Int!
+    var applicationModel        : AnyObject!
+    var dataSourceArray         : [String] = []
+    var dataSourceValueArray    : [String] = []
+    var selectedLoanApp         : MCALoanApplication!
 
-    
-    //MARK: - View Life Cycle
+    //MARK: - View Life Cycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        businessAddress = MCABusinessAddress(loanApplication: selectedLoanApp)
         
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         isViewingMode = true
         initializeToolBar()
 
-        
         if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
@@ -74,12 +66,12 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
 
             case SavedApplicationForm.BusinessAddress.rawValue:
                 self.title = "Business Address"
-                applicationModel = businessAddress
-                fieldCount = (applicationModel as! MCABusinessAddress).fieldCount
+                fieldCount = selectedLoanApp.address.addressFieldCount
 
             default:
                 break
         }
+        
         let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
         tableView.contentInset = contentInset
         tableView.tableFooterView = UIView()
@@ -104,7 +96,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     }
     
     
-    //MARK: - Table View Datasource
+    //MARK: - Table View Datasource -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fieldCount
@@ -166,19 +158,19 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
             case SavedApplicationForm.BusinessAddress.rawValue:
                 switch indexPath.row {
                     case BusinessAddressKeys.street.hashValue:
-                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.street)
+                        cell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey: BusinessAddressKeys.street)
                     case BusinessAddressKeys.city.hashValue:
-                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.city)
+                        cell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey: BusinessAddressKeys.city)
                     case BusinessAddressKeys.state.hashValue:
-                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.state)
+                        cell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey: BusinessAddressKeys.state)
                     case BusinessAddressKeys.zipCode.hashValue:
-                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.zipCode)
+                        cell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey: BusinessAddressKeys.zipCode)
                     case BusinessAddressKeys.webAddress.hashValue:
-                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.webAddress)
+                        cell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey: BusinessAddressKeys.webAddress)
                     case BusinessAddressKeys.telephone.hashValue:
-                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.telephone)
+                        cell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey: BusinessAddressKeys.telephone)
                     case BusinessAddressKeys.faxNumber.hashValue:
-                        cell.setBusinessAddress(businessAddress: businessAddress, businessAddressKey: BusinessAddressKeys.faxNumber)
+                        cell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey: BusinessAddressKeys.faxNumber)
                     default: break
                     }
             default: break
@@ -190,7 +182,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         return cell
     }
     
-    //MARK: - Table View Delegate
+    //MARK: - Table View Delegate -
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
@@ -229,7 +221,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
         return true
     }
 
-    //MARK: - Keyboard Functions
+    //MARK: - Keyboard Functions -
     
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -252,7 +244,7 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
     }
     
     
-    //MARK: - Custom Functions
+    //MARK: - Custom Functions -
     
     func editButtonTapped() {
         

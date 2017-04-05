@@ -50,7 +50,7 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         dataTF.text =  businessInformation.getValueFromKey(key: businessInfoKey)
     }
     
-    func setBusinessAddress(businessAddress : MCABusinessAddress, businessAddressKey : BusinessAddressKeys)
+    func setBusinessAddress(businessAddress : MCAAddress, businessAddressKey : BusinessAddressKeys)
     {
         titleLabel.text = businessAddressKey.rawValue
         dataTF.text =  businessAddress.getValueFromKey(key: businessAddressKey)
