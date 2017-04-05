@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MCAFPMerchantRquirement: NSObject {
 
@@ -23,23 +24,21 @@ class MCAFPMerchantRquirement: NSObject {
 
     
     
-    init(data : NSDictionary?) {
+    init(Data : JSON!) {
         
-        if data != nil {
+        if Data != nil {
+            minimumCreditScore = Data["min_credit_fico"] != JSON.null ? Data["min_credit_fico"].stringValue : ""
+            minimumTimeInBusiness = Data["min_business_age"] != JSON.null ? Data["min_business_age"].stringValue : ""
+            minimumMonthlySales = Data["min_monthly_sales"] != JSON.null ? Data["min_monthly_sales"].intValue : 0
+            minimumNumOfBankDeposits = Data["min_bank_deposits_months"] != JSON.null ? Data["min_bank_deposits_months"].stringValue : ""
+            daysWithNegativeBalance = Data["negative_days_accepted"] != JSON.null ? Data["negative_days_accepted"].stringValue : ""
+            minimumDepositeAmount = Data["min_avg_deposit"] != JSON.null ? Data["min_avg_deposit"].stringValue : ""
+            minimumDailyBalance = Data["min_avg_daily_balance"] != JSON.null ? Data["min_avg_daily_balance"].stringValue : ""
             
-        }
-        else
-        {
-            minimumCreditScore = "Syndicate Premium"
-            minimumTimeInBusiness = "10 Months"
-            minimumMonthlySales = 5000
-            minimumNumOfBankDeposits = "4 per 6 Months"
-            daysWithNegativeBalance = "5 per 6 Months"
-            minimumDepositeAmount = "$5000 per 6 Months"
-            minimumDailyBalance = "$1000 per 6 Months"
             fieldCount = 7
+
         }
-    }
+           }
     
     func getValueFromKey(key: FPMerchantRequirementkeys) -> String{
         

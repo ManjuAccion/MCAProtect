@@ -182,22 +182,13 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         
 
 
-      //  self.showActivityIndicator()
+       self.showActivityIndicator()
 
-        var paramDict  = Dictionary<String,Any>()
-        paramDict["file"] = ""
-        paramDict["file_name"] = "profileImage"
-        paramDict["file_extension"] = ".png"
+        
 
-        let parameters = [
-            "file_name": "profile_image.jpeg"
-        ]
         
+       
         
-        // Set static name, so everytime image is cloned, it will be named "temp", thus rewrite the last "temp" image.
-        // *Don't worry it won't be shown in Photos app.
-        
-        // Encode this image into JPEG. *You can add conditional based on filetype, to encode into JPEG or PNG
          let data = UIImageJPEGRepresentation(profileImage, 80)
             // Save cloned image into document directory
             
@@ -209,27 +200,47 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 print(error)
             }
         
-        Alamofire.upload(fileURL, to: "http://192.168.169.84:3000/api/sf_integrations/upload_document").responseJSON
-            { response in
-            debugPrint(response)
-        }
-//        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:paramDict,
-//                                                                  endPoint:MCAAPIEndPoints.BrokerUploadImageAPIEndpoint
-//            , successCallBack:{ (response : JSON!) in
-//                
-//                self.stopActivityIndicator()
-//             //   print("Success \(response)")
-//                
-//                
+       
+        var paramDict  = Dictionary<String,Any>()
+        paramDict["file"] = fileURL
+
+//        Alamofire.upload(
+//            multipartFormData: { multipartFormData in
+//                for (key, value) in paramDict {
+//                    multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+//                }
+//                multipartFormData.append(fileURL, withName: "test")
+//               
 //        },
-//              failureCallBack: { (error : Error) in
-//                self.stopActivityIndicator()
-//                print("Failure \(error)")
-//                let alertViewController = UIAlertController(title : "MCAP", message : "Update Failed", preferredStyle : .alert)
-//                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-//                self.present(alertViewController, animated: true , completion: nil)
-//                
-//        })
+//            to: "http://192.168.169.84:3000/api/sf_integrations/upload_document",
+//            encodingCompletion: { encodingResult in
+//                switch encodingResult {
+//                case .success(let upload, _, _):
+//                    upload.responseJSON { response in
+//                        debugPrint(response)
+//                    }
+//                case .failure(let encodingError):
+//                    print(encodingError)
+//                }
+//        }
+//        )
+        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:paramDict,
+                                                                  endPoint:""
+            , successCallBack:{ (response : JSON!) in
+                
+                self.stopActivityIndicator()
+             //   print("Success \(response)")
+                
+                
+        },
+              failureCallBack: { (error : Error) in
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
 
         profileImageButton.contentMode = .scaleAspectFit
         profileImageButton.setImage(profileImage, for: UIControlState.normal)

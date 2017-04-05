@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+
 
 class MCAFundingProgramList: NSObject {
     
@@ -20,15 +22,43 @@ class MCAFundingProgramList: NSObject {
     var maximumLoan : Float!
     var email : String!
     var phoneNumber : String!
+    var FPProgramInformation : MCAFPProgramInformation!
+    var FPMerchantRquirement : MCAFPMerchantRquirement!
+    var FPLiensOrBankruptcy : MCAFPLiensOrBankruptcy!
     
     var fieldCount : Int!
 
 
     
-    init(Data : NSDictionary?) {
+    init(Data : JSON!) {
         
         if Data != nil {
             
+            fundingProgramName = Data["program_type"] != JSON.null ? Data["program_type"].stringValue : ""
+            
+            contactName = Data["lender"]["contact_name"] != JSON.null ? Data["lender"]["contact_name"].stringValue : ""
+            
+            term = Data["max_duration"] != JSON.null ? Data["max_duration"].stringValue : ""
+            
+            timeInBuisness = Data["min_avg_deposit_months"] != JSON.null ? Data["min_avg_deposit_months"].stringValue : ""
+            
+            buyRate = Data["interest"] != JSON.null ? Data["interest"].stringValue : ""
+            
+            creditScore = Data["min_credit_fico"] != JSON.null ? Data["min_credit_fico"].intValue : 0
+
+            
+            minimumLoan = Data["min_deal_size"] != JSON.null ? Data["min_deal_size"].floatValue : 0.0
+            
+            maximumLoan = Data["max_deal_size"] != JSON.null ? Data["max_deal_size"].floatValue : 0.0
+
+            FPProgramInformation = MCAFPProgramInformation(Data : Data)
+            FPMerchantRquirement = MCAFPMerchantRquirement(Data : Data)
+            FPLiensOrBankruptcy = MCAFPLiensOrBankruptcy(Data : Data)
+            
+           
+            fieldCount = 8
+
+           
         }
         else
         {

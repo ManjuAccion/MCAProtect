@@ -286,10 +286,10 @@ class MCAWebServiceManager: NSObject
     {
         let headersDict = self.readAPIHeaders();
         
-        var completeURL : String = "http://192.168.169.84:3000/api/sf_integrations/upload_document"
-        completeURL.append(endPoint!)
+        let completeURL : String = "http://192.168.169.84:3000/api/sf_integrations/upload_document"
+     //   completeURL.append(endPoint!)
         
-               let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
         
         apiRequest.validate()
         apiRequest.responseJSON { (response) in

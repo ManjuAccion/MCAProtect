@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import  SwiftyJSON
 
 class MCAFPLiensOrBankruptcy: NSObject {
     
@@ -22,26 +23,22 @@ class MCAFPLiensOrBankruptcy: NSObject {
     var fieldCount : Int!
 
     
-    init(data : NSDictionary?) {
+    init(Data : JSON!) {
         
-        if data != nil {
+        if Data != nil {
+            judegementsORLiens = Data["allow_liens_adjustments"] != JSON.null ? Data["allow_liens_adjustments"].stringValue : ""
+            numberOfJudementsOrLiens = Data["no_of_liens_adjustments"] != JSON.null ? Data["no_of_liens_adjustments"].stringValue : ""
+            maxLiensOrJudgementAmount = Data["total_lien_amount"] != JSON.null ? Data["total_lien_amount"].stringValue : ""
+            isBankruptcyAllowed = Data["merchant_satisfied_bankruptcy"] != JSON.null ? Data["merchant_satisfied_bankruptcy"].stringValue : ""
+            paymentPlan = Data["merchant_in_payment_plan"] != JSON.null ? Data["merchant_in_payment_plan"].stringValue : ""
+           montlyPaymentAllowed = Data["allowed_monthly_payment"] != JSON.null ? Data["allowed_monthly_payment"].stringValue : ""
+           merchantSatisfiedBankruptcy = Data["merchant_satisfied_bankruptcy"] != JSON.null ? Data["merchant_satisfied_bankruptcy"].stringValue : ""
+            dischargedBankruptcy = Data["bankruptcy_discharge_date"] != JSON.null ? Data["bankruptcy_discharge_date"].stringValue : ""
             
-        }
-        else
-        {
-            judegementsORLiens = "Syndicate Premium"
-            numberOfJudementsOrLiens = "10 Months"
-            maxLiensOrJudgementAmount = "5000"
-            isBankruptcyAllowed = "40000"
-            paymentPlan = "1.29%"
-            montlyPaymentAllowed = "5%"
-            merchantSatisfiedBankruptcy = "10%"
-            dischargedBankruptcy = "When Discharged from Bankruptcy?"
             fieldCount = 8
-            
-            
+
         }
-    }
+           }
     
     
     func getValueFromKey(key: FPLiensAndBankruptcyKeys) -> String{

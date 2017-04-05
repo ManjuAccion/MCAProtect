@@ -22,6 +22,8 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
     
     var fieldCount : Int!
     var applicationModel : AnyObject!
+    var fundingProgramList : MCAFundingProgramList!
+
     var programInformation : MCAFPProgramInformation!
     var merchantRequirement : MCAFPMerchantRquirement!
     var liensOrBankruptcy : MCAFPLiensOrBankruptcy!
@@ -32,9 +34,9 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        programInformation = MCAFPProgramInformation(data: nil)
-        merchantRequirement = MCAFPMerchantRquirement(data: nil)
-        liensOrBankruptcy = MCAFPLiensOrBankruptcy(data: nil)
+        programInformation = fundingProgramList.FPProgramInformation
+        merchantRequirement = fundingProgramList.FPMerchantRquirement
+        liensOrBankruptcy = fundingProgramList.FPLiensOrBankruptcy
 
         
  tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")

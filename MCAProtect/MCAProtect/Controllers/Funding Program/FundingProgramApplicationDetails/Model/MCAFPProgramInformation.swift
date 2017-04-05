@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MCAFPProgramInformation: NSObject {
     
@@ -27,30 +28,38 @@ class MCAFPProgramInformation: NSObject {
     
     
     
-    init(data : NSDictionary?) {
+    init(Data : JSON!) {
         
-        if data != nil {
+        if Data != nil {
             
-        }
-        else
-        {
-            programInformationName = "Syndicate Premium"
-            maxTerm = "10 Months"
-            minimumLoanAmount = 5000
-            maximumLoanAmount = 40000
-            buyRate = "1.29%"
-            maxUpsellRate = "5%"
-            maxGrossRevenue = "10%"
-            originalFee = "$50"
-            loanType = "ACH"
-            installmentType = "Weekly"
-            loanPosition = "Any Position"
-            loanAgreement = "Yes"
+            programInformationName = Data["program_type"] != JSON.null ? Data["program_type"].stringValue : ""
+            
+            maxTerm = Data["max_term"] != JSON.null ? Data["max_term"].stringValue : ""
+            
+            minimumLoanAmount =  Data["min_deal_size"] != JSON.null ? Data["min_deal_size"].intValue : 0
+            
+            maximumLoanAmount =  Data["max_deal_size"] != JSON.null ? Data["max_deal_size"].intValue : 0
+            
+            buyRate = Data["interest"] != JSON.null ? Data["interest"].stringValue : ""
+            
+            maxUpsellRate = Data["allowed_broker_commision"] != JSON.null ? Data["allowed_broker_commision"].stringValue : ""
+            
+            maxGrossRevenue = Data["percentage_of_gross_revenue"] != JSON.null ? Data["percentage_of_gross_revenue"].stringValue : ""
+            
+            originalFee = Data["origination_fee"] != JSON.null ? Data["origination_fee"].stringValue : ""
+            
+            loanType = Data["loan_type"] != JSON.null ? Data["loan_type"].stringValue : ""
+            
+            installmentType = Data["installment_type"] != JSON.null ? Data["installment_type"].stringValue : ""
+            
+            loanPosition = Data["loan_position"] != JSON.null ? Data["loan_position"].stringValue : ""
+            
+            loanAgreement = Data["loan_agreement_url"] != JSON.null ? Data["loan_agreement_url"].stringValue : ""
+            
             fieldCount = 12
-            
-            
+
         }
-    }
+           }
 
     
     func getValueFromKey(key: FPProgramInformationKeys) -> String{

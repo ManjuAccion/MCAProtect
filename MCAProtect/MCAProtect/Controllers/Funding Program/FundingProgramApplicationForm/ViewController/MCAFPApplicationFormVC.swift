@@ -15,7 +15,8 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     
     var formDataSource = ["Program Information", "Merchant Requirements", "Liens/Payments/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
 
-    
+    var fundingProgramList : MCAFundingProgramList!
+
     
 
     override func viewDidLoad() {
@@ -78,6 +79,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
         let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
         applicationDetailVC.categorySelected = indexPath.row
+            applicationDetailVC.fundingProgramList = fundingProgramList
         navigationController?.pushViewController(applicationDetailVC, animated: true)
         }
         

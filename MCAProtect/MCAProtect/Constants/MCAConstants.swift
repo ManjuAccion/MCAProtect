@@ -324,6 +324,7 @@ struct MCAAPIEndPoints {
     static let BrokerageUpdateProfileAPIEndpoint               = "/brokerage_firm.json"
     
     static let BrokerUploadImageAPIEndpoint               = "/brokers/upload_profile_image"
+     static let FunderProgramListEndpoint               = "/get_all_lending_programs.json"
 
 
 }

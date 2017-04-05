@@ -98,8 +98,10 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if  (indexPath.row == 0) {
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
-            let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
-            navigationController?.pushViewController(underwritingMerchantVC, animated: true)
+            let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
+            applicationFormVC.fundingProgramList = fundingProgramSummary
+
+            navigationController?.pushViewController(applicationFormVC, animated: true)
         }
     }
 

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+
 
 class MCAFundingProgramListViewController: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
 
@@ -21,14 +23,53 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         super.viewDidLoad()
         self.title = "Funding Programs"
         FPListArray = NSMutableArray()
+       
+        getFundingProgramList()
+//        for _ in 1...6
+//        {
+//            fundingProgramList = MCAFundingProgramList(Data:nil)
+//            FPListArray? .add(fundingProgramList)
+//        }
         
-        for _ in 1...6
-        {
-            fundingProgramList = MCAFundingProgramList(Data:nil)
-            FPListArray? .add(fundingProgramList)
-        }
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
     }
+    
+    
+    func getFundingProgramList()
+    {
+        
+        self.showActivityIndicator()
+
+        
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
+                                                                endPoint:MCAAPIEndPoints.FunderProgramListEndpoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+
+                let testArray = response.arrayValue
+                
+                    for item in testArray {
+                        self.fundingProgramList = MCAFundingProgramList(Data:item)
+                        self.FPListArray.add(self.fundingProgramList)
+                    }
+                    self.tableView.reloadData()
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+ 
+        
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
