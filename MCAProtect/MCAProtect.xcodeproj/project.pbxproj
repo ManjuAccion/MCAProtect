@@ -233,6 +233,7 @@
 		5B1F8D7F1E89062100BD53F2 /* MCAFPProgramInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPProgramInformation.swift; sourceTree = "<group>"; };
 		5B1F8D811E89064E00BD53F2 /* MCAFPMerchantRquirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPMerchantRquirement.swift; sourceTree = "<group>"; };
 		5B1F8D831E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPLiensOrBankruptcy.swift; sourceTree = "<group>"; };
+		5B330B861E96239800CB7A6C /* MCAProtect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCAProtect.entitlements; sourceTree = "<group>"; };
 		5B4741BC1E533511001D9435 /* MCAProtect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAProtect-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B6C97C21E8D36BA003BEA82 /* MCAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileViewController.swift; sourceTree = "<group>"; };
 		5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebViewController.swift; sourceTree = "<group>"; };
@@ -930,6 +931,7 @@
 		782C69A11E49ACC500268356 /* MCAProtect */ = {
 			isa = PBXGroup;
 			children = (
+				5B330B861E96239800CB7A6C /* MCAProtect.entitlements */,
 				789BFC331E8BE4D700DAEB69 /* SessionManager */,
 				789BFC351E8BE4D700DAEB69 /* WebServicesManager */,
 				7871E3321E5312140019B707 /* NavigationController */,
@@ -2112,6 +2114,11 @@
 						DevelopmentTeam = 78RNVBBGXR;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					782C69B21E49ACC500268356 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -2643,6 +2650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MCAProtect/MCAProtect.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Relton Alexander (KK3SRAHRSL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 78RNVBBGXR;
@@ -2666,6 +2674,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MCAProtect/MCAProtect.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Relton Alexander (KK3SRAHRSL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 78RNVBBGXR;

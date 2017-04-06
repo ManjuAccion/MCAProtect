@@ -60,22 +60,7 @@ class MCAFundingProgramList: NSObject {
 
            
         }
-        else
-        {
-            
-            fundingProgramName = "Stacy's Botique"
-            contactName = "Syndicate Premium"
-            term = "18 months"
-            timeInBuisness = "6 months"
-            buyRate = "%1.28"
-            creditScore = 650
-            minimumLoan = 2000
-            maximumLoan = 10000
-            email = "halen@gmail.com"
-            phoneNumber = "+(44)7432345678"
-            fieldCount = 8
-        }
-    }
+           }
     
     func getValueFromKey(key: FPApplicationSummaryKeys) -> AnyObject{
         

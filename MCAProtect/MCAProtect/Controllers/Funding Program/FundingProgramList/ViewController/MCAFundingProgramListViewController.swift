@@ -42,7 +42,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
 
         
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
-                                                                endPoint:MCAAPIEndPoints.FunderProgramListEndpoint
+                                                                endPoint:MCAAPIEndPoints.BrokerFunderProgramListEndpoint
             , successCallBack:{ (response : JSON) in
                 
                 self.stopActivityIndicator()

@@ -182,7 +182,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         
 
 
-       self.showActivityIndicator()
+    //   self.showActivityIndicator()
 
         
 
@@ -204,28 +204,8 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         var paramDict  = Dictionary<String,Any>()
         paramDict["file"] = fileURL
 
-//        Alamofire.upload(
-//            multipartFormData: { multipartFormData in
-//                for (key, value) in paramDict {
-//                    multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
-//                }
-//                multipartFormData.append(fileURL, withName: "test")
-//               
-//        },
-//            to: "http://192.168.169.84:3000/api/sf_integrations/upload_document",
-//            encodingCompletion: { encodingResult in
-//                switch encodingResult {
-//                case .success(let upload, _, _):
-//                    upload.responseJSON { response in
-//                        debugPrint(response)
-//                    }
-//                case .failure(let encodingError):
-//                    print(encodingError)
-//                }
-//        }
-//        )
         MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:paramDict,
-                                                                  endPoint:""
+                                                                        endPoint:"",imageData: data!
             , successCallBack:{ (response : JSON!) in
                 
                 self.stopActivityIndicator()
@@ -244,7 +224,8 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
 
         profileImageButton.contentMode = .scaleAspectFit
         profileImageButton.setImage(profileImage, for: UIControlState.normal)
-        dismiss(animated:true, completion: nil) 
+        dismiss(animated:true, completion: nil)
+        
     }
     
 

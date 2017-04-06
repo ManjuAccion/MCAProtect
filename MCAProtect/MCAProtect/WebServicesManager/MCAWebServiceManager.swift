@@ -258,36 +258,76 @@ class MCAWebServiceManager: NSObject
     }
     
     func uploadImageRequest(requestParam: Dictionary<String , Any>,
-                     endPoint: String?,
+                            endPoint: String?,imageData: Data,
                      successCallBack: @escaping (_ responseData: JSON) -> Void,
                      failureCallBack: @escaping (_ error: Error) -> Void)
     {
-        let headersDict = self.readAPIHeaders();
+       // let headersDict = self.readAPIHeaders();
         
-        let completeURL : String = "http://192.168.169.84:3000/api/sf_integrations/upload_document"
-     //   completeURL.append(endPoint!)
+        let completeURL : String = "https://broker-dev-mobile.mcaprotect.org/api/brokers/upload_profile_image"
+        let url = NSURL(string: completeURL)
+        var urlRequest = URLRequest(url: url as! URL)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
+//        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+//        urlRequest.setValue(MCASessionManager.sharedSessionManager.accessToken, forHTTPHeaderField: "access-token")
+//        urlRequest.setValue(MCASessionManager.sharedSessionManager.client, forHTTPHeaderField: "client")
+//        urlRequest.setValue(MCASessionManager.sharedSessionManager.uid, forHTTPHeaderField: "uid")
+
+      
+    
+
+       // urlRequest.allHTTPHeaderFields = headersDict
         
-        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
         
-        apiRequest.validate()
-        apiRequest.responseJSON { (response) in
+        
+
+     Alamofire.upload(multipartFormData: { (MultipartFormData) in
+        MultipartFormData.append(imageData,
+                                 withName: "file",
+                                 fileName: "image.jpg",
+                                 mimeType: "image/jpeg")
+        }, with: urlRequest) { (result) in
+        switch result {
+        case .success(let upload, _, _):
             
-            guard response.result.isSuccess else {
-                print("Error while fetching remote rooms: \(response.result.error)")
-                failureCallBack(response.error!)
-                return
+            upload.uploadProgress(closure: { (progress) in
+                print (" progress is \(progress)")
+            })
+            
+            upload.responseJSON { response in
+                print (response.result)
+
             }
             
-            
-            let dataDictionary = JSON(response.result.value!)
-            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
-            
-            self.setAPIHeaders(header: header);
-            
-            print(response)
-            successCallBack(dataDictionary)
-            return
+        case .failure(let encodingError):
+            print (encodingError)
         }
+        
+        }
+        
+        
+//        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
+        
+//        apiRequest.validate()
+//        apiRequest.responseJSON { (response) in
+//            
+//            guard response.result.isSuccess else {
+//                print("Error while fetching remote rooms: \(response.result.error)")
+//                failureCallBack(response.error!)
+//                return
+//            }
+//            
+//            
+//            let dataDictionary = JSON(response.result.value!)
+//            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
+//            
+//            self.setAPIHeaders(header: header);
+//            
+//            print(response)
+//            successCallBack(dataDictionary)
+//            return
+//        }
 
         
         
