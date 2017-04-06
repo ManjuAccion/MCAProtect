@@ -10,15 +10,21 @@ import UIKit
 
 class MCASALoansTVCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var selectedView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    func setMCALoanApplication(mcaLoanApplication :MCALoanAccountsList) {
+        
+        titleLabel.text     = mcaLoanApplication.companyName
+        amountLabel.text  = MCAUtilities.currencyFormatter(inputItem: mcaLoanApplication.fundedAmount! as AnyObject)
+    }
 }

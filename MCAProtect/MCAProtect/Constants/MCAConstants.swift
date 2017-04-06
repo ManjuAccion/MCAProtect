@@ -58,6 +58,7 @@ struct CellIdentifiers {
     static let MCAMerchantDocumentationTVCell           = "MCAMerchantDocumentationTVCell"
     static let MCALiensPaymentsTVCell                   = "MCALiensPaymentsTVCell"
     static let MCABankruptcyTVCell                      = "MCABankruptcyTVCell"
+    static let MCASALoansTVCell                         = "MCASALoansTVCell"
 }
 
 struct StoryboardName {
@@ -100,7 +101,7 @@ struct VCIdentifiers {
     static let MCAAskFunderChatDashboardVC                          = "MCAAskFunderChatDashboardVC"
     static let MCAMatchedFundingProgramVC                           = "MCAMatchedFundingProgramVC"
     static let MCAAskFunderNewChatVC                                = "MCAAskFunderNewChatVC"
-
+    static let MCASALoansViewController                             = "MCASALoansViewController"
 }
 
 

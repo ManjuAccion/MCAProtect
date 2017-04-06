@@ -14,13 +14,14 @@ class MCALoanAccountsList: NSObject {
     var applicationID       : Int!
     var companyName         : String!
     var createdAt           : String!
-    var currentBalance      : String!
+    var currentBalance      : Float!
     var frequency           : String!
-    var fundedAmount        : String!
+    var fundedAmount        : Float!
     var loanAccountsListID  : Int!
     var loanTerms           : String!
-    var paymentAmount       : String!
+    var paymentAmount       : Float!
     var updatedAt           : String!
+    var fieldCount          : Int!
     
     init(loanAccountList: JSON!) {
         
@@ -31,13 +32,14 @@ class MCALoanAccountsList: NSObject {
         applicationID       = loanAccountList["application_id"].intValue
         companyName         = loanAccountList["company_name"].stringValue
         createdAt           = loanAccountList["created_at"].stringValue
-        currentBalance      = loanAccountList["current_balance"].stringValue
+        currentBalance      = loanAccountList["current_balance"].floatValue
         frequency           = loanAccountList["frequency"].stringValue
-        fundedAmount        = loanAccountList["funded_amount"].stringValue
+        fundedAmount        = loanAccountList["funded_amount"].floatValue
         loanAccountsListID  = loanAccountList["id"].intValue
         loanTerms           = loanAccountList["loan_terms"].stringValue
-        paymentAmount       = loanAccountList["payment_amount"].stringValue
+        paymentAmount       = loanAccountList["payment_amount"].floatValue
         updatedAt           = loanAccountList["updated_at"].stringValue
+        fieldCount          = 6
     }
     
     func getValueFromKey(key: MCALoanDetailKeys) -> String {
@@ -46,12 +48,12 @@ class MCALoanAccountsList: NSObject {
         
         switch key {
             
-            case .company : modelValue =  companyName
-            case .fundedAmount : modelValue = MCAUtilities.currencyFormatter(inputItem: fundedAmount as AnyObject)
-            case .currentBalance : modelValue = MCAUtilities.currencyFormatter(inputItem: currentBalance as AnyObject)
-            case .loanTerms : modelValue = "\(loanTerms!)"
-            case .frequency : modelValue = frequency
-            case .amount : modelValue = MCAUtilities.currencyFormatter(inputItem: paymentAmount as AnyObject)
+            case .company           : modelValue =  companyName
+            case .fundedAmount      : modelValue = MCAUtilities.currencyFormatter(inputItem: fundedAmount as AnyObject)
+            case .currentBalance    : modelValue = MCAUtilities.currencyFormatter(inputItem: currentBalance as AnyObject)
+            case .loanTerms         : modelValue = "\(loanTerms!)"
+            case .frequency         : modelValue = frequency
+            case .amount            : modelValue = MCAUtilities.currencyFormatter(inputItem: paymentAmount as AnyObject)
         }
         return modelValue
     }

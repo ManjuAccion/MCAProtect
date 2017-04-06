@@ -12,17 +12,17 @@ class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableView
 
     
     @IBOutlet weak var tableView: UITableView!
-    var isViewingMode : Bool?
-    var activeField: UITextField?
-    var bankName: String?
-    var applicationStatus : Int?
-    var existingLoanDetail : MCAExistingLoanDetail!
+    
+    var isViewingMode           : Bool?
+    var activeField             : UITextField?
+    var bankName                : String?
+    var applicationStatus       : Int?
+    var existingLoanDetail      : MCALoanAccountsList!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Glink Lender"
-        existingLoanDetail = MCAExistingLoanDetail(data: nil)
+        self.title = existingLoanDetail.companyName
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         isViewingMode = true
