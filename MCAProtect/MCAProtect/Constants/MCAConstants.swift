@@ -9,13 +9,10 @@
 import UIKit
 
 struct ColorConstants {
-    
-    
-    
-    static let newbgColor                  = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A02336")
+    static let newbgColor           = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A02336")
 
     static let red                  = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A32A2A")
-    static let newRed                  = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#AD2B37")
+    static let newRed               = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#AD2B37")
 
     
     static let grey                 = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#4B4B4B")
@@ -37,28 +34,30 @@ struct ColorConstants {
 
     
     static let btnBgColor           = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A32A2A")
-    static let btnborderColor           = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#8C8C8C")
+    static let btnborderColor       = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#8C8C8C")
 }
 
 struct CellIdentifiers {
     
-    static let MCAApplicationStatusTVCell           = "MCAApplicationStatusTVCell"
-    static let MCAApplicationFormTVCell             = "MCAApplicationFormTVCell"
-    static let MCAApplicationTVCell                 = "MCAApplicationTVCell"
-    static let MCASavedApplicationsListTVCell       = "MCASavedApplicationsListTVCell"
-    static let MCAAskFunderApplicationListTVCell    = "MCAAskFunderApplicationListTVCell"
-    static let MCAApplicationSummaryTVCell          = "MCAApplicationSummaryTVCell"
-    static let MCAOwnerAndLocationDetailsTVCell     = "MCASAOwnerAndLocationDetailsTVCell"
-    static let MCASavedApplicationsBankRecordsTVCell = "MCASavedApplicationsBankRecordsTVCell"
-    static let MCASavedApplicationsBankDetailsTVCell = "MCASavedApplicationsBankDetailsTVCell"
-    static let MCAApplicationListTVCell              = "MCAApplicationTVCell"
-    static let MCASubmitStipulationsCell             = "MCASubmitStipulationsCell"
-    static let MCAPhoneNumberTableViewCell           = "MCAPhoneNumberTableViewCell"
-    static let MCAEmailTableViewCell                 = "MCAEmailTableViewCell"
-    static let MCANewChatTVCell                      = "MCANewChatTVCell"
-    static let MCAAskFunderCommunicationTVCell       = "MCAAskFunderCommunicationTVCell"
-    static let MCADealsPipelineTVCell                = "MCADealsPipelineTVCell"
-    static let MCAMerchantDocumentationTVCell        = "MCAMerchantDocumentationTVCell"
+    static let MCAApplicationStatusTVCell               = "MCAApplicationStatusTVCell"
+    static let MCAApplicationFormTVCell                 = "MCAApplicationFormTVCell"
+    static let MCAApplicationTVCell                     = "MCAApplicationTVCell"
+    static let MCASavedApplicationsListTVCell           = "MCASavedApplicationsListTVCell"
+    static let MCAAskFunderApplicationListTVCell        = "MCAAskFunderApplicationListTVCell"
+    static let MCAApplicationSummaryTVCell              = "MCAApplicationSummaryTVCell"
+    static let MCAOwnerAndLocationDetailsTVCell         = "MCASAOwnerAndLocationDetailsTVCell"
+    static let MCASavedApplicationsBankRecordsTVCell    = "MCASavedApplicationsBankRecordsTVCell"
+    static let MCASavedApplicationsBankDetailsTVCell    = "MCASavedApplicationsBankDetailsTVCell"
+    static let MCAApplicationListTVCell                 = "MCAApplicationTVCell"
+    static let MCASubmitStipulationsCell                = "MCASubmitStipulationsCell"
+    static let MCAPhoneNumberTableViewCell              = "MCAPhoneNumberTableViewCell"
+    static let MCAEmailTableViewCell                    = "MCAEmailTableViewCell"
+    static let MCANewChatTVCell                         = "MCANewChatTVCell"
+    static let MCAAskFunderCommunicationTVCell          = "MCAAskFunderCommunicationTVCell"
+    static let MCADealsPipelineTVCell                   = "MCADealsPipelineTVCell"
+    static let MCAMerchantDocumentationTVCell           = "MCAMerchantDocumentationTVCell"
+    static let MCALiensPaymentsTVCell                   = "MCALiensPaymentsTVCell"
+    static let MCABankruptcyTVCell                      = "MCABankruptcyTVCell"
 }
 
 struct StoryboardName {
@@ -95,7 +94,7 @@ struct VCIdentifiers {
     static let MCAMerchantApplicationListVC                         = "MCAMerchantApplicationListVC"
     static let MCAMerchantApplicationSummaryVC                      = "MCAMerchantApplicationSummaryVC"
     static let MCAMASubmitStipulationsVC                            = "MCAMASubmitStipulationsVC"
-    static let MCAAskFunderApplicationListVC                          = "MCAAskFunderApplicationListVC"
+    static let MCAAskFunderApplicationListVC                        = "MCAAskFunderApplicationListVC"
     static let MCAAskFunderApplicationSummaryVC                     = "MCAAskFunderApplicationSummaryVC"
     static let MCAAskFunderChatDetailVC                             = "MCAAskFunderChatDetailVC"
     static let MCAAskFunderChatDashboardVC                          = "MCAAskFunderChatDashboardVC"
@@ -144,62 +143,62 @@ enum ApplicationSummaryKeys: String {
 
 enum FPApplicationSummaryKeys : String {
     
-    case FPSummaryFundingProgram = "Funding Program"
-    case FPSummaryContact = "Contact"
-    case FPSummaryTerm = "Term"
-    case FPSummaryTimeInBuisness = "Time in Buisness"
-    case FPSummaryBuyRate = "Buy Rate"
-    case FPSummaryCreditScore = "Credit Score"
-    case FPSummaryMinimumLoan = "Minimum Loan"
-    case FPSUmmaryMaximumLoan = "Maximum Loan"
+    case FPSummaryFundingProgram    = "Funding Program"
+    case FPSummaryContact           = "Contact"
+    case FPSummaryTerm              = "Term"
+    case FPSummaryTimeInBuisness    = "Time in Buisness"
+    case FPSummaryBuyRate           = "Buy Rate"
+    case FPSummaryCreditScore       = "Credit Score"
+    case FPSummaryMinimumLoan       = "Minimum Loan"
+    case FPSUmmaryMaximumLoan       = "Maximum Loan"
 }
 
 enum FPProgramInformationKeys : String
 {
     
-    case FPProgramInformation = "Program Information"
-    case FPMaxTerm =  "Max Term"
-    case FPMinimumLoanAmount = "Minimum Loan Amount"
-    case FPMaximumLoanAmount = "Maximum Loan Amount"
-    case FPBuyRate = "Buy rate"
-    case FPMaxUPSellRate = "Max Up Sell Rate"
-    case FPMaxGrossRevenue = "Max % of Gross Revenue"
-    case FPOriginationFee = "Origination Fee"
-    case FPLoanType = "Loan Type"
-    case FPInstallmentType = "Installment Type"
-    case FPAcceptLoanPosition = "Accept Loan Position"
-    case FPLoanAgreement = "Loan Agreement False"
+    case FPProgramInformation   = "Program Information"
+    case FPMaxTerm              =  "Max Term"
+    case FPMinimumLoanAmount    = "Minimum Loan Amount"
+    case FPMaximumLoanAmount    = "Maximum Loan Amount"
+    case FPBuyRate              = "Buy rate"
+    case FPMaxUPSellRate        = "Max Up Sell Rate"
+    case FPMaxGrossRevenue      = "Max % of Gross Revenue"
+    case FPOriginationFee       = "Origination Fee"
+    case FPLoanType             = "Loan Type"
+    case FPInstallmentType      = "Installment Type"
+    case FPAcceptLoanPosition   = "Accept Loan Position"
+    case FPLoanAgreement        = "Loan Agreement False"
     
     
 }
 
 enum FPMerchantRequirementkeys : String{
     
-    case FPMinimumCreditScore = "Minimum Credit Score"
-    case FPMinimumTimeInBusiness = "Minimum Time in Business"
-    case FPMinimumMonthlySales = "Minimum Monthly Sales"
-    case FPMinimumNumOfBankDeposits = "Minimum Number of Bank Deposits(Avg)"
-    case FPDaysWithNegativeBalance =  "Days with Negative Balance"
-    case FPMinimumDepositeAmount = "Minimum Deposit Amount(Avg)"
-    case FPMinimumDailyBalance = "Minimum Daily Balance(Avg)"
+    case FPMinimumCreditScore           = "Minimum Credit Score"
+    case FPMinimumTimeInBusiness        = "Minimum Time in Business"
+    case FPMinimumMonthlySales          = "Minimum Monthly Sales"
+    case FPMinimumNumOfBankDeposits     = "Minimum Number of Bank Deposits(Avg)"
+    case FPDaysWithNegativeBalance      =  "Days with Negative Balance"
+    case FPMinimumDepositeAmount        = "Minimum Deposit Amount(Avg)"
+    case FPMinimumDailyBalance          = "Minimum Daily Balance(Avg)"
 }
 
 enum FPLiensAndBankruptcyKeys : String{
     
-    case FPJudegementsORLiens = "Judgements/Liens Allowed"
-    case FPNumberOfJudementsOrLiens = "Number of Judgements/Liens Allowed"
-    case FPMaxLiensOrJudgementAmount = "Max Liens/Judgements Amount"
-    case FPIsBankruptcyAllowed = "Is Bankruptcy Allowed?"
-    case FPPaymentPlan  = "Can Merchant be in Payment Plan"
-    case FPMontlyPaymentAllowed = "Allowed Montly Payment"
-    case FPMerchantSatisfiedBankruptcy = "Has Merchant Satisfied Bankruptcy?"
-    case FPDischargedBankruptcy = "When Discharged from Bankruptcy?"
+    case FPJudegementsORLiens           = "Judgements/Liens Allowed"
+    case FPNumberOfJudementsOrLiens     = "Number of Judgements/Liens Allowed"
+    case FPMaxLiensOrJudgementAmount    = "Max Liens/Judgements Amount"
+    case FPIsBankruptcyAllowed          = "Is Bankruptcy Allowed?"
+    case FPPaymentPlan                  = "Can Merchant be in Payment Plan"
+    case FPMontlyPaymentAllowed         = "Allowed Montly Payment"
+    case FPMerchantSatisfiedBankruptcy  = "Has Merchant Satisfied Bankruptcy?"
+    case FPDischargedBankruptcy         = "When Discharged from Bankruptcy?"
     
 }
 enum LoanDetailKeys : String {
     
     case businessName    = "Business Name"
-    case creditScore      = "Credit Score"
+    case creditScore     = "Credit Score"
     case loanAmount      = "Loan Amount"
     case loanTerm        = "Loan Term"
     case needItBy        = "Need it By"
@@ -289,44 +288,42 @@ enum MASummaryKeys : String {
 }
 
 enum rightMenuItems : NSInteger {
-    case Notification = 0
-    case PersonalisedSettings = 1
-    case AboutUs = 2
-    case TermsOfUse = 3
-    case PrivacyPolicy = 4
-    case ShareFeedback = 5
-    case ShareApp = 6
-    case RateUs = 7
+    case Notification           = 0
+    case PersonalisedSettings   = 1
+    case AboutUs                = 2
+    case TermsOfUse             = 3
+    case PrivacyPolicy          = 4
+    case ShareFeedback          = 5
+    case ShareApp               = 6
+    case RateUs                 = 7
 }
 
 enum leftMenuItems : NSInteger {
-    case Dashboard = 0
-    case SavedApplications = 1
-    case FundingPrograms = 2
-    case AskFunder = 3
+    case Dashboard          = 0
+    case SavedApplications  = 1
+    case FundingPrograms    = 2
+    case AskFunder          = 3
 }
 
 
 struct MCAAPIEndPoints {
     
-    static let BrokerLoginAPIEndPoint               = "/broker/sign_in.json"
-    static let BrokerLogoutAPIEndPoint               = "/broker/sign_out.json"
-    static let BrokerForgotPasswordAPIEndPoint       = "/broker/password.json"
-    static let BrokerDashBoardAPIEndpoint            = "/brokers/overall_daterange_wise_application_status/"
+    static let BrokerLoginAPIEndPoint                   = "/broker/sign_in.json"
+    static let BrokerLogoutAPIEndPoint                  = "/broker/sign_out.json"
+    static let BrokerForgotPasswordAPIEndPoint          = "/broker/password.json"
+    static let BrokerDashBoardAPIEndpoint               = "/brokers/overall_daterange_wise_application_status/"
     static let BrokerApplicationSummaryAPIEndpoint      = "/brokers/get_state_wise_applications/"
-    static let BrokerLoanApplicationAPIEndpoint      = "/loan_application/"
+    static let BrokerLoanApplicationAPIEndpoint         = "/loan_application/"
     
-    static let BrokerUpdateProfileAPIEndpoint               = "/broker"
-    static let BrokerageRegistrationAPIEndPoint               = "/brokerage_firm.json"
-    static let BrokerageLoginAPIEndPoint                      = "/brokerage_firm/sign_in.json"
-    static let BrokerageLogoutAPIEndPoint                     = "/brokerage_firm/sign_out.json"
-    static let BrokerageForgotPasswordAPIEndPoint               = "/brokerage_firm/password.json"
-    static let BrokerageUpdateProfileAPIEndpoint               = "/brokerage_firm.json"
+    static let BrokerUpdateProfileAPIEndpoint           = "/broker"
+    static let BrokerageRegistrationAPIEndPoint         = "/brokerage_firm.json"
+    static let BrokerageLoginAPIEndPoint                = "/brokerage_firm/sign_in.json"
+    static let BrokerageLogoutAPIEndPoint               = "/brokerage_firm/sign_out.json"
+    static let BrokerageForgotPasswordAPIEndPoint       = "/brokerage_firm/password.json"
+    static let BrokerageUpdateProfileAPIEndpoint        = "/brokerage_firm.json"
     
-    static let BrokerUploadImageAPIEndpoint               = "/brokers/upload_profile_image"
-     static let FunderProgramListEndpoint               = "/get_all_lending_programs.json"
-
-
+    static let BrokerUploadImageAPIEndpoint             = "/brokers/upload_profile_image"
+    static let FunderProgramListEndpoint                = "/get_all_lending_programs.json"
 }
 
 

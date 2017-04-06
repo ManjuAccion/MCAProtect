@@ -39,4 +39,21 @@ class MCALoanAccountsList: NSObject {
         paymentAmount       = loanAccountList["payment_amount"].stringValue
         updatedAt           = loanAccountList["updated_at"].stringValue
     }
+    
+    func getValueFromKey(key: MCALoanDetailKeys) -> String {
+        
+        var modelValue : String!
+        
+        switch key {
+            
+            case .company : modelValue =  companyName
+            case .fundedAmount : modelValue = MCAUtilities.currencyFormatter(inputItem: fundedAmount as AnyObject)
+            case .currentBalance : modelValue = MCAUtilities.currencyFormatter(inputItem: currentBalance as AnyObject)
+            case .loanTerms : modelValue = "\(loanTerms!)"
+            case .frequency : modelValue = frequency
+            case .amount : modelValue = MCAUtilities.currencyFormatter(inputItem: paymentAmount as AnyObject)
+        }
+        return modelValue
+    }
+
 }
