@@ -24,28 +24,6 @@ class MCAWebServiceManager: NSObject
     static let sharedWebServiceManager: MCAWebServiceManager = MCAWebServiceManager()
 
     
-    func readAPIHeaders1() -> Dictionary<String,String>
-    {
-        var headersDict : Dictionary<String,String> = Dictionary()
-        
-        headersDict["Content-Type"] = "application/json ; charset=utf-8"
-        headersDict["Accept"] = "application/json"
-        if nil != MCASessionManager.sharedSessionManager.accessToken
-        {
-            headersDict["access-token"] = MCASessionManager.sharedSessionManager.accessToken
-        }
-        if nil != MCASessionManager.sharedSessionManager.client
-        {
-            headersDict["client"] = MCASessionManager.sharedSessionManager.client
-        }
-        if nil != MCASessionManager.sharedSessionManager.uid
-        {
-            headersDict["uid"] = MCASessionManager.sharedSessionManager.uid
-        }
-        
-        return headersDict
-    }
-    
     
     func readAPIHeaders() -> Dictionary<String,String>
     {

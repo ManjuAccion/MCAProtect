@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MCACustomPickerView" customModule="MCAProtect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kC6-KC-gNt">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQA-0o-cya">
+                    <rect key="frame" x="0.0" y="507" width="375" height="160"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="PZ5-al-hke"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="q3c-Et-DY9"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="8Hu-AR-hVl"/>
+                    </connections>
+                </pickerView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R40-Rq-uk3">
+                    <rect key="frame" x="0.0" y="463" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2KP-Gj-Fyb">
+                            <rect key="frame" x="321" y="9" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Done"/>
+                            <connections>
+                                <action selector="dataPicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="kdw-Xv-ecv"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="cCG-Ga-m8r"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="FQA-0o-cya" secondAttribute="bottom" id="4Ka-ot-4tF"/>
+                <constraint firstAttribute="trailing" secondItem="kC6-KC-gNt" secondAttribute="trailing" id="5Vw-Iz-lDz"/>
+                <constraint firstItem="kC6-KC-gNt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8vf-iA-TiH"/>
+                <constraint firstItem="R40-Rq-uk3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ffv-oy-W9M"/>
+                <constraint firstAttribute="trailing" secondItem="R40-Rq-uk3" secondAttribute="trailing" id="NEW-7n-Cpy"/>
+                <constraint firstItem="kC6-KC-gNt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dH4-df-z5g"/>
+                <constraint firstAttribute="bottom" secondItem="kC6-KC-gNt" secondAttribute="bottom" id="eyZ-RT-Ipi"/>
+                <constraint firstItem="FQA-0o-cya" firstAttribute="top" secondItem="R40-Rq-uk3" secondAttribute="bottom" id="fgJ-KZ-FLR"/>
+                <constraint firstAttribute="trailing" secondItem="FQA-0o-cya" secondAttribute="trailing" id="xmC-Vh-pOg"/>
+                <constraint firstItem="FQA-0o-cya" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ycz-DX-J6r"/>
+            </constraints>
+            <connections>
+                <outlet property="pickerView" destination="FQA-0o-cya" id="XjU-cG-R81"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

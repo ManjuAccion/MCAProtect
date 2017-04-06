@@ -23,10 +23,11 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     var toolbar : UIToolbar?
     var doneButton : UIBarButtonItem?
     var pickerTitle : UIBarButtonItem?
-    var rangeList = ["Custom","Current Week","Current Month","Previous Month","Current Quarter","Previous Quarter","Current Year"]
+    var rangeList = Array<String>()
+    
 
-    
-    
+    var customDatePicker : MCACustomDatePickerView!
+    var customPicker : MCACustomPickerView!
     weak var parentController: MCADashboardTabbarVC!
 
     //MARK: - View Life Cycle -
@@ -36,6 +37,16 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         
         pipeLineTableView.register(UINib(nibName: "MCADealsPipelineTVCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.MCADealsPipelineTVCell)
         
+        
+        rangeList.append("Custom")
+        rangeList.append("Current Week")
+        rangeList.append("Current Month")
+        rangeList.append("Previous Month")
+        rangeList.append("Current Quarter")
+        rangeList.append("Previous Quarter")
+        rangeList.append("Current Year")
+        
+
         self.getDealsPipelineList()
     }
     
@@ -142,6 +153,25 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     
 
     @IBAction func selectDateRange(_ sender: Any)
+    {
+        
+        customDatePicker =  Bundle.main.loadNibNamed("MCACustomDatePickerView", owner: self, options: nil)?[0] as! MCACustomDatePickerView
+        
+
+        customDatePicker.frame = self.parentController.view.bounds
+        customDatePicker.layoutIfNeeded()
+        self.parentController.view.addSubview(customDatePicker)
+
+        
+//            customPicker =  Bundle.main.loadNibNamed("MCACustomPickerView", owner: self, options: nil)?[0] as! MCACustomPickerView
+//        customPicker.setDatasource(dataSource: rangeList)
+        
+//        customPicker.frame = self.parentController.view.bounds
+//        customPicker.layoutIfNeeded()
+//        self.parentController.view.addSubview(customPicker)
+    }
+    
+    func test()
     {
         
         pickerViewPopup = UIActionSheet(title: "Select Range", delegate: self, cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: "")

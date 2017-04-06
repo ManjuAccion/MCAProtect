@@ -314,6 +314,8 @@ struct MCAAPIEndPoints {
     static let BrokerDashBoardAPIEndpoint               = "/brokers/overall_daterange_wise_application_status/"
     static let BrokerApplicationSummaryAPIEndpoint      = "/brokers/get_state_wise_applications/"
     static let BrokerLoanApplicationAPIEndpoint         = "/loan_application/"
+    static let BrokerUploadImageAPIEndpoint             = "/brokers/upload_profile_image"
+    static let BrokerFunderProgramListEndpoint                = "/get_all_lending_programs.json"
     
     static let BrokerUpdateProfileAPIEndpoint           = "/broker"
     static let BrokerageRegistrationAPIEndPoint         = "/brokerage_firm.json"
@@ -322,8 +324,6 @@ struct MCAAPIEndPoints {
     static let BrokerageForgotPasswordAPIEndPoint       = "/brokerage_firm/password.json"
     static let BrokerageUpdateProfileAPIEndpoint        = "/brokerage_firm.json"
     
-    static let BrokerUploadImageAPIEndpoint             = "/brokers/upload_profile_image"
-    static let FunderProgramListEndpoint                = "/get_all_lending_programs.json"
 }
 
 
