@@ -23,7 +23,8 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
     var businessLocation : MCABusinessLocationList!
     var businessLocationArray : [MCABusinessLocationList]!
     var loanApplication : MCALoanApplication!
-    //MARK: - View Life Cycle
+    
+    //MARK: - View Life Cycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +58,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: - Table View Datasource
+    //MARK: - Table View Datasource Methods-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSourceArray.count
@@ -80,6 +81,9 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
         }
         return cell
     }
+    
+    //MARK: - Table View Delegate Methods -
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASAOwnerAndLocationDetailsTVCell
@@ -91,7 +95,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let businessLocationDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASABusinessLocationDetails) as! MCASABusinessLocationDetails
             businessLocation = dataSourceArray[indexPath.row] as! MCABusinessLocationList
-            businessLocationDetailsVC.businessLocationName = businessLocation.locationName
+            businessLocationDetailsVC.businessLocationDetail = businessLocation
             businessLocationDetailsVC.applicationStatus = applicationStatus
             navigationController?.pushViewController(businessLocationDetailsVC, animated: true)
         }
@@ -99,7 +103,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let ownerInformationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerInformationDetailVC) as! MCASAOwnerInformationDetailVC
             ownerInformation = dataSourceArray[indexPath.row] as! MCAOwnerInformation
-            ownerInformationDetailVC.ownerName = ownerInformation.ownerName
+            ownerInformationDetailVC.ownerInformation = ownerInformation
             ownerInformationDetailVC.applicationStatus = applicationStatus
             navigationController?.pushViewController(ownerInformationDetailVC, animated: true)
         }

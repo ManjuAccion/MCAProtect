@@ -14,15 +14,13 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
     
     var isViewingMode : Bool?
     var activeField: UITextField?
-    var businessLocationName: String?
     var applicationStatus : Int?
-    var businessLocationDetail : MCABusinessLocationDetail!
+    var businessLocationDetail : MCABusinessLocationList!
 
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        businessLocationDetail = MCABusinessLocationDetail(data:nil)
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         
@@ -30,7 +28,7 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         }
-        self.title = businessLocationName
+        self.title = businessLocationDetail.locationName
         isViewingMode = true
     }
     

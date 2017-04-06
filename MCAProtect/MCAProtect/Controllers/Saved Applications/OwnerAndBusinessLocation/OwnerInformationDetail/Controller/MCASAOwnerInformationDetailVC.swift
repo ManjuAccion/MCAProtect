@@ -12,17 +12,15 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     
-    var isViewingMode : Bool?
-    var activeField: UITextField?
-    var ownerName: String?
-    var applicationStatus : Int?
-    var ownerInformationDetail : MCAOwnerInformationDetail!
+    var isViewingMode       : Bool?
+    var activeField         : UITextField?
+    var applicationStatus   : Int?
+    var ownerInformation    : MCAOwnerInformation!
     
-    //MARK: - View Life Cycle
+    //MARK: - View Life Cycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ownerInformationDetail = MCAOwnerInformationDetail(data:nil)
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         
@@ -30,7 +28,7 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         }
-        self.title = ownerName
+        self.title = ownerInformation.ownerName
         isViewingMode = true
     }
     
@@ -43,10 +41,10 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: - Table View Datasource
+    //MARK: - Table View Datasource -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ownerInformationDetail.fieldCount
+        return ownerInformation.ownerInfoFieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,23 +56,23 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
         switch indexPath.row
         {
             case OwnerInformationDetailKeys.name.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.name)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.name)
             case OwnerInformationDetailKeys.socialSecurityNumber.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.socialSecurityNumber)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.socialSecurityNumber)
             case OwnerInformationDetailKeys.dob.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.dob)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.dob)
             case OwnerInformationDetailKeys.streetAddress.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.streetAddress)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.streetAddress)
             case OwnerInformationDetailKeys.city.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.city)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.city)
             case OwnerInformationDetailKeys.state.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.state)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.state)
             case OwnerInformationDetailKeys.zipCode.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.zipCode)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.zipCode)
             case OwnerInformationDetailKeys.homePhone.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.homePhone)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.homePhone)
             case OwnerInformationDetailKeys.percentOwned.hashValue:
-                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformationDetail, ownerInfoDetailKey: OwnerInformationDetailKeys.percentOwned)
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.percentOwned)
             default: break;
         }
         
@@ -92,7 +90,7 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
         return 60.0
     }
     
-    //MARK: - TextField Delegate Functions
+    //MARK: - TextField Delegate Functions -
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return !isViewingMode!
@@ -111,7 +109,7 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
         return true
     }
     
-    //MARK: - Keyboard Functions
+    //MARK: - Keyboard Functions -
     
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -133,7 +131,7 @@ class MCASAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource
         tableView.contentInset = contentInset
     }
 
-    //MARK: - Custom Functions
+    //MARK: - Custom Functions - 
     
     
     func editButtonTapped() {

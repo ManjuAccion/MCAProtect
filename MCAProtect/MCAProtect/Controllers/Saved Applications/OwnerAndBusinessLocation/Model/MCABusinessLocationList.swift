@@ -22,6 +22,7 @@ class MCABusinessLocationList: NSObject {
     var state                   : MCABillingState!
     var streetAddress           : String!
     var zipcode                 : String!
+    var fieldCount              : Int!
     
     init(businessLocationList: JSON!) {
         
@@ -42,7 +43,33 @@ class MCABusinessLocationList: NSObject {
         }
         streetAddress           = businessLocationList["street_address"].stringValue
         zipcode                 = businessLocationList["zipcode"].stringValue
+        fieldCount              = 6
     }
-
-
+    
+    func getValueFromKey(businessLocationKey: BusinessLocationDetailKeys) -> String {
+        
+        var modelValue : String!
+        
+        switch businessLocationKey {
+            
+            case .locationType :
+                modelValue =  businessLocationType
+                
+            case .monthlyPayement :
+                modelValue = MCAUtilities.currencyFormatter(inputItem: monthlyPayment as AnyObject)
+                
+            case .streetAddress :
+                modelValue = streetAddress
+                
+            case .city :
+                modelValue = city
+                
+            case .state :
+                modelValue = state.stateName
+                
+            case .zipCode :
+                modelValue = zipcode
+        }
+        return modelValue
+    }
 }

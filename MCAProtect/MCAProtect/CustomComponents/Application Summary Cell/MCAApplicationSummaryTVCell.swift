@@ -68,13 +68,13 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         dataTF.text =  existingLoan.getValueFromKey(key: mcaLoanKey)
     }
     
-    func setOwnerInformationDetail(ownerInfoDetail : MCAOwnerInformationDetail, ownerInfoDetailKey : OwnerInformationDetailKeys)
+    func setOwnerInformationDetail(ownerInfoDetail : MCAOwnerInformation, ownerInfoDetailKey : OwnerInformationDetailKeys)
     {
         titleLabel.text = ownerInfoDetailKey.rawValue
         dataTF.text =  ownerInfoDetail.getValueFromKey(ownerInformationKey: ownerInfoDetailKey)
     }
     
-    func setBusinessLocationDetail(businessLocationDetail : MCABusinessLocationDetail, businessLocationDetailKey : BusinessLocationDetailKeys)
+    func setBusinessLocationDetail(businessLocationDetail : MCABusinessLocationList, businessLocationDetailKey : BusinessLocationDetailKeys)
     {
         titleLabel.text = businessLocationDetailKey.rawValue
         dataTF.text =  businessLocationDetail.getValueFromKey(businessLocationKey: businessLocationDetailKey)
