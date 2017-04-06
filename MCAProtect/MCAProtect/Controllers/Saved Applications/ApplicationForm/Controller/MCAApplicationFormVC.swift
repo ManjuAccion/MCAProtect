@@ -21,7 +21,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     var selectedIndexpath : IndexPath?
     var applicationStatus : Int?
     
-    var dataDataSource = ["Loan Details","Business Information", "Business Address", "Liens/Payments/Bankruptcy", "Merchant Documentation", "Bank Records","MCA Loans","Owner/Officer Information","Business Location"]
+    var dataDataSource = ["Loan Details","Business Information", "Business Address", "Liens/Bankruptcy", "Merchant Documentation", "Bank Records","MCA Loans","Owner/Officer Information","Business Location"]
     
     //MARK: - View Life Cycle
 
@@ -210,7 +210,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
             default:
-                print("Inside Default")
+                break
 
             }
         }
