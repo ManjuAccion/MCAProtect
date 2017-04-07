@@ -18,8 +18,8 @@ class MCAFPMerchantRquirement: NSObject {
     var minimumMonthlySales : Int!
     var minimumNumOfBankDeposits : String!
     var daysWithNegativeBalance : String!
-    var minimumDepositeAmount : String!
-    var minimumDailyBalance : String!
+    var minimumDepositeAmount : Float!
+    var minimumDailyBalance : Float!
     var fieldCount : Int!
 
     
@@ -32,8 +32,8 @@ class MCAFPMerchantRquirement: NSObject {
             minimumMonthlySales = Data["min_monthly_sales"] != JSON.null ? Data["min_monthly_sales"].intValue : 0
             minimumNumOfBankDeposits = Data["min_bank_deposits_months"] != JSON.null ? Data["min_bank_deposits_months"].stringValue : ""
             daysWithNegativeBalance = Data["negative_days_accepted"] != JSON.null ? Data["negative_days_accepted"].stringValue : ""
-            minimumDepositeAmount = Data["min_avg_deposit"] != JSON.null ? Data["min_avg_deposit"].stringValue : ""
-            minimumDailyBalance = Data["min_avg_daily_balance"] != JSON.null ? Data["min_avg_daily_balance"].stringValue : ""
+            minimumDepositeAmount = Data["min_avg_deposit"] != JSON.null ? Data["min_avg_deposit"].floatValue : 0.0
+            minimumDailyBalance = Data["min_avg_daily_balance"] != JSON.null ? Data["min_avg_daily_balance"].floatValue : 0.0
             
             fieldCount = 7
 
@@ -62,10 +62,10 @@ class MCAFPMerchantRquirement: NSObject {
             modelValue = daysWithNegativeBalance
             
         case .FPMinimumDepositeAmount :
-            modelValue = minimumDepositeAmount
+            modelValue = MCAUtilities.currencyFormatter(inputItem: minimumDepositeAmount as AnyObject)
             
         case .FPMinimumDailyBalance :
-            modelValue = minimumDailyBalance
+            modelValue = MCAUtilities.currencyFormatter(inputItem: minimumDailyBalance as AnyObject)
             
         }
         return modelValue

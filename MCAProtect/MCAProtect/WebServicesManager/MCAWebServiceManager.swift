@@ -269,17 +269,6 @@ class MCAWebServiceManager: NSObject
         var urlRequest = URLRequest(url: url as! URL)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
-//        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-//        urlRequest.setValue(MCASessionManager.sharedSessionManager.accessToken, forHTTPHeaderField: "access-token")
-//        urlRequest.setValue(MCASessionManager.sharedSessionManager.client, forHTTPHeaderField: "client")
-//        urlRequest.setValue(MCASessionManager.sharedSessionManager.uid, forHTTPHeaderField: "uid")
-
-      
-    
-
-       // urlRequest.allHTTPHeaderFields = headersDict
-        
-        
         
 
      Alamofire.upload(multipartFormData: { (MultipartFormData) in
@@ -297,6 +286,9 @@ class MCAWebServiceManager: NSObject
             
             upload.responseJSON { response in
                 print (response.result)
+                let dataDictionary = JSON(response.result.value!)
+                successCallBack(dataDictionary)
+                return
 
             }
             

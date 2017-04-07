@@ -40,11 +40,11 @@ class MCAFPProgramInformation: NSObject {
             
             maximumLoanAmount =  Data["max_deal_size"] != JSON.null ? Data["max_deal_size"].intValue : 0
             
-            buyRate = Data["interest"] != JSON.null ? Data["interest"].stringValue : ""
+            buyRate = Data["interest"] != JSON.null ? Data["interest"].stringValue + "%": ""
             
-            maxUpsellRate = Data["allowed_broker_commision"] != JSON.null ? Data["allowed_broker_commision"].stringValue : ""
+            maxUpsellRate = Data["allowed_broker_commision"] != JSON.null ? Data["allowed_broker_commision"].stringValue + "%" : ""
             
-            maxGrossRevenue = Data["percentage_of_gross_revenue"] != JSON.null ? Data["percentage_of_gross_revenue"].stringValue : ""
+            maxGrossRevenue =  Data["percentage_of_gross_revenue"] != JSON.null ? Data["percentage_of_gross_revenue"].stringValue + "%" : ""
             
             originalFee = Data["origination_fee"] != JSON.null ? Data["origination_fee"].stringValue : ""
             

@@ -100,9 +100,17 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
     
     func setFPProgramInformation(programInfromation : MCAFPProgramInformation, programInformationKeys : FPProgramInformationKeys)
     {
+        
+        if programInformationKeys.rawValue == "Loan Agreement False" {
+            titleLabel.text = programInformationKeys.rawValue
+            dataTF.text = "Loan Agreement"
+
+        }
+        else
+        {
         titleLabel.text = programInformationKeys.rawValue
         dataTF.text = programInfromation.getValueFromKey(key: programInformationKeys) as String
-
+        }
         
     }
     func setFPMerchantRequirement(merchantRequirement : MCAFPMerchantRquirement, merchantRequirementKeys : FPMerchantRequirementkeys)
@@ -114,6 +122,7 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
     }
     func setFPLiensBankruptcy(liensBankruptcyDetails : MCAFPLiensOrBankruptcy, liensBankruptcyKeys : FPLiensAndBankruptcyKeys)
     {
+        
         titleLabel.text = liensBankruptcyKeys.rawValue
         dataTF.text = liensBankruptcyDetails.getValueFromKey(key: liensBankruptcyKeys) as String
         

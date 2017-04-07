@@ -175,6 +175,44 @@
             </objects>
             <point key="canvasLocation" x="3084" y="86.806596701649184"/>
         </scene>
+        <!--Liens And Bankruptcy View Controller-->
+        <scene sceneID="1Rv-HH-V9Y">
+            <objects>
+                <viewController storyboardIdentifier="MCAFPLiensAndBankruptcyViewController" id="kcw-I9-9h9" customClass="MCAFPLiensAndBankruptcyViewController" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m3O-kS-2sy"/>
+                        <viewControllerLayoutGuide type="bottom" id="xBD-Jw-drF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="agZ-Vy-yuW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="o5l-bP-9Hs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kcw-I9-9h9" id="Bfn-3O-OfW"/>
+                                    <outlet property="delegate" destination="kcw-I9-9h9" id="htC-38-frh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o5l-bP-9Hs" firstAttribute="top" secondItem="agZ-Vy-yuW" secondAttribute="top" id="8as-Yh-g1Y"/>
+                            <constraint firstAttribute="trailing" secondItem="o5l-bP-9Hs" secondAttribute="trailing" id="G9u-AM-ycE"/>
+                            <constraint firstItem="o5l-bP-9Hs" firstAttribute="leading" secondItem="agZ-Vy-yuW" secondAttribute="leading" id="NDd-ig-CFe"/>
+                            <constraint firstItem="o5l-bP-9Hs" firstAttribute="bottom" secondItem="xBD-Jw-drF" secondAttribute="top" id="fL2-4t-dUy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="o5l-bP-9Hs" id="Tzs-pU-h5A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpJ-wR-z4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1303.2" y="776.76161919040487"/>
+        </scene>
         <!--Application DetailVC-->
         <scene sceneID="nq6-0L-DFO">
             <objects>

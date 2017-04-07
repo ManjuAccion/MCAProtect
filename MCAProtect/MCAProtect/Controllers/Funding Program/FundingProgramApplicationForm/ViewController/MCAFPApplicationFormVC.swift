@@ -74,6 +74,15 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
                 navigationController?.pushViewController(applicationDetailVC, animated: true)
                 
             }
+            
+        else if(indexPath.row == 2)
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPLiensAndBankruptcyViewController") as! MCAFPLiensAndBankruptcyViewController
+            navigationController?.pushViewController(applicationDetailVC, animated: true)
+            
+        }
+
         else
         {
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)

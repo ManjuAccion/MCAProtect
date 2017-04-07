@@ -26,6 +26,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     
     var mcaUser : MCAUser!
     var imageData : NSData!
+    var imageUrlString : String!
     var imagePicker:UIImagePickerController?=UIImagePickerController()
     
 
@@ -55,13 +56,16 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         emailTF.text = mcaUser.brokerEmail
         phoneNumberTF.text = mcaUser.brokerContactNumber
         
-//       let imageUrl = NSURL(string : mcaUser.brokerImageUrl)
-//        let data = NSData(contentsOf:imageUrl! as URL)
-//        if data != nil {
-//            profileImageButton.setImage(UIImage(data:data as! Data), for: UIControlState.normal)
-//        }
+        if let url =  mcaUser.brokerImageUrl {
+            let imageUrl = NSURL(string : url)
+            let data = NSData(contentsOf:imageUrl! as URL)
+            if data != nil {
+                profileImageButton.setImage(UIImage(data:data as! Data), for: UIControlState.normal)
+            }
+            
 
-        // Do any additional setup after loading the view.
+        }
+              // Do any additional setup after loading the view.
     }
     
     
@@ -182,7 +186,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         
 
 
-    //   self.showActivityIndicator()
+      self.showActivityIndicator()
 
         
 
@@ -209,14 +213,15 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
             , successCallBack:{ (response : JSON!) in
                 
                 self.stopActivityIndicator()
-             //   print("Success \(response)")
-                
+                print("Success \(response)")
+                self.imageUrlString = response["image_url"].stringValue
+              MCASessionManager.sharedSessionManager.mcapUser.brokerImageUrl = self.imageUrlString
                 
         },
               failureCallBack: { (error : Error) in
                 self.stopActivityIndicator()
                 print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "Update Failed", preferredStyle : .alert)
+                let alertViewController = UIAlertController(title : "MCAP", message : "Upload failed", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 self.present(alertViewController, animated: true , completion: nil)
                 
@@ -242,7 +247,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         var paramDict  = Dictionary<String, String>()
         paramDict["contact_name"] = firstNameTF.text
         paramDict["contact_number"] = phoneNumberTF.text
-        paramDict["image_url"] = ""
+        paramDict["image_url"] = MCASessionManager.sharedSessionManager.mcapUser.brokerImageUrl
 
         
         
