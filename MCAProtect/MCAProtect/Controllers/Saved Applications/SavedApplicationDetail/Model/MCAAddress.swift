@@ -83,7 +83,7 @@ class MCAAddress: NSObject {
             modelValue = webAddress
             
         case .telephone :
-            modelValue = "\(businessContactNumber!)"
+            modelValue = "\(businessContactNumber!)".toUSPhoneNumberFormat()
             
         case .faxNumber :
             modelValue = "\(businessFaxNumber!)"

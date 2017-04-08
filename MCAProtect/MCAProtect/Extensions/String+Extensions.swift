@@ -24,12 +24,17 @@ public extension String {
     
     func getFirstAndLastName() -> (String, String)? {
         guard let range = trimmingCharacters(in: CharacterSet.whitespaces).range(of: " ", options: .backwards,
-                                                                                 range: nil, locale: nil) else {
-                                                                                    return nil
-        }
+                                                                                 range: nil, locale: nil)
+            else {
+                return nil
+            }
         let first = substring(to: range.lowerBound)
         let last = substring(from: range.upperBound)
         return (first, last)
+    }
+    
+    func toUSPhoneNumberFormat() -> String {
+        return self.replacingOccurrences(of: "(\\d{3})(\\d{3})(\\d+)", with: "($1) $2-$3", options: .regularExpression, range: nil)
     }
 }
 

@@ -22,16 +22,26 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
 
     //MARK: View Life Cycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationItem.title = self.selectedDealsPipeline.applicationStateName
+        tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationListTVCell)
+        tableView.tableFooterView = UIView()
+        
+        self.getApplicationList()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         titleText = selectedDealsPipeline.applicationStateName
         applicationState = selectedDealsPipeline.applicationStateID
-
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
-    func getApplicationList()
-    {
-        
+    func getApplicationList() {
         
         self.showActivityIndicator()
         
@@ -74,21 +84,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationItem.title = self.selectedDealsPipeline.applicationStateName
-        
 
-        tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationListTVCell)
-        tableView.tableFooterView = UIView()
-
-        self.getApplicationList()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     //MARK: - Table View Datasource
     

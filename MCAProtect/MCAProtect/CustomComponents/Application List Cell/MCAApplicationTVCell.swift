@@ -51,7 +51,7 @@ class MCAApplicationTVCell: UITableViewCell {
         nameLabel.text = merchantApplicationList.businessName
         amountLabel.text = MCAUtilities.currencyFormatter(inputItem: merchantApplicationList.loanAmount as AnyObject)
         emailButton.setTitle(merchantApplicationList.merchantEmail, for: UIControlState.normal)
-        phoneNumberButton.setTitle(merchantApplicationList.contactNumber, for: UIControlState.normal)
+        phoneNumberButton.setTitle(merchantApplicationList.contactNumber.toUSPhoneNumberFormat(), for: UIControlState.normal)
         contactNameLabel.text = merchantApplicationList.contactName
     }
 }

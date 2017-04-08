@@ -68,7 +68,7 @@ class MCAOwnerInformation: NSObject {
             case .city                  : modelValue =  city
             case .state                 : modelValue = state.stateName
             case .zipCode               : modelValue = zipcode
-            case .homePhone             : modelValue = homeTelephone
+            case .homePhone             : modelValue = homeTelephone.toUSPhoneNumberFormat()
             case .percentOwned          : modelValue = "\(percentageOwned!)%"
             
         }

@@ -49,7 +49,7 @@ class MCAMerchantApplicationDetail: NSObject {
             case .contactName   : modelValue = contactName
             case .loanAmount    : modelValue = MCAUtilities.currencyFormatter(inputItem: loanAmount as AnyObject)
             case .email         : modelValue = merchantEmail
-            case .telephone     : modelValue = contactNumber
+            case .telephone     : modelValue = contactNumber.toUSPhoneNumberFormat()
             case .offeredOn     : modelValue = offeredOn
         }
         return modelValue

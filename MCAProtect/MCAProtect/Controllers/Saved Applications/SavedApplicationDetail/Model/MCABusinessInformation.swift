@@ -97,7 +97,7 @@ class MCABusinessInformation: NSObject {
                 modelValue = contactName
                 
             case .telephone:
-                modelValue = "\(contactNumber!)"
+                modelValue = "\(contactNumber!)".toUSPhoneNumberFormat()
                 
             case .email:
                 modelValue = email
