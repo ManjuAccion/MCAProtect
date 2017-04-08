@@ -30,6 +30,14 @@ class MCASavedApplicationsBankRecordsTVCell: UITableViewCell {
         bankNameLabel.text = bankRecords.bankName
         accountNumberLabel.text = bankRecords.accountNumber
         amountLabel.text = MCAUtilities.currencyFormatter(inputItem: bankRecords.averageDailyBalance as AnyObject)
+        
+        //FIXME: - Do we need to move the bank name to center?
+        if bankRecords.accountNumber.isEmpty {
+            accountNumberTextLabel.isHidden = true
+        }
+        else {
+            accountNumberTextLabel.isHidden = false
+        }
     }
     
 }
