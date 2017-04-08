@@ -96,13 +96,14 @@ class MCAUtilities: NSObject {
         
     }
     
-    // Pass Any Format yyyy-mm-dd
- static  func getFormmattedDate(date : Date) -> String
- {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-    let DateFormated = dateFormatter.string(from: date)
-    return DateFormated
+    static  func getFormmattedDate(dateString : String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let formattedDate =  dateFormatter.date(from: dateString)
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from:formattedDate!)
+        return dateString
     }
 
     

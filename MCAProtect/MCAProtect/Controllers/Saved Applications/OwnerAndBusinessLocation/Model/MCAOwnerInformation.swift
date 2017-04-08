@@ -63,7 +63,7 @@ class MCAOwnerInformation: NSObject {
             
             case .name                  : modelValue =  ownerName
             case .socialSecurityNumber  : modelValue = ssnNumber
-            case .dob                   : modelValue = dob
+            case .dob                   : modelValue = MCAUtilities.getFormmattedDate(dateString: dob)
             case .streetAddress         : modelValue = address
             case .city                  : modelValue =  city
             case .state                 : modelValue = state.stateName

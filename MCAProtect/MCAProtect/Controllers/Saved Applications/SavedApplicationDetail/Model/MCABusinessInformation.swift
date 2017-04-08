@@ -118,7 +118,7 @@ class MCABusinessInformation: NSObject {
                 modelValue = "\(incorporationState.billingStateID!)"
             
             case .businessStartDate:
-                modelValue = businessStartDate
+                modelValue = MCAUtilities.getFormmattedDate(dateString: businessStartDate)
             
             case .industryType:
                 modelValue = "\(industryType.industryTypeID!)"
