@@ -14,10 +14,14 @@ class MCADealsPipelineTVCell: UITableViewCell {
     @IBOutlet weak var applicationCountLabel: UILabel!
     @IBOutlet weak var sumLabel: UILabel!
     @IBOutlet weak var averageLabel: UILabel!
+    @IBOutlet weak var leftView: UIView!
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        var colorWheel = ColorWheel()
+        let randomColor = colorWheel.randomColor()
+        leftView.backgroundColor = randomColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
