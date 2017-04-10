@@ -94,7 +94,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
-        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
+        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationSummaryVC) as! MCAApplicationSummaryVC
         savedApplication = dataSource[indexPath.row]
         applicationSummaryVC.appSummary = savedApplication
         applicationSummaryVC.titleText = savedApplication.applicationName

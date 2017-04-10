@@ -44,7 +44,7 @@ class MCASavedApplicationsListTVCell: UITableViewCell {
         amountLabel.text = MCAUtilities.currencyFormatter(inputItem: savedApplicationData.amount as AnyObject)
         daysLabel.text = "\(savedApplicationData.neededIn!)"
         emailButton.setTitle(savedApplicationData.merchantEmail, for: .normal)
-        phoneNumberButton.setTitle(savedApplicationData.merchantPhoneNumber, for: .normal)
+        phoneNumberButton.setTitle(savedApplicationData.merchantPhoneNumber.toUSPhoneNumberFormat(), for: .normal)
         merchantNameLabel.text = savedApplicationData.merchantName
         phoneNumber = savedApplicationData.merchantPhoneNumber
     }

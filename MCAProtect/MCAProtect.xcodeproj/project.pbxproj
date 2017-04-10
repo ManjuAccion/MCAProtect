@@ -127,7 +127,6 @@
 		BAC6ADC31E8106DE0047F7D3 /* MCASALoansTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADBD1E8106DE0047F7D3 /* MCASALoansTVCell.swift */; };
 		BAC6ADC41E8106DE0047F7D3 /* MCASALoansTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6ADBE1E8106DE0047F7D3 /* MCASALoansTVCell.xib */; };
 		BAC6ADC91E81075B0047F7D3 /* MCASALoanDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADC71E81075B0047F7D3 /* MCASALoanDetailVC.swift */; };
-		BAC6ADCD1E8140510047F7D3 /* MCAApplicationSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADCC1E8140510047F7D3 /* MCAApplicationSummary.swift */; };
 		BAC6ADCF1E81422A0047F7D3 /* MCAApplicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADCE1E81422A0047F7D3 /* MCAApplicationForm.swift */; };
 		BAC6ADD11E814DC10047F7D3 /* MCAOwnerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADD01E814DC10047F7D3 /* MCAOwnerInformation.swift */; };
 		BAC6ADD51E8150660047F7D3 /* MCASAOwnerInformationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADD31E8150660047F7D3 /* MCASAOwnerInformationDetailVC.swift */; };
@@ -346,7 +345,6 @@
 		BAC6ADBD1E8106DE0047F7D3 /* MCASALoansTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASALoansTVCell.swift; sourceTree = "<group>"; };
 		BAC6ADBE1E8106DE0047F7D3 /* MCASALoansTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASALoansTVCell.xib; sourceTree = "<group>"; };
 		BAC6ADC71E81075B0047F7D3 /* MCASALoanDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASALoanDetailVC.swift; sourceTree = "<group>"; };
-		BAC6ADCC1E8140510047F7D3 /* MCAApplicationSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationSummary.swift; sourceTree = "<group>"; };
 		BAC6ADCE1E81422A0047F7D3 /* MCAApplicationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationForm.swift; sourceTree = "<group>"; };
 		BAC6ADD01E814DC10047F7D3 /* MCAOwnerInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAOwnerInformation.swift; sourceTree = "<group>"; };
 		BAC6ADD31E8150660047F7D3 /* MCASAOwnerInformationDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASAOwnerInformationDetailVC.swift; sourceTree = "<group>"; };
@@ -1534,7 +1532,6 @@
 		BAC6ADA11E8102390047F7D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BAC6ADCC1E8140510047F7D3 /* MCAApplicationSummary.swift */,
 				CE9F69751E9297390089F8CE /* MCALoanApplication.swift */,
 			);
 			path = Model;
@@ -2406,7 +2403,6 @@
 				7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */,
 				BAC6ADC31E8106DE0047F7D3 /* MCASALoansTVCell.swift in Sources */,
 				5BB3E5FA1E8293A800A67927 /* MCAApplicationTVCell.swift in Sources */,
-				BAC6ADDF1E8158D70047F7D3 /* MCAExistingLoanDetail.swift in Sources */,
 				5B330B891E967B0F00CB7A6C /* MCAFPLiensAndBankruptcyViewController.swift in Sources */,
 				BAC6ADE71E8160350047F7D3 /* MCAAskFunderApplicationListTVCell.swift in Sources */,
 				BACC53041E892C85003C4852 /* MCALoginViewController.swift in Sources */,
@@ -2496,7 +2492,6 @@
 				BAC6ADD51E8150660047F7D3 /* MCASAOwnerInformationDetailVC.swift in Sources */,
 				5B90494F1E72881A00A49A50 /* MCAMatchedFundingProgramVC.swift in Sources */,
 				5B1F8D841E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift in Sources */,
-				BAC6ADCD1E8140510047F7D3 /* MCAApplicationSummary.swift in Sources */,
 				BAC6ADF51E824ABB0047F7D3 /* MCAMASubmitStipulationsVC.swift in Sources */,
 				BAC6AE591E8250720047F7D3 /* MCAResetMPINVC.swift in Sources */,
 				BAC6AE5A1E8250720047F7D3 /* MCASetMPinVC.swift in Sources */,

@@ -33,31 +33,12 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     weak var parentController: MCADashboardTabbarVC!
 
     //MARK: - View Life Cycle -
-    
-    
-    func pickerSelected(dealsPipelineRange : NSInteger){
-        
-        selectedRange = MCADealsPipelineRange(rawValue: dealsPipelineRange)!
-        rangeSelectionLabel.text = rangeList[dealsPipelineRange]
-        
-        if(MCADealsPipelineRange.Custom != selectedRange) {
-            getDealsPipelineList()
-        }
-    }
-    
-    
-    
-    func dateSelected(date: Date)
-    {
-        
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         pipeLineTableView.register(UINib(nibName: "MCADealsPipelineTVCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.MCADealsPipelineTVCell)
-        
+        pipeLineTableView.tableFooterView = UIView()
         
         rangeList.append("Custom")
         rangeList.append("Current Week")
@@ -115,7 +96,6 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     
     
     //MARK: - API for Getting deals pipeline -
-
     
     func getDealsPipelineList() {
         
@@ -134,133 +114,132 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         let calendar = Calendar.current
         let components = calendar.dateComponents(unitFlags, from: currentDate)
 
-        
         switch selectedRange!
         {
-        case .Custom:
-            
-            endPoint.append("?from_date=2017-01-01&to_date=2017-12-31")
-        case .CurrentWeek:
-            
-            var fromDateComponents = DateComponents()
-            fromDateComponents.year = components.year
-            fromDateComponents.month = components.month
-            fromDateComponents.day = components.day! - 7
-            
-            let fromCalendar = Calendar.current // user calendar
-            let fromDateTime = fromCalendar.date(from: fromDateComponents)
-            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
-            
-            var toDateComponents = DateComponents()
-            toDateComponents.year = components.year
-            toDateComponents.month = components.month
-            toDateComponents.day = components.day
-            
-            let toCalendar = Calendar.current // user calendar
-            let toDateTime = toCalendar.date(from: toDateComponents)
-            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
-            
-        case .CurrentMonth:
-            var fromDateComponents = DateComponents()
-            fromDateComponents.year = components.year
-            fromDateComponents.month = components.month
-            fromDateComponents.day = 1
-            
-            let fromCalendar = Calendar.current // user calendar
-            let fromDateTime = fromCalendar.date(from: fromDateComponents)
-            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
-            
-            var toDateComponents = DateComponents()
-            toDateComponents.year = components.year
-            toDateComponents.month = components.month
-            toDateComponents.day = components.day
-            
-            let toCalendar = Calendar.current // user calendar
-            let toDateTime = toCalendar.date(from: toDateComponents)
-            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
-            
-        case .PreviousMonth:
-            
-            var fromDateComponents = DateComponents()
-            fromDateComponents.year = components.year
-            fromDateComponents.month = components.month! - 1
-            fromDateComponents.day = 1
-            
-            let fromCalendar = Calendar.current // user calendar
-            let fromDateTime = fromCalendar.date(from: fromDateComponents)
-            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
-            
-            var toDateComponents = DateComponents()
-            toDateComponents.year = components.year
-            toDateComponents.month = components.month
-            toDateComponents.day = components.day
-            
-            let toCalendar = Calendar.current // user calendar
-            let toDateTime = toCalendar.date(from: toDateComponents)
-            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
-            
-            
-        case .CurrentQuarter:
-            
-            var fromDateComponents = DateComponents()
-            fromDateComponents.year = components.year
-            fromDateComponents.month = components.month
-            fromDateComponents.day = 1
-            
-            let fromCalendar = Calendar.current // user calendar
-            let fromDateTime = fromCalendar.date(from: fromDateComponents)
-            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
-            
-            var toDateComponents = DateComponents()
-            toDateComponents.year = components.year
-            toDateComponents.month = components.month! + 3
-            toDateComponents.day = components.day
-            
-            let toCalendar = Calendar.current // user calendar
-            let toDateTime = toCalendar.date(from: toDateComponents)
-            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
-            
-
-        case .PreviousQuarter:
-            
-            var fromDateComponents = DateComponents()
-            fromDateComponents.year = components.year
-            fromDateComponents.month = components.month! - 3
-            fromDateComponents.day = 1
-            
-            let fromCalendar = Calendar.current // user calendar
-            let fromDateTime = fromCalendar.date(from: fromDateComponents)
-            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
-            
-            var toDateComponents = DateComponents()
-            toDateComponents.year = components.year
-            toDateComponents.month = components.month
-            toDateComponents.day = components.day
-            
-            let toCalendar = Calendar.current // user calendar
-            let toDateTime = toCalendar.date(from: toDateComponents)
-            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
-            
-            
-        case .CurrentYear:
-            
-            var fromDateComponents = DateComponents()
-            fromDateComponents.year = components.year
-            fromDateComponents.month = 1
-            fromDateComponents.day = 1
-            
-            let fromCalendar = Calendar.current // user calendar
-            let fromDateTime = fromCalendar.date(from: fromDateComponents)
-            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
-            
-            var toDateComponents = DateComponents()
-            toDateComponents.year = components.year
-            toDateComponents.month = components.month
-            toDateComponents.day = components.day
-            
-            let toCalendar = Calendar.current // user calendar
-            let toDateTime = toCalendar.date(from: toDateComponents)
-            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+            case .Custom:
+                
+                endPoint.append("?from_date=2017-01-01&to_date=2017-12-31")
+            case .CurrentWeek:
+                
+                var fromDateComponents = DateComponents()
+                fromDateComponents.year = components.year
+                fromDateComponents.month = components.month
+                fromDateComponents.day = components.day! - 7
+                
+                let fromCalendar = Calendar.current // user calendar
+                let fromDateTime = fromCalendar.date(from: fromDateComponents)
+                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                
+                var toDateComponents = DateComponents()
+                toDateComponents.year = components.year
+                toDateComponents.month = components.month
+                toDateComponents.day = components.day
+                
+                let toCalendar = Calendar.current // user calendar
+                let toDateTime = toCalendar.date(from: toDateComponents)
+                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                
+            case .CurrentMonth:
+                var fromDateComponents = DateComponents()
+                fromDateComponents.year = components.year
+                fromDateComponents.month = components.month
+                fromDateComponents.day = 1
+                
+                let fromCalendar = Calendar.current // user calendar
+                let fromDateTime = fromCalendar.date(from: fromDateComponents)
+                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                
+                var toDateComponents = DateComponents()
+                toDateComponents.year = components.year
+                toDateComponents.month = components.month
+                toDateComponents.day = components.day
+                
+                let toCalendar = Calendar.current // user calendar
+                let toDateTime = toCalendar.date(from: toDateComponents)
+                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                
+            case .PreviousMonth:
+                
+                var fromDateComponents = DateComponents()
+                fromDateComponents.year = components.year
+                fromDateComponents.month = components.month! - 1
+                fromDateComponents.day = 1
+                
+                let fromCalendar = Calendar.current // user calendar
+                let fromDateTime = fromCalendar.date(from: fromDateComponents)
+                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                
+                var toDateComponents = DateComponents()
+                toDateComponents.year = components.year
+                toDateComponents.month = components.month
+                toDateComponents.day = components.day
+                
+                let toCalendar = Calendar.current // user calendar
+                let toDateTime = toCalendar.date(from: toDateComponents)
+                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                
+                
+            case .CurrentQuarter:
+                
+                var fromDateComponents = DateComponents()
+                fromDateComponents.year = components.year
+                fromDateComponents.month = components.month
+                fromDateComponents.day = 1
+                
+                let fromCalendar = Calendar.current // user calendar
+                let fromDateTime = fromCalendar.date(from: fromDateComponents)
+                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                
+                var toDateComponents = DateComponents()
+                toDateComponents.year = components.year
+                toDateComponents.month = components.month! + 3
+                toDateComponents.day = components.day
+                
+                let toCalendar = Calendar.current // user calendar
+                let toDateTime = toCalendar.date(from: toDateComponents)
+                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                
+                
+            case .PreviousQuarter:
+                
+                var fromDateComponents = DateComponents()
+                fromDateComponents.year = components.year
+                fromDateComponents.month = components.month! - 3
+                fromDateComponents.day = 1
+                
+                let fromCalendar = Calendar.current // user calendar
+                let fromDateTime = fromCalendar.date(from: fromDateComponents)
+                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                
+                var toDateComponents = DateComponents()
+                toDateComponents.year = components.year
+                toDateComponents.month = components.month
+                toDateComponents.day = components.day
+                
+                let toCalendar = Calendar.current // user calendar
+                let toDateTime = toCalendar.date(from: toDateComponents)
+                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                
+                
+            case .CurrentYear:
+                
+                var fromDateComponents = DateComponents()
+                fromDateComponents.year = components.year
+                fromDateComponents.month = 1
+                fromDateComponents.day = 1
+                
+                let fromCalendar = Calendar.current // user calendar
+                let fromDateTime = fromCalendar.date(from: fromDateComponents)
+                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                
+                var toDateComponents = DateComponents()
+                toDateComponents.year = components.year
+                toDateComponents.month = components.month
+                toDateComponents.day = components.day
+                
+                let toCalendar = Calendar.current // user calendar
+                let toDateTime = toCalendar.date(from: toDateComponents)
+                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
             
             
         }
@@ -296,12 +275,6 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 self.present(alertViewController, animated: true , completion: nil)
         })
     }
-    
-
-    
-    
-    
-    
 
     @IBAction func selectDateRange(_ sender: Any)
     {
@@ -322,6 +295,21 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         customPicker.frame = self.parentController.view.bounds
         customPicker.layoutIfNeeded()
         self.parentController.view.addSubview(customPicker)
+    }
+    
+    func pickerSelected(dealsPipelineRange : NSInteger){
+        
+        selectedRange = MCADealsPipelineRange(rawValue: dealsPipelineRange)!
+        rangeSelectionLabel.text = rangeList[dealsPipelineRange]
+        
+        if(MCADealsPipelineRange.Custom != selectedRange) {
+            getDealsPipelineList()
+        }
+    }
+    
+    func dateSelected(date: Date)
+    {
+        
     }
     
 
