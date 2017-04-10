@@ -32,7 +32,7 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setSavedApplicationSummary(appSummary : MCAApplicationSummary, appSummaryKey : ApplicationSummaryKeys)
+    func setSavedApplicationSummary(appSummary : MCASavedApplication, appSummaryKey : ApplicationSummaryKeys)
     {
         titleLabel.text = appSummaryKey.rawValue
         dataTF.text =  appSummary.getValueFromKey(key: appSummaryKey)

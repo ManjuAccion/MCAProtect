@@ -16,13 +16,12 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     
 
     var titleText: String?
-    var appSummary : MCAApplicationSummary!
+    var appSummary : MCASavedApplication!
     
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appSummary = MCAApplicationSummary(data: nil);
         loadUI()
     }
     
@@ -46,7 +45,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appSummary.fieldCount
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,6 +91,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         if indexPath.row == 1 {
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
+            applicationFormVC.applicationId = appSummary.applicationId
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }
     }

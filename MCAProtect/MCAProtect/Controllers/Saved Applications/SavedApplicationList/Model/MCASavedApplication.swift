@@ -82,7 +82,8 @@ class MCASavedApplication: NSObject {
     var neededIn : String!
     var brokerId : Int!
     var merchantId : Int!
-    var id : Int!
+    var applicationId : Int!
+    var submittedOn : String!
 
     
     init(savedApplcation : JSON!) {
@@ -90,10 +91,32 @@ class MCASavedApplication: NSObject {
         amount = savedApplcation["loan_amount"].floatValue
         merchantName = savedApplcation["contact_name"].stringValue
         merchantEmail = savedApplcation["merchant_mail"].stringValue
-        merchantPhoneNumber = savedApplcation["contact_number"].stringValue
+        merchantPhoneNumber = (savedApplcation["contact_number"].stringValue).toUSPhoneNumberFormat()
         brokerId = savedApplcation["broker_id"].intValue
         merchantId = savedApplcation["merchant_id"].intValue
-        id = savedApplcation["id"].intValue
+        applicationId = savedApplcation["id"].intValue
         neededIn = "Need in \(savedApplcation["loan_requirement_tenure"].stringValue)"
+        submittedOn = savedApplcation["updated_at"].stringValue
+    }
+    
+    func getValueFromKey(key: ApplicationSummaryKeys) -> String{
+        
+        var modelValue : String!
+        
+        switch key {
+        case .SASummarySubmittedOn :
+            modelValue =  submittedOn
+            
+        case .SASummaryBusinessName :
+            modelValue = applicationName
+            
+        case .SASummaryNeedeIn :
+            modelValue = neededIn
+            
+        case .SASummaryLoanValue :
+            modelValue = MCAUtilities.currencyFormatter(inputItem: amount as AnyObject)
+            
+        }
+        return modelValue
     }
 }

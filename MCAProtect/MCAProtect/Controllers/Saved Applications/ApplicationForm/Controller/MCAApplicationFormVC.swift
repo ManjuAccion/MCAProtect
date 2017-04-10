@@ -16,7 +16,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
-
+    var applicationId : Int!
     var loanApplication : MCALoanApplication!
     var selectedIndexpath : IndexPath?
     var applicationStatus : Int?
@@ -48,7 +48,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerLoanApplicationAPIEndpoint);
-        endPoint.append("/\(merchantApplicationDetail.applicationID!).json");
+        endPoint.append("/\(applicationId!).json");
         
         
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],

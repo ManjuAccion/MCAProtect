@@ -96,7 +96,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
         let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
         let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
         savedApplicationList = dataSource[indexPath.row]
-
+        applicationSummaryVC.appSummary = savedApplicationList
         applicationSummaryVC.titleText = savedApplicationList.applicationName
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
