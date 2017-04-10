@@ -19,6 +19,7 @@ class MCAApplicationTVCell: UITableViewCell {
     @IBOutlet weak var rightButton: UIButton!
     
     var delegate : MCABaseViewController!
+    var phoneNumber : String!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +35,7 @@ class MCAApplicationTVCell: UITableViewCell {
     }
     
     @IBAction func phoneNumberButtonTapped(_ sender: Any) {
-        delegate.callButtonTapped();
+        delegate.callButtonTapped(phoneNumber: phoneNumber);
     }
     
     func dataSource(data: MCAFundingProgramList)
@@ -44,6 +45,7 @@ class MCAApplicationTVCell: UITableViewCell {
         contactNameLabel.text = data.contactName
         emailButton.setTitle(data.email, for: UIControlState.normal)
         phoneNumberButton.setTitle(data.phoneNumber, for: UIControlState.normal)
+        phoneNumber = data.phoneNumber
     }
     
     func setMerchantApplicationList(merchantApplicationList: MCAMerchantApplicationDetail) {
@@ -53,5 +55,6 @@ class MCAApplicationTVCell: UITableViewCell {
         emailButton.setTitle(merchantApplicationList.merchantEmail, for: UIControlState.normal)
         phoneNumberButton.setTitle(merchantApplicationList.contactNumber.toUSPhoneNumberFormat(), for: UIControlState.normal)
         contactNameLabel.text = merchantApplicationList.contactName
+        phoneNumber = merchantApplicationList.contactNumber
     }
 }

@@ -14,6 +14,7 @@ class MCAPhoneNumberTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel : UILabel!
     
     var delegate : MCABaseViewController!
+    var phoneNumber : String!
 
     
     
@@ -30,14 +31,24 @@ class MCAPhoneNumberTableViewCell: UITableViewCell {
     
     @IBAction func phoneNumberButtonTapped(_ sender: Any) {
         
-        delegate.callButtonTapped();
+        delegate.callButtonTapped(phoneNumber: phoneNumber)
     }
     
-    func setMerchantApplicationSummary(merchantSummary : MCAMerchantApplicationDetail, merchantSummaryKey : MASummaryKeys)
-    {
+    func setMerchantApplicationSummary(merchantSummary : MCAMerchantApplicationDetail, merchantSummaryKey : MASummaryKeys) {
         titleLabel.text = merchantSummaryKey.rawValue
         phoneNumberButton.setTitle(merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey), for: .normal)
+        phoneNumber = merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey)
     }
-
-
+    
+    func setBusinessInformation(businessInformation : MCABusinessInformation, businessInfoKey : BusinessInformationKeys) {
+        titleLabel.text = businessInfoKey.rawValue
+        phoneNumberButton.setTitle(businessInformation.getValueFromKey(key: businessInfoKey), for: .normal)
+        phoneNumber = businessInformation.getValueFromKey(key: businessInfoKey)
+    }
+    
+    func setBusinessAddress(businessAddress : MCAAddress, businessAddressKey : BusinessAddressKeys) {
+        titleLabel.text = businessAddressKey.rawValue
+        phoneNumberButton.setTitle(businessAddress.getValueFromKey(key: businessAddressKey), for: .normal)
+        phoneNumber = businessAddress.getValueFromKey(key: businessAddressKey)
+    }
 }

@@ -55,9 +55,9 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
             controller.dismiss(animated: true)
     }
     
-    public func callButtonTapped()
+    func callButtonTapped(phoneNumber: String!)
     {
-        let alertViewController = UIAlertController(title : "", message : "447415554422", preferredStyle : .alert)
+        let alertViewController = UIAlertController(title : "", message : phoneNumber.toUSPhoneNumberFormat(), preferredStyle : .alert)
         alertViewController.view.tintColor = ColorConstants.red
         alertViewController.addAction(UIAlertAction(title : "Cancel" , style : .default , handler : nil))
         

@@ -30,13 +30,13 @@ class MCAEmailTableViewCell: UITableViewCell {
         delegate.emailButtonTapped()
     }
     
-    func setMerchantApplicationSummary(merchantSummary : MCAMerchantApplicationDetail, merchantSummaryKey : MASummaryKeys)
-    {
+    func setMerchantApplicationSummary(merchantSummary : MCAMerchantApplicationDetail, merchantSummaryKey : MASummaryKeys) {
         titleLabel.text = merchantSummaryKey.rawValue
         emailButton.setTitle(merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey), for: .normal)
     }
-
     
-   
-    
+    func setBusinessInformation(businessInformation : MCABusinessInformation, businessInfoKey : BusinessInformationKeys) {
+        titleLabel.text = businessInfoKey.rawValue
+        emailButton.setTitle(businessInformation.getValueFromKey(key: businessInfoKey), for: .normal)
+    }
 }
