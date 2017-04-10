@@ -140,19 +140,23 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
                         
                         let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAPhoneNumberTableViewCell, for: indexPath) as! MCAPhoneNumberTableViewCell
                         phoneNumberCell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.telephone)
-                        phoneNumberCell.backgroundColor = ColorConstants.background
                         phoneNumberCell.delegate = self
+                        phoneNumberCell.selectionStyle = .none
+                        phoneNumberCell.backgroundColor = UIColor.clear
 
                     case BusinessInformationKeys.email.hashValue:
                         
                         let   emailCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAEmailTableViewCell, for: indexPath) as! MCAEmailTableViewCell
                         emailCell.delegate = self
-                        emailCell.backgroundColor = ColorConstants.background
+                        emailCell.selectionStyle = .none
+                        emailCell.backgroundColor = UIColor.clear
                         emailCell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.email)
                     case BusinessInformationKeys.federalTaxID.hashValue:
                         cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.federalTaxID)
                     case BusinessInformationKeys.grossAnnualSales.hashValue:
                         cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.grossAnnualSales)
+                    case BusinessInformationKeys.grossAnnualRevenue.hashValue:
+                        cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.grossAnnualRevenue)
                     case BusinessInformationKeys.businessEntityType.hashValue:
                         cell.setBusinessInformation(businessInformation: selectedLoanApp.businessInfo, businessInfoKey: BusinessInformationKeys.businessEntityType)
                     case BusinessInformationKeys.dBABusinessName.hashValue:
@@ -182,13 +186,15 @@ class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,U
                     case BusinessAddressKeys.telephone.hashValue:
                         let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAPhoneNumberTableViewCell, for: indexPath) as! MCAPhoneNumberTableViewCell
                         phoneNumberCell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey: BusinessAddressKeys.telephone)
-                        phoneNumberCell.backgroundColor = ColorConstants.background
                         phoneNumberCell.delegate = self
+                        phoneNumberCell.selectionStyle = .none
+                        phoneNumberCell.backgroundColor = UIColor.clear
                     case BusinessAddressKeys.faxNumber.hashValue:
                         let   phoneNumberCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAPhoneNumberTableViewCell, for: indexPath) as! MCAPhoneNumberTableViewCell
                         phoneNumberCell.setBusinessAddress(businessAddress: selectedLoanApp.address, businessAddressKey:  BusinessAddressKeys.faxNumber)
-                        phoneNumberCell.backgroundColor = ColorConstants.background
                         phoneNumberCell.delegate = self
+                        phoneNumberCell.selectionStyle = .none
+                        phoneNumberCell.backgroundColor = UIColor.clear
 
                     default: break
                     }

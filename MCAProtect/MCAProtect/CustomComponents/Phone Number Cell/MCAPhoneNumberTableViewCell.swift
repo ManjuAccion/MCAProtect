@@ -37,18 +37,18 @@ class MCAPhoneNumberTableViewCell: UITableViewCell {
     func setMerchantApplicationSummary(merchantSummary : MCAMerchantApplicationDetail, merchantSummaryKey : MASummaryKeys) {
         titleLabel.text = merchantSummaryKey.rawValue
         phoneNumberButton.setTitle(merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey), for: .normal)
-        phoneNumber = merchantSummary.getValueFromKey(merchantSummaryKey: merchantSummaryKey)
+        phoneNumber = merchantSummary.contactNumber
     }
     
     func setBusinessInformation(businessInformation : MCABusinessInformation, businessInfoKey : BusinessInformationKeys) {
         titleLabel.text = businessInfoKey.rawValue
         phoneNumberButton.setTitle(businessInformation.getValueFromKey(key: businessInfoKey), for: .normal)
-        phoneNumber = businessInformation.getValueFromKey(key: businessInfoKey)
+        phoneNumber = "\(businessInformation.contactNumber!)"
     }
     
     func setBusinessAddress(businessAddress : MCAAddress, businessAddressKey : BusinessAddressKeys) {
         titleLabel.text = businessAddressKey.rawValue
         phoneNumberButton.setTitle(businessAddress.getValueFromKey(key: businessAddressKey), for: .normal)
-        phoneNumber = businessAddress.getValueFromKey(key: businessAddressKey)
+        phoneNumber = "\(businessAddress.businessContactNumber!)"
     }
 }

@@ -34,6 +34,7 @@ class MCABusinessInformation: NSObject {
     var contactNumber               : Int!
     var email                       : String!
     var grossAnnualSales            : Int!
+    var grossAnnualRevenue          : Int!
     var businessEntityTypeId        : String!
     var incorporationCountryStateId : Int!
     var industryTypeId              : String!
@@ -80,9 +81,7 @@ class MCABusinessInformation: NSObject {
         paymentPlan                 = businessInformation["payment_plan"].boolValue
         peakMonths                  = businessInformation["peak_months"].stringValue
         
-        grossAnnualSales            = 30000 //TODO: Harcoded value need to remove.
-        
-        fieldCount                  = 12
+        fieldCount                  = 13
     }
     
     func getValueFromKey(key: BusinessInformationKeys) -> String{
@@ -107,6 +106,9 @@ class MCABusinessInformation: NSObject {
             
             case .grossAnnualSales:
                 modelValue = MCAUtilities.currencyFormatter(inputItem: grossAnnualSales as AnyObject)
+            
+            case .grossAnnualRevenue:
+                modelValue = MCAUtilities.currencyFormatter(inputItem: grossAnnualRevenue as AnyObject)
             
             case .businessEntityType:
                 modelValue = businessEntityType.name

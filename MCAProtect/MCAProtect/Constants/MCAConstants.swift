@@ -215,6 +215,7 @@ enum BusinessInformationKeys : String {
     case email              = "Email"
     case federalTaxID       = "Federal Tax ID"
     case grossAnnualSales   = "Gross Annual Sales"
+    case grossAnnualRevenue = "Gross Annual Revenue"
     case businessEntityType = "Business Entity Type"
     case dBABusinessName    = "DBA Business Name"
     case stateOfIncorprataion = "State of Incorporation"

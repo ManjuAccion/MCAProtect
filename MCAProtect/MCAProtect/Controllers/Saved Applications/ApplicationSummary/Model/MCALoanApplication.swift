@@ -51,6 +51,8 @@ class MCALoanApplication: NSObject {
             businessInfo.contactName    = programInfo.contactName
             businessInfo.contactNumber  = programInfo.contactNumber
             businessInfo.email          = programInfo.email
+            businessInfo.grossAnnualSales   = businessFinance.grossAnnualSales
+            businessInfo.grossAnnualRevenue = businessFinance.revenueAmount
         }
         
         merchantDocumentation   = [MCAMerchantDocumentation]()
