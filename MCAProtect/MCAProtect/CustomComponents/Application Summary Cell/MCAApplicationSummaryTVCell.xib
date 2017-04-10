@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,26 +23,17 @@
             <rect key="frame" x="0.0" y="0.0" width="376" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sfdsavdfs" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJu-7T-LTR">
-                    <rect key="frame" x="16" y="30" width="288" height="22"/>
+                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sfdsavdfs" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="UJu-7T-LTR">
+                    <rect key="frame" x="16" y="30" width="344" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="twO-0m-C7N"/>
                     </constraints>
                     <color key="textColor" red="0.1764705882352941" green="0.22352941176470587" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateEvenIfNotFirstResponder" value="NO"/>
-                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
-                            <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
-                            <color key="value" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelzczccx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BW3-r2-Sbk">
-                    <rect key="frame" x="16" y="8" width="288" height="20"/>
+                    <rect key="frame" x="16" y="8" width="344" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="O6q-BB-QK1"/>
                     </constraints>
@@ -51,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGS-g7-Doq">
-                    <rect key="frame" x="312" y="15" width="30" height="30"/>
+                    <rect key="frame" x="368" y="15" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Bs2-f3-apL"/>
                         <constraint firstAttribute="width" constant="30" id="Yjh-fS-Rw7"/>
@@ -65,7 +56,7 @@
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="BW3-r2-Sbk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="1aE-f0-CgL"/>
-                <constraint firstAttribute="trailing" secondItem="BGS-g7-Doq" secondAttribute="trailing" constant="34" id="Fxo-d2-yl4"/>
+                <constraint firstAttribute="trailing" secondItem="BGS-g7-Doq" secondAttribute="trailing" constant="-22" id="Fxo-d2-yl4"/>
                 <constraint firstItem="UJu-7T-LTR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="IZV-7j-bBJ"/>
                 <constraint firstItem="BW3-r2-Sbk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="eyi-fj-kOZ"/>
                 <constraint firstItem="BGS-g7-Doq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="pNI-Xz-vP0"/>
@@ -79,6 +70,7 @@
                 <outlet property="dataTF" destination="UJu-7T-LTR" id="k3B-Ea-Kh5"/>
                 <outlet property="titleLabel" destination="BW3-r2-Sbk" id="gci-lE-Azl"/>
                 <outlet property="viewDetailsButton" destination="BGS-g7-Doq" id="fZj-3T-yDa"/>
+                <outlet property="viewDetailsButtonTrailingConstant" destination="Fxo-d2-yl4" id="Z3a-gk-cFo"/>
             </connections>
             <point key="canvasLocation" x="-7" y="-120"/>
         </view>

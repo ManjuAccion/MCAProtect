@@ -20,12 +20,17 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
     @IBOutlet weak var dataTF: UITextField!
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var viewDetailsButton: UIButton!
+    @IBOutlet weak var viewDetailsButtonTrailingConstant: NSLayoutConstraint!
     
     var delegate:MCAApplicationSummaryTVCellDelegate?
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if viewDetailsButton.isHidden == false {
+            viewDetailsButtonTrailingConstant.constant = 34
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

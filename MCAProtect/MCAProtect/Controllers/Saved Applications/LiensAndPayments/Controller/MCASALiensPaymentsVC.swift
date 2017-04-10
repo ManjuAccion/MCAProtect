@@ -17,7 +17,7 @@ class MCASALiensPaymentsVC: MCABaseViewController,UITableViewDataSource,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Liens/Payments"
+        self.title = "Liens/Bankruptcy"
         tableView.register(UINib(nibName: "MCALiensPaymentsTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCALiensPaymentsTVCell)
         tableView.register(UINib(nibName: "MCABankruptcyTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCABankruptcyTVCell)
     }
