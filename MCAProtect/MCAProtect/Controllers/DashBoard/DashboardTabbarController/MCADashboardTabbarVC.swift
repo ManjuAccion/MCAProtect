@@ -58,6 +58,8 @@ class MCADashboardTabbarVC: MCABaseViewController{
     func leftBarButtonclicked()
     {
         SlideNavigationController.sharedInstance().toggleLeftMenu();
+        (SlideNavigationController.sharedInstance().leftMenu as! MCALeftMenuVC).updateProfileDetails()
+
     }
     
     func rightBarButtonclicked()

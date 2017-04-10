@@ -31,17 +31,17 @@ class MCAWebServiceManager: NSObject
         
         headersDict["Content-Type"] = "application/json;charset=utf-8"
         headersDict["Accept"] = "application/json"
-        if nil != MCASessionManager.sharedSessionManager.accessToken
+        if let value = MCASessionManager.sharedSessionManager.accessToken
         {
-            headersDict["access-token"] = MCASessionManager.sharedSessionManager.accessToken
+            headersDict["access-token"] = value
         }
-        if nil != MCASessionManager.sharedSessionManager.client
+        if let value = MCASessionManager.sharedSessionManager.client
         {
-            headersDict["client"] = MCASessionManager.sharedSessionManager.client
+            headersDict["client"] = value
         }
-        if nil != MCASessionManager.sharedSessionManager.uid
+        if let value = MCASessionManager.sharedSessionManager.uid
         {
-            headersDict["uid"] = MCASessionManager.sharedSessionManager.uid
+            headersDict["uid"] = value
         }
         
         return headersDict

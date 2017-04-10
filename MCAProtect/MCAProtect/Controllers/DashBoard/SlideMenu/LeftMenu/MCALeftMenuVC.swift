@@ -35,6 +35,11 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        self.updateProfileDetails()
+    
+    }
+    
+    func updateProfileDetails(){
         sideMenuTableView.reloadData()
         profileHeaderView.setPrfileDetails(mcapUser: MCASessionManager.sharedSessionManager.mcapUser)
     }

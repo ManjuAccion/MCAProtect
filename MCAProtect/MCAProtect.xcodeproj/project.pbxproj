@@ -91,6 +91,7 @@
 		788421CD1E950BAF00748948 /* MCACustomPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788421CC1E950BAF00748948 /* MCACustomPickerView.xib */; };
 		788421D01E953F0700748948 /* MCACustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788421CE1E953F0700748948 /* MCACustomDatePickerView.swift */; };
 		788421D11E953F0700748948 /* MCACustomDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788421CF1E953F0700748948 /* MCACustomDatePickerView.xib */; };
+		788421D31E9636C700748948 /* MCASavedApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788421D21E9636C700748948 /* MCASavedApplication.swift */; };
 		789BFC371E8BE4D700DAEB69 /* MCASessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789BFC341E8BE4D700DAEB69 /* MCASessionManager.swift */; };
 		789BFC381E8BE4D700DAEB69 /* MCAWebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789BFC361E8BE4D700DAEB69 /* MCAWebServiceManager.swift */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
@@ -126,7 +127,6 @@
 		BAC6ADC31E8106DE0047F7D3 /* MCASALoansTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADBD1E8106DE0047F7D3 /* MCASALoansTVCell.swift */; };
 		BAC6ADC41E8106DE0047F7D3 /* MCASALoansTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6ADBE1E8106DE0047F7D3 /* MCASALoansTVCell.xib */; };
 		BAC6ADC91E81075B0047F7D3 /* MCASALoanDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADC71E81075B0047F7D3 /* MCASALoanDetailVC.swift */; };
-		BAC6ADCB1E813D3B0047F7D3 /* MCASavedApplicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADCA1E813D3B0047F7D3 /* MCASavedApplicationList.swift */; };
 		BAC6ADCD1E8140510047F7D3 /* MCAApplicationSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADCC1E8140510047F7D3 /* MCAApplicationSummary.swift */; };
 		BAC6ADCF1E81422A0047F7D3 /* MCAApplicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADCE1E81422A0047F7D3 /* MCAApplicationForm.swift */; };
 		BAC6ADD11E814DC10047F7D3 /* MCAOwnerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6ADD01E814DC10047F7D3 /* MCAOwnerInformation.swift */; };
@@ -309,6 +309,7 @@
 		788421CC1E950BAF00748948 /* MCACustomPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCACustomPickerView.xib; sourceTree = "<group>"; };
 		788421CE1E953F0700748948 /* MCACustomDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCACustomDatePickerView.swift; sourceTree = "<group>"; };
 		788421CF1E953F0700748948 /* MCACustomDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCACustomDatePickerView.xib; sourceTree = "<group>"; };
+		788421D21E9636C700748948 /* MCASavedApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplication.swift; sourceTree = "<group>"; };
 		789BFC341E8BE4D700DAEB69 /* MCASessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASessionManager.swift; sourceTree = "<group>"; };
 		789BFC361E8BE4D700DAEB69 /* MCAWebServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebServiceManager.swift; sourceTree = "<group>"; };
 		789BFC3A1E8E549200DAEB69 /* MCAProtect.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCAProtect.pch; sourceTree = "<group>"; };
@@ -345,7 +346,6 @@
 		BAC6ADBD1E8106DE0047F7D3 /* MCASALoansTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASALoansTVCell.swift; sourceTree = "<group>"; };
 		BAC6ADBE1E8106DE0047F7D3 /* MCASALoansTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCASALoansTVCell.xib; sourceTree = "<group>"; };
 		BAC6ADC71E81075B0047F7D3 /* MCASALoanDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASALoanDetailVC.swift; sourceTree = "<group>"; };
-		BAC6ADCA1E813D3B0047F7D3 /* MCASavedApplicationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplicationList.swift; sourceTree = "<group>"; };
 		BAC6ADCC1E8140510047F7D3 /* MCAApplicationSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationSummary.swift; sourceTree = "<group>"; };
 		BAC6ADCE1E81422A0047F7D3 /* MCAApplicationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationForm.swift; sourceTree = "<group>"; };
 		BAC6ADD01E814DC10047F7D3 /* MCAOwnerInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAOwnerInformation.swift; sourceTree = "<group>"; };
@@ -1518,7 +1518,7 @@
 		BAC6AD9B1E81020A0047F7D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BAC6ADCA1E813D3B0047F7D3 /* MCASavedApplicationList.swift */,
+				788421D21E9636C700748948 /* MCASavedApplication.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2396,6 +2396,7 @@
 				5BB3E6041E8293A800A67927 /* MCALiensPaymentsTVCell.swift in Sources */,
 				BAC6ADA91E8102F60047F7D3 /* MCASALiensPaymentsVC.swift in Sources */,
 				BAC6ADF81E824ABB0047F7D3 /* MCASubmitStipulationsView.swift in Sources */,
+				788421D31E9636C700748948 /* MCASavedApplication.swift in Sources */,
 				BACC530E1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift in Sources */,
 				7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */,
 				5BB3E5FE1E8293A800A67927 /* MCAApplicationSummaryTVCell.swift in Sources */,
@@ -2442,7 +2443,6 @@
 				BAC6AE491E8250260047F7D3 /* MCATableViewCell.swift in Sources */,
 				BAC6AE611E8250C90047F7D3 /* MCADealsPipelineTVCell.swift in Sources */,
 				BAC6ADA61E8102630047F7D3 /* MCAApplicationFormVC.swift in Sources */,
-				BAC6ADCB1E813D3B0047F7D3 /* MCASavedApplicationList.swift in Sources */,
 				BAC6AE0C1E824B7F0047F7D3 /* MCAAskFunderNewChatVC.swift in Sources */,
 				BAC6AE581E8250720047F7D3 /* MCAEnterMPinVC.swift in Sources */,
 				5B1F8D7C1E83E38300BD53F2 /* MCAFundingProgramAdditionalStipulation.swift in Sources */,

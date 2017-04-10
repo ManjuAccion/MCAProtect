@@ -7,13 +7,13 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource = [MCASavedApplicationList]()
-    var savedApplicationList: MCASavedApplicationList!
+    var dataSource = [MCASavedApplication]()
+    var savedApplicationList: MCASavedApplication!
     
     //MARK: - View Life Cycle
 
@@ -22,16 +22,52 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
 
         self.navigationItem.title = "Saved Applications"
         
-        for _ in 1...5
-        {
-            savedApplicationList = MCASavedApplicationList(data:nil)
-            dataSource.append(savedApplicationList)
-        }
         
         tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell)
         tableView.tableFooterView = UIView()
+        
+        self.getSavedApplicationList()
     }
 
+    
+    func getSavedApplicationList()
+    {
+        
+        self.showActivityIndicator()
+        
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
+                                                                endPoint:MCAAPIEndPoints.BrokerSavedApplicationListEndpoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+                
+                let savedApplicationDict = response.dictionaryValue
+                
+                let list = savedApplicationDict["data"]
+                
+                let savedAppList = list?.arrayValue
+                
+                for item in savedAppList! {
+                    let savedApplication = MCASavedApplication(savedApplcation:item)
+                    self.dataSource.append(savedApplication)
+                }
+                self.tableView.reloadData()
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to fetch Saved Applications", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

@@ -37,11 +37,11 @@ class MCASavedApplicationsListTVCell: UITableViewCell {
         delegate.callButtonTapped();
     }
     
-    func setSavedApplicationList(savedApplicationData:MCASavedApplicationList) {
+    func setSavedApplicationList(savedApplicationData:MCASavedApplication) {
         
         applicationNameLabel.text = savedApplicationData.applicationName
         amountLabel.text = MCAUtilities.currencyFormatter(inputItem: savedApplicationData.amount as AnyObject)
-        daysLabel.text = "Need in \(savedApplicationData.neededIn!) Days"
+        daysLabel.text = "\(savedApplicationData.neededIn!)"
         emailButton.setTitle(savedApplicationData.merchantEmail, for: .normal)
         phoneNumberButton.setTitle(savedApplicationData.merchantPhoneNumber, for: .normal)
         merchantNameLabel.text = savedApplicationData.merchantName

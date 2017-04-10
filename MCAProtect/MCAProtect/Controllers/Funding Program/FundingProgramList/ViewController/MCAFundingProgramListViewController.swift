@@ -60,7 +60,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
                 
                 self.stopActivityIndicator()
                 print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to fetch Funding Programs", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 self.present(alertViewController, animated: true , completion: nil)
                 

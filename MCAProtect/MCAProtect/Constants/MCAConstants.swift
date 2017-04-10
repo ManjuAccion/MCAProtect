@@ -319,6 +319,7 @@ struct MCAAPIEndPoints {
     static let BrokerLoanApplicationAPIEndpoint         = "/loan_application/"
     static let BrokerUploadImageAPIEndpoint             = "/brokers/upload_profile_image"
     static let BrokerFunderProgramListEndpoint          = "/get_all_lending_programs.json"
+    static let BrokerSavedApplicationListEndpoint       = "/loan_applications/get_broker_application_list"
     
     static let BrokerUpdateProfileAPIEndpoint           = "/broker"
     static let BrokerageRegistrationAPIEndPoint         = "/brokerage_firm.json"
@@ -326,7 +327,7 @@ struct MCAAPIEndPoints {
     static let BrokerageLogoutAPIEndPoint               = "/brokerage_firm/sign_out.json"
     static let BrokerageForgotPasswordAPIEndPoint       = "/brokerage_firm/password.json"
     static let BrokerageUpdateProfileAPIEndpoint        = "/brokerage_firm.json"
-    
+
 }
 
 struct ColorWheel {
