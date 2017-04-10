@@ -109,19 +109,19 @@ class MCABusinessInformation: NSObject {
                 modelValue = MCAUtilities.currencyFormatter(inputItem: grossAnnualSales as AnyObject)
             
             case .businessEntityType:
-                modelValue = "\(businessEntityType.businessEntityTypeID!)"
+                modelValue = businessEntityType.name
             
             case .dBABusinessName:
                 modelValue = dbaBusinessName
             
             case .stateOfIncorprataion:
-                modelValue = "\(incorporationState.billingStateID!)"
+                modelValue = incorporationState.stateName
             
             case .businessStartDate:
                 modelValue = MCAUtilities.getFormmattedDate(dateString: businessStartDate)
             
             case .industryType:
-                modelValue = "\(industryType.industryTypeID!)"
+                modelValue = industryType.typeName
             
             case .seasonalBusiness:
                 modelValue = businessSeasonal == true ? "Yes" : "No"

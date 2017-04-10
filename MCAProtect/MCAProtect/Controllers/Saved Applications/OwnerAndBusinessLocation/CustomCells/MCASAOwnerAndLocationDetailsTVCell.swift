@@ -29,8 +29,8 @@ class MCASAOwnerAndLocationDetailsTVCell: UITableViewCell {
     }
     
     func setBusinessLocation(businessLocation:MCABusinessLocationList) {
-        headingLabel.text = businessLocation.locationName
-        detailLabel.text = "\(businessLocation.streetAddress!), \(businessLocation.city!)"
+        headingLabel.text = businessLocation.state.stateName
+        detailLabel.text = "\(businessLocation.city!)"
     }
     
 }
