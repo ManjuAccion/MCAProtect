@@ -13,7 +13,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     @IBOutlet weak var tableView: UITableView!
     
     var dataSource = [MCASavedApplication]()
-    var savedApplicationList: MCASavedApplication!
+    var savedApplication: MCASavedApplication!
     
     //MARK: - View Life Cycle
 
@@ -84,8 +84,8 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
         cell.delegate = self
         cell.selectionStyle = .none
         
-        savedApplicationList = dataSource[indexPath.row]
-        cell.setSavedApplicationList(savedApplicationData: savedApplicationList)
+        savedApplication = dataSource[indexPath.row]
+        cell.setSavedApplicationList(savedApplicationData: savedApplication)
 
         cell.backgroundColor = ColorConstants.background
         
@@ -95,9 +95,9 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
         let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAApplicationSummaryVC") as! MCAApplicationSummaryVC
-        savedApplicationList = dataSource[indexPath.row]
-        applicationSummaryVC.appSummary = savedApplicationList
-        applicationSummaryVC.titleText = savedApplicationList.applicationName
+        savedApplication = dataSource[indexPath.row]
+        applicationSummaryVC.appSummary = savedApplication
+        applicationSummaryVC.titleText = savedApplication.applicationName
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsListTVCell
         selectedCell.selectedView.isHidden = false
