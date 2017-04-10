@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol MCADatePickerViewDelegate {
+    
+    func dateSelected(date: Date)
+}
+
+
 class MCACustomDatePickerView: UIView {
     
+    var pickerDelegate : MCADatePickerViewDelegate!
     var pickerDatasource : Array<String>!
     @IBOutlet weak var pickerView: UIDatePicker!
     
@@ -20,6 +27,7 @@ class MCACustomDatePickerView: UIView {
     
     @IBAction func dataPicked(_ sender: Any)
     {
+        pickerDelegate.dateSelected(date: pickerView.date)
         self.removeFromSuperview()
     }
 

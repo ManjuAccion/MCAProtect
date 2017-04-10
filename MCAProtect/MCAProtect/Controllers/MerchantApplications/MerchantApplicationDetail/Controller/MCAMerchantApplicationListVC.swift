@@ -14,7 +14,10 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     @IBOutlet weak var tableView: UITableView!
     var applicationState: Int!
     var titleText: String?
-    
+
+    var fromDateString : String!
+    var toDateString : String!
+
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
     var dataSource = [MCAMerchantApplicationDetail]()
     
@@ -50,7 +53,7 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
         endPoint.append("/\(selectedDealsPipeline.applicationStateID!)");
         
-        endPoint.append("?from_date=2017-01-01&to_date=2017-04-04")
+        endPoint.append("?from_date=\(fromDateString!)&to_date=\(toDateString!)")
         
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
                                                                 endPoint:endPoint

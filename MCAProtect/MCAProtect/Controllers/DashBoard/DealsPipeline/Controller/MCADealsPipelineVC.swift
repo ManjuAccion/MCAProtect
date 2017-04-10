@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UIPickerViewDataSource,UIPickerViewDelegate,UIActionSheetDelegate {
+class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,MCAPickerViewDelegate,MCADatePickerViewDelegate {
 
     @IBOutlet weak var pipeLineTableView: UITableView!
     
@@ -24,17 +24,38 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     var doneButton : UIBarButtonItem?
     var pickerTitle : UIBarButtonItem?
     var rangeList = Array<String>()
+    var fromDateString : String!
+    var toDateString : String!
     
-
+    var selectedRange :MCADealsPipelineRange!
     var customDatePicker : MCACustomDatePickerView!
     var customPicker : MCACustomPickerView!
     weak var parentController: MCADashboardTabbarVC!
 
     //MARK: - View Life Cycle -
+    
+    
+    func pickerSelected(dealsPipelineRange : NSInteger){
+        
+        selectedRange = MCADealsPipelineRange(rawValue: dealsPipelineRange)!
+        rangeSelectionLabel.text = rangeList[dealsPipelineRange]
+        
+        if(MCADealsPipelineRange.Custom != selectedRange) {
+            getDealsPipelineList()
+        }
+    }
+    
+    
+    
+    func dateSelected(date: Date)
+    {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         pipeLineTableView.register(UINib(nibName: "MCADealsPipelineTVCell", bundle: nil), forCellReuseIdentifier: CellIdentifiers.MCADealsPipelineTVCell)
         
         
@@ -46,6 +67,8 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         rangeList.append("Previous Quarter")
         rangeList.append("Current Year")
         
+        selectedRange = MCADealsPipelineRange.CurrentYear
+        rangeSelectionLabel.text = rangeList[selectedRange.rawValue]
 
         self.getDealsPipelineList()
     }
@@ -84,8 +107,15 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         
         dealsPipeline = dataSourceArray[indexPath.row]
         applicationVC.selectedDealsPipeline = dealsPipeline;
+        applicationVC.fromDateString = fromDateString
+        applicationVC.toDateString = toDateString
+        
         parentController.navigationController?.pushViewController(applicationVC, animated: true);
     }
+    
+    
+    //MARK: - API for Getting deals pipeline -
+
     
     func getDealsPipelineList() {
         
@@ -94,12 +124,154 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint);
         endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
-        endPoint.append("?from_date=2017-01-01&to_date=2017-12-31")
+        
+        
+        //TODO: create date range according to the selection
+        
+        let currentDate = Date()
+        
+        let unitFlags = Set<Calendar.Component>([.month, .year, .day])
+        let calendar = Calendar.current
+        let components = calendar.dateComponents(unitFlags, from: currentDate)
+
+        
+        switch selectedRange!
+        {
+        case .Custom:
+            
+            endPoint.append("?from_date=2017-01-01&to_date=2017-12-31")
+        case .CurrentWeek:
+            
+            var fromDateComponents = DateComponents()
+            fromDateComponents.year = components.year
+            fromDateComponents.month = components.month
+            fromDateComponents.day = components.day! - 7
+            
+            let fromCalendar = Calendar.current // user calendar
+            let fromDateTime = fromCalendar.date(from: fromDateComponents)
+            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+            
+            var toDateComponents = DateComponents()
+            toDateComponents.year = components.year
+            toDateComponents.month = components.month
+            toDateComponents.day = components.day
+            
+            let toCalendar = Calendar.current // user calendar
+            let toDateTime = toCalendar.date(from: toDateComponents)
+            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+            
+        case .CurrentMonth:
+            var fromDateComponents = DateComponents()
+            fromDateComponents.year = components.year
+            fromDateComponents.month = components.month
+            fromDateComponents.day = 1
+            
+            let fromCalendar = Calendar.current // user calendar
+            let fromDateTime = fromCalendar.date(from: fromDateComponents)
+            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+            
+            var toDateComponents = DateComponents()
+            toDateComponents.year = components.year
+            toDateComponents.month = components.month
+            toDateComponents.day = components.day
+            
+            let toCalendar = Calendar.current // user calendar
+            let toDateTime = toCalendar.date(from: toDateComponents)
+            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+            
+        case .PreviousMonth:
+            
+            var fromDateComponents = DateComponents()
+            fromDateComponents.year = components.year
+            fromDateComponents.month = components.month! - 1
+            fromDateComponents.day = 1
+            
+            let fromCalendar = Calendar.current // user calendar
+            let fromDateTime = fromCalendar.date(from: fromDateComponents)
+            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+            
+            var toDateComponents = DateComponents()
+            toDateComponents.year = components.year
+            toDateComponents.month = components.month
+            toDateComponents.day = components.day
+            
+            let toCalendar = Calendar.current // user calendar
+            let toDateTime = toCalendar.date(from: toDateComponents)
+            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+            
+            
+        case .CurrentQuarter:
+            
+            var fromDateComponents = DateComponents()
+            fromDateComponents.year = components.year
+            fromDateComponents.month = components.month
+            fromDateComponents.day = 1
+            
+            let fromCalendar = Calendar.current // user calendar
+            let fromDateTime = fromCalendar.date(from: fromDateComponents)
+            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+            
+            var toDateComponents = DateComponents()
+            toDateComponents.year = components.year
+            toDateComponents.month = components.month! + 3
+            toDateComponents.day = components.day
+            
+            let toCalendar = Calendar.current // user calendar
+            let toDateTime = toCalendar.date(from: toDateComponents)
+            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+            
+
+        case .PreviousQuarter:
+            
+            var fromDateComponents = DateComponents()
+            fromDateComponents.year = components.year
+            fromDateComponents.month = components.month! - 3
+            fromDateComponents.day = 1
+            
+            let fromCalendar = Calendar.current // user calendar
+            let fromDateTime = fromCalendar.date(from: fromDateComponents)
+            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+            
+            var toDateComponents = DateComponents()
+            toDateComponents.year = components.year
+            toDateComponents.month = components.month
+            toDateComponents.day = components.day
+            
+            let toCalendar = Calendar.current // user calendar
+            let toDateTime = toCalendar.date(from: toDateComponents)
+            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+            
+            
+        case .CurrentYear:
+            
+            var fromDateComponents = DateComponents()
+            fromDateComponents.year = components.year
+            fromDateComponents.month = 1
+            fromDateComponents.day = 1
+            
+            let fromCalendar = Calendar.current // user calendar
+            let fromDateTime = fromCalendar.date(from: fromDateComponents)
+            fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+            
+            var toDateComponents = DateComponents()
+            toDateComponents.year = components.year
+            toDateComponents.month = components.month
+            toDateComponents.day = components.day
+            
+            let toCalendar = Calendar.current // user calendar
+            let toDateTime = toCalendar.date(from: toDateComponents)
+            toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+            
+            
+        }
+
+        endPoint.append("?from_date=\(fromDateString!)&to_date=\(toDateString!)")
         
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
                                                                 endPoint:endPoint
             , successCallBack:{ (response : JSON) in
                 
+                self.dataSourceArray.removeAll()
                 self.stopActivityIndicator()
                 print("Success \(response)")
                 
@@ -127,85 +299,30 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     
 
     
-    //MARK: - PickerView Datasource and Delegates
-    
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int
-    {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
-    {
-        return rangeList.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return rangeList[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let strTitle = rangeList[row]
-        let attString = NSAttributedString(string: strTitle, attributes: [NSForegroundColorAttributeName : ColorConstants.red])
-        return attString
-    }
     
     
     
 
     @IBAction func selectDateRange(_ sender: Any)
     {
-        
-        customDatePicker =  Bundle.main.loadNibNamed("MCACustomDatePickerView", owner: self, options: nil)?[0] as! MCACustomDatePickerView
-        
+//        
+//        customDatePicker =  Bundle.main.loadNibNamed("MCACustomDatePickerView", owner: self, options: nil)?[0] as! MCACustomDatePickerView
+//        
+//
+//        customDatePicker.frame = self.parentController.view.bounds
+//        customDatePicker.layoutIfNeeded()
+//        self.parentController.view.addSubview(customDatePicker)
 
-        customDatePicker.frame = self.parentController.view.bounds
-        customDatePicker.layoutIfNeeded()
-        self.parentController.view.addSubview(customDatePicker)
-
-        
-//            customPicker =  Bundle.main.loadNibNamed("MCACustomPickerView", owner: self, options: nil)?[0] as! MCACustomPickerView
-//        customPicker.setDatasource(dataSource: rangeList)
-        
-//        customPicker.frame = self.parentController.view.bounds
-//        customPicker.layoutIfNeeded()
-//        self.parentController.view.addSubview(customPicker)
+        if(nil == customPicker)
+        {
+            customPicker =  Bundle.main.loadNibNamed("MCACustomPickerView", owner: self, options: nil)?[0] as! MCACustomPickerView
+        }
+        customPicker.setDatasource(dataSource: rangeList)
+        customPicker.pickerDelegate = self;
+        customPicker.frame = self.parentController.view.bounds
+        customPicker.layoutIfNeeded()
+        self.parentController.view.addSubview(customPicker)
     }
     
-    func test()
-    {
-        
-        pickerViewPopup = UIActionSheet(title: "Select Range", delegate: self, cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: "")
-        
-        
-        rangePicker = UIPickerView(frame: CGRect(x: 0, y: 44, width: 320, height: 200))
-        
-        rangePicker.delegate = self
-        rangePicker.dataSource = self
-        rangePicker.showsSelectionIndicator = true
 
-        
-        
-        toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
-        toolbar?.barStyle = .blackOpaque
-        toolbar?.sizeToFit()
-        let flexSpace = UIBarButtonItem(barButtonSystemItem:.flexibleSpace , target: self, action: nil)
-        let doneBtn = UIBarButtonItem(barButtonSystemItem:.done , target: self, action: nil)
-        
-        
-        toolbar?.setItems([flexSpace, doneBtn], animated: true)
-        
-        pickerViewPopup.addSubview(toolbar!);
-        pickerViewPopup.addSubview(rangePicker)
-        pickerViewPopup.show(in: self.view)
-        pickerViewPopup.bounds = CGRect(x: 0, y: 0, width: 320, height: 300)
-    }
-
-    
-    
-    func didItemSelected(rangeValue : String)
-    {
-        let selectedString = rangeList[self.rangePicker.selectedRow(inComponent: 0)] as String
-        rangeSelectionLabel.text = selectedString
-    }
-    
 }

@@ -588,10 +588,10 @@
                                         <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g57-Xy-H8J">
-                                        <rect key="frame" x="251" y="16" width="92" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g57-Xy-H8J">
+                                        <rect key="frame" x="200" y="16" width="142" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="92" id="CEc-Dq-E33"/>
+                                            <constraint firstAttribute="width" constant="142" id="CEc-Dq-E33"/>
                                             <constraint firstAttribute="height" constant="25" id="VDM-3b-nvg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -605,10 +605,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fnw-rC-VRr">
-                                        <rect key="frame" x="214" y="16" width="143" height="22"/>
+                                        <rect key="frame" x="200" y="16" width="167" height="43"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="pl2-c1-IOV"/>
-                                            <constraint firstAttribute="width" constant="143" id="xs3-jO-rmo"/>
+                                            <constraint firstAttribute="height" constant="43" id="pl2-c1-IOV"/>
+                                            <constraint firstAttribute="width" constant="167" id="xs3-jO-rmo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                         <state key="normal">
@@ -626,11 +626,11 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDK-WA-9oG">
-                                        <rect key="frame" x="250" y="46" width="110" height="1"/>
+                                        <rect key="frame" x="200" y="46" width="160" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="R1y-q9-m3i"/>
-                                            <constraint firstAttribute="width" constant="110" id="lPe-aa-mUm"/>
+                                            <constraint firstAttribute="width" constant="160" id="lPe-aa-mUm"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -641,7 +641,7 @@
                                     <constraint firstAttribute="trailing" secondItem="igg-O3-0tP" secondAttribute="trailing" constant="8" id="6ed-sU-F8V"/>
                                     <constraint firstItem="ymN-zw-Lvf" firstAttribute="leading" secondItem="OUj-Zi-88Z" secondAttribute="leading" constant="16" id="EE9-hb-fpS"/>
                                     <constraint firstAttribute="trailing" secondItem="UA1-8E-Hqg" secondAttribute="trailing" constant="18" id="Ekk-Ah-YsR"/>
-                                    <constraint firstAttribute="trailing" secondItem="g57-Xy-H8J" secondAttribute="trailing" constant="32" id="I3e-nv-gmW"/>
+                                    <constraint firstAttribute="trailing" secondItem="g57-Xy-H8J" secondAttribute="trailing" constant="33" id="I3e-nv-gmW"/>
                                     <constraint firstItem="igg-O3-0tP" firstAttribute="top" secondItem="OUj-Zi-88Z" secondAttribute="top" constant="16" id="Jd1-fY-922"/>
                                     <constraint firstItem="ymN-zw-Lvf" firstAttribute="top" secondItem="OUj-Zi-88Z" secondAttribute="top" constant="16" id="Jq3-8f-h2B"/>
                                     <constraint firstAttribute="bottom" secondItem="UA1-8E-Hqg" secondAttribute="bottom" constant="10" id="KI7-aA-R0B"/>
@@ -650,7 +650,7 @@
                                     <constraint firstItem="gDK-WA-9oG" firstAttribute="top" secondItem="igg-O3-0tP" secondAttribute="bottom" constant="5" id="cHB-xZ-q2C"/>
                                     <constraint firstAttribute="height" constant="100" id="iD4-WL-eff"/>
                                     <constraint firstItem="UA1-8E-Hqg" firstAttribute="leading" secondItem="OUj-Zi-88Z" secondAttribute="leading" constant="16" id="nIz-MB-zFI"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fnw-rC-VRr" secondAttribute="trailing" constant="18" id="zdP-AV-yYP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fnw-rC-VRr" secondAttribute="trailing" constant="8" id="zdP-AV-yYP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -844,7 +844,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="gef-dA-2Tb" customClass="MCANavigationController" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="peu-Us-CTd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="peu-Us-CTd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

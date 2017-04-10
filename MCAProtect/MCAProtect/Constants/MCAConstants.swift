@@ -291,6 +291,18 @@ enum MASummaryKeys : String {
     case offeredOn      = "Offered on"
 }
 
+
+enum MCADealsPipelineRange : Int {
+    case Custom             = 0
+    case CurrentWeek        = 1
+    case CurrentMonth       = 2
+    case PreviousMonth      = 3
+    case CurrentQuarter     = 4
+    case PreviousQuarter    = 5
+    case CurrentYear        = 6
+}
+
+
 enum rightMenuItems : NSInteger {
     case Notification           = 0
     case PersonalisedSettings   = 1
@@ -319,7 +331,7 @@ struct MCAAPIEndPoints {
     static let BrokerApplicationSummaryAPIEndpoint      = "/brokers/get_state_wise_applications/"
     static let BrokerLoanApplicationAPIEndpoint         = "/loan_application/"
     static let BrokerUploadImageAPIEndpoint             = "/brokers/upload_profile_image"
-    static let BrokerFunderProgramListEndpoint          = "/get_all_lending_programs.json"
+    static let BrokerFunderProgramListEndpoint          = "/get_all_lending_programs.json?mob_app=true"
     static let BrokerSavedApplicationListEndpoint       = "/loan_applications/get_broker_application_list"
     
     static let BrokerUpdateProfileAPIEndpoint           = "/broker"

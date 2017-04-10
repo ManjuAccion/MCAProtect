@@ -52,7 +52,7 @@ class MCAUtilities: NSObject {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "en_US")
-        formatter.maximumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
         return formatter.string(from: inputItem as! NSNumber)!
     }
 
@@ -94,6 +94,15 @@ class MCAUtilities: NSObject {
         
         return IntegerToNilCheck == nil ? 0 : IntegerToNilCheck!
         
+    }
+    
+    static  func FormattedStringFromDate(date : Date) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let DateFormated = dateFormatter.string(from: date)
+        print(DateFormated)
+        return DateFormated
     }
     
     static  func getFormmattedDate(dateString : String) -> String {

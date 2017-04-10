@@ -34,6 +34,7 @@ class MCAProfileHeaderView: UIView {
     {
         profileNameLabel.text = mcapUser.brokerContactName;
         
+//        self.avatarImageView.sd_setImage(with: URL(string: mcapUser.brokerImageUrl))
     }
     
 }

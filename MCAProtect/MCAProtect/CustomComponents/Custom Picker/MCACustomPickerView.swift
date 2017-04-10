@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol MCAPickerViewDelegate {
+    
+    func pickerSelected(dealsPipelineRange : NSInteger)
+}
+
 class MCACustomPickerView: UIView,UIPickerViewDataSource,UIPickerViewDelegate {
 
     
     var pickerDatasource : Array<String>!
     @IBOutlet weak var pickerView: UIPickerView!
+    var pickerDelegate : MCAPickerViewDelegate!
+    var selectedRange : NSInteger!
     
     
     func setDatasource(dataSource:Array<String>)
@@ -23,6 +30,7 @@ class MCACustomPickerView: UIView,UIPickerViewDataSource,UIPickerViewDelegate {
     
     @IBAction func dataPicked(_ sender: Any)
     {
+        pickerDelegate.pickerSelected(dealsPipelineRange: selectedRange)
         self.removeFromSuperview()
     }
     
@@ -41,6 +49,11 @@ class MCACustomPickerView: UIView,UIPickerViewDataSource,UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerDatasource[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        selectedRange = row
     }
 
 }
