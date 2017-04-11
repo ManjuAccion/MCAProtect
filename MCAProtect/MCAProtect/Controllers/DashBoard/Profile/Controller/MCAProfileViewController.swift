@@ -180,34 +180,24 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     // MARK: - Image Picker Controller Delegates
 
     
-       func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-    {
+       func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         let profileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.showActivityIndicator()
+        let data = UIImageJPEGRepresentation(profileImage, 80)
+        // Save cloned image into document directory
         
-
-
-      self.showActivityIndicator()
-
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.jpg")
         
-
+        do {
+            try data?.write(to: fileURL, options: .atomic)
+        } catch {
+            print(error)
+        }
         
-       
-        
-         let data = UIImageJPEGRepresentation(profileImage, 80)
-            // Save cloned image into document directory
-            
-            let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.jpg")
-            
-            do {
-                try data?.write(to: fileURL, options: .atomic)
-            } catch {
-                print(error)
-            }
-        
-       
         var paramDict  = Dictionary<String,Any>()
         paramDict["file"] = fileURL
-
+        
         MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:paramDict,
                                                                         endPoint:"",imageData: data!
             , successCallBack:{ (response : JSON!) in
@@ -215,7 +205,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 self.stopActivityIndicator()
                 print("Success \(response)")
                 self.imageUrlString = response["image_url"].stringValue
-              MCASessionManager.sharedSessionManager.mcapUser.brokerImageUrl = self.imageUrlString
+                MCASessionManager.sharedSessionManager.mcapUser.brokerImageUrl = self.imageUrlString
                 
         },
               failureCallBack: { (error : Error) in
@@ -226,14 +216,11 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 self.present(alertViewController, animated: true , completion: nil)
                 
         })
-
+        
         profileImageButton.contentMode = .scaleAspectFit
         profileImageButton.setImage(profileImage, for: UIControlState.normal)
         dismiss(animated:true, completion: nil)
-        
     }
-    
-
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)

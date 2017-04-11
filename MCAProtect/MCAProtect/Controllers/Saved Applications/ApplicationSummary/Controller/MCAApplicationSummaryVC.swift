@@ -73,14 +73,12 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         }
         
         if indexPath.row == 1 {
-            cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton;
+            cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
         }
         
         if indexPath.row == 1 {
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        }
-        else
-        {
+        } else {
             cell.accessoryType = UITableViewCellAccessoryType.none
         }
         
