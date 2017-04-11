@@ -104,6 +104,13 @@ struct VCIdentifiers {
     static let MCAMatchedFundingProgramVC                           = "MCAMatchedFundingProgramVC"
     static let MCAAskFunderNewChatVC                                = "MCAAskFunderNewChatVC"
     static let MCASALoansViewController                             = "MCASALoansViewController"
+    static let MCAChangeMPinVC                                      = "MCAChangeMPinVC"
+    static let MCAResetMPINVC                                       = "MCAResetMPINVC"
+    static let MCADashboardTabbarVC                                 = "MCADashboardTabbarVC"
+
+
+    
+
 }
 
 

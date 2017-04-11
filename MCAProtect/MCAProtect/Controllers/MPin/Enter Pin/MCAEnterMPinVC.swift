@@ -26,7 +26,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     var toolbar : UIToolbar?
     var doneButton : UIBarButtonItem?
     
-    //MARK: - View Life Cycle
+    //MARK: - View Life Cycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,6 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        self.navigationController?.navigationBar.isHidden = false
-//        registerForKeyboardNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,12 +86,11 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         secureInputTF.becomeFirstResponder()
     }
     
-    //MARK: - IBAction Actions
+    //MARK: - IBAction Actions-
     
     @IBAction func changeMPinTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-        let changeMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAChangeMPinVC") as! MCAChangeMPinVC
-        
+        let changeMPinVC = storyboard.instantiateViewController(withIdentifier:VCIdentifiers.MCAChangeMPinVC) as! MCAChangeMPinVC
         navigationController?.pushViewController(changeMPinVC,
                                                  animated: true)
     }
@@ -100,7 +98,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     @IBAction func forgotMPinTapped(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "mPin", bundle: nil)
-        let resetMPinVC = storyboard.instantiateViewController(withIdentifier: "MCAResetMPINVC") as! MCAResetMPINVC
+        let resetMPinVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCAResetMPINVC) as! MCAResetMPINVC
         navigationController?.pushViewController(resetMPinVC,
                                                  animated: true)
     }
@@ -111,62 +109,28 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
         }
         else {
             let storyboard = UIStoryboard(name: "DashBoard", bundle: nil)
-            let dashboardVC = storyboard.instantiateViewController(withIdentifier: "MCADashboardTabbarVC") as! MCADashboardTabbarVC
+            let dashboardVC = storyboard.instantiateViewController(withIdentifier:VCIdentifiers.MCADashboardTabbarVC) as! MCADashboardTabbarVC
             self.navigationController?.pushViewController(dashboardVC,
                                                           animated: true)
-
         }
     }
     
-    func registerForKeyboardNotifications() {
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-//    func keyboardWillBeShown(sender: NSNotification) {
-//        
-//        let info: NSDictionary = sender.userInfo! as NSDictionary
-//        let value: NSValue = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
-//        let keyboardSize: CGSize = value.cgRectValue.size
-//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-//        
-//        // If active text field is hidden by keyboard, scroll it so it's visible
-//        // Your app might not need or want this behavior.
-//        var aRect: CGRect = self.view.frame
-//        aRect.size.height -= keyboardSize.height
-//        let activeTextFieldRect: CGRect? = activeTextField?.frame
-//        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
-//        if (!aRect.contains(activeTextFieldOrigin!)) {
-//            scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
-//        }
-//    }
-//    
-//    func keyboardWillBeHidden(sender: NSNotification) {
-//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-//    }
-//  
     func inputToolbarDonePressed() {
         secureInputTF.resignFirstResponder()
     }
-
     
-    //MARK: - UITextFiled Delegates
+    //MARK: - UITextFiled Delegates-
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
         activeTextField?.inputAccessoryView = toolbar
         activeTextField?.autocorrectionType = UITextAutocorrectionType.no
-//        scrollView.isScrollEnabled = true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        //        activeTextField = nil
-//        scrollView.isScrollEnabled = false
+        if (textField.text?.characters.count)! > 3 {
+            self.loginTapped(textField)
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -177,54 +141,46 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
             case 0:
                 if string.isEmpty {
                     secureInputView1.inputImageView.isHidden = true
-//                    secureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
 
                 }
                 else {
                     secureInputView1.inputImageView.isHidden = false
-//                    secureInputView1.inputImageView.image = UIImage(named:"password")
                 }
                 
             case 1:
                 if string.isEmpty {
                     secureInputView2.inputImageView.isHidden = true
-//                    secureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
                     secureInputView2.inputImageView.isHidden = false
-//                    secureInputView2.inputImageView.image = UIImage(named:"password")
                 }
             case 2:
                 if string.isEmpty {
                     secureInputView3.inputImageView.isHidden = true
-//                    secureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
                     secureInputView3.inputImageView.isHidden = false
-//                    secureInputView3.inputImageView.image = UIImage(named:"password")
                 }
 
             case 3:
                 if string.isEmpty {
                     secureInputView4.inputImageView.isHidden = true
-//                    secureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
                 }
                 else {
+                    textField.text?.append(string)
                     secureInputView4.inputImageView.isHidden = false
-//                    secureInputView4.inputImageView.image = UIImage(named:"password")
+                    self.view.endEditing(true)
+                    return false
                 }
 
-            default:
-                print("Default Value")
+            default: break
             }
             
             return true
         }
+
         return false
     }
-    
-
-    
 }
 
 
