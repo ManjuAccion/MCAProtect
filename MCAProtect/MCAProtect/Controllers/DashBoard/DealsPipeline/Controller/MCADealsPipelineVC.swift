@@ -32,6 +32,8 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     var customDatePicker : MCACustomDatePickerView!
     var customPicker : MCACustomPickerView!
     weak var parentController: MCADashboardTabbarVC!
+    
+    var colorsArray = ["aa66cc","ff4444","33b5e5","00ddff","0099cc","99cc00","ffbb33"]
 
     //MARK: - View Life Cycle -
 
@@ -77,6 +79,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         
         dealsPipeline = dataSourceArray[indexPath.row]
         cell?.setDealsPipeline(dealsPipeline: dealsPipeline)
+        cell?.leftView.backgroundColor = MCAUtilities.hexStringToUIColor(hexaDecimalString: colorsArray[indexPath.row])
         
         return cell!
     }

@@ -19,9 +19,6 @@ class MCADealsPipelineTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        var colorWheel = ColorWheel()
-        let randomColor = colorWheel.randomColor()
-        leftView.backgroundColor = randomColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
