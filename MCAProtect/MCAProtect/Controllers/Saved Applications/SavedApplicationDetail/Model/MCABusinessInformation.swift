@@ -39,6 +39,9 @@ class MCABusinessInformation: NSObject {
     var incorporationCountryStateId : Int!
     var industryTypeId              : String!
     var fieldCount                  : Int!
+    var judgementsFieldCount        : Int!
+    var payementFieldCount          : Int!
+    var bankruptcyFieldCount        : Int!
 
     init(businessInformation: JSON!) {
         
@@ -82,6 +85,11 @@ class MCABusinessInformation: NSObject {
         peakMonths                  = businessInformation["peak_months"].stringValue
         
         fieldCount                  = 13
+        judgementsFieldCount        = 2
+        payementFieldCount          = 1
+        bankruptcyFieldCount        = 2
+        
+        
     }
     
     func getValueFromKey(key: BusinessInformationKeys) -> String{
@@ -89,6 +97,7 @@ class MCABusinessInformation: NSObject {
         var modelValue : String!
         
         switch key {
+            
             case .legalBusinessName:
                 modelValue =  legalBusinessName
                 
@@ -127,6 +136,49 @@ class MCABusinessInformation: NSObject {
             
             case .seasonalBusiness:
                 modelValue = businessSeasonal == true ? "Yes" : "No"
+        }
+        return modelValue
+    }
+    
+    func getJudgementsFromKey(judgementOrLiensKey: JudgementsOrLiensKeys) -> String{
+        
+        var modelValue : String!
+        
+        switch judgementOrLiensKey {
+            
+            case .numberOfJudgements :
+                modelValue =  "\(judgementsOrLiensNo!)"
+                
+            case .judgementOrLienAmount :
+                modelValue = "\(judgementsOrLiensAmount!)"
+        }
+        return modelValue
+    }
+
+    func getPaymentPlanFromKey(paymentKey: PayementKeys) -> String{
+        
+        var modelValue : String!
+        
+        switch paymentKey {
+            
+        case .monthlyPaymentAmount :
+            modelValue =  "\(monthlyPaymentAmount!)"
+
+        }
+        return modelValue
+    }
+    
+    func getBankruptcyFromKey(bankruptcyKey: BankruptcyKeys) -> String{
+        
+        var modelValue : String!
+        
+        switch bankruptcyKey {
+            
+        case .bankruptcySatisfied :
+            modelValue = bankruptcySatisfied == true ? "Yes" : "No"
+            
+        case .dateOfDischarge :
+            modelValue = bankruptcyDischargeDate as! String!
         }
         return modelValue
     }

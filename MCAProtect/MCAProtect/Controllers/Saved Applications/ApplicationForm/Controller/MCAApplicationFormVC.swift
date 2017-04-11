@@ -172,6 +172,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             case SavedApplicationForm.LiensOrPaymentsOrBankruptcy.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                 let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCASALiensPaymentsVC) as! MCASALiensPaymentsVC
+                savedApplicationDetailVC.loanApplication = loanApplication
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
             case SavedApplicationForm.MerchantDocumentation.rawValue:

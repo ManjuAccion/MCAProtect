@@ -12,19 +12,11 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
 
     @IBOutlet weak var tableView : UITableView!
     
-    var headerArray : NSMutableArray?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.register(UINib(nibName: "MCALiensHeaderTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCALiensHeaderTableViewCell)
-
-        headerArray = NSMutableArray.init()
-        
-      
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

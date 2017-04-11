@@ -289,6 +289,20 @@ enum MerchantDocumentationKeys : String {
     case proofOfResidence   = "Proof of Residence"
 }
 
+enum JudgementsOrLiensKeys : String {
+    case numberOfJudgements     = "Number of Judgement/Liens"
+    case judgementOrLienAmount  = "Judgement/Lien Amount"
+}
+
+enum PayementKeys : String {
+    case monthlyPaymentAmount   = "Monthly Payment Amount"
+}
+
+enum BankruptcyKeys : String {
+    case bankruptcySatisfied    = "Is bankruptcy satisfied"
+    case dateOfDischarge        = "Date of discharge from bankruptcy"
+}
+
 enum MASummaryKeys : String {
     case businessName   = "Business Name"
     case contactName    = "Contact Name"
@@ -327,6 +341,13 @@ enum leftMenuItems : NSInteger {
     case FundingPrograms    = 2
     case AskFunder          = 3
 }
+
+enum LiensPayementsHeaderCell : Int {
+    case judgementsOrLiens  = 0
+    case payementPlan       = 1
+    case bankruptcy         = 2
+}
+
 
 
 struct MCAAPIEndPoints {
