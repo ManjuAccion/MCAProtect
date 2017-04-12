@@ -45,37 +45,21 @@ class MCABusinessInformation: NSObject {
 
     init(businessInformation: JSON!) {
         
-        if businessInformation.isEmpty {
-            return
-        }
-        
         bankruptcy                  = businessInformation["bankruptcy"].boolValue
         bankruptcyDischargeDate     = businessInformation["bankruptcy_discharge_date"].stringValue as AnyObject
         bankruptcyMonthlyPayment    = businessInformation["bankruptcy_monthly_payment"].intValue
         bankruptcyPaymentPlan       = businessInformation["bankruptcy_payment_plan"].boolValue
         bankruptcySatisfied         = businessInformation["bankruptcy_satisfied"].boolValue
         let businessEntityTypeJson  = businessInformation["business_entity_type"]
-        
-        if !businessEntityTypeJson.isEmpty {
-            businessEntityType = MCABusinessEntityType(businessEnityType: businessEntityTypeJson)
-        }
-        
+        businessEntityType = MCABusinessEntityType(businessEnityType: businessEntityTypeJson)
         businessSeasonal            = businessInformation["business_seasonal"].boolValue
         businessStartDate           = businessInformation["business_start_date"].stringValue
         dbaBusinessName             = businessInformation["dba_business_name"].stringValue
         federalTaxId                = businessInformation["federal_tax_id"].intValue
         let incorporationStateJson  = businessInformation["incorporation_state"]
-        
-        if !incorporationStateJson.isEmpty {
-            incorporationState      = MCABillingState(billingState: incorporationStateJson)
-        }
-        
+        incorporationState          = MCABillingState(billingState: incorporationStateJson)
         let industryTypeJson        = businessInformation["industry_type"]
-        
-        if !industryTypeJson.isEmpty {
-            industryType            = MCAIndustryType(industryType: industryTypeJson)
-        }
-        
+        industryType                = MCAIndustryType(industryType: industryTypeJson)
         judgementsOrLiens           = businessInformation["judgements_or_liens"].boolValue
         judgementsOrLiensAmount     = businessInformation["judgements_or_liens_amount"].intValue
         judgementsOrLiensNo         = businessInformation["judgements_or_liens_no"].intValue

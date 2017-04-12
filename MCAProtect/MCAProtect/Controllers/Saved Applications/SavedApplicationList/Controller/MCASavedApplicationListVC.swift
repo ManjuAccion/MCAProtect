@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+
 class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!

@@ -30,11 +30,7 @@ class MCABankRecords: NSObject {
     var bankRecordDetailFieldCount  : Int!
     
     init(bankRecords: JSON!) {
-        
-        if bankRecords.isEmpty {
-            return
-        }
-        
+
         applicationID                   = bankRecords["application_id"].intValue
         averageDailyBalance             = bankRecords["average_daily_balance"].intValue
         bankName                        = bankRecords["bank_name"].stringValue

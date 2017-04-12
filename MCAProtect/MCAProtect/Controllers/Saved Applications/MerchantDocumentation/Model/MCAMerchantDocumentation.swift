@@ -11,38 +11,28 @@ import SwiftyJSON
 
 class MCAMerchantDocumentation: NSObject {
     
-    var documentName : String!
-    var documentDescription : String!
+    var documentName            : String!
+    var documentDescription     : String!
     var merchantDocumentationID : Int!
-    var s3Name : String!
-    var fieldCount : Int!
+    var s3Name                  : String!
+    var fieldCount              : Int!
 
-    
     init(merchantDocumentation: JSON!) {
+
+        merchantDocumentationID     =  merchantDocumentation["id"].intValue
+        documentName                =  merchantDocumentation["document_name"].stringValue
+        documentDescription         =  merchantDocumentation["document_description"].stringValue
+        s3Name                      = merchantDocumentation["s3_name"].stringValue
         
-        if merchantDocumentation.isEmpty {
-            documentName = "Passport"
-            documentDescription = "Utility Bill"
-            fieldCount = 2
-            return
-        }
-        else {
-            merchantDocumentationID = merchantDocumentation["id"] != JSON.null ? merchantDocumentation["id"].intValue : 0
-            documentName = merchantDocumentation["document_name"] != JSON.null ? merchantDocumentation["document_name"].stringValue : ""
-            documentDescription = merchantDocumentation["document_description"] != JSON.null ? merchantDocumentation["document_description"].stringValue : ""
-            s3Name = merchantDocumentation["s3_name"] != JSON.null ? merchantDocumentation["s3_name"].stringValue : ""
-            fieldCount = 2
-        }
+        fieldCount                  = 2
     }
 
     init(loanApplication: MCALoanApplication!) {
-        documentName = loanApplication.merchantDocumentation.last?.documentName
+        documentName        = loanApplication.merchantDocumentation.last?.documentName
         documentDescription = loanApplication.merchantDocumentation.last?.documentDescription
-        fieldCount = 2
+        
+        fieldCount          = 2
     }
-    
-    
-    
     
     func getValueFromKey(merchantDoumentationKey: MerchantDocumentationKeys) -> String{
         

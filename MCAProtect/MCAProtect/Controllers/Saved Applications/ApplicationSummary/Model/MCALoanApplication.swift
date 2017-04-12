@@ -21,49 +21,30 @@ class MCALoanApplication: NSObject {
     
     init(loanApplication : JSON!) {
         
-        if loanApplication.isEmpty {
-            return
-        }
-        
-        let addressJson         = loanApplication["address"]
-        
-        if !addressJson.isEmpty {
-            address = MCAAddress(address: addressJson)
-        }
-        
-        bankRecordsLinked       = loanApplication["bank_records_linked"].boolValue
-        let businessFinanceJson = loanApplication["business_finance"]
-        
-        if !businessFinanceJson.isEmpty {
-            businessFinance     = MCABusinessFinance(businessFinance: businessFinanceJson)
-        }
-        
-        let programInfoJson     = loanApplication["program_info"]
-        
-        if !programInfoJson.isEmpty {
-            programInfo         = MCAProgramInformation(programInformation: programInfoJson)
-        }
-        
-        let businessInfoJson    = loanApplication["business_info"]
-        
-        if !businessInfoJson.isEmpty {
-            businessInfo                = MCABusinessInformation(businessInformation: businessInfoJson)
-            businessInfo.contactName    = programInfo.contactName
-            businessInfo.contactNumber  = programInfo.contactNumber
-            businessInfo.email          = programInfo.email
-            businessInfo.grossAnnualSales   = businessFinance.grossAnnualSales
-            businessInfo.grossAnnualRevenue = businessFinance.revenueAmount
-        }
-        
-        merchantDocumentation   = [MCAMerchantDocumentation]()
-        let merchantDocumentationArray = loanApplication["merchant_documentation"].arrayValue
+        let addressJson                 = loanApplication["address"]
+        address                         = MCAAddress(address: addressJson)
+        bankRecordsLinked               = loanApplication["bank_records_linked"].boolValue
+        let businessFinanceJson         = loanApplication["business_finance"]
+        businessFinance                 = MCABusinessFinance(businessFinance: businessFinanceJson)
+        let programInfoJson             = loanApplication["program_info"]
+        programInfo                     = MCAProgramInformation(programInformation: programInfoJson)
+        let businessInfoJson            = loanApplication["business_info"]
+        businessInfo                    = MCABusinessInformation(businessInformation: businessInfoJson)
+        businessInfo.contactName        = programInfo.contactName
+        businessInfo.contactNumber      = programInfo.contactNumber
+        businessInfo.email              = programInfo.email
+        businessInfo.grossAnnualSales   = businessFinance.grossAnnualSales
+        businessInfo.grossAnnualRevenue = businessFinance.revenueAmount
+        merchantDocumentation           = [MCAMerchantDocumentation]()
+        let merchantDocumentationArray  = loanApplication["merchant_documentation"].arrayValue
         
         for merchantDocumentationJson in merchantDocumentationArray {
             let value = MCAMerchantDocumentation(merchantDocumentation: merchantDocumentationJson)
             merchantDocumentation.append(value)
         }
-        ownersInfo              = [MCAOwnerInformation]()
-        let ownersInfoArray     = loanApplication["owners_info"].arrayValue
+        
+        ownersInfo                      = [MCAOwnerInformation]()
+        let ownersInfoArray             = loanApplication["owners_info"].arrayValue
         
         for ownersInfoJson in ownersInfoArray {
             let value = MCAOwnerInformation(ownerInformation: ownersInfoJson)

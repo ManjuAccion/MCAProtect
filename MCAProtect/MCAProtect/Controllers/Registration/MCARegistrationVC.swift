@@ -9,6 +9,7 @@
 import UIKit
 import JVFloatLabeledTextField
 import SwiftyJSON
+
 class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var businessNameTF : UITextField!

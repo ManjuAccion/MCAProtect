@@ -23,10 +23,7 @@ class MCABusinessFinance: NSObject {
     var revenueAmount           : Int!
     
     init(businessFinance: JSON!) {
-        if businessFinance.isEmpty{
-            return
-        }
-        
+
         bankRecords = [MCABankRecords]()
         let bankRecordsArray            = businessFinance["bank_records"].arrayValue
         
@@ -38,6 +35,7 @@ class MCABusinessFinance: NSObject {
         businessLocations               = businessFinance["business_locations"].boolValue
         businessLocationsList           = [MCABusinessLocationList]()
         let businessLocationsListArray  = businessFinance["business_locations_list"].arrayValue
+        
         for businessLocationsListJson in businessLocationsListArray{
             let value = MCABusinessLocationList(businessLocationList: businessLocationsListJson)
             businessLocationsList.append(value)

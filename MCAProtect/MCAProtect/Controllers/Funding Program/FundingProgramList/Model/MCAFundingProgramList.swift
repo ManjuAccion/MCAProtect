@@ -28,65 +28,50 @@ class MCAFundingProgramList: NSObject {
     
     var fieldCount : Int!
 
-
-    
-    init(Data : JSON!) {
+    init(data : JSON!) {
         
-        if Data != nil {
+        if data != nil {
             
-            fundingProgramName = Data["program_type"] != JSON.null ? Data["program_type"].stringValue : ""
+            fundingProgramName      = data["program_type"].stringValue
+            contactName             = data["lender"]["contact_name"].stringValue
+            term                    = data["max_duration"].stringValue
+            timeInBuisness          = data["min_avg_deposit_months"].stringValue
+            buyRate                 = data["interest"].stringValue
+            creditScore             = data["min_credit_fico"].intValue
+            minimumLoan             = data["min_deal_size"].floatValue
+            maximumLoan             = data["max_deal_size"].floatValue
+            FPProgramInformation    = MCAFPProgramInformation(data : data)
+            FPMerchantRquirement    = MCAFPMerchantRquirement(data : data)
+            FPLiensOrBankruptcy     = MCAFPLiensOrBankruptcy(Data : data)
             
-            contactName = Data["lender"]["contact_name"] != JSON.null ? Data["lender"]["contact_name"].stringValue : ""
-            
-            term = Data["max_duration"] != JSON.null ? Data["max_duration"].stringValue : ""
-            
-            timeInBuisness = Data["min_avg_deposit_months"] != JSON.null ? Data["min_avg_deposit_months"].stringValue : ""
-            
-            buyRate = Data["interest"] != JSON.null ? Data["interest"].stringValue : ""
-            
-            creditScore = Data["min_credit_fico"] != JSON.null ? Data["min_credit_fico"].intValue : 0
-
-            
-            minimumLoan = Data["min_deal_size"] != JSON.null ? Data["min_deal_size"].floatValue : 0.0
-            
-            maximumLoan = Data["max_deal_size"] != JSON.null ? Data["max_deal_size"].floatValue : 0.0
-
-            FPProgramInformation = MCAFPProgramInformation(Data : Data)
-            FPMerchantRquirement = MCAFPMerchantRquirement(Data : Data)
-            FPLiensOrBankruptcy = MCAFPLiensOrBankruptcy(Data : Data)
-            
-           
             fieldCount = 8
-
-           
         }
-           }
+    }
     
     func getValueFromKey(key: FPApplicationSummaryKeys) -> AnyObject{
         
         var modelValue : AnyObject!
         
         switch key {
-        case FPApplicationSummaryKeys.FPSummaryFundingProgram :
-            modelValue =  fundingProgramName as AnyObject!
-        case FPApplicationSummaryKeys.FPSummaryContact :
-            modelValue = contactName as AnyObject!
-        case FPApplicationSummaryKeys.FPSummaryTerm :
-            modelValue = term as AnyObject!
-        case FPApplicationSummaryKeys.FPSummaryTimeInBuisness :
-            modelValue = timeInBuisness as AnyObject!
-        case FPApplicationSummaryKeys.FPSummaryBuyRate :
-            modelValue = buyRate as AnyObject!
-        case FPApplicationSummaryKeys.FPSummaryCreditScore :
-            modelValue = term as AnyObject!
-        case FPApplicationSummaryKeys.FPSummaryMinimumLoan :
-            modelValue = MCAUtilities.currencyFormatter(inputItem: minimumLoan as AnyObject) as AnyObject!
-        case FPApplicationSummaryKeys.FPSUmmaryMaximumLoan :
-            modelValue = MCAUtilities.currencyFormatter(inputItem: maximumLoan as AnyObject) as AnyObject!
+            
+            case FPApplicationSummaryKeys.FPSummaryFundingProgram :
+                modelValue =  fundingProgramName as AnyObject!
+            case FPApplicationSummaryKeys.FPSummaryContact :
+                modelValue = contactName as AnyObject!
+            case FPApplicationSummaryKeys.FPSummaryTerm :
+                modelValue = term as AnyObject!
+            case FPApplicationSummaryKeys.FPSummaryTimeInBuisness :
+                modelValue = timeInBuisness as AnyObject!
+            case FPApplicationSummaryKeys.FPSummaryBuyRate :
+                modelValue = buyRate as AnyObject!
+            case FPApplicationSummaryKeys.FPSummaryCreditScore :
+                modelValue = term as AnyObject!
+            case FPApplicationSummaryKeys.FPSummaryMinimumLoan :
+                modelValue = MCAUtilities.currencyFormatter(inputItem: minimumLoan as AnyObject) as AnyObject!
+            case FPApplicationSummaryKeys.FPSUmmaryMaximumLoan :
+                modelValue = MCAUtilities.currencyFormatter(inputItem: maximumLoan as AnyObject) as AnyObject!
             
         }
         return modelValue
     }
-
-
 }

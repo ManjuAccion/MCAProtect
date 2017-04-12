@@ -91,6 +91,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
             let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
             applicationFormVC.savedApplication = appSummary
             applicationFormVC.applicationId = appSummary.applicationId
+            applicationFormVC.titleText = appSummary.applicationName
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }
     }

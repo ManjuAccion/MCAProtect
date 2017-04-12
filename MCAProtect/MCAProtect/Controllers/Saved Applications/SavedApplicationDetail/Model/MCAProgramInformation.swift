@@ -28,11 +28,6 @@ class MCAProgramInformation: NSObject {
     
     init(programInformation: JSON!) {
         
-        if programInformation.isEmpty {
-            
-            return
-        }
-        
         applicationID           = programInformation["application_id"].intValue
         businessName            = programInformation["business_name"].stringValue
         contactName             = programInformation["contact_name"].stringValue
@@ -45,6 +40,7 @@ class MCAProgramInformation: NSObject {
         loanRequirementTenure   = programInformation["loan_requirement_tenure"].stringValue
         loanTerm                = programInformation["loan_term"].intValue
         token                   = programInformation["token"].stringValue
+        
         loanDetailFieldCount    = 5
     }
     

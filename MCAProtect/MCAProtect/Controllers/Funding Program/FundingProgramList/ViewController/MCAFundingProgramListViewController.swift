@@ -25,11 +25,6 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         FPListArray = NSMutableArray()
        
         getFundingProgramList()
-//        for _ in 1...6
-//        {
-//            fundingProgramList = MCAFundingProgramList(Data:nil)
-//            FPListArray? .add(fundingProgramList)
-//        }
         
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
     }
@@ -50,7 +45,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
                 let testArray = response.arrayValue
                 
                     for item in testArray {
-                        self.fundingProgramList = MCAFundingProgramList(Data:item)
+                        self.fundingProgramList = MCAFundingProgramList(data:item)
                         self.FPListArray.add(self.fundingProgramList)
                     }
                     self.tableView.reloadData()

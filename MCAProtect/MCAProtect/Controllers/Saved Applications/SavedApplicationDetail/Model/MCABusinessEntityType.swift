@@ -18,9 +18,6 @@ class MCABusinessEntityType: NSObject {
     
     init(businessEnityType: JSON!) {
         
-        if businessEnityType.isEmpty {
-            return
-        }
         createdAt               = businessEnityType["created_at"].stringValue
         businessEntityTypeID    = businessEnityType["id"].intValue
         name                    = businessEnityType["name"].stringValue

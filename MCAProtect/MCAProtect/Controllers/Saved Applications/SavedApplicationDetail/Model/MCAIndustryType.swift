@@ -19,10 +19,6 @@ class MCAIndustryType: NSObject {
     
     init(industryType : JSON!) {
         
-        if industryType.isEmpty {
-            return
-        }
-        
         createdAt       = industryType["created_at"].stringValue
         industryTypeID  = industryType["id"].intValue
         sicCode         = industryType["sic_code"].stringValue

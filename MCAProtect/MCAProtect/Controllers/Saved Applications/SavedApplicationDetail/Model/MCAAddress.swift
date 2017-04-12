@@ -29,20 +29,12 @@ class MCAAddress: NSObject {
     var addressFieldCount       : Int!
     
     init(address: JSON!) {
-        
-        if address.isEmpty {
-            
-            return
-        }
-        
+
         billingAddressId        = address["billing_address_id"].intValue
         billingCity             = address["billing_city"].stringValue
         billingContactNumber    = address["billing_contact_number"].intValue
         let billingStateJson    = address["billing_state"]
-        
-        if !billingStateJson.isEmpty {
-            billingState = MCABillingState(billingState: billingStateJson)
-        }
+        billingState = MCABillingState(billingState: billingStateJson)
         billingStreetAddress    = address["billing_street_address"].stringValue
         billingZipcode          = address["billing_zipcode"].stringValue
         businessAddressId       = address["business_address_id"].intValue
@@ -50,10 +42,7 @@ class MCAAddress: NSObject {
         businessContactNumber   = address["business_contact_number"].intValue
         businessFaxNumber       = address["business_fax_number"].intValue
         let businessStateJson   = address["business_state"]
-        
-        if !businessStateJson.isEmpty {
-            businessState = MCABillingState(billingState: businessStateJson)
-        }
+        businessState = MCABillingState(billingState: businessStateJson)
         businessStreetAddress   = address["business_street_address"].stringValue
         businessZipcode         = address["business_zipcode"].stringValue
         sameBillingAddress      = address["same_billing_address"].boolValue

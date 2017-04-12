@@ -9,17 +9,21 @@
 
 import UIKit
 import SwiftyJSON
+
 class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-    var savedApplication : MCASavedApplication!
-    var applicationId : Int!
-    var loanApplication : MCALoanApplication!
-    var selectedIndexpath : IndexPath?
-    var applicationStatus : Int?
+    
+    var savedApplication    : MCASavedApplication!
+    var loanApplication     : MCALoanApplication!
+    
+    var selectedIndexpath   : IndexPath?
+    var applicationStatus   : Int?
+    var applicationId       : Int!
+    var titleText           : String!
     
     var dataDataSource = ["Loan Details","Business Information", "Business Address", "Liens/Bankruptcy", "Merchant Documentation", "Bank Records","MCA Loans","Owner/Officer Information","Business Location"]
     
@@ -27,10 +31,12 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.title = savedApplication.applicationName
+        
+        self.title = titleText
         tableViewBottomConstraint.constant = 0
         submitButton.layer.cornerRadius = 3.0
         cancelButton.layer.cornerRadius = 3.0
+        
         loadUI()
         self.getLoanApplication()
     }
@@ -40,9 +46,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     }
     
     
-    
     func getLoanApplication(){
-        
         
         self.showActivityIndicator()
         
