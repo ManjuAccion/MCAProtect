@@ -49,7 +49,7 @@ class MCABankRecords: NSObject {
         rangeToDate                     = bankRecords["range_to_date"].stringValue
         totalBankDepositsAmount         = bankRecords["total_bank_deposits_amount"].intValue
         updatedAt                       = bankRecords["updated_at"].stringValue
-        accountNumber                   = "" //TODO:- Need to fetch the account number need to add validation also
+        accountNumber                   = "NA" //TODO:- Need to fetch the account number need to add validation also
         bankRecordDetailFieldCount      = 7
     }
     
@@ -67,6 +67,6 @@ class MCABankRecords: NSObject {
             case .daysWithNegativeBalance   : modelValue = "\(daysWithNegativeBalance!)"
             case .avgDailyBalance           : modelValue = MCAUtilities.currencyFormatter(inputItem: averageDailyBalance as AnyObject)
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 }

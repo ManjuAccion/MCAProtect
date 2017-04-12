@@ -60,6 +60,6 @@ class MCABusinessLocationList: NSObject {
             case .state             : modelValue = state.stateName
             case .zipCode           : modelValue = zipcode
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 }

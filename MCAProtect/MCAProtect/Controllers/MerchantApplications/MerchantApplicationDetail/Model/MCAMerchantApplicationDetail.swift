@@ -52,6 +52,6 @@ class MCAMerchantApplicationDetail: NSObject {
             case .telephone     : modelValue = contactNumber.toUSPhoneNumberFormat()
             case .offeredOn     : modelValue = offeredOn
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 }

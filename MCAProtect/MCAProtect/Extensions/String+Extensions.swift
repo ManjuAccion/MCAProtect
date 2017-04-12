@@ -36,5 +36,13 @@ public extension String {
     func toUSPhoneNumberFormat() -> String {
         return self.replacingOccurrences(of: "(\\d{3})(\\d{3})(\\d+)", with: "($1) $2-$3", options: .regularExpression, range: nil)
     }
+    
+    func validatedString() -> String
+    {
+        if self == "" {
+            return "NA"
+        }
+        return self
+    }
 }
 

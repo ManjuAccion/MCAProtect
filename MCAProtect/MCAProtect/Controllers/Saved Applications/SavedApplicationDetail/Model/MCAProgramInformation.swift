@@ -62,17 +62,21 @@ class MCAProgramInformation: NSObject {
             modelValue = MCAUtilities.currencyFormatter(inputItem: loanAmount as AnyObject)
             
         case .creditScore :
-            modelValue = "\(creditScore!)"
+            modelValue = creditScore == 0 ? "" : "\(creditScore!)"
             
         case .needItBy :
             modelValue = loanRequirementTenure
             
         case .loanTerm :
-            modelValue = "\(loanTerm!) Months"
+            modelValue = "\(loanTerm!) Days"
         }
-        return modelValue
+        return modelValue.validatedString()
     }
+    
+    
+
 }
+
 
 
 

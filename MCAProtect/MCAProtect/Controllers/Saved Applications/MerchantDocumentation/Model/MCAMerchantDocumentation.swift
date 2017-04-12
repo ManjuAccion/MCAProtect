@@ -55,6 +55,6 @@ class MCAMerchantDocumentation: NSObject {
             case .proofOfResidence :
                 modelValue = documentDescription
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 }

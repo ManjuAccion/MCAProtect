@@ -89,6 +89,6 @@ class MCAAddress: NSObject {
             modelValue = "\(businessFaxNumber!)".toUSPhoneNumberFormat()
         }
         
-        return modelValue
+        return modelValue.validatedString()
     }
 }

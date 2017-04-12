@@ -137,7 +137,7 @@ class MCABusinessInformation: NSObject {
             case .seasonalBusiness:
                 modelValue = businessSeasonal == true ? "Yes" : "No"
         }
-        return modelValue
+        return modelValue.validatedString()
     }
     
     func getJudgementsFromKey(judgementOrLiensKey: JudgementsOrLiensKeys) -> String{
@@ -152,7 +152,7 @@ class MCABusinessInformation: NSObject {
             case .judgementOrLienAmount :
                 modelValue = "\(judgementsOrLiensAmount!)"
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 
     func getPaymentPlanFromKey(paymentKey: PayementKeys) -> String{
@@ -165,7 +165,7 @@ class MCABusinessInformation: NSObject {
             modelValue =  "\(monthlyPaymentAmount!)"
 
         }
-        return modelValue
+        return modelValue.validatedString()
     }
     
     func getBankruptcyFromKey(bankruptcyKey: BankruptcyKeys) -> String{
@@ -180,7 +180,7 @@ class MCABusinessInformation: NSObject {
         case .dateOfDischarge :
             modelValue = bankruptcyDischargeDate as! String!
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 
 }

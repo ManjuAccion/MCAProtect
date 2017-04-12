@@ -68,7 +68,7 @@ class MCAFPMerchantRquirement: NSObject {
             modelValue = MCAUtilities.currencyFormatter(inputItem: minimumDailyBalance as AnyObject)
             
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 
 }

@@ -55,6 +55,6 @@ class MCASavedApplication: NSObject {
                 modelValue = MCAUtilities.currencyFormatter(inputItem: amount as AnyObject)
             
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 }

@@ -104,7 +104,7 @@ class MCAFPProgramInformation: NSObject {
         case .FPLoanAgreement :
             modelValue = loanAgreement
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 
 }

@@ -54,7 +54,7 @@ class MCALoanAccountsList: NSObject {
             case .frequency         : modelValue = frequency
             case .amount            : modelValue = MCAUtilities.currencyFormatter(inputItem: paymentAmount as AnyObject)
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 
 }

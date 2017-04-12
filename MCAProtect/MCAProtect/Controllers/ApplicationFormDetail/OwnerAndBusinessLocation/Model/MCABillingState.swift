@@ -19,15 +19,12 @@ class MCABillingState: NSObject {
     var updatedAt       : String!
     
     init(billingState: JSON!) {
-        
-        if billingState.isEmpty{
-            return
-        }
-        countryId       = billingState["country_id"] != JSON.null ? billingState["country_id"].intValue : 0
-        createdAt       = billingState["created_at"] != JSON.null ? billingState["created_at"].stringValue : ""
-        billingStateID  = billingState["id"] != JSON.null ? billingState["id"].intValue : 0
-        stateCode       = billingState["state_code"] != JSON.null ? billingState["state_code"].stringValue as AnyObject : 0 as AnyObject
-        stateName       = billingState["state_name"] != JSON.null ? billingState["state_name"].stringValue : ""
-        updatedAt       = billingState["updated_at"] != JSON.null ? billingState["updated_at"].stringValue : ""
+
+        countryId       = billingState["country_id"].intValue
+        createdAt       = billingState["created_at"].stringValue
+        billingStateID  = billingState["id"].intValue
+        stateCode       = billingState["state_code"].stringValue as AnyObject
+        stateName       = billingState["state_name"].stringValue
+        updatedAt       = billingState["updated_at"].stringValue
     }
 }
