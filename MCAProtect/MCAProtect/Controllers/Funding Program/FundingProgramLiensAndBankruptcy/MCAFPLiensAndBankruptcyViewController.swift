@@ -11,12 +11,20 @@ import UIKit
 class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView : UITableView!
+    var fundingProgramList : MCAFundingProgramList!
+    var liensOrBankruptcy : MCAFPLiensOrBankruptcy!
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.register(UINib(nibName: "MCALiensHeaderTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCALiensHeaderTableViewCell)
+        
+        liensOrBankruptcy = fundingProgramList.FPLiensOrBankruptcy
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,20 +52,49 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
+        
+        
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
+        /*
         switch indexPath.section {
-        case 0:
-            return cell
-        case 1:
-            return cell
 
-        case 2:
-            return cell
-        default:
-            break
-        }
         
+        case LiensPayementsHeaderCell.judgementsOrLiens.rawValue:
+            
+            switch indexPath.row {
+                
+            case JudgementsOrLiensKeys.numberOfJudgements.hashValue:
+                cell.setFPLiensBankruptcy(liensBankruptcyDetails: liensOrBankruptcy , liensBankruptcyKeys: FPLiensAndBankruptcyKeys.FPDischargedBankruptcy)
+            case JudgementsOrLiensKeys.judgementOrLienAmount.hashValue:
+                cell.setFPLiensBankruptcy(liensBankruptcyDetails: liensOrBankruptcy, liensBankruptcyKeys: FPLiensAndBankruptcyKeys.FPDischargedBankruptcy)
+            default:break
+                
+            }
+        case LiensPayementsHeaderCell.payementPlan.rawValue:
+            
+            switch indexPath.row {
+                
+            case PayementKeys.monthlyPaymentAmount.hashValue:
+                cell.setFPLiensBankruptcy(liensBankruptcyDetails: liensOrBankruptcy, liensBankruptcyKeys: FPLiensAndBankruptcyKeys.FPMontlyPaymentAllowed)
+            default:break
+            }
+            
+        case LiensPayementsHeaderCell.bankruptcy.rawValue:
+            
+            switch indexPath.row {
+                
+            case BankruptcyKeys.bankruptcySatisfied.hashValue:
+                cell.setFPLiensBankruptcy(liensBankruptcyDetails: liensOrBankruptcy, liensBankruptcyKeys: FPLiensAndBankruptcyKeys.FPIsBankruptcyAllowed)
+            case BankruptcyKeys.dateOfDischarge.hashValue:
+                cell.setFPLiensBankruptcy(liensBankruptcyDetails: liensOrBankruptcy, liensBankruptcyKeys: FPLiensAndBankruptcyKeys.FPJudegementsORLiens)
+                
+            default:break
+            }
+            
+        default: break
+        }
+*/
         return cell
     
         }
@@ -74,6 +111,10 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCALiensHeaderTableViewCell) as! MCALiensHeaderTableViewCell
+        
+        cell.setLiensHeader(fpLiensOrBankruptcy : liensOrBankruptcy, index: section)
+
+        
         return cell
 
     }

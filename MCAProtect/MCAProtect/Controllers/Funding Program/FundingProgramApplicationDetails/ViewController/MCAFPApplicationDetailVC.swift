@@ -36,7 +36,7 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
         
         programInformation = fundingProgramList.FPProgramInformation
         merchantRequirement = fundingProgramList.FPMerchantRquirement
-        liensOrBankruptcy = fundingProgramList.FPLiensOrBankruptcy
+      //  liensOrBankruptcy = fundingProgramList.FPLiensOrBankruptcy
 
         
  tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationSummaryTVCell")

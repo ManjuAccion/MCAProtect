@@ -56,4 +56,40 @@ class MCALiensHeaderTableViewCell: UITableViewCell {
         
     }
     
+    func setLiensHeader(fpLiensOrBankruptcy: MCAFPLiensOrBankruptcy, index: Int) {
+        
+        switch index {
+        case LiensPayementsHeaderCell.judgementsOrLiens.rawValue:
+            
+            self.headerTextLabel.text = "Any judgement or liens"
+            
+            if fpLiensOrBankruptcy.judegementsORLiens == true {
+                self.stateImageView.image = UIImage(named:"iconYesBlue")
+            } else {
+                self.stateImageView.image = UIImage(named:"iconNoBlue")
+            }
+        case LiensPayementsHeaderCell.payementPlan.rawValue:
+            
+            self.headerTextLabel.text = "Are you currently in payement plan?"
+            
+            if fpLiensOrBankruptcy.paymentPlan == true {
+                self.stateImageView.image = UIImage(named:"iconYesBlue")
+            } else {
+                self.stateImageView.image = UIImage(named:"iconNoBlue")
+            }
+        case LiensPayementsHeaderCell.bankruptcy.rawValue:
+            
+            self.headerTextLabel.text = "Have you ever filed for bankruptcy"
+            
+            if fpLiensOrBankruptcy.paymentPlan == true {
+                self.stateImageView.image = UIImage(named:"iconYesBlue")
+            } else {
+                self.stateImageView.image = UIImage(named:"iconNaBlue")
+            }
+        default: break
+        }
+        
+    }
+
+    
 }

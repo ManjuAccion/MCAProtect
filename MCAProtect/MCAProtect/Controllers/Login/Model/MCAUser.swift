@@ -70,6 +70,7 @@ class MCAUser: NSObject {
             brokerEmail         = userData["email"].stringValue
             brokerContactNumber = userData["contact_number"].stringValue
             brokerContactName   = userData["contact_name"].stringValue
+            brokerImageUrl =  userData["image_url"].stringValue
             userType = userLoginType
         }
     }
