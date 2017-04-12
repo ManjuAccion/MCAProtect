@@ -35,7 +35,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
     
     func loadUI() {
         
-        self.title = titleText
+        self.title = appSummary.applicationName
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.tableFooterView = UIView()
         resumeApplicationButton.layer.cornerRadius = 5.0
@@ -89,6 +89,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         if indexPath.row == 1 {
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
+            applicationFormVC.savedApplication = appSummary
             applicationFormVC.applicationId = appSummary.applicationId
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }

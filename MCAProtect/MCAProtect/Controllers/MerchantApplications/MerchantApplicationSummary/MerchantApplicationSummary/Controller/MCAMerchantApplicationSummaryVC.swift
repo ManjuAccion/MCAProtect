@@ -137,7 +137,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
             let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
             applicationFormVC.title = titleText;
-            applicationFormVC.merchantApplicationDetail = self.merchantApplicationDetail
+       //     applicationFormVC.merchantApplicationDetail = self.merchantApplicationDetail
             applicationFormVC.applicationId = self.merchantApplicationDetail.applicationID
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }
@@ -152,7 +152,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
         let applicationFormVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
         applicationFormVC.applicationStatus = ApplicationStatus.CopyApplication.rawValue
-        applicationFormVC.merchantApplicationDetail = self.merchantApplicationDetail
+       // applicationFormVC.merchantApplicationDetail = self.merchantApplicationDetail
         applicationFormVC.applicationId = self.merchantApplicationDetail.applicationID
         navigationController?.pushViewController(applicationFormVC, animated: true)
     }
