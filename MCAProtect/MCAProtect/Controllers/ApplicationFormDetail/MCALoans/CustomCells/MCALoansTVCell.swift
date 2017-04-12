@@ -1,5 +1,5 @@
 //
-//  MCASALoansTVCell.swift
+//  MCALoansTVCell.swift
 //  MCAProtect
 //
 //  Created by Accion Labs on 02/03/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASALoansTVCell: UITableViewCell {
+class MCALoansTVCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!

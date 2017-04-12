@@ -1,5 +1,5 @@
 //
-//  MCASALoansViewController.swift
+//  MCALoansVC.swift
 //  MCAProtect
 //
 //  Created by Accion Labs on 02/03/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
+class MCALoansVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pastLoanStatusLabel: UILabel!
@@ -32,7 +32,7 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
         self.title = "MCA Loans"
         mcaLoanAccountList = loanApplication.businessFinance.mcaLoanAccountsList
 
-        tableView.register(UINib(nibName: "MCASALoansTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCASALoansTVCell)
+        tableView.register(UINib(nibName: "MCALoansTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCALoansTVCell)
         tableView.tableFooterView = UIView()
         
         let pastMCALoanStatus = loanApplication.businessFinance.mcaLoanAccounts == true ? "YES" : "NO"
@@ -62,7 +62,7 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let  cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASALoansTVCell, for: indexPath) as! MCASALoansTVCell
+        let  cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCALoansTVCell, for: indexPath) as! MCALoansTVCell
         
         loanAccountList = mcaLoanAccountList[indexPath.row]
         cell.setMCALoanApplication(mcaLoanApplication: loanAccountList)
@@ -86,19 +86,19 @@ class MCASALoansViewController: MCABaseViewController,UITableViewDelegate,UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if selectedIndexpath != nil {
-            let deselectedCell = tableView.cellForRow(at: selectedIndexpath! as IndexPath) as? MCASALoansTVCell
+            let deselectedCell = tableView.cellForRow(at: selectedIndexpath! as IndexPath) as? MCALoansTVCell
             deselectedCell?.selectedView.isHidden = true
             deselectedCell?.backgroundColor = ColorConstants.background
             
         }
-        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASALoansTVCell
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCALoansTVCell
         selectedCell.selectedView.isHidden = false
         selectedCell.backgroundColor = ColorConstants.selectedBackground
         selectedIndexpath = indexPath
 
         
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-        let loanDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASALoanDetailVC) as! MCASALoanDetailVC
+        let loanDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCALoanDetailVC) as! MCALoanDetailVC
         
         loanAccountList = mcaLoanAccountList[indexPath.row]
         loanDetailsVC.existingLoanDetail = loanAccountList

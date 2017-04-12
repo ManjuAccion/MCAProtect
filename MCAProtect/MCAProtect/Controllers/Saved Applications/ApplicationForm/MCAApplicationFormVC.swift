@@ -189,7 +189,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
             case SavedApplicationForm.MCALoans.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCASALoansViewController) as! MCASALoansViewController
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCALoansVC) as! MCALoansVC
                 savedApplicationDetailVC.applicationStatus = applicationStatus
                 savedApplicationDetailVC.loanApplication = loanApplication
                 navigationController?.pushViewController(savedApplicationDetailVC, animated: true)

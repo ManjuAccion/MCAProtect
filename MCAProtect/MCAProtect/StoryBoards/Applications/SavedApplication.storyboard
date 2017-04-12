@@ -534,10 +534,10 @@
             </objects>
             <point key="canvasLocation" x="7676" y="131.78410794602701"/>
         </scene>
-        <!--Loans View Controller-->
+        <!--LoansVC-->
         <scene sceneID="Cgs-hU-pG1">
             <objects>
-                <viewController storyboardIdentifier="MCASALoansViewController" id="Qb2-2s-ajB" customClass="MCASALoansViewController" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCALoansVC" id="Qb2-2s-ajB" customClass="MCALoansVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2vw-xF-r7B"/>
                         <viewControllerLayoutGuide type="bottom" id="aHG-da-cGr"/>
@@ -645,7 +645,7 @@
         <!--Loan DetailVC-->
         <scene sceneID="0Es-8y-95l">
             <objects>
-                <viewController storyboardIdentifier="MCASALoanDetailVC" id="kBL-qh-r0A" customClass="MCASALoanDetailVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCALoanDetailVC" id="kBL-qh-r0A" customClass="MCALoanDetailVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CDx-sp-HEl"/>
                         <viewControllerLayoutGuide type="bottom" id="Cb7-vv-LOP"/>

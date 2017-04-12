@@ -1,5 +1,5 @@
 //
-//  MCASALoanDetailVC.swift
+//  MCALoanDetailVC.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 3/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
+class MCALoanDetailVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
 
     
     @IBOutlet weak var tableView: UITableView!

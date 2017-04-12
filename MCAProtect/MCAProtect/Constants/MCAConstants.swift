@@ -58,7 +58,7 @@ struct CellIdentifiers {
     static let MCAMerchantDocumentationTVCell           = "MCAMerchantDocumentationTVCell"
     static let MCALiensPaymentsTVCell                   = "MCALiensPaymentsTVCell"
     static let MCABankruptcyTVCell                      = "MCABankruptcyTVCell"
-    static let MCASALoansTVCell                         = "MCASALoansTVCell"
+    static let MCALoansTVCell                         = "MCALoansTVCell"
     static let MCALiensHeaderTableViewCell              = "MCALiensHeaderTableViewCell"
 
 }
@@ -93,7 +93,7 @@ struct VCIdentifiers {
     static let MCASavedApplicationBankDetailsVC                     = "MCASavedApplicationBankDetailsVC"
     static let MCASABusinessLocationDetails                         = "MCASABusinessLocationDetails"
     static let MCASAOwnerInformationDetailVC                        = "MCASAOwnerInformationDetailVC"
-    static let MCASALoanDetailVC                                    = "MCASALoanDetailVC"
+    static let MCALoanDetailVC                                    = "MCALoanDetailVC"
     static let MCAMerchantApplicationListVC                         = "MCAMerchantApplicationListVC"
     static let MCAMerchantApplicationSummaryVC                      = "MCAMerchantApplicationSummaryVC"
     static let MCAMASubmitStipulationsVC                            = "MCAMASubmitStipulationsVC"
@@ -103,7 +103,7 @@ struct VCIdentifiers {
     static let MCAAskFunderChatDashboardVC                          = "MCAAskFunderChatDashboardVC"
     static let MCAMatchedFundingProgramVC                           = "MCAMatchedFundingProgramVC"
     static let MCAAskFunderNewChatVC                                = "MCAAskFunderNewChatVC"
-    static let MCASALoansViewController                             = "MCASALoansViewController"
+    static let MCALoansVC                                           = "MCALoansVC"
     static let MCAChangeMPinVC                                      = "MCAChangeMPinVC"
     static let MCAResetMPINVC                                       = "MCAResetMPINVC"
     static let MCADashboardTabbarVC                                 = "MCADashboardTabbarVC"
