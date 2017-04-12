@@ -24,6 +24,7 @@ class MCAProfileHeaderView: UIView {
     
     override func awakeFromNib() {
         self.avatarImageView.layer.cornerRadius = avatarImageView.frame.height/2
+        self.avatarImageView.layer.borderWidth = 1.0
         self.avatarImageView.layer.borderColor = UIColor.white.cgColor
         avatarImageView.clipsToBounds = true
 
@@ -34,7 +35,9 @@ class MCAProfileHeaderView: UIView {
     {
         profileNameLabel.text = mcapUser.brokerContactName;
         
-//        self.avatarImageView.sd_setImage(with: URL(string: mcapUser.brokerImageUrl))
+       self.avatarImageView.sd_setImage(with: URL(string: mcapUser.brokerImageUrl))
+        self.avatarImageView.setIndicatorStyle(.white)
+        self.avatarImageView.setShowActivityIndicator(true)
     }
     
 }

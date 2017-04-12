@@ -182,9 +182,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     
     
     //MARK: - Login Methods -
-
-    
-    func loginBroker() {
+ func loginBroker() {
         
         self.showActivityIndicator()
         var paramDict  = Dictionary<String, String>()
