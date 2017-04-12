@@ -15,7 +15,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
-    var merchantApplicationDetail : MCAMerchantApplicationDetail!
+    var savedApplication : MCASavedApplication!
     var applicationId : Int!
     var loanApplication : MCALoanApplication!
     var selectedIndexpath : IndexPath?
@@ -27,7 +27,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.title = merchantApplicationDetail.contactName
+       self.title = savedApplication.applicationName
         tableViewBottomConstraint.constant = 0
         submitButton.layer.cornerRadius = 3.0
         cancelButton.layer.cornerRadius = 3.0
