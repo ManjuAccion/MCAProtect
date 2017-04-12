@@ -196,7 +196,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
             case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerAndLocationDetailsVC) as! MCASAOwnerAndLocationDetailsVC
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAOwnerAndLocationDetailsVC) as! MCAOwnerAndLocationDetailsVC
                 savedApplicationDetailVC.loanApplication = loanApplication
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.OwnerOrOfficerInformation.rawValue
                 savedApplicationDetailVC.applicationStatus = applicationStatus
@@ -204,7 +204,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
 
             case SavedApplicationForm.BusinessLocation.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerAndLocationDetailsVC) as! MCASAOwnerAndLocationDetailsVC
+                let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAOwnerAndLocationDetailsVC) as! MCAOwnerAndLocationDetailsVC
                 savedApplicationDetailVC.loanApplication = loanApplication
                 savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessLocation.rawValue
                 savedApplicationDetailVC.applicationStatus = applicationStatus

@@ -1,24 +1,24 @@
 //
-//  MCASABusinessLocationDetails.swift
+//  MCAOwnerInformationDetailVC.swift
 //  MCAProtect
 //
-//  Created by Sarath NS on 3/1/17.
+//  Created by Sarath NS on 3/13/17.
 //  Copyright © 2017 Accionlabs. All rights reserved.
 //
 
 import UIKit
 
-class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
-
+class MCAOwnerInformationDetailVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
-    var isViewingMode : Bool?
-    var activeField: UITextField?
-    var applicationStatus : Int?
-    var businessLocationDetail : MCABusinessLocationList!
-
-    //MARK: - View Life Cycle
+    var isViewingMode       : Bool?
+    var activeField         : UITextField?
+    var applicationStatus   : Int?
+    var ownerInformation    : MCAOwnerInformation!
     
+    //MARK: - View Life Cycle -
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell)
@@ -28,7 +28,7 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
             
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconEdit"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         }
-        self.title = businessLocationDetail.locationName
+        self.title = ownerInformation.ownerName
         isViewingMode = true
     }
     
@@ -41,10 +41,10 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: - Table View Datasource
+    //MARK: - Table View Datasource -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return businessLocationDetail.fieldCount
+        return ownerInformation.ownerInfoFieldCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,24 +55,24 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         
         switch indexPath.row
         {
-            case BusinessLocationDetailKeys.locationType.hashValue:
-                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.locationType)
-                
-            case BusinessLocationDetailKeys.monthlyPayement.hashValue:
-                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.monthlyPayement)
-                
-            case BusinessLocationDetailKeys.streetAddress.hashValue:
-                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.streetAddress)
-                
-            case BusinessLocationDetailKeys.city.hashValue:
-                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.city)
-            
-            case BusinessLocationDetailKeys.state.hashValue:
-                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.state)
-                
-            case BusinessLocationDetailKeys.zipCode.hashValue:
-                cell.setBusinessLocationDetail(businessLocationDetail: businessLocationDetail, businessLocationDetailKey: BusinessLocationDetailKeys.zipCode)
-                
+            case OwnerInformationDetailKeys.name.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.name)
+            case OwnerInformationDetailKeys.socialSecurityNumber.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.socialSecurityNumber)
+            case OwnerInformationDetailKeys.dob.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.dob)
+            case OwnerInformationDetailKeys.streetAddress.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.streetAddress)
+            case OwnerInformationDetailKeys.city.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.city)
+            case OwnerInformationDetailKeys.state.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.state)
+            case OwnerInformationDetailKeys.zipCode.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.zipCode)
+            case OwnerInformationDetailKeys.homePhone.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.homePhone)
+            case OwnerInformationDetailKeys.percentOwned.hashValue:
+                cell.setOwnerInformationDetail(ownerInfoDetail: ownerInformation, ownerInfoDetailKey: OwnerInformationDetailKeys.percentOwned)
             default: break;
         }
         
@@ -81,7 +81,7 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
@@ -90,7 +90,7 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         return 60.0
     }
     
-    //MARK: - TextField Delegate Functions
+    //MARK: - TextField Delegate Functions -
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return !isViewingMode!
@@ -109,8 +109,7 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         return true
     }
     
-    
-    //MARK: - Keyboard Functions
+    //MARK: - Keyboard Functions -
     
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -131,8 +130,8 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
         let contentInset:UIEdgeInsets = UIEdgeInsets(top: 60.0,left: 0,bottom: 0,right: 0);
         tableView.contentInset = contentInset
     }
-    
-    //MARK: - Custom Functions
+
+    //MARK: - Custom Functions - 
     
     
     func editButtonTapped() {
@@ -158,5 +157,6 @@ class MCASABusinessLocationDetails: MCABaseViewController,UITableViewDataSource,
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image:image, style: UIBarButtonItemStyle.plain, target: self, action: #selector(editButtonTapped))
         }
     }
+
 
 }

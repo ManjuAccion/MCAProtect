@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -44,7 +44,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
             default: break
         }
         
-        tableView.register(UINib(nibName: "MCASAOwnerAndLocationDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell)
+        tableView.register(UINib(nibName: "MCAOwnerAndLocationDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell)
         tableView.tableFooterView = UIView()
     }
     
@@ -66,7 +66,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell, for: indexPath) as! MCASAOwnerAndLocationDetailsTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAOwnerAndLocationDetailsTVCell, for: indexPath) as! MCAOwnerAndLocationDetailsTVCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
 
@@ -86,14 +86,14 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASAOwnerAndLocationDetailsTVCell
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAOwnerAndLocationDetailsTVCell
         selectedCell.selectedView.isHidden = false
         selectedCell.backgroundColor = ColorConstants.selectedBackground
         
         if applicaionDetailType == SavedApplicationForm.BusinessLocation.rawValue {
             
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-            let businessLocationDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASABusinessLocationDetails) as! MCASABusinessLocationDetails
+            let businessLocationDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABusinessLocationDetails) as! MCABusinessLocationDetails
             businessLocation = dataSourceArray[indexPath.row] as! MCABusinessLocationList
             businessLocationDetailsVC.businessLocationDetail = businessLocation
             businessLocationDetailsVC.applicationStatus = applicationStatus
@@ -101,7 +101,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
         }
         else if applicaionDetailType == SavedApplicationForm.OwnerOrOfficerInformation.rawValue {
             let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-            let ownerInformationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASAOwnerInformationDetailVC) as! MCASAOwnerInformationDetailVC
+            let ownerInformationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAOwnerInformationDetailVC) as! MCAOwnerInformationDetailVC
             ownerInformation = dataSourceArray[indexPath.row] as! MCAOwnerInformation
             ownerInformationDetailVC.ownerInformation = ownerInformation
             ownerInformationDetailVC.applicationStatus = applicationStatus
@@ -110,7 +110,7 @@ class MCASAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASAOwnerAndLocationDetailsTVCell
+        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAOwnerAndLocationDetailsTVCell
         deselectedCell.selectedView.isHidden = true
         deselectedCell.backgroundColor = ColorConstants.background
     }
