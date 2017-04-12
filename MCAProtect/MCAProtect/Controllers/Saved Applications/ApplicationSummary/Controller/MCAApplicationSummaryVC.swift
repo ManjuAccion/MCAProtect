@@ -65,13 +65,14 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
 
             case ApplicationSummaryKeys.SASummaryBusinessName.hashValue:
                 cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummaryBusinessName)
-
+                cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            
             case ApplicationSummaryKeys.SASummaryLoanValue.hashValue:
                 cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummaryLoanValue)
 
             default: break;
         }
-        
+    /*
         if indexPath.row == 1 {
             cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
         }
@@ -81,7 +82,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.none
         }
-        
+        */
         return cell
     }
     
