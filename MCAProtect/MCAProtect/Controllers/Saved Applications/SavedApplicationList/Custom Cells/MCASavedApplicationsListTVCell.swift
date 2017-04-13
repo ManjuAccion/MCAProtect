@@ -47,6 +47,19 @@ class MCASavedApplicationsListTVCell: UITableViewCell {
         phoneNumberButton.setTitle(savedApplicationData.merchantPhoneNumber.toUSPhoneNumberFormat(), for: .normal)
         merchantNameLabel.text = savedApplicationData.merchantName
         phoneNumber = savedApplicationData.merchantPhoneNumber
+        
+        
+            if savedApplicationData.isSelected == true
+            {
+                self.selectedView.isHidden = false
+                self.backgroundColor = ColorConstants.selectedBackground
+            }
+            else
+            {
+                self.selectedView.isHidden = true
+                self.backgroundColor = ColorConstants.background
+            
+            }
     }
     
 

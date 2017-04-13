@@ -21,6 +21,7 @@ class MCASavedApplication: NSObject {
     var merchantId          : Int!
     var applicationId       : Int!
     var submittedOn         : String!
+    var isSelected          : Bool!
 
     
     init(savedApplcation : JSON!) {
@@ -35,6 +36,7 @@ class MCASavedApplication: NSObject {
         applicationId       = savedApplcation["id"].intValue
         neededIn            = savedApplcation["loan_requirement_tenure"].stringValue
         submittedOn         = savedApplcation["updated_at"].stringValue
+        isSelected = false
     }
     
     func getValueFromKey(key: ApplicationSummaryKeys) -> String{
