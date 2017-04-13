@@ -91,23 +91,26 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         if  nil == activityView {
             activityView = UIView(frame: self.view.bounds)
             activityView.tag = 987;
-            activityView.backgroundColor = UIColor.clear
-            activityView.alpha = 0.0
+            activityView.backgroundColor = UIColor.gray
+            activityView.alpha = 0.7
             let bgView = UIView(frame: activityView.bounds)
             bgView.alpha = 0.0
-            bgView.backgroundColor = UIColor.gray
+            bgView.backgroundColor = UIColor.clear
             activityView.addSubview(bgView)
-            let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            let spinner = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+            spinner.image = UIImage(named: "bgLogo")
+            spinner.alpha = 1.0
             activityView.addSubview(spinner)
             spinner.center = self.view.center
-            spinner.color = UIColor.white
-            spinner.startAnimating()
+            spinner.backgroundColor = UIColor.clear
+//            spinner.startAnimating()
+            self.addRotation(forLayer: spinner.layer)
+            bgView.alpha = 0.7;
             
-            UIView.animate(withDuration: 0.2, animations: {
-                    bgView.alpha = 0.5;
-                    self.activityView.alpha = 1.0;
-
-            })
+//            UIView.animate(withDuration: 0.2, animations: {
+//                    self.activityView.alpha = 1.0;
+//
+//            })
         }
         else
         {
@@ -134,6 +137,23 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
                 self.activityView.removeFromSuperview()
             })
         }
+    }
+
+    
+    func addRotation(forLayer layer : CALayer) {
+        let rotation : CABasicAnimation = CABasicAnimation(keyPath:"transform.rotation.y")
+        
+        rotation.duration = 1.0
+        rotation.isRemovedOnCompletion = false
+        rotation.repeatCount = HUGE
+        rotation.fillMode = kCAFillModeForwards
+        rotation.fromValue = NSNumber(value: 0.0)
+        rotation.toValue = NSNumber(value: 2 * 3.14 )
+        rotation.isRemovedOnCompletion = false
+        rotation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        
+        
+        layer.add(rotation, forKey: "rotation")
     }
 
     

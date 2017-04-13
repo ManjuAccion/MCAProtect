@@ -50,6 +50,8 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
         switch indexPath.row {
         case FPApplicationSummaryKeys.FPSummaryFundingProgram.hashValue:
             cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryFundingProgram)
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+
         case FPApplicationSummaryKeys.FPSummaryContact.hashValue:
             cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryContact)
 
@@ -75,19 +77,9 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
             break
         }
 
-    //    let title = dataSourceArray[indexPath.row]
-    //    cell.titleLabel.text = title
-     //   cell.dataTF.text = dataValueArray[indexPath.row] as String
+    
         
-        if  (indexPath.row == 0) {
-
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        }
-        else
-        {
-            cell.accessoryType = UITableViewCellAccessoryType.none
-        }
-        return cell
+               return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

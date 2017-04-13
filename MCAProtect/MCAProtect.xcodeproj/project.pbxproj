@@ -634,8 +634,8 @@
 		5B643D091E5B057E00AE89B1 /* Funding Program */ = {
 			isa = PBXGroup;
 			children = (
-				5B330B871E967A7D00CB7A6C /* FundingProgramLiensAndBankruptcy */,
 				5B7F7D441E6FF6BB0067F1DD /* MatchedFundingPrograms */,
+				5B330B871E967A7D00CB7A6C /* FundingProgramLiensAndBankruptcy */,
 				5B7F7D311E6FF6710067F1DD /* FundingProgramAdditionalStipulation */,
 				5B7F7D331E6FF6710067F1DD /* FundingProgramApplicationDetails */,
 				5B7F7D351E6FF6710067F1DD /* FundingProgramApplicationForm */,
