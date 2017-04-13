@@ -297,8 +297,8 @@ class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableVi
     
     func initializeToolBar() {
         toolBar = UIToolbar()
-        toolBar?.barStyle = .blackTranslucent
-        toolBar?.isTranslucent = true
+        toolBar?.isTranslucent = false
+        toolBar?.barTintColor = UIColor.darkGray
         toolBar?.sizeToFit()
         
         doneButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))

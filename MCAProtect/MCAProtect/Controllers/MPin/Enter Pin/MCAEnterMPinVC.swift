@@ -69,7 +69,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func initilazeToolBar() {
         toolbar = UIToolbar()
-        toolbar?.barStyle = .black
+        toolbar?.barTintColor = UIColor.darkGray
         toolbar?.isTranslucent = false
         toolbar?.sizeToFit()
         

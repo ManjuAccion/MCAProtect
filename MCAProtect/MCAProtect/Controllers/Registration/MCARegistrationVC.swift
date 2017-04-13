@@ -60,8 +60,8 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
     func initilazeToolBar() {
         toolbar = UIToolbar()
-        toolbar?.barStyle = .blackTranslucent
-        toolbar?.isTranslucent = true
+        toolbar?.isTranslucent = false
+        toolbar?.barTintColor = UIColor.darkGray
         toolbar?.sizeToFit()
         
         doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
