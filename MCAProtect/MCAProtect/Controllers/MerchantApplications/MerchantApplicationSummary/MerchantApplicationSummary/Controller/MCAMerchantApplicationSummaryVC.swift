@@ -22,9 +22,6 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
 
     //MARK: - View Life Cycle
     
-    
-    
- 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,6 +75,8 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
                         fallthrough
                     case ApplicationState.NeedMoreStips.rawValue:
                             summaryCell.viewDetailsButton.isHidden = false
+                            summaryCell.viewDetailsButtonTrailingConstant.constant = 30
+                        
                     default:break
                 }
                 summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.businessName)

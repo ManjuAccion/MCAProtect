@@ -27,19 +27,16 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
 
     }
     
-  /*  override func layoutSubviews() {
-        if viewDetailsButton.isHidden == false {
-            viewDetailsButtonTrailingConstant.constant = 34
-            self.layoutIfNeeded()
-        }
-    }
-    
-*/
-    
+//    override func layoutSubviews() {
+//        if viewDetailsButton.isHidden == false {
+//            viewDetailsButtonTrailingConstant.constant = 34
+//            self.layoutIfNeeded()
+//        }
+//    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
