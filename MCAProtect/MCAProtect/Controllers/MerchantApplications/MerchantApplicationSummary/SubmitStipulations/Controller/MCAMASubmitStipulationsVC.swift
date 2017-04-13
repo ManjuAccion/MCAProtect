@@ -12,13 +12,15 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
 
     @IBOutlet weak var tableView: UITableView!
     
+    var merchantApplicationDetail : MCAMerchantApplicationDetail!
+    
     //MARK: -View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "MCASubmitStipulationsCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASubmitStipulationsCell)
-        self.title = "Submit Stipulations"
+        self.title = merchantApplicationDetail.businessName
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +35,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASubmitStipulationsCell) as! MCASubmitStipulationsCell
+        cell.setSubmitStipulationsCell(merchanantApplicationDetail: merchantApplicationDetail)
         
         return cell
     }

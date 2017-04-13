@@ -24,9 +24,6 @@ class MCAMerchantApplicationDetail: NSObject {
     
     init(merchantApplicationDetail: JSON!) {
         
-        if merchantApplicationDetail.isEmpty {
-            return
-        }
         acceptedFundingProgramID    = merchantApplicationDetail["accepted_lending_program_id"].intValue
         businessName                = merchantApplicationDetail["business_name"].stringValue
         contactName                 = merchantApplicationDetail["contact_name"].stringValue

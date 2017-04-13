@@ -170,6 +170,7 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         case ApplicationState.NeedMoreStips.rawValue:
             let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
             let submitStipulationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
+            submitStipulationsVC.merchantApplicationDetail = merchantApplicationDetail
             navigationController?.pushViewController(submitStipulationsVC, animated: true)
         default:
             break

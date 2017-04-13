@@ -34,6 +34,13 @@ class MCASubmitStipulationsCell: UITableViewCell {
         
     }
     
+    func setSubmitStipulationsCell(merchanantApplicationDetail : MCAMerchantApplicationDetail) {
+        
+        self.merchantNameLabel.text = merchanantApplicationDetail.businessName
+        
+        
+    }
+    
     
     
 }
