@@ -13,7 +13,7 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
     @IBOutlet weak var tableView: UITableView!
 
     
-    var fundingProgramSummary : MCAFundingProgramList!
+    var fundingProgramSummary : MCAFundingProgram!
     
     var titleText: String?
 
@@ -99,7 +99,7 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
         if  (indexPath.row == 0) {
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
-            applicationFormVC.fundingProgramList = fundingProgramSummary
+            applicationFormVC.fundingProgram = fundingProgramSummary
 
             navigationController?.pushViewController(applicationFormVC, animated: true)
         }

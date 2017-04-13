@@ -11,7 +11,7 @@ import UIKit
 class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView : UITableView!
-    var fundingProgramList : MCAFundingProgramList!
+    var fundingProgram : MCAFundingProgram!
     var liensOrBankruptcy : MCAFPLiensOrBankruptcy!
 
 
@@ -23,7 +23,7 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.register(UINib(nibName: "MCALiensHeaderTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCALiensHeaderTableViewCell)
         
-        liensOrBankruptcy = fundingProgramList.FPLiensOrBankruptcy
+        liensOrBankruptcy = fundingProgram.FPLiensOrBankruptcy
 
     }
 

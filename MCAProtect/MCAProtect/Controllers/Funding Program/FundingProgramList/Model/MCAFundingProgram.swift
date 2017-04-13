@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 
-class MCAFundingProgramList: NSObject {
+class MCAFundingProgram: NSObject {
     
     var fundingProgramName : String!
     var contactName : String!
@@ -25,6 +25,7 @@ class MCAFundingProgramList: NSObject {
     var FPProgramInformation : MCAFPProgramInformation!
     var FPMerchantRquirement : MCAFPMerchantRquirement!
     var FPLiensOrBankruptcy : MCAFPLiensOrBankruptcy!
+    var isSelected : Bool!
     
     var fieldCount : Int!
 
@@ -43,35 +44,36 @@ class MCAFundingProgramList: NSObject {
             FPProgramInformation    = MCAFPProgramInformation(data : data)
             FPMerchantRquirement    = MCAFPMerchantRquirement(data : data)
             FPLiensOrBankruptcy     = MCAFPLiensOrBankruptcy(Data : data)
+            isSelected = false
             
             fieldCount = 8
         }
     }
     
-    func getValueFromKey(key: FPApplicationSummaryKeys) -> AnyObject{
+    func getValueFromKey(key: FPApplicationSummaryKeys) -> String{
         
-        var modelValue : AnyObject!
+        var modelValue : String!
         
         switch key {
             
             case FPApplicationSummaryKeys.FPSummaryFundingProgram :
-                modelValue =  fundingProgramName as AnyObject!
+                modelValue =  fundingProgramName as String!
             case FPApplicationSummaryKeys.FPSummaryContact :
-                modelValue = contactName as AnyObject!
+                modelValue = contactName as String!
             case FPApplicationSummaryKeys.FPSummaryTerm :
-                modelValue = term as AnyObject!
+                modelValue = term as String!
             case FPApplicationSummaryKeys.FPSummaryTimeInBuisness :
-                modelValue = timeInBuisness as AnyObject!
+                modelValue = timeInBuisness as String!
             case FPApplicationSummaryKeys.FPSummaryBuyRate :
-                modelValue = buyRate as AnyObject!
+                modelValue = buyRate as String!
             case FPApplicationSummaryKeys.FPSummaryCreditScore :
-                modelValue = term as AnyObject!
+                modelValue = term as String!
             case FPApplicationSummaryKeys.FPSummaryMinimumLoan :
-                modelValue = MCAUtilities.currencyFormatter(inputItem: minimumLoan as AnyObject) as AnyObject!
+                modelValue = MCAUtilities.currencyFormatter(inputItem: minimumLoan as AnyObject) as String!
             case FPApplicationSummaryKeys.FPSUmmaryMaximumLoan :
-                modelValue = MCAUtilities.currencyFormatter(inputItem: maximumLoan as AnyObject) as AnyObject!
+                modelValue = MCAUtilities.currencyFormatter(inputItem: maximumLoan as AnyObject) as String!
             
         }
-        return modelValue
+        return modelValue.validatedString()
     }
 }

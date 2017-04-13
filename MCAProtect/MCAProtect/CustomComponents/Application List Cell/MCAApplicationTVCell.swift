@@ -38,7 +38,7 @@ class MCAApplicationTVCell: UITableViewCell {
         delegate.callButtonTapped(phoneNumber: phoneNumber);
     }
     
-    func dataSource(data: MCAFundingProgramList)
+    func dataSource(data: MCAFundingProgram)
     {
         nameLabel.text = data.fundingProgramName
         amountLabel.text = MCAUtilities.currencyFormatter(inputItem: data.minimumLoan as AnyObject)
@@ -46,6 +46,19 @@ class MCAApplicationTVCell: UITableViewCell {
         emailButton.setTitle(data.email, for: UIControlState.normal)
         phoneNumberButton.setTitle(data.phoneNumber, for: UIControlState.normal)
         phoneNumber = data.phoneNumber
+        
+        if data.isSelected == true
+        {
+            self.selectedView.isHidden = false
+            self.backgroundColor = ColorConstants.selectedBackground
+        }
+        else
+        {
+            self.selectedView.isHidden = true
+            self.backgroundColor = ColorConstants.background
+            
+        }
+
     }
     
     func setMerchantApplicationList(merchantApplicationList: MCAMerchantApplicationDetail) {

@@ -22,7 +22,7 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
     
     var fieldCount : Int!
     var applicationModel : AnyObject!
-    var fundingProgramList : MCAFundingProgramList!
+    var fundingProgram : MCAFundingProgram!
 
     var programInformation : MCAFPProgramInformation!
     var merchantRequirement : MCAFPMerchantRquirement!
@@ -34,8 +34,8 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        programInformation = fundingProgramList.FPProgramInformation
-        merchantRequirement = fundingProgramList.FPMerchantRquirement
+        programInformation = fundingProgram.FPProgramInformation
+        merchantRequirement = fundingProgram.FPMerchantRquirement
       //  liensOrBankruptcy = fundingProgramList.FPLiensOrBankruptcy
 
         

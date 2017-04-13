@@ -76,7 +76,7 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
         dataTF.text =  businessInfo.getBankruptcyFromKey(bankruptcyKey: bankruptcyKey)
     }
     
-    func setFPSummaryDetails(FPSummary : MCAFundingProgramList, key : FPApplicationSummaryKeys) {
+    func setFPSummaryDetails(FPSummary : MCAFundingProgram, key : FPApplicationSummaryKeys) {
         titleLabel.text = key.rawValue
         dataTF.text = FPSummary.getValueFromKey(key: key) as? String
     }
