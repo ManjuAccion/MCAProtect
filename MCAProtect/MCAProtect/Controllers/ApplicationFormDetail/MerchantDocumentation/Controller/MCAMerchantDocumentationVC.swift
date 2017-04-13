@@ -1,5 +1,5 @@
 //
-//  MCASavedApplicationMerchantDocumentationVC.swift
+//  MCAMerchantDocumentationVC.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 3/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASavedApplicationMerchantDocumentationVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAMerchantDocumentationVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 

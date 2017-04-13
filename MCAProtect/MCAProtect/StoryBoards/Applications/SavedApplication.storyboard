@@ -229,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="2997.5999999999999" y="131.78410794602701"/>
         </scene>
-        <!--Saved Application DetailVC-->
+        <!--Business DetailVC-->
         <scene sceneID="dLv-3S-Myj">
             <objects>
-                <viewController storyboardIdentifier="MCASavedApplicationDetailVC" id="dBd-l6-v9V" customClass="MCASavedApplicationDetailVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCABusinessDetailVC" id="dBd-l6-v9V" customClass="MCABusinessDetailVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x4N-gP-Xu5"/>
                         <viewControllerLayoutGuide type="bottom" id="e9B-E2-LSU"/>
@@ -307,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="3653.5999999999999" y="133.5832083958021"/>
         </scene>
-        <!--Saved Application Merchant DocumentationVC-->
+        <!--Merchant DocumentationVC-->
         <scene sceneID="BSx-J0-aS3">
             <objects>
-                <viewController storyboardIdentifier="MCASavedApplicationMerchantDocumentationVC" id="KLK-Hd-zqA" customClass="MCASavedApplicationMerchantDocumentationVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCAMerchantDocumentationVC" id="KLK-Hd-zqA" customClass="MCAMerchantDocumentationVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yiE-BD-ieD"/>
                         <viewControllerLayoutGuide type="bottom" id="eMU-z3-ViN"/>
@@ -348,7 +348,7 @@
         <!--Liens PaymentsVC-->
         <scene sceneID="1wX-XG-AtS">
             <objects>
-                <viewController storyboardIdentifier="MCASALiensPaymentsVC" id="o5s-RH-IPY" customClass="MCASALiensPaymentsVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCALiensPaymentsVC" id="o5s-RH-IPY" customClass="MCALiensPaymentsVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3W1-A5-frc"/>
                         <viewControllerLayoutGuide type="bottom" id="QZ8-Gi-07L"/>
@@ -420,10 +420,10 @@
             </objects>
             <point key="canvasLocation" x="5600.8000000000002" y="131.78410794602701"/>
         </scene>
-        <!--Saved Applications Bank RecordsVC-->
+        <!--Bank RecordsVC-->
         <scene sceneID="vSI-Vk-D6J">
             <objects>
-                <viewController storyboardIdentifier="MCASavedApplicationsBankRecordsVC" id="8PV-41-Z5c" customClass="MCASavedApplicationsBankRecordsVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCABankRecordsVC" id="8PV-41-Z5c" customClass="MCABankRecordsVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="09h-Vt-Odb"/>
                         <viewControllerLayoutGuide type="bottom" id="tuW-Vi-93h"/>
@@ -458,10 +458,10 @@
             </objects>
             <point key="canvasLocation" x="6269.6000000000004" y="133.5832083958021"/>
         </scene>
-        <!--Saved Application Bank DetailsVC-->
+        <!--Bank DetailsVC-->
         <scene sceneID="Mws-xQ-zrn">
             <objects>
-                <viewController storyboardIdentifier="MCASavedApplicationBankDetailsVC" id="6hg-H7-rL7" customClass="MCASavedApplicationBankDetailsVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCABankDetailsVC" id="6hg-H7-rL7" customClass="MCABankDetailsVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oLp-EV-Unx"/>
                         <viewControllerLayoutGuide type="bottom" id="l8h-rl-Q6l"/>

@@ -1,5 +1,5 @@
 //
-//  MCASavedApplicationDetailVC.swift
+//  MCABusinessDetailVC.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/28/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASavedApplicationDetailVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
+class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var billingAddressCheckButton: UIButton!

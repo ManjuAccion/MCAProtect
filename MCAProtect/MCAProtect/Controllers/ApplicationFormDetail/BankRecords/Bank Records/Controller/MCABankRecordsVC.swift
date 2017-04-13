@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCABankRecordsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,7 +25,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
 
         bankRecordsArray = loanApplication.businessFinance.bankRecords
         
-        tableView.register(UINib(nibName: "MCASavedApplicationsBankRecordsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankRecordsTVCell)
+        tableView.register(UINib(nibName: "MCABankRecordsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCABankRecordsTVCell)
         tableView.tableFooterView = UIView()
     }
 
@@ -41,7 +41,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASavedApplicationsBankRecordsTVCell, for: indexPath) as! MCASavedApplicationsBankRecordsTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCABankRecordsTVCell, for: indexPath) as! MCABankRecordsTVCell
         cell.selectionStyle = .none
         
         bankRecords = bankRecordsArray[indexPath.row]
@@ -54,12 +54,12 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsBankRecordsTVCell
+        let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCABankRecordsTVCell
         selectedCell.selectedView.isHidden = false
         selectedCell.backgroundColor = ColorConstants.selectedBackground
         
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
-        let savedApplicationBankDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationBankDetailsVC) as! MCASavedApplicationBankDetailsVC
+        let savedApplicationBankDetailsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABankDetailsVC) as! MCABankDetailsVC
         bankRecords = bankRecordsArray[indexPath.row]
         savedApplicationBankDetailsVC.applicationStatus = applicationStatus
         savedApplicationBankDetailsVC.bankRecord = bankRecords
@@ -68,7 +68,7 @@ class MCASavedApplicationsBankRecordsVC: MCABaseViewController,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCASavedApplicationsBankRecordsTVCell
+        let deselectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCABankRecordsTVCell
         deselectedCell.selectedView.isHidden = true
         deselectedCell.backgroundColor = ColorConstants.background
     }

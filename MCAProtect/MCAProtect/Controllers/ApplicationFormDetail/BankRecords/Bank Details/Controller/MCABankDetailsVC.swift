@@ -1,5 +1,5 @@
 //
-//  MCASavedApplicationBankDetailsVC.swift
+//  MCABankDetailsVC.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 3/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
+class MCABankDetailsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +22,7 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "MCASavedApplicationsBankDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsBankDetailsTVCell)
+        tableView.register(UINib(nibName: "MCABankDetailsTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCABankDetailsTVCell)
         tableView.tableFooterView = UIView()
         if applicationStatus == ApplicationStatus.CopyApplication.rawValue || applicationStatus == ApplicationStatus.ResumeApplication.rawValue {
             
@@ -50,7 +50,7 @@ class MCASavedApplicationBankDetailsVC: MCABaseViewController,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASavedApplicationsBankDetailsTVCell, for: indexPath) as! MCASavedApplicationsBankDetailsTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCABankDetailsTVCell, for: indexPath) as! MCABankDetailsTVCell
         cell.selectionStyle = .none
         
         switch indexPath.row

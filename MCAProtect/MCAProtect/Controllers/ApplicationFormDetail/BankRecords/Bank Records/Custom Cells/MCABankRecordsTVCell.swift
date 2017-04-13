@@ -1,5 +1,5 @@
 //
-//  MCASavedApplicationsBankRecordsTVCell.swift
+//  MCABankRecordsTVCell.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 2/28/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASavedApplicationsBankRecordsTVCell: UITableViewCell {
+class MCABankRecordsTVCell: UITableViewCell {
     
     @IBOutlet weak var bankNameLabel: UILabel!
     @IBOutlet weak var accountNumberTextLabel: UILabel!

@@ -1,5 +1,5 @@
 //
-//  MCASavedApplicationsBankDetailsTVCell.swift
+//  MCABankDetailsTVCell.swift
 //  MCAProtect
 //
 //  Created by Sarath NS on 3/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASavedApplicationsBankDetailsTVCell: UITableViewCell {
+class MCABankDetailsTVCell: UITableViewCell {
 
     
     @IBOutlet weak var headingLabel: UILabel!

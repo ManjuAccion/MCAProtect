@@ -1,5 +1,5 @@
 //
-//  MCASALiensPaymentsVC.swift
+//  MCALiensPaymentsVC.swift
 //  MCAProtect
 //
 //  Created by Accion Labs on 01/03/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MCASALiensPaymentsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCALiensPaymentsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     var loanApplication : MCALoanApplication!
 
