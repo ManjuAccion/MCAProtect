@@ -69,8 +69,8 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func initilazeToolBar() {
         toolbar = UIToolbar()
-        toolbar?.barStyle = .blackTranslucent
-        toolbar?.isTranslucent = true
+        toolbar?.barStyle = .black
+        toolbar?.isTranslucent = false
         toolbar?.sizeToFit()
         
         doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
