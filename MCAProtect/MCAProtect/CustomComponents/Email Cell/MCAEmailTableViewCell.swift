@@ -27,7 +27,7 @@ class MCAEmailTableViewCell: UITableViewCell {
     }
     
     @IBAction func emailButtonTapped(_ sender: Any) {
-        delegate.emailButtonTapped()
+        delegate.emailButtonTapped(emailString: (emailButton.titleLabel?.text)!)
     }
     
     func setMerchantApplicationSummary(merchantSummary : MCAMerchantApplicationDetail, merchantSummaryKey : MASummaryKeys) {

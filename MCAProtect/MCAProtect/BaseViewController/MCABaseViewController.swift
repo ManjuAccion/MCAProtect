@@ -13,6 +13,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     
     var activityView:UIView!
     var activityIndicatorCount = 0
+    var  spinner : UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,8 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated);
+        
+      
         self.view.setNeedsLayout();
     }
 
@@ -37,12 +40,12 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         super.didReceiveMemoryWarning()
     }
 
-    public func emailButtonTapped()
+    public func emailButtonTapped(emailString : String)
     {
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self
-                mail.setToRecipients(["halen@MCAProtect.com"])
+                mail.setToRecipients([emailString])
                 mail.setMessageBody("", isHTML: true)
                 
                 present(mail, animated: true)
@@ -80,63 +83,72 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     
     public func showActivityIndicator()
     {
-        activityIndicatorCount = activityIndicatorCount + 1
-        if activityIndicatorCount > 1 {
-            return;
-        }
+//        activityIndicatorCount = activityIndicatorCount + 1
+//        if activityIndicatorCount > 1 {
+//            return;
+//        }
         
         UIApplication.shared.keyWindow?.viewWithTag(987)?.removeFromSuperview()
         self.view.layoutIfNeeded();
-        
+//
         if  nil == activityView {
             activityView = UIView(frame: self.view.bounds)
             activityView.tag = 987;
-            activityView.backgroundColor = UIColor.gray
-            activityView.alpha = 0.7
+            activityView.backgroundColor = UIColor.black
+            activityView.alpha = 0.8
             let bgView = UIView(frame: activityView.bounds)
-            bgView.alpha = 0.0
             bgView.backgroundColor = UIColor.clear
+            bgView.alpha = 1.0
             activityView.addSubview(bgView)
-            let spinner = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-            spinner.image = UIImage(named: "bgLogo")
+             spinner = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+            spinner.image = UIImage(named: "splashLogo")
             spinner.alpha = 1.0
             activityView.addSubview(spinner)
             spinner.center = self.view.center
             spinner.backgroundColor = UIColor.clear
 //            spinner.startAnimating()
             self.addRotation(forLayer: spinner.layer)
-            bgView.alpha = 0.7;
             
 //            UIView.animate(withDuration: 0.2, animations: {
 //                    self.activityView.alpha = 1.0;
 //
 //            })
         }
-        else
-        {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.activityView.alpha = 1.0;
-                
-            })
-        }
-        
+//        else
+//        {
+//            UIView.animate(withDuration: 0.2, animations: {
+//                self.activityView.alpha = 1.0;
+//                
+//            })
+      //  }
+        self.addRotation(forLayer: spinner.layer)
         UIApplication.shared.keyWindow?.addSubview(activityView)
+
         
     }
 
     
     public func stopActivityIndicator()
     {
-        activityIndicatorCount = activityIndicatorCount - 1
-        if activityIndicatorCount <= 0
+        spinner.layer.removeAllAnimations()
+
+        self.activityView.removeFromSuperview()
+
+        UIView.animate(withDuration: 0.2, animations:
         {
-            activityIndicatorCount = 0;
-            UIView.animate(withDuration: 0.2, animations: {
-                self.activityView.alpha = 0.0;
-            }, completion: { (true: Bool) in
-                self.activityView.removeFromSuperview()
-            })
-        }
+        }, completion: { (true: Bool) in
+        })
+
+//        activityIndicatorCount = activityIndicatorCount - 1
+//        if activityIndicatorCount <= 0
+//        {
+//            activityIndicatorCount = 0;
+//            UIView.animate(withDuration: 0.2, animations: {
+//                self.activityView.alpha = 0.0;
+//            }, completion: { (true: Bool) in
+//                self.activityView.removeFromSuperview()
+//            })
+//        }
     }
 
     

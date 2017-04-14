@@ -31,7 +31,7 @@ class MCAApplicationTVCell: UITableViewCell {
     }
 
     @IBAction func emailButtonTapped(_ sender: Any) {
-      delegate.emailButtonTapped()
+      delegate.emailButtonTapped(emailString: (emailButton.titleLabel?.text)!)
     }
     
     @IBAction func phoneNumberButtonTapped(_ sender: Any) {
