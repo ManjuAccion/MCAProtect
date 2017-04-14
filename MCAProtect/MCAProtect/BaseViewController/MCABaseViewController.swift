@@ -94,14 +94,15 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         if  nil == activityView {
             activityView = UIView(frame: self.view.bounds)
             activityView.tag = 987;
-            activityView.backgroundColor = UIColor.black
-            activityView.alpha = 0.8
+            activityView.backgroundColor = UIColor.init(patternImage:UIImage(named: "transparentBg")!)
+            activityView.alpha = 1.0
             let bgView = UIView(frame: activityView.bounds)
             bgView.backgroundColor = UIColor.clear
             bgView.alpha = 1.0
             activityView.addSubview(bgView)
              spinner = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-            spinner.image = UIImage(named: "splashLogo")
+            spinner.contentMode = .scaleAspectFit
+            spinner.image = UIImage(named: "splashLogoWhite")
             spinner.alpha = 1.0
             activityView.addSubview(spinner)
             spinner.center = self.view.center
