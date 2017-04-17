@@ -129,7 +129,9 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.text?.characters.count)! > 3 {
-            self.loginTapped(textField)
+            MCAUtilities.delayWithSeconds(0.2) {
+                self.loginTapped(textField)
+            }
         }
     }
     
