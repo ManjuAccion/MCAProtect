@@ -67,6 +67,7 @@
 		7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B62B1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift */; };
 		7804B62E1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7804B62D1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib */; };
 		7804B6301E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B62F1E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift */; };
+		780958461E9E227C00BDA9CA /* MCACustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780958451E9E227C00BDA9CA /* MCACustomSearchBar.swift */; };
 		782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782C69A91E49ACC500268356 /* Assets.xcassets */; };
 		782C69AD1E49ACC500268356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */; };
 		782C69B81E49ACC500268356 /* MCAProtectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C69B71E49ACC500268356 /* MCAProtectTests.swift */; };
@@ -281,6 +282,7 @@
 		7804B62B1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMatchedFPHeaderView.swift; sourceTree = "<group>"; };
 		7804B62D1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAMatchedFPHeaderView.xib; sourceTree = "<group>"; };
 		7804B62F1E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFundingProgramDetailCell.swift; sourceTree = "<group>"; };
+		780958451E9E227C00BDA9CA /* MCACustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCACustomSearchBar.swift; sourceTree = "<group>"; };
 		782C699F1E49ACC500268356 /* MCAProtect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCAProtect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		782C69A91E49ACC500268356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		782C69AC1E49ACC500268356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -912,6 +914,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		780958441E9E225400BDA9CA /* CustomSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				780958451E9E227C00BDA9CA /* MCACustomSearchBar.swift */,
+			);
+			path = CustomSearchBar;
+			sourceTree = "<group>";
+		};
 		782C69961E49ACC400268356 = {
 			isa = PBXGroup;
 			children = (
@@ -1246,6 +1256,7 @@
 		BA34CD3C1E4C9E72001AF75F /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				780958441E9E225400BDA9CA /* CustomSearchBar */,
 				788421C91E950B6D00748948 /* Custom Picker */,
 				CE9F697B1E937FCE0089F8CE /* Reachability */,
 				5BB3E5DC1E8293A800A67927 /* Application Form Cell */,
@@ -2372,6 +2383,7 @@
 				BAC6AE3D1E824FB10047F7D3 /* MCAGenericPopViewController.swift in Sources */,
 				7804B6301E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift in Sources */,
 				5B6C97C51E8D36BA003BEA82 /* MCAProfileViewController.swift in Sources */,
+				780958461E9E227C00BDA9CA /* MCACustomSearchBar.swift in Sources */,
 				7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */,
 				5BB3E5FA1E8293A800A67927 /* MCAApplicationTVCell.swift in Sources */,
 				CE0DCCC31E9F51B8003C5A97 /* MCAIndustryType.swift in Sources */,

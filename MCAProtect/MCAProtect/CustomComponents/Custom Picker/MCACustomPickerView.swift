@@ -26,6 +26,7 @@ class MCACustomPickerView: UIView,UIPickerViewDataSource,UIPickerViewDelegate {
     {
         pickerDatasource = dataSource
         pickerView.reloadAllComponents()
+        pickerView.selectRow(selectedRange, inComponent: 0, animated: true)
     }
     
     @IBAction func dataPicked(_ sender: Any)

@@ -294,6 +294,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         {
             customPicker =  Bundle.main.loadNibNamed("MCACustomPickerView", owner: self, options: nil)?[0] as! MCACustomPickerView
         }
+        customPicker.selectedRange = selectedRange.rawValue
         customPicker.setDatasource(dataSource: rangeList)
         customPicker.pickerDelegate = self;
         customPicker.frame = self.parentController.view.bounds

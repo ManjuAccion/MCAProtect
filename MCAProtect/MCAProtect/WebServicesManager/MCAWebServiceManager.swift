@@ -122,9 +122,6 @@ class MCAWebServiceManager: NSObject
             
             
             let dataDictionary = JSON(response.result.value!)
-            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
-            
-//            self.setAPIHeaders(header: header);
         
             print(response)
             successCallBack(dataDictionary)
@@ -164,9 +161,6 @@ class MCAWebServiceManager: NSObject
             
             let dataDictionary = JSON(response.result.value!)
             print(response)
-            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
-            
-//            self.setAPIHeaders(header: header);
             
 
             successCallBack(dataDictionary)
@@ -208,9 +202,6 @@ class MCAWebServiceManager: NSObject
 
             print(response)
 
-            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
-            
-//            self.setAPIHeaders(header: header);
             successCallBack(dataDictionary)
             return
         }
@@ -248,9 +239,6 @@ class MCAWebServiceManager: NSObject
             
             print(response)
             
-            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
-            
-//            self.setAPIHeaders(header: header);
             successCallBack(dataDictionary)
             return
         }
@@ -263,8 +251,8 @@ class MCAWebServiceManager: NSObject
                      failureCallBack: @escaping (_ error: Error) -> Void)
     {
        // let headersDict = self.readAPIHeaders();
-        
-        let completeURL : String = "https://broker-dev-mobile.mcaprotect.org/api/brokers/upload_profile_image"
+        var completeURL : String = baseURL
+        completeURL.append("/brokers/upload_profile_image")
         let url = NSURL(string: completeURL)
         var urlRequest = URLRequest(url: url as! URL)
         urlRequest.httpMethod = "POST"

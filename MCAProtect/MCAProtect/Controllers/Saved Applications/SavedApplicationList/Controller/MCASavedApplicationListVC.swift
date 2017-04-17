@@ -12,9 +12,11 @@ import SwiftyJSON
 class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: MCACustomSearchBar!
     
     var dataSource = [MCASavedApplication]()
     var selectedSavedApplication: MCASavedApplication!
+    
     
     //MARK: - View Life Cycle
 
@@ -24,12 +26,21 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
         self.navigationItem.title = "Saved Applications"
         
         
+        tableView.contentInset = .zero
         tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell)
         tableView.tableFooterView = UIView()
         
         self.getSavedApplicationList()
     }
 
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        searchBar.configureUI()
+        tableView.reloadData()
+    }
     
     func getSavedApplicationList()
     {
@@ -69,10 +80,6 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-              tableView.reloadData()
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
