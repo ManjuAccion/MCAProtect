@@ -18,28 +18,35 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     var fundingProgramList : NSMutableArray!
     
 
-    override func viewDidLoad()
-    {
+    //MARK: - View Life Cycle - 
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.title = NSLocalizedString("Funding Programs", comment: "")
         fundingProgramList = NSMutableArray()
        
         getFundingProgramList()
         
-        tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationTVCell")
+        tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationTVCell)
+        tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
 
     
     func getFundingProgramList()
     {
         
         self.showActivityIndicator()
-
         
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
                                                                 endPoint:MCAAPIEndPoints.BrokerFunderProgramListEndpoint
@@ -71,10 +78,6 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     }
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

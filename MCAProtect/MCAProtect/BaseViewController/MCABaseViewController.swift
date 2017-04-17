@@ -81,17 +81,11 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     }
     
     
-    public func showActivityIndicator()
-    {
-//        activityIndicatorCount = activityIndicatorCount + 1
-//        if activityIndicatorCount > 1 {
-//            return;
-//        }
-        
+    func showActivityIndicator() {
         UIApplication.shared.keyWindow?.viewWithTag(987)?.removeFromSuperview()
         self.view.layoutIfNeeded();
-//
         if  nil == activityView {
+            
             activityView = UIView(frame: self.view.bounds)
             activityView.tag = 987;
             activityView.backgroundColor = UIColor.init(patternImage:UIImage(named: "transparentBg")!)
@@ -107,21 +101,9 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
             activityView.addSubview(spinner)
             spinner.center = self.view.center
             spinner.backgroundColor = UIColor.clear
-//            spinner.startAnimating()
             self.addRotation(forLayer: spinner.layer)
-            
-//            UIView.animate(withDuration: 0.2, animations: {
-//                    self.activityView.alpha = 1.0;
-//
-//            })
         }
-//        else
-//        {
-//            UIView.animate(withDuration: 0.2, animations: {
-//                self.activityView.alpha = 1.0;
-//                
-//            })
-      //  }
+
         self.addRotation(forLayer: spinner.layer)
         UIApplication.shared.keyWindow?.addSubview(activityView)
 
@@ -129,8 +111,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     }
 
     
-    public func stopActivityIndicator()
-    {
+    func stopActivityIndicator() {
         spinner.layer.removeAllAnimations()
 
         self.activityView.removeFromSuperview()
@@ -139,21 +120,10 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         {
         }, completion: { (true: Bool) in
         })
-
-//        activityIndicatorCount = activityIndicatorCount - 1
-//        if activityIndicatorCount <= 0
-//        {
-//            activityIndicatorCount = 0;
-//            UIView.animate(withDuration: 0.2, animations: {
-//                self.activityView.alpha = 0.0;
-//            }, completion: { (true: Bool) in
-//                self.activityView.removeFromSuperview()
-//            })
-//        }
     }
-
     
     func addRotation(forLayer layer : CALayer) {
+        
         let rotation : CABasicAnimation = CABasicAnimation(keyPath:"transform.rotation.y")
         
         rotation.duration = 1.0
