@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,30 +28,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzh-ZZ-l4D">
-                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CUG-MU-vSw">
-                                        <rect key="frame" x="9" y="15" width="357" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="ett-2N-RZd" id="anB-gK-Uai"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzh-ZZ-l4D" customClass="MCACustomSearchBar" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="CUG-MU-vSw" secondAttribute="trailing" constant="9" id="CJo-wU-CII"/>
-                                    <constraint firstItem="CUG-MU-vSw" firstAttribute="top" secondItem="rzh-ZZ-l4D" secondAttribute="top" constant="15" id="VeB-qf-DNz"/>
-                                    <constraint firstItem="CUG-MU-vSw" firstAttribute="leading" secondItem="rzh-ZZ-l4D" secondAttribute="leading" constant="9" id="gAb-nC-Qt6"/>
-                                    <constraint firstAttribute="bottom" secondItem="CUG-MU-vSw" secondAttribute="bottom" constant="15" id="hBN-Uj-UCJ"/>
-                                    <constraint firstAttribute="height" constant="60" id="hyU-R2-kWR"/>
+                                    <constraint firstAttribute="height" constant="44" id="hyU-R2-kWR"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="his-U7-TDd">
-                                <rect key="frame" x="0.0" y="80" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="607"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -74,7 +59,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchTextField" destination="CUG-MU-vSw" id="xP6-Qn-RhM"/>
+                        <outlet property="seacrhBar" destination="rzh-ZZ-l4D" id="UvI-f2-t9W"/>
                         <outlet property="tableView" destination="his-U7-TDd" id="4cC-2g-RND"/>
                     </connections>
                 </viewController>

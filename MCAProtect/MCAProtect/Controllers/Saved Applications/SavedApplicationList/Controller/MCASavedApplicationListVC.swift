@@ -25,7 +25,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Saved Applications"
+        navigationItem.title = "Saved Applications"
         
         
         tableView.contentInset = .zero

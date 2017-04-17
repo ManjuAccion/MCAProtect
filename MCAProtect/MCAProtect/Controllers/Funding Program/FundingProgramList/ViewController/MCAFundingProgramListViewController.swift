@@ -11,12 +11,14 @@ import SwiftyJSON
 
 
 
-class MCAFundingProgramListViewController: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
+class MCAFundingProgramListViewController: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,MCACustomSearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchTextField : UITextField!
+    @IBOutlet weak var seacrhBar : MCACustomSearchBar!
     var fundingProgram : MCAFundingProgram!
-    var fundingProgramList : NSMutableArray!
+    var fundingProgramList = [MCAFundingProgram]()
+    var filteredFundingProgramList = [MCAFundingProgram]()
+    var displayList = [MCAFundingProgram]()
     var pageCount : Int!
     
 
@@ -25,8 +27,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = NSLocalizedString("Funding Programs", comment: "")
-        fundingProgramList = NSMutableArray()
-        
+        pageCount = 0;
         getFundingProgramList()
         
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationTVCell)
@@ -36,6 +37,8 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
+        seacrhBar.delegate = self
+        seacrhBar.configureUI()
     }
     
     
@@ -55,22 +58,26 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
 
         
         var paramDict = Dictionary<String, String>()
-        paramDict["page"] = "1"
+        
+        paramDict["page"] = "\(pageCount + 1)"
         paramDict["per_page"] = pageSize
-
+        pageCount = pageCount + 1
+        
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:paramDict,
                                                                 endPoint:MCAAPIEndPoints.BrokerFunderProgramListEndpoint
             , successCallBack:{ (response : JSON) in
                 
                 self.stopActivityIndicator()
-
+                
                 let fundingProgramArray = response.arrayValue
                 
-                    for item in fundingProgramArray {
-                        self.fundingProgram = MCAFundingProgram(data:item)
-                        self.fundingProgramList.add(self.fundingProgram)
-                    }
-                    self.tableView.reloadData()
+                for item in fundingProgramArray {
+                    self.fundingProgram = MCAFundingProgram(data:item)
+                    self.fundingProgramList.append(self.fundingProgram)
+                }
+                self.displayList = self.fundingProgramList;
+                
+                self.tableView.reloadData()
                 
         },
               failureCallBack: { (error : Error) in
@@ -91,15 +98,15 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     //MARK: - Table View Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fundingProgramList.count
+        return displayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
-         cell.selectionStyle = .none
+        cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
-       let   fundingPgram = fundingProgramList.object(at: indexPath.row) as! MCAFundingProgram
+        let fundingPgram = displayList[indexPath.row]
         
         cell.dataSource(data: fundingPgram)
         cell.rightButton.isHidden = false
@@ -120,9 +127,9 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
 
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
         let fundingSummaryVC = storyBoard.instantiateViewController(withIdentifier: "FundingProgramSummaryVC") as! MCAFundingProgramSummaryVC
-        fundingProgram = fundingProgramList.object(at: indexPath.row) as! MCAFundingProgram
+        fundingProgram = displayList[indexPath.row]
         fundingProgram.isSelected = true
-         fundingSummaryVC.fundingProgramSummary = fundingProgramList.object(at: indexPath.row) as! MCAFundingProgram
+         fundingSummaryVC.fundingProgramSummary = fundingProgram
         tableView.reloadData()
 
         navigationController?.pushViewController(fundingSummaryVC, animated: true)
@@ -140,4 +147,55 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         textField.resignFirstResponder()
         return true
     }
+    
+    
+    
+    //MARK : - Custom Search bar delegate
+    func searchTextDidBegin(inSearchString:String)
+    {
+        print("searchTextDidBegin")
+    }
+    func searchTextWillChangeWithString(inSearchString:String)
+    {
+        filterListWithSearchString(searchString: inSearchString)
+    }
+    
+    func searchTextCleared()
+    {
+        print("searchTextCleared")
+        filterListWithSearchString(searchString: "")
+        
+    }
+    func searchTextDidEndWithString(inSearchString:String)
+    {
+        print("searchTextDidEndWithString")
+        filterListWithSearchString(searchString: inSearchString)
+    }
+    
+    
+    func filterListWithSearchString(searchString: String)
+    {
+        if searchString != ""
+        {
+            filteredFundingProgramList.removeAll()
+            
+            for savedApplicationObj : MCAFundingProgram in fundingProgramList {
+                
+                let stringToSearch = savedApplicationObj.fundingProgramName
+                
+                if stringToSearch == "" || ((stringToSearch?.localizedCaseInsensitiveContains(searchString)) == true) {
+                    self.filteredFundingProgramList.append(savedApplicationObj)
+                }
+            }
+            
+            displayList = filteredFundingProgramList;
+        }
+        else {
+            
+            displayList = fundingProgramList;
+        }
+        
+        tableView.reloadData();
+    }
+    
 }
