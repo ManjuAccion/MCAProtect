@@ -10,12 +10,14 @@ import UIKit
 import SwiftyJSON
 
 
+
 class MCAFundingProgramListViewController: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField : UITextField!
     var fundingProgram : MCAFundingProgram!
     var fundingProgramList : NSMutableArray!
+    var pageCount : Int!
     
 
     //MARK: - View Life Cycle - 
@@ -48,7 +50,11 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         
         self.showActivityIndicator()
         
-        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
+        var paramDict = Dictionary<String, String>()
+        paramDict["page"] = "1"
+        paramDict["per_page"] = pageSize
+
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:paramDict,
                                                                 endPoint:MCAAPIEndPoints.BrokerFunderProgramListEndpoint
             , successCallBack:{ (response : JSON) in
                 

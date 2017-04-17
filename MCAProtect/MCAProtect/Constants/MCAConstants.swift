@@ -372,6 +372,7 @@ struct MCAAPIEndPoints {
 }
 
 
+   let pageSize = "10"
 
 
 
