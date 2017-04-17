@@ -32,9 +32,9 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     var prohibitedDataArray :[String] =
         ["Judgements/Liens Allowed","Number of Judgements/Liens Allowed","Max Liens/Judgements Amount","Is Bankruptcy Allowed?", "Can Merchant be in Payment Plan","Allowed Montly Payment", "Has Merchant Satisfied Bankruptcy?","When Discharged from Bankruptcy?"]
     
-    var allowedBusinessNames : [JSON]!
-    var restrictedBusinessNames : [JSON]!
-    var prohibitedBusinessNames : [JSON]!
+    var allowedBusinessNames : [JSON] = []
+    var restrictedBusinessNames : [JSON] = []
+    var prohibitedBusinessNames : [JSON] = []
 
     
     var dataSourceArray : [JSON] = []
@@ -64,6 +64,10 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     
     func  getFundingProgramById()  {
         
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
         self.showActivityIndicator()
         
         
@@ -78,10 +82,10 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
                 
                 let responseDcit = response.dictionaryValue;
                 
-                self.allowedBusinessNames = responseDcit["allowed_business_names"]?.array
+                self.allowedBusinessNames = (responseDcit["allowed_business_names"]?.array)!
                 print("\(self.allowedBusinessNames)")
-                self.restrictedBusinessNames = responseDcit["restricted_business_names"]?.array
-                self.prohibitedBusinessNames =  responseDcit["prohibited_business_names"]?.array
+                self.restrictedBusinessNames = (responseDcit["restricted_business_names"]?.array)!
+                self.prohibitedBusinessNames =  (responseDcit["prohibited_business_names"]?.array)!
                 self.dataSourceArray = self.allowedBusinessNames
                 self.tableView.reloadData()
         },
