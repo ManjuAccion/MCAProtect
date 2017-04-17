@@ -10,6 +10,7 @@ import UIKit
 import JVFloatLabeledTextField
 import SwiftyJSON
 import Alamofire
+import SDWebImage
 
 
 class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
@@ -56,16 +57,17 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         emailTF.text = mcaUser.brokerEmail
         phoneNumberTF.text = mcaUser.brokerContactNumber
         
+                   // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if let url =  mcaUser.brokerImageUrl {
             let imageUrl = NSURL(string : url)
-            let data = NSData(contentsOf:imageUrl! as URL)
-            if data != nil {
-                profileImageButton.setImage(UIImage(data:data as! Data), for: UIControlState.normal)
-            }
-            
-
+            profileImageButton.sd_setImage(with: imageUrl as URL!, for: .normal)
+        
         }
-              // Do any additional setup after loading the view.
+
     }
     
     
