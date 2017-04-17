@@ -48,6 +48,7 @@ class MCAAskFunderApplicationSummaryVC: MCABaseViewController,UITableViewDataSou
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.viewDetailsButton.isHidden = false
             cell.viewDetailsButton.setImage(UIImage(named:"iconChat"), for: UIControlState.normal)
+            cell.viewDetailsButtonTrailingConstant.constant = 30
         }
         else
         {

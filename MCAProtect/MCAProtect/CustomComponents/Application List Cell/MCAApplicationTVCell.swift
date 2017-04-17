@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol MCAApplicationTVCellDelegate {
+    
+    func rightActionButtonTapped(_ sender : UIButton)
+}
+
 class MCAApplicationTVCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -19,6 +24,8 @@ class MCAApplicationTVCell: UITableViewCell {
     @IBOutlet weak var rightButton: UIButton!
     
     var delegate : MCABaseViewController!
+    var applicationTVDelegate :MCAApplicationTVCellDelegate?
+
     var phoneNumber : String!
 
     override func awakeFromNib() {
@@ -28,6 +35,9 @@ class MCAApplicationTVCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    @IBAction func rightButtonTapped(_ sender: Any) {
+        applicationTVDelegate?.rightActionButtonTapped(sender as! UIButton)
     }
 
     @IBAction func emailButtonTapped(_ sender: Any) {
