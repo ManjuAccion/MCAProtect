@@ -85,8 +85,8 @@ class MCACustomSearchBar: UIView,UITextFieldDelegate
         
         
         if string == "" {
-            let searchStr = textField.text!
-            // TODO : Remove last character from seachStr 
+            var searchStr = textField.text!
+            searchStr.remove(at: searchStr.index(before: searchStr.endIndex))
             delegate?.searchTextWillChangeWithString(inSearchString: searchStr)
         }
         else
