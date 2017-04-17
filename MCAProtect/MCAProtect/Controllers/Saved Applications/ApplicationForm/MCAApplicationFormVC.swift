@@ -48,7 +48,12 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func getLoanApplication(){
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerLoanApplicationAPIEndpoint);

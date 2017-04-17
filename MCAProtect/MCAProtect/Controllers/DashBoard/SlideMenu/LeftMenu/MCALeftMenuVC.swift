@@ -129,7 +129,12 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     @IBAction func SingoutClicked(_ sender: Any)
     {
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         let paramDict  = Dictionary<String, String>()
         
         

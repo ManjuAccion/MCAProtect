@@ -184,8 +184,14 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     
        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
+        if self.checkNetworkConnection() == false {
+            return
+        }
+
         let profileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+    
         self.showActivityIndicator()
+
         let data = UIImageJPEGRepresentation(profileImage, 80)
         // Save cloned image into document directory
         
@@ -232,7 +238,12 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     @IBAction func updateProfileDetails()
     {
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         var paramDict  = Dictionary<String, String>()
         paramDict["contact_name"] = firstNameTF.text
         paramDict["contact_number"] = phoneNumberTF.text

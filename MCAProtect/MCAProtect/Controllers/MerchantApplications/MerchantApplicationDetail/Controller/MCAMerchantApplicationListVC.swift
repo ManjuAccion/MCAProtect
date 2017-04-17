@@ -46,7 +46,12 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     
     func getApplicationList() {
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerApplicationSummaryAPIEndpoint);

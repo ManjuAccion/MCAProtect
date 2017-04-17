@@ -112,7 +112,12 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     
     func getDealsPipelineList() {
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint);

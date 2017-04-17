@@ -84,18 +84,11 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         }
         else
         {
-            if true == isBrokerLogin && MCAReachability.isConnectedToNetwork() == true {
-                
+            if true == isBrokerLogin {
                 self.loginBroker()
             }
-            else if MCAReachability.isConnectedToNetwork() == true  {
-                self.loginBrokerage()
-            }
             else {
-                
-                let alertViewController = UIAlertController(title : "No Internet Connection", message : "Make sure your device is connected to the internet.", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                present(alertViewController, animated: true , completion: nil)
+                self.loginBrokerage()
             }
         }
     }
@@ -184,7 +177,13 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     //MARK: - Login Methods -
  func loginBroker() {
         
-        self.showActivityIndicator()
+        if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
+    
         var paramDict  = Dictionary<String, String>()
         paramDict["email"] = emailIDTextField.text
         paramDict["password"] = passwordTextField.text
@@ -224,7 +223,12 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     
     func loginBrokerage() {
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         
         var paramDict = Dictionary<String, String>()
         paramDict["email"] = emailIDTextField.text

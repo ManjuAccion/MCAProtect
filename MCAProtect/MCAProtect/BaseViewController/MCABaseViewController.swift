@@ -9,6 +9,7 @@
 import UIKit
 import MessageUI
 
+
 class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegate {
     
     var activityView:UIView!
@@ -80,8 +81,21 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
 
     }
     
+    func checkNetworkConnection() -> Bool
+    {
+        if MCAReachability.isConnectedToNetwork() == false {
+            let alertViewController = UIAlertController(title : "No Internet Connection", message : "Make sure your device is connected to the internet.", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            self.present(alertViewController, animated: true , completion: nil)
+        }
+        
+        return MCAReachability.isConnectedToNetwork()
+    }
     
+
     func showActivityIndicator() {
+    
+        
         UIApplication.shared.keyWindow?.viewWithTag(987)?.removeFromSuperview()
         self.view.layoutIfNeeded();
         if  nil == activityView {

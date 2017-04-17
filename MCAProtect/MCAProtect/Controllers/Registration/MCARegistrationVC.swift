@@ -203,18 +203,19 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     }
         
     if isAllDetailsPresent != nil && isAllDetailsPresent == true {
-        if MCAReachability.isConnectedToNetwork() == true {
-            self.RegisterBrokerage()
-        }
-        else {
-            presentAlertWithTitle(title: "No Internet Connection", message: NSLocalizedString("Make sure your device is connected to the internet.", comment: ""))
-        }
+        self.RegisterBrokerage()
+        
     }
 }
     
     func RegisterBrokerage() {
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         
         var paramDict = Dictionary<String, String>()
         

@@ -56,7 +56,12 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     func getSavedApplicationList()
     {
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
                                                                 endPoint:MCAAPIEndPoints.BrokerSavedApplicationListEndpoint

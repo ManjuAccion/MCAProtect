@@ -94,7 +94,12 @@ class MCAForgotPasswordVC: MCABaseViewController,UITextFieldDelegate {
     
     func forgotPassword() {
         
-        self.showActivityIndicator()
+            if self.checkNetworkConnection() == false {
+        return
+    }
+    
+    self.showActivityIndicator()
+
         
         var paramDict = Dictionary<String, String>()
         paramDict["email"] = emailTextField.text

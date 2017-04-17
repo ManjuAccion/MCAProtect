@@ -26,7 +26,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         super.viewDidLoad()
         self.title = NSLocalizedString("Funding Programs", comment: "")
         fundingProgramList = NSMutableArray()
-       
+        
         getFundingProgramList()
         
         tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationTVCell)
@@ -47,8 +47,12 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     
     func getFundingProgramList()
     {
+        if self.checkNetworkConnection() == false {
+            return
+        }
         
         self.showActivityIndicator()
+
         
         var paramDict = Dictionary<String, String>()
         paramDict["page"] = "1"
