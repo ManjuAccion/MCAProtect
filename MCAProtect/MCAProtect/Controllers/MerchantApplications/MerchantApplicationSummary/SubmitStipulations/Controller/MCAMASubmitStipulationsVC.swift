@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
+
     
+    var dataSource : [JSON] = []
+
     //MARK: -View Life Cycle
     
     override func viewDidLoad() {
@@ -21,8 +25,55 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         
         tableView.register(UINib(nibName: "MCASubmitStipulationsCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASubmitStipulationsCell)
         self.title = merchantApplicationDetail.businessName
+        getDocumentsList()
     }
 
+    
+    func getDocumentsList()
+    {
+        
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        self.showActivityIndicator()
+        
+        
+        var endPoint = String()
+        endPoint.append(MCAAPIEndPoints.BrokerNeedMoreStipDocEndpoint);
+        endPoint.append("/\(merchantApplicationDetail.applicationID!)");
+        endPoint.append("/\(merchantApplicationDetail.acceptedFundingProgramID!)");
+        
+        
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
+                                                                endPoint:endPoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                let responseDcit = response.dictionaryValue;
+                self.dataSource = (responseDcit["stipulations"]?.array)!
+
+                
+                    self.tableView.reloadData()
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
+    }
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -30,12 +81,12 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     //MARK: - Table View DataSource functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return dataSource.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASubmitStipulationsCell) as! MCASubmitStipulationsCell
-        cell.setSubmitStipulationsCell(merchanantApplicationDetail: merchantApplicationDetail)
+        cell.setSubmitStipulationsCell(documentDetail: dataSource[indexPath.row])
         
         return cell
     }
@@ -43,7 +94,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     //MARK: - Table View Delegate functions
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 102.0
+        return 70.0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

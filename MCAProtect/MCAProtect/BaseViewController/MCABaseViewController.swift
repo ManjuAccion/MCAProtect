@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Alamofire
 
 
 class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegate {
@@ -16,9 +17,35 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     var activityIndicatorCount = 0
     var  spinner : UIImageView!
 
+    
+    func startNetworkReachabilityObserver() {
+        let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
+        reachabilityManager?.listener = { status in
+            
+            switch status {
+                
+            case .notReachable:
+                print("The network is not reachable")
+                
+            case .unknown :
+                print("It is unknown whether the network is reachable")
+                
+            case .reachable(.ethernetOrWiFi):
+                print("The network is reachable over the WiFi connection")
+                
+            case .reachable(.wwan):
+                print("The network is reachable over the WWAN connection")
+                
+            }
+        }
+        
+        // start listening
+        reachabilityManager?.startListening()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startNetworkReachabilityObserver()
         print("---Controller====>//",self.description)
     }
     

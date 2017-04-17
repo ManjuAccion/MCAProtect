@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class MCASubmitStipulationsCell: UITableViewCell {
     
     
@@ -34,10 +34,11 @@ class MCASubmitStipulationsCell: UITableViewCell {
         
     }
     
-    func setSubmitStipulationsCell(merchanantApplicationDetail : MCAMerchantApplicationDetail) {
+    func setSubmitStipulationsCell(documentDetail: JSON!) {
         
-        self.merchantNameLabel.text = merchanantApplicationDetail.businessName
+        self.merchantNameLabel.text = documentDetail["document_name"].stringValue
         
+        self.documentTypeLabel.text = "Created at: \(MCAUtilities.getFormmattedDate(dateString: documentDetail["created_at"].stringValue))"
         
     }
     
