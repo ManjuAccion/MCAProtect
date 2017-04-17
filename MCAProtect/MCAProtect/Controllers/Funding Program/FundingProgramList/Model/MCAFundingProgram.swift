@@ -65,9 +65,9 @@ class MCAFundingProgram: NSObject {
             case FPApplicationSummaryKeys.FPSummaryTerm :
                 modelValue = term as String!
             case FPApplicationSummaryKeys.FPSummaryTimeInBuisness :
-                modelValue = timeInBuisness as String!
+                modelValue = timeInBuisness + " months" as String!
             case FPApplicationSummaryKeys.FPSummaryBuyRate :
-                modelValue = buyRate as String!
+                modelValue = buyRate + " %" as String!
             case FPApplicationSummaryKeys.FPSummaryCreditScore :
                 modelValue = term as String!
             case FPApplicationSummaryKeys.FPSummaryMinimumLoan :

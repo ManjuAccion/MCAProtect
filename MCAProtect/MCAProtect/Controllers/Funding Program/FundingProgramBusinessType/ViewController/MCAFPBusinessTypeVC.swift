@@ -20,6 +20,7 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var segmentControl : UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField : UITextField!
+     var noDataLabel: UILabel!
     
     var fundingProgram : MCAFundingProgram!
 
@@ -36,16 +37,26 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     var prohibitedBusinessNames : [JSON]!
 
     
-    var dataSourceArray : [JSON]!
+    var dataSourceArray : [JSON] = []
 
 
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationFormTVCell")
+        tableView.register(UINib(nibName: "MCABusinessTypeTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCABusinessTypeTableViewCell")
         self.title = "Business Types"
         // Do any additional setup after loading the view.
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        noDataLabel  = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: tableView.bounds.size.height))
+        noDataLabel.text = "No Data Available"
+        noDataLabel.textColor = UIColor(red: 45.0/255.0, green: 57.0/255.0, blue: 67.0/255.0, alpha: 1.0)
+        noDataLabel.textAlignment = NSTextAlignment.center
+        self.tableView.backgroundView = noDataLabel
+        self.tableView.separatorStyle = .none
+
         
         getFundingProgramById()
     }
@@ -118,18 +129,14 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if dataSourceArray != nil
+        if  dataSourceArray.count != 0
         {
+            noDataLabel.isHidden = true
         return dataSourceArray.count
         }
         else{
             
-            let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: tableView.bounds.size.height))
-            noDataLabel.text = "No Data Available"
-            noDataLabel.textColor = UIColor(red: 45.0/255.0, green: 57.0/255.0, blue: 67.0/255.0, alpha: 1.0)
-            noDataLabel.textAlignment = NSTextAlignment.center
-            self.tableView.backgroundView = noDataLabel
-            self.tableView.separatorStyle = .none
+            noDataLabel.isHidden = false
 
             return 0
         }
@@ -138,14 +145,21 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCABusinessTypeTableViewCell", for: indexPath) as! MCABusinessTypeTableViewCell
         cell.selectionStyle = .none
-        cell.backgroundColor = UIColor.clear
+        if indexPath.row % 2 == 0 {
+            cell.contentView.backgroundColor = ColorConstants.background
+        } else {
+            cell.contentView.backgroundColor = ColorConstants.blueAlpha20
+        }
         let dict = dataSourceArray[indexPath.row]
-        let sicString = dict["sic_code"].stringValue + "  " + dict["type_name"].stringValue
-        cell.titleLabel.text = sicString
-        cell.titleLabel.font = MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 14.0)
-        cell.selectedView.isHidden = true
+        let sicString = dict["sic_code"].stringValue
+        cell.sicLabel.text = sicString
+        cell.typeNameLabel.text = dict["type_name"].stringValue
+
+        cell.sicLabel.font = MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 14.0)
+        cell.typeNameLabel.font = MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 14.0)
+
         return cell
     }
     
@@ -154,7 +168,7 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 40.0
+        return UITableViewAutomaticDimension
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool

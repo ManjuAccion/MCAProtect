@@ -48,7 +48,7 @@ class MCAFPMerchantRquirement: NSObject {
                 modelValue =  minimumCreditScore
                 
             case .FPMinimumTimeInBusiness :
-                modelValue = minimumTimeInBusiness
+                modelValue = minimumTimeInBusiness + "  months"
                 
             case .FPMinimumMonthlySales :
                 modelValue = MCAUtilities.currencyFormatter(inputItem: minimumMonthlySales as AnyObject)
@@ -57,7 +57,7 @@ class MCAFPMerchantRquirement: NSObject {
                 modelValue = minimumNumOfBankDeposits
                 
             case .FPDaysWithNegativeBalance :
-                modelValue = daysWithNegativeBalance
+                modelValue = daysWithNegativeBalance + "  days"
                 
             case .FPMinimumDepositeAmount :
                 modelValue = MCAUtilities.currencyFormatter(inputItem: minimumDepositeAmount as AnyObject)

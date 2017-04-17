@@ -18,7 +18,7 @@ class MCAFPProgramInformation: NSObject {
     var buyRate                 : String!
     var maxUpsellRate           : String!
     var maxGrossRevenue         : String!
-    var originalFee             : String!
+    var originalFee             : Int!
     var loanType                : String!
     var installmentType         : String!
     var loanPosition            : String!
@@ -35,10 +35,10 @@ class MCAFPProgramInformation: NSObject {
             maxTerm                 = data["max_term"].stringValue
             minimumLoanAmount       = data["min_deal_size"].intValue
             maximumLoanAmount       = data["max_deal_size"].intValue
-            buyRate                 = data["interest"].stringValue + "%"
-            maxUpsellRate           = data["allowed_broker_commision"].stringValue + "%"
-            maxGrossRevenue         = data["percentage_of_gross_revenue"].stringValue + "%"
-            originalFee             = data["origination_fee"].stringValue
+            buyRate                 = data["interest"].stringValue
+            maxUpsellRate           = data["allowed_broker_commision"].stringValue
+            maxGrossRevenue         = data["percentage_of_gross_revenue"].stringValue
+            originalFee             = data["origination_fee"].intValue
             loanType                = data["loan_type"].stringValue
             installmentType         = data["installment_type"].stringValue
             loanPosition            = data["loan_position"].stringValue
@@ -67,16 +67,16 @@ class MCAFPProgramInformation: NSObject {
                 modelValue = MCAUtilities.currencyFormatter(inputItem: maximumLoanAmount as AnyObject)
 
             case .FPBuyRate :
-                modelValue = buyRate
+                modelValue = buyRate + " %"
                 
             case .FPMaxUPSellRate :
-                modelValue = maxUpsellRate
+                modelValue = maxUpsellRate + " %"
                 
             case .FPMaxGrossRevenue :
-                modelValue = maxGrossRevenue
+                modelValue = maxGrossRevenue + " %"
                 
             case .FPOriginationFee :
-                modelValue = originalFee
+                modelValue = MCAUtilities.currencyFormatter(inputItem: originalFee as AnyObject)
                 
             case .FPLoanType :
                 modelValue = loanType
