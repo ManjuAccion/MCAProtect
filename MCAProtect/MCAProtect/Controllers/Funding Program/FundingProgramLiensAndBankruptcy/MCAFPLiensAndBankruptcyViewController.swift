@@ -18,7 +18,7 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Liens/Bankruptcy"
 
          tableView.register(UINib(nibName: "MCAApplicationSummaryTVCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCAApplicationSummaryTVCell)
         tableView.register(UINib(nibName: "MCALiensHeaderTableViewCell", bundle: Bundle.main), forCellReuseIdentifier:CellIdentifiers.MCALiensHeaderTableViewCell)
@@ -38,11 +38,11 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
         
         switch section {
         case 0:
-            return 2
+            return 0
         case 1:
-            return 3
+            return 0
         case 2:
-            return 2
+            return 0
         default:
             return 0
         }

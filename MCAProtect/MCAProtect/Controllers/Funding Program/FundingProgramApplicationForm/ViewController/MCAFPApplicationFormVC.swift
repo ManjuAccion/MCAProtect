@@ -13,7 +13,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    var formDataSource = ["Program Information", "Merchant Requirements", "Liens/Payments/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
+    var formDataSource = ["Program Information", "Merchant Requirements", "Liens/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
 
     var fundingProgram : MCAFundingProgram!
 
