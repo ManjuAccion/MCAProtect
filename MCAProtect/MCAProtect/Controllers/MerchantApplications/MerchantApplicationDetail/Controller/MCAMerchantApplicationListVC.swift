@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCAApplicationTVCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var applicationState: Int!
@@ -104,7 +104,8 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationListTVCell, for: indexPath) as! MCAApplicationTVCell
         
-        cell.delegate = self;
+        cell.delegate = self
+        cell.applicationTVDelegate = self
         cell.selectionStyle = .none
         
         merchantApplicationDetail = dataSource[indexPath.row]
@@ -116,7 +117,10 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         switch applicationState {
             case ApplicationState.New.rawValue:
                 cell.rightButton.isHidden = true
-
+            case ApplicationState.UnderWriting.rawValue:
+                cell.rightButton.setImage(UIImage(named: "iconSubmit"), for: .normal)
+            case ApplicationState.NeedMoreStips.rawValue :
+                cell.rightButton.setImage(UIImage(named: "iconSubmit"), for: .normal)
             default:
                 break
         }
@@ -153,6 +157,27 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
         return 96.0
     }
     
-   }
+    func rightActionButtonTapped(_ sender: UIButton) {
+        
+        let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.tableView)
+        let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
+        merchantApplicationDetail = dataSource[(indexPath?.row)!]
+
+        switch applicationState {
+            case ApplicationState.UnderWriting.rawValue:
+                fallthrough
+            case ApplicationState.NeedMoreStips.rawValue:
+                let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+                let submitStipulationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
+                submitStipulationsVC.merchantApplicationDetail = merchantApplicationDetail
+                navigationController?.pushViewController(submitStipulationsVC, animated: true)
+            default:
+                break
+        }
+    }
+
+    
+        
+}
 
 

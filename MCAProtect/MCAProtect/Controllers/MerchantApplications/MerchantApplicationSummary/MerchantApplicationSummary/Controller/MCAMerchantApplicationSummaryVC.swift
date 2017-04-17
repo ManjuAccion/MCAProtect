@@ -76,7 +76,8 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
                     case ApplicationState.NeedMoreStips.rawValue:
                             summaryCell.viewDetailsButton.isHidden = false
                             summaryCell.viewDetailsButtonTrailingConstant.constant = 30
-                        
+                            summaryCell.viewDetailsButton.setImage(UIImage(named:"iconSubmit"), for: .normal)
+                    
                     default:break
                 }
                 summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.businessName)
@@ -164,15 +165,15 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
     
     func rightActionButtonTapped() {
         switch applicationState {
-        case ApplicationState.UnderWriting.rawValue:
-            fallthrough
-        case ApplicationState.NeedMoreStips.rawValue:
-            let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
-            let submitStipulationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
-            submitStipulationsVC.merchantApplicationDetail = merchantApplicationDetail
-            navigationController?.pushViewController(submitStipulationsVC, animated: true)
-        default:
-            break
+            case ApplicationState.UnderWriting.rawValue:
+                fallthrough
+            case ApplicationState.NeedMoreStips.rawValue:
+                let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+                let submitStipulationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
+                submitStipulationsVC.merchantApplicationDetail = merchantApplicationDetail
+                navigationController?.pushViewController(submitStipulationsVC, animated: true)
+            default:
+                break
         }
     }
 
