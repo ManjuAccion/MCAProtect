@@ -15,7 +15,9 @@ protocol MCARefreshDelegate {
 
 
 class MCATableView: UITableView {
-    
+    var pageCount : Int!
+    var endOfPage : Bool!
+
     var refreshDelegate:MCARefreshDelegate?
 
     var refreshController : UIRefreshControl!

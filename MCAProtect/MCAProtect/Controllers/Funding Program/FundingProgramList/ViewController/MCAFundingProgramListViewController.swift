@@ -20,6 +20,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     var filteredFundingProgramList = [MCAFundingProgram]()
     var displayList = [MCAFundingProgram]()
     var pageCount : Int!
+    var endOfPage : Bool!
     
 
     //MARK: - View Life Cycle - 
@@ -61,21 +62,31 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         
         paramDict["page"] = "\(pageCount + 1)"
         paramDict["per_page"] = pageSize
-        pageCount = pageCount + 1
         
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:paramDict,
                                                                 endPoint:MCAAPIEndPoints.BrokerFunderProgramListEndpoint
             , successCallBack:{ (response : JSON) in
                 
                 self.stopActivityIndicator()
+                self.pageCount = self.pageCount + 1
                 
                 let fundingProgramArray = response.arrayValue
                 
+                
+                if fundingProgramArray.count == 0 {
+                    self.endOfPage = true
+                }
+                else{
+                    self.endOfPage = false
+                }
+                
+            
                 for item in fundingProgramArray {
                     self.fundingProgram = MCAFundingProgram(data:item)
                     self.fundingProgramList.append(self.fundingProgram)
                 }
-                self.displayList = self.fundingProgramList;
+                
+                self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
                 
                 self.tableView.reloadData()
                 
@@ -142,11 +153,16 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         return 70.0
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        textField.resignFirstResponder()
-        return true
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        if (tableView.indexPathsForVisibleRows?.last?.row)! + 1 == displayList.count{
+            if endOfPage == false{
+                getFundingProgramList()
+            }
+        }
     }
+    
     
     
     
