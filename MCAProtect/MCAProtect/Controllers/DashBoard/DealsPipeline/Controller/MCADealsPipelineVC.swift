@@ -104,7 +104,10 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         applicationVC.fromDateString = fromDateString
         applicationVC.toDateString = toDateString
         
-        parentController.navigationController?.pushViewController(applicationVC, animated: true);
+        if dealsPipeline.applicationCount != 0{
+            parentController.navigationController?.pushViewController(applicationVC, animated: true);
+            
+        }
     }
     
     
