@@ -9,9 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,MCAPickerViewDelegate,MCADatePickerViewDelegate {
+class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,MCAPickerViewDelegate,MCADatePickerViewDelegate,MCARefreshDelegate {
 
-    @IBOutlet weak var pipeLineTableView: UITableView!
+    @IBOutlet weak var pipeLineTableView: MCATableView!
     
     var dealsPipeline : MCADealsPipeLine!
     var dataSourceArray = [MCADealsPipeLine]()
@@ -54,7 +54,16 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         selectedRange = MCADealsPipelineRange.CurrentYear
         rangeSelectionLabel.text = rangeList[selectedRange.rawValue]
 
-        self.getDealsPipelineList()
+        getDealsPipelineList()
+
+        pipeLineTableView.addRefreshController()
+        pipeLineTableView.refreshDelegate = self
+
+    }
+    
+    func refreshContents()
+    {
+        getDealsPipelineList()
     }
     
     override func viewDidAppear(_ animated: Bool)

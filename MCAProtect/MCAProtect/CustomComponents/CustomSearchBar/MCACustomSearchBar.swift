@@ -45,24 +45,28 @@ class MCACustomSearchBar: UIView,UITextFieldDelegate
 //        iconSearch
         
         
-        let searchImage = UIImageView(frame: CGRect(x: 10, y: 9, width: 18, height: 18))
         
+        let searchOverLay = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 18))
+        let searchImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 18, height: 18))
+        searchOverLay.addSubview(searchImage);
+        
+        searchImage.frame = CGRect(x: 8, y: 0, width: 18, height: 18)
         searchImage.image = UIImage(named: "iconSearch")
         searchImage.contentMode = .scaleAspectFit
-        
+        searchOverLay.backgroundColor = UIColor.clear
         
         self.searchTextField.delegate = self
         self.searchTextField.autocorrectionType = .no;
-        self.searchTextField.leftView = searchImage;
+        self.searchTextField.leftView = searchOverLay;
         self.searchTextField.leftViewMode = .always;
         self.searchTextField.clearButtonMode = .whileEditing;
-        self.searchTextField.placeholder = "Search here …"
+        self.searchTextField.placeholder = "Search"
         self.searchTextField.font = UIFont(name: "Roboto-Regular", size: 13.0)
         
         
-        searchTextField.frame = CGRect(x: 5, y: 4, width: self.bounds.size.width-10, height: 36);
+        searchTextField.frame = CGRect(x: 8, y: 8, width: self.bounds.size.width-16, height: 30);
         searchTextField.backgroundColor = UIColor.white
-        searchTextField.layer.cornerRadius = searchTextField.frame.size.height/2.0;
+        searchTextField.layer.cornerRadius = searchTextField.frame.size.height/5.0;
         print("\(searchTextField.frame)")
     }
     
@@ -78,13 +82,28 @@ class MCACustomSearchBar: UIView,UITextFieldDelegate
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        delegate?.searchTextWillChangeWithString(inSearchString: textField.text!.appending(string))
+        
+        
+        if string == "" {
+            let searchStr = textField.text!
+            // TODO : Remove last character from seachStr 
+            delegate?.searchTextWillChangeWithString(inSearchString: searchStr)
+        }
+        else
+        {
+            delegate?.searchTextWillChangeWithString(inSearchString: textField.text!.appending(string))
+        }
         return true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
     {
         delegate?.searchTextDidEndWithString(inSearchString: textField.text!)
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
         return true
     }
 }

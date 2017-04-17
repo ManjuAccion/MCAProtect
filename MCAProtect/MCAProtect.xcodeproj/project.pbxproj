@@ -93,6 +93,7 @@
 		788421D01E953F0700748948 /* MCACustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788421CE1E953F0700748948 /* MCACustomDatePickerView.swift */; };
 		788421D11E953F0700748948 /* MCACustomDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788421CF1E953F0700748948 /* MCACustomDatePickerView.xib */; };
 		788421D31E9636C700748948 /* MCASavedApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788421D21E9636C700748948 /* MCASavedApplication.swift */; };
+		788A37161EA4A7F60046E5D9 /* MCATableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788A37151EA4A7F60046E5D9 /* MCATableView.swift */; };
 		789BFC371E8BE4D700DAEB69 /* MCASessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789BFC341E8BE4D700DAEB69 /* MCASessionManager.swift */; };
 		789BFC381E8BE4D700DAEB69 /* MCAWebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789BFC361E8BE4D700DAEB69 /* MCAWebServiceManager.swift */; };
 		920914A24728C4C01CBD86BE /* Pods_MCAProtectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F41318617D4B9A57673DFF /* Pods_MCAProtectTests.framework */; };
@@ -308,6 +309,7 @@
 		788421CE1E953F0700748948 /* MCACustomDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCACustomDatePickerView.swift; sourceTree = "<group>"; };
 		788421CF1E953F0700748948 /* MCACustomDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCACustomDatePickerView.xib; sourceTree = "<group>"; };
 		788421D21E9636C700748948 /* MCASavedApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASavedApplication.swift; sourceTree = "<group>"; };
+		788A37151EA4A7F60046E5D9 /* MCATableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCATableView.swift; sourceTree = "<group>"; };
 		789BFC341E8BE4D700DAEB69 /* MCASessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCASessionManager.swift; sourceTree = "<group>"; };
 		789BFC361E8BE4D700DAEB69 /* MCAWebServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebServiceManager.swift; sourceTree = "<group>"; };
 		789BFC3A1E8E549200DAEB69 /* MCAProtect.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCAProtect.pch; sourceTree = "<group>"; };
@@ -1176,6 +1178,14 @@
 			path = "Custom Picker";
 			sourceTree = "<group>";
 		};
+		788A37141EA4A7E10046E5D9 /* RefreshControllerTableView */ = {
+			isa = PBXGroup;
+			children = (
+				788A37151EA4A7F60046E5D9 /* MCATableView.swift */,
+			);
+			path = RefreshControllerTableView;
+			sourceTree = "<group>";
+		};
 		789BFC331E8BE4D700DAEB69 /* SessionManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1256,6 +1266,7 @@
 		BA34CD3C1E4C9E72001AF75F /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				788A37141EA4A7E10046E5D9 /* RefreshControllerTableView */,
 				780958441E9E225400BDA9CA /* CustomSearchBar */,
 				788421C91E950B6D00748948 /* Custom Picker */,
 				CE9F697B1E937FCE0089F8CE /* Reachability */,
@@ -2458,6 +2469,7 @@
 				BAC6AE0B1E824B7F0047F7D3 /* MCAAskFunderChatDetailVC.swift in Sources */,
 				CE8A80FA1E9E25C6006C981A /* MCAOwnerInformation.swift in Sources */,
 				782C69E91E49AE9200268356 /* MCABaseViewController.swift in Sources */,
+				788A37161EA4A7F60046E5D9 /* MCATableView.swift in Sources */,
 				BAC6AE691E8250F90047F7D3 /* MCAPerformanceComparisonCell.swift in Sources */,
 				BA8B68BF1E5C73E0004CEB69 /* UIApplication+Extensions.swift in Sources */,
 				782C6A0D1E49BE4200268356 /* MCARegistrationVC.swift in Sources */,

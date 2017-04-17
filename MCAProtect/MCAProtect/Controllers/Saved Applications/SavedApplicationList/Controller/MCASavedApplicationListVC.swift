@@ -9,12 +9,14 @@
 import UIKit
 import SwiftyJSON
 
-class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCARefreshDelegate,MCACustomSearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MCACustomSearchBar!
     
     var dataSource = [MCASavedApplication]()
+    var displayList = [MCASavedApplication]()
+    var filteredDisplayList = [MCASavedApplication]()
     var selectedSavedApplication: MCASavedApplication!
     
     
@@ -30,7 +32,16 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
         tableView.register(UINib(nibName: "MCASavedApplicationsListTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASavedApplicationsListTVCell)
         tableView.tableFooterView = UIView()
         
-        self.getSavedApplicationList()
+        getSavedApplicationList()
+//        tableView.addRefreshController()
+//        tableView.refreshDelegate = self
+        searchBar.delegate = self;
+        
+    }
+    
+    func refreshContents()
+    {
+        getSavedApplicationList()
     }
 
     
@@ -52,17 +63,17 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
             , successCallBack:{ (response : JSON) in
                 
                 self.stopActivityIndicator()
+                self.dataSource.removeAll()
                 
                 let savedApplicationDict = response.dictionaryValue
-                
                 let list = savedApplicationDict["data"]
-                
                 let savedAppList = list?.arrayValue
                 
                 for item in savedAppList! {
                     let savedApp = MCASavedApplication(savedApplcation:item)
                     self.dataSource.append(savedApp)
                 }
+                self.displayList = self.dataSource
                 self.tableView.reloadData()
         },
               failureCallBack: { (error : Error) in
@@ -88,7 +99,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     //MARK: - Table View Datasource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return displayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,7 +108,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
         cell.delegate = self
         cell.selectionStyle = .none
         
-        let savedApp = dataSource[indexPath.row]
+        let savedApp = displayList[indexPath.row]
         cell.setSavedApplicationList(savedApplicationData: savedApp)
         cell.backgroundColor = ColorConstants.background
         
@@ -113,7 +124,7 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     
         let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
         let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationSummaryVC) as! MCAApplicationSummaryVC
-        selectedSavedApplication = dataSource[indexPath.row]
+        selectedSavedApplication = displayList[indexPath.row]
         selectedSavedApplication.isSelected = true
         applicationSummaryVC.appSummary = selectedSavedApplication
         tableView.reloadData()
@@ -126,4 +137,55 @@ class MCASavedApplicationListVC: MCABaseViewController,UITableViewDataSource,UIT
     {
         return 96.0
     }
+    
+    
+    //MARK : - Custom Search bar delegate
+    func searchTextDidBegin(inSearchString:String)
+    {
+        print("searchTextDidBegin")
+    }
+    func searchTextWillChangeWithString(inSearchString:String)
+    {
+        filterListWithSearchString(searchString: inSearchString)
+    }
+    
+    func searchTextCleared()
+    {
+        print("searchTextCleared")
+        filterListWithSearchString(searchString: "")
+
+    }
+    func searchTextDidEndWithString(inSearchString:String)
+    {
+        print("searchTextDidEndWithString")
+        filterListWithSearchString(searchString: inSearchString)
+    }
+    
+    
+    func filterListWithSearchString(searchString: String)
+    {
+        
+        if searchString != ""
+        {
+            filteredDisplayList.removeAll()
+            
+            for savedApplicationObj : MCASavedApplication in dataSource {
+                
+                let stringToSearch = savedApplicationObj.applicationName
+                
+                if stringToSearch == "" || ((stringToSearch?.localizedCaseInsensitiveContains(searchString)) == true) {
+                    self.filteredDisplayList.append(savedApplicationObj)
+                }
+            }
+            
+            self.displayList = filteredDisplayList;
+        }
+        else {
+            
+            self.displayList = self.dataSource;
+        }
+        
+        tableView.reloadData();
+    }
+
 }
