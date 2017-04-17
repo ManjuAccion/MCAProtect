@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+
 enum businessType : NSInteger {
     case allowed = 0
     case restricted = 1
@@ -18,6 +20,8 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var segmentControl : UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField : UITextField!
+    
+    var fundingProgram : MCAFundingProgram!
 
     
     var allowedDataArray : [String] = ["Program Information","Max Term","Minimum Loan Amount","Maximum Loan Amount","Buy rate","Max Up Sell Rate","Max % of Gross Revenue","Origination Fee","Loan Type","Installment Type","Accept Loan Position","Loan Agreement False"]
@@ -27,7 +31,12 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     var prohibitedDataArray :[String] =
         ["Judgements/Liens Allowed","Number of Judgements/Liens Allowed","Max Liens/Judgements Amount","Is Bankruptcy Allowed?", "Can Merchant be in Payment Plan","Allowed Montly Payment", "Has Merchant Satisfied Bankruptcy?","When Discharged from Bankruptcy?"]
     
-    var dataSourceArray : [String] = []
+    var allowedBusinessNames : [JSON]!
+    var restrictedBusinessNames : [JSON]!
+    var prohibitedBusinessNames : [JSON]!
+
+    
+    var dataSourceArray : [JSON]!
 
 
     
@@ -35,9 +44,48 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MCAApplicationFormTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAApplicationFormTVCell")
-        dataSourceArray = allowedDataArray;
         self.title = "Business Types"
         // Do any additional setup after loading the view.
+        
+        getFundingProgramById()
+    }
+    
+    
+    func  getFundingProgramById()  {
+        
+        self.showActivityIndicator()
+        
+        
+        var endPoint = MCAAPIEndPoints.BrokerFunderProgramEndpoint
+        endPoint.append("\(fundingProgram.funderId!)")
+        
+        MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
+                                                                endPoint:endPoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+                
+                let responseDcit = response.dictionaryValue;
+                
+                self.allowedBusinessNames = responseDcit["allowed_business_names"]?.array
+                print("\(self.allowedBusinessNames)")
+                self.restrictedBusinessNames = responseDcit["restricted_business_names"]?.array
+                self.prohibitedBusinessNames =  responseDcit["prohibited_business_names"]?.array
+                self.dataSourceArray = self.allowedBusinessNames
+                self.tableView.reloadData()
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to fetch Funding Programs", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,17 +98,17 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         switch sender.selectedSegmentIndex {
         case businessType.allowed.rawValue:
      
-            dataSourceArray = allowedDataArray
+            dataSourceArray = allowedBusinessNames
             tableView .reloadData()
             
         case businessType.restricted.rawValue:
-                       dataSourceArray = restrictedDataArray
+            dataSourceArray = restrictedBusinessNames
             tableView.reloadData()
 
 
         case businessType.prohibited.rawValue:
             
-            dataSourceArray = prohibitedDataArray
+        dataSourceArray = prohibitedBusinessNames
             tableView.reloadData()
 
         default:
@@ -70,7 +118,14 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dataSourceArray != nil
+        {
         return dataSourceArray.count
+        }
+        else{
+            
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -79,8 +134,9 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationFormTVCell", for: indexPath) as! MCAApplicationFormTVCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
-        let title = dataSourceArray[indexPath.row]
-        cell.titleLabel.text = title
+        let dict = dataSourceArray[indexPath.row]
+        let sicString = dict["sic_code"].stringValue + "  " + dict["type_name"].stringValue
+        cell.titleLabel.text = sicString
         cell.titleLabel.font = MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 14.0)
         cell.selectedView.isHidden = true
         return cell

@@ -64,6 +64,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         {
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPBusinessTypeVC") as! MCAFPBusinessTypeVC
+            applicationDetailVC.fundingProgram = fundingProgram
             navigationController?.pushViewController(applicationDetailVC, animated: true)
             
         }

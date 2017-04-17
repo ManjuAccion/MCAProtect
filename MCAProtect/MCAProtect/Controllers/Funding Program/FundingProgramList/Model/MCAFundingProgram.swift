@@ -13,6 +13,7 @@ import SwiftyJSON
 class MCAFundingProgram: NSObject {
     
     var fundingProgramName : String!
+    var funderId : Int!
     var contactName : String!
     var term : String!
     var timeInBuisness : String!
@@ -41,6 +42,7 @@ class MCAFundingProgram: NSObject {
             creditScore             = data["min_credit_fico"].intValue
             minimumLoan             = data["min_deal_size"].floatValue
             maximumLoan             = data["max_deal_size"].floatValue
+            funderId                = data["id"].intValue
             FPProgramInformation    = MCAFPProgramInformation(data : data)
             FPMerchantRquirement    = MCAFPMerchantRquirement(data : data)
             FPLiensOrBankruptcy     = MCAFPLiensOrBankruptcy(Data : data)
