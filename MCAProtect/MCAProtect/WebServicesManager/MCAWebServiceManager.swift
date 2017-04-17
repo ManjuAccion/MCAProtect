@@ -50,19 +50,16 @@ class MCAWebServiceManager: NSObject
     
     func setAPIHeaders(header : Dictionary<AnyHashable,Any>)
     {
-        if nil != header["access-token"] {
-            MCASessionManager.sharedSessionManager.accessToken = header["access-token"] as! String?
+        if let value =  header["access-token"] {
+            MCASessionManager.sharedSessionManager.accessToken = value as? String
         }
-        if nil != header["client"] {
-            MCASessionManager.sharedSessionManager.client = header["client"] as! String?
+        if let value =  header["client"] {
+            MCASessionManager.sharedSessionManager.client = value as? String
         }
-        if nil != header["uid"] {
-            MCASessionManager.sharedSessionManager.uid = header["uid"] as! String?
+        if let value = header["uid"] {
+            MCASessionManager.sharedSessionManager.uid = value as? String
         }
     }
-
-    
-    
     
     func loginRequest(requestParam: Dictionary<String , Any>,
                      endPoint: String?,
@@ -81,7 +78,7 @@ class MCAWebServiceManager: NSObject
         apiRequest.responseJSON { (response) in
             
             guard response.result.isSuccess else {
-                print("Error while fetching remote rooms: \(response.result.error)")
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                 failureCallBack(response.error!)
                 return
             }
@@ -115,7 +112,7 @@ class MCAWebServiceManager: NSObject
         apiRequest.responseJSON { (response) in
             
             guard response.result.isSuccess else {
-                print("Error while fetching remote rooms: \(response.result.error)")
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                 failureCallBack(response.error!)
                 return
             }
@@ -154,7 +151,7 @@ class MCAWebServiceManager: NSObject
             
 
             guard response.result.isSuccess else {
-                print("Error while fetching remote rooms: \(response.result.error)")
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                 failureCallBack(response.error!)
                 return
             }
@@ -193,7 +190,7 @@ class MCAWebServiceManager: NSObject
             
 
             guard response.result.isSuccess else {
-                print("Error while fetching remote rooms: \(response.result.error)")
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                 failureCallBack( response.error!)
                 return
             }
@@ -230,7 +227,7 @@ class MCAWebServiceManager: NSObject
             
             
             guard response.result.isSuccess else {
-                print("Error while fetching remote rooms: \(response.result.error)")
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                 failureCallBack( response.error!)
                 return
             }
@@ -250,7 +247,6 @@ class MCAWebServiceManager: NSObject
                      successCallBack: @escaping (_ responseData: JSON) -> Void,
                      failureCallBack: @escaping (_ error: Error) -> Void)
     {
-       // let headersDict = self.readAPIHeaders();
         var completeURL : String = baseURL
         completeURL.append("/brokers/upload_profile_image")
         let url = NSURL(string: completeURL)
@@ -285,33 +281,6 @@ class MCAWebServiceManager: NSObject
         }
         
         }
-        
-        
-//        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .post, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
-        
-//        apiRequest.validate()
-//        apiRequest.responseJSON { (response) in
-//            
-//            guard response.result.isSuccess else {
-//                print("Error while fetching remote rooms: \(response.result.error)")
-//                failureCallBack(response.error!)
-//                return
-//            }
-//            
-//            
-//            let dataDictionary = JSON(response.result.value!)
-//            let header : Dictionary<AnyHashable,Any> = (response.response?.allHeaderFields)!
-//            
-//            self.setAPIHeaders(header: header);
-//            
-//            print(response)
-//            successCallBack(dataDictionary)
-//            return
-//        }
 
-        
-        
     }
-
-    
 }

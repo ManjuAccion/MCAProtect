@@ -134,7 +134,7 @@ class MCABusinessInformation: NSObject {
                 modelValue =  "\(judgementsOrLiensNo!)"
                 
             case .judgementOrLienAmount :
-                modelValue = "\(judgementsOrLiensAmount!)"
+                modelValue = MCAUtilities.currencyFormatter(inputItem: judgementsOrLiensAmount! as AnyObject)
         }
         return modelValue.validatedString()
     }
@@ -146,7 +146,7 @@ class MCABusinessInformation: NSObject {
         switch paymentKey {
             
         case .monthlyPaymentAmount :
-            modelValue =  "\(monthlyPaymentAmount!)"
+            modelValue =  MCAUtilities.currencyFormatter(inputItem: monthlyPaymentAmount! as AnyObject)
 
         }
         return modelValue.validatedString()
