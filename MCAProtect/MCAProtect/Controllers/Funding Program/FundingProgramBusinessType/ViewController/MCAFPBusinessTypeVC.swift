@@ -15,28 +15,22 @@ enum businessType : NSInteger {
     case prohibited = 2
 
 }
-class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,MCACustomSearchBarDelegate {
     
     @IBOutlet weak var segmentControl : UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchTextField : UITextField!
+    @IBOutlet weak var seacrhBar : MCACustomSearchBar!
      var noDataLabel: UILabel!
     
     var fundingProgram : MCAFundingProgram!
 
     
-    var allowedDataArray : [String] = ["Program Information","Max Term","Minimum Loan Amount","Maximum Loan Amount","Buy rate","Max Up Sell Rate","Max % of Gross Revenue","Origination Fee","Loan Type","Installment Type","Accept Loan Position","Loan Agreement False"]
-    
-    var restrictedDataArray :[String] = ["Minimum Credit Score","Minimum Time in Business","Minimum Monthly Sales","Minimum Number of Bank Deposits(Avg)","Days with Negative Balance","Minimum Deposit Amount(Avg)","Minimum Daily Balance(Avg)"]
-    
-    var prohibitedDataArray :[String] =
-        ["Judgements/Liens Allowed","Number of Judgements/Liens Allowed","Max Liens/Judgements Amount","Is Bankruptcy Allowed?", "Can Merchant be in Payment Plan","Allowed Montly Payment", "Has Merchant Satisfied Bankruptcy?","When Discharged from Bankruptcy?"]
     
     var allowedBusinessNames : [JSON] = []
     var restrictedBusinessNames : [JSON] = []
     var prohibitedBusinessNames : [JSON] = []
-
-    
+    var filteredList : [JSON] = []
+    var displayList : [JSON] = []
     var dataSourceArray : [JSON] = []
 
 
@@ -58,6 +52,8 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         self.tableView.separatorStyle = .none
 
         
+        seacrhBar.delegate = self
+        seacrhBar.configureUI()
         getFundingProgramById()
     }
     
@@ -87,7 +83,7 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
                 self.restrictedBusinessNames = (responseDcit["restricted_business_names"]?.array)!
                 self.prohibitedBusinessNames =  (responseDcit["prohibited_business_names"]?.array)!
                 self.dataSourceArray = self.allowedBusinessNames
-                self.tableView.reloadData()
+                self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
         },
               failureCallBack: { (error : Error) in
                 
@@ -114,17 +110,17 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         case businessType.allowed.rawValue:
      
             dataSourceArray = allowedBusinessNames
-            tableView .reloadData()
+            self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
             
         case businessType.restricted.rawValue:
             dataSourceArray = restrictedBusinessNames
-            tableView.reloadData()
+            self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
 
 
         case businessType.prohibited.rawValue:
             
         dataSourceArray = prohibitedBusinessNames
-            tableView.reloadData()
+        self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
 
         default:
             break
@@ -133,10 +129,10 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if  dataSourceArray.count != 0
+        if  displayList.count != 0
         {
             noDataLabel.isHidden = true
-        return dataSourceArray.count
+        return displayList.count
         }
         else{
             
@@ -156,7 +152,7 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         } else {
             cell.contentView.backgroundColor = ColorConstants.blueAlpha20
         }
-        let dict = dataSourceArray[indexPath.row]
+        let dict = displayList[indexPath.row]
         let sicString = dict["sic_code"].stringValue
         cell.sicLabel.text = sicString
         cell.typeNameLabel.text = dict["type_name"].stringValue
@@ -192,4 +188,53 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     }
     */
 
+    
+    
+    //MARK : - Custom Search bar delegate
+    func searchTextDidBegin(inSearchString:String)
+    {
+        print("searchTextDidBegin")
+    }
+    func searchTextWillChangeWithString(inSearchString:String)
+    {
+        filterListWithSearchString(searchString: inSearchString)
+    }
+    
+    func searchTextCleared()
+    {
+        print("searchTextCleared")
+        filterListWithSearchString(searchString: "")
+        
+    }
+    func searchTextDidEndWithString(inSearchString:String)
+    {
+        print("searchTextDidEndWithString")
+        filterListWithSearchString(searchString: inSearchString)
+    }
+    
+    
+    func filterListWithSearchString(searchString: String)
+    {
+        if searchString != ""
+        {
+            filteredList.removeAll()
+            
+            for dict in dataSourceArray {
+                
+                let stringToSearch = dict["type_name"].stringValue
+                
+                if stringToSearch == "" || ((stringToSearch.localizedCaseInsensitiveContains(searchString)) == true) {
+                    self.filteredList.append(dict)
+                }
+            }
+            
+            displayList = filteredList;
+        }
+        else {
+            
+            displayList = dataSourceArray;
+        }
+        
+        tableView.reloadData();
+    }
 }
