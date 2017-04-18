@@ -65,14 +65,13 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        loadUI()
         registerForKeyboardNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        loadUI()
         initialsecureInputViewSetup()
     }
     
@@ -87,7 +86,7 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func loadUI() {
-        setPinButton.layer.cornerRadius = 5.0
+        setPinButton.layer.cornerRadius = setPinButton.frame.height / 2
         oldPinSecureInputTF.becomeFirstResponder()
     }
     
@@ -116,17 +115,17 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     @IBAction func setPinButtonTapped(_ sender: Any) {
         
         if (oldPinSecureInputTF.text?.isEmpty)! || (oldPinSecureInputTF.text?.characters.count)! < 4 {
-            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter old pin", comment: ""))
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter old mPIN", comment: ""))
         }
         if (newPinSecureInputTF.text?.isEmpty)! || (newPinSecureInputTF.text?.characters.count)! < 4 {
-            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter new pin", comment: ""))
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter new mPIN", comment: ""))
         }
         if (confirmPinSecureInputTF.text?.isEmpty)! || (confirmPinSecureInputTF.text?.characters.count)! < 4 {
-            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter confirm pin", comment: ""))
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter confirm mPIN", comment: ""))
         }
         if (newPinSecureInputTF.text?.characters.count == 4 && confirmPinSecureInputTF.text?.characters.count == 4 && oldPinSecureInputTF.text?.characters.count == 4) && newPinSecureInputTF.text == confirmPinSecureInputTF.text {
 
-            let alert = UIAlertController(title: "Alert", message: NSLocalizedString("Your new mPin is set successfully.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Alert", message: NSLocalizedString("Your new mPIN is set successfully.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: UIAlertActionStyle.default, handler: {(action:UIAlertAction) in
                 
                 let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
@@ -138,7 +137,7 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
         }
         else
         {
-            presentAlertWithTitle(title: "Error", message: "mPin doesn't match")
+            presentAlertWithTitle(title: "Error", message: "mPIN doesn't match")
         }
     }
     
@@ -200,10 +199,7 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func keyboardWillHidden(sender: NSNotification) {
-        
-//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
+
         scrollView.isScrollEnabled = false
     }
     
@@ -219,15 +215,12 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
                     switch textField.tag {
                         case 1:
                             oldPinSecureInputView1.inputImageView.isHidden = true
-//                            oldPinSecureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
 
                         case 2:
                             newPinSecureInputView1.inputImageView.isHidden = true
-//                            newPinSecureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
 
                         case 3:
                             confirmPinSecureInputView1.inputImageView.isHidden = true
-//                            confirmPinSecureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
 
                         default:
                             print("Default Value")
@@ -237,15 +230,12 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
                     switch textField.tag {
                     case 1:
                         oldPinSecureInputView1.inputImageView.isHidden = false
-//                        oldPinSecureInputView1.inputImageView.image = UIImage(named:"password")
 
                     case 2:
                         newPinSecureInputView1.inputImageView.isHidden = false
-//                        newPinSecureInputView1.inputImageView.image = UIImage(named:"password")
 
                     case 3:
                         confirmPinSecureInputView1.inputImageView.isHidden = false
-//                        confirmPinSecureInputView1.inputImageView.image = UIImage(named:"password")
 
                     default:
                         print("Default Value")
@@ -256,15 +246,12 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
                     switch textField.tag {
                     case 1:
                         oldPinSecureInputView2.inputImageView.isHidden = true
-//                        oldPinSecureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
 
                     case 2:
                         newPinSecureInputView2.inputImageView.isHidden = true
-//                        newPinSecureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
 
                     case 3:
                         confirmPinSecureInputView2.inputImageView.isHidden = true
-//                        confirmPinSecureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
 
                     default:
                         print("Default Value")
@@ -274,15 +261,12 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
                     switch textField.tag {
                     case 1:
                         oldPinSecureInputView2.inputImageView.isHidden = false
-//                        oldPinSecureInputView2.inputImageView.image = UIImage(named:"password")
 
                     case 2:
                         newPinSecureInputView2.inputImageView.isHidden = false
-//                        newPinSecureInputView2.inputImageView.image = UIImage(named:"password")
 
                     case 3:
                         confirmPinSecureInputView2.inputImageView.isHidden = false
-//                        confirmPinSecureInputView2.inputImageView.image = UIImage(named:"password")
 
                     default:
                         print("Default Value")
@@ -293,15 +277,12 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
                     switch textField.tag {
                     case 1:
                         oldPinSecureInputView3.inputImageView.isHidden = true
-//                        oldPinSecureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
 
                     case 2:
                         newPinSecureInputView3.inputImageView.isHidden = true
-//                        newPinSecureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
 
                     case 3:
                         confirmPinSecureInputView3.inputImageView.isHidden = true
-//                        confirmPinSecureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
 
                     default:
                         print("Default Value")
@@ -311,15 +292,12 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
                     switch textField.tag {
                     case 1:
                         oldPinSecureInputView3.inputImageView.isHidden = false
-//                        oldPinSecureInputView3.inputImageView.image = UIImage(named:"password")
 
                     case 2:
                         newPinSecureInputView3.inputImageView.isHidden = false
-//                        newPinSecureInputView3.inputImageView.image = UIImage(named:"password")
 
                     case 3:
                         confirmPinSecureInputView3.inputImageView.isHidden = false
-//                        confirmPinSecureInputView3.inputImageView.image = UIImage(named:"password")
 
                     default:
                         print("Default Value")
@@ -330,15 +308,12 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
                     switch textField.tag {
                     case 1:
                         oldPinSecureInputView4.inputImageView.isHidden = true
-//                        oldPinSecureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
 
                     case 2:
                         newPinSecureInputView4.inputImageView.isHidden = true
-//                        newPinSecureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
 
                     case 3:
                         confirmPinSecureInputView4.inputImageView.isHidden = true
-//                        confirmPinSecureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
 
                     default:
                         print("Default Value")
@@ -348,15 +323,12 @@ class MCAChangeMPinVC: MCABaseViewController,UITextFieldDelegate {
                     switch textField.tag {
                     case 1:
                         oldPinSecureInputView4.inputImageView.isHidden = false
-//                        oldPinSecureInputView4.inputImageView.image = UIImage(named:"password")
 
                     case 2:
                         newPinSecureInputView4.inputImageView.isHidden = false
-//                        newPinSecureInputView4.inputImageView.image = UIImage(named:"password")
 
                     case 3:
                         confirmPinSecureInputView4.inputImageView.isHidden = false
-//                        confirmPinSecureInputView4.inputImageView.image = UIImage(named:"password")
 
                     default:
                         print("Default Value")

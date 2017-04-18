@@ -49,7 +49,6 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     //   self.navigationController?.setNavigationBarHidden(true, animated: animated)
 
         registerForKeyboardNotifications()
     }
@@ -144,7 +143,6 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func keyboardWillBeHidden(sender: NSNotification) {
-//        scrollView.isScrollEnabled = false
     }
     
     //MARK: - IBActions Functions
@@ -153,14 +151,14 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
         self.view.endEditing(true)
 
         if (newPinSecureInputTF.text?.isEmpty)! || (newPinSecureInputTF.text?.characters.count)! < 4 {
-            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter new pin", comment: ""))
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter new mPIN", comment: ""))
         }
         if (confirmPinSecureInputTF.text?.isEmpty)! || (confirmPinSecureInputTF.text?.characters.count)! < 4 {
-            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter confirm pin", comment: ""))
+            presentAlertWithTitle(title: "Error", message: NSLocalizedString("Please enter confirm mPIN", comment: ""))
         }
         if (newPinSecureInputTF.text?.characters.count == 4 && confirmPinSecureInputTF.text?.characters.count == 4) && newPinSecureInputTF.text == confirmPinSecureInputTF.text {
 
-            let alert = UIAlertController(title: "Alert", message: NSLocalizedString("Your mPin is set successfully.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Alert", message: NSLocalizedString("Your mPIN is set successfully.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: UIAlertActionStyle.default, handler: {(action:UIAlertAction) in
 
                 if self.isFromRegistrationFlow == true {
@@ -181,7 +179,7 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
         }
         else
         {
-            presentAlertWithTitle(title: "Error", message: "mPin doesn't match")
+            presentAlertWithTitle(title: "Error", message: "mPIN doesn't match")
         }
     }
     
@@ -197,29 +195,20 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
                     if textField.tag == 1
                     {
                         newPinSecureInputView1.inputImageView.isHidden = true
-//                        newPinSecureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
-
                     }
                     else
                     {
                         confirmPinSecureInputView1.inputImageView.isHidden = true
-//                        confirmPinSecureInputView1.inputImageView.image = UIImage(named:"pinPlacement")
-
                     }
                 }
                 else {
                     if(textField.tag == 1)
                     {
                         newPinSecureInputView1.inputImageView.isHidden = false
-//                        newPinSecureInputView1.inputImageView.image = UIImage(named:"password")
-
-                        
                     }
                     else
                     {
                         confirmPinSecureInputView1.inputImageView.isHidden = false
-//                        confirmPinSecureInputView1.inputImageView.image = UIImage(named:"password")
-
                     }
                 }
                 
@@ -228,28 +217,20 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
                     if textField.tag == 1
                     {
                         newPinSecureInputView2.inputImageView.isHidden = true
-//                        newPinSecureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
-
                     }
                     else
                     {
                         confirmPinSecureInputView2.inputImageView.isHidden = true
-//                        confirmPinSecureInputView2.inputImageView.image = UIImage(named:"pinPlacement")
-
                     }
                 }
                 else {
                     if(textField.tag == 1)
                     {
                         newPinSecureInputView2.inputImageView.isHidden = false
-//                        newPinSecureInputView2.inputImageView.image = UIImage(named:"password")
-
                     }
                     else
                     {
                         confirmPinSecureInputView2.inputImageView.isHidden = false
-//                        confirmPinSecureInputView2.inputImageView.image = UIImage(named:"password")
-
                     }
                 }
 
@@ -258,28 +239,20 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
                     if textField.tag == 1
                     {
                         newPinSecureInputView3.inputImageView.isHidden = true
-//                        newPinSecureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
-
                     }
                     else
                     {
                         confirmPinSecureInputView3.inputImageView.isHidden = true
-//                        confirmPinSecureInputView3.inputImageView.image = UIImage(named:"pinPlacement")
-
                     }
                 }
                 else {
                     if(textField.tag == 1)
                     {
                         newPinSecureInputView3.inputImageView.isHidden = false
-//                        newPinSecureInputView3.inputImageView.image = UIImage(named:"password")
-
                     }
                     else
                     {
                         confirmPinSecureInputView3.inputImageView.isHidden = false
-//                        confirmPinSecureInputView3.inputImageView.image = UIImage(named:"password")
-
                     }
                 }
 
@@ -288,27 +261,21 @@ class MCASetMPinVC: MCABaseViewController,UITextFieldDelegate {
                     if textField.tag == 1
                     {
                         newPinSecureInputView4.inputImageView.isHidden = true
-//                        newPinSecureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
-
                     }
                     else
                     {
                         confirmPinSecureInputView4.inputImageView.isHidden = true
-//                        confirmPinSecureInputView4.inputImageView.image = UIImage(named:"pinPlacement")
                     }
                 }
                 else {
                     if(textField.tag == 1)
                     {
                         newPinSecureInputView4.inputImageView.isHidden = false
-//                        newPinSecureInputView4.inputImageView.image = UIImage(named:"password")
 
                     }
                     else
                     {
                         confirmPinSecureInputView4.inputImageView.isHidden = false
-//                        confirmPinSecureInputView4.inputImageView.image = UIImage(named:"password")
-
                     }
                 }
             default:

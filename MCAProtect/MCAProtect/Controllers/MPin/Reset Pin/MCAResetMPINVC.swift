@@ -23,7 +23,7 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Reset PIN"
+        self.title = "Forgot PIN"
 
         initilazeToolBar()
         self.hideKeyboardWhenTappedAround()
@@ -31,13 +31,12 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      //  self.navigationController?.setNavigationBarHidden(true, animated: animated)
         registerForKeyboardNotifications()
+        loadUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadUI()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -72,7 +71,7 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
     
     func loadUI() {
         
-        loginButton.layer.cornerRadius = 5.0
+        loginButton.layer.cornerRadius = loginButton.frame.height/2
     }
     
     func initilazeToolBar() {
@@ -99,24 +98,6 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func keyboardWillBeShown(sender: NSNotification) {
-        
-//        let info: NSDictionary = sender.userInfo! as NSDictionary
-//        let value: NSValue = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
-//        let keyboardSize: CGSize = value.cgRectValue.size
-//        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
-//        scrollView.contentInset = contentInsets
-//        scrollView.scrollIndicatorInsets = contentInsets
-//        
-//        // If active text field is hidden by keyboard, scroll it so it's visible
-//        // Your app might not need or want this behavior.
-//        var aRect: CGRect = self.view.frame
-//        aRect.size.height -= keyboardSize.height
-//        let activeTextFieldRect: CGRect? = activeTextField?.frame
-//        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
-//        if (!aRect.contains(activeTextFieldOrigin!)) {
-//            scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
-//        }
-        
         var userInfo = sender.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
@@ -124,7 +105,6 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func keyboardWillBeHidden(sender: NSNotification) {
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(64.0, 0, 0, 0)
     }
     
     //MARK: - UITextfield Delegate Methods
@@ -136,7 +116,6 @@ class MCAResetMPINVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        //        activeTextField = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
