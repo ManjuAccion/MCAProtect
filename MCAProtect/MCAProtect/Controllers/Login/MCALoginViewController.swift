@@ -194,20 +194,11 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
-                
-                
-                let alertViewController = UIAlertController(title : "MCAP", message : "Login Success!", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    
-                    MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
-                    let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
-                    let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
-                    self.navigationController?.pushViewController(mPin, animated: true)
-                    
-                    
-                }))
-                self.present(alertViewController, animated: true , completion: nil)
-                
+
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
+                let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
+                let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
+                self.navigationController?.pushViewController(mPin, animated: true)
         },
               failureCallBack: { (error : Error) in
                 
@@ -216,7 +207,6 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 let alertViewController = UIAlertController(title : "MCAP", message : "Login Failed", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 self.present(alertViewController, animated: true , completion: nil)
-                
         })
     }
     
@@ -241,19 +231,10 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
-                
-                let alertViewController = UIAlertController(title : "MCAP", message : "Login Success!", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    
-                    MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
-                    let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
-                    let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
-                    self.navigationController?.pushViewController(mPin, animated: true)
-                    
-                    
-                }))
-                self.present(alertViewController, animated: true , completion: nil)
-                
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
+                let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
+                let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
+                self.navigationController?.pushViewController(mPin, animated: true)
         },
               failureCallBack: { (error : Error) in
                 self.stopActivityIndicator()
