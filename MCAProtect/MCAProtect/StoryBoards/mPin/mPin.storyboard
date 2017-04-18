@@ -14,6 +14,9 @@
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--ResetMPINVC-->
@@ -89,13 +92,25 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@2017 MCA Protect All rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRU-8E-q0V">
+                                        <rect key="frame" x="38" y="638" width="300" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="qj2-tY-KdX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="uYp-ZQ-uMP" firstAttribute="centerX" secondItem="uqi-6j-8AT" secondAttribute="centerX" id="0QM-IW-fKf"/>
+                                    <constraint firstItem="bRU-8E-q0V" firstAttribute="width" secondItem="uqi-6j-8AT" secondAttribute="width" multiplier="0.8" id="1kT-EB-Vfu"/>
                                     <constraint firstItem="pPG-Z9-aPI" firstAttribute="leading" secondItem="uqi-6j-8AT" secondAttribute="leading" constant="20" id="6Bt-Ns-oad"/>
                                     <constraint firstAttribute="bottom" secondItem="NGN-hE-R5f" secondAttribute="bottom" constant="40" id="CUW-FC-2H0"/>
                                     <constraint firstItem="NGN-hE-R5f" firstAttribute="leading" secondItem="uqi-6j-8AT" secondAttribute="leading" constant="16" id="DX9-XH-77e"/>
+                                    <constraint firstItem="bRU-8E-q0V" firstAttribute="top" secondItem="NGN-hE-R5f" secondAttribute="bottom" constant="11" id="K5d-RD-wKz"/>
+                                    <constraint firstItem="bRU-8E-q0V" firstAttribute="centerX" secondItem="uqi-6j-8AT" secondAttribute="centerX" id="PIt-4t-Nee"/>
                                     <constraint firstItem="uYp-ZQ-uMP" firstAttribute="centerX" secondItem="pPG-Z9-aPI" secondAttribute="centerX" id="auy-gW-rYj"/>
                                     <constraint firstItem="uYp-ZQ-uMP" firstAttribute="top" secondItem="uqi-6j-8AT" secondAttribute="top" constant="70" id="f60-UU-UK6"/>
                                     <constraint firstItem="pPG-Z9-aPI" firstAttribute="centerX" secondItem="NGN-hE-R5f" secondAttribute="centerX" id="j1t-6G-LdP"/>
@@ -269,6 +284,15 @@
                                     <constraint firstAttribute="width" constant="120" id="aPF-Gf-y2K"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@2017 MCA Protect All rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3E-HQ-SqN">
+                                <rect key="frame" x="38" y="638" width="300" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="5Jz-97-SU6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -277,12 +301,15 @@
                             <constraint firstItem="VOx-jh-HWK" firstAttribute="top" secondItem="AvX-Pm-f7S" secondAttribute="bottom" constant="40" id="I18-5X-oZ1"/>
                             <constraint firstItem="PiY-b0-9Xd" firstAttribute="width" secondItem="Fqq-Ef-j0k" secondAttribute="width" multiplier="0.784" id="KMK-sX-7Qz"/>
                             <constraint firstItem="Uf5-Q1-VRW" firstAttribute="top" secondItem="Fqq-Ef-j0k" secondAttribute="top" constant="70" id="TxA-jc-VfP"/>
+                            <constraint firstItem="w3E-HQ-SqN" firstAttribute="width" secondItem="Fqq-Ef-j0k" secondAttribute="width" multiplier="0.8" id="dGC-tb-uR2"/>
                             <constraint firstAttribute="trailing" secondItem="AvX-Pm-f7S" secondAttribute="trailing" constant="16" id="glM-QM-wyO"/>
                             <constraint firstItem="PiY-b0-9Xd" firstAttribute="top" secondItem="Uf5-Q1-VRW" secondAttribute="bottom" constant="20" id="ir9-Ag-87k"/>
                             <constraint firstItem="MEy-Cj-Mcg" firstAttribute="centerX" secondItem="Fqq-Ef-j0k" secondAttribute="centerX" id="j9f-8v-bUD"/>
+                            <constraint firstItem="VOx-jh-HWK" firstAttribute="top" secondItem="w3E-HQ-SqN" secondAttribute="bottom" constant="15" id="o0e-Os-cYS"/>
                             <constraint firstItem="MEy-Cj-Mcg" firstAttribute="width" secondItem="Fqq-Ef-j0k" secondAttribute="width" multiplier="0.784" id="p1S-UP-aye"/>
                             <constraint firstItem="Uf5-Q1-VRW" firstAttribute="centerX" secondItem="Fqq-Ef-j0k" secondAttribute="centerX" id="pyx-e0-zIw"/>
                             <constraint firstAttribute="trailing" secondItem="ANN-Mm-oao" secondAttribute="trailing" constant="16" id="qas-1e-qmO"/>
+                            <constraint firstItem="w3E-HQ-SqN" firstAttribute="centerX" secondItem="Fqq-Ef-j0k" secondAttribute="centerX" id="rdN-Lz-360"/>
                             <constraint firstItem="PiY-b0-9Xd" firstAttribute="centerX" secondItem="Fqq-Ef-j0k" secondAttribute="centerX" id="tgF-7Z-sXK"/>
                             <constraint firstItem="ANN-Mm-oao" firstAttribute="top" secondItem="MEy-Cj-Mcg" secondAttribute="bottom" constant="16" id="vmg-ra-xrK"/>
                             <constraint firstItem="ANN-Mm-oao" firstAttribute="leading" secondItem="Fqq-Ef-j0k" secondAttribute="leading" constant="16" id="y0e-OT-N6Y"/>
@@ -487,10 +514,20 @@
                                                     <constraint firstAttribute="height" constant="120" id="zLs-pi-dzr"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@2017 MCA Protect All rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWj-sg-v8a">
+                                                <rect key="frame" x="38" y="638" width="300" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="14" id="un1-eC-Uei"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="aTY-em-AGj" secondAttribute="trailing" constant="16" id="0iS-oA-e1p"/>
+                                            <constraint firstItem="rWj-sg-v8a" firstAttribute="top" secondItem="YHl-vn-6zy" secondAttribute="bottom" constant="11" id="2Sh-4m-hA5"/>
                                             <constraint firstItem="8D5-UA-kJY" firstAttribute="top" secondItem="t0H-aQ-mc2" secondAttribute="bottom" constant="2" id="9Lg-6f-oxW"/>
                                             <constraint firstItem="t0H-aQ-mc2" firstAttribute="leading" secondItem="7xq-gX-nXt" secondAttribute="leading" constant="16" id="GZi-ly-NTf"/>
                                             <constraint firstItem="3xR-OB-v98" firstAttribute="centerX" secondItem="7xq-gX-nXt" secondAttribute="centerX" id="I1O-3S-8hd"/>
@@ -506,7 +543,9 @@
                                             <constraint firstAttribute="trailing" secondItem="t0H-aQ-mc2" secondAttribute="trailing" constant="16" id="eAG-3i-WBT"/>
                                             <constraint firstItem="8D5-UA-kJY" firstAttribute="centerX" secondItem="7xq-gX-nXt" secondAttribute="centerX" id="fGI-1w-2cD"/>
                                             <constraint firstItem="LDV-cX-1ZA" firstAttribute="centerX" secondItem="7xq-gX-nXt" secondAttribute="centerX" id="j4P-dP-wM6"/>
+                                            <constraint firstItem="rWj-sg-v8a" firstAttribute="centerX" secondItem="7xq-gX-nXt" secondAttribute="centerX" id="kK5-es-ouW"/>
                                             <constraint firstItem="YHl-vn-6zy" firstAttribute="leading" secondItem="7xq-gX-nXt" secondAttribute="leading" constant="16" id="lkt-0C-f6w"/>
+                                            <constraint firstItem="rWj-sg-v8a" firstAttribute="width" secondItem="7xq-gX-nXt" secondAttribute="width" multiplier="0.8" id="oY6-SQ-2yR"/>
                                             <constraint firstAttribute="trailing" secondItem="Zlo-BM-Lxp" secondAttribute="trailing" constant="16" id="pt2-3z-Fks"/>
                                             <constraint firstItem="Zlo-BM-Lxp" firstAttribute="leading" secondItem="7xq-gX-nXt" secondAttribute="leading" constant="16" id="yg9-ab-f8P"/>
                                             <constraint firstItem="aTY-em-AGj" firstAttribute="top" secondItem="3xR-OB-v98" secondAttribute="bottom" constant="23" id="zSa-JW-ibo"/>
@@ -796,10 +835,21 @@
                                                     <constraint firstItem="2Jc-2n-F7t" firstAttribute="centerX" secondItem="XTc-w4-bCC" secondAttribute="centerX" constant="-106" id="yeb-Ol-w9V"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@2017 MCA Protect All rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctb-lf-7zV">
+                                                <rect key="frame" x="38" y="638" width="300" height="14"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="14" id="ztU-iz-ycz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="ctb-lf-7zV" firstAttribute="top" secondItem="VkV-q9-Ubp" secondAttribute="bottom" constant="11" id="3Sz-a4-dHR"/>
                                             <constraint firstItem="02d-Cu-PsP" firstAttribute="centerX" secondItem="YRJ-DD-iUC" secondAttribute="centerX" id="3si-S7-PQf"/>
+                                            <constraint firstItem="ctb-lf-7zV" firstAttribute="width" secondItem="YRJ-DD-iUC" secondAttribute="width" multiplier="0.8" id="6T7-qM-DCn"/>
                                             <constraint firstAttribute="trailing" secondItem="VkV-q9-Ubp" secondAttribute="trailing" constant="16" id="AX3-xP-ruD"/>
                                             <constraint firstItem="xYm-4U-58g" firstAttribute="leading" secondItem="YRJ-DD-iUC" secondAttribute="leading" constant="16" id="CjA-ZC-gpA"/>
                                             <constraint firstAttribute="bottom" secondItem="VkV-q9-Ubp" secondAttribute="bottom" constant="40" id="Dvz-KY-G5U"/>
@@ -821,6 +871,7 @@
                                             <constraint firstItem="XTc-w4-bCC" firstAttribute="top" secondItem="LP8-JM-sMM" secondAttribute="bottom" constant="2" id="k5J-mN-a0j"/>
                                             <constraint firstItem="L6e-Ne-tFk" firstAttribute="centerX" secondItem="YRJ-DD-iUC" secondAttribute="centerX" id="kus-TF-HbM"/>
                                             <constraint firstItem="w6K-8z-IX1" firstAttribute="centerX" secondItem="YRJ-DD-iUC" secondAttribute="centerX" id="mjV-9g-7Qu"/>
+                                            <constraint firstItem="ctb-lf-7zV" firstAttribute="centerX" secondItem="YRJ-DD-iUC" secondAttribute="centerX" id="otx-Za-Kg6"/>
                                             <constraint firstItem="XTc-w4-bCC" firstAttribute="width" secondItem="YRJ-DD-iUC" secondAttribute="width" multiplier="0.784" id="stz-7e-e1R"/>
                                         </constraints>
                                     </view>
