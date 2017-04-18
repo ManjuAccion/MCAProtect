@@ -27,17 +27,18 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         self.title = merchantApplicationDetail.businessName
         getDocumentsList()
     }
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     func getDocumentsList()
     {
-        
         if self.checkNetworkConnection() == false {
             return
         }
         
         self.showActivityIndicator()
-        
         
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerNeedMoreStipDocEndpoint);
@@ -53,10 +54,8 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
                 print("Success \(response)")
                 let responseDcit = response.dictionaryValue;
                 self.dataSource = (responseDcit["stipulations"]?.array)!
-
                 
-                    self.tableView.reloadData()
-                
+                self.tableView.reloadData()
         },
               failureCallBack: { (error : Error) in
                 
@@ -67,15 +66,6 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
                 self.present(alertViewController, animated: true , completion: nil)
                 
         })
-        
-        
-    }
-    
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     //MARK: - Table View DataSource functions

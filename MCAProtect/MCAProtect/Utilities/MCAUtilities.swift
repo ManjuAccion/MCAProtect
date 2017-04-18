@@ -121,5 +121,21 @@ class MCAUtilities: NSObject {
         }
     }
     
+    static func getMonthFromDate(days:Int) -> String {
+        
+        var month : String
+        
+        if days <= 30 {
+            
+            month = "\(days) days"
+        }
+        else {
+            let caluclatedMonth = days / 30
+            month = "\(caluclatedMonth) months"
+        }
+        return month
+        
+    }
+    
     
 }

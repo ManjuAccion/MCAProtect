@@ -64,7 +64,7 @@ class MCAProgramInformation: NSObject {
             modelValue = loanRequirementTenure
             
         case .loanTerm :
-            modelValue = "\(loanTerm!) Days"
+            modelValue = MCAUtilities.getMonthFromDate(days: loanTerm)
         }
         return modelValue.validatedString()
     }
