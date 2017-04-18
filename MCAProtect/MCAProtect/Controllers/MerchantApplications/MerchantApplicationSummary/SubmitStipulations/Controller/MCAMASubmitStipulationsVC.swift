@@ -87,6 +87,8 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASubmitStipulationsCell) as! MCASubmitStipulationsCell
         cell.setSubmitStipulationsCell(documentDetail: dataSource[indexPath.row])
+        cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }
