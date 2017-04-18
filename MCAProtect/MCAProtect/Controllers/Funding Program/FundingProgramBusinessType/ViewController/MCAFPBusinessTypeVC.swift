@@ -135,9 +135,7 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         return displayList.count
         }
         else{
-            
             noDataLabel.isHidden = false
-
             return 0
         }
     }

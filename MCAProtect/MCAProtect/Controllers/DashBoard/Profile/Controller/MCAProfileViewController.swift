@@ -15,7 +15,7 @@ import SDWebImage
 
 class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
-    @IBOutlet weak var profileImageButton : UIButton!
+    @IBOutlet weak var profileImageView : UIImageView!
     @IBOutlet weak var firstNameTF : UITextField!
    
     @IBOutlet weak var phoneNumberTF : UITextField!
@@ -35,15 +35,19 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     {
         super.viewDidLoad()
         self.title = "Profile"
-        self.profileImageButton.layer.borderWidth = 1.0;
-        self.profileImageButton.layer.cornerRadius = profileImageButton.frame.height/2
-        self.profileImageButton.layer.borderColor = ColorConstants.btnborderColor.cgColor
-        profileImageButton.clipsToBounds = true
+        self.profileImageView.layer.borderWidth = 1.0;
+        self.profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        self.profileImageView.layer.borderColor = ColorConstants.btnborderColor.cgColor
+        profileImageView.clipsToBounds = true
          self.cameraButton.layer.cornerRadius = cameraButton.frame.height/2
         cameraButton.clipsToBounds = true
 
         updateButton.layer.cornerRadius = updateButton.frame.height/2
 
+        
+        let profileImageViewTapGesture =    UITapGestureRecognizer(target: self, action:#selector(updateProfilePic))
+        profileImageView.addGestureRecognizer(profileImageViewTapGesture)
+        
         imagePicker?.delegate = self
 
         emailOverlayView.layer.borderColor = UIColor(red:166.0/255.0, green:42.0/255.0, blue:42.0/255.0, alpha: 0.5).cgColor
@@ -62,12 +66,21 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let url =  mcaUser.brokerImageUrl {
-            let imageUrl = NSURL(string : url)
-            profileImageButton.sd_setImage(with: imageUrl as URL!, for: .normal)
         
+     
+  
+        
+        DispatchQueue.main.async {
+            if let url =  self.mcaUser.brokerImageUrl {
+                self.profileImageView.setIndicatorStyle(.gray)
+                self.profileImageView.setShowActivityIndicator(true)
+                let imageUrl = NSURL(string : url)
+                self.profileImageView.sd_setImage(with: imageUrl as URL!)
+               
+            }
+ 
         }
-
+       
     }
     
     
@@ -121,8 +134,13 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     
     
     // MARK: - Set Profile Image
-    
     @IBAction func setProfilePic()
+    {
+      updateProfilePic()
+        
+    }
+    
+     func updateProfilePic()
     {
         
         let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -225,8 +243,8 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 
         })
         
-        profileImageButton.contentMode = .scaleAspectFit
-        profileImageButton.setImage(profileImage, for: UIControlState.normal)
+        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.image = profileImage
         dismiss(animated:true, completion: nil)
     }
 

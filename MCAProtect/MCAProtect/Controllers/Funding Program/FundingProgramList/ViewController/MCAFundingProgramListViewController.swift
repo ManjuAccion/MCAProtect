@@ -61,7 +61,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         var paramDict = Dictionary<String, String>()
         
         paramDict["page"] = "\(pageCount + 1)"
-        paramDict["per_page"] = pageSize
+        paramDict["per_page"] = MCAAPIPageControls.pageSize
         
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:paramDict,
                                                                 endPoint:MCAAPIEndPoints.BrokerFunderProgramListEndpoint

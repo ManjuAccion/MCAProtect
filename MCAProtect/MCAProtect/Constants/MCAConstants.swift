@@ -159,17 +159,17 @@ enum FPApplicationSummaryKeys : String {
     case FPSummaryTimeInBuisness    = "Time in Buisness"
     case FPSummaryBuyRate           = "Buy Rate"
     case FPSummaryCreditScore       = "Credit Score"
-    case FPSummaryMinimumLoan       = "Minimum Loan"
-    case FPSUmmaryMaximumLoan       = "Maximum Loan"
+    case FPSummaryMinimumLoan       = "Min Loan"
+    case FPSUmmaryMaximumLoan       = "Max Loan"
 }
 
 enum FPProgramInformationKeys : String
 {
     
-    case FPProgramInformation   = "Program Information"
-    case FPMaxTerm              =  "Max Term"
-    case FPMinimumLoanAmount    = "Minimum Loan Amount"
-    case FPMaximumLoanAmount    = "Maximum Loan Amount"
+    case FPProgramInformation   = "Program Name"
+    case FPMaxTerm              = "Max Term"
+    case FPMinimumLoanAmount    = "Min Loan Amount"
+    case FPMaximumLoanAmount    = "Max Loan Amount"
     case FPBuyRate              = "Buy rate"
     case FPMaxUPSellRate        = "Max Up Sell Rate"
     case FPMaxGrossRevenue      = "Max % of Gross Revenue"
@@ -184,13 +184,13 @@ enum FPProgramInformationKeys : String
 
 enum FPMerchantRequirementkeys : String{
     
-    case FPMinimumCreditScore           = "Minimum Credit Score"
-    case FPMinimumTimeInBusiness        = "Minimum Time in Business"
-    case FPMinimumMonthlySales          = "Minimum Monthly Sales"
-    case FPMinimumNumOfBankDeposits     = "Minimum Number of Bank Deposits(Avg)"
-    case FPDaysWithNegativeBalance      =  "Days with Negative Balance"
-    case FPMinimumDepositeAmount        = "Minimum Deposit Amount(Avg)"
-    case FPMinimumDailyBalance          = "Minimum Daily Balance(Avg)"
+    case FPMinimumCreditScore           = "Min Credit Score"
+    case FPMinimumTimeInBusiness        = "Min Time in Business"
+    case FPMinimumMonthlySales          = "Min Monthly Sales"
+    case FPMinimumNumOfBankDeposits     = "Min Number of Bank Deposits(avg)"
+    case FPDaysWithNegativeBalance      = "Days with Negative Balance"
+    case FPMinimumDepositeAmount        = "Min Deposit Amount(avg)"
+    case FPMinimumDailyBalance          = "Min Daily Balance(avg)"
 }
 
 enum FPLiensAndBankruptcyKeys : String{
@@ -375,8 +375,11 @@ struct MCAAPIEndPoints {
 
 }
 
+struct MCAAPIPageControls
+{
+   static let pageSize = "10"
 
-   let pageSize = "10"
+}
 
 
 

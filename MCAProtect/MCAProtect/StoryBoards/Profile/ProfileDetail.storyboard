@@ -32,17 +32,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dtz-qc-2pm">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwY-Zd-fZ3">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hhA-oa-tmR">
                                                 <rect key="frame" x="127" y="35" width="120" height="120"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="7Kk-YX-GRU"/>
-                                                    <constraint firstAttribute="height" constant="120" id="h3t-Tn-2Ts"/>
+                                                    <constraint firstAttribute="width" constant="120" id="c6o-Yq-B1g"/>
+                                                    <constraint firstAttribute="height" constant="120" id="rbn-9j-JCs"/>
                                                 </constraints>
-                                                <state key="normal" image="loginLogo"/>
-                                                <connections>
-                                                    <action selector="setProfilePic" destination="mEJ-RP-63u" eventType="touchUpInside" id="yRH-sz-Lku"/>
-                                                </connections>
-                                            </button>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0M-iE-ikP">
                                                 <rect key="frame" x="207" y="115" width="40" height="40"/>
                                                 <constraints>
@@ -51,7 +47,7 @@
                                                 </constraints>
                                                 <state key="normal" image="iconCamera"/>
                                                 <connections>
-                                                    <action selector="setProfilePic" destination="mEJ-RP-63u" eventType="touchUpInside" id="Vxb-Ht-V3b"/>
+                                                    <action selector="setProfilePic" destination="mEJ-RP-63u" eventType="touchUpInside" id="wZG-ME-qp0"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconActive" translatesAutoresizingMaskIntoConstraints="NO" id="Vfd-Cr-gID">
@@ -64,14 +60,14 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="jwY-Zd-fZ3" firstAttribute="centerX" secondItem="Dtz-qc-2pm" secondAttribute="centerX" id="2IQ-w3-xMP"/>
-                                            <constraint firstAttribute="bottom" secondItem="jwY-Zd-fZ3" secondAttribute="bottom" constant="35" id="DDb-o4-qo6"/>
+                                            <constraint firstItem="Q0M-iE-ikP" firstAttribute="trailing" secondItem="hhA-oa-tmR" secondAttribute="trailing" id="EgB-iH-eum"/>
+                                            <constraint firstItem="Q0M-iE-ikP" firstAttribute="bottom" secondItem="hhA-oa-tmR" secondAttribute="bottom" id="FFC-gF-kpx"/>
                                             <constraint firstAttribute="height" constant="190" id="GFB-K7-CHr"/>
-                                            <constraint firstItem="Q0M-iE-ikP" firstAttribute="bottom" secondItem="jwY-Zd-fZ3" secondAttribute="bottom" id="JrS-Fn-gfS"/>
+                                            <constraint firstItem="hhA-oa-tmR" firstAttribute="top" secondItem="Dtz-qc-2pm" secondAttribute="top" constant="35" id="NKT-3L-6zg"/>
+                                            <constraint firstAttribute="bottom" secondItem="hhA-oa-tmR" secondAttribute="bottom" constant="35" id="PF8-wF-iaZ"/>
+                                            <constraint firstItem="hhA-oa-tmR" firstAttribute="centerX" secondItem="Dtz-qc-2pm" secondAttribute="centerX" id="aCT-aL-9IK"/>
                                             <constraint firstAttribute="trailing" secondItem="Vfd-Cr-gID" secondAttribute="trailing" constant="10" id="kF4-VG-PYT"/>
-                                            <constraint firstItem="Q0M-iE-ikP" firstAttribute="trailing" secondItem="jwY-Zd-fZ3" secondAttribute="trailing" id="zOL-hD-GOc"/>
                                             <constraint firstItem="Vfd-Cr-gID" firstAttribute="top" secondItem="Dtz-qc-2pm" secondAttribute="top" constant="10" id="zUI-m2-dtD"/>
-                                            <constraint firstItem="jwY-Zd-fZ3" firstAttribute="top" secondItem="Dtz-qc-2pm" secondAttribute="top" constant="35" id="zan-ix-aTh"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rol-Qd-pdy">
@@ -250,7 +246,7 @@
                         <outlet property="emailTF" destination="nea-bi-QEl" id="J8E-g4-Bgc"/>
                         <outlet property="firstNameTF" destination="VfX-nA-3ZM" id="2W4-OG-4NQ"/>
                         <outlet property="phoneNumberTF" destination="cjN-dD-FxV" id="PEz-Wu-Odw"/>
-                        <outlet property="profileImageButton" destination="jwY-Zd-fZ3" id="sPT-wg-pMj"/>
+                        <outlet property="profileImageView" destination="hhA-oa-tmR" id="QOC-xL-A79"/>
                         <outlet property="topConstraints" destination="E1S-Lu-CKF" id="NZY-Hw-jPE"/>
                         <outlet property="updateButton" destination="ben-QO-7fu" id="qlr-KY-rGk"/>
                     </connections>
@@ -264,7 +260,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mto-Pc-VfX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Kc-lb-roo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Kc-lb-roo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -284,6 +280,5 @@
         <image name="iconCamera" width="30" height="30"/>
         <image name="iconName" width="20" height="20"/>
         <image name="iconPhone" width="20" height="20"/>
-        <image name="loginLogo" width="92" height="106"/>
     </resources>
 </document>
