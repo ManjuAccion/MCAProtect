@@ -217,14 +217,14 @@ enum LoanDetailKeys : String {
 enum BusinessInformationKeys : String {
     
     case legalBusinessName  = "Legal Business Name"
+    case dBABusinessName    = "DBA Business Name"
     case contactName        = "Contact Name"
     case telephone          = "Telephone"
     case email              = "Email"
-    case federalTaxID       = "Federal Tax ID"
     case grossAnnualSales   = "Gross Annual Sales"
     case grossAnnualRevenue = "Gross Annual Revenue"
+    case federalTaxID       = "Federal Tax ID"
     case businessEntityType = "Business Entity Type"
-    case dBABusinessName    = "DBA Business Name"
     case stateOfIncorprataion = "State of Incorporation"
     case businessStartDate  = "Business Start Date"
     case industryType       = "Industry Type"
