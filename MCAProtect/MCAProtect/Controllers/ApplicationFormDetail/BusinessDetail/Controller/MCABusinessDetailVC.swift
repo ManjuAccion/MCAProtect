@@ -47,6 +47,17 @@ class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableVi
         if  applicaionDetailType == SavedApplicationForm.BusinessAddress.rawValue {
             let billingAddressContainerViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(handlebillingAddressContainerViewTapGesture))
             billingAddressContainerView.addGestureRecognizer(billingAddressContainerViewTapGesture)
+            
+            if selectedLoanApp.address.sameBillingAddress == false {
+                
+                billingAddressCheckButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+                billingAddressCheckButton.isSelected = false;
+            }
+            else {
+                
+                billingAddressCheckButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+                billingAddressCheckButton.isSelected = true;
+            }
         }
         
     }
@@ -86,18 +97,7 @@ class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableVi
     
     @IBAction func billingAddressButtonTapped(_ sender: Any) {
         
-        if billingAddressCheckButton.isSelected == true {
-            
-            billingAddressCheckButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
-            billingAddressCheckButton.isSelected = false;
-        }
-        else {
-            
-            billingAddressCheckButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
-            billingAddressCheckButton.isSelected = true;
-        }
     }
-    
     
     //MARK: - Table View Datasource -
     
@@ -227,14 +227,7 @@ class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableVi
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeField = textField
-//        activeField?.inputAccessoryView = toolBar
-//        
-//        if textField.tag == dataSourceArray.count - 1 {
-//            doneButton?.title = "Done"
-//        }
-//        else{
-//            doneButton?.title = "Next"
-//        }
+
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -321,15 +314,15 @@ class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableVi
     }
     
     func handlebillingAddressContainerViewTapGesture() {
-        if billingAddressCheckButton.isSelected == true {
-            
-            billingAddressCheckButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
-            billingAddressCheckButton.isSelected = false;
-        }
-        else {
-            
-            billingAddressCheckButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
-            billingAddressCheckButton.isSelected = true;
-        }
+//        if billingAddressCheckButton.isSelected == true {
+//            
+//            billingAddressCheckButton.setImage(UIImage(named: "iconCheck"), for: UIControlState.normal)
+//            billingAddressCheckButton.isSelected = false;
+//        }
+//        else {
+//            
+//            billingAddressCheckButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
+//            billingAddressCheckButton.isSelected = true;
+//        }
     }
 }

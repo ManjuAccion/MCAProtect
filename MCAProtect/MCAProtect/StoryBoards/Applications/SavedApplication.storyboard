@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -261,7 +261,6 @@
                                             <constraint firstAttribute="height" constant="18" id="OF9-Nj-7ZB"/>
                                             <constraint firstAttribute="width" constant="18" id="nvE-tO-y4c"/>
                                         </constraints>
-                                        <state key="normal" image="iconCheck"/>
                                         <connections>
                                             <action selector="billingAddressButtonTapped:" destination="dBd-l6-v9V" eventType="touchUpInside" id="iAj-La-elW"/>
                                         </connections>
@@ -737,7 +736,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconCheck" width="14" height="14"/>
         <image name="iconYesGreen" width="20" height="20"/>
     </resources>
 </document>
