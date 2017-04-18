@@ -8,6 +8,11 @@
 
 import UIKit
 import SwiftyJSON
+
+protocol MCASubmitStipulationsCellDelegate {
+    func viewApplication(docUrl : URL)
+}
+
 class MCASubmitStipulationsCell: UITableViewCell {
     
     
@@ -17,6 +22,10 @@ class MCASubmitStipulationsCell: UITableViewCell {
     @IBOutlet weak var viewApplicationButton: UIButton!
     @IBOutlet weak var downloadApplicationButton: UIButton!
     
+    var delegate:MCASubmitStipulationsCellDelegate?
+
+    var docUrl : String!
+    var docRef : CGPDFDocument!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -27,7 +36,8 @@ class MCASubmitStipulationsCell: UITableViewCell {
     }
     
     @IBAction func viewApplicationButtonTapped(_ sender: Any) {
-        
+        let docUrl = URL.init(string: self.docUrl)
+        delegate?.viewApplication(docUrl: docUrl!)
     }
     
     @IBAction func downloadApplicationTapped(_ sender: Any) {
@@ -37,7 +47,7 @@ class MCASubmitStipulationsCell: UITableViewCell {
     func setSubmitStipulationsCell(documentDetail: JSON!) {
         
         self.merchantNameLabel.text = documentDetail["document_name"].stringValue
-        
+        self.docUrl = documentDetail["document"]["doc_url"].stringValue
         self.documentTypeLabel.text = "Created at: \(MCAUtilities.getFormmattedDate(dateString: documentDetail["created_at"].stringValue))"
         
     }

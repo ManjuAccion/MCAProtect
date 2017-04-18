@@ -9,14 +9,19 @@
 import UIKit
 import SwiftyJSON
 
-class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
+class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCASubmitStipulationsCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var popUpView : UIView!
+    @IBOutlet weak var webView: UIWebView!
+
     
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
 
     
     var dataSource : [JSON] = []
+    
+    var doctUrl : URL!
 
     //MARK: -View Life Cycle
     
@@ -25,6 +30,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         
         tableView.register(UINib(nibName: "MCASubmitStipulationsCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASubmitStipulationsCell)
         self.title = merchantApplicationDetail.businessName
+        popUpView.alpha = 0.0
         getDocumentsList()
     }
     
@@ -76,6 +82,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCASubmitStipulationsCell) as! MCASubmitStipulationsCell
+        cell.delegate = self
         cell.setSubmitStipulationsCell(documentDetail: dataSource[indexPath.row])
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
@@ -98,5 +105,39 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 60.0
     }
-
-}
+    
+    func viewApplication(docUrl : URL)
+    {
+       doctUrl = docUrl
+        
+        showAnimate(docUrl: doctUrl)
+    }
+    
+    func showAnimate(docUrl : URL!)
+    {
+        let requestObj = URLRequest(url: docUrl)
+        webView.loadRequest(requestObj)
+        
+        self.popUpView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.popUpView.alpha = 0.0
+        UIView.animate(withDuration: 0.25, animations: {
+            self.popUpView.alpha = 1.0
+            self.popUpView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+    }
+    
+    func removeAnimate()
+    {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.popUpView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.popUpView.alpha = 0.0
+        })
+    }
+    
+    @IBAction func closePopUpView()
+    {
+    removeAnimate()
+    
+    }
+    
+  }
