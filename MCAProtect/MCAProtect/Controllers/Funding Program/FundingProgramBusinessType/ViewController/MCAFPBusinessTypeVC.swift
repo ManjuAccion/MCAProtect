@@ -9,38 +9,26 @@
 import UIKit
 import SwiftyJSON
 
-enum businessType : NSInteger {
-    case allowed = 0
-    case restricted = 1
-    case prohibited = 2
 
-}
 class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,MCACustomSearchBarDelegate {
     
     @IBOutlet weak var segmentControl : UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var seacrhBar : MCACustomSearchBar!
-     var noDataLabel: UILabel!
     
-    var fundingProgram : MCAFundingProgram!
-
-    
-    
-    var allowedBusinessNames : [JSON] = []
+    var noDataLabel             : UILabel!
+    var fundingProgram          : MCAFundingProgram!
+    var allowedBusinessNames    : [JSON] = []
     var restrictedBusinessNames : [JSON] = []
     var prohibitedBusinessNames : [JSON] = []
-    var filteredList : [JSON] = []
-    var displayList : [JSON] = []
-    var dataSourceArray : [JSON] = []
-
-
-    
+    var filteredList            : [JSON] = []
+    var displayList             : [JSON] = []
+    var dataSourceArray         : [JSON] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MCABusinessTypeTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCABusinessTypeTableViewCell")
         self.title = "Business Types"
-        // Do any additional setup after loading the view.
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -48,15 +36,14 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         noDataLabel.text = "No Data Available"
         noDataLabel.textColor = UIColor(red: 45.0/255.0, green: 57.0/255.0, blue: 67.0/255.0, alpha: 1.0)
         noDataLabel.textAlignment = NSTextAlignment.center
+        noDataLabel.isHidden = true
         self.tableView.backgroundView = noDataLabel
         self.tableView.separatorStyle = .none
-
         
         seacrhBar.delegate = self
         seacrhBar.configureUI()
         getFundingProgramById()
     }
-    
     
     func  getFundingProgramById()  {
         
@@ -79,7 +66,6 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
                 let responseDcit = response.dictionaryValue;
                 
                 self.allowedBusinessNames = (responseDcit["allowed_business_names"]?.array)!
-                print("\(self.allowedBusinessNames)")
                 self.restrictedBusinessNames = (responseDcit["restricted_business_names"]?.array)!
                 self.prohibitedBusinessNames =  (responseDcit["prohibited_business_names"]?.array)!
                 self.dataSourceArray = self.allowedBusinessNames
@@ -92,56 +78,49 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
                 let alertViewController = UIAlertController(title : "MCAP", message : "Unable to fetch Funding Programs", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 self.present(alertViewController, animated: true , completion: nil)
-                
         })
-        
-        
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func businessTypeSelected(_ sender:UISegmentedControl )
     {
         switch sender.selectedSegmentIndex {
-        case businessType.allowed.rawValue:
-     
-            dataSourceArray = allowedBusinessNames
+            case businessType.allowed.rawValue:
+         
+                dataSourceArray = allowedBusinessNames
+                self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
+                
+            case businessType.restricted.rawValue:
+                dataSourceArray = restrictedBusinessNames
+                self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
+
+
+            case businessType.prohibited.rawValue:
+                
+            dataSourceArray = prohibitedBusinessNames
             self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
-            
-        case businessType.restricted.rawValue:
-            dataSourceArray = restrictedBusinessNames
-            self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
 
-
-        case businessType.prohibited.rawValue:
-            
-        dataSourceArray = prohibitedBusinessNames
-        self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
-
-        default:
-            break
+            default:
+                break
         }
     
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if  displayList.count != 0
-        {
+        if  displayList.count != 0 {
             noDataLabel.isHidden = true
-        return displayList.count
+            return displayList.count
         }
-        else{
+        else {
             noDataLabel.isHidden = false
             return 0
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MCABusinessTypeTableViewCell", for: indexPath) as! MCABusinessTypeTableViewCell
         cell.selectionStyle = .none
@@ -174,24 +153,11 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         textField.resignFirstResponder()
         return true
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    
     
     //MARK : - Custom Search bar delegate
+    
     func searchTextDidBegin(inSearchString:String)
     {
-        print("searchTextDidBegin")
     }
     func searchTextWillChangeWithString(inSearchString:String)
     {
@@ -200,13 +166,11 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     
     func searchTextCleared()
     {
-        print("searchTextCleared")
         filterListWithSearchString(searchString: "")
         
     }
     func searchTextDidEndWithString(inSearchString:String)
     {
-        print("searchTextDidEndWithString")
         filterListWithSearchString(searchString: inSearchString)
     }
     

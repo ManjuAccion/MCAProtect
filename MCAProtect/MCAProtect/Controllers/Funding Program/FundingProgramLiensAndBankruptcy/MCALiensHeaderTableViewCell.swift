@@ -26,7 +26,7 @@ class MCALiensHeaderTableViewCell: UITableViewCell {
         switch index {
             case LiensPayementsHeaderCell.judgementsOrLiens.rawValue:
                 
-                self.headerTextLabel.text = "Any judgement or liens"
+                self.headerTextLabel.text = "Any judgement or liens?"
                 
                 if businessInfo.judgementsOrLiens == true {
                     self.stateImageView.image = UIImage(named:"iconYesBlue")
@@ -35,7 +35,7 @@ class MCALiensHeaderTableViewCell: UITableViewCell {
                 }
             case LiensPayementsHeaderCell.payementPlan.rawValue:
                 
-                self.headerTextLabel.text = "Are you currently in payement plan?"
+                self.headerTextLabel.text = "Are you currently in payment plan?"
                 
                 if businessInfo.paymentPlan == true {
                     self.stateImageView.image = UIImage(named:"iconYesBlue")
@@ -44,7 +44,7 @@ class MCALiensHeaderTableViewCell: UITableViewCell {
                 }
             case LiensPayementsHeaderCell.bankruptcy.rawValue:
                 
-                self.headerTextLabel.text = "Have you ever filed for bankruptcy"
+                self.headerTextLabel.text = "Have you ever filed for bankruptcy?"
             
                 if businessInfo.paymentPlan == true {
                     self.stateImageView.image = UIImage(named:"iconYesBlue")
@@ -61,7 +61,7 @@ class MCALiensHeaderTableViewCell: UITableViewCell {
         switch index {
         case LiensPayementsHeaderCell.judgementsOrLiens.rawValue:
             
-            self.headerTextLabel.text = "Any judgement or liens"
+            self.headerTextLabel.text = "Any judgement or liens?"
             
             if fpLiensOrBankruptcy.judegementsORLiens == true {
                 self.stateImageView.image = UIImage(named:"iconYesBlue")
@@ -70,7 +70,7 @@ class MCALiensHeaderTableViewCell: UITableViewCell {
             }
         case LiensPayementsHeaderCell.payementPlan.rawValue:
             
-            self.headerTextLabel.text = "Are you currently in payement plan?"
+            self.headerTextLabel.text = "Are you currently in payment plan?"
             
             if fpLiensOrBankruptcy.paymentPlan == true {
                 self.stateImageView.image = UIImage(named:"iconYesBlue")
@@ -79,7 +79,7 @@ class MCALiensHeaderTableViewCell: UITableViewCell {
             }
         case LiensPayementsHeaderCell.bankruptcy.rawValue:
             
-            self.headerTextLabel.text = "Have you ever filed for bankruptcy"
+            self.headerTextLabel.text = "Have you ever filed for bankruptcy?"
             
             if fpLiensOrBankruptcy.paymentPlan == true {
                 self.stateImageView.image = UIImage(named:"iconYesBlue")

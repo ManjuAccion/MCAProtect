@@ -72,17 +72,7 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
 
             default: break;
         }
-    /*
-        if indexPath.row == 1 {
-            cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
-        }
-        
-        if indexPath.row == 1 {
-            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryType.none
-        }
-        */
+
         return cell
     }
     

@@ -348,6 +348,13 @@ enum LiensPayementsHeaderCell : Int {
     case bankruptcy         = 2
 }
 
+enum businessType : NSInteger {
+    case allowed    = 0
+    case restricted = 1
+    case prohibited = 2
+    
+}
+
 
 
 struct MCAAPIEndPoints {
