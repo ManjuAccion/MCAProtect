@@ -16,6 +16,8 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var seacrhBar : MCACustomSearchBar!
     
+    
+    var parendDelegate: MCAFPApplicationFormVC!
     var noDataLabel             : UILabel!
     var fundingProgram          : MCAFundingProgram!
     var allowedBusinessNames    : [JSON] = []
@@ -199,4 +201,19 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         
         tableView.reloadData();
     }
+    
+    @IBAction func nextButton()
+    {
+        
+        
+        parendDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parendDelegate.goToPrevious()
+        
+    }
+
 }

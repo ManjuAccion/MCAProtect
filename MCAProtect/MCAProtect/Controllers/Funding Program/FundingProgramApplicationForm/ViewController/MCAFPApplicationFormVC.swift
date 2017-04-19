@@ -8,10 +8,14 @@
 
 import UIKit
 
+
+
+
 class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     
     @IBOutlet weak var tableView: UITableView!
+     var selectedIndexPath: IndexPath!
     
     var formDataSource = ["Program Information", "Merchant Requirements", "Liens/Bankruptcy", "Additional Stipulations", "SIC Code & Business Types"]
 
@@ -59,12 +63,14 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        selectedIndexPath = indexPath;
         
         if (indexPath.row == 4)
         {
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPBusinessTypeVC") as! MCAFPBusinessTypeVC
             applicationDetailVC.fundingProgram = fundingProgram
+            applicationDetailVC.parendDelegate = self
             navigationController?.pushViewController(applicationDetailVC, animated: true)
             
         }
@@ -72,6 +78,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             {
                 let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
                 let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPAdditionalStipulationVC") as! MCAFPAdditionalStipulationVC
+                applicationDetailVC.parendDelegate = self
                 navigationController?.pushViewController(applicationDetailVC, animated: true)
                 
             }
@@ -81,6 +88,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPLiensAndBankruptcyViewController") as! MCAFPLiensAndBankruptcyViewController
             applicationDetailVC.fundingProgram = fundingProgram
+            applicationDetailVC.parendDelegate = self
             navigationController?.pushViewController(applicationDetailVC, animated: true)
             
         }
@@ -91,6 +99,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
         applicationDetailVC.categorySelected = indexPath.row
             applicationDetailVC.fundingProgram = fundingProgram
+            applicationDetailVC.parendDelegate = self
         navigationController?.pushViewController(applicationDetailVC, animated: true)
         }
         
@@ -114,4 +123,134 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
     }
     */
 
+    
+    func goToNext()
+    {
+
+        let indexPath = selectedIndexPath as IndexPath
+        
+        if(indexPath.row == formDataSource.count - 1) {
+            return
+        }
+        
+        
+        selectedIndexPath.row = selectedIndexPath.row + 1
+        
+        if (indexPath.row + 1 == 4)
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPBusinessTypeVC") as! MCAFPBusinessTypeVC
+            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.fundingProgram = fundingProgram
+            
+                var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+                navStackArray.remove(at: navStackArray.count - 1)
+                navStackArray.append(applicationDetailVC)
+                self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+            
+        }
+        else if(indexPath.row + 1 == 3)
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPAdditionalStipulationVC") as! MCAFPAdditionalStipulationVC
+            applicationDetailVC.parendDelegate = self
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(applicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        }
+            
+        else if(indexPath.row + 1 == 2)
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPLiensAndBankruptcyViewController") as! MCAFPLiensAndBankruptcyViewController
+            applicationDetailVC.fundingProgram = fundingProgram
+            applicationDetailVC.parendDelegate = self
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(applicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        }
+            
+        else
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
+            applicationDetailVC.categorySelected = indexPath.row + 1
+            applicationDetailVC.fundingProgram = fundingProgram
+            applicationDetailVC.parendDelegate = self
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(applicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+        }
+        
+    }
+    func goToPrevious(){
+        
+        let indexPath = selectedIndexPath as IndexPath
+        
+        if(indexPath.row == 0) {
+            return
+        }
+
+        
+        selectedIndexPath.row = selectedIndexPath.row - 1
+
+        if (indexPath.row - 1 == 4)
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPBusinessTypeVC") as! MCAFPBusinessTypeVC
+            applicationDetailVC.fundingProgram = fundingProgram
+            applicationDetailVC.parendDelegate = self
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(applicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        }
+        else if(indexPath.row - 1 == 3)
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPAdditionalStipulationVC") as! MCAFPAdditionalStipulationVC
+            applicationDetailVC.parendDelegate = self
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(applicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        }
+            
+        else if(indexPath.row - 1 == 2)
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPLiensAndBankruptcyViewController") as! MCAFPLiensAndBankruptcyViewController
+            applicationDetailVC.fundingProgram = fundingProgram
+            applicationDetailVC.parendDelegate = self
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(applicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        }
+            
+        else
+        {
+            let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
+            let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
+            applicationDetailVC.categorySelected = indexPath.row - 1
+            applicationDetailVC.fundingProgram = fundingProgram
+            applicationDetailVC.parendDelegate = self
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(applicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+        }
+        
+    }
+
+    
 }

@@ -17,6 +17,7 @@ enum ApplicationCatagories : NSInteger {
 class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
+    var parendDelegate: MCAFPApplicationFormVC!
 
    
     
@@ -185,6 +186,25 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
 
     
 
+    
+    @IBAction func nextButton()
+    {
+//        categorySelected = 1
+//        self.title = "Mearchant Requirement"
+ //       fieldCount = merchantRequirement.fieldCount
+ //       applicationModel = merchantRequirement
+        
+   //     tableView.reloadData()
+        
+        parendDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parendDelegate.goToPrevious()
+
+    }
     /*
     // MARK: - Navigation
 

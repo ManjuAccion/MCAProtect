@@ -12,6 +12,7 @@ class MCAFPAdditionalStipulationVC: MCABaseViewController,UITableViewDataSource,
     @IBOutlet weak var tableView: UITableView!
     
      var dataSourceArray : [String] = ["POI","POA","Bank Statements"]
+    var parendDelegate: MCAFPApplicationFormVC!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,21 @@ class MCAFPAdditionalStipulationVC: MCABaseViewController,UITableViewDataSource,
     {
         return 60.0
     }
+    
+    @IBAction func nextButton()
+    {
+       
+        
+        parendDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parendDelegate.goToPrevious()
+        
+    }
+
 
     /*
     // MARK: - Navigation

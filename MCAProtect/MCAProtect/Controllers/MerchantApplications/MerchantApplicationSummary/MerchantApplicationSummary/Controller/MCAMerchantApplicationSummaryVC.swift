@@ -40,6 +40,9 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         copyApplicationButton.titleEdgeInsets =  UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
         copyApplicationButton.imageEdgeInsets =   UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
         
+        
+       
+        
         switch applicationState {
             case ApplicationState.NeedMoreStips.rawValue:
                 tableViewBottomConstraint.constant = 0

@@ -13,6 +13,7 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
     @IBOutlet weak var tableView : UITableView!
     var fundingProgram : MCAFundingProgram!
     var liensOrBankruptcy : MCAFPLiensOrBankruptcy!
+    var parendDelegate: MCAFPApplicationFormVC!
 
 
     
@@ -133,6 +134,20 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 5
     }
+    
+    @IBAction func nextButton()
+    {
+                
+        parendDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parendDelegate.goToPrevious()
+        
+    }
+
     
     /*
     // MARK: - Navigation
