@@ -142,15 +142,15 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 {
 
-            if selectedIndexpath != nil {
-                let deselectedCell = tableView.cellForRow(at: selectedIndexpath! as IndexPath) as? MCAApplicationFormTVCell
-                deselectedCell?.selectedView.isHidden = true
-                deselectedCell?.backgroundColor = ColorConstants.background
-                
-            }
-            let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
-            selectedCell.selectedView.isHidden = false
-            selectedCell.backgroundColor = ColorConstants.selectedBackground
+//            if selectedIndexpath != nil {
+//                let deselectedCell = tableView.cellForRow(at: selectedIndexpath! as IndexPath) as? MCAApplicationFormTVCell
+//                deselectedCell?.selectedView.isHidden = true
+//                deselectedCell?.backgroundColor = ColorConstants.background
+//                
+//            }
+//            let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
+//            selectedCell.selectedView.isHidden = false
+//            selectedCell.backgroundColor = ColorConstants.selectedBackground
             
             selectedIndexpath = indexPath
 

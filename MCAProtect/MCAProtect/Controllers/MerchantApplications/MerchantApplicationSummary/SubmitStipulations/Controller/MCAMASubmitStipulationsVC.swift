@@ -15,9 +15,9 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     @IBOutlet weak var popUpView : UIView!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var transparentImageView : UIImageView!
+    @IBOutlet weak var webViewLoadingIndicator: UIActivityIndicatorView!
 
     
-    @IBOutlet weak var webViewLoadingIndicator: UIActivityIndicatorView!
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
 
     
