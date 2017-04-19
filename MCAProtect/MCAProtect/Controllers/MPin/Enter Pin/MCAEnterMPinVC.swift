@@ -45,6 +45,7 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        self.navigationController?.navigationBar.isHidden = false
+        loginButton.layer.cornerRadius = loginButton.frame.height/2
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,7 +65,6 @@ class MCAEnterMPinVC: MCABaseViewController,UITextFieldDelegate {
     
     func loadUI() {
         secureInputTF.autocorrectionType = UITextAutocorrectionType.no
-        loginButton.layer.cornerRadius = loginButton.frame.height/2
     }
     
     func initilazeToolBar() {

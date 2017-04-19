@@ -70,7 +70,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPBusinessTypeVC") as! MCAFPBusinessTypeVC
             applicationDetailVC.fundingProgram = fundingProgram
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             navigationController?.pushViewController(applicationDetailVC, animated: true)
             
         }
@@ -78,7 +78,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             {
                 let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
                 let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPAdditionalStipulationVC") as! MCAFPAdditionalStipulationVC
-                applicationDetailVC.parendDelegate = self
+                applicationDetailVC.parentDelegate = self
                 navigationController?.pushViewController(applicationDetailVC, animated: true)
                 
             }
@@ -88,7 +88,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPLiensAndBankruptcyViewController") as! MCAFPLiensAndBankruptcyViewController
             applicationDetailVC.fundingProgram = fundingProgram
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             navigationController?.pushViewController(applicationDetailVC, animated: true)
             
         }
@@ -99,7 +99,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
         applicationDetailVC.categorySelected = indexPath.row
             applicationDetailVC.fundingProgram = fundingProgram
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
         navigationController?.pushViewController(applicationDetailVC, animated: true)
         }
         
@@ -140,7 +140,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         {
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPBusinessTypeVC") as! MCAFPBusinessTypeVC
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             applicationDetailVC.fundingProgram = fundingProgram
             
                 var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
@@ -154,7 +154,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         {
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPAdditionalStipulationVC") as! MCAFPAdditionalStipulationVC
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
             navStackArray.remove(at: navStackArray.count - 1)
             navStackArray.append(applicationDetailVC)
@@ -167,7 +167,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPLiensAndBankruptcyViewController") as! MCAFPLiensAndBankruptcyViewController
             applicationDetailVC.fundingProgram = fundingProgram
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
             navStackArray.remove(at: navStackArray.count - 1)
             navStackArray.append(applicationDetailVC)
@@ -181,7 +181,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
             applicationDetailVC.categorySelected = indexPath.row + 1
             applicationDetailVC.fundingProgram = fundingProgram
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
             navStackArray.remove(at: navStackArray.count - 1)
             navStackArray.append(applicationDetailVC)
@@ -205,7 +205,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPBusinessTypeVC") as! MCAFPBusinessTypeVC
             applicationDetailVC.fundingProgram = fundingProgram
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
             navStackArray.remove(at: navStackArray.count - 1)
             navStackArray.append(applicationDetailVC)
@@ -216,7 +216,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
         {
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPAdditionalStipulationVC") as! MCAFPAdditionalStipulationVC
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
             navStackArray.remove(at: navStackArray.count - 1)
             navStackArray.append(applicationDetailVC)
@@ -229,7 +229,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPLiensAndBankruptcyViewController") as! MCAFPLiensAndBankruptcyViewController
             applicationDetailVC.fundingProgram = fundingProgram
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
             navStackArray.remove(at: navStackArray.count - 1)
             navStackArray.append(applicationDetailVC)
@@ -243,7 +243,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
             let applicationDetailVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationDetailVC") as! MCAFPApplicationDetailVC
             applicationDetailVC.categorySelected = indexPath.row - 1
             applicationDetailVC.fundingProgram = fundingProgram
-            applicationDetailVC.parendDelegate = self
+            applicationDetailVC.parentDelegate = self
             var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
             navStackArray.remove(at: navStackArray.count - 1)
             navStackArray.append(applicationDetailVC)

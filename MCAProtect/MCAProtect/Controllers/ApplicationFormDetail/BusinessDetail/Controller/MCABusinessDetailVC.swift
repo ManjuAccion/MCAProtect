@@ -14,7 +14,8 @@ class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableVi
     @IBOutlet weak var billingAddressCheckButton: UIButton!
     @IBOutlet weak var tableViewBottomConstraint:NSLayoutConstraint!
     @IBOutlet weak var billingAddressContainerView: UIView!
-    
+    var parentDelegate: MCAApplicationFormVC!
+
     var applicaionDetailType    : NSInteger!
     var isViewingMode           : Bool?
     var summaryTVCell           : MCAApplicationSummaryTVCell?
@@ -71,16 +72,17 @@ class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableVi
             case SavedApplicationForm.LoanDetails.rawValue:
                 self.title = "Loan Details"
                 fieldCount = selectedLoanApp.programInfo.loanDetailFieldCount
-                self.tableViewBottomConstraint.constant = 0.0
+                self.tableViewBottomConstraint.constant = 44.0
                 
             case SavedApplicationForm.BusinessInformation.rawValue:
                 self.title = "Business Information"
                 fieldCount = selectedLoanApp.businessInfo.fieldCount
-                self.tableViewBottomConstraint.constant = 0.0
+                self.tableViewBottomConstraint.constant = 44.0
 
             case SavedApplicationForm.BusinessAddress.rawValue:
                 self.title = "Business Address"
                 fieldCount = selectedLoanApp.address.addressFieldCount
+                self.tableViewBottomConstraint.constant = 84.0
 
             default:
                 break
@@ -322,4 +324,20 @@ class MCABusinessDetailVC: MCABaseViewController,UITableViewDataSource,UITableVi
 //            billingAddressCheckButton.isSelected = true;
 //        }
     }
+    
+    
+    @IBAction func nextButton()
+    {
+        
+        
+        parentDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parentDelegate.goToPrevious()
+        
+    }
+
 }

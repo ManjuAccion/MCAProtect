@@ -11,6 +11,7 @@ import UIKit
 class MCALiensPaymentsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate {
     
     var loanApplication : MCALoanApplication!
+    var parentDelegate: MCAApplicationFormVC!
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -139,5 +140,19 @@ class MCALiensPaymentsVC: MCABaseViewController,UITableViewDataSource,UITableVie
         return 5
     }
 
+    
+    @IBAction func nextButton()
+    {
+        
+        
+        parentDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parentDelegate.goToPrevious()
+        
+    }
 
 }

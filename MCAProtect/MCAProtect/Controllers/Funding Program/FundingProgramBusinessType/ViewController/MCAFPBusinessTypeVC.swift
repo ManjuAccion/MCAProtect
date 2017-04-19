@@ -17,7 +17,7 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var seacrhBar : MCACustomSearchBar!
     
     
-    var parendDelegate: MCAFPApplicationFormVC!
+    var parentDelegate: MCAFPApplicationFormVC!
     var noDataLabel             : UILabel!
     var fundingProgram          : MCAFundingProgram!
     var allowedBusinessNames    : [JSON] = []
@@ -206,13 +206,13 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
     {
         
         
-        parendDelegate.goToNext()
+        parentDelegate.goToNext()
     }
     
     @IBAction func previousButton()
     {
         
-        parendDelegate.goToPrevious()
+        parentDelegate.goToPrevious()
         
     }
 

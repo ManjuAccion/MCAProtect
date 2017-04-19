@@ -17,7 +17,7 @@ enum ApplicationCatagories : NSInteger {
 class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    var parendDelegate: MCAFPApplicationFormVC!
+    var parentDelegate: MCAFPApplicationFormVC!
 
    
     
@@ -196,13 +196,13 @@ class MCAFPApplicationDetailVC: MCABaseViewController,UITableViewDelegate,UITabl
         
    //     tableView.reloadData()
         
-        parendDelegate.goToNext()
+        parentDelegate.goToNext()
     }
     
     @IBAction func previousButton()
     {
         
-        parendDelegate.goToPrevious()
+        parentDelegate.goToPrevious()
 
     }
     /*

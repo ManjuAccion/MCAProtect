@@ -13,7 +13,7 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
     @IBOutlet weak var tableView : UITableView!
     var fundingProgram : MCAFundingProgram!
     var liensOrBankruptcy : MCAFPLiensOrBankruptcy!
-    var parendDelegate: MCAFPApplicationFormVC!
+    var parentDelegate: MCAFPApplicationFormVC!
 
 
     
@@ -138,13 +138,13 @@ class MCAFPLiensAndBankruptcyViewController: UIViewController,UITableViewDelegat
     @IBAction func nextButton()
     {
                 
-        parendDelegate.goToNext()
+        parentDelegate.goToNext()
     }
     
     @IBAction func previousButton()
     {
         
-        parendDelegate.goToPrevious()
+        parentDelegate.goToPrevious()
         
     }
 

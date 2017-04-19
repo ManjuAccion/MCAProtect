@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Use to Take Photo</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -23,7 +21,7 @@
 	<key>DEVELOPMENT</key>
 	<dict>
 		<key>BASE_URL</key>
-		<string>https://broker-qa.mcaprotect.org/api</string>
+		<string>https://broker-dev.mcaprotect.org/api</string>
 		<key>IMAGE_BASE_URL</key>
 		<string>https://broker-dev.mcaprotect.org</string>
 	</dict>
@@ -97,6 +95,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Use to Take Photo</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app requires access to the photo library.</string>
 	<key>PRODUCTION</key>

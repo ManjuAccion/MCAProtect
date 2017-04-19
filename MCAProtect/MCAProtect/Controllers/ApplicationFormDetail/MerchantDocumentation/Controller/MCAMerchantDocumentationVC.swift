@@ -12,6 +12,7 @@ class MCAMerchantDocumentationVC: MCABaseViewController,UITableViewDataSource,UI
     
     @IBOutlet weak var tableView: UITableView!
 
+    var parentDelegate: MCAApplicationFormVC!
     var merchantDocumentation : MCAMerchantDocumentation!
     var loanApplication : MCALoanApplication!
     var merchantDocumentationArray : [MCAMerchantDocumentation]!
@@ -54,6 +55,21 @@ class MCAMerchantDocumentationVC: MCABaseViewController,UITableViewDataSource,UI
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 96.0
+    }
+
+    
+    @IBAction func nextButton()
+    {
+        
+        
+        parentDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parentDelegate.goToPrevious()
+        
     }
 
 }

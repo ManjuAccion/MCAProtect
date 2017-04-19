@@ -12,6 +12,7 @@ class MCABankRecordsVC: MCABaseViewController,UITableViewDataSource,UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     
+    var parentDelegate: MCAApplicationFormVC!
     var applicationStatus : Int?
     var bankRecords : MCABankRecords!
     var bankRecordsArray : [MCABankRecords]!
@@ -77,4 +78,21 @@ class MCABankRecordsVC: MCABaseViewController,UITableViewDataSource,UITableViewD
     {
         return 75.0
     }
+    
+    
+    
+    @IBAction func nextButton()
+    {
+        
+        
+        parentDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parentDelegate.goToPrevious()
+        
+    }
+
 }

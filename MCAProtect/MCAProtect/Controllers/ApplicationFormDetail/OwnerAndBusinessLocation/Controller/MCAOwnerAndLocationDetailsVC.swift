@@ -12,6 +12,7 @@ class MCAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,
 
     @IBOutlet weak var tableView: UITableView!
 
+    var parentDelegate: MCAApplicationFormVC!
     var dataSourceArray : [AnyObject] = []
     
     var applicaionDetailType: NSInteger!
@@ -119,4 +120,20 @@ class MCAOwnerAndLocationDetailsVC: MCABaseViewController,UITableViewDataSource,
     {
         return 60.0
     }
+    
+    
+    @IBAction func nextButton()
+    {
+        
+        
+        parentDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parentDelegate.goToPrevious()
+        
+    }
+
 }

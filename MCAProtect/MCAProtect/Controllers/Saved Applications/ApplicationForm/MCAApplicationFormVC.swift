@@ -20,7 +20,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     var savedApplication    : MCASavedApplication!
     var loanApplication     : MCALoanApplication!
     
-    var selectedIndexpath   : IndexPath?
+    var selectedIndexpath   : IndexPath!
     var applicationStatus   : Int?
     var applicationId       : Int!
     var titleText           : String!
@@ -151,6 +151,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
             selectedCell.selectedView.isHidden = false
             selectedCell.backgroundColor = ColorConstants.selectedBackground
+            
             selectedIndexpath = indexPath
 
             switch indexPath.row {
@@ -160,7 +161,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                     savedApplicationDetailVC.selectedLoanApp = loanApplication
                     savedApplicationDetailVC.applicationStatus = applicationStatus
                     savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.LoanDetails.rawValue
-                    
+                    savedApplicationDetailVC.parentDelegate = self;
                     
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
                 case SavedApplicationForm.BusinessInformation.rawValue:
@@ -169,6 +170,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                     savedApplicationDetailVC.selectedLoanApp = loanApplication
                     savedApplicationDetailVC.applicationStatus = applicationStatus
                     savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessInformation.rawValue
+                    savedApplicationDetailVC.parentDelegate = self;
 
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
                 case SavedApplicationForm.BusinessAddress.rawValue:
@@ -177,17 +179,20 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                     savedApplicationDetailVC.selectedLoanApp = loanApplication
                     savedApplicationDetailVC.applicationStatus = applicationStatus
                     savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessAddress.rawValue
+                    savedApplicationDetailVC.parentDelegate = self;
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
                 case SavedApplicationForm.LiensOrPaymentsOrBankruptcy.rawValue:
                     let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                     let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCALiensPaymentsVC) as! MCALiensPaymentsVC
                     savedApplicationDetailVC.loanApplication = loanApplication
+                    savedApplicationDetailVC.parentDelegate = self;
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
                 case SavedApplicationForm.MerchantDocumentation.rawValue:
                     let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                     let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantDocumentationVC) as! MCAMerchantDocumentationVC
                     savedApplicationDetailVC.loanApplication = loanApplication
+                    savedApplicationDetailVC.parentDelegate = self;
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
                     
                 case SavedApplicationForm.BankRecords.rawValue:
@@ -195,12 +200,14 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                     let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABankRecordsVC) as! MCABankRecordsVC
                     savedApplicationDetailVC.applicationStatus = applicationStatus
                     savedApplicationDetailVC.loanApplication = loanApplication
+                    savedApplicationDetailVC.parentDelegate = self;
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
                 case SavedApplicationForm.MCALoans.rawValue:
                     let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
                     let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCALoansVC) as! MCALoansVC
                     savedApplicationDetailVC.applicationStatus = applicationStatus
                     savedApplicationDetailVC.loanApplication = loanApplication
+                    savedApplicationDetailVC.parentDelegate = self;
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
                 case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
@@ -209,6 +216,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                     savedApplicationDetailVC.loanApplication = loanApplication
                     savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.OwnerOrOfficerInformation.rawValue
                     savedApplicationDetailVC.applicationStatus = applicationStatus
+                    savedApplicationDetailVC.parentDelegate = self;
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
                 case SavedApplicationForm.BusinessLocation.rawValue:
@@ -217,6 +225,7 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
                     savedApplicationDetailVC.loanApplication = loanApplication
                     savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessLocation.rawValue
                     savedApplicationDetailVC.applicationStatus = applicationStatus
+                    savedApplicationDetailVC.parentDelegate = self;
                     navigationController?.pushViewController(savedApplicationDetailVC, animated: true)
 
                 default:
@@ -236,6 +245,269 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         return 60.0
     }
 
+
+    func goToNext(){
+        
+        let indexPath = selectedIndexpath! as IndexPath
+        
+        if(indexPath.row == dataDataSource.count) {
+            return
+        }
+        
+        selectedIndexpath.row = selectedIndexpath.row + 1
+
+        switch indexPath.row + 1 {
+        case SavedApplicationForm.LoanDetails.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABusinessDetailVC) as! MCABusinessDetailVC
+            savedApplicationDetailVC.selectedLoanApp = loanApplication
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.LoanDetails.rawValue
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.BusinessInformation.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABusinessDetailVC) as! MCABusinessDetailVC
+            savedApplicationDetailVC.selectedLoanApp = loanApplication
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessInformation.rawValue
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.BusinessAddress.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABusinessDetailVC) as! MCABusinessDetailVC
+            savedApplicationDetailVC.selectedLoanApp = loanApplication
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessAddress.rawValue
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.LiensOrPaymentsOrBankruptcy.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCALiensPaymentsVC) as! MCALiensPaymentsVC
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.MerchantDocumentation.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantDocumentationVC) as! MCAMerchantDocumentationVC
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.BankRecords.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABankRecordsVC) as! MCABankRecordsVC
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.MCALoans.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCALoansVC) as! MCALoansVC
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAOwnerAndLocationDetailsVC) as! MCAOwnerAndLocationDetailsVC
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.OwnerOrOfficerInformation.rawValue
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.BusinessLocation.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAOwnerAndLocationDetailsVC) as! MCAOwnerAndLocationDetailsVC
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessLocation.rawValue
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        default:
+            break
+            
+        }
+    }
     
+    func goToPrevious(){
+        
+
+        let indexPath = selectedIndexpath! as IndexPath
+        
+        if(indexPath.row == 1) {
+            return
+        }
+        
+        selectedIndexpath.row = selectedIndexpath.row-1
+        
+        switch indexPath.row-1 {
+        case SavedApplicationForm.LoanDetails.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABusinessDetailVC) as! MCABusinessDetailVC
+            savedApplicationDetailVC.selectedLoanApp = loanApplication
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.LoanDetails.rawValue
+            savedApplicationDetailVC.parentDelegate = self;
+            
+
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+
+        case SavedApplicationForm.BusinessInformation.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABusinessDetailVC) as! MCABusinessDetailVC
+            savedApplicationDetailVC.selectedLoanApp = loanApplication
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessInformation.rawValue
+            savedApplicationDetailVC.parentDelegate = self;
+            
+
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+
+        case SavedApplicationForm.BusinessAddress.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABusinessDetailVC) as! MCABusinessDetailVC
+            savedApplicationDetailVC.selectedLoanApp = loanApplication
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessAddress.rawValue
+            savedApplicationDetailVC.parentDelegate = self;
+
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+
+        case SavedApplicationForm.LiensOrPaymentsOrBankruptcy.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCALiensPaymentsVC) as! MCALiensPaymentsVC
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.parentDelegate = self;
+
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+
+        case SavedApplicationForm.MerchantDocumentation.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantDocumentationVC) as! MCAMerchantDocumentationVC
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.parentDelegate = self;
+
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+
+        case SavedApplicationForm.BankRecords.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCABankRecordsVC) as! MCABankRecordsVC
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.parentDelegate = self;
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        case SavedApplicationForm.MCALoans.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier:VCIdentifiers.MCALoansVC) as! MCALoansVC
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.parentDelegate = self;
+
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+
+        case SavedApplicationForm.OwnerOrOfficerInformation.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAOwnerAndLocationDetailsVC) as! MCAOwnerAndLocationDetailsVC
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.OwnerOrOfficerInformation.rawValue
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.parentDelegate = self;
+
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+
+        case SavedApplicationForm.BusinessLocation.rawValue:
+            let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
+            let savedApplicationDetailVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAOwnerAndLocationDetailsVC) as! MCAOwnerAndLocationDetailsVC
+            savedApplicationDetailVC.loanApplication = loanApplication
+            savedApplicationDetailVC.applicaionDetailType = SavedApplicationForm.BusinessLocation.rawValue
+            savedApplicationDetailVC.applicationStatus = applicationStatus
+            savedApplicationDetailVC.parentDelegate = self;
+            
+            
+            var navStackArray : [AnyObject]! = self.navigationController!.viewControllers
+            navStackArray.remove(at: navStackArray.count - 1)
+            navStackArray.append(savedApplicationDetailVC)
+            self.navigationController!.setViewControllers(navStackArray as! [MCABaseViewController], animated:false)
+            
+        default:
+            break
+            
+        }
+    }
+    
+
     
 }

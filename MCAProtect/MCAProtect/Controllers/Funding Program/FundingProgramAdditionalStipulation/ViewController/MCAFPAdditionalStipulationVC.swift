@@ -12,7 +12,7 @@ class MCAFPAdditionalStipulationVC: MCABaseViewController,UITableViewDataSource,
     @IBOutlet weak var tableView: UITableView!
     
      var dataSourceArray : [String] = ["POI","POA","Bank Statements"]
-    var parendDelegate: MCAFPApplicationFormVC!
+    var parentDelegate: MCAFPApplicationFormVC!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +56,13 @@ class MCAFPAdditionalStipulationVC: MCABaseViewController,UITableViewDataSource,
     {
        
         
-        parendDelegate.goToNext()
+        parentDelegate.goToNext()
     }
     
     @IBAction func previousButton()
     {
         
-        parendDelegate.goToPrevious()
+        parentDelegate.goToPrevious()
         
     }
 

@@ -15,6 +15,7 @@ class MCALoansVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var pastLoanStatusImageView: UIImageView!
     @IBOutlet weak var existingLoanDetailsContainerView: UIView!
     @IBOutlet weak var existingLoanDetailsLabel: UILabel!
+    var parentDelegate: MCAApplicationFormVC!
     
     var applicationStatus   : Int?
     var selectedIndexpath : IndexPath?
@@ -106,5 +107,20 @@ class MCALoansVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSourc
 
         navigationController?.pushViewController(loanDetailsVC, animated: true)
     }
+    
+    @IBAction func nextButton()
+    {
+        
+        
+        parentDelegate.goToNext()
+    }
+    
+    @IBAction func previousButton()
+    {
+        
+        parentDelegate.goToPrevious()
+        
+    }
+
 
 }
