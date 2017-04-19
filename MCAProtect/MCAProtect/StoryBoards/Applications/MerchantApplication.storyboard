@@ -155,12 +155,15 @@
                                     <outlet property="delegate" destination="u97-GL-beL" id="6Cn-lb-qr3"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transparentBg" translatesAutoresizingMaskIntoConstraints="NO" id="Btu-q2-y6r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJH-tm-uxh">
                                 <rect key="frame" x="15" y="69" width="345" height="529"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqU-0c-kN7">
                                         <rect key="frame" x="301" y="8" width="30" height="30"/>
-                                        <state key="normal" image="iconDelete"/>
+                                        <state key="normal" image="iconDelete_white"/>
                                         <connections>
                                             <action selector="closePopUpView" destination="u97-GL-beL" eventType="touchUpInside" id="h3C-sm-s8F"/>
                                         </connections>
@@ -170,7 +173,7 @@
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </webView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.65278063320000002" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="2TM-ye-9RF" secondAttribute="bottom" constant="8" id="AAz-B7-GKc"/>
                                     <constraint firstAttribute="trailing" secondItem="2TM-ye-9RF" secondAttribute="trailing" constant="6" id="cf2-sd-Udp"/>
@@ -190,11 +193,15 @@
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Cxz-1G-XZh" firstAttribute="top" secondItem="ZJH-tm-uxh" secondAttribute="bottom" constant="69" id="4fc-SJ-zH7"/>
+                            <constraint firstItem="Btu-q2-y6r" firstAttribute="leading" secondItem="Mkx-N9-EgC" secondAttribute="leading" id="5bR-kO-PKa"/>
                             <constraint firstItem="Cxz-1G-XZh" firstAttribute="top" secondItem="zJX-YH-XwZ" secondAttribute="bottom" id="Dny-oG-zSP"/>
                             <constraint firstItem="ZJH-tm-uxh" firstAttribute="leading" secondItem="Mkx-N9-EgC" secondAttribute="leading" constant="15" id="JNH-xW-2Um"/>
                             <constraint firstItem="zJX-YH-XwZ" firstAttribute="leading" secondItem="Mkx-N9-EgC" secondAttribute="leading" id="Mbg-pa-o67"/>
+                            <constraint firstAttribute="trailing" secondItem="Btu-q2-y6r" secondAttribute="trailing" id="PRb-OZ-lxx"/>
                             <constraint firstItem="zJX-YH-XwZ" firstAttribute="top" secondItem="Mkx-N9-EgC" secondAttribute="top" id="WjF-Fa-T9j"/>
+                            <constraint firstItem="Btu-q2-y6r" firstAttribute="top" secondItem="Mkx-N9-EgC" secondAttribute="top" id="Zff-5B-QKi"/>
                             <constraint firstItem="ZJH-tm-uxh" firstAttribute="top" secondItem="yxg-VI-Obl" secondAttribute="bottom" constant="49" id="jRZ-z4-1Bc"/>
+                            <constraint firstItem="Cxz-1G-XZh" firstAttribute="top" secondItem="Btu-q2-y6r" secondAttribute="bottom" id="kUV-r0-6Rw"/>
                             <constraint firstAttribute="trailing" secondItem="zJX-YH-XwZ" secondAttribute="trailing" id="qxB-mE-V5A"/>
                             <constraint firstAttribute="trailing" secondItem="ZJH-tm-uxh" secondAttribute="trailing" constant="15" id="rHb-dO-ONb"/>
                         </constraints>
@@ -202,6 +209,7 @@
                     <connections>
                         <outlet property="popUpView" destination="ZJH-tm-uxh" id="OpA-I7-xm2"/>
                         <outlet property="tableView" destination="zJX-YH-XwZ" id="AIS-Hb-sBW"/>
+                        <outlet property="transparentImageView" destination="Btu-q2-y6r" id="3re-oh-Q9G"/>
                         <outlet property="webView" destination="2TM-ye-9RF" id="eSb-4N-iA4"/>
                     </connections>
                 </viewController>
@@ -212,7 +220,8 @@
     </scenes>
     <resources>
         <image name="iconCopyApplication" width="20" height="20"/>
-        <image name="iconDelete" width="30" height="30"/>
+        <image name="iconDelete_white" width="30" height="30"/>
         <image name="iconViewApplication" width="22" height="22"/>
+        <image name="transparentBg" width="512" height="512"/>
     </resources>
 </document>

@@ -14,6 +14,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var popUpView : UIView!
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var transparentImageView : UIImageView!
 
     
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
@@ -31,6 +32,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         tableView.register(UINib(nibName: "MCASubmitStipulationsCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCASubmitStipulationsCell)
         self.title = merchantApplicationDetail.businessName
         popUpView.alpha = 0.0
+        transparentImageView.alpha = 0.0
         getDocumentsList()
     }
     
@@ -120,6 +122,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         
         self.popUpView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.popUpView.alpha = 0.0
+        self.transparentImageView.alpha = 1.0
         UIView.animate(withDuration: 0.25, animations: {
             self.popUpView.alpha = 1.0
             self.popUpView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -128,6 +131,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     
     func removeAnimate()
     {
+        self.transparentImageView.alpha = 0.0
         UIView.animate(withDuration: 0.25, animations: {
             self.popUpView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self.popUpView.alpha = 0.0
