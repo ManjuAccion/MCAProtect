@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCASubmitStipulationsCellDelegate {
+class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCASubmitStipulationsCellDelegate,UIWebViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var popUpView : UIView!
@@ -17,6 +17,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     @IBOutlet weak var transparentImageView : UIImageView!
 
     
+    @IBOutlet weak var webViewLoadingIndicator: UIActivityIndicatorView!
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
 
     
@@ -33,6 +34,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         self.title = merchantApplicationDetail.businessName
         popUpView.alpha = 0.0
         transparentImageView.alpha = 0.0
+        webViewLoadingIndicator.isHidden = true
         getDocumentsList()
     }
     
@@ -143,5 +145,25 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     removeAnimate()
     
     }
+    
+    
+    public func webViewDidStartLoad(_ webView: UIWebView){
+        
+        webViewLoadingIndicator.isHidden = false
+        webViewLoadingIndicator.startAnimating()
+    }
+    
+    public func webViewDidFinishLoad(_ webView: UIWebView){
+        webViewLoadingIndicator.isHidden = true
+        webViewLoadingIndicator.stopAnimating()
+    }
+    
+    public func webView(_ webView: UIWebView, didFailLoadWithError error: Error){
+        webViewLoadingIndicator.stopAnimating()
+        webViewLoadingIndicator.isHidden = true
+    }
+
+    
+    
     
   }
