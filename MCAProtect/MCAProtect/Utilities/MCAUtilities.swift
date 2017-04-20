@@ -146,5 +146,16 @@ class MCAUtilities: NSObject {
         
     }
     
+    static func emptyDataLabel(rect:CGRect) -> UILabel {
+        
+        let noDataLabel  = UILabel(frame: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height))
+        noDataLabel.text = "No Data Available"
+        noDataLabel.textColor = UIColor(red: 45.0/255.0, green: 57.0/255.0, blue: 67.0/255.0, alpha: 1.0)
+        noDataLabel.textAlignment = NSTextAlignment.center
+        noDataLabel.isHidden = true
+        
+        return noDataLabel
+    }
+    
     
 }

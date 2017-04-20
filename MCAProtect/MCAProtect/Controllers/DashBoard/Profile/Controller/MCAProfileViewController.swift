@@ -74,8 +74,8 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
             if let url =  self.mcaUser.brokerImageUrl {
                 self.profileImageView.setIndicatorStyle(.gray)
                 self.profileImageView.setShowActivityIndicator(true)
-                let imageUrl = NSURL(string : url)
-                self.profileImageView.sd_setImage(with: imageUrl as URL!)
+                let imageUrl = URL(string : url)
+                self.profileImageView.sd_setImage(with: imageUrl)
                
             }
  
@@ -210,28 +210,34 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     
         self.showActivityIndicator()
 
+       
         let data = UIImageJPEGRepresentation(profileImage, 80)
-        // Save cloned image into document directory
         
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.jpg")
-        
         do {
             try data?.write(to: fileURL, options: .atomic)
         } catch {
             print(error)
         }
         
-        var paramDict  = Dictionary<String,Any>()
-        paramDict["file"] = fileURL
+     //   let url = URL.
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.image =  profileImage
         
-        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:paramDict,
+        
+//        var paramDict  = Dictionary<String,Any>()
+//        paramDict["file"] = fileURL
+        
+        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:[:],
                                                                         endPoint:"",imageData: data!
             , successCallBack:{ (response : JSON!) in
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
                 self.imageUrlString = response["image_url"].stringValue
-                MCASessionManager.sharedSessionManager.mcapUser.brokerImageUrl = self.imageUrlString
+                self.mcaUser.brokerImageUrl = self.imageUrlString
+                self.profileImageView.sd_setImage(with: URL(string : self.imageUrlString))
+                
                 
         },
               failureCallBack: { (error : Error) in
@@ -243,8 +249,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 
         })
         
-        profileImageView.contentMode = .scaleAspectFit
-        profileImageView.image = profileImage
+    
         dismiss(animated:true, completion: nil)
     }
 

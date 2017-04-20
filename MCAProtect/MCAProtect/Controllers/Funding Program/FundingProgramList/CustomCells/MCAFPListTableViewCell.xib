@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="Iv6-xN-Eg0" customClass="MCAFPListTableViewCell" customModule="MCAProtect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iv6-xN-Eg0" id="8S8-C6-KlE">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Jewellery Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70d-pd-uEO">
+                        <rect key="frame" x="15" y="8" width="319" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="319" id="PVg-qe-eiH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMm-vW-rrB">
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="90"/>
+                        <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="iV2-g3-jGv"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helen Rock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPy-GI-U6f">
+                        <rect key="frame" x="15" y="35" width="319" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="EAL-O2-3Co"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
+                        <color key="textColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$60,00000000000000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkx-Sp-RQZ">
+                        <rect key="frame" x="15" y="62" width="319" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="C6P-cx-mQc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                        <color key="textColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="70d-pd-uEO" firstAttribute="top" secondItem="8S8-C6-KlE" secondAttribute="topMargin" id="1zf-Ia-Rn8"/>
+                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="trailing" secondItem="cPy-GI-U6f" secondAttribute="trailing" id="6j0-4H-Yvu"/>
+                    <constraint firstItem="cPy-GI-U6f" firstAttribute="trailing" secondItem="8S8-C6-KlE" secondAttribute="trailingMargin" id="A4R-qX-ykB"/>
+                    <constraint firstItem="cPy-GI-U6f" firstAttribute="trailing" secondItem="70d-pd-uEO" secondAttribute="trailing" id="BcU-NX-Dj4"/>
+                    <constraint firstItem="70d-pd-uEO" firstAttribute="leading" secondItem="cPy-GI-U6f" secondAttribute="leading" id="GBC-IG-5Ik"/>
+                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="trailing" secondItem="70d-pd-uEO" secondAttribute="trailing" id="JLk-9q-uGP"/>
+                    <constraint firstItem="cPy-GI-U6f" firstAttribute="leading" secondItem="SMm-vW-rrB" secondAttribute="trailing" constant="11" id="MbK-MC-FnB"/>
+                    <constraint firstAttribute="bottom" secondItem="SMm-vW-rrB" secondAttribute="bottom" id="MiW-Aj-USF"/>
+                    <constraint firstItem="SMm-vW-rrB" firstAttribute="top" secondItem="8S8-C6-KlE" secondAttribute="top" id="PR2-Dh-uoH"/>
+                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="top" secondItem="cPy-GI-U6f" secondAttribute="bottom" constant="9" id="gD8-r2-xJx"/>
+                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="trailing" secondItem="70d-pd-uEO" secondAttribute="trailing" id="rMZ-jh-c4z"/>
+                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="leading" secondItem="70d-pd-uEO" secondAttribute="leading" id="t7W-uI-ND4"/>
+                    <constraint firstItem="cPy-GI-U6f" firstAttribute="top" secondItem="70d-pd-uEO" secondAttribute="bottom" constant="10" id="vHv-Ud-Ct0"/>
+                    <constraint firstItem="SMm-vW-rrB" firstAttribute="leading" secondItem="8S8-C6-KlE" secondAttribute="leading" id="wZP-lW-h5k"/>
+                    <constraint firstItem="cPy-GI-U6f" firstAttribute="leading" secondItem="70d-pd-uEO" secondAttribute="leading" id="zpy-Vz-NKU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="amountRangeLabel" destination="Xkx-Sp-RQZ" id="tdi-ZH-jOT"/>
+                <outlet property="contactNameLabel" destination="cPy-GI-U6f" id="nwe-jB-KbV"/>
+                <outlet property="fundingProgramName" destination="70d-pd-uEO" id="yDh-FM-hzD"/>
+                <outlet property="selectedView" destination="SMm-vW-rrB" id="JK4-6i-5pS"/>
+            </connections>
+            <point key="canvasLocation" x="-519" y="-89.5"/>
+        </tableViewCell>
+    </objects>
+</document>

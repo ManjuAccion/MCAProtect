@@ -25,7 +25,7 @@ class MCAFPApplicationFormVC: MCABaseViewController,UITableViewDelegate,UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Syndicate Premium";
+        self.title = fundingProgram.fundingProgramName
 
         // Do any additional setup after loading the view.
         

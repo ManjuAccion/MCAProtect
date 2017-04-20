@@ -167,7 +167,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         
         let rotation : CABasicAnimation = CABasicAnimation(keyPath:"transform.rotation.y")
         
-        rotation.duration = 1.0
+        rotation.duration = 0.5
         rotation.isRemovedOnCompletion = false
         rotation.repeatCount = HUGE
         rotation.fillMode = kCAFillModeForwards

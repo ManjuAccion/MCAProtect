@@ -62,6 +62,8 @@
 		5BB3E6091E8293A800A67927 /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3E5F71E8293A800A67927 /* SecureInputView.swift */; };
 		5BBA63581E97D1A200C0F131 /* MCALiensHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA63561E97D1A200C0F131 /* MCALiensHeaderTableViewCell.swift */; };
 		5BBA63591E97D1A200C0F131 /* MCALiensHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BBA63571E97D1A200C0F131 /* MCALiensHeaderTableViewCell.xib */; };
+		5BBD52A31EA8CA8700C368EA /* MCAFPListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD52A11EA8CA8700C368EA /* MCAFPListTableViewCell.swift */; };
+		5BBD52A41EA8CA8700C368EA /* MCAFPListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD52A21EA8CA8700C368EA /* MCAFPListTableViewCell.xib */; };
 		5BD2D0F11EA5047B00171147 /* MCABusinessTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD2D0EF1EA5047B00171147 /* MCABusinessTypeTableViewCell.swift */; };
 		5BD2D0F21EA5047B00171147 /* MCABusinessTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD2D0F01EA5047B00171147 /* MCABusinessTypeTableViewCell.xib */; };
 		5BD4EA371E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4EA361E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift */; };
@@ -278,6 +280,8 @@
 		5BB3E5F71E8293A800A67927 /* SecureInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
 		5BBA63561E97D1A200C0F131 /* MCALiensHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALiensHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		5BBA63571E97D1A200C0F131 /* MCALiensHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCALiensHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		5BBD52A11EA8CA8700C368EA /* MCAFPListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPListTableViewCell.swift; sourceTree = "<group>"; };
+		5BBD52A21EA8CA8700C368EA /* MCAFPListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAFPListTableViewCell.xib; sourceTree = "<group>"; };
 		5BD2D0EF1EA5047B00171147 /* MCABusinessTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessTypeTableViewCell.swift; sourceTree = "<group>"; };
 		5BD2D0F01EA5047B00171147 /* MCABusinessTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCABusinessTypeTableViewCell.xib; sourceTree = "<group>"; };
 		5BD4EA361E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -564,6 +568,8 @@
 		5B1F8D691E83ABE700BD53F2 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				5BBD52A11EA8CA8700C368EA /* MCAFPListTableViewCell.swift */,
+				5BBD52A21EA8CA8700C368EA /* MCAFPListTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -2216,6 +2222,7 @@
 				BAC6AE2D1E824E700047F7D3 /* MatchedFundingProgram.storyboard in Resources */,
 				CE0DCCA61E9F4D29003C5A97 /* MCABankRecordsTVCell.xib in Resources */,
 				BAC6AD9E1E81020A0047F7D3 /* MCASavedApplicationsListTVCell.xib in Resources */,
+				5BBD52A41EA8CA8700C368EA /* MCAFPListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2415,6 +2422,7 @@
 				BAC6AD9D1E81020A0047F7D3 /* MCASavedApplicationsListTVCell.swift in Sources */,
 				5B90494E1E72881A00A49A50 /* MCAFundingProgramDetailsVC.swift in Sources */,
 				5B1F8D741E83ACC900BD53F2 /* MCAFundingProgram.swift in Sources */,
+				5BBD52A31EA8CA8700C368EA /* MCAFPListTableViewCell.swift in Sources */,
 				BAC6AE0D1E824B7F0047F7D3 /* MCANewChatTVCell.swift in Sources */,
 				CE0DCCA51E9F4D29003C5A97 /* MCABankRecordsTVCell.swift in Sources */,
 				BAC6AE681E8250F90047F7D3 /* MCAPerformanceComparisonVS.swift in Sources */,

@@ -31,7 +31,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
         pageCount = 0;
         getFundingProgramList()
         
-        tableView.register(UINib(nibName: "MCAApplicationTVCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAApplicationTVCell)
+        tableView.register(UINib(nibName: "MCAFPListTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: CellIdentifiers.MCAFPListTableViewCell)
         tableView.tableFooterView = UIView()
     }
     
@@ -114,18 +114,14 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAApplicationTVCell", for: indexPath) as! MCAApplicationTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MCAFPListTableViewCell", for: indexPath) as! MCAFPListTableViewCell
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         let fundingPgram = displayList[indexPath.row]
         
         cell.dataSource(data: fundingPgram)
-        cell.rightButton.isHidden = false
-        cell.emailButton.isHidden = true
-        cell.phoneNumberButton.isHidden = true
-        cell.rightButton .setImage(UIImage(named : "iconCheckRound"), for: UIControlState.normal)
         
-        cell.delegate = self;
+    //    cell.delegate = self;
         
         return cell
     }
@@ -150,7 +146,7 @@ class MCAFundingProgramListViewController: MCABaseViewController,UITableViewData
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 70.0
+        return 90.0
     }
     
     

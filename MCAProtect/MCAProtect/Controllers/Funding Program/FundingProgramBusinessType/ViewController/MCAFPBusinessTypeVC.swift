@@ -33,13 +33,13 @@ class MCAFPBusinessTypeVC: MCABaseViewController,UITableViewDelegate,UITableView
         self.title = "Business Types"
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+        /*
         noDataLabel  = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: tableView.bounds.size.height))
         noDataLabel.text = "No Data Available"
         noDataLabel.textColor = UIColor(red: 45.0/255.0, green: 57.0/255.0, blue: 67.0/255.0, alpha: 1.0)
         noDataLabel.textAlignment = NSTextAlignment.center
-        noDataLabel.isHidden = true
-        self.tableView.backgroundView = noDataLabel
+        noDataLabel.isHidden = true*/
+        self.tableView.backgroundView = MCAUtilities.emptyDataLabel(rect: tableView.frame)
         self.tableView.separatorStyle = .none
         
         seacrhBar.delegate = self

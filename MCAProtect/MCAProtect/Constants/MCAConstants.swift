@@ -60,6 +60,8 @@ struct CellIdentifiers {
     static let MCABankruptcyTVCell                      = "MCABankruptcyTVCell"
     static let MCALoansTVCell                           = "MCALoansTVCell"
     static let MCALiensHeaderTableViewCell              = "MCALiensHeaderTableViewCell"
+    static let MCAFPListTableViewCell                   = "MCAFPListTableViewCell"
+
 
 }
 
