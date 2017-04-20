@@ -233,7 +233,7 @@ enum BusinessInformationKeys : String {
 
 enum BusinessAddressKeys : String {
     
-    case street     = "Street"
+    case street     = "Street Address"
     case city       = "City"
     case state      = "State"
     case zipCode    = "Zip Code"

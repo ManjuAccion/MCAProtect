@@ -162,7 +162,7 @@ class MCABusinessInformation: NSObject {
             modelValue = bankruptcySatisfied == true ? "Yes" : "No"
             
         case .dateOfDischarge :
-            modelValue = bankruptcyDischargeDate as! String!
+            modelValue = MCAUtilities.mmddyyyyFormatterFromString(inputString: bankruptcyDischargeDate as! String!)  /*bankruptcyDischargeDate as! String!*/
         }
         return modelValue.validatedString()
     }
