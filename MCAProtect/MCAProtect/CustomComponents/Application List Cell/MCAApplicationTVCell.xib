@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="342" height="96"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nVF-hF-O5o" id="ciV-9Q-FeS">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="95"/>
+                <rect key="frame" x="0.0" y="0.0" width="342" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jewellery Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eL-3U-XqE">
@@ -56,8 +56,8 @@
                             <action selector="rightButtonTapped:" destination="nVF-hF-O5o" eventType="touchUpInside" id="7my-G0-mC1"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTF-Ld-tTH">
-                        <rect key="frame" x="15" y="62.5" width="111" height="29"/>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTF-Ld-tTH">
+                        <rect key="frame" x="15" y="63" width="199" height="29"/>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <state key="normal" title="halen@gmail.com">
                             <color key="titleColor" red="0.20000000000000001" green="0.47843137254901957" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,6 +110,7 @@
                     <constraint firstItem="BTF-Ld-tTH" firstAttribute="leading" secondItem="ouI-6m-fEr" secondAttribute="trailing" constant="11" id="SMh-5a-cOR"/>
                     <constraint firstItem="ouI-6m-fEr" firstAttribute="top" secondItem="ciV-9Q-FeS" secondAttribute="top" id="Zzy-Pc-vHd"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ARl-H4-MbH" secondAttribute="trailing" constant="45" id="d7p-Op-Tmx"/>
+                    <constraint firstItem="OoS-jG-8ew" firstAttribute="leading" secondItem="BTF-Ld-tTH" secondAttribute="trailing" constant="8" id="dog-iE-Oc3"/>
                     <constraint firstItem="1eL-3U-XqE" firstAttribute="leading" secondItem="ouI-6m-fEr" secondAttribute="trailing" constant="11" id="ki7-Sn-nku"/>
                     <constraint firstItem="ARl-H4-MbH" firstAttribute="top" secondItem="j9d-GZ-cAj" secondAttribute="bottom" constant="9.5" id="mYg-lI-Vhh"/>
                     <constraint firstItem="BTF-Ld-tTH" firstAttribute="top" secondItem="OoS-jG-8ew" secondAttribute="top" id="smm-Lx-6Ht"/>
