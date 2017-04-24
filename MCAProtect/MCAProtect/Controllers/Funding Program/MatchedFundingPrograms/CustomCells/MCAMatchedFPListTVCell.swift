@@ -13,7 +13,7 @@ protocol MatchedFundingProgramCellDelegate
     func programSelected(buttonTag : Int)
     func programDeSelected(buttonTag : Int)
     func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
-    func setUpsellRate(object : MCAMatchedFundingProgram)
+    func setUpsellRate(object : MCAFundingProgram)
 
 }
 
@@ -21,15 +21,24 @@ class MCAMatchedFPListTVCell: UITableViewCell {
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var checkButton : UIButton!
     @IBOutlet weak var loanRangeLabel : UILabel!
+    @IBOutlet weak var loanRangeSubTitleLabel : UILabel!
+
+    
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var upsellRateButton: UIButton!
     @IBOutlet weak var logoImgView: UIImageView!
+    @IBOutlet weak var termLabel : UILabel!
+    @IBOutlet weak var maxUpsellLabel : UILabel!
+    @IBOutlet weak var buyRateLabel : UILabel!
+    @IBOutlet weak var totalRatelLabel : UILabel!
+
+    
 
     
     var indexPath : NSIndexPath!
     
     var shouldShowDetails : Bool?
-    var selectedFundingProgram : MCAMatchedFundingProgram!
+    var selectedFundingProgram : MCAFundingProgram!
     var delegate : MatchedFundingProgramCellDelegate?
     
     override func awakeFromNib() {
@@ -46,18 +55,31 @@ class MCAMatchedFPListTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    @IBAction func showDetails(_ sender: Any)
-    {
-        delegate?.showDetailOfFundingProgram(matchedFP: selectedFundingProgram)
-    }
+//    @IBAction func showDetails(_ sender: Any)
+//    {
+//        delegate?.showDetailOfFundingProgram(matchedFP: selectedFundingProgram)
+//    }
     
-    func updateDataSource(matchedFundingProgramObject : MCAMatchedFundingProgram)  {
+    func updateDataSource(matchedFundingProgramObject : MCAFundingProgram)  {
         
         selectedFundingProgram = matchedFundingProgramObject;
         
-        titleLabel.text = matchedFundingProgramObject.funderName! as String
-        loanRangeLabel.text = matchedFundingProgramObject.loanRange! as String
-        upsellRateButton .setTitle(matchedFundingProgramObject.upsellRate! as String, for: UIControlState.normal)
+        titleLabel.text = matchedFundingProgramObject.fundingProgramName! as String
+        let range  = MCAUtilities.currencyFormatter(inputItem: matchedFundingProgramObject.minimumLoan as AnyObject) as String! + " to " + MCAUtilities.currencyFormatter(inputItem: matchedFundingProgramObject.maximumLoan as AnyObject) as String!
+        loanRangeLabel.text = range
+        
+        loanRangeSubTitleLabel.text = range
+
+        
+        totalRatelLabel.text = matchedFundingProgramObject.buyRate
+        maxUpsellLabel.text = matchedFundingProgramObject.maxUpsellRate
+        termLabel.text = matchedFundingProgramObject.term
+        let imageUrl = URL.init(string: matchedFundingProgramObject.programImage)
+        logoImgView.sd_setImage(with: imageUrl)
+        logoImgView.setIndicatorStyle(.gray)
+        logoImgView.setShowActivityIndicator(true)
+        
+        upsellRateButton .setTitle(matchedFundingProgramObject.buyRate! as String, for: UIControlState.normal)
         if matchedFundingProgramObject.isSelected! {
             checkButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
             checkButton.isSelected = true;
@@ -92,9 +114,8 @@ class MCAMatchedFPListTVCell: UITableViewCell {
     }
     
     @IBAction func upsellRateBtnTapped()
-    {
-        self.delegate?.setUpsellRate(object: selectedFundingProgram)
-        
-    }
+    {        self.delegate?.setUpsellRate(object: selectedFundingProgram)
+    
+   }
     
 }

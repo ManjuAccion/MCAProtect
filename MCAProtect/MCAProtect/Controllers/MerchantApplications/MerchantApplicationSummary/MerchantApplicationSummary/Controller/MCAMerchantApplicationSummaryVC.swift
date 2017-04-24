@@ -170,6 +170,9 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMatchedFundingProgram, bundle: Bundle.main)
         let matchedFundingProgramVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMatchedFundingProgramVC) as! MCAMatchedFundingProgramVC
         matchedFundingProgramVC.applicationState = self.applicationState
+        matchedFundingProgramVC.applicationId = self.merchantApplicationDetail.applicationID
+        matchedFundingProgramVC.merchantApplicationDetails = self.merchantApplicationDetail
+
         navigationController?.pushViewController(matchedFundingProgramVC, animated: true)
     }
     

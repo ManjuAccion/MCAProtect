@@ -23,6 +23,9 @@ class MCAFundingProgram: NSObject {
     var maximumLoan : Float!
     var email : String!
     var phoneNumber : String!
+    var maxUpsellRate : String!
+
+    var programImage : String!
     var FPProgramInformation : MCAFPProgramInformation!
     var FPMerchantRquirement : MCAFPMerchantRquirement!
     var FPLiensOrBankruptcy : MCAFPLiensOrBankruptcy!
@@ -36,6 +39,7 @@ class MCAFundingProgram: NSObject {
             
             fundingProgramName      = data["program_type"].stringValue
             contactName             = data["lender"]["contact_name"].stringValue
+            programImage             = data["lender"]["image_url"].stringValue
             term                    = data["max_duration"].stringValue
             timeInBuisness          = data["min_avg_deposit_months"].stringValue
             buyRate                 = data["interest"].stringValue
@@ -43,6 +47,7 @@ class MCAFundingProgram: NSObject {
             minimumLoan             = data["min_deal_size"].floatValue
             maximumLoan             = data["max_deal_size"].floatValue
             funderId                = data["id"].intValue
+            maxUpsellRate            = data["allowed_broker_commision"].stringValue
             FPProgramInformation    = MCAFPProgramInformation(data : data)
             FPMerchantRquirement    = MCAFPMerchantRquirement(data : data)
             FPLiensOrBankruptcy     = MCAFPLiensOrBankruptcy(Data : data)

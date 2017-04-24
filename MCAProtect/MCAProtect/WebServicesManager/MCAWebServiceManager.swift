@@ -117,9 +117,9 @@ class MCAWebServiceManager: NSObject
                 return
             }
             
-            
             let dataDictionary = JSON(response.result.value!)
-        
+            
+                           
             print(response)
             successCallBack(dataDictionary)
             return

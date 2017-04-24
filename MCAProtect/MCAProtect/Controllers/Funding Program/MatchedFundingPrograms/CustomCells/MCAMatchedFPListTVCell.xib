@@ -53,9 +53,6 @@
                             <constraint firstAttribute="width" constant="40" id="SdZ-pk-K90"/>
                         </constraints>
                         <state key="normal" image="iconArrowRight"/>
-                        <connections>
-                            <action selector="showDetails:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PFK-Gh-kae"/>
-                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhK-Gx-FUz">
                         <rect key="frame" x="0.0" y="152" width="375" height="50"/>
@@ -71,10 +68,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRd-Pv-58V">
-                                <rect key="frame" x="15" y="23" width="90" height="22"/>
+                                <rect key="frame" x="15" y="23" width="90" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="qLv-l7-eMQ"/>
-                                    <constraint firstAttribute="height" constant="22" id="tJl-Ib-Gjp"/>
+                                    <constraint firstAttribute="height" constant="24" id="tJl-Ib-Gjp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                 <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,20 +87,20 @@
                                 <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2000 - $20000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZp-bO-W8f">
-                                <rect key="frame" x="221" y="28" width="139" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2000 - $20000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZp-bO-W8f">
+                                <rect key="frame" x="138" y="23" width="222" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="UAL-I8-NZY"/>
-                                    <constraint firstAttribute="width" constant="139" id="WWa-pI-elp"/>
+                                    <constraint firstAttribute="width" constant="222" id="WWa-pI-elp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TZp-bO-W8f" firstAttribute="top" secondItem="0Qx-nb-67t" secondAttribute="bottom" constant="6" id="2R2-eg-vfM"/>
+                            <constraint firstItem="TZp-bO-W8f" firstAttribute="top" secondItem="0Qx-nb-67t" secondAttribute="bottom" constant="1" id="2R2-eg-vfM"/>
                             <constraint firstAttribute="trailing" secondItem="TZp-bO-W8f" secondAttribute="trailing" constant="15" id="B0b-Fu-Wxe"/>
                             <constraint firstItem="0Qx-nb-67t" firstAttribute="top" secondItem="LhK-Gx-FUz" secondAttribute="top" constant="5" id="C7N-7P-sjs"/>
                             <constraint firstItem="fRd-Pv-58V" firstAttribute="top" secondItem="OdQ-jU-OjE" secondAttribute="bottom" constant="1" id="PeO-Km-rE1"/>
@@ -188,7 +185,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-8x-mO8">
                         <rect key="frame" x="0.0" y="60" width="375" height="40"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Funding Logo 11" translatesAutoresizingMaskIntoConstraints="NO" id="Aw8-K7-bv2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aw8-K7-bv2">
                                 <rect key="frame" x="14" y="0.0" width="122" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Z7M-Fl-7S4"/>
@@ -255,9 +252,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJz-6B-GFa">
-                                <rect key="frame" x="300" y="26" width="70" height="22"/>
+                                <rect key="frame" x="284" y="26" width="86" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="p19-mm-P6d"/>
+                                    <constraint firstAttribute="width" constant="86" id="p19-mm-P6d"/>
                                     <constraint firstAttribute="height" constant="22" id="w3u-xT-aLe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
@@ -327,18 +324,22 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="buyRateLabel" destination="ek2-Qp-0HS" id="jBe-5h-gWY"/>
                 <outlet property="checkButton" destination="sPb-wT-ZaO" id="ECv-6Z-0xV"/>
                 <outlet property="detailButton" destination="76U-5O-yFQ" id="WFj-cJ-cqq"/>
-                <outlet property="loanRangeLabel" destination="1Q4-kf-Tz0" id="QYO-kR-FsK"/>
+                <outlet property="loanRangeLabel" destination="TZp-bO-W8f" id="e01-9E-qWM"/>
+                <outlet property="loanRangeSubTitleLabel" destination="1Q4-kf-Tz0" id="r85-bL-Pfu"/>
                 <outlet property="logoImgView" destination="Aw8-K7-bv2" id="D92-Rs-Iqx"/>
+                <outlet property="maxUpsellLabel" destination="26U-he-PFZ" id="FzA-fO-gsy"/>
+                <outlet property="termLabel" destination="fRd-Pv-58V" id="MJr-PS-y1L"/>
                 <outlet property="titleLabel" destination="cRS-hb-u0i" id="vdi-WA-gAS"/>
+                <outlet property="totalRatelLabel" destination="McT-Nv-beh" id="k3W-k1-UuU"/>
                 <outlet property="upsellRateButton" destination="ZJz-6B-GFa" id="TIk-mn-agx"/>
             </connections>
             <point key="canvasLocation" x="121.5" y="4.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Funding Logo 11" width="110" height="60"/>
         <image name="downArrow" width="10" height="10"/>
         <image name="iconArrowRight" width="20" height="20"/>
         <image name="iconCheck" width="14" height="14"/>

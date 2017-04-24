@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,MatchedFundingProgramDetailCellDelegate,UIPickerViewDataSource,UIPickerViewDelegate
 {
@@ -26,6 +27,8 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     var applicationState: Int!
     var pickerState: Int!
+    var applicationId       : Int!
+
 
     
        var rates = ["01","02","03","04","05","06","07","08","09"]
@@ -33,6 +36,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     var matchedFPList : NSMutableArray!
     
     var matchedFundingProgram : MCAMatchedFundingProgram!
+    var merchantApplicationDetails :   MCAMerchantApplicationDetail!
+    var fundingProgram : MCAFundingProgram!
+    var matchedFundingProgramList = [MCAFundingProgram]()
     var selectedItemsCount = 0;
     
 
@@ -40,6 +46,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         super.viewDidLoad()
          self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconInfo"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
          configPicker()
+      //  upsellRatePicker.setma
         initilazeToolBar()
 
 
@@ -78,9 +85,10 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         tableView.register(UINib(nibName: "MCAMatchedFPHeaderView", bundle: Bundle.main), forCellReuseIdentifier: "MCAFundingProgramDetailCell")
         tableView.tableFooterView = UIView()
         tableView.reloadData()
+        
+        getMatchedFundingProgramList()
 
     }
-
     
     override func viewDidAppear(_ animated: Bool)
     {
@@ -94,11 +102,70 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    
+    
+    
+    func getMatchedFundingProgramList()
+    {
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        self.showActivityIndicator()
+        
+        
+        var paramDict = Dictionary<String , Any>()
+        
+        paramDict["data"] = ["application_id" : applicationId.description]
+        
+      //  paramDict["application_id"] = applicationId.description
+       // paramDict["page"] = "50"
+        
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                endPoint:MCAAPIEndPoints.BrokerMatchedFundingProgramListEndPoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+                
+                let lendingProgram = response["lending_programs"]
+                print("Lending program ---> \(lendingProgram)")
+
+                
+                let fundingProgramArray =  lendingProgram.arrayValue
+                
+                
+                for item in fundingProgramArray {
+                    self.fundingProgram = MCAFundingProgram(data:item["lending_program"])
+                    self.matchedFundingProgramList.append(self.fundingProgram)
+                }
+                
+                //self.filterListWithSearchString(searchString: self.seacrhBar.searchTextField.text!)
+                
+                self.tableView.reloadData()
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to fetch Funding Programs", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
+        
+    }
+
+    
     //MARK: TableView Datasource and Delegates
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-      return matchedFPList.count + 1
+      return matchedFundingProgramList.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -118,41 +185,34 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         let MatchedFPListTVCell = tableView.dequeueReusableCell(withIdentifier: "MCAMatchedFPListTVCell", for: indexPath) as! MCAMatchedFPListTVCell
         MatchedFPListTVCell.indexPath = indexPath as NSIndexPath!
         
-        MatchedFPListTVCell .updateDataSource(matchedFundingProgramObject: matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram)
+        if !matchedFundingProgramList.isEmpty {
+            MatchedFPListTVCell .updateDataSource(matchedFundingProgramObject: matchedFundingProgramList[indexPath.row - 1] )
+        }
         
         
-        let matchedFundingPgm = matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram;
+      //  let matchedFundingPgm = matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram;
         
         
-        if(indexPath.row % 2 == 0)
-        {
-            matchedFundingPgm.logoImgName = "Funding Logo 11.png"
-            matchedFundingPgm.funderName = "Snap Advances"
+//        if(indexPath.row % 2 == 0)
+//        {
+//            matchedFundingPgm.logoImgName = "Funding Logo 11.png"
+//            matchedFundingPgm.funderName = "Snap Advances"
+//
+//        }
+//        else
+//        {
+//            matchedFundingPgm.logoImgName = "greenBox.png"
+//            matchedFundingPgm.funderName = "Greenbox Capital"
+//        }
 
-        }
-        else
-        {
-            matchedFundingPgm.logoImgName = "greenBox.png"
-            matchedFundingPgm.funderName = "Greenbox Capital"
-        }
-
         
-        if(false == matchedFundingPgm.showDetails)
-        {
-            MatchedFPListTVCell.detailButton.setImage(UIImage(named: "iconArrowRight"), for: UIControlState.normal)
-        }
-        else
-        {
-            MatchedFPListTVCell.detailButton.setImage(UIImage(named: "iconArrowDown"), for: UIControlState.normal)
-        }
-        
-        
+           
         MatchedFPListTVCell.delegate = self
         MatchedFPListTVCell.checkButton.tag = indexPath.row - 1
         MatchedFPListTVCell.selectionStyle = .none
         MatchedFPListTVCell.backgroundColor = UIColor.clear
-        MatchedFPListTVCell.titleLabel.text = matchedFundingPgm.funderName as String?;
-        MatchedFPListTVCell.logoImgView.image = UIImage(named: matchedFundingPgm.logoImgName as! String)
+        //MatchedFPListTVCell.titleLabel.text = matchedFundingPgm.funderName as String?;
+       // MatchedFPListTVCell.logoImgView.image = UIImage(named: matchedFundingPgm.logoImgName as! String)
         
         return MatchedFPListTVCell
     }
@@ -211,7 +271,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func programSelected(buttonTag : Int)
     {
-        let selectedProgram : MCAMatchedFundingProgram = matchedFPList! .object(at: buttonTag) as! MCAMatchedFundingProgram
+        let selectedProgram : MCAFundingProgram = matchedFundingProgramList[buttonTag] 
         selectedProgram.isSelected = true
         selectedItemsCount = selectedItemsCount + 1
         selectedCountLabel.text = "\(selectedItemsCount)"
@@ -221,7 +281,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func programDeSelected(buttonTag : Int)
     {
-        let deselectedProgram : MCAMatchedFundingProgram = matchedFPList! .object(at: buttonTag) as! MCAMatchedFundingProgram
+        let deselectedProgram : MCAFundingProgram = matchedFundingProgramList[buttonTag]
         deselectedProgram.isSelected = false
         selectedItemsCount = selectedItemsCount - 1
         selectedCountLabel.text = "\(selectedItemsCount)"
@@ -312,7 +372,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
     }
     
-    func setUpsellRate(object : MCAMatchedFundingProgram)
+    func setUpsellRate(object : MCAFundingProgram)
     {
         
     addPicker(sender: object)
@@ -353,7 +413,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         self.navigationController?.navigationBar.isHidden = true
 
         self.blur()
-        matchedFundingProgram = sender as! MCAMatchedFundingProgram
+        fundingProgram = sender as! MCAFundingProgram
         self.view.addSubview(self.upsellRatePicker)
         self.view.addSubview(self.toolbar!)
         
