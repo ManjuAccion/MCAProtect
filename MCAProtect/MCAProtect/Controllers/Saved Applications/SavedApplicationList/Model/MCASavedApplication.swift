@@ -45,8 +45,10 @@ class MCASavedApplication: NSObject {
         
         switch key {
             case .SASummarySubmittedOn :
-                modelValue =  MCAUtilities.getFormmattedDate(dateString: submittedOn)
-                
+                let dateValue = MCAUtilities.getDateFromString(dateString: submittedOn)
+                let submittedDuration = MCAUtilities.daysBetweenDate(startDate: dateValue, endDate: NSDate() as Date)
+                modelValue = submittedDuration
+            
             case .SASummaryBusinessName :
                 modelValue = applicationName
                 

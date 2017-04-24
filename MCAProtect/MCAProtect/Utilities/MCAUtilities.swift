@@ -115,6 +115,14 @@ class MCAUtilities: NSObject {
         return dateString
     }
     
+    static func getDateFromString(dateString: String) -> Date {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let formattedDate = dateFormatter.date(from: dateString)
+        return formattedDate!
+    }
+    
     static func mmddyyyyFormatterFromString(inputString : String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -155,6 +163,53 @@ class MCAUtilities: NSObject {
         noDataLabel.isHidden = true
         
         return noDataLabel
+    }
+    
+    static func daysBetweenDate(startDate: Date, endDate: Date) -> String {
+        
+        let calendar = NSCalendar.current
+        var differenceValue : String!
+        
+        let components = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: startDate, to: endDate)
+        
+        if components.year! > 0 {
+            differenceValue = "\(components.year!) Years ago"
+        }
+        else if components.month! > 0 {
+            differenceValue = "\(components.month!) Months ago"
+        }
+        else if components.day! > 0 {
+            
+            if components.hour == 23 && components.minute == 59 && components.second == 59 {
+                differenceValue = "\(components.day! + 1) Days ago"
+            }
+            else {
+                differenceValue = "\(components.day!) Days ago"
+            }
+        }
+        else if components.hour! > 0 {
+            
+            if components.minute == 59 && components.second == 59 {
+                differenceValue = "\(components.hour! + 1) Hours ago"
+            }
+            else {
+                differenceValue = "\(components.hour!) Hours ago"
+            }
+        }
+        else if components.minute! > 0 {
+            
+            if components.second == 59 {
+                differenceValue = "\(components.minute! + 1) Minutes ago"
+            }
+            else {
+                differenceValue = "\(components.minute!) Minutes ago"
+            }
+        }
+        else if components.second! > 0 {
+            differenceValue = "\(components.second!) Seconds ago"
+        }
+        
+        return differenceValue
     }
     
     

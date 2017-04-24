@@ -42,7 +42,9 @@ class MCASavedApplicationsListTVCell: UITableViewCell {
         
         applicationNameLabel.text = savedApplicationData.applicationName
         amountLabel.text = MCAUtilities.currencyFormatter(inputItem: savedApplicationData.amount as AnyObject)
-        daysLabel.text = "\(savedApplicationData.neededIn!)"
+        
+        let dateValue = MCAUtilities.getDateFromString(dateString: savedApplicationData.submittedOn)
+        daysLabel.text = MCAUtilities.daysBetweenDate(startDate: dateValue, endDate: NSDate() as Date)
         emailButton.setTitle(savedApplicationData.merchantEmail, for: .normal)
         phoneNumberButton.setTitle(savedApplicationData.merchantPhoneNumber.toUSPhoneNumberFormat(), for: .normal)
         merchantNameLabel.text = savedApplicationData.merchantName
