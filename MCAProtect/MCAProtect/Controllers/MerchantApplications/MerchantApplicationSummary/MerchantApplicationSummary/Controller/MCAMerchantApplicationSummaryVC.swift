@@ -74,31 +74,38 @@ class MCAMerchantApplicationSummaryVC: MCABaseViewController,UITableViewDelegate
                 let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
                 summaryCell.delegate = self
                 switch applicationState {
+                    case ApplicationState.New.rawValue:
+                        summaryCell.rightBackButton.isHidden = false
+                        summaryCell.viewDetailsButtonTrailingConstant.constant = -18
                     case ApplicationState.UnderWriting.rawValue:
                         fallthrough
                     case ApplicationState.NeedMoreStips.rawValue:
-                            summaryCell.viewDetailsButton.isHidden = false
-                            summaryCell.viewDetailsButtonTrailingConstant.constant = 30
-                            summaryCell.viewDetailsButton.setImage(UIImage(named:"iconSubmit"), for: .normal)
+                        summaryCell.viewDetailsButton.isHidden = false
+                        summaryCell.rightBackButton.isHidden = false
+                        summaryCell.viewDetailsButtonTrailingConstant.constant = 38
+                        summaryCell.viewDetailsButton.setImage(UIImage(named:"iconSubmit"), for: .normal)
+                    case ApplicationState.DNQ.rawValue: fallthrough
+                    case ApplicationState.Funded.rawValue: fallthrough
+                    case ApplicationState.Lost.rawValue: fallthrough
+                    case ApplicationState.Renewal.rawValue:
+                        summaryCell.rightBackButton.isHidden = false
+                        summaryCell.viewDetailsButtonTrailingConstant.constant = -18
                     
                     default:break
                 }
                 summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.businessName)
-                summaryCell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
                 cell = summaryCell
 
             case MASummaryKeys.contactName.hashValue:
                 let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
                 summaryCell.delegate = self
                 summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.contactName)
-                summaryCell.accessoryType = UITableViewCellAccessoryType.none
                 cell = summaryCell
 
             case MASummaryKeys.loanAmount.hashValue:
                 let   summaryCell =   tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.MCAApplicationSummaryTVCell, for: indexPath) as! MCAApplicationSummaryTVCell
                 summaryCell.delegate = self
                 summaryCell.setMerchantApplicationSummary(merchantSummary: merchantApplicationDetail, merchantSummaryKey: MASummaryKeys.loanAmount)
-                summaryCell.accessoryType = UITableViewCellAccessoryType.none
 
                 cell = summaryCell
 

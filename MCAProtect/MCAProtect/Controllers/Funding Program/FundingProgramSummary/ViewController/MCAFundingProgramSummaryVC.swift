@@ -50,7 +50,8 @@ class MCAFundingProgramSummaryVC: MCABaseViewController,UITableViewDataSource,UI
         switch indexPath.row {
         case FPApplicationSummaryKeys.FPSummaryFundingProgram.hashValue:
             cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryFundingProgram)
-            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            cell.rightBackButton.isHidden = false
+            cell.viewDetailsButtonTrailingConstant.constant = -18
 
         case FPApplicationSummaryKeys.FPSummaryContact.hashValue:
             cell.setFPSummaryDetails(FPSummary: fundingProgramSummary, key: FPApplicationSummaryKeys.FPSummaryContact)

@@ -45,10 +45,10 @@ class MCAAskFunderApplicationSummaryVC: MCABaseViewController,UITableViewDataSou
         cell.delegate = self
         
         if indexPath.row == 0 {
-            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.viewDetailsButton.isHidden = false
+            cell.rightBackButton.isHidden = false
             cell.viewDetailsButton.setImage(UIImage(named:"iconChat"), for: UIControlState.normal)
-            cell.viewDetailsButtonTrailingConstant.constant = 30
+            cell.viewDetailsButtonTrailingConstant.constant = 38
         }
         else
         {

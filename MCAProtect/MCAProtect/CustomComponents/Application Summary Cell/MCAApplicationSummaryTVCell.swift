@@ -21,6 +21,7 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var viewDetailsButton: UIButton!
     @IBOutlet weak var viewDetailsButtonTrailingConstant: NSLayoutConstraint!
+    @IBOutlet weak var rightBackButton: UIButton!
     
     var delegate:MCAApplicationSummaryTVCellDelegate?
     
@@ -30,12 +31,14 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
 
     }
     
-//    override func layoutSubviews() {
-//        if viewDetailsButton.isHidden == false {
-//            viewDetailsButtonTrailingConstant.constant = 34
-//            self.layoutIfNeeded()
-//        }
-//    }
+    /*
+        Note:- For hiding and showing the two butons viewDetailsButton and rightArrowButton
+        Please set the constant value  for viewDetailsButtonTrailingConstant
+     
+        1: Only rightArrowButton is shown then constant : -18
+        2: Both View Details button and right arrow are shown then constant : +38
+        3: Both View Details button and right arrow are hidden then constant: -38
+     */
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -150,8 +153,11 @@ class MCAApplicationSummaryTVCell: UITableViewCell {
 
     }
     
+    @IBAction func rightArrowButtonTapped(_ sender: Any) {
+        
+    }
+    
     @IBAction func viewDetailsButtonTapped(_ sender: Any) {
         delegate?.rightActionButtonTapped()
-        
     }
 }

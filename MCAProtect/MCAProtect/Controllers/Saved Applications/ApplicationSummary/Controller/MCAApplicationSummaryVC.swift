@@ -65,7 +65,8 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
 
             case ApplicationSummaryKeys.SASummaryBusinessName.hashValue:
                 cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummaryBusinessName)
-                cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+                cell.rightBackButton.isHidden = false
+                cell.viewDetailsButtonTrailingConstant.constant = -18
             
             case ApplicationSummaryKeys.SASummaryLoanValue.hashValue:
                 cell.setSavedApplicationSummary(appSummary: appSummary, appSummaryKey: ApplicationSummaryKeys.SASummaryLoanValue)
