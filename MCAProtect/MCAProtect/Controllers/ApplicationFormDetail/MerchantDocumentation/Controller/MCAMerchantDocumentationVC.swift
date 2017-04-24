@@ -71,31 +71,21 @@ class MCAMerchantDocumentationVC: MCABaseViewController,UITableViewDataSource,UI
     }
 
     
-    @IBAction func nextButton()
-    {
-        
-        
+    @IBAction func nextButton() {
         parentDelegate.goToNext()
     }
     
-    @IBAction func previousButton()
-    {
-        
+    @IBAction func previousButton() {
         parentDelegate.goToPrevious()
-        
     }
-    
-    
-    
-    func viewApplication(docUrl : URL)
-    {
+
+    func viewApplication(docUrl : URL) {
         doctUrl = docUrl
         
         showAnimate(docUrl: doctUrl)
     }
     
-    func showAnimate(docUrl : URL!)
-    {
+    func showAnimate(docUrl : URL!) {
         let requestObj = URLRequest(url: docUrl)
         webView.loadRequest(requestObj)
         
@@ -108,8 +98,7 @@ class MCAMerchantDocumentationVC: MCABaseViewController,UITableViewDataSource,UI
         })
     }
     
-    func removeAnimate()
-    {
+    func removeAnimate() {
         self.transparentImageView.alpha = 0.0
         UIView.animate(withDuration: 0.25, animations: {
             self.popUpView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -117,25 +106,23 @@ class MCAMerchantDocumentationVC: MCABaseViewController,UITableViewDataSource,UI
         })
     }
     
-    @IBAction func closePopUpView()
-    {
+    @IBAction func closePopUpView() {
         removeAnimate()
         
     }
     
-    
-    public func webViewDidStartLoad(_ webView: UIWebView){
+    func webViewDidStartLoad(_ webView: UIWebView){
         
         webViewLoadingIndicator.isHidden = false
         webViewLoadingIndicator.startAnimating()
     }
     
-    public func webViewDidFinishLoad(_ webView: UIWebView){
+    func webViewDidFinishLoad(_ webView: UIWebView){
         webViewLoadingIndicator.isHidden = true
         webViewLoadingIndicator.stopAnimating()
     }
     
-    public func webView(_ webView: UIWebView, didFailLoadWithError error: Error){
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error){
         webViewLoadingIndicator.stopAnimating()
         webViewLoadingIndicator.isHidden = true
     }
