@@ -46,10 +46,15 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = NSLocalizedString("Matched funding Program title", comment: "")
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconInfo"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
-        //  upsellRatePicker.setma
-      //  initilazeToolBar()
-        
+        tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
+        tableView.register(UINib(nibName: "MCAFundingProgramDetailCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAFundingProgramDetailCell")
+        tableView.tableFooterView = UIView()
+
+        getMatchedFundingProgramList()
+
         
     }
     
@@ -73,21 +78,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        matchedFPList  = NSMutableArray.init()
         
-        for _   in 1...5
-        {
-            matchedFundingProgram = MCAMatchedFundingProgram(data:nil)
-            matchedFPList? .add(matchedFundingProgram)
-        }
-        
-        self.title = NSLocalizedString("Matched funding Program title", comment: "")
-        tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
-        tableView.register(UINib(nibName: "MCAFundingProgramDetailCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAFundingProgramDetailCell")
-        tableView.tableFooterView = UIView()
-        tableView.reloadData()
-        
-        getMatchedFundingProgramList()
         
     }
     
@@ -221,12 +212,13 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
     }
     
-    func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
+    func showDetailOfFundingProgram(matchedFP: MCAFundingProgram)
     {
         
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
-        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
-        navigationController?.pushViewController(underwritingMerchantVC, animated: true)
+        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
+        applicationFormVC.fundingProgram = matchedFP
+        navigationController?.pushViewController(applicationFormVC, animated: true)
         
     }
     
@@ -285,9 +277,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         selectedItemsCount = 0
         
-        for matchedFundingProgram  in matchedFPList!
+        for matchedFundingProgram  in matchedFundingProgramList
         {
-            if ((matchedFundingProgram as! MCAMatchedFundingProgram).isSelected == true)
+            if (matchedFundingProgram.isSelected == true)
             {
                 
                 selectedItemsCount = selectedItemsCount + 1

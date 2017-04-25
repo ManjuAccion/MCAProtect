@@ -12,7 +12,7 @@ protocol MatchedFundingProgramCellDelegate
 {
     func programSelected(buttonTag : Int)
     func programDeSelected(buttonTag : Int)
-    func showDetailOfFundingProgram(matchedFP: MCAMatchedFundingProgram)
+    func showDetailOfFundingProgram(matchedFP: MCAFundingProgram)
     func setUpsellRate(object : MCAFundingProgram)
 
 }
@@ -55,10 +55,10 @@ class MCAMatchedFPListTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-//    @IBAction func showDetails(_ sender: Any)
-//    {
-//        delegate?.showDetailOfFundingProgram(matchedFP: selectedFundingProgram)
-//    }
+    @IBAction func showDetails(_ sender: Any)
+    {
+       delegate?.showDetailOfFundingProgram(matchedFP: selectedFundingProgram)
+   }
     
     func updateDataSource(matchedFundingProgramObject : MCAFundingProgram)  {
         
