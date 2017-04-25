@@ -41,6 +41,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     var merchantApplicationDetails :   MCAMerchantApplicationDetail!
     var fundingProgram : MCAFundingProgram!
     var matchedFundingProgramList = [MCAFundingProgram]()
+    var selectedFundingPrograms = [[String:String]]()
     var selectedItemsCount = 0;
     
     
@@ -256,7 +257,6 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         selectedItemsCount = selectedItemsCount + 1
         selectedCountLabel.text = "\(selectedItemsCount)"
         
-        
     }
     
     func programDeSelected(buttonTag : Int)
@@ -265,7 +265,6 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         deselectedProgram.isSelected = false
         selectedItemsCount = selectedItemsCount - 1
         selectedCountLabel.text = "\(selectedItemsCount)"
-        
         
     }
     
@@ -326,27 +325,97 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
             
         else
         {
-            let TitleString = NSAttributedString(string:"Success!", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
-            let MessageString = NSAttributedString(string: "The selected Funding Programs are referred to funder Successfully", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.black])
             
-            let alertViewController = UIAlertController(title : "", message : "", preferredStyle : .alert)
-            alertViewController.setValue(TitleString, forKey: "attributedTitle")
-            alertViewController.setValue(MessageString, forKey: "attributedMessage")
-            alertViewController.view.tintColor = ColorConstants.red
+            if self.checkNetworkConnection() == false {
+                return
+            }
             
+            self.showActivityIndicator()
             
+            for matchedFundingProgram  in matchedFundingProgramList
+            {
+                if (matchedFundingProgram.isSelected == true)
+                {
+                    
+                    let dict : [String:String] = ["interest_rate":matchedFundingProgram.buyRate,"lending_program_id":"\(matchedFundingProgram.funderId!)"]
+                    selectedFundingPrograms.append(dict)                }
+            }
             
-            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : { action in
+            if selectedFundingPrograms.count == 0 {
+                let TitleString = NSAttributedString(string:"Success!", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
+                let MessageString = NSAttributedString(string: "Please Select Funding Programs To Refer", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.black])
                 
-                let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
-                let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
-                applicationSummaryVC.applicationState = self.applicationState
-                _ = self.navigationController?.popViewController(animated: true)
+                let alertViewController = UIAlertController(title : "", message : "", preferredStyle : .alert)
+                alertViewController.setValue(TitleString, forKey: "attributedTitle")
+                alertViewController.setValue(MessageString, forKey: "attributedMessage")
+                alertViewController.view.tintColor = ColorConstants.red
                 
-            }))
+                
+                
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : { action in
+                    
+    }))
+                
+                self.present(alertViewController, animated: true , completion: nil)
+
+            }
             
-            present(alertViewController, animated: true , completion: nil)
+            else
+            {
+
             
+            var paramDict = Dictionary<String , Any>()
+            
+            paramDict["application_updates"] = ["application_id" : applicationId.description,"application_update":selectedFundingPrograms]
+            
+            //  paramDict["application_id"] = applicationId.description
+            // paramDict["page"] = "50"
+            
+            MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                     endPoint:MCAAPIEndPoints.BrokerReferMatchedFundingProgramEndPoint
+                , successCallBack:{ (response : JSON) in
+                    
+                    self.stopActivityIndicator()
+                    let TitleString = NSAttributedString(string:"Success!", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
+                    let MessageString = NSAttributedString(string: "The selected Funding Programs are referred to funder Successfully", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Light", size: 12.0), NSForegroundColorAttributeName : UIColor.black])
+                    
+                    let alertViewController = UIAlertController(title : "", message : "", preferredStyle : .alert)
+                    alertViewController.setValue(TitleString, forKey: "attributedTitle")
+                    alertViewController.setValue(MessageString, forKey: "attributedMessage")
+                    alertViewController.view.tintColor = ColorConstants.red
+                    
+                    
+                    
+                    alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : { action in
+                        
+                        let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+                        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
+                        applicationSummaryVC.applicationState = self.applicationState
+                        _ = self.navigationController?.popViewController(animated: true)
+                        
+                    }))
+                    
+                    self.present(alertViewController, animated: true , completion: nil)
+
+                    
+                    
+                    
+            },
+                  failureCallBack: { (error : Error) in
+                    
+                    self.stopActivityIndicator()
+                    print("Failure \(error)")
+                    let alertViewController = UIAlertController(title : "MCAP", message : "Unable to fetch Funding Programs", preferredStyle : .alert)
+                    alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                    self.present(alertViewController, animated: true , completion: nil)
+                    
+            })
+
+            
+            
+                
+            
+        }
             
         }
         
