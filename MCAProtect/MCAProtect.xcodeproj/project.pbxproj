@@ -68,8 +68,7 @@
 		5BD2D0F21EA5047B00171147 /* MCABusinessTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD2D0F01EA5047B00171147 /* MCABusinessTypeTableViewCell.xib */; };
 		5BD4EA371E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4EA361E8E6FAB00AFFEF6 /* MCAProfileHeaderView.swift */; };
 		6A9F9B00E60E6F389BC9AD86 /* Pods_MCAProtect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E374224FF17A1EE2A53A45 /* Pods_MCAProtect.framework */; };
-		7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B62B1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift */; };
-		7804B62E1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7804B62D1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib */; };
+		7804B62E1E7ACD7D00DA9777 /* MCAFundingProgramDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7804B62D1E7ACD7D00DA9777 /* MCAFundingProgramDetailCell.xib */; };
 		7804B6301E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804B62F1E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift */; };
 		780958461E9E227C00BDA9CA /* MCACustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780958451E9E227C00BDA9CA /* MCACustomSearchBar.swift */; };
 		782C69AA1E49ACC500268356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 782C69A91E49ACC500268356 /* Assets.xcassets */; };
@@ -288,8 +287,7 @@
 		5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCAProtectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E47A37941517267D683EADE /* Pods-MCAProtect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtect/Pods-MCAProtect.debug.xcconfig"; sourceTree = "<group>"; };
 		5E94C53AFF06DF89429C38BA /* Pods-MCAProtectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectTests/Pods-MCAProtectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7804B62B1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMatchedFPHeaderView.swift; sourceTree = "<group>"; };
-		7804B62D1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAMatchedFPHeaderView.xib; sourceTree = "<group>"; };
+		7804B62D1E7ACD7D00DA9777 /* MCAFundingProgramDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAFundingProgramDetailCell.xib; sourceTree = "<group>"; };
 		7804B62F1E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFundingProgramDetailCell.swift; sourceTree = "<group>"; };
 		780958451E9E227C00BDA9CA /* MCACustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCACustomSearchBar.swift; sourceTree = "<group>"; };
 		782C699F1E49ACC500268356 /* MCAProtect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCAProtect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -806,8 +804,7 @@
 			children = (
 				5B90494B1E72881A00A49A50 /* MCAMatchedFPListTVCell.swift */,
 				5B90494C1E72881A00A49A50 /* MCAMatchedFPListTVCell.xib */,
-				7804B62B1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift */,
-				7804B62D1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib */,
+				7804B62D1E7ACD7D00DA9777 /* MCAFundingProgramDetailCell.xib */,
 				7804B62F1E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift */,
 			);
 			path = CustomCells;
@@ -2204,7 +2201,7 @@
 				5B9049511E72881A00A49A50 /* MCAMatchedFPListTVCell.xib in Resources */,
 				5B8FC4A81E4C7E9600309CAB /* Roboto-Italic.ttf in Resources */,
 				5B8FC4AD1E4C7E9600309CAB /* Roboto-Regular.ttf in Resources */,
-				7804B62E1E7ACD7D00DA9777 /* MCAMatchedFPHeaderView.xib in Resources */,
+				7804B62E1E7ACD7D00DA9777 /* MCAFundingProgramDetailCell.xib in Resources */,
 				CE8A80F71E9E25C6006C981A /* MCAOwnerAndLocationDetailsTVCell.xib in Resources */,
 				BAC6AE0E1E824B7F0047F7D3 /* MCANewChatTVCell.xib in Resources */,
 				BAC6AE4C1E8250260047F7D3 /* MCALeftMenuVC.xib in Resources */,
@@ -2410,7 +2407,6 @@
 				7804B6301E7ADE0F00DA9777 /* MCAFundingProgramDetailCell.swift in Sources */,
 				5B6C97C51E8D36BA003BEA82 /* MCAProfileViewController.swift in Sources */,
 				780958461E9E227C00BDA9CA /* MCACustomSearchBar.swift in Sources */,
-				7804B62C1E7ACD6E00DA9777 /* MCAMatchedFPHeaderView.swift in Sources */,
 				5BB3E5FA1E8293A800A67927 /* MCAApplicationTVCell.swift in Sources */,
 				CE0DCCC31E9F51B8003C5A97 /* MCAIndustryType.swift in Sources */,
 				5B330B891E967B0F00CB7A6C /* MCAFPLiensAndBankruptcyViewController.swift in Sources */,

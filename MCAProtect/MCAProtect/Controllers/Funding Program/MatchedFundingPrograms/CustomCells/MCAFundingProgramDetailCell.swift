@@ -19,6 +19,14 @@ class MCAFundingProgramDetailCell: UITableViewCell {
 
     var delegate : MatchedFundingProgramDetailCellDelegate?
    @IBOutlet weak var  commonRateButton : UIButton!
+    @IBOutlet weak var businessNameLabel : UILabel!
+    @IBOutlet weak var needItByLabel : UILabel!
+    @IBOutlet weak var loanTermLabel : UILabel!
+    @IBOutlet weak var loanAmountLabel : UILabel!
+
+
+    
+    
     var indexPath: NSIndexPath!
     
 
@@ -36,6 +44,14 @@ class MCAFundingProgramDetailCell: UITableViewCell {
     @IBAction func commonRateBtnTapped()
     {
         self.delegate?.setCommonRate(object: indexPath)
+        
+    }
+    
+    func updateDataSource(merchantApplicationDetailObject : MCAMerchantApplicationDetail)  {
+      businessNameLabel.text = merchantApplicationDetailObject.businessName
+      needItByLabel.text = merchantApplicationDetailObject.loanRequirementTenure
+      loanAmountLabel.text = MCAUtilities.currencyFormatter(inputItem: merchantApplicationDetailObject.loanAmount as AnyObject) as String!
+        loanTermLabel.text = merchantApplicationDetailObject.loanTerm
         
     }
 

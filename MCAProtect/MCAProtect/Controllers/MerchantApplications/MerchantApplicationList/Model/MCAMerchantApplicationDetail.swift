@@ -20,6 +20,7 @@ class MCAMerchantApplicationDetail: NSObject {
     var loanAmount                  : Float!
     var loanRequirementTenure       : String!
     var offeredOn                   : String!
+    var loanTerm                     : String!
     var fieldCount                  : Int!
     
     init(merchantApplicationDetail: JSON!) {

@@ -225,7 +225,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="businessNameLabel" destination="K5Q-5p-MZ6" id="pv8-JF-sYn"/>
                 <outlet property="commonRateButton" destination="38N-eV-w78" id="Noq-4K-Shs"/>
+                <outlet property="loanAmountLabel" destination="62A-ey-7R2" id="0jq-QP-zK4"/>
+                <outlet property="loanTermLabel" destination="Rsg-Vb-jWl" id="2Kp-zl-dMH"/>
+                <outlet property="needItByLabel" destination="lS6-ZS-eS9" id="er8-X6-1cR"/>
             </connections>
             <point key="canvasLocation" x="42" y="-112"/>
         </tableViewCell>

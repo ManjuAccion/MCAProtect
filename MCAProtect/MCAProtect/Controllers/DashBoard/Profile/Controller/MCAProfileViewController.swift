@@ -237,6 +237,10 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 self.imageUrlString = response["image_url"].stringValue
                 self.mcaUser.brokerImageUrl = self.imageUrlString
                 self.profileImageView.sd_setImage(with: URL(string : self.imageUrlString))
+                let alertViewController = UIAlertController(title : "MCAP", message : "Upload Successfully", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+
                 
                 
         },

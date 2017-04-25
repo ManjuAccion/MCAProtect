@@ -71,15 +71,24 @@ class MCAMatchedFPListTVCell: UITableViewCell {
         loanRangeSubTitleLabel.text = range
 
         
-        totalRatelLabel.text = matchedFundingProgramObject.buyRate
-        maxUpsellLabel.text = matchedFundingProgramObject.maxUpsellRate
-        termLabel.text = matchedFundingProgramObject.term
+        buyRateLabel.text = matchedFundingProgramObject.buyRate + " %"
+        maxUpsellLabel.text = matchedFundingProgramObject.maxUpsellRate + " %"
+        
+        let maxUpsell = float_t(matchedFundingProgramObject.maxUpsellRate)
+        let totalRate =  float_t(matchedFundingProgramObject.buyRate)! + ( maxUpsell!/100)
+        
+        totalRatelLabel.text = "\(totalRate) %"
+        let loanTerm = Int(matchedFundingProgramObject.term)
+        let  loanTermMonths = (loanTerm! / 30)
+        let  loanTermString = "\(loanTermMonths) months"
+        termLabel.text = loanTermString
         let imageUrl = URL.init(string: matchedFundingProgramObject.programImage)
         logoImgView.sd_setImage(with: imageUrl)
         logoImgView.setIndicatorStyle(.gray)
         logoImgView.setShowActivityIndicator(true)
         
-        upsellRateButton .setTitle(matchedFundingProgramObject.buyRate! as String, for: UIControlState.normal)
+        upsellRateButton .setTitle(matchedFundingProgramObject.upsellRate! as String, for: UIControlState.normal)
+        
         if matchedFundingProgramObject.isSelected! {
             checkButton.setImage(UIImage(named: "icon_checked"), for: UIControlState.normal)
             checkButton.isSelected = true;

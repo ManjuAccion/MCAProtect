@@ -68,12 +68,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRd-Pv-58V">
-                                <rect key="frame" x="15" y="23" width="90" height="24"/>
+                                <rect key="frame" x="15" y="23" width="100" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="qLv-l7-eMQ"/>
+                                    <constraint firstAttribute="width" constant="100" id="qLv-l7-eMQ"/>
                                     <constraint firstAttribute="height" constant="24" id="tJl-Ib-Gjp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                 <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -135,7 +135,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Rate" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qt-rs-xkk">
-                                <rect key="frame" x="290" y="8" width="70" height="17"/>
+                                <rect key="frame" x="290" y="5" width="70" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="PSN-pL-Hxi"/>
                                     <constraint firstAttribute="width" constant="70" id="lde-Qr-or4"/>
@@ -145,10 +145,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McT-Nv-beh">
-                                <rect key="frame" x="290" y="25" width="70" height="22"/>
+                                <rect key="frame" x="239" y="22" width="121" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="Gyw-wm-TM4"/>
-                                    <constraint firstAttribute="width" constant="70" id="pXh-sZ-y5l"/>
+                                    <constraint firstAttribute="width" constant="121" id="pXh-sZ-y5l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                 <color key="textColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -162,7 +162,7 @@
                             <constraint firstItem="ek2-Qp-0HS" firstAttribute="top" secondItem="9zd-HZ-FHT" secondAttribute="bottom" id="Nbz-pX-OWz"/>
                             <constraint firstItem="9zd-HZ-FHT" firstAttribute="leading" secondItem="eqZ-dk-s2Y" secondAttribute="leading" constant="15" id="TKy-Dt-xiz"/>
                             <constraint firstItem="ek2-Qp-0HS" firstAttribute="leading" secondItem="eqZ-dk-s2Y" secondAttribute="leading" constant="15" id="VZy-8I-KWw"/>
-                            <constraint firstItem="8qt-rs-xkk" firstAttribute="top" secondItem="eqZ-dk-s2Y" secondAttribute="top" constant="8" id="adR-cm-FBa"/>
+                            <constraint firstItem="8qt-rs-xkk" firstAttribute="top" secondItem="eqZ-dk-s2Y" secondAttribute="top" constant="5" id="adR-cm-FBa"/>
                             <constraint firstItem="9zd-HZ-FHT" firstAttribute="top" secondItem="eqZ-dk-s2Y" secondAttribute="top" constant="5" id="ix3-wf-OJh"/>
                             <constraint firstAttribute="trailing" secondItem="8qt-rs-xkk" secondAttribute="trailing" constant="15" id="xWZ-vN-xMp"/>
                             <constraint firstAttribute="height" constant="50" id="zg3-U3-ckr"/>

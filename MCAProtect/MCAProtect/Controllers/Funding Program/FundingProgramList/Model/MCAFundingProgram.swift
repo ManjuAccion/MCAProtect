@@ -24,6 +24,8 @@ class MCAFundingProgram: NSObject {
     var email : String!
     var phoneNumber : String!
     var maxUpsellRate : String!
+    var  upsellRate : String?
+
 
     var programImage : String!
     var FPProgramInformation : MCAFPProgramInformation!
@@ -48,6 +50,8 @@ class MCAFundingProgram: NSObject {
             maximumLoan             = data["max_deal_size"].floatValue
             funderId                = data["id"].intValue
             maxUpsellRate            = data["allowed_broker_commision"].stringValue
+            upsellRate =            "Rate"
+
             FPProgramInformation    = MCAFPProgramInformation(data : data)
             FPMerchantRquirement    = MCAFPMerchantRquirement(data : data)
             FPLiensOrBankruptcy     = MCAFPLiensOrBankruptcy(Data : data)

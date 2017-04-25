@@ -9,30 +9,32 @@
 import UIKit
 import SwiftyJSON
 
-class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,MatchedFundingProgramDetailCellDelegate,UIPickerViewDataSource,UIPickerViewDelegate
+class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,MatchedFundingProgramCellDelegate,MatchedFundingProgramDetailCellDelegate,MCAPickerViewDelegate
 {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedCountLabel : UILabel!
     
-    var upsellRatePicker = UIPickerView()
     var blurView:UIVisualEffectView!
-
-    var headerView : MCAMatchedFPHeaderView!
+    
+    var headerView : MCAFundingProgramDetailCell!
     var toolbar : UIToolbar?
     var doneButton : UIBarButtonItem?
     var pickerTitle : UIBarButtonItem?
+    
+    var customPicker : MCACustomPickerView!
 
-
+    
+    
     var indexPath: NSIndexPath!
     
     var applicationState: Int!
     var pickerState: Int!
     var applicationId       : Int!
-
-
     
-       var rates = ["01","02","03","04","05","06","07","08","09"]
-
+    
+    
+    var rates = [String]()
+    
     var matchedFPList : NSMutableArray!
     
     var matchedFundingProgram : MCAMatchedFundingProgram!
@@ -41,16 +43,15 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     var matchedFundingProgramList = [MCAFundingProgram]()
     var selectedItemsCount = 0;
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconInfo"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
-         configPicker()
-      //  upsellRatePicker.setma
-        initilazeToolBar()
-
-
-}
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconInfo"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
+        //  upsellRatePicker.setma
+      //  initilazeToolBar()
+        
+        
+    }
     
     func rightBarButtonclicked()
     {
@@ -66,7 +67,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
         present(alertViewController, animated: true , completion: nil)
-
+        
         
     }
     
@@ -82,12 +83,12 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         self.title = NSLocalizedString("Matched funding Program title", comment: "")
         tableView.register(UINib(nibName: "MCAMatchedFPListTVCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAMatchedFPListTVCell")
-        tableView.register(UINib(nibName: "MCAMatchedFPHeaderView", bundle: Bundle.main), forCellReuseIdentifier: "MCAFundingProgramDetailCell")
+        tableView.register(UINib(nibName: "MCAFundingProgramDetailCell", bundle: Bundle.main), forCellReuseIdentifier: "MCAFundingProgramDetailCell")
         tableView.tableFooterView = UIView()
         tableView.reloadData()
         
         getMatchedFundingProgramList()
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -95,7 +96,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         super.viewDidAppear(animated);
         
         self.calculateFundingProgramSelectionCount()
-
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -120,18 +121,22 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         paramDict["data"] = ["application_id" : applicationId.description]
         
-      //  paramDict["application_id"] = applicationId.description
-       // paramDict["page"] = "50"
+        //  paramDict["application_id"] = applicationId.description
+        // paramDict["page"] = "50"
         
         MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
-                                                                endPoint:MCAAPIEndPoints.BrokerMatchedFundingProgramListEndPoint
+                                                                 endPoint:MCAAPIEndPoints.BrokerMatchedFundingProgramListEndPoint
             , successCallBack:{ (response : JSON) in
                 
                 self.stopActivityIndicator()
                 
                 let lendingProgram = response["lending_programs"]
                 print("Lending program ---> \(lendingProgram)")
-
+                
+                let loanTerm = response["application"]["loan_term"].intValue
+                let  loanTermMonths = (loanTerm / 30)
+                let  loanTermString = "\(loanTermMonths) months"
+                self.merchantApplicationDetails.loanTerm = loanTermString
                 
                 let fundingProgramArray =  lendingProgram.arrayValue
                 
@@ -159,13 +164,13 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         
     }
-
+    
     
     //MARK: TableView Datasource and Delegates
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-      return matchedFundingProgramList.count + 1
+        return matchedFundingProgramList.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -176,8 +181,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
             let headerCell = tableView.dequeueReusableCell(withIdentifier: "MCAFundingProgramDetailCell", for: indexPath) as! MCAFundingProgramDetailCell
             headerCell.delegate = self;
             headerCell.selectionStyle = .none
+            headerCell.updateDataSource(merchantApplicationDetailObject: merchantApplicationDetails)
             headerCell.indexPath = indexPath as NSIndexPath!
-
+            
             return headerCell;
         }
         
@@ -190,29 +196,10 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         }
         
         
-      //  let matchedFundingPgm = matchedFPList?.object(at: indexPath.row - 1) as! MCAMatchedFundingProgram;
-        
-        
-//        if(indexPath.row % 2 == 0)
-//        {
-//            matchedFundingPgm.logoImgName = "Funding Logo 11.png"
-//            matchedFundingPgm.funderName = "Snap Advances"
-//
-//        }
-//        else
-//        {
-//            matchedFundingPgm.logoImgName = "greenBox.png"
-//            matchedFundingPgm.funderName = "Greenbox Capital"
-//        }
-
-        
-           
         MatchedFPListTVCell.delegate = self
         MatchedFPListTVCell.checkButton.tag = indexPath.row - 1
         MatchedFPListTVCell.selectionStyle = .none
         MatchedFPListTVCell.backgroundColor = UIColor.clear
-        //MatchedFPListTVCell.titleLabel.text = matchedFundingPgm.funderName as String?;
-       // MatchedFPListTVCell.logoImgView.image = UIImage(named: matchedFundingPgm.logoImgName as! String)
         
         return MatchedFPListTVCell
     }
@@ -227,9 +214,10 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         
         
         let storyBoard = UIStoryboard(name: "FundingProgram", bundle: Bundle.main)
-        let underwritingMerchantVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
-        navigationController?.pushViewController(underwritingMerchantVC, animated: true)
-
+        let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: "MCAFPApplicationFormVC") as! MCAFPApplicationFormVC
+        applicationFormVC.fundingProgram = matchedFundingProgramList[indexPath.row - 1]
+        navigationController?.pushViewController(applicationFormVC, animated: true)
+        
         
     }
     
@@ -244,7 +232,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-
+        
         if(indexPath.row == 0)
         {
             return 170;
@@ -262,20 +250,20 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         alertViewController.setValue(MessageString, forKey: "attributedMessage")
         alertViewController.view.tintColor = ColorConstants.red
         
-
+        
         
         alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
         present(alertViewController, animated: true , completion: nil)
-
+        
     }
     
     func programSelected(buttonTag : Int)
     {
-        let selectedProgram : MCAFundingProgram = matchedFundingProgramList[buttonTag] 
+        let selectedProgram : MCAFundingProgram = matchedFundingProgramList[buttonTag]
         selectedProgram.isSelected = true
         selectedItemsCount = selectedItemsCount + 1
         selectedCountLabel.text = "\(selectedItemsCount)"
-
+        
         
     }
     
@@ -285,18 +273,18 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         deselectedProgram.isSelected = false
         selectedItemsCount = selectedItemsCount - 1
         selectedCountLabel.text = "\(selectedItemsCount)"
-
+        
         
     }
     
-  
+    
     
     
     func calculateFundingProgramSelectionCount()
     {
         
         selectedItemsCount = 0
-
+        
         for matchedFundingProgram  in matchedFPList!
         {
             if ((matchedFundingProgram as! MCAMatchedFundingProgram).isSelected == true)
@@ -315,7 +303,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     {
         for matchedFundingProgram  in matchedFPList!
         {
-           (matchedFundingProgram as! MCAMatchedFundingProgram).isSelected = false
+            (matchedFundingProgram as! MCAMatchedFundingProgram).isSelected = false
         }
         selectedItemsCount = 0
         selectedCountLabel.text = "0"
@@ -326,7 +314,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     
     @IBAction func referButtonTapped()
-    
+        
     {
         if selectedItemsCount == 0 {
             let TitleString = NSAttributedString(string:"", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
@@ -341,9 +329,9 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
             
             alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
             present(alertViewController, animated: true , completion: nil)
-
+            
         }
-        
+            
         else
         {
             let TitleString = NSAttributedString(string:"Success!", attributes: [NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Regular", size: 18.0), NSForegroundColorAttributeName : UIColor.black])
@@ -362,11 +350,11 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
                 let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
                 applicationSummaryVC.applicationState = self.applicationState
                 _ = self.navigationController?.popViewController(animated: true)
-
+                
             }))
-
+            
             present(alertViewController, animated: true , completion: nil)
-
+            
             
         }
         
@@ -375,7 +363,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     func setUpsellRate(object : MCAFundingProgram)
     {
         
-    addPicker(sender: object)
+        addPicker(sender: object)
         
     }
     
@@ -386,14 +374,15 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     
     func addGradientToView()
     {
-    let gradient = CAGradientLayer()
-    gradient.frame = view.bounds;
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds;
         
         gradient.colors = [UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor,UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor,UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor]
-     view.layer.addSublayer(gradient)
-
+        view.layer.addSublayer(gradient)
+        
     }
-    
+ 
+    /*
     func blur() {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         blurView = UIVisualEffectView(effect: blurEffect)
@@ -406,16 +395,25 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         self.blurView.removeFromSuperview()
     }
     
+   */
     
     func addPicker(sender : AnyObject) {
         pickerState = 1
         pickerTitle?.title = "Set Upsell Rate"
         self.navigationController?.navigationBar.isHidden = true
-
-        self.blur()
+        
+      
         fundingProgram = sender as! MCAFundingProgram
-        self.view.addSubview(self.upsellRatePicker)
-        self.view.addSubview(self.toolbar!)
+        let maxUpsellRate  = Int(fundingProgram.maxUpsellRate)
+         rates = []
+        for index in 0...maxUpsellRate! {
+            rates.append("\(index) %")
+        }
+        configPicker()
+
+      self.view.addSubview(customPicker)
+
+       // self.view.addSubview(self.toolbar!)
         
     }
     
@@ -423,95 +421,43 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     {
         pickerState = 0
         self.navigationController?.navigationBar.isHidden = true
-
-        pickerTitle?.title = "Set Common Rate"
-        self.blur()
-
         indexPath = sender  as! NSIndexPath
-        self.view.addSubview(self.upsellRatePicker)
-        self.view.addSubview(self.toolbar!)
-
+        rates = []
+        for index in 0...20 {
+            rates.append("\(index) %")
+        }
+        self.view.addSubview(customPicker)
+      //  self.view.addSubview(self.toolbar!)
+        
     }
     
     func configPicker() {
-        upsellRatePicker.alpha = 1.0
-      //  upsellRatePicker.backgroundColor = UIColor.white
-        self.upsellRatePicker.delegate = self
-        self.upsellRatePicker.dataSource = self
-        
-        let viewFrame = self.view.frame;
-        let pickerHeight = self.upsellRatePicker.frame.size.height;
-        let pickerFrame = CGRect(x:0.0, y: viewFrame.size.height-pickerHeight,
-                                 width: viewFrame.size.width, height: pickerHeight);
-        self.upsellRatePicker.frame = pickerFrame;
-        self.upsellRatePicker.tintColor = UIColor.white
+        if(nil == customPicker)
+        {
+            customPicker =  Bundle.main.loadNibNamed("MCACustomPickerView", owner: self, options: nil)?[0] as! MCACustomPickerView
+        }
+        customPicker.selectedRange = 0
+        customPicker.setDatasource(dataSource: rates)
+       customPicker.pickerDelegate = self;
+        customPicker.frame = self.view.bounds
+        customPicker.layoutIfNeeded()
         
     }
     
     
-    func initilazeToolBar() {
-        toolbar = UIToolbar()
-        toolbar?.isTranslucent = false
-        toolbar?.barTintColor = UIColor.darkGray
-        toolbar?.sizeToFit()
-       
-        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.inputToolbarDonePressed))
-        doneButton?.tintColor = .white
-        
-        
-        let fixed = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: self, action: nil)
-        fixed.width = 10
-        
-        pickerTitle = UIBarButtonItem(title: "Set Upsell Rate", style: UIBarButtonItemStyle.plain, target: self, action: nil)
-        pickerTitle?.setTitleTextAttributes([NSFontAttributeName : MCAUtilities.getFontWithFontName(inFontName: "Roboto-Medium", size: 18.0),
-            NSForegroundColorAttributeName : UIColor.white], for: UIControlState.normal)
-               let flexibleSpaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar?.setItems([fixed,pickerTitle!,flexibleSpaceButton, doneButton!], animated: false)
-        toolbar?.isUserInteractionEnabled = true
-    
-
-        toolbar?.frame = CGRect(x:0,
-                                y:    self.upsellRatePicker.frame.origin.y - 44, // right under the picker
-            width:self.upsellRatePicker.frame.width, // make them the same width
-            height:44)
-        
-
-        
-    }
-
-    
-    //MARK: - PickerView Datasource and Delegates
-  
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int
- {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
-    {
-        return rates.count
-    }
-    
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return rates[row]
-//    }
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let strTitle = rates[row]
-        let attString = NSAttributedString(string: strTitle, attributes: [NSForegroundColorAttributeName : ColorConstants.red])
-        return attString
-    }
     
     
+    
+ /*
     func inputToolbarDonePressed() {
-        unblur()
         self.navigationController?.navigationBar.isHidden = false
-
+        
         self.upsellRatePicker.removeFromSuperview()
         self.toolbar?.removeFromSuperview()
-        self.didItemSelected(object:matchedFundingProgram)
+        self.didItemSelected(object:fundingProgram)
     }
-    
-    func didItemSelected(object:MCAMatchedFundingProgram)
+ 
+    func didItemSelected(object:MCAFundingProgram)
     {
         
         if pickerState == 0
@@ -523,20 +469,39 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         }
         else
         {
-        let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
-            object.upsellRate = selectedString as NSString?
-        tableView.reloadData()
+            let selectedString = rates[self.upsellRatePicker.selectedRow(inComponent: 0)] as String
+            object.maxUpsellRate = selectedString as String?
+            tableView.reloadData()
         }
     }
+  */
+    func pickerSelected(dealsPipelineRange : NSInteger)
+    {
+        self.navigationController?.navigationBar.isHidden = false
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if pickerState == 0
+        {
+            let cell = tableView.cellForRow(at: indexPath as IndexPath ) as! MCAFundingProgramDetailCell
+            let selectedString = rates[dealsPipelineRange]
+            cell.commonRateButton .setTitle(selectedString, for: UIControlState.normal)
+        }
+        else{
+        let selectedString = rates[dealsPipelineRange]
+        fundingProgram.upsellRate = selectedString as String?
+        tableView.reloadData()
+        }
+        
     }
-    */
-
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
