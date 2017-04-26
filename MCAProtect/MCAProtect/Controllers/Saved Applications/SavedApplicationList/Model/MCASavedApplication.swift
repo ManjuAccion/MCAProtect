@@ -36,7 +36,7 @@ class MCASavedApplication: NSObject {
         applicationId       = savedApplcation["id"].intValue
         neededIn            = savedApplcation["loan_requirement_tenure"].stringValue
         submittedOn         = savedApplcation["updated_at"].stringValue
-        isSelected = false
+        isSelected          = false
     }
     
     func getValueFromKey(key: ApplicationSummaryKeys) -> String{

@@ -181,6 +181,8 @@
 		CE0DCCC21E9F51B8003C5A97 /* MCABusinessInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DCCBB1E9F51B8003C5A97 /* MCABusinessInformation.swift */; };
 		CE0DCCC31E9F51B8003C5A97 /* MCAIndustryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DCCBC1E9F51B8003C5A97 /* MCAIndustryType.swift */; };
 		CE0DCCC41E9F51B8003C5A97 /* MCAProgramInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DCCBD1E9F51B8003C5A97 /* MCAProgramInformation.swift */; };
+		CE33655C1EAF6DBD008F8FF6 /* MCAUploadDocumentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE33655B1EAF6DBD008F8FF6 /* MCAUploadDocumentsView.xib */; };
+		CE33655E1EAF6DCF008F8FF6 /* MCAUploadDocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE33655D1EAF6DCF008F8FF6 /* MCAUploadDocumentsView.swift */; };
 		CE6C78231EA5F683008B7C61 /* MCAMerchantApplicationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C78201EA5F683008B7C61 /* MCAMerchantApplicationListVC.swift */; };
 		CE6C78241EA5F683008B7C61 /* MCAMerchantApplicationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C78221EA5F683008B7C61 /* MCAMerchantApplicationDetail.swift */; };
 		CE8A80D21E9E127B006C981A /* MCAApplicationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A80D11E9E127B006C981A /* MCAApplicationFormVC.swift */; };
@@ -401,6 +403,8 @@
 		CE0DCCBB1E9F51B8003C5A97 /* MCABusinessInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABusinessInformation.swift; sourceTree = "<group>"; };
 		CE0DCCBC1E9F51B8003C5A97 /* MCAIndustryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAIndustryType.swift; sourceTree = "<group>"; };
 		CE0DCCBD1E9F51B8003C5A97 /* MCAProgramInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProgramInformation.swift; sourceTree = "<group>"; };
+		CE33655B1EAF6DBD008F8FF6 /* MCAUploadDocumentsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAUploadDocumentsView.xib; sourceTree = "<group>"; };
+		CE33655D1EAF6DCF008F8FF6 /* MCAUploadDocumentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUploadDocumentsView.swift; sourceTree = "<group>"; };
 		CE6C78201EA5F683008B7C61 /* MCAMerchantApplicationListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationListVC.swift; sourceTree = "<group>"; };
 		CE6C78221EA5F683008B7C61 /* MCAMerchantApplicationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationDetail.swift; sourceTree = "<group>"; };
 		CE8A80D11E9E127B006C981A /* MCAApplicationFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormVC.swift; sourceTree = "<group>"; };
@@ -1454,6 +1458,8 @@
 			children = (
 				BAC6ADF21E824ABB0047F7D3 /* MCASubmitStipulationsView.swift */,
 				BAC6ADF31E824ABB0047F7D3 /* MCASubmitStipulationsView.xib */,
+				CE33655D1EAF6DCF008F8FF6 /* MCAUploadDocumentsView.swift */,
+				CE33655B1EAF6DBD008F8FF6 /* MCAUploadDocumentsView.xib */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -2196,6 +2202,7 @@
 				BAC6AE331E824E700047F7D3 /* Registration.storyboard in Resources */,
 				788421CD1E950BAF00748948 /* MCACustomPickerView.xib in Resources */,
 				5B8FC4A71E4C7E9600309CAB /* Roboto-BoldItalic.ttf in Resources */,
+				CE33655C1EAF6DBD008F8FF6 /* MCAUploadDocumentsView.xib in Resources */,
 				BAC6ADF71E824ABB0047F7D3 /* MCASubmitStipulationsCell.xib in Resources */,
 				5BB3E6051E8293A800A67927 /* MCALiensPaymentsTVCell.xib in Resources */,
 				5B8FC4AE1E4C7E9600309CAB /* Roboto-Thin.ttf in Resources */,
@@ -2511,6 +2518,7 @@
 				5B1F8D841E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift in Sources */,
 				BAC6ADF51E824ABB0047F7D3 /* MCAMASubmitStipulationsVC.swift in Sources */,
 				BAC6AE591E8250720047F7D3 /* MCAResetMPINVC.swift in Sources */,
+				CE33655E1EAF6DCF008F8FF6 /* MCAUploadDocumentsView.swift in Sources */,
 				BAC6AE5A1E8250720047F7D3 /* MCASetMPinVC.swift in Sources */,
 				5B9049501E72881A00A49A50 /* MCAMatchedFPListTVCell.swift in Sources */,
 				BAC6AE3E1E824FB10047F7D3 /* MCAPopUpTableViewCell.swift in Sources */,

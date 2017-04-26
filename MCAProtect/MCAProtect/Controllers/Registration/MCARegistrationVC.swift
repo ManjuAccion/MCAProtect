@@ -11,6 +11,7 @@ import JVFloatLabeledTextField
 import SwiftyJSON
 
 class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
+    
     @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var businessNameTF : UITextField!
     @IBOutlet weak var emailTF : UITextField!
@@ -39,16 +40,9 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         self.title = "Brokerage Firm Registration"
        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         signUpButton.layer.cornerRadius = signUpButton.frame.height/2
-//       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         initilazeToolBar()
 
-
         self.navigationController?.navigationBar.isHidden = false
-//        businessNameTF.autocorrectionType = UITextAutocorrectionType.no
-//        emailTF.autocorrectionType = UITextAutocorrectionType.no
-//        phoneNumberTF.autocorrectionType = UITextAutocorrectionType.no
-//        passwordTF.autocorrectionType = UITextAutocorrectionType.no
-//        confirmPasswordTF.autocorrectionType = UITextAutocorrectionType.no
 
         isAllDetailsPresent = true
            }

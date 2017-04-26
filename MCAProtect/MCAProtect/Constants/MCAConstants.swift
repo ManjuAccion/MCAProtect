@@ -109,6 +109,7 @@ struct VCIdentifiers {
     static let MCAChangeMPinVC                                      = "MCAChangeMPinVC"
     static let MCAResetMPINVC                                       = "MCAResetMPINVC"
     static let MCADashboardTabbarVC                                 = "MCADashboardTabbarVC"
+    static let MCAAddMoreDocumentsVC                                = "MCAAddMoreDocumentsVC"
 
 
     

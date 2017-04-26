@@ -31,6 +31,7 @@ class MCAWebServiceManager: NSObject
         
         headersDict["Content-Type"] = "application/json;charset=utf-8"
         headersDict["Accept"] = "application/json"
+        headersDict["User-Agent"] = "MCAPIos"
         if let value = MCASessionManager.sharedSessionManager.accessToken
         {
             headersDict["access-token"] = value
