@@ -9,6 +9,7 @@
 import UIKit
 import MessageUI
 import Alamofire
+import SwiftyJSON
 
 
 class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegate {
@@ -16,7 +17,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     var activityView:UIView!
     var activityIndicatorCount = 0
     var  spinner : UIImageView!
-
+    var imagePicker:UIImagePickerController? = UIImagePickerController()
     
     func startNetworkReachabilityObserver() {
         let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
@@ -179,6 +180,92 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         
         layer.add(rotation, forKey: "rotation")
     }
+    
+    func selectImageFromSource() {
+        
+        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default)
+        {
+            UIAlertAction in
+            self.openCamera()
+        }
+        let galleryAction = UIAlertAction(title: "Gallery", style: UIAlertActionStyle.default)
+        {
+            UIAlertAction in
+            self.openGallery()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
+        {
+            UIAlertAction in
+        }
+        // Add the actions
+        alert.addAction(cameraAction)
+        alert.addAction(galleryAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func openCamera() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker!.sourceType = .camera
+            self.present(imagePicker!, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            self.imagePicker!.sourceType = .savedPhotosAlbum;
+            imagePicker!.allowsEditing = false
+            self.present(imagePicker!, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Image Picker Controller Delegates
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        let profileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.showActivityIndicator()
+        let data = UIImageJPEGRepresentation(profileImage, 80)
+        
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.jpg")
+        do {
+            try data?.write(to: fileURL, options: .atomic)
+        } catch {
+            print(error)
+        }
+        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:[:],
+                                                                        endPoint:"",imageData: data!
+            , successCallBack:{ (response : JSON!) in
+                
+                self.stopActivityIndicator()
+                let imageUrlString = response["image_url"].stringValue
+                self.updateImageView(imageURL: imageUrlString)
+        },
+              failureCallBack: { (error : Error) in
+                self.stopActivityIndicator()
+                let alertViewController = UIAlertController(title : "MCAP", message : "Upload failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+        })
+        dismiss(animated:true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 
+    
+    func updateImageView(imageURL : String)
+    {
+        // Do nothing .. Subclass should write business logic
+        // This is to avoid crash if method is not implemented and have unifromaity in all subclasses
+    }
     
 }

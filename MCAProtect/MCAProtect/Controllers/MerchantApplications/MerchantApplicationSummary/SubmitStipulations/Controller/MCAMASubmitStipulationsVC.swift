@@ -20,7 +20,6 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     
     var merchantApplicationDetail : MCAMerchantApplicationDetail!
     var dataSource : [JSON] = []
-    var imagePicker:UIImagePickerController? = UIImagePickerController()
     var doctUrl : URL!
     var uploadDocumentView : MCAUploadDocumentsView!
 
@@ -144,6 +143,8 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         removeAnimate()
     }
     
+    //MARK: - Webview Delegate Methods -
+    
     func webViewDidStartLoad(_ webView: UIWebView){
         
         webViewLoadingIndicator.isHidden = false
@@ -207,115 +208,29 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
                                      uploadDocumentViewHeight])
     }
     
+    //MARK:- MCAUploadDocumentsViewDelegate Methods -
+    
     func cameraButtonTapped() {
-        self.selectImageFromSource()
+        selectImageFromSource()
     }
     
-    func uploadButtonTapped() {
+    func uploadButtonTapped(documentName: String) {
         
+        if documentName.isEmpty {
+            
+        }
+        else {
+            
+        }
     }
-    
-    func selectImageFromSource() {
+        
+    override func updateImageView(imageURL : String)
+    {
+        self.uploadDocumentView.imageView.contentMode = .scaleAspectFit
+        self.uploadDocumentView.imageView.sd_setImage(with: URL(string : imageURL))
+        self.uploadDocumentView.imageView.setShowActivityIndicator(true)
+        self.uploadDocumentView.imageView.setIndicatorStyle(.gray)
+    }
 
-        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        
-        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default)
-        {
-            UIAlertAction in
-            self.openCamera()
-        }
-        let galleryAction = UIAlertAction(title: "Gallery", style: UIAlertActionStyle.default)
-        {
-            UIAlertAction in
-            self.openGallery()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
-        {
-            UIAlertAction in
-        }
-        // Add the actions
-        alert.addAction(cameraAction)
-        alert.addAction(galleryAction)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func openCamera() {
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker!.sourceType = .camera
-            self.present(imagePicker!, animated: true, completion: nil)
-        }
-    }
-    
-    func openGallery() {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            self.imagePicker!.sourceType = .savedPhotosAlbum;
-            imagePicker!.allowsEditing = false
-            self.present(imagePicker!, animated: true, completion: nil)
-        }
-    }
-    
-    func getDirectoryPath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
-    
-    // MARK: - Image Picker Controller Delegates
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        if self.checkNetworkConnection() == false {
-            return
-        }
-        
-        let profileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
-        self.showActivityIndicator()
-        
-        
-        let data = UIImageJPEGRepresentation(profileImage, 80)
-        
-        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.jpg")
-        do {
-            try data?.write(to: fileURL, options: .atomic)
-        } catch {
-            print(error)
-        }
-        
-        //   let url = URL.
-//        profileImageView.contentMode = .scaleAspectFill
-//        profileImageView.image =  profileImage
-        
-
-        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:[:],
-                                                                        endPoint:"",imageData: data!
-            , successCallBack:{ (response : JSON!) in
-                
-                self.stopActivityIndicator()
-                print("Success \(response)")
-                let imageUrlString = response["image_url"].stringValue
-                self.uploadDocumentView.imageView.contentMode = .scaleAspectFit
-                self.uploadDocumentView.imageView.sd_setImage(with: URL(string : imageUrlString))
-                self.uploadDocumentView.imageView.setShowActivityIndicator(true)
-                self.uploadDocumentView.imageView.setIndicatorStyle(.gray)
-//                self.profileImageView.sd_setImage(with:     URL(string : self.imageUrlString))
-                
-        },
-              failureCallBack: { (error : Error) in
-                self.stopActivityIndicator()
-                print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "Upload failed", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                self.present(alertViewController, animated: true , completion: nil)
-        })
-        
-        dismiss(animated:true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
 
   }

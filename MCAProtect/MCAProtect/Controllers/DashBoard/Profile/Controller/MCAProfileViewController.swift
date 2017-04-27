@@ -28,7 +28,6 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
     var mcaUser : MCAUser!
     var imageData : NSData!
     var imageUrlString : String!
-    var imagePicker:UIImagePickerController?=UIImagePickerController()
     
 
     override func viewDidLoad()
@@ -45,7 +44,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         updateButton.layer.cornerRadius = updateButton.frame.height/2
 
         
-        let profileImageViewTapGesture =    UITapGestureRecognizer(target: self, action:#selector(updateProfilePic))
+        let profileImageViewTapGesture =    UITapGestureRecognizer(target: self, action:#selector(selectImageFromSource))
         profileImageView.addGestureRecognizer(profileImageViewTapGesture)
         
         imagePicker?.delegate = self
@@ -60,15 +59,10 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         firstNameTF.text = mcaUser.brokerContactName
         emailTF.text = mcaUser.brokerEmail
         phoneNumberTF.text = mcaUser.brokerContactNumber
-        
-                   // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-     
-  
         
         DispatchQueue.main.async {
             if let url =  self.mcaUser.brokerImageUrl {
@@ -76,13 +70,13 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 self.profileImageView.setShowActivityIndicator(true)
                 let imageUrl = URL(string : url)
                 self.profileImageView.sd_setImage(with: imageUrl)
-               
             }
- 
         }
-       
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     func keyboardWillShow(notification:NSNotification){
         var userInfo = notification.userInfo!
@@ -95,8 +89,7 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
        
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField)
-    {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if(textField.tag == 1) {
             self.topConstraints.constant = 0;
             UIView.animate(withDuration: 0.5, animations:
@@ -104,11 +97,9 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                     self.view.layoutIfNeeded()
             })
         }
-
     }
     
-     func textFieldDidBeginEditing(_ textField: UITextField)
-     {
+     func textFieldDidBeginEditing(_ textField: UITextField) {
         if(textField.tag == 1) {
             self.topConstraints.constant = -25;
             UIView.animate(withDuration: 0.5, animations:
@@ -116,8 +107,6 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                     self.view.layoutIfNeeded()
             })
         }
-
-        
     }
 
     
@@ -125,159 +114,30 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
         self.view.endEditing(true)
         return true
     }
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     // MARK: - Set Profile Image
-    @IBAction func setProfilePic()
-    {
-      updateProfilePic()
-        
+    @IBAction func setProfilePic() {
+      selectImageFromSource()
     }
     
-     func updateProfilePic()
-    {
-        
-        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default)
-        {
-            UIAlertAction in
-            self.openCamera()
-        }
-        let galleryAction = UIAlertAction(title: "Gallery", style: UIAlertActionStyle.default)
-        {
-            UIAlertAction in
-            self.openGallery()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
-        {
-            UIAlertAction in
-        }
-        // Add the actions
-        alert.addAction(cameraAction)
-        alert.addAction(galleryAction)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true, completion: nil)
-        }
-        
-    
-
-    func openCamera()
-    {
-    
-        if UIImagePickerController.isSourceTypeAvailable(.camera)
-        {
-            imagePicker!.sourceType = .camera
-            self.present(imagePicker!, animated: true, completion: nil)
-        }
-           }
-    
-    func openGallery()
-    {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum)
-        {
-            self.imagePicker!.sourceType = .savedPhotosAlbum;
-            imagePicker!.allowsEditing = false
-            self.present(imagePicker!, animated: true, completion: nil)
- 
-        
+    override func updateImageView(imageURL : String) {
+        self.imageUrlString = imageURL
+        self.mcaUser.brokerImageUrl = self.imageUrlString
+        self.profileImageView.sd_setImage(with: URL(string : self.imageUrlString))
     }
-        }
     
-    
-    func getDirectoryPath() -> String
-    {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
-
-    // MARK: - Image Picker Controller Delegates
-
-    
-       func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    @IBAction func updateProfileDetails() {
         
         if self.checkNetworkConnection() == false {
             return
         }
-
-        let profileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
     
         self.showActivityIndicator()
-
-       
-        let data = UIImageJPEGRepresentation(profileImage, 80)
-        
-        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.jpg")
-        do {
-            try data?.write(to: fileURL, options: .atomic)
-        } catch {
-            print(error)
-        }
-        
-     //   let url = URL.
-        profileImageView.contentMode = .scaleAspectFill
-        profileImageView.image =  profileImage
-        
-        
-//        var paramDict  = Dictionary<String,Any>()
-//        paramDict["file"] = fileURL
-        
-        MCAWebServiceManager.sharedWebServiceManager.uploadImageRequest(requestParam:[:],
-                                                                        endPoint:"",imageData: data!
-            , successCallBack:{ (response : JSON!) in
-                
-                self.stopActivityIndicator()
-                print("Success \(response)")
-                self.imageUrlString = response["image_url"].stringValue
-                self.mcaUser.brokerImageUrl = self.imageUrlString
-                self.profileImageView.sd_setImage(with: URL(string : self.imageUrlString))
-                let alertViewController = UIAlertController(title : "MCAP", message : "Upload Successfully", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                self.present(alertViewController, animated: true , completion: nil)
-
-                
-                
-        },
-              failureCallBack: { (error : Error) in
-                self.stopActivityIndicator()
-                print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "Upload failed", preferredStyle : .alert)
-                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
-                self.present(alertViewController, animated: true , completion: nil)
-                
-        })
-        
-    
-        dismiss(animated:true, completion: nil)
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-      
-    @IBAction func updateProfileDetails()
-    {
-        
-            if self.checkNetworkConnection() == false {
-        return
-    }
-    
-    self.showActivityIndicator()
 
         var paramDict  = Dictionary<String, String>()
         paramDict["contact_name"] = firstNameTF.text
         paramDict["contact_number"] = phoneNumberTF.text
         paramDict["image_url"] = MCASessionManager.sharedSessionManager.mcapUser.brokerImageUrl
-
-        
-        
         
         MCAWebServiceManager.sharedWebServiceManager.patchRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerUpdateProfileAPIEndpoint
@@ -290,8 +150,6 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 self.present(alertViewController, animated: true , completion: nil)
 
-               
-                
         },
                failureCallBack: { (error : Error) in
                 
@@ -302,8 +160,6 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
                 self.present(alertViewController, animated: true , completion: nil)
                 
         })
-
-        
     }
 }
   

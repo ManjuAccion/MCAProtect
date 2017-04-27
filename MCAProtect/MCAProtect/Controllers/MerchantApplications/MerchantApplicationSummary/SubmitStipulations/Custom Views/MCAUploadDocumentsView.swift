@@ -11,7 +11,7 @@ import UIKit
 protocol MCAUploadDocumentsViewDelegate {
     
     func cameraButtonTapped()
-    func uploadButtonTapped()
+    func uploadButtonTapped(documentName: String)
 }
 
 class MCAUploadDocumentsView: UIView,UITextFieldDelegate {
@@ -31,7 +31,7 @@ class MCAUploadDocumentsView: UIView,UITextFieldDelegate {
     }
 
     @IBAction func uploadDocumentButtonTapped(_ sender: Any) {
-        delegate?.uploadButtonTapped()
+        delegate?.uploadButtonTapped(documentName:documentNameTF.text!)
     }
     
     //MARK: - TextField Delegate Methods
