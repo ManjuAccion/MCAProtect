@@ -22,6 +22,10 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     var dataSource : [JSON] = []
     var doctUrl : URL!
     var uploadDocumentView : MCAUploadDocumentsView!
+    var documentURL : String!
+    var uploadDocumentName : String!
+    var documentDetails = [[String:String]]()
+
 
     //MARK: -View Life Cycle
     
@@ -34,7 +38,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         transparentImageView.alpha = 0.0
         webViewLoadingIndicator.isHidden = true
         getDocumentsList()
-        
+        documentURL = ""
         imagePicker?.delegate = self
     }
     
@@ -216,20 +220,67 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     
     func uploadButtonTapped(documentName: String) {
         
+        uploadDocumentName = documentName
+        
         if documentName.isEmpty {
-            
+            print("Document Name missing")
+        }
+        else if documentURL.isEmpty {
+            print("Docmemt URL Missing")
         }
         else {
-            
+            addStipluations()
         }
     }
         
-    override func updateImageView(imageURL : String)
-    {
+    override func updateImageView(imageURL : String) {
+        documentURL = imageURL
         self.uploadDocumentView.imageView.contentMode = .scaleAspectFit
-        self.uploadDocumentView.imageView.sd_setImage(with: URL(string : imageURL))
         self.uploadDocumentView.imageView.setShowActivityIndicator(true)
         self.uploadDocumentView.imageView.setIndicatorStyle(.gray)
+        self.uploadDocumentView.imageView.sd_setImage(with: URL(string : imageURL))
+
+    }
+    
+    func addStipluations()
+    {
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        self.showActivityIndicator()
+        
+        var endPoint = String()
+        endPoint.append(MCAAPIEndPoints.BrokerAddStipulationsEndPoint);
+        endPoint.append("/\(merchantApplicationDetail.applicationID!)");
+        endPoint.append("/\(merchantApplicationDetail.acceptedFundingProgramID!)");
+        
+        
+        var paramDict = Dictionary<String , Any>()
+        
+        let dict : [String:String] = ["doc_name":uploadDocumentName,"doc_url":documentURL]
+        documentDetails.append(dict)
+        
+        paramDict["doc_details"] = documentDetails
+
+        
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                 endPoint:endPoint
+            , successCallBack:{ (response : JSON) in
+                self.stopActivityIndicator()
+                self.uploadDocumentView.removeFromSuperview()
+                self.transparentImageView.alpha = 0
+                self.getDocumentsList()
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to upload documents", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
     }
 
 

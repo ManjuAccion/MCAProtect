@@ -262,8 +262,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     }
 
     
-    func updateImageView(imageURL : String)
-    {
+    func updateImageView(imageURL : String) {
         // Do nothing .. Subclass should write business logic
         // This is to avoid crash if method is not implemented and have unifromaity in all subclasses
     }
