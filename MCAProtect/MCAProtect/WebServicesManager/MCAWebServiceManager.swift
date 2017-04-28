@@ -167,6 +167,43 @@ class MCAWebServiceManager: NSObject
   
         
     }
+    
+    func putRequest(requestParam: Dictionary<String , Any>,
+                      endPoint: String?,
+                      successCallBack: @escaping (_ responseData: JSON) -> Void,
+                      failureCallBack: @escaping (_ error: Error) -> Void)
+        
+    {
+        
+        var completeURL : String = baseURL
+        completeURL.append(endPoint!)
+        
+        
+        let headersDict = self.readAPIHeaders();
+        
+        
+        let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .put, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
+        
+        apiRequest.validate()
+        apiRequest.responseJSON { (response) in
+            
+            
+            
+            guard response.result.isSuccess else {
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                failureCallBack( response.error!)
+                return
+            }
+            
+            let dataDictionary = JSON(response.result.value!)
+            
+            print(response)
+            
+            successCallBack(dataDictionary)
+            return
+        }
+        
+    }
 
     
     func patchRequest(requestParam: Dictionary<String , Any>,

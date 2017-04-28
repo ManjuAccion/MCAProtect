@@ -75,7 +75,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
                 
                 self.stopActivityIndicator()
                 print("Failure \(error)")
-                let alertViewController = UIAlertController(title : "MCAP", message : "Dashboard update Failed", preferredStyle : .alert)
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to fetch the document list", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 self.present(alertViewController, animated: true , completion: nil)
                 
@@ -114,14 +114,50 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         return 60.0
     }
     
-    func viewApplication(docUrl : URL)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let documentDetail = dataSource[indexPath.row]
+            let documentID = documentDetail["document"]["id"].stringValue
+            removeDocument(documentID: documentID)
+        }
+    }
+    
+    func removeDocument(documentID:String)
     {
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        self.showActivityIndicator()
+        
+        var endPoint = String()
+        endPoint.append(MCAAPIEndPoints.BrokerRemoveStipDocEndpoint);
+        endPoint.append("/\(documentID)")
+        
+        MCAWebServiceManager.sharedWebServiceManager.putRequest(requestParam: [:], endPoint: endPoint, successCallBack: { (response : JSON) in
+            
+            self.stopActivityIndicator()
+            print("Success \(response)")
+            self.getDocumentsList()
+
+        }) { (error : Error) in
+            
+            self.stopActivityIndicator()
+            print("Failure \(error)")
+            let alertViewController = UIAlertController(title : "MCAP", message : "Unable to remove document", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            self.present(alertViewController, animated: true , completion: nil)
+        }
+    }
+    
+    func viewApplication(docUrl : URL) {
         doctUrl = docUrl
         showAnimate(docUrl: doctUrl)
     }
     
-    func showAnimate(docUrl : URL!)
-    {
+    func showAnimate(docUrl : URL!) {
         let requestObj = URLRequest(url: docUrl)
         webView.loadRequest(requestObj)
         
@@ -134,8 +170,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         })
     }
     
-    func removeAnimate()
-    {
+    func removeAnimate() {
         self.transparentImageView.alpha = 0.0
         UIView.animate(withDuration: 0.25, animations: {
             self.popUpView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)

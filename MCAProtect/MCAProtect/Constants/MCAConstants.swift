@@ -372,6 +372,7 @@ struct MCAAPIEndPoints {
     static let BrokerFunderProgramListEndpoint          = "/get_all_lending_programs.json?mob_app=true"
     static let BrokerFunderProgramEndpoint              = "/view_lending_program/"
     static let BrokerNeedMoreStipDocEndpoint            = "/underwriting/stipulations/get_stipulations"
+    static let BrokerRemoveStipDocEndpoint              = "/underwriting/stipulations/remove_stipulation"
     static let BrokerFundednDNQDocEndpoint              = "/underwriting/stipulations/get_required_documents"
     static let BrokerAddStipulationsEndPoint            = "/underwriting/stipulations/add_stipulation"
     static let BrokerMatchedFundingProgramListEndPoint  = "/algorithm/get_lending_programs"
