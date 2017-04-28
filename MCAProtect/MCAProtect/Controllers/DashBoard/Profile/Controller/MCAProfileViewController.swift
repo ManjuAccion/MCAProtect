@@ -120,11 +120,20 @@ class MCAProfileViewController: MCABaseViewController,UIImagePickerControllerDel
       selectImageFromSource()
     }
     
-    override func updateImageView(imageURL : String) {
+    override func updateImageView(image : UIImage) {
+        self.profileImageView.contentMode = .scaleAspectFit
+        self.profileImageView.setShowActivityIndicator(true)
+        self.profileImageView.setIndicatorStyle(.gray)
+        self.profileImageView.image = image
+        
+    }
+    override func updateImageViewURL(imageURL : String) {
         self.imageUrlString = imageURL
         self.mcaUser.brokerImageUrl = self.imageUrlString
         self.profileImageView.sd_setImage(with: URL(string : self.imageUrlString))
+        
     }
+
     
     @IBAction func updateProfileDetails() {
         

@@ -38,7 +38,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         transparentImageView.alpha = 0.0
         webViewLoadingIndicator.isHidden = true
         getDocumentsList()
-        documentURL = ""
+        documentUrlString = ""
         imagePicker?.delegate = self
     }
     
@@ -223,17 +223,22 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         uploadDocumentName = documentName
         
         if documentName.isEmpty {
-            print("Document Name missing")
+            presentAlertWithTitle(title: "MCAP", message: NSLocalizedString("Please enter document name", comment: ""))
         }
-        else if documentURL.isEmpty {
-            print("Docmemt URL Missing")
+        else if documentUrlString.isEmpty {
+            presentAlertWithTitle(title: "MCAP", message: NSLocalizedString("Please select an image", comment: ""))
         }
         else {
             addStipluations()
         }
     }
+    
+    override func updateImageView(image : UIImage) {
+        self.uploadDocumentView.imageView.contentMode = .scaleAspectFit
+        self.uploadDocumentView.imageView.image = image
         
-    override func updateImageView(imageURL : String) {
+    }
+    override func updateImageViewURL(imageURL : String) {
         documentURL = imageURL
         self.uploadDocumentView.imageView.contentMode = .scaleAspectFit
         self.uploadDocumentView.imageView.setShowActivityIndicator(true)
@@ -258,7 +263,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         
         var paramDict = Dictionary<String , Any>()
         
-        let dict : [String:String] = ["doc_name":uploadDocumentName,"doc_url":documentURL]
+        let dict : [String:String] = ["doc_name":uploadDocumentName,"doc_url":documentUrlString]
         documentDetails.append(dict)
         
         paramDict["doc_details"] = documentDetails

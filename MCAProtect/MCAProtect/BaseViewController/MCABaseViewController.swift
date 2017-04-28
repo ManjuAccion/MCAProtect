@@ -18,6 +18,8 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     var activityIndicatorCount = 0
     var  spinner : UIImageView!
     var imagePicker:UIImagePickerController? = UIImagePickerController()
+    var uploadedImage : UIImage!
+    var documentUrlString : String!
     
     func startNetworkReachabilityObserver() {
         let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.google.com")
@@ -47,6 +49,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         startNetworkReachabilityObserver()
+        documentUrlString = ""
         print("---Controller====>//",self.description)
     }
     
@@ -230,9 +233,9 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
             return
         }
         
-        let profileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        uploadedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.showActivityIndicator()
-        let data = UIImageJPEGRepresentation(profileImage, 80)
+        let data = UIImageJPEGRepresentation(uploadedImage, 80)
         
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.jpg")
         do {
@@ -245,8 +248,8 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
             , successCallBack:{ (response : JSON!) in
                 
                 self.stopActivityIndicator()
-                let imageUrlString = response["image_url"].stringValue
-                self.updateImageView(imageURL: imageUrlString)
+                self.documentUrlString = response["image_url"].stringValue
+                self.updateImageView(image: self.uploadedImage)
         },
               failureCallBack: { (error : Error) in
                 self.stopActivityIndicator()
@@ -261,8 +264,12 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         dismiss(animated: true, completion: nil)
     }
 
+    func updateImageView(image : UIImage)
+    {
+        
+    }
     
-    func updateImageView(imageURL : String) {
+    func updateImageViewURL(imageURL : String) {
         // Do nothing .. Subclass should write business logic
         // This is to avoid crash if method is not implemented and have unifromaity in all subclasses
     }
