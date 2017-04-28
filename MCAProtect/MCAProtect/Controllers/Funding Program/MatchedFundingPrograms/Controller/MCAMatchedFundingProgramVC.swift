@@ -468,7 +468,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         let maxUpsellRate  = Int(fundingProgram.maxUpsellRate)
          rates = []
         for index in 0...maxUpsellRate! {
-            rates.append("\(index) %")
+            rates.append("\(index)")
         }
         configPicker()
 
@@ -485,8 +485,10 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
         indexPath = sender  as! NSIndexPath
         rates = []
         for index in 0...20 {
-            rates.append("\(index) %")
+            rates.append("\(index)")
         }
+        configPicker()
+
         self.view.addSubview(customPicker)
       //  self.view.addSubview(self.toolbar!)
         
@@ -546,8 +548,20 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
             let cell = tableView.cellForRow(at: indexPath as IndexPath ) as! MCAFundingProgramDetailCell
             let selectedString = rates[dealsPipelineRange]
             cell.commonRateButton .setTitle(selectedString, for: UIControlState.normal)
-        }
-        else{
+                for matchedFundingProgram  in matchedFundingProgramList
+                {
+                    if selectedString <= matchedFundingProgram.maxUpsellRate! {
+
+                  matchedFundingProgram.upsellRate = matchedFundingProgram.maxUpsellRate
+                    }
+                    else{
+                        matchedFundingProgram.upsellRate = selectedString
+
+                    }
+                }
+                tableView.reloadData()
+            }
+                   else{
         let selectedString = rates[dealsPipelineRange]
         fundingProgram.upsellRate = selectedString as String?
         tableView.reloadData()
