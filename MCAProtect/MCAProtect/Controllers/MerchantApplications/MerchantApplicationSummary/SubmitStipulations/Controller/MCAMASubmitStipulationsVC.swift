@@ -114,15 +114,15 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         return 60.0
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            
-            let documentDetail = dataSource[indexPath.row]
-            let documentID = documentDetail["document"]["id"].stringValue
-            removeDocument(documentID: documentID)
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        
+//        if editingStyle == .delete {
+//            
+//            let documentDetail = dataSource[indexPath.row]
+//            let documentID = documentDetail["document"]["id"].stringValue
+//            removeDocument(documentID: documentID)
+//        }
+//    }
     
     func removeDocument(documentID:String)
     {

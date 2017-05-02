@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import JVFloatLabeledTextField
 import SwiftyJSON
 
 class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
@@ -68,10 +67,22 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func inputToolbarDonePressed() {
-        inputTextField.resignFirstResponder()
+//        inputTextField.resignFirstResponder()
+        switch inputTextField {
+            case businessNameTF : inputTextField.resignFirstResponder()
+                                  emailTF.becomeFirstResponder()
+            case emailTF        : inputTextField.resignFirstResponder()
+                                  phoneNumberTF.becomeFirstResponder()
+            case phoneNumberTF  : inputTextField.resignFirstResponder()
+                                  passwordTF.becomeFirstResponder()
+            case passwordTF     : inputTextField.resignFirstResponder()
+                                  confirmPasswordTF.becomeFirstResponder()
+            case confirmPasswordTF: inputTextField.resignFirstResponder()
+                
+            default:
+                break
+        }
     }
-
-
     
  //Mark:- Keyboard hide and show
     
@@ -81,15 +92,8 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
        keyBoardHeight = keyboardFrame.size.height
     }
-//
-//    func keyboardWillHide(notification:NSNotification){
-////        scrollView.contentOffset = CGPoint(x: 0, y: -60)
-//
-//    }
-//
-    
-    func textFieldDidBeginEditing(_ textField: UITextField)
-    {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
         inputTextField = textField
         inputTextField?.inputAccessoryView = toolbar
@@ -99,13 +103,9 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
                 {
                     self.view.layoutIfNeeded()
             })
- 
         }
-        
-        
        
-        if(textField.tag == 3 || textField.tag == 2 )
-{
+        if(textField.tag == 3 || textField.tag == 2 ) {
             if !( (ceil((textField.superview?.frame.origin.y)!) + textfieldHeight)  <= (self.view.frame.size.height - (keyBoardHeight + toolBarHeight)))
             {
                 self.topSpaceConstraints.constant = -15;
@@ -115,23 +115,26 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
                 })
             }
         }
+
+        if(textField.tag == 4) {
+             if !((ceil((textField.superview?.frame.origin.y)!) + textfieldHeight) <= (self.view.frame.size.height - (keyBoardHeight + toolBarHeight))) {
+                    self.topSpaceConstraints.constant = -64;
+                    UIView.animate(withDuration: 0.5, animations:
+                        {
+                            self.view.layoutIfNeeded()
+                    })
+                }
+        }
+        if textField == confirmPasswordTF {
+            doneButton?.title = "Done"
+        }
+        else {
+            doneButton?.title = "Next"
+        }
         
-
-        if(textField.tag == 4)
-        {
-         if !((ceil((textField.superview?.frame.origin.y)!) + textfieldHeight) <= (self.view.frame.size.height - (keyBoardHeight + toolBarHeight)))
-            {
-                self.topSpaceConstraints.constant = -64;
-                UIView.animate(withDuration: 0.5, animations:
-                    {
-                        self.view.layoutIfNeeded()
-                })
-
-            }
-              }
     }
-    func textFieldDidEndEditing(_ textField: UITextField)
-    {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
         self.topSpaceConstraints.constant = 64;
         UIView.animate(withDuration: 0.5, animations:
             {
@@ -141,7 +144,22 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
 
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        
+        switch textField {
+            case businessNameTF : textField.resignFirstResponder()
+                                  emailTF.becomeFirstResponder()
+            case emailTF        : textField.resignFirstResponder()
+                                  phoneNumberTF.becomeFirstResponder()
+            case phoneNumberTF  : textField.resignFirstResponder()
+                                  passwordTF.becomeFirstResponder()
+            case passwordTF     : textField.resignFirstResponder()
+                                  confirmPasswordTF.becomeFirstResponder()
+            case confirmPasswordTF: textField.resignFirstResponder()
+        
+            default:
+                break
+        }
+        
         return true
     }
     
@@ -149,66 +167,66 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
     @IBAction func registerButtonPressed (sender : AnyObject){
         
-    self.view.endEditing(true)
-        
-    if ((businessNameTF.text?.isEmpty)!) {
-        
-        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Business Name", comment: ""))
-        isAllDetailsPresent = false
-    }
-    else if ((emailTF.text?.isEmpty)!) {
-        
-        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Email", comment: ""))
-        isAllDetailsPresent = false
-    }
-    else if !(MCAUtilities.isValidEmail(inEmailId: emailTF.text!)) {
-        
-        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Valid  Email Id", comment: ""))
-        isAllDetailsPresent = false
-    }
-    else if ((phoneNumberTF.text?.isEmpty)!)
-    {
-        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Phone Number", comment: ""))
-        isAllDetailsPresent = false
-    }
-    else if ((passwordTF.text?.isEmpty)!) {
-        
-        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Password", comment: ""))
-        isAllDetailsPresent = false
-    }
-    else if ((confirmPasswordTF.text?.isEmpty)!) {
-        
-        presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Confirm Password", comment: ""))
-        isAllDetailsPresent = false
-    }
-    else if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
-    {
-        if (confirmPasswordTF.text == passwordTF.text) {
-            isAllDetailsPresent = true
-        }
-        else {
+        self.view.endEditing(true)
             
-            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Passwords Do Not Match", comment: ""))
+        if ((businessNameTF.text?.isEmpty)!) {
+            
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Business Name", comment: ""))
             isAllDetailsPresent = false
         }
-    }
-    else {
-        isAllDetailsPresent = true
-    }
-        
-    if isAllDetailsPresent != nil && isAllDetailsPresent == true {
-        self.RegisterBrokerage()
-        
-    }
+        else if ((emailTF.text?.isEmpty)!) {
+            
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Email", comment: ""))
+            isAllDetailsPresent = false
+        }
+        else if !(MCAUtilities.isValidEmail(inEmailId: emailTF.text!)) {
+            
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Valid  Email Id", comment: ""))
+            isAllDetailsPresent = false
+        }
+        else if ((phoneNumberTF.text?.isEmpty)!)
+        {
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Phone Number", comment: ""))
+            isAllDetailsPresent = false
+        }
+        else if ((passwordTF.text?.isEmpty)!) {
+            
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Password", comment: ""))
+            isAllDetailsPresent = false
+        }
+        else if ((confirmPasswordTF.text?.isEmpty)!) {
+            
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Confirm Password", comment: ""))
+            isAllDetailsPresent = false
+        }
+        else if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
+        {
+            if (confirmPasswordTF.text == passwordTF.text) {
+                isAllDetailsPresent = true
+            }
+            else {
+                
+                presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Passwords Do Not Match", comment: ""))
+                isAllDetailsPresent = false
+            }
+        }
+        else {
+            isAllDetailsPresent = true
+        }
+            
+        if isAllDetailsPresent != nil && isAllDetailsPresent == true {
+            self.RegisterBrokerage()
+            
+        }
 }
     
     func RegisterBrokerage() {
         
-            if self.checkNetworkConnection() == false {
-        return
-    }
+        if self.checkNetworkConnection() == false {
+            return
+        }
     
-    self.showActivityIndicator()
+        self.showActivityIndicator()
 
         
         var paramDict = Dictionary<String, String>()
