@@ -44,6 +44,10 @@
 		5B9049501E72881A00A49A50 /* MCAMatchedFPListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90494B1E72881A00A49A50 /* MCAMatchedFPListTVCell.swift */; };
 		5B9049511E72881A00A49A50 /* MCAMatchedFPListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B90494C1E72881A00A49A50 /* MCAMatchedFPListTVCell.xib */; };
 		5B9049531E72A77900A49A50 /* MCAMatchedFundingProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9049521E72A77900A49A50 /* MCAMatchedFundingProgram.swift */; };
+		5BB1D5C91EB5FB6F00F8FC31 /* MCAChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5C81EB5FB6F00F8FC31 /* MCAChatBubble.swift */; };
+		5BB1D5CD1EB5FD8A00F8FC31 /* MCAChatBubbleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5CC1EB5FD8A00F8FC31 /* MCAChatBubbleData.swift */; };
+		5BB1D5CF1EB64D1200F8FC31 /* MCAUnderwrittingChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5CE1EB64D1200F8FC31 /* MCAUnderwrittingChatVC.swift */; };
+		5BB1D5D11EB8856400F8FC31 /* MCAUnderWritingChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5D01EB8856400F8FC31 /* MCAUnderWritingChatData.swift */; };
 		5BB3E5F81E8293A800A67927 /* MCAApplicationFormTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3E5DD1E8293A800A67927 /* MCAApplicationFormTVCell.swift */; };
 		5BB3E5F91E8293A800A67927 /* MCAApplicationFormTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB3E5DE1E8293A800A67927 /* MCAApplicationFormTVCell.xib */; };
 		5BB3E5FA1E8293A800A67927 /* MCAApplicationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3E5E01E8293A800A67927 /* MCAApplicationTVCell.swift */; };
@@ -263,6 +267,10 @@
 		5B90494B1E72881A00A49A50 /* MCAMatchedFPListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMatchedFPListTVCell.swift; sourceTree = "<group>"; };
 		5B90494C1E72881A00A49A50 /* MCAMatchedFPListTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAMatchedFPListTVCell.xib; sourceTree = "<group>"; };
 		5B9049521E72A77900A49A50 /* MCAMatchedFundingProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMatchedFundingProgram.swift; sourceTree = "<group>"; };
+		5BB1D5C81EB5FB6F00F8FC31 /* MCAChatBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAChatBubble.swift; sourceTree = "<group>"; };
+		5BB1D5CC1EB5FD8A00F8FC31 /* MCAChatBubbleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAChatBubbleData.swift; sourceTree = "<group>"; };
+		5BB1D5CE1EB64D1200F8FC31 /* MCAUnderwrittingChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUnderwrittingChatVC.swift; sourceTree = "<group>"; };
+		5BB1D5D01EB8856400F8FC31 /* MCAUnderWritingChatData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUnderWritingChatData.swift; sourceTree = "<group>"; };
 		5BB3E5DD1E8293A800A67927 /* MCAApplicationFormTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormTVCell.swift; sourceTree = "<group>"; };
 		5BB3E5DE1E8293A800A67927 /* MCAApplicationFormTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAApplicationFormTVCell.xib; sourceTree = "<group>"; };
 		5BB3E5E01E8293A800A67927 /* MCAApplicationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationTVCell.swift; sourceTree = "<group>"; };
@@ -845,6 +853,16 @@
 			path = GenericPopUpController;
 			sourceTree = "<group>";
 		};
+		5BB1D5CB1EB5FD1B00F8FC31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BB1D5CC1EB5FD8A00F8FC31 /* MCAChatBubbleData.swift */,
+				5BB1D5D01EB8856400F8FC31 /* MCAUnderWritingChatData.swift */,
+			);
+			name = Model;
+			path = "SubmitStipulations/Custom Views";
+			sourceTree = "<group>";
+		};
 		5BB3E5DC1E8293A800A67927 /* Application Form Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1348,6 +1366,7 @@
 			children = (
 				BAC6ADE91E824ABB0047F7D3 /* MerchantApplicationSummary */,
 				BAC6ADEB1E824ABB0047F7D3 /* SubmitStipulations */,
+				5BB1D5CB1EB5FD1B00F8FC31 /* Model */,
 			);
 			path = MerchantApplicationSummary;
 			sourceTree = "<group>";
@@ -1440,6 +1459,7 @@
 			isa = PBXGroup;
 			children = (
 				BAC6ADED1E824ABB0047F7D3 /* MCAMASubmitStipulationsVC.swift */,
+				5BB1D5CE1EB64D1200F8FC31 /* MCAUnderwrittingChatVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1460,6 +1480,7 @@
 				BAC6ADF31E824ABB0047F7D3 /* MCASubmitStipulationsView.xib */,
 				CE33655D1EAF6DCF008F8FF6 /* MCAUploadDocumentsView.swift */,
 				CE33655B1EAF6DBD008F8FF6 /* MCAUploadDocumentsView.xib */,
+				5BB1D5C81EB5FB6F00F8FC31 /* MCAChatBubble.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -2433,6 +2454,8 @@
 				CE0DCCC31E9F51B8003C5A97 /* MCAIndustryType.swift in Sources */,
 				BAC6ADE71E8160350047F7D3 /* MCAAskFunderApplicationListTVCell.swift in Sources */,
 				BACC53041E892C85003C4852 /* MCALoginViewController.swift in Sources */,
+				5BB1D5C91EB5FB6F00F8FC31 /* MCAChatBubble.swift in Sources */,
+				5BB1D5CD1EB5FD8A00F8FC31 /* MCAChatBubbleData.swift in Sources */,
 				CE0DCCC41E9F51B8003C5A97 /* MCAProgramInformation.swift in Sources */,
 				BA8B68BB1E5C709F004CEB69 /* UIViewController+Extensions.swift in Sources */,
 				5BB3E6021E8293A800A67927 /* MCAEmailTableViewCell.swift in Sources */,
@@ -2441,6 +2464,7 @@
 				5B90494E1E72881A00A49A50 /* MCAFundingProgramDetailsVC.swift in Sources */,
 				5B1F8D741E83ACC900BD53F2 /* MCAFundingProgram.swift in Sources */,
 				5BBD52A31EA8CA8700C368EA /* MCAFPListTableViewCell.swift in Sources */,
+				5BB1D5CF1EB64D1200F8FC31 /* MCAUnderwrittingChatVC.swift in Sources */,
 				BAC6AE0D1E824B7F0047F7D3 /* MCANewChatTVCell.swift in Sources */,
 				CE0DCCA51E9F4D29003C5A97 /* MCABankRecordsTVCell.swift in Sources */,
 				BAC6AE681E8250F90047F7D3 /* MCAPerformanceComparisonVS.swift in Sources */,
@@ -2517,6 +2541,7 @@
 				5B90494F1E72881A00A49A50 /* MCAMatchedFundingProgramVC.swift in Sources */,
 				5B1F8D841E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift in Sources */,
 				BAC6ADF51E824ABB0047F7D3 /* MCAMASubmitStipulationsVC.swift in Sources */,
+				5BB1D5D11EB8856400F8FC31 /* MCAUnderWritingChatData.swift in Sources */,
 				BAC6AE591E8250720047F7D3 /* MCAResetMPINVC.swift in Sources */,
 				CE33655E1EAF6DCF008F8FF6 /* MCAUploadDocumentsView.swift in Sources */,
 				BAC6AE5A1E8250720047F7D3 /* MCASetMPinVC.swift in Sources */,

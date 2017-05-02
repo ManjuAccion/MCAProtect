@@ -165,7 +165,12 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
 
         switch applicationState {
             case ApplicationState.UnderWriting.rawValue:
-                fallthrough
+                let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+                let submitStipulationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC
+                submitStipulationsVC.merchantApplicationDetail = merchantApplicationDetail
+                submitStipulationsVC.applicationState = ApplicationState.UnderWriting.rawValue
+                navigationController?.pushViewController(submitStipulationsVC, animated: true)
+
             case ApplicationState.NeedMoreStips.rawValue:
                 let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
                 let submitStipulationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMASubmitStipulationsVC) as! MCAMASubmitStipulationsVC

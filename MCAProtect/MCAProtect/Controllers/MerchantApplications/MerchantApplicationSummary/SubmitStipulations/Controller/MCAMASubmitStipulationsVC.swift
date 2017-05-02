@@ -25,6 +25,8 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     var documentURL : String!
     var uploadDocumentName : String!
     var documentDetails = [[String:String]]()
+    var applicationState: Int!
+
 
 
     //MARK: -View Life Cycle
@@ -40,10 +42,23 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         getDocumentsList()
         documentUrlString = ""
         imagePicker?.delegate = self
+        
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconChatWhite"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(chatButtonTapped))
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func chatButtonTapped()
+    {
+        let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
+        let submitStipulationsVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAUnderwrittingChatVC) as! MCAUnderwrittingChatVC
+        submitStipulationsVC.applicationId = merchantApplicationDetail.applicationID
+        submitStipulationsVC.lendingProgramId = merchantApplicationDetail.acceptedFundingProgramID
+        navigationController?.pushViewController(submitStipulationsVC, animated: true)
+
+        
     }
     
     func getDocumentsList()

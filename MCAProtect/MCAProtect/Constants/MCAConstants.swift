@@ -8,6 +8,16 @@
 
 import UIKit
 
+
+struct ScreenSize
+{
+    static let SCREEN_WIDTH = UIScreen.main.bounds.size.width
+    static let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
+    static let SCREEN_MAX_LENGTH = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+    static let SCREEN_MIN_LENGTH = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+}
+
+
 struct ColorConstants {
     static let newbgColor           = MCAUtilities.hexStringToUIColor(hexaDecimalString:"#A02336")
 
@@ -81,6 +91,7 @@ struct StoryboardName {
     static let MCAMatchedFundingProgram             = "MatchedFundingProgram"
     static let MCAGenericPopUp                      = "GenericPopUp"
     static let MCAAskFunder                         = "AskFunder"
+    
 }
 
 struct VCIdentifiers {
@@ -110,6 +121,9 @@ struct VCIdentifiers {
     static let MCAResetMPINVC                                       = "MCAResetMPINVC"
     static let MCADashboardTabbarVC                                 = "MCADashboardTabbarVC"
     static let MCAAddMoreDocumentsVC                                = "MCAAddMoreDocumentsVC"
+    static let MCAUnderwrittingChatVC                                = "MCAUnderwrittingChatVC"
+
+    
 
 
     
@@ -389,6 +403,7 @@ struct MCAAPIEndPoints {
     static let BrokerageLogoutAPIEndPoint               = "/brokerage_firm/sign_out.json"
     static let BrokerageForgotPasswordAPIEndPoint       = "/brokerage_firm/password.json"
     static let BrokerageUpdateProfileAPIEndpoint        = "/brokerage_firm.json"
+     static let BrokerUnderWrittingChatAPIEndpoint      = "/user_chats/get_underwriting_chats"
 
 }
 
