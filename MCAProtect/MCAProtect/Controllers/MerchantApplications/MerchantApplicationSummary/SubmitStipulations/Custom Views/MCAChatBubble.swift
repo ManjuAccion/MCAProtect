@@ -115,17 +115,21 @@ class MCAChatBubble: UIView {
         let height: CGFloat = 40.0
         if data.type == .mine {
             // Need to maintain the minimum right side padding from the right edge of the screen
-            profileImageView = UIImageView(frame: CGRect(x : self.imageViewBG!.frame.width  , y: bgImageNewHeight - height - 7, width:width, height:height))
+            profileImageView = UIImageView.init(frame: CGRect(x : self.imageViewBG!.frame.width  , y: bgImageNewHeight - height - 7, width:width, height:height))
             
         } else {
             // Need to maintain the minimum left side padding from the left edge of the screen
-            profileImageView = UIImageView(frame: CGRect(x : -50, y: bgImageNewHeight - height - 7, width:width, height:height))
+            profileImageView = UIImageView.init(frame: CGRect(x : -50, y: bgImageNewHeight - height - 7, width:width, height:height))
         } 
         
         
         
         //  let profileimageViewChat = UIImageView(frame: CGRect(x : 0, y: 0, width:width, height:height))
-        profileImageView?.image = UIImage(named :"malecostume" )
+        let imageUrl = URL.init(string: data.profileImageUrl!)
+        profileImageView?.sd_setImage(with: imageUrl!)
+        profileImageView?.setIndicatorStyle(.gray)
+        profileImageView?.setShowActivityIndicator(true)
+      // profileImageView?.image = UIImage(named :"malecostume" )
         profileImageView?.layer.cornerRadius = (profileImageView?.frame.size.height)!/2
         profileImageView?.layer.masksToBounds = true
         self.addSubview(profileImageView!)
