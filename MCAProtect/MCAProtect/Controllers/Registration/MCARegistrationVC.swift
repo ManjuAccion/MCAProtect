@@ -44,7 +44,8 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         self.navigationController?.navigationBar.isHidden = false
 
         isAllDetailsPresent = true
-           }
+        self.hideKeyboardWhenTappedAround()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -67,7 +68,6 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     }
     
     func inputToolbarDonePressed() {
-//        inputTextField.resignFirstResponder()
         switch inputTextField {
             case businessNameTF : inputTextField.resignFirstResponder()
                                   emailTF.becomeFirstResponder()
@@ -141,7 +141,6 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
                 self.view.layoutIfNeeded()
         })
     }
-
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -162,8 +161,6 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
         
         return true
     }
-    
-    
     
     @IBAction func registerButtonPressed (sender : AnyObject){
         
@@ -252,8 +249,6 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
                     setPinVC.isFromRegistrationFlow = true
                     self.navigationController?.pushViewController(setPinVC,
                                                                   animated: true)
-                    
-                    
                 }))
                 
                 
@@ -269,8 +264,5 @@ class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
             
         })
     }
-    
-    
-    
    
 }
