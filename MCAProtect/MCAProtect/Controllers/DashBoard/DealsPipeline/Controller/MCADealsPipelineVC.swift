@@ -33,7 +33,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     var customPicker : MCACustomPickerView!
     weak var parentController: MCADashboardTabbarVC!
     
-    var colorsArray = ["00ddff","0099cc","33b5e5","99cc00","ffbb33","aa66cc","ff4444"]
+    var colorsArray = ["F5E382","F4C167","E68C44","59CF6A","8E8E8E","3A3A3B","DB4444"]
 
     //MARK: - View Life Cycle -
 

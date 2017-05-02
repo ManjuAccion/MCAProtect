@@ -38,7 +38,7 @@
                         <constraint firstAttribute="height" constant="21" id="qQu-nV-8a3"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUpload" translatesAutoresizingMaskIntoConstraints="NO" id="hz6-h5-Ttn">
