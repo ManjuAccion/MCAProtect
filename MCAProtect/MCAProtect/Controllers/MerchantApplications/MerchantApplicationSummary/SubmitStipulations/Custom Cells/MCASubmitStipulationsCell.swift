@@ -48,7 +48,7 @@ class MCASubmitStipulationsCell: UITableViewCell {
         
         self.merchantNameLabel.text = documentDetail["document_name"].stringValue
         self.docUrl = documentDetail["document"]["doc_url"].stringValue
-        self.documentTypeLabel.text = "Created at: \(MCAUtilities.getFormmattedDate(dateString: documentDetail["created_at"].stringValue))"
+        self.documentTypeLabel.text = "Uploaded at: \(MCAUtilities.getFormmattedDate(dateString: documentDetail["created_at"].stringValue))"
         
     }
     
