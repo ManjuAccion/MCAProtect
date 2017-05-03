@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, MCASubmitStipulationsCellDelegate,UIWebViewDelegate,MCASubmitStipulationsViewDelegate,MCAUploadDocumentsViewDelegate {
+class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, MCASubmitStipulationsCellDelegate,UIWebViewDelegate,MCASubmitStipulationsViewDelegate,MCAUploadDocumentsViewDelegate,UIGestureRecognizerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var popUpView : UIView!
@@ -222,6 +222,10 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         transparentImageView.addSubview(uploadDocumentView)
         transparentImageView.isUserInteractionEnabled = true
         
+        let transparentImageViewTapGesture = UITapGestureRecognizer(target: self, action:#selector(transparentImageViewTapGestureAction))
+        transparentImageView.addGestureRecognizer(transparentImageViewTapGesture)
+        transparentImageViewTapGesture.delegate = self
+        
         let uploadDocumentViewCenterX = NSLayoutConstraint(item: uploadDocumentView,
                                                        attribute: .centerX,
                                                        relatedBy: .equal,
@@ -260,6 +264,15 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
                                      uploadDocumentViewCenterY,
                                      uploadDocumentViewWidth,
                                      uploadDocumentViewHeight])
+    }
+    
+    func transparentImageViewTapGestureAction() {
+        self.uploadDocumentView.removeFromSuperview()
+        self.transparentImageView.alpha = 0
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view == gestureRecognizer.view
     }
     
     //MARK:- MCAUploadDocumentsViewDelegate Methods -
