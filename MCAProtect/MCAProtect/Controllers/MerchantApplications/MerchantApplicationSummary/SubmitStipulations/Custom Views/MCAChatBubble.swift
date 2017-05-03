@@ -126,10 +126,9 @@ class MCAChatBubble: UIView {
         
         //  let profileimageViewChat = UIImageView(frame: CGRect(x : 0, y: 0, width:width, height:height))
         let imageUrl = URL.init(string: data.profileImageUrl!)
-        profileImageView?.sd_setImage(with: imageUrl!)
+        profileImageView?.sd_setImage(with: imageUrl!, placeholderImage: UIImage(named : "malecostume"))
         profileImageView?.setIndicatorStyle(.gray)
         profileImageView?.setShowActivityIndicator(true)
-      // profileImageView?.image = UIImage(named :"malecostume" )
         profileImageView?.layer.cornerRadius = (profileImageView?.frame.size.height)!/2
         profileImageView?.layer.masksToBounds = true
         self.addSubview(profileImageView!)
