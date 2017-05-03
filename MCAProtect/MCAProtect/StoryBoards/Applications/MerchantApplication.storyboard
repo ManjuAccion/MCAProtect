@@ -293,7 +293,7 @@
                                     <constraint firstAttribute="width" constant="44" id="RF3-t5-efp"/>
                                     <constraint firstAttribute="height" constant="44" id="gYB-ik-dPl"/>
                                 </constraints>
-                                <state key="normal" image="FA88AACF-9F6B-4AB5-B183-23CC1632292B"/>
+                                <state key="normal" image="3EFC7185-278C-47AA-A43A-F77E88EF7277"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
@@ -389,6 +389,7 @@
                     <connections>
                         <outlet property="buttomLayoutConstraint" destination="ojT-eP-KSY" id="BMv-tS-08n"/>
                         <outlet property="messageCointainerScroll" destination="NN4-28-ruH" id="yCC-Oq-nrX"/>
+                        <outlet property="sendButton" destination="eZV-Ki-t6v" id="Ppd-us-b9g"/>
                         <outlet property="textView" destination="mQ6-Md-3PS" id="qYL-oe-bSm"/>
                         <outlet property="txtheightconstraints" destination="wTk-Oo-a4Y" id="Ewi-ke-rA6"/>
                     </connections>
@@ -399,7 +400,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FA88AACF-9F6B-4AB5-B183-23CC1632292B" width="36" height="39">
+        <image name="3EFC7185-278C-47AA-A43A-F77E88EF7277" width="36" height="39">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

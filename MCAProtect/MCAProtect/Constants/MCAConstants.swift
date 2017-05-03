@@ -404,6 +404,8 @@ struct MCAAPIEndPoints {
     static let BrokerageForgotPasswordAPIEndPoint       = "/brokerage_firm/password.json"
     static let BrokerageUpdateProfileAPIEndpoint        = "/brokerage_firm.json"
      static let BrokerUnderWrittingChatAPIEndpoint      = "/user_chats/get_underwriting_chats"
+    static let BrokerUnderWritingCreateChatAPIEndpoint      = "/user_chats"
+
 
 }
 

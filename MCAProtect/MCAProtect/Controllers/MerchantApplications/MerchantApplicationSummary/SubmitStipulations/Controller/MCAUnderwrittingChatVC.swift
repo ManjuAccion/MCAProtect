@@ -26,7 +26,7 @@ class MCAUnderwrittingChatVC: MCABaseViewController,UITextViewDelegate {
 
     @IBOutlet weak var   txtheightconstraints : NSLayoutConstraint!
     @IBOutlet weak var buttomLayoutConstraint  : NSLayoutConstraint!
-
+    @IBOutlet weak var sendButton : UIButton!
 
     @IBOutlet weak var messageCointainerScroll: UIScrollView!
 
@@ -35,6 +35,7 @@ class MCAUnderwrittingChatVC: MCABaseViewController,UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = NSLocalizedString("Messages", comment:"")
         /*
         let chatBubbleData1 = MCAChatBubbleData(text: "Hey !!!!have a look on that....", image:UIImage(named: "chatImage1.jpg"), date: Date(), type: .mine)
         addChatBubble(chatBubbleData1)
@@ -135,10 +136,60 @@ class MCAUnderwrittingChatVC: MCABaseViewController,UITextViewDelegate {
         addChatBubble(bubbleData)
     }
     
-    @IBAction func sendButtonClicked(_ sender: AnyObject) {
-        self.addRandomTypeChatBubble()
-        textView.resignFirstResponder()
+    
+    func createUnderWrittingChatList() {
+        
+        if self.checkNetworkConnection() == false
+        {
+            return
+        }
+        
+        self.showActivityIndicator()
+       
+        
+        var paramDict = Dictionary<String , Any>()
+
+        paramDict["user_chat"] = ["application_id" : applicationId!,"lending_program_id":lendingProgramId!,"user_id":underWritingChatData.brokerID!,"user_type":underWritingChatData.userType!,"message":self.textView.text!,"chat_type":underWritingChatData.chatType!]
+
+      
+        
+        
+      
+
+        
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                endPoint:MCAAPIEndPoints.BrokerUnderWritingCreateChatAPIEndpoint
+            , successCallBack:{ (response : JSON) in
+                
+                print("Success \(response)")
+                self.stopActivityIndicator()
+                
+                self.addRandomTypeChatBubble()
+                self.textView.resignFirstResponder()
+
+                
+                
+                
+                
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Message Sending Failed", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        
+        
     }
+    
+    @IBAction func sendButtonClicked(_ sender: AnyObject) {
+        self.createUnderWrittingChatList()
+        
+          }
 
     
     
@@ -157,7 +208,7 @@ class MCAUnderwrittingChatVC: MCABaseViewController,UITextViewDelegate {
         textView.text = ""
         self.txtheightconstraints.constant = 30.0;
 
-      //  sendButton.isEnabled = false
+        self.sendButton.isEnabled = false
     }
     
     func moveToLastMessage() {
@@ -173,6 +224,8 @@ class MCAUnderwrittingChatVC: MCABaseViewController,UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
+        self.sendButton.isEnabled = true
+
         let fixedWidth = textView.frame.size.width
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
         var newFrame = textView.frame;
