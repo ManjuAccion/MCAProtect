@@ -79,7 +79,7 @@ class MCAMatchedFPListTVCell: UITableViewCell {
         
         totalRatelLabel.text = "\(totalRate) %"
         let loanTerm = Int(matchedFundingProgramObject.term)
-        let  loanTermMonths = (loanTerm! / 30)
+        let  loanTermMonths = (loanTerm / 30)
         let  loanTermString = "\(loanTermMonths) months"
         termLabel.text = loanTermString
         let imageUrl = URL.init(string: matchedFundingProgramObject.programImage)

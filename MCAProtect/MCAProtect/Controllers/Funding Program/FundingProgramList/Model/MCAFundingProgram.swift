@@ -15,7 +15,7 @@ class MCAFundingProgram: NSObject {
     var fundingProgramName : String!
     var funderId : Int!
     var contactName : String!
-    var term : String!
+    var term : Int!
     var timeInBuisness : String!
     var buyRate : String!
     var creditScore : Int!
@@ -42,7 +42,7 @@ class MCAFundingProgram: NSObject {
             fundingProgramName      = data["program_type"].stringValue
             contactName             = data["lender"]["contact_name"].stringValue
             programImage             = data["lender"]["image_url"].stringValue
-            term                    = data["max_duration"].stringValue
+            term                    = data["max_duration"].intValue
             timeInBuisness          = data["min_avg_deposit_months"].stringValue
             buyRate                 = data["interest"].stringValue
             creditScore             = data["min_credit_fico"].intValue
@@ -72,13 +72,13 @@ class MCAFundingProgram: NSObject {
             case FPApplicationSummaryKeys.FPSummaryContact :
                 modelValue = contactName as String!
             case FPApplicationSummaryKeys.FPSummaryTerm :
-                modelValue = term as String!
+                modelValue = MCAUtilities.getMonthFromDate(days: term)
             case FPApplicationSummaryKeys.FPSummaryTimeInBuisness :
                 modelValue = timeInBuisness + " months" as String!
             case FPApplicationSummaryKeys.FPSummaryBuyRate :
                 modelValue = buyRate + " %" as String!
             case FPApplicationSummaryKeys.FPSummaryCreditScore :
-                modelValue = term as String!
+                modelValue = "\(creditScore!)"
             case FPApplicationSummaryKeys.FPSummaryMinimumLoan :
                 modelValue = MCAUtilities.currencyFormatter(inputItem: minimumLoan as AnyObject) as String!
             case FPApplicationSummaryKeys.FPSUmmaryMaximumLoan :
