@@ -22,6 +22,13 @@ class MCAUploadDocumentsView: UIView,UITextFieldDelegate {
     @IBOutlet weak var overlayView: MCARoundedOverlayView!
     @IBOutlet weak var imageView: UIImageView!
     
+    override func awakeFromNib() {
+        let myColor : UIColor = UIColor.black
+        imageView.layer.borderWidth = 1.0
+        imageView.layer.borderColor = myColor.cgColor
+        imageView.layer.cornerRadius = 5.0
+    }
+    
     
     var delegate : MCAUploadDocumentsViewDelegate?
     

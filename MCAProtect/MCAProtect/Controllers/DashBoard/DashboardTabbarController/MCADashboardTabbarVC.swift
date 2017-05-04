@@ -73,6 +73,10 @@ class MCADashboardTabbarVC: MCABaseViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if selectedTab == TabSelected.firstTab {
+            dealsPipelineVC.getDealsPipelineList()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
