@@ -15,6 +15,8 @@ class MCAFPListTableViewCell: UITableViewCell {
     @IBOutlet weak var termLabel : UILabel!
     @IBOutlet weak var amountRangeLabel : UILabel!
     @IBOutlet weak var contactNameLabel : UILabel!
+    @IBOutlet weak var buyRateLabel : UILabel!
+
     @IBOutlet weak var selectedView: UIView!
 
     
@@ -37,7 +39,7 @@ class MCAFPListTableViewCell: UITableViewCell {
         contactNameLabel.text = data.contactName
         termLabel.text = MCAUtilities.getMonthFromDate(days: data.term!)
         loanTypeLabel.text = data.loanType
-        
+        buyRateLabel.text = data.buyRate! + " %"
         if data.isSelected == true
         {
             self.selectedView.isHidden = false
