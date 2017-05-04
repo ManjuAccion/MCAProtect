@@ -28,9 +28,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Jewellery Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70d-pd-uEO">
-                        <rect key="frame" x="15" y="8" width="319" height="17"/>
+                        <rect key="frame" x="15" y="8" width="184" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="319" id="PVg-qe-eiH"/>
+                            <constraint firstAttribute="width" constant="184" id="PVg-qe-eiH"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                         <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,16 +44,17 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helen Rock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPy-GI-U6f">
-                        <rect key="frame" x="15" y="35" width="319" height="18"/>
+                        <rect key="frame" x="15" y="35" width="158" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="EAL-O2-3Co"/>
+                            <constraint firstAttribute="width" constant="158" id="Jpg-s1-XVd"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                         <color key="textColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$60,00000000000000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkx-Sp-RQZ">
-                        <rect key="frame" x="15" y="62" width="319" height="22"/>
+                        <rect key="frame" x="15" y="62" width="176" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="C6P-cx-mQc"/>
                         </constraints>
@@ -61,20 +62,39 @@
                         <color key="textColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Jewellery Shop" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMy-Sf-qEo">
+                        <rect key="frame" x="214" y="8" width="121" height="17"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Helen Rock" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8L3-AY-Nx3">
+                        <rect key="frame" x="177" y="35" width="158" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="mVO-BK-F8H"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
+                        <color key="textColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="iMy-Sf-qEo" secondAttribute="trailing" constant="7" id="0Cg-M7-kxs"/>
                     <constraint firstItem="70d-pd-uEO" firstAttribute="top" secondItem="8S8-C6-KlE" secondAttribute="topMargin" id="1zf-Ia-Rn8"/>
-                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="trailing" secondItem="cPy-GI-U6f" secondAttribute="trailing" id="6j0-4H-Yvu"/>
-                    <constraint firstItem="cPy-GI-U6f" firstAttribute="trailing" secondItem="8S8-C6-KlE" secondAttribute="trailingMargin" id="A4R-qX-ykB"/>
-                    <constraint firstItem="cPy-GI-U6f" firstAttribute="trailing" secondItem="70d-pd-uEO" secondAttribute="trailing" id="BcU-NX-Dj4"/>
+                    <constraint firstItem="8L3-AY-Nx3" firstAttribute="top" secondItem="cPy-GI-U6f" secondAttribute="top" id="5QX-85-sxI"/>
+                    <constraint firstAttribute="trailing" secondItem="8L3-AY-Nx3" secondAttribute="trailing" constant="7" id="8Ti-9H-PYY"/>
+                    <constraint firstItem="iMy-Sf-qEo" firstAttribute="leading" secondItem="70d-pd-uEO" secondAttribute="trailing" constant="15" id="C11-ZX-wkS"/>
+                    <constraint firstItem="8L3-AY-Nx3" firstAttribute="top" secondItem="iMy-Sf-qEo" secondAttribute="bottom" constant="10" id="G1U-OJ-Ewy"/>
                     <constraint firstItem="70d-pd-uEO" firstAttribute="leading" secondItem="cPy-GI-U6f" secondAttribute="leading" id="GBC-IG-5Ik"/>
-                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="trailing" secondItem="70d-pd-uEO" secondAttribute="trailing" id="JLk-9q-uGP"/>
                     <constraint firstItem="cPy-GI-U6f" firstAttribute="leading" secondItem="SMm-vW-rrB" secondAttribute="trailing" constant="11" id="MbK-MC-FnB"/>
                     <constraint firstAttribute="bottom" secondItem="SMm-vW-rrB" secondAttribute="bottom" id="MiW-Aj-USF"/>
                     <constraint firstItem="SMm-vW-rrB" firstAttribute="top" secondItem="8S8-C6-KlE" secondAttribute="top" id="PR2-Dh-uoH"/>
+                    <constraint firstItem="iMy-Sf-qEo" firstAttribute="top" secondItem="70d-pd-uEO" secondAttribute="top" id="QLf-fT-0jU"/>
+                    <constraint firstItem="iMy-Sf-qEo" firstAttribute="top" secondItem="8S8-C6-KlE" secondAttribute="top" constant="8" id="T8J-Yb-GW4"/>
                     <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="top" secondItem="cPy-GI-U6f" secondAttribute="bottom" constant="9" id="gD8-r2-xJx"/>
-                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="trailing" secondItem="70d-pd-uEO" secondAttribute="trailing" id="rMZ-jh-c4z"/>
+                    <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="top" secondItem="8L3-AY-Nx3" secondAttribute="bottom" constant="9" id="mlE-vn-yO6"/>
                     <constraint firstItem="Xkx-Sp-RQZ" firstAttribute="leading" secondItem="70d-pd-uEO" secondAttribute="leading" id="t7W-uI-ND4"/>
+                    <constraint firstItem="8L3-AY-Nx3" firstAttribute="leading" secondItem="cPy-GI-U6f" secondAttribute="trailing" constant="4" id="u7e-lc-CJR"/>
                     <constraint firstItem="cPy-GI-U6f" firstAttribute="top" secondItem="70d-pd-uEO" secondAttribute="bottom" constant="10" id="vHv-Ud-Ct0"/>
                     <constraint firstItem="SMm-vW-rrB" firstAttribute="leading" secondItem="8S8-C6-KlE" secondAttribute="leading" id="wZP-lW-h5k"/>
                     <constraint firstItem="cPy-GI-U6f" firstAttribute="leading" secondItem="70d-pd-uEO" secondAttribute="leading" id="zpy-Vz-NKU"/>
@@ -84,9 +104,11 @@
                 <outlet property="amountRangeLabel" destination="Xkx-Sp-RQZ" id="tdi-ZH-jOT"/>
                 <outlet property="contactNameLabel" destination="cPy-GI-U6f" id="nwe-jB-KbV"/>
                 <outlet property="fundingProgramName" destination="70d-pd-uEO" id="yDh-FM-hzD"/>
+                <outlet property="loanTypeLabel" destination="iMy-Sf-qEo" id="G2O-Ca-Sbq"/>
                 <outlet property="selectedView" destination="SMm-vW-rrB" id="JK4-6i-5pS"/>
+                <outlet property="termLabel" destination="8L3-AY-Nx3" id="qNY-xC-nwW"/>
             </connections>
-            <point key="canvasLocation" x="-519" y="-89.5"/>
+            <point key="canvasLocation" x="-641" y="-99.5"/>
         </tableViewCell>
     </objects>
 </document>

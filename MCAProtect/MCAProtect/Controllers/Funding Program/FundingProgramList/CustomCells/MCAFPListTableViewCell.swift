@@ -11,6 +11,8 @@ import UIKit
 class MCAFPListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var fundingProgramName : UILabel!
+    @IBOutlet weak var loanTypeLabel : UILabel!
+    @IBOutlet weak var termLabel : UILabel!
     @IBOutlet weak var amountRangeLabel : UILabel!
     @IBOutlet weak var contactNameLabel : UILabel!
     @IBOutlet weak var selectedView: UIView!
@@ -33,6 +35,8 @@ class MCAFPListTableViewCell: UITableViewCell {
         fundingProgramName.text = data.fundingProgramName
         amountRangeLabel.text = MCAUtilities.currencyFormatter(inputItem: data.minimumLoan as AnyObject) + " - " + MCAUtilities.currencyFormatter(inputItem: data.maximumLoan as AnyObject)
         contactNameLabel.text = data.contactName
+        termLabel.text = MCAUtilities.getMonthFromDate(days: data.term!)
+        loanTypeLabel.text = data.loanType
         
         if data.isSelected == true
         {

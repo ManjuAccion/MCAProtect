@@ -23,7 +23,6 @@ class MCAUnderwrittingChatVC: MCABaseViewController,UITextViewDelegate {
     var matchedFundingProgramList = [MCAUnderWritingChatData]()
 
 
-
     @IBOutlet weak var   txtheightconstraints : NSLayoutConstraint!
     @IBOutlet weak var buttomLayoutConstraint  : NSLayoutConstraint!
     @IBOutlet weak var sendButton : UIButton!
@@ -132,7 +131,7 @@ class MCAUnderwrittingChatVC: MCABaseViewController,UITextViewDelegate {
 
     
     func addRandomTypeChatBubble() {
-        let bubbleData = MCAChatBubbleData(text: textView.text, image: selectedImage, date: Date(), type: BubbleDataType.mine ,profileImageUrl:underWritingChatData.userImageUrl)
+        let bubbleData = MCAChatBubbleData(text: textView.text, image: selectedImage, date: Date(), type: BubbleDataType.mine ,profileImageUrl:MCASessionManager.sharedSessionManager.mcapUser.brokerImageUrl)
         addChatBubble(bubbleData)
     }
     
@@ -149,7 +148,7 @@ class MCAUnderwrittingChatVC: MCABaseViewController,UITextViewDelegate {
         
         var paramDict = Dictionary<String , Any>()
 
-        paramDict["user_chat"] = ["application_id" : applicationId!,"lending_program_id":lendingProgramId!,"user_id":underWritingChatData.brokerID!,"user_type":underWritingChatData.userType!,"message":self.textView.text!,"chat_type":underWritingChatData.chatType!]
+        paramDict["user_chat"] = ["application_id" : applicationId!,"lending_program_id":lendingProgramId!,"user_id":underWritingChatData.brokerID!,"user_type":"Broker","message":self.textView.text!,"chat_type":underWritingChatData.chatType!]
 
       
         
