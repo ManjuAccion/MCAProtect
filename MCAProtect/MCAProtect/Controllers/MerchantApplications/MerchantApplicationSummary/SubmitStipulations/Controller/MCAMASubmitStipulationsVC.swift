@@ -43,7 +43,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
         documentUrlString = ""
         imagePicker?.delegate = self
         
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconChatWhite"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(chatButtonTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"iconChatWhite"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(chatButtonTapped))
     }
     
     override func didReceiveMemoryWarning() {
@@ -168,6 +168,7 @@ class MCAMASubmitStipulationsVC: MCABaseViewController,UITableViewDataSource,UIT
     }
     
     func viewApplication(docUrl : URL) {
+        transparentImageView.isUserInteractionEnabled = false
         doctUrl = docUrl
         showAnimate(docUrl: doctUrl)
     }
