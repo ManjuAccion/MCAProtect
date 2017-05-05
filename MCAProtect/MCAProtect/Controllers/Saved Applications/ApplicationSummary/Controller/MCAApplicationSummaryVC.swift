@@ -99,6 +99,8 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
         let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
         applicationFormVC.applicationStatus = ApplicationStatus.ResumeApplication.rawValue
+        applicationFormVC.applicationId = appSummary.applicationId
+        applicationFormVC.titleText = appSummary.applicationName
         navigationController?.pushViewController(applicationFormVC, animated: true)
     }
     
@@ -106,6 +108,8 @@ class MCAApplicationSummaryVC: MCABaseViewController,UITableViewDelegate,UITable
         let storyBoard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: Bundle.main)
         let applicationFormVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationFormVC) as! MCAApplicationFormVC
         applicationFormVC.applicationStatus = ApplicationStatus.CopyApplication.rawValue
+        applicationFormVC.applicationId = appSummary.applicationId
+        applicationFormVC.titleText = appSummary.applicationName
         navigationController?.pushViewController(applicationFormVC, animated: true)
     }
 
