@@ -91,6 +91,8 @@ struct StoryboardName {
     static let MCAMatchedFundingProgram             = "MatchedFundingProgram"
     static let MCAGenericPopUp                      = "GenericPopUp"
     static let MCAAskFunder                         = "AskFunder"
+    static let MCANotification                      = "Notification"
+
     
 }
 
@@ -121,7 +123,9 @@ struct VCIdentifiers {
     static let MCAResetMPINVC                                       = "MCAResetMPINVC"
     static let MCADashboardTabbarVC                                 = "MCADashboardTabbarVC"
     static let MCAAddMoreDocumentsVC                                = "MCAAddMoreDocumentsVC"
-    static let MCAUnderwrittingChatVC                                = "MCAUnderwrittingChatVC"
+    static let MCAUnderwrittingChatVC                               = "MCAUnderwrittingChatVC"
+    static let MCANotificationVC                                    = "MCANotificationVC"
+
 
     
 
@@ -391,6 +395,8 @@ struct MCAAPIEndPoints {
     static let BrokerAddStipulationsEndPoint            = "/underwriting/stipulations/add_stipulation"
     static let BrokerMatchedFundingProgramListEndPoint  = "/algorithm/get_lending_programs"
     static let BrokerReferMatchedFundingProgramEndPoint  = "/refer_broker_to_merchant"
+    static let BrokerFetchAllNotificationsEndPoint  = "/v1/notifications/broker_notifications/fetch_unread_notifications"
+    static let BrokerUpdateNotificationStatusEndPoint  = "/v1/notifications/broker_notifications"
 
 
 

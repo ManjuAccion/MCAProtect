@@ -13,6 +13,8 @@ import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var badgeCount = 0
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -42,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotifications(matching: [.badge, .sound, .alert])
         }
 
+    //    UIApplication.shared.applicationIconBadgeNumber = 0
 
 
         return true
@@ -55,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Print it to console
         print("APNs device token: \(deviceTokenString)")
         
+        MCASessionManager.sharedSessionManager.deviceToken = "\(deviceTokenString)"
+        
         // Persist it in your backend in case it's new
     }
     
@@ -62,12 +67,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         // Print the error to console (you should alert the user that registration failed)
         print("APNs registration failed: \(error)")
+
     }
     
     // Push notification received
     func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
         // Print notification payload data
         print("Push notification received: \(data)")
+     ///   UIApplication.shared.applicationIconBadgeNumber = 1
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -82,6 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    //    UIApplication.shared.applicationIconBadgeNumber = 0
+
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

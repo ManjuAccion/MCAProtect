@@ -13,6 +13,7 @@ class MCASessionManager: NSObject {
     var accessToken: String?
     var client: String?
     var uid: String?
+    var deviceToken : String?
     
     var mcapUser : MCAUser!
     // Can't init is singleton
@@ -26,6 +27,7 @@ class MCASessionManager: NSObject {
         client = nil;
         uid = nil;
         mcapUser = nil;
+        deviceToken = nil
     }
     
 }

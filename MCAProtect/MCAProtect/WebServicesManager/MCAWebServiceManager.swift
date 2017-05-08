@@ -143,6 +143,7 @@ class MCAWebServiceManager: NSObject
         
         let headersDict = self.readAPIHeaders();
 
+
         
         let apiRequest =  Alamofire.request(URL(string: completeURL)!, method: .get, parameters: requestParam, encoding: URLEncoding.queryString, headers: headersDict);
 

@@ -68,6 +68,11 @@ class MCARightMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataS
         switch indexPath.row {
         case rightMenuItems.Notification.rawValue:
             
+            let storyboard = UIStoryboard(name: StoryboardName.MCANotification, bundle: nil)
+            let applicationVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCANotificationVC) as! MCANotificationViewController
+            SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
+            SlideNavigationController.sharedInstance().toggleRightMenu()
+
             break
         case rightMenuItems.PersonalisedSettings.rawValue:
             

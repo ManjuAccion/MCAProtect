@@ -48,6 +48,11 @@
 		5BB1D5CD1EB5FD8A00F8FC31 /* MCAChatBubbleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5CC1EB5FD8A00F8FC31 /* MCAChatBubbleData.swift */; };
 		5BB1D5CF1EB64D1200F8FC31 /* MCAUnderwrittingChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5CE1EB64D1200F8FC31 /* MCAUnderwrittingChatVC.swift */; };
 		5BB1D5D11EB8856400F8FC31 /* MCAUnderWritingChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5D01EB8856400F8FC31 /* MCAUnderWritingChatData.swift */; };
+		5BB1D5D71EC05A5300F8FC31 /* MCANotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5D61EC05A5300F8FC31 /* MCANotificationViewController.swift */; };
+		5BB1D5DA1EC05AA500F8FC31 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB1D5D91EC05AA500F8FC31 /* Notification.storyboard */; };
+		5BB1D5DD1EC07FC500F8FC31 /* MCANotificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5DC1EC07FC500F8FC31 /* MCANotificationData.swift */; };
+		5BB1D5E21EC08BE700F8FC31 /* MCANotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1D5E01EC08BE700F8FC31 /* MCANotificationTableViewCell.swift */; };
+		5BB1D5E31EC08BE700F8FC31 /* MCANotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB1D5E11EC08BE700F8FC31 /* MCANotificationTableViewCell.xib */; };
 		5BB3E5F81E8293A800A67927 /* MCAApplicationFormTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3E5DD1E8293A800A67927 /* MCAApplicationFormTVCell.swift */; };
 		5BB3E5F91E8293A800A67927 /* MCAApplicationFormTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB3E5DE1E8293A800A67927 /* MCAApplicationFormTVCell.xib */; };
 		5BB3E5FA1E8293A800A67927 /* MCAApplicationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3E5E01E8293A800A67927 /* MCAApplicationTVCell.swift */; };
@@ -271,6 +276,11 @@
 		5BB1D5CC1EB5FD8A00F8FC31 /* MCAChatBubbleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAChatBubbleData.swift; sourceTree = "<group>"; };
 		5BB1D5CE1EB64D1200F8FC31 /* MCAUnderwrittingChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUnderwrittingChatVC.swift; sourceTree = "<group>"; };
 		5BB1D5D01EB8856400F8FC31 /* MCAUnderWritingChatData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUnderWritingChatData.swift; sourceTree = "<group>"; };
+		5BB1D5D61EC05A5300F8FC31 /* MCANotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANotificationViewController.swift; sourceTree = "<group>"; };
+		5BB1D5D91EC05AA500F8FC31 /* Notification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		5BB1D5DC1EC07FC500F8FC31 /* MCANotificationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANotificationData.swift; sourceTree = "<group>"; };
+		5BB1D5E01EC08BE700F8FC31 /* MCANotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCANotificationTableViewCell.swift; sourceTree = "<group>"; };
+		5BB1D5E11EC08BE700F8FC31 /* MCANotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCANotificationTableViewCell.xib; sourceTree = "<group>"; };
 		5BB3E5DD1E8293A800A67927 /* MCAApplicationFormTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormTVCell.swift; sourceTree = "<group>"; };
 		5BB3E5DE1E8293A800A67927 /* MCAApplicationFormTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAApplicationFormTVCell.xib; sourceTree = "<group>"; };
 		5BB3E5E01E8293A800A67927 /* MCAApplicationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationTVCell.swift; sourceTree = "<group>"; };
@@ -863,6 +873,41 @@
 			path = "SubmitStipulations/Custom Views";
 			sourceTree = "<group>";
 		};
+		5BB1D5D51EC05A5300F8FC31 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				5BB1D5D61EC05A5300F8FC31 /* MCANotificationViewController.swift */,
+				5BB1D5DB1EC07F3400F8FC31 /* Model */,
+				5BB1D5DF1EC08AC500F8FC31 /* CustomCells */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		5BB1D5D81EC05A8E00F8FC31 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				5BB1D5D91EC05AA500F8FC31 /* Notification.storyboard */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		5BB1D5DB1EC07F3400F8FC31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BB1D5DC1EC07FC500F8FC31 /* MCANotificationData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5BB1D5DF1EC08AC500F8FC31 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				5BB1D5E01EC08BE700F8FC31 /* MCANotificationTableViewCell.swift */,
+				5BB1D5E11EC08BE700F8FC31 /* MCANotificationTableViewCell.xib */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
 		5BB3E5DC1E8293A800A67927 /* Application Form Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1043,6 +1088,7 @@
 				BAC6AE1C1E824E700047F7D3 /* Login */,
 				BAC6AE201E824E700047F7D3 /* mPin */,
 				BAC6AE221E824E700047F7D3 /* Profile */,
+				5BB1D5D81EC05A8E00F8FC31 /* Notification */,
 				BAC6AE241E824E700047F7D3 /* Registration */,
 				782C69AB1E49ACC500268356 /* LaunchScreen.storyboard */,
 			);
@@ -1076,6 +1122,7 @@
 		782C69D41E49ADD700268356 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5BB1D5D51EC05A5300F8FC31 /* Notification */,
 				CE8A80D31E9E1C48006C981A /* ApplicationFormDetail */,
 				BA601F581E77E24400EB303C /* Ask Funder */,
 				BABF75201E6986820062FB81 /* MerchantApplications */,
@@ -2252,6 +2299,7 @@
 				BAC6AE2B1E824E700047F7D3 /* DashBoard.storyboard in Resources */,
 				BAC6AE261E824E700047F7D3 /* MerchantApplication.storyboard in Resources */,
 				BAC6AE321E824E700047F7D3 /* ProfileDetail.storyboard in Resources */,
+				5BB1D5DA1EC05AA500F8FC31 /* Notification.storyboard in Resources */,
 				BAC6ADF91E824ABB0047F7D3 /* MCASubmitStipulationsView.xib in Resources */,
 				BAC6AE271E824E700047F7D3 /* SavedApplication.storyboard in Resources */,
 				BAC6AE291E824E700047F7D3 /* Common.storyboard in Resources */,
@@ -2262,6 +2310,7 @@
 				CE0DCCA61E9F4D29003C5A97 /* MCABankRecordsTVCell.xib in Resources */,
 				BAC6AD9E1E81020A0047F7D3 /* MCASavedApplicationsListTVCell.xib in Resources */,
 				5BBD52A41EA8CA8700C368EA /* MCAFPListTableViewCell.xib in Resources */,
+				5BB1D5E31EC08BE700F8FC31 /* MCANotificationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2498,6 +2547,7 @@
 				5B1F8D7E1E83E9E400BD53F2 /* MCAFundingProgramApplicationForm.swift in Sources */,
 				CE8A80F51E9E25C6006C981A /* MCAOwnerAndLocationDetailsVC.swift in Sources */,
 				782C69D91E49ADE300268356 /* AppDelegate.swift in Sources */,
+				5BB1D5DD1EC07FC500F8FC31 /* MCANotificationData.swift in Sources */,
 				BACC53061E892DAF003C4852 /* MCAUser.swift in Sources */,
 				5B1F8D6D1E83ABE700BD53F2 /* MCAFundingProgramListViewController.swift in Sources */,
 				CE0DCC911E9F45C4003C5A97 /* MCALiensPaymentsVC.swift in Sources */,
@@ -2516,6 +2566,7 @@
 				CE0DCCC21E9F51B8003C5A97 /* MCABusinessInformation.swift in Sources */,
 				5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */,
 				5B1F8D591E83AAD800BD53F2 /* MCAFPApplicationFormVC.swift in Sources */,
+				5BB1D5D71EC05A5300F8FC31 /* MCANotificationViewController.swift in Sources */,
 				788421CB1E950BA000748948 /* MCACustomPickerView.swift in Sources */,
 				CE0DCCA11E9F4D29003C5A97 /* MCABankDetailsVC.swift in Sources */,
 				5B1F8D681E83ABA000BD53F2 /* MCAFPBusinessTypeVC.swift in Sources */,
@@ -2539,6 +2590,7 @@
 				CE9F69761E9297390089F8CE /* MCALoanApplication.swift in Sources */,
 				5B1F8D761E83ACF600BD53F2 /* MCAFundingProgramSummary.swift in Sources */,
 				5B90494F1E72881A00A49A50 /* MCAMatchedFundingProgramVC.swift in Sources */,
+				5BB1D5E21EC08BE700F8FC31 /* MCANotificationTableViewCell.swift in Sources */,
 				5B1F8D841E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift in Sources */,
 				BAC6ADF51E824ABB0047F7D3 /* MCAMASubmitStipulationsVC.swift in Sources */,
 				5BB1D5D11EB8856400F8FC31 /* MCAUnderWritingChatData.swift in Sources */,
