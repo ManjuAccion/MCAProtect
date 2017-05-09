@@ -9,6 +9,7 @@
 import UIKit
 import JVFloatLabeledTextField
 import SwiftyJSON
+
 class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIActionSheetDelegate {
 
     
@@ -27,6 +28,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     @IBOutlet weak var overlayViewConstraint: NSLayoutConstraint!
     
     var isBrokerLogin:Bool! = true
+    
     //MARK: - View Life Cycle -
     
     @IBAction func changeBrokerSelection(_ sender: Any)

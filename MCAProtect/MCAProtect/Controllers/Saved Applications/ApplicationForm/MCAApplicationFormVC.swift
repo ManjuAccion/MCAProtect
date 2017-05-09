@@ -99,6 +99,8 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
+        
+        
         presentAlertWithTitle(title: "", message: NSLocalizedString("Merchant application has been created successfully", comment: ""))
     }
     
@@ -506,6 +508,34 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
             break
             
         }
+    }
+    
+    func submitApplication() {
+        
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        self.showActivityIndicator()
+        
+        var endPoint = String()
+        endPoint.append(MCAAPIEndPoints.BrokerSubmitApplicationEndpoint)
+        endPoint.append("/\(applicationId!)")
+        
+        MCAWebServiceManager.sharedWebServiceManager.putRequest(requestParam: [:], endPoint: endPoint, successCallBack: { (response : JSON) in
+            
+            self.stopActivityIndicator()
+            print("Success \(response)")
+            
+        }) { (error : Error) in
+            
+            self.stopActivityIndicator()
+            print("Failure \(error)")
+            let alertViewController = UIAlertController(title : "MCAP", message : "Unable to submit application", preferredStyle : .alert)
+            alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+            self.present(alertViewController, animated: true , completion: nil)
+        }
+
     }
     
 

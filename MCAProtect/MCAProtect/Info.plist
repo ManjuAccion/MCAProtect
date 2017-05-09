@@ -26,7 +26,7 @@
 		<string>https://broker-dev.mcaprotect.org</string>
 	</dict>
 	<key>ENVIRONMENT</key>
-	<string>DEVELOPMENT</string>
+	<string>TESTING</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -103,6 +103,13 @@
 	<dict>
 		<key>BASE_URL</key>
 		<string>https://broker-dev.mcaprotect.org/api</string>
+		<key>IMAGE_BASE_URL</key>
+		<string>https://broker-dev.mcaprotect.org</string>
+	</dict>
+	<key>TESTING</key>
+	<dict>
+		<key>BASE_URL</key>
+		<string>https://broker-qa.mcaprotect.org/api</string>
 		<key>IMAGE_BASE_URL</key>
 		<string>https://broker-dev.mcaprotect.org</string>
 	</dict>
