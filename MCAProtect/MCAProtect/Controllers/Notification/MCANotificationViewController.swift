@@ -96,7 +96,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         cell.dataLabel.text = notification.dataSent
         cell.dateLabel.text = MCAUtilities.getFormmattedDate(dateString: notification.updatedDate)
         
-        if(notification.readStatus == 0)
+        if(notification.readStatus! == 0)
         {
           cell.imageView?.isHidden = false
             
@@ -129,13 +129,18 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         }
         
         self.showActivityIndicator()
+       
+        var paramDict = Dictionary<String , Any>()
+
+        paramDict["broker_notification"] = ["read_status" : "true"]
+
         
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerUpdateNotificationStatusEndPoint);
         endPoint.append("/\(notification.notificationID!)");
         
         
-        MCAWebServiceManager.sharedWebServiceManager.putRequest(requestParam:[:],
+        MCAWebServiceManager.sharedWebServiceManager.putRequest(requestParam: paramDict,
                                                                 endPoint:endPoint
             , successCallBack:{ (response : JSON) in
                 

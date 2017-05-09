@@ -188,7 +188,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
         paramDict["email"] = emailIDTextField.text
         paramDict["password"] = passwordTextField.text
     paramDict["source"] = "ios"
-    paramDict["source_token"] = MCASessionManager.sharedSessionManager.deviceToken!
+    paramDict["source_token"] = MCASessionManager.sharedSessionManager.deviceToken != nil ? MCASessionManager.sharedSessionManager.deviceToken! : ""
         
         MCAWebServiceManager.sharedWebServiceManager.loginRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerLoginAPIEndPoint
