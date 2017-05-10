@@ -162,9 +162,9 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
                 
             case BrokerageLeftMenuItems.Brokers.rawValue:
                 
-                //                        let storyboard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: nil)
-                //                        let applicationVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationListVC) as! MCASavedApplicationListVC
-                //                        SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false)
+                let storyboard = UIStoryboard(name: StoryboardName.MCABroker, bundle: nil)
+                let brokerListVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCABrokersListVC) as! MCABrokersListVC
+                SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,brokerListVC], animated: false)
                 SlideNavigationController.sharedInstance().toggleLeftMenu()
                 
             case BrokerageLeftMenuItems.PartnerFunders.rawValue:

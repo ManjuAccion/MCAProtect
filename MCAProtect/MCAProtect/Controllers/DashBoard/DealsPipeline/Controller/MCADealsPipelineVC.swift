@@ -272,8 +272,6 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 let toCalendar = Calendar.current // user calendar
                 let toDateTime = toCalendar.date(from: toDateComponents)
                 toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
-            
-            
         }
 
         endPoint.append("?from_date=\(fromDateString!)&to_date=\(toDateString!)")

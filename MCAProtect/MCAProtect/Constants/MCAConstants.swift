@@ -92,8 +92,7 @@ struct StoryboardName {
     static let MCAGenericPopUp                      = "GenericPopUp"
     static let MCAAskFunder                         = "AskFunder"
     static let MCANotification                      = "Notification"
-
-    
+    static let MCABroker                            = "Broker"
 }
 
 struct VCIdentifiers {
@@ -128,12 +127,7 @@ struct VCIdentifiers {
     static let MCAAddMoreDocumentsVC                                = "MCAAddMoreDocumentsVC"
     static let MCAUnderwrittingChatVC                               = "MCAUnderwrittingChatVC"
     static let MCANotificationVC                                    = "MCANotificationVC"
-
-
-    
-
-
-    
+    static let MCABrokersListVC                                     = "MCABrokersListVC"
 
 }
 
