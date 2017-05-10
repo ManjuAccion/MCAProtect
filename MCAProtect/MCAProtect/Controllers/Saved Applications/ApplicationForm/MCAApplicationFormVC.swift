@@ -48,13 +48,11 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func getLoanApplication(){
         
-            if self.checkNetworkConnection() == false {
-        return
-    }
+        if self.checkNetworkConnection() == false {
+            return
+        }
     
-    self.showActivityIndicator()
-
-        
+        self.showActivityIndicator()
         var endPoint = String()
         endPoint.append(MCAAPIEndPoints.BrokerLoanApplicationAPIEndpoint);
         endPoint.append("/\(applicationId!).json");
@@ -63,16 +61,9 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
         MCAWebServiceManager.sharedWebServiceManager.getRequest(requestParam:[:],
                                                                 endPoint:endPoint
             , successCallBack:{ (response : JSON) in
-                
                 self.stopActivityIndicator()
                 print("Success \(response)")
-                
-                
               self.loanApplication =  MCALoanApplication(loanApplication: response)
-                
-                
-                
-                
         },
               failureCallBack: { (error : Error) in
                 
@@ -143,16 +134,6 @@ class MCAApplicationFormVC: MCABaseViewController,UITableViewDataSource,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 {
-
-//            if selectedIndexpath != nil {
-//                let deselectedCell = tableView.cellForRow(at: selectedIndexpath! as IndexPath) as? MCAApplicationFormTVCell
-//                deselectedCell?.selectedView.isHidden = true
-//                deselectedCell?.backgroundColor = ColorConstants.background
-//                
-//            }
-//            let selectedCell = tableView.cellForRow(at: indexPath as IndexPath) as! MCAApplicationFormTVCell
-//            selectedCell.selectedView.isHidden = false
-//            selectedCell.backgroundColor = ColorConstants.selectedBackground
             
             selectedIndexpath = indexPath
 

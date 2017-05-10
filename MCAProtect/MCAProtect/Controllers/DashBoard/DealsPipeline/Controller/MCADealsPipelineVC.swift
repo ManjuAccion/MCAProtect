@@ -115,16 +115,15 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     
     func getDealsPipelineList() {
         
-            if self.checkNetworkConnection() == false {
-        return
-    }
+        if self.checkNetworkConnection() == false {
+            return
+        }
     
-    self.showActivityIndicator()
-
+        self.showActivityIndicator()
         
         var endPoint = String()
-        endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint);
-        endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
+        endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint)
+        endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)")
         
         
         //TODO: create date range according to the selection

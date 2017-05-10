@@ -185,12 +185,12 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
     
     self.showActivityIndicator()
 
-    
         var paramDict  = Dictionary<String, String>()
+    
         paramDict["email"] = emailIDTextField.text
         paramDict["password"] = passwordTextField.text
-    paramDict["source"] = "ios"
-    paramDict["source_token"] = MCASessionManager.sharedSessionManager.deviceToken != nil ? MCASessionManager.sharedSessionManager.deviceToken! : ""
+        paramDict["source"] = "ios"
+        paramDict["source_token"] = MCASessionManager.sharedSessionManager.deviceToken != nil ? MCASessionManager.sharedSessionManager.deviceToken! : ""
         
         MCAWebServiceManager.sharedWebServiceManager.loginRequest(requestParam:paramDict,
                                                                  endPoint:MCAAPIEndPoints.BrokerLoginAPIEndPoint
@@ -199,7 +199,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 self.stopActivityIndicator()
                 print("Success \(response)")
 
-                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: MCALoginType.Broker.rawValue)
                 let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
                 let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
                 self.navigationController?.pushViewController(mPin, animated: true)
@@ -235,7 +235,7 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
-                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: 1) // Need to replace '0' with Enum
+                MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: MCALoginType.Brokerage.rawValue)
                 let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
                 let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCAEnterMPinVC") as! MCAEnterMPinVC
                 self.navigationController?.pushViewController(mPin, animated: true)

@@ -18,25 +18,44 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet var versionFooterView : UIView!
     @IBOutlet var profileHeaderView : MCAProfileHeaderView!
     @IBOutlet weak var sideMenuTableView : UITableView!
-
-    var arrayDataSource : [String] = ["Dashboard","Merchant Applications", "Saved Applications", "Funding Programs","Ask Funder"]
-    var arrayImageIcons : [String] = ["iconDashboard","iconSavedApplications","iconSavedApplications", "iconFundingPrograms", "iconAskFunder"]
     
+    var arrayDataSource = [String]()
+    var arrayImageIcons = [String]()
+
+    
+    var brokerDataSource = ["Dashboard","Merchant Applications", "Saved Applications", "Funding Programs","Ask Funder"]
+    var brokerImageIcons = ["iconDashboard","iconSavedApplications","iconSavedApplications", "iconFundingPrograms", "iconAskFunder"]
+    
+    var brokerageDataSource = ["Dashboard", "Brokers", "Partner Funders","Partner Funding Programs"]
+    var brokerageImageIcons = ["iconDashboard","iconBroker", "iconFunder", "iconFundingProgram"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-               
-        
-
         sideMenuTableView.register(UINib(nibName: "MCATableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCATableViewCell")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        switch MCASessionManager.sharedSessionManager.mcapUser.userType {
+            
+            case MCALoginType.Broker.rawValue:
+                arrayDataSource = brokerDataSource
+                arrayImageIcons = brokerImageIcons
+                
+            case MCALoginType.Brokerage.rawValue :
+                arrayDataSource = brokerageDataSource
+                arrayImageIcons = brokerageImageIcons
+            
+            default: break
+        }
+    }
+
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         self.updateProfileDetails()
-    
     }
     
     func updateProfileDetails(){
@@ -48,11 +67,9 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         super.didReceiveMemoryWarning()
     }
     
-   
-    
     //MARK: - Table View Datasource
     
-    public func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
+    func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
     {
         return 1;
     }
@@ -71,7 +88,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
         return profileHeaderView.frame.size.height
     }
@@ -83,43 +100,81 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row {
+        switch MCASessionManager.sharedSessionManager.mcapUser.userType {
             
-            case leftMenuItems.Dashboard.rawValue:
+            case MCALoginType.Broker.rawValue:
+                brokerLeftMenuActions(index: indexPath.row)
+            
+            case MCALoginType.Brokerage.rawValue:
+                brokerageLeftMenuActions(index: indexPath.row)
+            
+            default: break
+        }
+    }
+    
+    func brokerLeftMenuActions(index : Int) {
+        
+        switch index {
+            
+            case BrokerLeftMenuItems.Dashboard.rawValue:
                 
                 SlideNavigationController.sharedInstance().toggleLeftMenu();
-            
-            case leftMenuItems.MerchantApplications.rawValue:
+                
+            case BrokerLeftMenuItems.MerchantApplications.rawValue:
+                
                 let storyboard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil)
                 let applicationVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationListVC) as! MCAMerchantApplicationListVC
                 SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
                 SlideNavigationController.sharedInstance().toggleLeftMenu()
-            
-            case leftMenuItems.SavedApplications.rawValue:
+                
+            case BrokerLeftMenuItems.SavedApplications.rawValue:
                 
                 let storyboard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: nil)
                 let applicationVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationListVC) as! MCASavedApplicationListVC
                 SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
                 SlideNavigationController.sharedInstance().toggleLeftMenu()
             
-            case leftMenuItems.FundingPrograms.rawValue:
+            case BrokerLeftMenuItems.FundingPrograms.rawValue:
                 
                 let fundingProgramStoryBoard = UIStoryboard.init(name:StoryboardName.MCAFundingProgram, bundle: nil)
                 let FundingProgramListVC = fundingProgramStoryBoard.instantiateViewController(withIdentifier: "FundingProgramListViewController")
-                // Use these below lines to push the views from side menu.
-                // Make sure you call the toggleLeftMenu() or toggleRightMenu()
                 SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,FundingProgramListVC], animated: false);
                 SlideNavigationController.sharedInstance().toggleLeftMenu()
-            
-            case leftMenuItems.AskFunder.rawValue:
+                
+            case BrokerLeftMenuItems.AskFunder.rawValue:
                 let askFunderStoryboard = UIStoryboard.init(name:StoryboardName.MCAAskFunder, bundle: nil)
                 let askFunderListVC = askFunderStoryboard.instantiateViewController(withIdentifier: VCIdentifiers.MCAAskFunderApplicationListVC)
                 SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,askFunderListVC], animated: false);
                 SlideNavigationController.sharedInstance().toggleLeftMenu()
+                
+            default: break
+        }
+    }
+    
+    func brokerageLeftMenuActions(index : Int) {
+        
+        switch index {
             
-            default:
-                break
-            }
+            case BrokerageLeftMenuItems.Dashboard.rawValue:
+                
+                SlideNavigationController.sharedInstance().toggleLeftMenu();
+                
+            case BrokerageLeftMenuItems.Brokers.rawValue:
+                
+                //                        let storyboard = UIStoryboard(name: StoryboardName.MCASavedApplication, bundle: nil)
+                //                        let applicationVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCASavedApplicationListVC) as! MCASavedApplicationListVC
+                //                        SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false)
+                SlideNavigationController.sharedInstance().toggleLeftMenu()
+                
+            case BrokerageLeftMenuItems.PartnerFunders.rawValue:
+                SlideNavigationController.sharedInstance().toggleLeftMenu();
+                
+            case BrokerageLeftMenuItems.PartnerFundingPrograms.rawValue:
+                SlideNavigationController.sharedInstance().toggleLeftMenu();
+                
+            default: break
+        }
+
     }
     
     @IBAction  func profileButtonClicked()
@@ -135,11 +190,11 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     @IBAction func SingoutClicked(_ sender: Any)
     {
         
-            if self.checkNetworkConnection() == false {
-        return
-    }
+        if self.checkNetworkConnection() == false {
+            return
+        }
     
-    self.showActivityIndicator()
+        self.showActivityIndicator()
 
         let paramDict  = Dictionary<String, String>()
         

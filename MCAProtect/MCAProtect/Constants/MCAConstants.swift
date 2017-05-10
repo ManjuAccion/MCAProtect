@@ -431,3 +431,25 @@ struct MCAAPIPageControls
 
 
 
+
+
+
+enum BrokerLeftMenuItems : Int {
+    case Dashboard              = 0
+    case MerchantApplications   = 1
+    case SavedApplications      = 2
+    case FundingPrograms        = 3
+    case AskFunder              = 4
+}
+
+enum BrokerageLeftMenuItems : Int {
+    case Dashboard              = 0
+    case Brokers                = 1
+    case PartnerFunders         = 2
+    case PartnerFundingPrograms = 3
+}
+
+enum MCALoginType : Int {
+    case Broker     = 0
+    case Brokerage  = 1
+}
