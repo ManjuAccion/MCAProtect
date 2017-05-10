@@ -667,6 +667,13 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
+		5B3D46251EC348240049D14E /* CustomNavigationBarView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomNavigationBarView;
+			sourceTree = "<group>";
+		};
 		5B4741B51E533397001D9435 /* SlideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1218,6 +1225,7 @@
 			isa = PBXGroup;
 			children = (
 				782C69FE1E49B85000268356 /* MCADashboardTabbarVC.swift */,
+				5B3D46251EC348240049D14E /* CustomNavigationBarView */,
 			);
 			path = DashboardTabbarController;
 			sourceTree = "<group>";

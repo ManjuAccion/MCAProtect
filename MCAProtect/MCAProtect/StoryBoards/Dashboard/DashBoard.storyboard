@@ -1,16 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gef-dA-2Tb">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gef-dA-2Tb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
@@ -829,6 +832,8 @@
                         <outlet property="dealsFundedLAbel" destination="rSL-ic-6xe" id="5Yo-QN-oVJ"/>
                         <outlet property="dealsPipelineLabel" destination="ug1-S5-IdO" id="2eV-en-Kwm"/>
                         <outlet property="firstTabBtn" destination="fJA-H2-b6p" id="Ac1-ie-48T"/>
+                        <outlet property="navigationBarView" destination="QGS-vZ-RZe" id="zlp-BG-EmK"/>
+                        <outlet property="notificationCountLabel" destination="qNh-W7-aJ7" id="4Hi-yO-Ryn"/>
                         <outlet property="performanceComparisonLabel" destination="mIu-2c-9kG" id="fwj-5M-Bdz"/>
                         <outlet property="secondTabBtn" destination="37R-Bc-ZCI" id="yPZ-zi-TOe"/>
                         <outlet property="tabbarContentView" destination="tKo-AW-Fud" id="LGk-ly-vx9"/>
@@ -836,6 +841,56 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njD-Jm-gMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="QGS-vZ-RZe">
+                    <rect key="frame" x="0.0" y="0.0" width="51" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ch-rV-i3m">
+                            <rect key="frame" x="0.0" y="10" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="L1f-IA-Bzf"/>
+                                <constraint firstAttribute="height" constant="30" id="cMX-CB-8Ab"/>
+                            </constraints>
+                            <state key="normal" image="iconNotificationsWhite"/>
+                            <connections>
+                                <action selector="showNotificationList" destination="imU-6A-w65" eventType="touchUpInside" id="Qdn-7I-3ox"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2B-cX-ySh">
+                            <rect key="frame" x="41" y="10" width="10" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="MG7-0F-zTv"/>
+                                <constraint firstAttribute="width" constant="10" id="qgY-hV-AVL"/>
+                            </constraints>
+                            <state key="normal" image="optionNav_white"/>
+                            <connections>
+                                <action selector="showRightMenu" destination="imU-6A-w65" eventType="touchUpInside" id="GSs-is-MHe"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNh-W7-aJ7">
+                            <rect key="frame" x="16" y="10" width="15" height="15"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="4yr-y3-UNH"/>
+                                <constraint firstAttribute="width" constant="15" id="U5I-L5-noy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="10"/>
+                            <color key="textColor" red="0.65278063320000002" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="qNh-W7-aJ7" firstAttribute="trailing" secondItem="0Ch-rV-i3m" secondAttribute="trailing" constant="1" id="6VT-lu-RwJ"/>
+                        <constraint firstItem="0Ch-rV-i3m" firstAttribute="leading" secondItem="QGS-vZ-RZe" secondAttribute="leading" id="Lxi-Wq-spp"/>
+                        <constraint firstItem="qNh-W7-aJ7" firstAttribute="top" secondItem="0Ch-rV-i3m" secondAttribute="top" id="RfB-Q2-Vfi"/>
+                        <constraint firstItem="c2B-cX-ySh" firstAttribute="top" secondItem="QGS-vZ-RZe" secondAttribute="top" constant="10" id="VtN-Yf-R2L"/>
+                        <constraint firstAttribute="trailing" secondItem="c2B-cX-ySh" secondAttribute="trailing" id="aFR-hs-Qny"/>
+                        <constraint firstItem="0Ch-rV-i3m" firstAttribute="top" secondItem="QGS-vZ-RZe" secondAttribute="top" constant="10" id="jYF-Ib-vNY"/>
+                        <constraint firstAttribute="bottom" secondItem="c2B-cX-ySh" secondAttribute="bottom" constant="10" id="rL8-H4-xEX"/>
+                        <constraint firstAttribute="bottom" secondItem="0Ch-rV-i3m" secondAttribute="bottom" constant="10" id="yto-wl-SFH"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="-626.39999999999998" y="122.78860569715144"/>
         </scene>
@@ -844,7 +899,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="gef-dA-2Tb" customClass="MCANavigationController" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="peu-Us-CTd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="peu-Us-CTd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -859,5 +914,7 @@
     </scenes>
     <resources>
         <image name="downArrow" width="10" height="10"/>
+        <image name="iconNotificationsWhite" width="22" height="22"/>
+        <image name="optionNav_white" width="5" height="16"/>
     </resources>
 </document>

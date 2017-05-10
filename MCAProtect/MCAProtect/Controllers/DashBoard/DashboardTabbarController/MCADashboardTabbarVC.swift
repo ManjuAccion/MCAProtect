@@ -21,6 +21,8 @@ class MCADashboardTabbarVC: MCABaseViewController{
     var dealsPipelineVC : MCADealsPipelineVC!
     var dealsFundedVC : MCADealsFundedVC!
     var performanceCompVC : MCAPerformanceComparisonVS!
+    @IBOutlet weak var navigationBarView: UIView!
+
     
     @IBOutlet weak var tabbarContentView: UIView!
     @IBOutlet weak var firstTabBtn: UIButton!
@@ -29,6 +31,8 @@ class MCADashboardTabbarVC: MCABaseViewController{
     @IBOutlet weak var dealsPipelineLabel: UILabel!
     @IBOutlet weak var dealsFundedLAbel: UILabel!
     @IBOutlet weak var performanceComparisonLabel: UILabel!
+    @IBOutlet weak var notificationCountLabel: UILabel!
+
     
     let selectedTab = TabSelected.firstTab
 
@@ -38,10 +42,13 @@ class MCADashboardTabbarVC: MCABaseViewController{
         // Tabbar navigation should be hidden by default!
         self.title = "Dashboard"
         self.navigationController?.setNavigationBarHidden(false, animated: false);
-        
+        self.notificationCountLabel.layer.cornerRadius = notificationCountLabel.frame.height/2
+        notificationCountLabel.clipsToBounds = true
+
         self .setupNavigationBarButtons();
         self.selectTab(firstTabBtn)
         firstTabBtn.backgroundColor = ColorConstants.red
+        
     }
     
     func setupNavigationBarButtons()
@@ -50,8 +57,17 @@ class MCADashboardTabbarVC: MCABaseViewController{
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"burgerNav"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.leftBarButtonclicked))
         
-  
-         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named:"optionNav"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
+        let notificationView   = UIBarButtonItem.init(customView: navigationBarView)
+            
+            
+            //UIBarButtonItem(image: UIImage(named: "iconNotificationsWhite"),  style: .plain, target: self, action: #selector(self.notificationBarButtonClicked))
+      //  let rightMenuItemButton = UIBarButtonItem.init(image: UIImage(named:"optionNav"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
+
+    self.navigationItem.rightBarButtonItem = notificationView
+       //  self.navigationItem.rightBarButtonItems = [rightMenuItemButton,notificationBellButton]
+            
+            
+            //UIBarButtonItem.init(image: UIImage(named:"optionNav"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonclicked))
         
           }
     
@@ -62,9 +78,19 @@ class MCADashboardTabbarVC: MCABaseViewController{
 
     }
     
-    func rightBarButtonclicked()
+ @IBAction  func showRightMenu()
     {
         SlideNavigationController.sharedInstance().toggleRightMenu();
+    }
+    
+    
+ @IBAction func showNotificationList()
+    {
+        let storyboard = UIStoryboard(name: StoryboardName.MCANotification, bundle: nil)
+        let applicationVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCANotificationVC) as! MCANotificationViewController
+        SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
+   
+        
     }
 
     

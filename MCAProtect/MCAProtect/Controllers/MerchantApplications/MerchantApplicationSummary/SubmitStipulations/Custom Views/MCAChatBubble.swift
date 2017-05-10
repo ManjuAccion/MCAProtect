@@ -81,7 +81,7 @@ class MCAChatBubble: UIView {
         self.frame = CGRect(x:self.frame.minX, y:self.frame.minY, width:viewWidth, height:viewHeight)
         
         // 6. Adding the resizable image view to give it bubble like shape
-        let bubbleImageFileName = data.type == .mine ? "bubbleMine_pink" : "bubbleSomeone_white"
+        let bubbleImageFileName = data.type == .mine ? "chatBubblePink" : "chatBubbleGrey"
         imageViewBG = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: self.frame.width, height: self.frame.height))
         if data.type == .mine {
             imageViewBG?.image = UIImage(named: bubbleImageFileName)?.resizableImage(withCapInsets: UIEdgeInsetsMake(14, 14, 17, 28))
