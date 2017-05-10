@@ -97,7 +97,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let applicationVC  = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCAMerchantApplicationListVC) as! MCAMerchantApplicationListVC
+        let applicationVC  = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCADashboardApplicationListVC) as! MCADashboardApplicationListVC
         
         dealsPipeline = dataSourceArray[indexPath.row]
         applicationVC.selectedDealsPipeline = dealsPipeline;

@@ -19,8 +19,8 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet var profileHeaderView : MCAProfileHeaderView!
     @IBOutlet weak var sideMenuTableView : UITableView!
 
-    var arrayDataSource : [String] = ["Dashboard", "Saved Applications", "Funding Programs","Ask Funder"]
-    var arrayImageIcons : [String] = ["iconDashboard","iconSavedApplications", "iconFundingPrograms", "iconAskFunder"]
+    var arrayDataSource : [String] = ["Dashboard","Merchant Applications", "Saved Applications", "Funding Programs","Ask Funder"]
+    var arrayImageIcons : [String] = ["iconDashboard","iconSavedApplications","iconSavedApplications", "iconFundingPrograms", "iconAskFunder"]
     
     
     override func viewDidLoad() {
@@ -88,6 +88,12 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
             case leftMenuItems.Dashboard.rawValue:
                 
                 SlideNavigationController.sharedInstance().toggleLeftMenu();
+            
+            case leftMenuItems.MerchantApplications.rawValue:
+                let storyboard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil)
+                let applicationVC = storyboard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationListVC) as! MCAMerchantApplicationListVC
+                SlideNavigationController.sharedInstance().setViewControllers([SlideNavigationController.sharedInstance().topViewController!,applicationVC], animated: false);
+                SlideNavigationController.sharedInstance().toggleLeftMenu()
             
             case leftMenuItems.SavedApplications.rawValue:
                 

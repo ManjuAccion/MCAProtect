@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCAApplicationTVCellDelegate {
+class MCADashboardApplicationListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCAApplicationTVCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var applicationState: Int!

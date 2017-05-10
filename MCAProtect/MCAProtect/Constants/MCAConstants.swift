@@ -110,6 +110,9 @@ struct VCIdentifiers {
     static let MCAOwnerInformationDetailVC                          = "MCAOwnerInformationDetailVC"
     static let MCALoanDetailVC                                      = "MCALoanDetailVC"
     static let MCAMerchantApplicationListVC                         = "MCAMerchantApplicationListVC"
+    static let MCADashboardApplicationListVC                         = "MCADashboardApplicationListVC"
+
+    
     static let MCAMerchantApplicationSummaryVC                      = "MCAMerchantApplicationSummaryVC"
     static let MCAMASubmitStipulationsVC                            = "MCAMASubmitStipulationsVC"
     static let MCAAskFunderApplicationListVC                        = "MCAAskFunderApplicationListVC"
@@ -357,10 +360,11 @@ enum rightMenuItems : NSInteger {
 }
 
 enum leftMenuItems : NSInteger {
-    case Dashboard          = 0
-    case SavedApplications  = 1
-    case FundingPrograms    = 2
-    case AskFunder          = 3
+    case Dashboard                     = 0
+    case MerchantApplications          = 1
+    case SavedApplications             = 2
+    case FundingPrograms               = 3
+    case AskFunder                     = 4
 }
 
 enum LiensPayementsHeaderCell : Int {
@@ -403,6 +407,8 @@ struct MCAAPIEndPoints {
 
     static let BrokerSavedApplicationListEndpoint       = "/loan_applications/get_broker_application_list"
     static let BrokerSubmitApplicationEndpoint          = "/loan_applications"
+    static let BrokerMerchantApplicationListEndpoint       = "/loan_applications/get_broker_application_submit_list"
+
     
     static let BrokerUpdateProfileAPIEndpoint           = "/broker"
     static let BrokerageRegistrationAPIEndPoint         = "/brokerage_firm.json"
