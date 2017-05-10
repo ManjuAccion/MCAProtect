@@ -381,8 +381,9 @@ enum businessType : NSInteger {
 }
 
 
-
 struct MCAAPIEndPoints {
+    
+    //MARK: - Broker API EndPoints -
     
     static let BrokerLoginAPIEndPoint                   = "/broker/sign_in.json"
     static let BrokerLogoutAPIEndPoint                  = "/broker/sign_out.json"
@@ -398,27 +399,25 @@ struct MCAAPIEndPoints {
     static let BrokerFundednDNQDocEndpoint              = "/underwriting/stipulations/get_required_documents"
     static let BrokerAddStipulationsEndPoint            = "/underwriting/stipulations/add_stipulation"
     static let BrokerMatchedFundingProgramListEndPoint  = "/algorithm/get_lending_programs"
-    static let BrokerReferMatchedFundingProgramEndPoint  = "/refer_broker_to_merchant"
-    static let BrokerFetchAllNotificationsEndPoint  = "/v1/notifications/broker_notifications/fetch_unread_notifications"
-    static let BrokerUpdateNotificationStatusEndPoint  = "/v1/notifications/broker_notifications"
-
-
-
-
+    static let BrokerReferMatchedFundingProgramEndPoint = "/refer_broker_to_merchant"
+    static let BrokerFetchAllNotificationsEndPoint      = "/v1/notifications/broker_notifications/fetch_unread_notifications"
+    static let BrokerUpdateNotificationStatusEndPoint   = "/v1/notifications/broker_notifications"
+    static let BrokerUnderWrittingChatAPIEndpoint       = "/user_chats/get_underwriting_chats"
+    static let BrokerUnderWritingCreateChatAPIEndpoint  = "/user_chats"
     static let BrokerSavedApplicationListEndpoint       = "/loan_applications/get_broker_application_list"
     static let BrokerSubmitApplicationEndpoint          = "/loan_applications"
-    static let BrokerMerchantApplicationListEndpoint       = "/loan_applications/get_broker_application_submit_list"
-
-    
+    static let BrokerMerchantApplicationListEndpoint    = "/loan_applications/get_broker_application_submit_list"
     static let BrokerUpdateProfileAPIEndpoint           = "/broker"
+    
+    //MARK: - Brokerage API EndPoints-
+    
+    static let BrokerageUpdateProfileAPIEndpoint        = "/brokerage_firm"
     static let BrokerageRegistrationAPIEndPoint         = "/brokerage_firm.json"
     static let BrokerageLoginAPIEndPoint                = "/brokerage_firm/sign_in.json"
     static let BrokerageLogoutAPIEndPoint               = "/brokerage_firm/sign_out.json"
     static let BrokerageForgotPasswordAPIEndPoint       = "/brokerage_firm/password.json"
-    static let BrokerageUpdateProfileAPIEndpoint        = "/brokerage_firm.json"
-     static let BrokerUnderWrittingChatAPIEndpoint      = "/user_chats/get_underwriting_chats"
-    static let BrokerUnderWritingCreateChatAPIEndpoint      = "/user_chats"
-
+    static let BrokerageDashBoardAPIEndpoint            = "/brokerage_firms/overall_daterange_wise_application_status/"
+    static let BrokerageApplicationSummaryAPIEndpoint   = "/brokerage_firms/get_state_wise_applications/"
 
 }
 
@@ -427,11 +426,6 @@ struct MCAAPIPageControls
    static let pageSize = "10"
 
 }
-
-
-
-
-
 
 
 enum BrokerLeftMenuItems : Int {

@@ -54,9 +54,22 @@ class MCADashboardApplicationListVC: MCABaseViewController,UITableViewDataSource
 
         
         var endPoint = String()
-        endPoint.append(MCAAPIEndPoints.BrokerApplicationSummaryAPIEndpoint);
-        endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)");
-        endPoint.append("/\(selectedDealsPipeline.applicationStateID!)");
+        
+        switch MCASessionManager.sharedSessionManager.mcapUser.userType {
+            
+            case MCALoginType.Broker.rawValue:
+                endPoint.append(MCAAPIEndPoints.BrokerApplicationSummaryAPIEndpoint)
+                endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)")
+                endPoint.append("/\(selectedDealsPipeline.applicationStateID!)")
+
+            
+            case MCALoginType.Brokerage.rawValue:
+                endPoint.append(MCAAPIEndPoints.BrokerageApplicationSummaryAPIEndpoint)
+                endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)")
+                endPoint.append("/\(selectedDealsPipeline.applicationStateID!)")
+
+            default: break
+        }
         
         endPoint.append("?from_date=\(fromDateString!)&to_date=\(toDateString!)")
         

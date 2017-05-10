@@ -122,9 +122,21 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         self.showActivityIndicator()
         
         var endPoint = String()
-        endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint)
-        endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)")
-        
+
+        switch MCASessionManager.sharedSessionManager.mcapUser.userType {
+            
+            case MCALoginType.Broker.rawValue:
+            
+                endPoint.append(MCAAPIEndPoints.BrokerDashBoardAPIEndpoint)
+                endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)")
+            
+            case MCALoginType.Brokerage.rawValue:
+            
+                endPoint.append(MCAAPIEndPoints.BrokerageDashBoardAPIEndpoint)
+                endPoint.append("\(MCASessionManager.sharedSessionManager.mcapUser.brokerID!)")
+            
+            default: break
+        }
         
         //TODO: create date range according to the selection
         

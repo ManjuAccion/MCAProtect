@@ -22,12 +22,13 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     var arrayDataSource = [String]()
     var arrayImageIcons = [String]()
 
+    // Need to move the hardcoded values to plist.
     
     var brokerDataSource = ["Dashboard","Merchant Applications", "Saved Applications", "Funding Programs","Ask Funder"]
     var brokerImageIcons = ["iconDashboard","iconSavedApplications","iconSavedApplications", "iconFundingPrograms", "iconAskFunder"]
     
     var brokerageDataSource = ["Dashboard", "Brokers", "Partner Funders","Partner Funding Programs"]
-    var brokerageImageIcons = ["iconDashboard","iconBroker", "iconFunder", "iconFundingProgram"]
+    var brokerageImageIcons = ["iconDashboard","iconBroker", "iconPartnerFunder", "iconFundingProgram"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
