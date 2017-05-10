@@ -14,6 +14,8 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: MCACustomSearchBar!
     
+    
+
     var dataSource = [MCASavedApplication]()
     var displayList = [MCASavedApplication]()
     var filteredDisplayList = [MCASavedApplication]()
@@ -127,13 +129,14 @@ class MCAMerchantApplicationListVC: MCABaseViewController,UITableViewDataSource,
             selectedSavedApplication.isSelected = false
         }
         
-        let storyBoard = UIStoryboard(name: "SavedApplication", bundle: Bundle.main)
-        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAApplicationSummaryVC) as! MCAApplicationSummaryVC
+        let storyBoard = UIStoryboard(name: "MerchantApplication", bundle: Bundle.main)
+        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCAMerchantApplicationSummaryVC") as! MCAMerchantApplicationSummaryVC
         selectedSavedApplication = displayList[indexPath.row]
         selectedSavedApplication.isSelected = true
         applicationSummaryVC.appSummary = selectedSavedApplication
         tableView.reloadData()
         navigationController?.pushViewController(applicationSummaryVC, animated: true)
+
         
     }
     

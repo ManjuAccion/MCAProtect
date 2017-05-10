@@ -47,11 +47,11 @@ class MCAFundingProgramDetailCell: UITableViewCell {
         
     }
     
-    func updateDataSource(merchantApplicationDetailObject : MCAMerchantApplicationDetail)  {
-      businessNameLabel.text = merchantApplicationDetailObject.businessName
-      needItByLabel.text = merchantApplicationDetailObject.loanRequirementTenure
-      loanAmountLabel.text = MCAUtilities.currencyFormatter(inputItem: merchantApplicationDetailObject.loanAmount as AnyObject) as String!
-        loanTermLabel.text = merchantApplicationDetailObject.loanTerm
+    func updateDataSource(merchantApplicationDetailObject : MCASavedApplication)  {
+      businessNameLabel.text = merchantApplicationDetailObject.applicationName
+      needItByLabel.text = merchantApplicationDetailObject.neededIn
+      loanAmountLabel.text = MCAUtilities.currencyFormatter(inputItem: merchantApplicationDetailObject.amount as AnyObject) as String!
+//        loanTermLabel.text = merchantApplicationDetailObject.     
         
     }
 

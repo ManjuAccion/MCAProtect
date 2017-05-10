@@ -133,7 +133,7 @@ class MCADashboardApplicationListVC: MCABaseViewController,UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
-        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
+        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCADashBoardApplicationSummaryVC") as! MCADashBoardApplicationSummaryVC
         applicationSummaryVC.applicationState = applicationState
         
         merchantApplicationDetail = dataSource[indexPath.row]

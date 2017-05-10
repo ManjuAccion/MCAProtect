@@ -38,7 +38,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
     var matchedFPList : NSMutableArray!
     
     var matchedFundingProgram : MCAMatchedFundingProgram!
-    var merchantApplicationDetails :   MCAMerchantApplicationDetail!
+    var merchantApplicationDetails :   MCASavedApplication!
     var fundingProgram : MCAFundingProgram!
     var matchedFundingProgramList = [MCAFundingProgram]()
     var selectedFundingPrograms = [[String:String]]()
@@ -389,7 +389,7 @@ class MCAMatchedFundingProgramVC: MCABaseViewController,UITableViewDelegate,UITa
                     alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : { action in
                         
                         let storyBoard = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: Bundle.main)
-                        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCAMerchantApplicationSummaryVC) as! MCAMerchantApplicationSummaryVC
+                        let applicationSummaryVC = storyBoard.instantiateViewController(withIdentifier: "MCADashBoardApplicationSummaryVC") as! MCADashBoardApplicationSummaryVC
                         applicationSummaryVC.applicationState = self.applicationState
                         _ = self.navigationController?.popViewController(animated: true)
                         

@@ -24,6 +24,7 @@
 		5B3495F71EAF7332006BF690 /* MCAFPLiensAndBankruptcyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3495F31EAF7332006BF690 /* MCAFPLiensAndBankruptcyViewController.swift */; };
 		5B3495F81EAF7332006BF690 /* MCALiensHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3495F51EAF7332006BF690 /* MCALiensHeaderTableViewCell.swift */; };
 		5B3495F91EAF7332006BF690 /* MCALiensHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3495F61EAF7332006BF690 /* MCALiensHeaderTableViewCell.xib */; };
+		5B3D46231EC312DB0049D14E /* MCAMerchantApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D46221EC312DB0049D14E /* MCAMerchantApplicationSummaryVC.swift */; };
 		5B6C97C51E8D36BA003BEA82 /* MCAProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6C97C21E8D36BA003BEA82 /* MCAProfileViewController.swift */; };
 		5B8FC4911E4B011500309CAB /* MCAWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */; };
 		5B8FC4A31E4C7E9600309CAB /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FC4961E4C7E9600309CAB /* Apache License.txt */; };
@@ -171,7 +172,7 @@
 		BAC6AE6A1E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC6AE671E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib */; };
 		BACC53041E892C85003C4852 /* MCALoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC53031E892C85003C4852 /* MCALoginViewController.swift */; };
 		BACC53061E892DAF003C4852 /* MCAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC53051E892DAF003C4852 /* MCAUser.swift */; };
-		BACC530E1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC530D1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift */; };
+		BACC530E1E8AA266003C4852 /* MCADashBoardApplicationSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC530D1E8AA266003C4852 /* MCADashBoardApplicationSummaryVC.swift */; };
 		BACC53101E8AA674003C4852 /* MCAAskFunderApplicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACC530F1E8AA674003C4852 /* MCAAskFunderApplicationList.swift */; };
 		C5FB3A00834EF9FB13DD6F63 /* Pods_MCAProtectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E179F75E7CB99627451CFB9 /* Pods_MCAProtectUITests.framework */; };
 		CE0DCC911E9F45C4003C5A97 /* MCALiensPaymentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DCC901E9F45C4003C5A97 /* MCALiensPaymentsVC.swift */; };
@@ -252,6 +253,7 @@
 		5B3495F31EAF7332006BF690 /* MCAFPLiensAndBankruptcyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAFPLiensAndBankruptcyViewController.swift; sourceTree = "<group>"; };
 		5B3495F51EAF7332006BF690 /* MCALiensHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALiensHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		5B3495F61EAF7332006BF690 /* MCALiensHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCALiensHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		5B3D46221EC312DB0049D14E /* MCAMerchantApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationSummaryVC.swift; sourceTree = "<group>"; };
 		5B4741BC1E533511001D9435 /* MCAProtect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAProtect-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B6C97C21E8D36BA003BEA82 /* MCAProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAProfileViewController.swift; sourceTree = "<group>"; };
 		5B8FC4901E4B011500309CAB /* MCAWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAWebViewController.swift; sourceTree = "<group>"; };
@@ -403,7 +405,7 @@
 		BAC6AE671E8250F90047F7D3 /* MCAPerformanceComparisonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCAPerformanceComparisonCell.xib; sourceTree = "<group>"; };
 		BACC53031E892C85003C4852 /* MCALoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoginViewController.swift; sourceTree = "<group>"; };
 		BACC53051E892DAF003C4852 /* MCAUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAUser.swift; sourceTree = "<group>"; };
-		BACC530D1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAMerchantApplicationSummaryVC.swift; sourceTree = "<group>"; };
+		BACC530D1E8AA266003C4852 /* MCADashBoardApplicationSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCADashBoardApplicationSummaryVC.swift; sourceTree = "<group>"; };
 		BACC530F1E8AA674003C4852 /* MCAAskFunderApplicationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAAskFunderApplicationList.swift; sourceTree = "<group>"; };
 		CD874CB50199F4CBAB462DB8 /* Pods-MCAProtectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCAProtectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCAProtectUITests/Pods-MCAProtectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE0DCC901E9F45C4003C5A97 /* MCALiensPaymentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALiensPaymentsVC.swift; sourceTree = "<group>"; };
@@ -1842,7 +1844,8 @@
 		BACC530C1E8AA266003C4852 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BACC530D1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift */,
+				BACC530D1E8AA266003C4852 /* MCADashBoardApplicationSummaryVC.swift */,
+				5B3D46221EC312DB0049D14E /* MCAMerchantApplicationSummaryVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2487,6 +2490,7 @@
 				5B3495EE1EAF72B5006BF690 /* MCAFundingProgramSummaryVC.swift in Sources */,
 				788421D01E953F0700748948 /* MCACustomDatePickerView.swift in Sources */,
 				5BB1D5EC1EC1E77D00F8FC31 /* MCADashboardApplicationListVC.swift in Sources */,
+				5B3D46231EC312DB0049D14E /* MCAMerchantApplicationSummaryVC.swift in Sources */,
 				5BB3E6001E8293A800A67927 /* MCABankruptcyTVCell.swift in Sources */,
 				BA8B68BD1E5C72B7004CEB69 /* String+Extensions.swift in Sources */,
 				CE0DCCA41E9F4D29003C5A97 /* MCABankRecordsVC.swift in Sources */,
@@ -2500,7 +2504,7 @@
 				CE8A80F61E9E25C6006C981A /* MCAOwnerAndLocationDetailsTVCell.swift in Sources */,
 				BAC6ADF81E824ABB0047F7D3 /* MCASubmitStipulationsView.swift in Sources */,
 				788421D31E9636C700748948 /* MCASavedApplication.swift in Sources */,
-				BACC530E1E8AA266003C4852 /* MCAMerchantApplicationSummaryVC.swift in Sources */,
+				BACC530E1E8AA266003C4852 /* MCADashBoardApplicationSummaryVC.swift in Sources */,
 				CE8A80DD1E9E20E2006C981A /* MCALoansVC.swift in Sources */,
 				CE8A80FB1E9E25C6006C981A /* MCAOwnerInformationDetailVC.swift in Sources */,
 				7871E3341E5312310019B707 /* MCANavigationController.swift in Sources */,

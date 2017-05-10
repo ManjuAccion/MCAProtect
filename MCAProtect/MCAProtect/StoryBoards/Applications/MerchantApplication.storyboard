@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="-218.40000000000001" y="121.88905547226388"/>
         </scene>
-        <!--Merchant Application SummaryVC-->
+        <!--Dash Board Application SummaryVC-->
         <scene sceneID="Cke-Oo-qTG">
             <objects>
-                <viewController storyboardIdentifier="MCAMerchantApplicationSummaryVC" id="McY-LS-Yap" customClass="MCAMerchantApplicationSummaryVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MCADashBoardApplicationSummaryVC" id="McY-LS-Yap" customClass="MCADashBoardApplicationSummaryVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nhp-Is-IWc"/>
                         <viewControllerLayoutGuide type="bottom" id="QIW-bz-3JP"/>
@@ -68,44 +68,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iS7-lX-1KT">
-                                <rect key="frame" x="16" y="567" width="343" height="40"/>
-                                <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="rC9-CR-nV3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                <state key="normal" title="View Matched Funding Program" image="iconViewApplication"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="viewMatchedFundingProgramTapped:" destination="McY-LS-Yap" eventType="touchUpInside" id="RFm-Fn-AHl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ey-wK-SXo">
-                                <rect key="frame" x="16" y="615" width="343" height="40"/>
-                                <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="2Ky-vv-QyE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                <state key="normal" title="Copy Application" image="iconCopyApplication"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="copyApplicationButtonTapped:" destination="McY-LS-Yap" eventType="touchUpInside" id="M3W-Vc-1Yj"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TG9-OT-CvC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="McY-LS-Yap" id="zuY-jB-W2U"/>
@@ -115,21 +79,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="iS7-lX-1KT" firstAttribute="trailing" secondItem="WWm-Kv-P29" secondAttribute="trailingMargin" id="8pO-1D-xZv"/>
-                            <constraint firstItem="QIW-bz-3JP" firstAttribute="top" secondItem="0ey-wK-SXo" secondAttribute="bottom" constant="12" id="97D-MF-Rkk"/>
                             <constraint firstItem="TG9-OT-CvC" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leading" id="E14-Wa-kjF"/>
-                            <constraint firstItem="0ey-wK-SXo" firstAttribute="top" secondItem="iS7-lX-1KT" secondAttribute="bottom" constant="8" id="O6B-Ce-uU5"/>
-                            <constraint firstItem="iS7-lX-1KT" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leadingMargin" id="Pl0-54-6jg"/>
                             <constraint firstAttribute="trailing" secondItem="TG9-OT-CvC" secondAttribute="trailing" id="XPC-Sw-lb7"/>
-                            <constraint firstItem="0ey-wK-SXo" firstAttribute="leading" secondItem="WWm-Kv-P29" secondAttribute="leadingMargin" id="aM4-d3-lyM"/>
                             <constraint firstItem="TG9-OT-CvC" firstAttribute="top" secondItem="WWm-Kv-P29" secondAttribute="top" id="lMc-hm-tQR"/>
-                            <constraint firstItem="0ey-wK-SXo" firstAttribute="trailing" secondItem="WWm-Kv-P29" secondAttribute="trailingMargin" id="mVa-Ja-r9r"/>
-                            <constraint firstAttribute="bottom" secondItem="TG9-OT-CvC" secondAttribute="bottom" constant="108" id="sgV-xz-YSp"/>
+                            <constraint firstAttribute="bottom" secondItem="TG9-OT-CvC" secondAttribute="bottom" id="sgV-xz-YSp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="copyApplicationButton" destination="0ey-wK-SXo" id="yfc-7B-ClD"/>
-                        <outlet property="matchFundingProgramButton" destination="iS7-lX-1KT" id="oQs-xX-uBU"/>
                         <outlet property="tableView" destination="TG9-OT-CvC" id="ohe-Ty-eJm"/>
                         <outlet property="tableViewBottomConstraint" destination="sgV-xz-YSp" id="HC1-2H-Gjl"/>
                     </connections>
@@ -293,7 +249,7 @@
                                     <constraint firstAttribute="width" constant="44" id="RF3-t5-efp"/>
                                     <constraint firstAttribute="height" constant="44" id="gYB-ik-dPl"/>
                                 </constraints>
-                                <state key="normal" image="367288C8-0845-4DB4-8C81-2C63A433A811"/>
+                                <state key="normal" image="5D4A284D-D613-4281-B910-C957B226C64A"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
@@ -448,9 +404,87 @@
             </objects>
             <point key="canvasLocation" x="-894" y="688"/>
         </scene>
+        <!--Merchant Application SummaryVC-->
+        <scene sceneID="OjC-E8-bG7">
+            <objects>
+                <viewController storyboardIdentifier="MCAMerchantApplicationSummaryVC" id="8Qg-tI-6PH" customClass="MCAMerchantApplicationSummaryVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KIp-5Z-IHl"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ay-3c-o45"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vX3-0I-4lq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOD-dN-GBh">
+                                <rect key="frame" x="16" y="567" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WMF-Ne-cKJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="View Matched Funding Program" image="iconViewApplication"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="viewMatchedFundingProgramTapped:" destination="8Qg-tI-6PH" eventType="touchUpInside" id="Uzf-ZH-Th9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmq-KZ-Fu0">
+                                <rect key="frame" x="16" y="615" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gQ2-l1-cdG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="Copy Application" image="iconCopyApplication"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="er5-JV-rb0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Qg-tI-6PH" id="fne-2J-wFa"/>
+                                    <outlet property="delegate" destination="8Qg-tI-6PH" id="WA2-T5-dxS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9ay-3c-o45" firstAttribute="top" secondItem="Mmq-KZ-Fu0" secondAttribute="bottom" constant="12" id="3Gz-z8-I72"/>
+                            <constraint firstItem="Mmq-KZ-Fu0" firstAttribute="leading" secondItem="vX3-0I-4lq" secondAttribute="leadingMargin" id="B34-Gr-0ee"/>
+                            <constraint firstItem="Mmq-KZ-Fu0" firstAttribute="trailing" secondItem="vX3-0I-4lq" secondAttribute="trailingMargin" id="BJb-up-Vk7"/>
+                            <constraint firstAttribute="trailing" secondItem="er5-JV-rb0" secondAttribute="trailing" id="BuU-Kt-9k0"/>
+                            <constraint firstAttribute="bottom" secondItem="er5-JV-rb0" secondAttribute="bottom" constant="108" id="CUV-Fc-A1Q"/>
+                            <constraint firstItem="er5-JV-rb0" firstAttribute="leading" secondItem="vX3-0I-4lq" secondAttribute="leading" id="PXZ-7B-8OJ"/>
+                            <constraint firstItem="uOD-dN-GBh" firstAttribute="trailing" secondItem="vX3-0I-4lq" secondAttribute="trailingMargin" id="Qcl-Uf-kcT"/>
+                            <constraint firstItem="er5-JV-rb0" firstAttribute="top" secondItem="vX3-0I-4lq" secondAttribute="top" id="WiT-jP-WYg"/>
+                            <constraint firstItem="Mmq-KZ-Fu0" firstAttribute="top" secondItem="uOD-dN-GBh" secondAttribute="bottom" constant="8" id="Xkh-YY-Y6b"/>
+                            <constraint firstItem="uOD-dN-GBh" firstAttribute="leading" secondItem="vX3-0I-4lq" secondAttribute="leadingMargin" id="qpT-5R-6Sx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="copyApplicationButton" destination="Mmq-KZ-Fu0" id="xBe-cs-cHS"/>
+                        <outlet property="matchFundingProgramButton" destination="uOD-dN-GBh" id="Pur-SS-RyS"/>
+                        <outlet property="tableView" destination="er5-JV-rb0" id="WvW-kz-eXG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kZK-5l-aSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="202" y="-1077"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="367288C8-0845-4DB4-8C81-2C63A433A811" width="36" height="39">
+        <image name="5D4A284D-D613-4281-B910-C957B226C64A" width="36" height="39">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
