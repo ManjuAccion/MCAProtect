@@ -199,9 +199,23 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
 
         let paramDict  = Dictionary<String, String>()
         
+        var endPoint = String()
+        
+        switch MCASessionManager.sharedSessionManager.mcapUser.userType {
+            
+            case MCALoginType.Broker.rawValue:
+                
+                endPoint.append(MCAAPIEndPoints.BrokerLogoutAPIEndPoint)
+                
+            case MCALoginType.Brokerage.rawValue:
+                
+                endPoint.append(MCAAPIEndPoints.BrokerageLogoutAPIEndPoint)
+                
+            default: break
+        }
         
         MCAWebServiceManager.sharedWebServiceManager.deleteRequest(requestParam:paramDict,
-                                                                   endPoint:MCAAPIEndPoints.BrokerLogoutAPIEndPoint
+                                                                   endPoint:endPoint
             , successCallBack:{ (response : JSON!) in
                 
                 self.stopActivityIndicator()
