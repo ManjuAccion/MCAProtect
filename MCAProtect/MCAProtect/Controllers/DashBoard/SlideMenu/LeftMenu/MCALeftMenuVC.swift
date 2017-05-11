@@ -50,6 +50,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
             
             default: break
         }
+        sideMenuTableView.reloadData()
     }
 
 
