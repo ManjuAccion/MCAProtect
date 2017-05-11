@@ -34,9 +34,18 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidLoad()
         sideMenuTableView.register(UINib(nibName: "MCATableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCATableViewCell")
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.updateProfileDetails()
+    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func updateSideMenuItems() {
         
         switch MCASessionManager.sharedSessionManager.mcapUser.userType {
             
@@ -47,33 +56,23 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
             case MCALoginType.Brokerage.rawValue :
                 arrayDataSource = brokerageDataSource
                 arrayImageIcons = brokerageImageIcons
-            
+                
             default: break
         }
-        sideMenuTableView.reloadData()
-    }
-
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        self.updateProfileDetails()
     }
     
     func updateProfileDetails(){
+        
+        updateSideMenuItems()
         sideMenuTableView.reloadData()
         profileHeaderView.setPrfileDetails(mcapUser: MCASessionManager.sharedSessionManager.mcapUser)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     //MARK: - Table View Datasource
     
     func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
     {
-        return 1;
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
