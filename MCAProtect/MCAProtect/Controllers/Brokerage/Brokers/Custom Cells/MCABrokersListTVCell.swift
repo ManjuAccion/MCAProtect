@@ -10,6 +10,13 @@ import UIKit
 
 class MCABrokersListTVCell: UITableViewCell {
 
+    @IBOutlet weak var leftSelectionView: UIView!
+    @IBOutlet weak var brokerNameLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UIButton!
+    @IBOutlet weak var emailLabel: UIButton!
+    @IBOutlet weak var applicationCountLabel: UILabel!
+    @IBOutlet weak var applicationStatusButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -19,6 +26,17 @@ class MCABrokersListTVCell: UITableViewCell {
 
     }
     
+    @IBAction func applicationStatus(_ sender: Any) {
+        
+    }
     
+    @IBAction func phoneNumberButonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func emailButtonTapped(_ sender: Any) {
+        
+    
+    }
     
 }

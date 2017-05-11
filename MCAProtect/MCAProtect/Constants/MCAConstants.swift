@@ -71,6 +71,8 @@ struct CellIdentifiers {
     static let MCALoansTVCell                           = "MCALoansTVCell"
     static let MCALiensHeaderTableViewCell              = "MCALiensHeaderTableViewCell"
     static let MCAFPListTableViewCell                   = "MCAFPListTableViewCell"
+    static let MCABrokersListTVCell                     = "MCABrokersListTVCell"
+
 
 
 }
