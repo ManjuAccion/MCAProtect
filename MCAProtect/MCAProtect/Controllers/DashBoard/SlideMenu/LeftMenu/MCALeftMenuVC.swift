@@ -25,7 +25,7 @@ class MCALeftMenuVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSo
     // Need to move the hardcoded values to plist.
     
     var brokerDataSource = ["Dashboard","Merchant Applications", "Saved Applications", "Funding Programs","Ask Funder"]
-    var brokerImageIcons = ["iconDashboard","iconSavedApplications","iconSavedApplications", "iconFundingPrograms", "iconAskFunder"]
+    var brokerImageIcons = ["iconDashboard","iconMerchantApplications","iconSavedApplications", "iconFundingPrograms", "iconAskFunder"]
     
     var brokerageDataSource = ["Dashboard", "Brokers", "Partner Funders","Partner Funding Programs"]
     var brokerageImageIcons = ["iconDashboard","iconBroker", "iconPartnerFunder", "iconFundingProgram"]
