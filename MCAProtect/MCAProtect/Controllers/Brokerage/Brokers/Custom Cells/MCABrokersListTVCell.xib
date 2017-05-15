@@ -69,7 +69,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6t-Eq-fAf">
-                    <rect key="frame" x="299" y="36" width="60" height="36"/>
+                    <rect key="frame" x="303" y="36" width="60" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="UhY-8M-47F"/>
                         <constraint firstAttribute="height" constant="36" id="WRr-yY-4XO"/>
@@ -97,11 +97,11 @@
             <constraints>
                 <constraint firstItem="vV2-VZ-VJi" firstAttribute="top" secondItem="BDm-xb-nEV" secondAttribute="top" constant="8" id="2cw-KE-S4l"/>
                 <constraint firstItem="D6t-Eq-fAf" firstAttribute="top" secondItem="vV2-VZ-VJi" secondAttribute="bottom" constant="7" id="2tm-y3-sbJ"/>
-                <constraint firstItem="D6t-Eq-fAf" firstAttribute="leading" secondItem="nGJ-FU-QXb" secondAttribute="trailing" constant="8" id="57E-2D-rcw"/>
+                <constraint firstItem="D6t-Eq-fAf" firstAttribute="leading" secondItem="nGJ-FU-QXb" secondAttribute="trailing" constant="12" id="57E-2D-rcw"/>
                 <constraint firstItem="nGJ-FU-QXb" firstAttribute="top" secondItem="H7h-ny-1a8" secondAttribute="bottom" id="5mA-2J-9dZ"/>
                 <constraint firstAttribute="trailing" secondItem="TiS-qU-wtM" secondAttribute="trailing" id="E40-ty-kMN"/>
                 <constraint firstItem="nGJ-FU-QXb" firstAttribute="bottom" secondItem="D6t-Eq-fAf" secondAttribute="bottom" id="GDh-Sh-0t2"/>
-                <constraint firstItem="D6t-Eq-fAf" firstAttribute="leading" secondItem="H7h-ny-1a8" secondAttribute="trailing" constant="8" id="Raf-js-gh9"/>
+                <constraint firstItem="D6t-Eq-fAf" firstAttribute="leading" secondItem="H7h-ny-1a8" secondAttribute="trailing" constant="12" id="Raf-js-gh9"/>
                 <constraint firstItem="zbT-75-IuB" firstAttribute="leading" secondItem="BDm-xb-nEV" secondAttribute="leading" id="Stm-a8-WCy"/>
                 <constraint firstAttribute="bottom" secondItem="zbT-75-IuB" secondAttribute="bottom" id="Th6-FY-mj8"/>
                 <constraint firstItem="zbT-75-IuB" firstAttribute="top" secondItem="BDm-xb-nEV" secondAttribute="top" id="Wna-TT-2qk"/>
@@ -111,7 +111,7 @@
                 <constraint firstAttribute="trailing" secondItem="vV2-VZ-VJi" secondAttribute="trailing" constant="16" id="d4R-c0-aTC"/>
                 <constraint firstItem="vV2-VZ-VJi" firstAttribute="leading" secondItem="8Ex-5E-unR" secondAttribute="trailing" constant="8" id="dk8-sW-eY0"/>
                 <constraint firstItem="nGJ-FU-QXb" firstAttribute="leading" secondItem="zbT-75-IuB" secondAttribute="trailing" constant="11" id="k29-Q3-7Ke"/>
-                <constraint firstAttribute="trailing" secondItem="D6t-Eq-fAf" secondAttribute="trailing" constant="16" id="kjt-Aa-9mV"/>
+                <constraint firstAttribute="trailing" secondItem="D6t-Eq-fAf" secondAttribute="trailing" constant="12" id="kjt-Aa-9mV"/>
                 <constraint firstItem="8Ex-5E-unR" firstAttribute="leading" secondItem="zbT-75-IuB" secondAttribute="trailing" constant="11" id="lhm-W1-dcE"/>
                 <constraint firstAttribute="bottom" secondItem="TiS-qU-wtM" secondAttribute="bottom" id="vmg-6g-wYe"/>
                 <constraint firstItem="H7h-ny-1a8" firstAttribute="leading" secondItem="zbT-75-IuB" secondAttribute="trailing" constant="11" id="yry-j3-dJ6"/>
@@ -122,9 +122,9 @@
                 <outlet property="applicationCountLabel" destination="vV2-VZ-VJi" id="Qmu-fV-nUj"/>
                 <outlet property="applicationStatusButton" destination="D6t-Eq-fAf" id="pNB-w6-YjL"/>
                 <outlet property="brokerNameLabel" destination="8Ex-5E-unR" id="e3d-6M-OhJ"/>
-                <outlet property="emailLabel" destination="H7h-ny-1a8" id="Qjx-Qx-ZRo"/>
+                <outlet property="emailButton" destination="H7h-ny-1a8" id="ZAA-Mw-Ug4"/>
                 <outlet property="leftSelectionView" destination="zbT-75-IuB" id="EuN-lL-6CE"/>
-                <outlet property="phoneNumberLabel" destination="nGJ-FU-QXb" id="Egj-dh-xuO"/>
+                <outlet property="phoneNumberButton" destination="nGJ-FU-QXb" id="6QX-SU-GhK"/>
             </connections>
             <point key="canvasLocation" x="-54.5" y="-29.5"/>
         </view>

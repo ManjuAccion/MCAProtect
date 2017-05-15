@@ -414,7 +414,7 @@ struct MCAAPIEndPoints {
     static let BrokerageForgotPasswordAPIEndPoint       = "/brokerage_firm/password.json"
     static let BrokerageDashBoardAPIEndpoint            = "/brokerage_firms/overall_daterange_wise_application_status/"
     static let BrokerageApplicationSummaryAPIEndpoint   = "/brokerage_firms/get_state_wise_applications/"
-
+    static let BrokerageFirmBrokersAPIEndpoint          = "/get_brokerage_firm_brokers/"
 }
 
 struct MCAAPIPageControls
