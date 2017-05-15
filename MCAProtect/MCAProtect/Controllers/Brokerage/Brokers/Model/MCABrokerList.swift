@@ -33,7 +33,7 @@ class MCABrokerList: NSObject {
     var uid                         : String!
     var unixTimestamp               : Int!
     var updatedAt                   : String!
-    
+    var isSelected                  : Bool!
     
    init(broker: JSON!) {
     
@@ -59,5 +59,7 @@ class MCABrokerList: NSObject {
         uid                         = broker["uid"].stringValue
         unixTimestamp               = broker["unix_timestamp"].intValue
         updatedAt                   = broker["updated_at"].stringValue
+    
+        isSelected                  = false
     }
 }

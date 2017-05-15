@@ -18,8 +18,8 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
     var brokerList : MCABrokerList!
     
     var dataSource = [MCABrokerList]()
-    var displayList = [MCASavedApplication]()
-    var filteredDisplayList = [MCASavedApplication]()
+    var displayList = [MCABrokerList]()
+    var filteredDisplayList = [MCABrokerList]()
     
     //MARK: - View Life Cycle -
     
@@ -69,12 +69,15 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
             , successCallBack:{ (response : JSON) in
                 self.stopActivityIndicator()
                 print("Success \(response)")
+                self.dataSource.removeAll()
+
                 if let items = response.array
                 {
                     for item in items {
                         self.brokerList = MCABrokerList(broker:item)
                         self.dataSource.append(self.brokerList)
                     }
+                    self.displayList = self.dataSource
                     self.tableView.reloadData()
                 }
         },
@@ -90,12 +93,10 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
         
     }
 
-
-    
     //MARK: - Table View DataSource Methods -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return displayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,7 +106,7 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
         cell.selectionStyle = .none
         cell.backgroundColor = ColorConstants.background
         
-        brokerList = dataSource[indexPath.row]
+        brokerList = displayList[indexPath.row]
         cell.setBrokerList(brokerList: brokerList)
         
         return cell
@@ -130,16 +131,42 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
     }
     
     func searchTextWillChangeWithString(inSearchString:String) {
-        
+        filterListWithSearchString(searchString: inSearchString)
     }
     
     func searchTextCleared() {
         print("searchTextCleared")
-        
+        filterListWithSearchString(searchString: "")
     }
     
     func searchTextDidEndWithString(inSearchString:String) {
         print("searchTextDidEndWithString")
+        filterListWithSearchString(searchString: inSearchString)
+    }
+    
+    func filterListWithSearchString(searchString: String) {
+        
+        if searchString != "" {
+            
+            filteredDisplayList.removeAll()
+            
+            for brokerListObj : MCABrokerList in dataSource {
+                
+                let stringToSearch = brokerListObj.contactName
+                
+                if stringToSearch == "" || ((stringToSearch?.localizedCaseInsensitiveContains(searchString)) == true) {
+                    self.filteredDisplayList.append(brokerListObj)
+                }
+            }
+            
+            displayList = filteredDisplayList
+        }
+        else {
+            
+            displayList = self.dataSource
+        }
+        
+        tableView.reloadData()
     }
     
 }

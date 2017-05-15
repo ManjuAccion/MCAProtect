@@ -21,7 +21,7 @@ class MCASavedApplication: NSObject {
     var merchantId          : Int!
     var applicationId       : Int!
     var submittedOn         : String!
-    var loanTerm                     : String!
+    var loanTerm            : String!
 
     var isSelected          : Bool!
 
