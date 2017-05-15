@@ -26,7 +26,7 @@
 		<string>https://broker-dev.mcaprotect.org</string>
 	</dict>
 	<key>ENVIRONMENT</key>
-	<string>TESTING</string>
+	<string>DEVELOPMENT</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

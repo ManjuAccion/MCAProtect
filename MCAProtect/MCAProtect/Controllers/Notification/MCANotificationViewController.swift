@@ -23,6 +23,8 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         
         tableView.register(UINib(nibName: "MCANotificationTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCANotificationTableViewCell")
         tableView.tableFooterView = UIView()
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
 
         
         fetchAllNotifications()
@@ -119,7 +121,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 60.0
+        return UITableViewAutomaticDimension
     }
     
     func updateNotificationStatus( notification: MCANotificationData)
