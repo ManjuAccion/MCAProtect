@@ -74,6 +74,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
         // Print notification payload data
         print("Push notification received: \(data)")
+        if application.applicationState == .inactive || application.applicationState == .background {
+          
+            let mPinStoryBoard = UIStoryboard(name : "Notification", bundle : nil)
+            let mPin = mPinStoryBoard.instantiateViewController(withIdentifier: "MCANotificationVC") as! MCANotificationViewController
+            let navigationController = self.window?.rootViewController as? UINavigationController
+
+            navigationController?.pushViewController(mPin, animated: true)
+
+            
+            //  let destinationController2 = storyboard.instantiateViewControllerWithIdentifier("notificationsSettings") as? AppSettingsTableViewController
+          //  navigationController?.pushViewController(destinationController2!, animated: false)
+        }
      ///   UIApplication.shared.applicationIconBadgeNumber = 1
 
     }

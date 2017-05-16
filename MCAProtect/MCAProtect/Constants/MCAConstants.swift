@@ -404,6 +404,7 @@ struct MCAAPIEndPoints {
     static let BrokerSubmitApplicationEndpoint          = "/loan_applications"
     static let BrokerMerchantApplicationListEndpoint    = "/loan_applications/get_broker_application_submit_list"
     static let BrokerUpdateProfileAPIEndpoint           = "/broker"
+    static let BrokerClearAllNotificationsEndPoint      = "/v1/notifications/broker_notifications/mark_all_read"
     
     //MARK: - Brokerage API EndPoints-
     

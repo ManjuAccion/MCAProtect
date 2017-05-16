@@ -13,6 +13,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
     
     var notificationData : MCANotificationData!
     var dataSource = [MCANotificationData]()
+    var notificationIDList = [String]()
     @IBOutlet weak var tableView: UITableView!
 
 
@@ -26,7 +27,9 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         tableView.estimatedRowHeight = 600.0;
         tableView.rowHeight = UITableViewAutomaticDimension
         
-       
+        let rightMenuItemButton = UIBarButtonItem.init(title: "Clear All", style: .plain, target: self, action: #selector(self.rightBarButtonclicked))
+        
+        self.navigationItem.rightBarButtonItem = rightMenuItemButton
 
         
         fetchAllNotifications()
@@ -39,7 +42,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         // Dispose of any resources that can be recreated.
     }
     
-
+   
     
     func fetchAllNotifications()
     {
@@ -65,6 +68,9 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
                         self.dataSource.append(self.notificationData)
                     }
                 }
+
+                
+                MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount = self.dataSource.count
 
               self.tableView.reloadData()
                 
@@ -170,6 +176,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
                 }
 
                   MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount = self.dataSource.count
+                UIApplication.shared.applicationIconBadgeNumber = self.dataSource.count
 
                 
                 self.tableView.reloadData()
@@ -188,6 +195,53 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
 
         
         
+    }
+    
+    func rightBarButtonclicked()  {
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        self.showActivityIndicator()
+        
+        
+        for item in self.dataSource {
+          self.notificationIDList.append(item.notificationID!)
+        }
+        
+        
+        var paramDict = Dictionary<String , Any>()
+        
+        paramDict["broker_notification"] = ["list_of_notification_ids": self.notificationIDList]
+        
+       
+        
+        
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam: paramDict,
+                                                                endPoint:MCAAPIEndPoints.BrokerClearAllNotificationsEndPoint
+            , successCallBack:{ (response : JSON) in
+                
+                self.stopActivityIndicator()
+                
+                
+                self.dataSource.removeAll()
+                
+                MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount = self.dataSource.count
+                UIApplication.shared.applicationIconBadgeNumber = self.dataSource.count
+                
+                self.tableView.reloadData()
+                
+        },
+              failureCallBack: { (error : Error) in
+                
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to update", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+ 
     }
 
     /*
