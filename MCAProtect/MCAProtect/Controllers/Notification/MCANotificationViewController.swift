@@ -70,7 +70,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
                 }
 
                 
-                MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount = self.dataSource.count
+                MCASessionManager.sharedSessionManager.notificationCount = self.dataSource.count
 
               self.tableView.reloadData()
                 
@@ -175,7 +175,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
                     }
                 }
 
-                  MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount = self.dataSource.count
+                  MCASessionManager.sharedSessionManager.notificationCount = self.dataSource.count
                 UIApplication.shared.applicationIconBadgeNumber = self.dataSource.count
 
                 
@@ -226,7 +226,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
                 
                 self.dataSource.removeAll()
                 
-                MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount = self.dataSource.count
+                MCASessionManager.sharedSessionManager.notificationCount = self.dataSource.count
                 UIApplication.shared.applicationIconBadgeNumber = self.dataSource.count
                 
                 self.tableView.reloadData()

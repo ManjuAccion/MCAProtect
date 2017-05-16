@@ -107,7 +107,7 @@ class MCADashboardTabbarVC: MCABaseViewController{
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.notificationCountLabel.text = "\(MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount!)"
+        self.notificationCountLabel.text = "\(MCASessionManager.sharedSessionManager.notificationCount!)"
 
     }
     override func didReceiveMemoryWarning() {

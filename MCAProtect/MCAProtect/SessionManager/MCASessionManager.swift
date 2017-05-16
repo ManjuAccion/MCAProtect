@@ -14,6 +14,7 @@ class MCASessionManager: NSObject {
     var client: String?
     var uid: String?
     var deviceToken : String?
+    var notificationCount : Int?
     
     var mcapUser : MCAUser!
     // Can't init is singleton

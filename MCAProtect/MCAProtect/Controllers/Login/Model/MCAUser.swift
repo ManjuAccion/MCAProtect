@@ -19,7 +19,6 @@ class MCAUser: NSObject {
     var brokerContactName   : String!
     var brokerImageUrl      : String!
     var userType            : Int!
-    var userNotificationCount : Int!
 
     init(loginUserData: JSON! , userLoginType: Int)
     {
@@ -34,6 +33,5 @@ class MCAUser: NSObject {
         brokerContactName   = userData["contact_name"].stringValue
         brokerImageUrl      =  userData["image_url"].stringValue
         userType            = userLoginType
-        userNotificationCount = loginUserData["count"].intValue
     }
 }

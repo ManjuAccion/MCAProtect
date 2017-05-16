@@ -198,6 +198,9 @@ class MCALoginViewController: MCABaseViewController,UITextFieldDelegate,UIAction
                 
                 self.stopActivityIndicator()
                 print("Success \(response)")
+                
+                MCASessionManager.sharedSessionManager.notificationCount = response["count"].intValue
+
 
                 MCASessionManager.sharedSessionManager.mcapUser = MCAUser(loginUserData:response, userLoginType: MCALoginType.Broker.rawValue)
                 let mPinStoryBoard = UIStoryboard(name : "mPin", bundle : nil)
