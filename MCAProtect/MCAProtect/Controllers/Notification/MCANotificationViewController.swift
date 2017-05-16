@@ -23,8 +23,10 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         
         tableView.register(UINib(nibName: "MCANotificationTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MCANotificationTableViewCell")
         tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 44.0
+        tableView.estimatedRowHeight = 600.0;
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+       
 
         
         fetchAllNotifications()
@@ -96,6 +98,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         cell.backgroundColor = UIColor.clear
         let notification  = dataSource[indexPath.row]
         cell.dataLabel.text = notification.dataSent
+        cell.senderNameLabel.text = notification.notificationType
         cell.dateLabel.text = MCAUtilities.getFormmattedDate(dateString: notification.updatedDate)
         
         if(notification.readStatus! == 0)
@@ -124,6 +127,10 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         return UITableViewAutomaticDimension
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 600
+    }
+    
     func updateNotificationStatus( notification: MCANotificationData)
     {
         if self.checkNetworkConnection() == false {
@@ -147,8 +154,24 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
             , successCallBack:{ (response : JSON) in
                 
                 self.stopActivityIndicator()
+              
                 
-                               
+                let notification = MCANotificationData.init(data: response["notification"])
+                
+              
+                for item in self.dataSource {
+                    
+                    if item.notificationID! == notification.notificationID!
+                    {
+                if let index = self.dataSource.index(of: item) {
+                    self.dataSource.remove(at: index)
+                                          }
+                    }
+                }
+
+                  MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount = self.dataSource.count
+
+                
                 self.tableView.reloadData()
                 
         },

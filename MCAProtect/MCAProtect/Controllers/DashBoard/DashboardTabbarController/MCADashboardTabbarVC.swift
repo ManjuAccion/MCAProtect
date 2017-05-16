@@ -98,13 +98,18 @@ class MCADashboardTabbarVC: MCABaseViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         if selectedTab == TabSelected.firstTab {
             dealsPipelineVC.getDealsPipelineList()
         }
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.notificationCountLabel.text = "\(MCASessionManager.sharedSessionManager.mcapUser.userNotificationCount!)"
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

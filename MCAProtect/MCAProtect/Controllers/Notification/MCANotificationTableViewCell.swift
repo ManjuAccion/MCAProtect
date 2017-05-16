@@ -13,6 +13,8 @@ class MCANotificationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dataLabel : UILabel!
     @IBOutlet weak var dateLabel : UILabel!
+    @IBOutlet weak var senderNameLabel : UILabel!
+
     @IBOutlet weak var dotImageView : UIImageView!
 
 
@@ -21,6 +23,10 @@ class MCANotificationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+       
+            // Initialization code
+        self.layoutIfNeeded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
