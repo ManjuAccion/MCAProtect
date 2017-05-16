@@ -11,27 +11,23 @@ import SwiftyJSON
 
 class MCARegistrationVC: MCABaseViewController,UITextFieldDelegate {
     
-    @IBOutlet weak var scrollView : UIScrollView!
-    @IBOutlet weak var businessNameTF : UITextField!
-    @IBOutlet weak var emailTF : UITextField!
-    @IBOutlet weak var phoneNumberTF : UITextField!
-    @IBOutlet weak var passwordTF : UITextField!
-    @IBOutlet weak var confirmPasswordTF : UITextField!
-    @IBOutlet weak var userSelectedLabel : UILabel!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var scrollView           : UIScrollView!
+    @IBOutlet weak var businessNameTF       : UITextField!
+    @IBOutlet weak var emailTF              : UITextField!
+    @IBOutlet weak var phoneNumberTF        : UITextField!
+    @IBOutlet weak var passwordTF           : UITextField!
+    @IBOutlet weak var confirmPasswordTF    : UITextField!
+    @IBOutlet weak var userSelectedLabel    : UILabel!
+    @IBOutlet weak var signUpButton         : UIButton!
+    @IBOutlet weak var topSpaceConstraints  : NSLayoutConstraint!
     
-    var toolbar : UIToolbar?
-    let textfieldHeight : CGFloat = 35
-    let toolBarHeight : CGFloat = 44
-
-    
-    @IBOutlet weak var topSpaceConstraints: NSLayoutConstraint!
     var isAllDetailsPresent : Bool? = true
-    var keyBoardHeight : CGFloat!
-    var doneButton : UIBarButtonItem?
-    var inputTextField : UITextField!
-
-
+    var keyBoardHeight      : CGFloat!
+    var doneButton          : UIBarButtonItem?
+    var inputTextField      : UITextField!
+    var toolbar             : UIToolbar?
+    let textfieldHeight     : CGFloat = 35
+    let toolBarHeight       : CGFloat = 44
 
     override func viewDidLoad() {
         super.viewDidLoad()

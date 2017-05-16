@@ -160,7 +160,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let fromCalendar = Calendar.current // user calendar
                 let fromDateTime = fromCalendar.date(from: fromDateComponents)
-                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                fromDateString = MCAUtilities.formattedStringFromDate(date: fromDateTime!)
                 
                 var toDateComponents = DateComponents()
                 toDateComponents.year = components.year
@@ -169,7 +169,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let toCalendar = Calendar.current // user calendar
                 let toDateTime = toCalendar.date(from: toDateComponents)
-                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                toDateString = MCAUtilities.formattedStringFromDate(date: toDateTime!)
                 
             case .CurrentMonth:
                 var fromDateComponents = DateComponents()
@@ -179,7 +179,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let fromCalendar = Calendar.current // user calendar
                 let fromDateTime = fromCalendar.date(from: fromDateComponents)
-                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                fromDateString = MCAUtilities.formattedStringFromDate(date: fromDateTime!)
                 
                 var toDateComponents = DateComponents()
                 toDateComponents.year = components.year
@@ -188,7 +188,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let toCalendar = Calendar.current // user calendar
                 let toDateTime = toCalendar.date(from: toDateComponents)
-                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                toDateString = MCAUtilities.formattedStringFromDate(date: toDateTime!)
                 
             case .PreviousMonth:
                 
@@ -199,7 +199,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let fromCalendar = Calendar.current // user calendar
                 let fromDateTime = fromCalendar.date(from: fromDateComponents)
-                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                fromDateString = MCAUtilities.formattedStringFromDate(date: fromDateTime!)
                 
                 var toDateComponents = DateComponents()
                 toDateComponents.year = components.year
@@ -208,7 +208,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let toCalendar = Calendar.current // user calendar
                 let toDateTime = toCalendar.date(from: toDateComponents)
-                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                toDateString = MCAUtilities.formattedStringFromDate(date: toDateTime!)
                 
                 
             case .CurrentQuarter:
@@ -220,7 +220,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let fromCalendar = Calendar.current // user calendar
                 let fromDateTime = fromCalendar.date(from: fromDateComponents)
-                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                fromDateString = MCAUtilities.formattedStringFromDate(date: fromDateTime!)
                 
                 var toDateComponents = DateComponents()
                 toDateComponents.year = components.year
@@ -229,7 +229,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let toCalendar = Calendar.current // user calendar
                 let toDateTime = toCalendar.date(from: toDateComponents)
-                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                toDateString = MCAUtilities.formattedStringFromDate(date: toDateTime!)
                 
                 
             case .PreviousQuarter:
@@ -241,7 +241,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let fromCalendar = Calendar.current // user calendar
                 let fromDateTime = fromCalendar.date(from: fromDateComponents)
-                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                fromDateString = MCAUtilities.formattedStringFromDate(date: fromDateTime!)
                 
                 var toDateComponents = DateComponents()
                 toDateComponents.year = components.year
@@ -250,7 +250,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let toCalendar = Calendar.current // user calendar
                 let toDateTime = toCalendar.date(from: toDateComponents)
-                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                toDateString = MCAUtilities.formattedStringFromDate(date: toDateTime!)
                 
                 
             case .CurrentYear:
@@ -262,7 +262,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let fromCalendar = Calendar.current // user calendar
                 let fromDateTime = fromCalendar.date(from: fromDateComponents)
-                fromDateString = MCAUtilities.FormattedStringFromDate(date: fromDateTime!)
+                fromDateString = MCAUtilities.formattedStringFromDate(date: fromDateTime!)
                 
                 var toDateComponents = DateComponents()
                 toDateComponents.year = components.year
@@ -271,7 +271,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
                 
                 let toCalendar = Calendar.current // user calendar
                 let toDateTime = toCalendar.date(from: toDateComponents)
-                toDateString = MCAUtilities.FormattedStringFromDate(date: toDateTime!)
+                toDateString = MCAUtilities.formattedStringFromDate(date: toDateTime!)
         }
 
         endPoint.append("?from_date=\(fromDateString!)&to_date=\(toDateString!)")

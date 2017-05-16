@@ -201,6 +201,7 @@
 		CE4D4DCF1EC440BE003321AF /* MCABrokersListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D4DCD1EC440BE003321AF /* MCABrokersListTVCell.swift */; };
 		CE4D4DD01EC440BE003321AF /* MCABrokersListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4D4DCE1EC440BE003321AF /* MCABrokersListTVCell.xib */; };
 		CE573C601EC98B5E00A6E188 /* MCABrokerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573C5F1EC98B5E00A6E188 /* MCABrokerList.swift */; };
+		CE573C641ECA2D8100A6E188 /* MCACreateBrokerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573C631ECA2D8100A6E188 /* MCACreateBrokerVC.swift */; };
 		CE8A80D21E9E127B006C981A /* MCAApplicationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A80D11E9E127B006C981A /* MCAApplicationFormVC.swift */; };
 		CE8A80DD1E9E20E2006C981A /* MCALoansVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A80D61E9E20E2006C981A /* MCALoansVC.swift */; };
 		CE8A80DE1E9E20E2006C981A /* MCALoansTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A80D81E9E20E2006C981A /* MCALoansTVCell.swift */; };
@@ -439,6 +440,7 @@
 		CE4D4DCD1EC440BE003321AF /* MCABrokersListTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABrokersListTVCell.swift; sourceTree = "<group>"; };
 		CE4D4DCE1EC440BE003321AF /* MCABrokersListTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCABrokersListTVCell.xib; sourceTree = "<group>"; };
 		CE573C5F1EC98B5E00A6E188 /* MCABrokerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCABrokerList.swift; sourceTree = "<group>"; };
+		CE573C631ECA2D8100A6E188 /* MCACreateBrokerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCACreateBrokerVC.swift; sourceTree = "<group>"; };
 		CE8A80D11E9E127B006C981A /* MCAApplicationFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCAApplicationFormVC.swift; sourceTree = "<group>"; };
 		CE8A80D61E9E20E2006C981A /* MCALoansVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoansVC.swift; sourceTree = "<group>"; };
 		CE8A80D81E9E20E2006C981A /* MCALoansTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCALoansTVCell.swift; sourceTree = "<group>"; };
@@ -2016,6 +2018,7 @@
 		CE4D4DC11EC34DC2003321AF /* Brokerage */ = {
 			isa = PBXGroup;
 			children = (
+				CE573C611ECA2D4D00A6E188 /* CreateBroker */,
 				CE4D4DC81EC44081003321AF /* Brokers */,
 			);
 			path = Brokerage;
@@ -2062,6 +2065,22 @@
 				CE573C5F1EC98B5E00A6E188 /* MCABrokerList.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE573C611ECA2D4D00A6E188 /* CreateBroker */ = {
+			isa = PBXGroup;
+			children = (
+				CE573C621ECA2D6400A6E188 /* Controller */,
+			);
+			path = CreateBroker;
+			sourceTree = "<group>";
+		};
+		CE573C621ECA2D6400A6E188 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE573C631ECA2D8100A6E188 /* MCACreateBrokerVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CE8A80D31E9E1C48006C981A /* ApplicationFormDetail */ = {
@@ -2684,6 +2703,7 @@
 				5B90494F1E72881A00A49A50 /* MCAMatchedFundingProgramVC.swift in Sources */,
 				5BB1D5E21EC08BE700F8FC31 /* MCANotificationTableViewCell.swift in Sources */,
 				5B1F8D841E89073700BD53F2 /* MCAFPLiensOrBankruptcy.swift in Sources */,
+				CE573C641ECA2D8100A6E188 /* MCACreateBrokerVC.swift in Sources */,
 				BAC6ADF51E824ABB0047F7D3 /* MCAMASubmitStipulationsVC.swift in Sources */,
 				5BB1D5D11EB8856400F8FC31 /* MCAUnderWritingChatData.swift in Sources */,
 				BAC6AE591E8250720047F7D3 /* MCAResetMPINVC.swift in Sources */,

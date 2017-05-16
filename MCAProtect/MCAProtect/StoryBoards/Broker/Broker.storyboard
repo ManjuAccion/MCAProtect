@@ -6,8 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Brokers ListVC-->
         <scene sceneID="5d9-9d-E1T">
@@ -56,6 +62,199 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVG-bS-cnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-186.40000000000001" y="135.38230884557723"/>
+        </scene>
+        <!--Create BrokerVC-->
+        <scene sceneID="f5s-Uz-jMq">
+            <objects>
+                <viewController storyboardIdentifier="MCACreateBrokerVC" id="Qjd-DB-fPh" customClass="MCACreateBrokerVC" customModule="MCAProtect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PDt-we-9OF"/>
+                        <viewControllerLayoutGuide type="bottom" id="n3W-Zc-glV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WZ9-vy-uaY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LjL-1e-jKj" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="20" y="104" width="335" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Broker Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4y8-bA-ZVh">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Qjd-DB-fPh" id="wG5-YT-wDV"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="e0d-Ax-Uad"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMf-DW-jGl" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="20" y="159" width="335" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IvC-nv-oA5">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Qjd-DB-fPh" id="STI-cB-A1y"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IQO-Cv-9k4"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAK-8f-oCL" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="19.5" y="214" width="336" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Telephone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Juq-bW-kBK">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Qjd-DB-fPh" id="thF-y4-3h6"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qyE-OL-wHV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tM8-Fn-Sum" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="19.5" y="269" width="336" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rFU-K9-2ec">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Qjd-DB-fPh" id="fCO-mc-IoM"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bsG-bu-hek"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSS-bh-Aoe" customClass="MCARoundedOverlayView" customModule="MCAProtect" customModuleProvider="target">
+                                <rect key="frame" x="20" y="324" width="335" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bs3-cH-2ng">
+                                        <rect key="frame" x="15" y="5" width="310" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Qjd-DB-fPh" id="oIY-Ne-A86"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="j9D-uD-U4d"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Oc-XO-w7q">
+                                <rect key="frame" x="20" y="583" width="335" height="44"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sZc-ma-Vpl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitButtonTapped:" destination="Qjd-DB-fPh" eventType="touchUpInside" id="aje-JP-HgA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Oc-XO-w7q" firstAttribute="centerX" secondItem="WZ9-vy-uaY" secondAttribute="centerX" id="31b-Vf-Vsq"/>
+                            <constraint firstItem="LjL-1e-jKj" firstAttribute="width" secondItem="WZ9-vy-uaY" secondAttribute="width" multiplier="0.895" id="9YO-Ns-TuZ"/>
+                            <constraint firstItem="LjL-1e-jKj" firstAttribute="top" secondItem="PDt-we-9OF" secondAttribute="bottom" constant="40" id="AXs-Uz-aZN"/>
+                            <constraint firstItem="tM8-Fn-Sum" firstAttribute="centerX" secondItem="WZ9-vy-uaY" secondAttribute="centerX" id="C6q-EH-Lyf"/>
+                            <constraint firstItem="LjL-1e-jKj" firstAttribute="centerX" secondItem="WZ9-vy-uaY" secondAttribute="centerX" id="Cn3-xK-hr3"/>
+                            <constraint firstItem="VAK-8f-oCL" firstAttribute="top" secondItem="YMf-DW-jGl" secondAttribute="bottom" constant="15" id="F6v-x9-dAB"/>
+                            <constraint firstItem="eSS-bh-Aoe" firstAttribute="top" secondItem="tM8-Fn-Sum" secondAttribute="bottom" constant="15" id="TU5-Lt-K2X"/>
+                            <constraint firstItem="6Oc-XO-w7q" firstAttribute="width" secondItem="WZ9-vy-uaY" secondAttribute="width" multiplier="0.895" id="UBg-kH-mxx"/>
+                            <constraint firstItem="eSS-bh-Aoe" firstAttribute="centerX" secondItem="WZ9-vy-uaY" secondAttribute="centerX" id="Vax-fH-aNr"/>
+                            <constraint firstItem="tM8-Fn-Sum" firstAttribute="top" secondItem="VAK-8f-oCL" secondAttribute="bottom" constant="15" id="eNI-Ts-FT2"/>
+                            <constraint firstItem="eSS-bh-Aoe" firstAttribute="width" secondItem="WZ9-vy-uaY" secondAttribute="width" multiplier="0.895" id="eWb-D9-6Cy"/>
+                            <constraint firstItem="VAK-8f-oCL" firstAttribute="width" secondItem="WZ9-vy-uaY" secondAttribute="width" multiplier="0.895" id="gCP-8D-uXK"/>
+                            <constraint firstItem="n3W-Zc-glV" firstAttribute="top" secondItem="6Oc-XO-w7q" secondAttribute="bottom" constant="40" id="nov-OR-Doz"/>
+                            <constraint firstItem="tM8-Fn-Sum" firstAttribute="width" secondItem="WZ9-vy-uaY" secondAttribute="width" multiplier="0.895" id="oLo-sc-Zi2"/>
+                            <constraint firstItem="YMf-DW-jGl" firstAttribute="top" secondItem="LjL-1e-jKj" secondAttribute="bottom" constant="15" id="re5-0d-8UC"/>
+                            <constraint firstItem="YMf-DW-jGl" firstAttribute="centerX" secondItem="WZ9-vy-uaY" secondAttribute="centerX" id="trO-gO-78H"/>
+                            <constraint firstItem="VAK-8f-oCL" firstAttribute="centerX" secondItem="WZ9-vy-uaY" secondAttribute="centerX" id="uSP-ba-OmR"/>
+                            <constraint firstItem="YMf-DW-jGl" firstAttribute="width" secondItem="WZ9-vy-uaY" secondAttribute="width" multiplier="0.895" id="zjY-NT-ME2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GTw-bg-Nbv"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="brokerNameTF" destination="4y8-bA-ZVh" id="6mE-gB-HGa"/>
+                        <outlet property="confirmPasswordTF" destination="Bs3-cH-2ng" id="8U9-ZS-jIa"/>
+                        <outlet property="emailTF" destination="IvC-nv-oA5" id="rRa-8j-Vcb"/>
+                        <outlet property="passwordTF" destination="rFU-K9-2ec" id="8YU-uT-Lpk"/>
+                        <outlet property="submitButton" destination="6Oc-XO-w7q" id="Jh3-oI-FLW"/>
+                        <outlet property="telephoneTF" destination="Juq-bW-kBK" id="Mb4-OJ-0S9"/>
+                        <outlet property="topConstraint" destination="AXs-Uz-aZN" id="MId-aG-7Oh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yub-A9-usI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="478" y="135"/>
         </scene>
     </scenes>
 </document>

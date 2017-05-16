@@ -50,6 +50,9 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
     
     func addBroker() {
         
+        let storyBoard = UIStoryboard(name: StoryboardName.MCABroker, bundle: Bundle.main)
+        let createBrokerVC = storyBoard.instantiateViewController(withIdentifier: VCIdentifiers.MCACreateBrokerVC) as! MCACreateBrokerVC
+        navigationController?.pushViewController(createBrokerVC, animated:true)
     }
     
     func getBrokerList() {
@@ -88,7 +91,6 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
                 let alertViewController = UIAlertController(title : "MCAP", message : "Unable to fetch broker details", preferredStyle : .alert)
                 alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
                 self.present(alertViewController, animated: true , completion: nil)
-                
         })
         
     }
@@ -135,12 +137,10 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
     }
     
     func searchTextCleared() {
-        print("searchTextCleared")
         filterListWithSearchString(searchString: "")
     }
     
     func searchTextDidEndWithString(inSearchString:String) {
-        print("searchTextDidEndWithString")
         filterListWithSearchString(searchString: inSearchString)
     }
     

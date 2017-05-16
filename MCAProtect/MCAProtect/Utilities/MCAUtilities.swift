@@ -96,10 +96,10 @@ class MCAUtilities: NSObject {
         
     }
     
-    static  func FormattedStringFromDate(date : Date) -> String
+    static  func formattedStringFromDate(date : Date) -> String
     {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         let DateFormated = dateFormatter.string(from: date)
         print(DateFormated)
         return DateFormated

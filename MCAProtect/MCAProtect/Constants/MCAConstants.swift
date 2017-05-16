@@ -130,7 +130,7 @@ struct VCIdentifiers {
     static let MCAUnderwrittingChatVC                               = "MCAUnderwrittingChatVC"
     static let MCANotificationVC                                    = "MCANotificationVC"
     static let MCABrokersListVC                                     = "MCABrokersListVC"
-
+    static let MCACreateBrokerVC                                    = "MCACreateBrokerVC"
 }
 
 
