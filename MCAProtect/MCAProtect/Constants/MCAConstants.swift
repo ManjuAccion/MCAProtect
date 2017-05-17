@@ -396,7 +396,7 @@ struct MCAAPIEndPoints {
     static let BrokerAddStipulationsEndPoint            = "/underwriting/stipulations/add_stipulation"
     static let BrokerMatchedFundingProgramListEndPoint  = "/algorithm/get_lending_programs"
     static let BrokerReferMatchedFundingProgramEndPoint = "/refer_broker_to_merchant"
-    static let BrokerFetchAllNotificationsEndPoint      = "/v1/notifications/broker_notifications/fetch_unread_notifications"
+    static let BrokerFetchAllNotificationsEndPoint      = "/v1/notifications/broker_notifications/fetch_all_notifications"
     static let BrokerUpdateNotificationStatusEndPoint   = "/v1/notifications/broker_notifications"
     static let BrokerUnderWrittingChatAPIEndpoint       = "/user_chats/get_underwriting_chats"
     static let BrokerUnderWritingCreateChatAPIEndpoint  = "/user_chats"

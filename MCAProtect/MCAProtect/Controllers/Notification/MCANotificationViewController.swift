@@ -13,6 +13,7 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
     
     var notificationData : MCANotificationData!
     var dataSource = [MCANotificationData]()
+    var unreadNotificationsList = [MCANotificationData]()
     var notificationIDList = [String]()
     @IBOutlet weak var tableView: UITableView!
 
@@ -27,9 +28,9 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         tableView.estimatedRowHeight = 600.0;
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        let rightMenuItemButton = UIBarButtonItem.init(title: "Clear All", style: .plain, target: self, action: #selector(self.rightBarButtonclicked))
+    //    let rightMenuItemButton = UIBarButtonItem.init(title: "Clear All", style: .plain, target: self, action: #selector(self.rightBarButtonclicked))
         
-        self.navigationItem.rightBarButtonItem = rightMenuItemButton
+      //  self.navigationItem.rightBarButtonItem = rightMenuItemButton
 
         
         fetchAllNotifications()
@@ -65,12 +66,17 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
                 {
                     for item in items {
                         self.notificationData = MCANotificationData(data:item)
-                        self.dataSource.append(self.notificationData)
+                       self.dataSource.append(self.notificationData)
+                        if self.notificationData.readStatus == 0
+                        {
+                            self.unreadNotificationsList.append(self.notificationData)
+                            
+                        }
                     }
                 }
 
                 
-                MCASessionManager.sharedSessionManager.notificationCount = self.dataSource.count
+                MCASessionManager.sharedSessionManager.notificationCount = self.unreadNotificationsList.count
 
               self.tableView.reloadData()
                 
@@ -109,11 +115,15 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
         
         if(notification.readStatus! == 0)
         {
-          cell.imageView?.isHidden = false
-            
+          cell.dotImageView?.isHidden = false
+            cell.senderNameLabel.textColor = ColorConstants.blue
+            cell.dataLabel.textColor = ColorConstants.red
+ 
         }
         else{
-            cell.imageView?.isHidden = true
+            cell.dotImageView?.isHidden = true
+            cell.senderNameLabel.textColor = ColorConstants.greyAlpha60
+            cell.dataLabel.textColor = ColorConstants.greyAlpha60
             
         }
         
@@ -169,14 +179,14 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
                     
                     if item.notificationID! == notification.notificationID!
                     {
-                if let index = self.dataSource.index(of: item) {
-                    self.dataSource.remove(at: index)
+                if let index = self.unreadNotificationsList.index(of: item) {
+                    self.unreadNotificationsList.remove(at: index)
                                           }
                     }
                 }
 
-                  MCASessionManager.sharedSessionManager.notificationCount = self.dataSource.count
-                UIApplication.shared.applicationIconBadgeNumber = self.dataSource.count
+                  MCASessionManager.sharedSessionManager.notificationCount = self.unreadNotificationsList.count
+                UIApplication.shared.applicationIconBadgeNumber = self.unreadNotificationsList.count
 
                 
                 self.tableView.reloadData()
@@ -223,8 +233,6 @@ class MCANotificationViewController: MCABaseViewController,UITableViewDelegate,U
                 
                 self.stopActivityIndicator()
                 
-                
-                self.dataSource.removeAll()
                 
                 MCASessionManager.sharedSessionManager.notificationCount = self.dataSource.count
                 UIApplication.shared.applicationIconBadgeNumber = self.dataSource.count
