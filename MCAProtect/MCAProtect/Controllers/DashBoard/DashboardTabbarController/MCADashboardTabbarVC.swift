@@ -92,10 +92,6 @@ class MCADashboardTabbarVC: MCABaseViewController{
    
         
     }
-
-    
-   
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -107,7 +103,20 @@ class MCADashboardTabbarVC: MCABaseViewController{
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.notificationCountLabel.text = "\(MCASessionManager.sharedSessionManager.notificationCount!)"
+        
+        switch MCASessionManager.sharedSessionManager.mcapUser.userType {
+            
+            case MCALoginType.Broker.rawValue:
+                
+                self.notificationCountLabel.text = "\(MCASessionManager.sharedSessionManager.notificationCount!)"
+
+                
+            case MCALoginType.Brokerage.rawValue:
+                
+                self.notificationCountLabel.text = "0"
+                
+            default: break
+        }
 
     }
     override func didReceiveMemoryWarning() {

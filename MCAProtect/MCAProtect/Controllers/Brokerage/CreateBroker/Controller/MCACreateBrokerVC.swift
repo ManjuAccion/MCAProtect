@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class MCACreateBrokerVC: MCABaseViewController,UITextFieldDelegate {
     
@@ -224,21 +225,47 @@ class MCACreateBrokerVC: MCABaseViewController,UITextFieldDelegate {
     //MARK: - API Call
     
     func createBroker() {
-        print("Need to implement api")
+        
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        self.showActivityIndicator()
+
+        var paramDict = Dictionary<String, String>()
+        
+        paramDict["confirm_success_url"]    = " "
+        paramDict["contact_name"]           = brokerNameTF.text
+        paramDict["email"]                  = emailTF.text
+        paramDict["contact_number"]         = telephoneTF.text
+        paramDict["password"]               = passwordTF.text
+        paramDict["password_confirmation"]  = confirmPasswordTF.text
+        paramDict["image_url"]              = ""
+
+        
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:paramDict,
+                                                                 endPoint:MCAAPIEndPoints.BrokerageCreateBrokerAPIEndPoint
+            , successCallBack:{ (response : JSON!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                
+                let alertViewController = UIAlertController(title : "MCAP", message : response["status"].stringValue, preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    
+                    self.navigationController?.popViewController(animated: true)
+
+                }))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        },
+              failureCallBack: { (error : Error) in
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to create Broker", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
     }
-
 }
-
-/*
-    1: Set the proper keyboards for text fields
-    2: Add tool bar with next and done button
-    3: Scroll the confirm pwd based on the keyboard
-    4: Rounded corner for submit button
-    5: Set the dot for pwd and confirm pwd
-    6: Need to do the validations for email anf mobile number and pwd
-    7: Need to show the proper error alert msgs
-    8: Check the internet connectivity
-    9: Need to call the api 
-   10: Add navigation for back and submit button
- 
- */

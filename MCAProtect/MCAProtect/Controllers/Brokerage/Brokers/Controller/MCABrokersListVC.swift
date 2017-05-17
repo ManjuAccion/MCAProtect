@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCACustomSearchBarDelegate {
+class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewDelegate,MCACustomSearchBarDelegate,MCABrokersListTVCellDelegate {
 
     
     @IBOutlet weak var searchBar: MCACustomSearchBar!
@@ -107,6 +107,7 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
         
         cell.selectionStyle = .none
         cell.backgroundColor = ColorConstants.background
+        cell.brokerListCellDelegate = self
         
         brokerList = displayList[indexPath.row]
         cell.setBrokerList(brokerList: brokerList)
@@ -169,4 +170,42 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
         tableView.reloadData()
     }
     
-}
+    func applicationStatusButtonTapped(brokerDetails : MCABrokerList) {
+        
+        if self.checkNetworkConnection() == false {
+            return
+        }
+        
+        self.showActivityIndicator()
+        
+        var endPoint = String()
+        
+        endPoint.append(MCAAPIEndPoints.BrokerageChangeBrokerStatusAPIEndPoint)
+        endPoint.append("\(brokerDetails.id!)")
+        endPoint.append("?active=\(brokerDetails.active!)")
+
+        MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:[:],
+                                                                 endPoint:endPoint
+            , successCallBack:{ (response : JSON!) in
+                
+                self.stopActivityIndicator()
+                print("Success \(response)")
+                self.getBrokerList()
+                
+        },
+              failureCallBack: { (error : Error) in
+                self.stopActivityIndicator()
+                print("Failure \(error)")
+                let alertViewController = UIAlertController(title : "MCAP", message : "Unable to change the status", preferredStyle : .alert)
+                alertViewController.addAction(UIAlertAction(title : "OK" , style : .default , handler : nil))
+                self.present(alertViewController, animated: true , completion: nil)
+                
+        })
+        }
+
+    }
+    
+    
+
+    
+
