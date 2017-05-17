@@ -176,17 +176,33 @@ class MCACreateBrokerVC: MCABaseViewController,UITextFieldDelegate {
         }
         else if ((telephoneTF.text?.isEmpty)!)
         {
-            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Telephone", comment: ""))
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Phone Number", comment: ""))
             isAllDetailsPresent = false
         }
+        else if ((telephoneTF.text?.characters.count)! != 10)
+        {
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Valid Phone Number", comment: ""))
+            isAllDetailsPresent = false
+        }
+
         else if ((passwordTF.text?.isEmpty)!) {
             
             presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Password", comment: ""))
             isAllDetailsPresent = false
         }
+        else if ((passwordTF.text?.characters.count)! < 5) {
+            
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Password requires minimum 5 characters", comment: ""))
+            isAllDetailsPresent = false
+        }
         else if ((confirmPasswordTF.text?.isEmpty)!) {
             
             presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Please Enter Confirm Password", comment: ""))
+            isAllDetailsPresent = false
+        }
+        else if ((confirmPasswordTF.text?.characters.count)! < 5) {
+            
+            presentAlertWithTitle(title: "Alert", message: NSLocalizedString("Confirm Password requires minimum 5 characters", comment: ""))
             isAllDetailsPresent = false
         }
         else if (!(confirmPasswordTF.text?.isEmpty)! && !(passwordTF.text?.isEmpty)!  )
