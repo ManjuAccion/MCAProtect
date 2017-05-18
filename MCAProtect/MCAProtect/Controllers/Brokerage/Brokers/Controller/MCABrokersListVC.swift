@@ -182,7 +182,10 @@ class MCABrokersListVC: MCABaseViewController,UITableViewDataSource,UITableViewD
         
         endPoint.append(MCAAPIEndPoints.BrokerageChangeBrokerStatusAPIEndPoint)
         endPoint.append("\(brokerDetails.id!)")
-        endPoint.append("?active=\(brokerDetails.active!)")
+        if let status = brokerDetails.active {
+            endPoint.append("?active=\(!status)")
+        }
+        
 
         MCAWebServiceManager.sharedWebServiceManager.postRequest(requestParam:[:],
                                                                  endPoint:endPoint
