@@ -131,7 +131,7 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
         self.view.layoutIfNeeded();
         if  nil == activityView {
             
-            activityView = UIView(frame: self.view.bounds)
+            activityView = UIView(frame: UIScreen.main.bounds)
             activityView.tag = 987;
             activityView.backgroundColor = UIColor.init(patternImage:UIImage(named: "transparentBg")!)
             activityView.alpha = 1.0
@@ -144,7 +144,9 @@ class MCABaseViewController: UIViewController,MFMailComposeViewControllerDelegat
             spinner.image = UIImage(named: "splashLogoWhite")
             spinner.alpha = 1.0
             activityView.addSubview(spinner)
-            spinner.center = self.view.center
+
+            spinner.center = CGPoint.init(x: UIScreen.main.bounds.size.width / 2.0 , y: UIScreen.main.bounds.size.height/2.0)
+            
             spinner.backgroundColor = UIColor.clear
             self.addRotation(forLayer: spinner.layer)
         }

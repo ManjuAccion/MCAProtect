@@ -12,12 +12,11 @@ import SwiftyJSON
 class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,MCAPickerViewDelegate,MCADatePickerViewDelegate,MCARefreshDelegate {
 
     @IBOutlet weak var pipeLineTableView: MCATableView!
+    @IBOutlet weak var rangeSelectionLabel: UILabel!
     
     var dealsPipeline : MCADealsPipeLine!
     var dataSourceArray = [MCADealsPipeLine]()
     var pickerViewPopup : UIActionSheet!
-    @IBOutlet weak var rangeSelectionLabel: UILabel!
-    
     var rangePicker = UIPickerView()
     var blurView:UIVisualEffectView!
     
@@ -53,9 +52,7 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         
         selectedRange = MCADealsPipelineRange.CurrentYear
         rangeSelectionLabel.text = rangeList[selectedRange.rawValue]
-
-        getDealsPipelineList()
-
+        
         pipeLineTableView.addRefreshController()
         pipeLineTableView.refreshDelegate = self
 
@@ -100,11 +97,11 @@ class MCADealsPipelineVC: MCABaseViewController,UITableViewDelegate,UITableViewD
         let applicationVC  = UIStoryboard(name: StoryboardName.MCAMerchantApplication, bundle: nil).instantiateViewController(withIdentifier:VCIdentifiers.MCADashboardApplicationListVC) as! MCADashboardApplicationListVC
         
         dealsPipeline = dataSourceArray[indexPath.row]
-        applicationVC.selectedDealsPipeline = dealsPipeline;
+        applicationVC.selectedDealsPipeline = dealsPipeline
         applicationVC.fromDateString = fromDateString
         applicationVC.toDateString = toDateString
         
-        if dealsPipeline.applicationCount != 0{
+        if dealsPipeline.applicationCount != 0 {
             parentController.navigationController?.pushViewController(applicationVC, animated: true);
             
         }
